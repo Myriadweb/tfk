@@ -2,6 +2,10 @@
   "name": "teammates",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=18.4.0",
+    "npm": ">=8.12.1"
+  },
   "dependencies": {
     "@inlet/react-pixi": "^6.8.0",
     "i18next": "^21.8.10",
