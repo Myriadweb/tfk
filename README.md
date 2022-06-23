@@ -1,7 +1,7 @@
 # Teammate for Kids
 
 ## Prerequisites
-Have node 18.4.0 or higher installed. Even better, install nvm and it will switch to the rigth nodev
+Have node 16 (LTS) installed. Even better, install nvm and it will switch to the right node
 version when you enter the folder.
 
 ## Install
