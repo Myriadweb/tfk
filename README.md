@@ -5,7 +5,7 @@ Have node 16 (LTS) installed. Even better, install nvm and it will switch to the
 version when you enter the folder.
 
 ## Install
-`npm run i`
+`npm i`
 
 ## Current status/stack
 The project was bootstrap with create react app with Typescript.
