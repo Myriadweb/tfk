@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState } from 'react';
 import { useSpring, animated } from 'react-spring';
 
 type Props = {
@@ -8,7 +8,10 @@ type Props = {
 
 const AnimatedChild = ({ i, x }: Props) => {
   const ref = useRef(null);
-  const props = useSpring({ to: { left: x }, from: { left: ref.current ? ref.current.left : x } });
+  const props = useSpring({
+    to: { left: x },
+    from: { left: ref.current ? ref.current.left : x },
+  });
 
   return (
     <animated.img
@@ -26,11 +29,9 @@ const AnimatedChild = ({ i, x }: Props) => {
   );
 };
 
-export function ReactTest() {
+export function ReactAnimationTest() {
   const [x, setX] = useState(540);
-  const currentPosition = (x - 540) * -1 / 1080;
-
-  console.debug(currentPosition)
+  const currentPosition = ((x - 540) * -1) / 1080;
 
   const handleArrowClick = (direction: 'left' | 'right') => {
     if (

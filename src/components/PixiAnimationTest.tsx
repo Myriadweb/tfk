@@ -17,7 +17,6 @@ export function ChildImages() {
     setDirection(direction);
     if (destination === x) {
       setDestination(x + (direction === 'left' ? -1 : 1) * 1080);
-      console.debug(destination);
     }
   };
 
@@ -68,7 +67,7 @@ export function ChildImages() {
   );
 }
 
-export function PixiTest() {
+export function PixiAnimationTest() {
   return (
     <Stage width={1080} height={1270}>
       <Sprite image='/BG.png' width={1080} height={1270} />
