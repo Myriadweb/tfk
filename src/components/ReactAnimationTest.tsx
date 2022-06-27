@@ -33,6 +33,8 @@ export function ReactAnimationTest() {
   const [x, setX] = useState(540);
   const currentPosition = ((x - 540) * -1) / 1080;
 
+  console.debug(currentPosition);
+
   const handleArrowClick = (direction: 'left' | 'right') => {
     if (
       (direction === 'left' && currentPosition >= 1) ||

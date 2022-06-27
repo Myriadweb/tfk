@@ -28,4 +28,5 @@
 .App-navigation {
   height: 498px;
   background: #103159;
+  position: relative;
 }
