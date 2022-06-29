@@ -1,5 +1,6 @@
 import { Sprite, Stage, useTick } from '@inlet/react-pixi';
 import React from 'react';
+import { useCharacterContext } from '../state/character';
 
 export type Direction = 'left' | 'right' | null;
 
@@ -7,8 +8,13 @@ export function ChildImages() {
   const [direction, setDirection] = React.useState<Direction>(null);
   const [x, setX] = React.useState(540);
   const [destination, setDestination] = React.useState<number>(x);
+  const [character, setCharacter] = useCharacterContext();
+
+  console.debug(character);
 
   const changeDirection = (direction: 'left' | 'right') => {
+    setCharacter(direction === 'left' ? 'child_3' : 'child_4');
+
     if (
       (direction === 'right' && x === 540) ||
       (direction === 'left' && x === -540)
