@@ -1,25 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
+import Home from './components/Home';
+
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { LanguageContextProvider } from './state/language';
+import { CharacterContextProvider } from './state/character';
+import { MainMenu } from './components/content/MainMenu';
 import './App.css';
+import { Paths } from './types/Paths';
 
 function App() {
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <img src={logo} className='App-logo' alt='logo' />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className='App-link'
-          href='https://reactjs.org'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <LanguageContextProvider>
+      <CharacterContextProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path={Paths.Home} element={<Home />}>
+              <Route path={Paths.MainMenu} element={<MainMenu />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </CharacterContextProvider>
+    </LanguageContextProvider>
   );
 }
 
