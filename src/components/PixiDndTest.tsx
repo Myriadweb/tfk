@@ -11,7 +11,6 @@ const useDrag = ({ x, y }) => {
   const onMove = React.useCallback(
     (e) => {
       if (isDragging && sprite.current) {
-        console.debug(sprite.current);
         // @ts-ignore
         setPosition(e.data.getLocalPosition(sprite.current.parent));
       }
