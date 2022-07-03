@@ -1,34 +1,41 @@
 import React, { Context, Dispatch, SetStateAction } from 'react';
 
-type Character =
-  | 'child_1'
-  | 'child_2'
-  | 'child_3'
-  | 'child_4'
-  | 'child_5'
-  | 'child_6'
-  | 'child_7'
-  | 'child_8';
+export enum Character {
+  'child_1',
+  'child_2',
+  'child_3',
+  'child_4',
+  'child_5',
+  'child_6',
+  'child_7',
+  'child_8',
+}
+
+export const CharacterArray = Object.values(Character).slice(
+  0,
+  Object.values(Character).length / 2
+);
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function
-const CharacterContext: Context<[string, Dispatch<SetStateAction<Character>>]> =
+const CharacterContext: Context<
+  [Character, Dispatch<SetStateAction<Character>>]
+> =
+  // @ts-ignore
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  React.createContext(['child_1', () => {}]);
+  React.createContext();
 
 type CharacterContextProviderProps = {
   children: React.ReactNode;
 };
 
 export const useCharacterContext = () => {
-  const cawk = React.useContext(CharacterContext);
-  console.debug(cawk);
-  return cawk;
+  return React.useContext(CharacterContext);
 };
 
 export const CharacterContextProvider = ({
   children,
 }: CharacterContextProviderProps) => {
-  const [character, setCharacter] = React.useState<Character>('child_1');
+  const [character, setCharacter] = React.useState(Character.child_1);
 
   return (
     <CharacterContext.Provider value={[character, setCharacter]}>

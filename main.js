@@ -1,3 +1,5 @@
+// Electron configuration file
+
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { app, BrowserWindow } = require('electron');
 

@@ -32,7 +32,7 @@ export function ReactDndTest() {
   return (
     <>
       <img
-        src='/Child_touch.png'
+        src='/images/Smell/Child_touch.png'
         style={{
           position: 'relative',
           left: 540,

@@ -1,9 +1,13 @@
 import React, { Context } from 'react';
 
-type Language = 'en' | 'es';
+export enum Language {
+  'en' = 'en',
+  'es' = 'es',
+}
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function
-const LanguageContext: Context<any> = React.createContext(['en', () => {}]);
+// @ts-ignore
+const LanguageContext: Context<any> = React.createContext();
 type LanguageContextProviderProps = {
   children: React.ReactNode;
 };
@@ -15,7 +19,7 @@ export const useLanguageContext = () => {
 export const LanguageContextProvider = ({
   children,
 }: LanguageContextProviderProps) => {
-  const [language, setLanguage] = React.useState<Language>('en');
+  const [language, setLanguage] = React.useState<Language>(Language.en);
   return (
     <LanguageContext.Provider value={[language, setLanguage]}>
       {children}

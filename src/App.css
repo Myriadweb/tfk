@@ -6,12 +6,18 @@
 }
 
 .App-header {
+  display: flex;
   height: 152px;
   background: #103159;
+  font-size: 60px;
+  color: #fff;
+  align-items: center;
+  justify-content: center;
+  border-bottom: white 2px solid;
 }
 
 .App-stage {
-  background-image: url('/BG.png');
+  background-image: url('/images/BG.png');
   background-repeat: no-repeat;
   height: 1270px;
   position: relative;
@@ -29,4 +35,5 @@
   height: 498px;
   background: #103159;
   position: relative;
+  border-top: white 2px solid;
 }

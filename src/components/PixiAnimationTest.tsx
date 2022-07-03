@@ -8,18 +8,14 @@ export function ChildImages() {
   const [direction, setDirection] = React.useState<Direction>(null);
   const [x, setX] = React.useState(540);
   const [destination, setDestination] = React.useState<number>(x);
-  const [character, setCharacter] = useCharacterContext();
-
-  console.debug(character);
 
   const changeDirection = (direction: 'left' | 'right') => {
-    setCharacter(direction === 'left' ? 'child_3' : 'child_4');
-
     if (
       (direction === 'right' && x === 540) ||
       (direction === 'left' && x === -540)
     )
       return;
+
     setDirection(direction);
     if (destination === x) {
       setDestination(x + (direction === 'left' ? -1 : 1) * 1080);
