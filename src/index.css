@@ -2,6 +2,12 @@
   font-family: 'ChangaOne';
   src: url(/fonts/ChangaOne.ttf) format('truetype');
 }
+
+@font-face {
+  font-family: 'LemonMilk';
+  src: url(/fonts/LemonMilk.otf) format('opentype');
+}
+
 body {
   margin: 0;
   font-family: 'ChangaOne', -apple-system, BlinkMacSystemFont, 'Segoe UI',

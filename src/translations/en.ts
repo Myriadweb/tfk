@@ -17,6 +17,9 @@ const en: Translation = {
       },
       navbar: {
         // here go all the key-value pairs with the strings we need in the navbar
+        selectPath: 'SELECT A PATH TO EXPLORE',
+        bodySystemButton: 'BODY SYSTEMS',
+        proceduresButton: 'PROCEDURES',
       },
     },
   },

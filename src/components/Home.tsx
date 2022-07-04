@@ -22,7 +22,7 @@ export function Home() {
       <div className='App-stage'>
         <Outlet />
       </div>
-      <NavBar />
+      <NavBar path={Paths[path]} />
     </div>
   );
 }
