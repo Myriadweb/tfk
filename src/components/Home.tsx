@@ -10,10 +10,15 @@ export function Home() {
   const location = useLocation();
   const path = usePathFromLocation(location.pathname);
 
-  // By default the app will render the Home component.
+  // By default, the app will render the Home component.
   // If we're on '/' we redirect to main-menu
   if (location.pathname === '/') {
     return <Navigate to={Paths.MainMenu} />;
+  }
+
+  // TEMPORARY
+  if (location.pathname === '/bodySystems') {
+    return <Navigate to={Paths.Sensory} />;
   }
 
   return (

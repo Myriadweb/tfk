@@ -1,16 +1,25 @@
 import { Paths } from './Paths';
 
+type TranslationMarkedType = {
+  [key in Paths]?: {
+    header: {
+      title: string;
+    };
+    scene?: {
+      [key: string]: string;
+    };
+    navbar?: {
+      [key: string]: string;
+    };
+  };
+};
+
 export type Translation = {
-  translation: {
-    [key in Paths]?: {
-      header?: {
-        [key: string]: string;
-      };
-      scene?: {
-        [key: string]: string;
-      };
-      navbar?: {
-        [key: string]: string;
+  translation: TranslationMarkedType & {
+    common: {
+      header: {
+        bodySystems: string;
+        procedures: string;
       };
     };
   };

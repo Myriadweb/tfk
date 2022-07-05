@@ -1,13 +1,15 @@
 import { PathKeys, Paths } from '../types/Paths';
 import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router-dom';
 
 export const usePathFromLocation = (location: string): PathKeys => {
   if (location === '/') {
     return 'Home';
   }
 
-  const lowerCasePath = location.split('/')[1];
-  const path = lowerCasePath.charAt(0).toUpperCase() + lowerCasePath.slice(1);
+  const locationArray = location.split('/');
+  const locationLast = locationArray[locationArray.length - 1];
+  const path = locationLast.charAt(0).toUpperCase() + locationLast.slice(1);
 
   if (!Paths[path]) {
     throw new Error(`Path ${path} does not exist`);
@@ -24,10 +26,18 @@ const useCustomTranslation = (path: Paths) => {
   return t;
 };
 
-export const useHeaderTranslation = (path: Paths) => {
-  const t = useCustomTranslation(path);
+export const useHeaderTranslation = (path: Paths): [(word: string) => string, string?] => {
+  const customT = useCustomTranslation(path);
+  const location = useLocation();
+  const { t } = useTranslation('translation');
 
-  return (word: string) => t(`header.${word}`);
+  const newT = (word: string) => customT(`header.${word}`);
+
+  if ([Paths.Home, Paths.MainMenu].includes(path)) {
+    return [newT];
+  }
+
+  return [newT, t(`common.header.${location.pathname.split('/')[1]}`)];
 };
 
 export const useNavBarTranslation = (path: Paths) => {

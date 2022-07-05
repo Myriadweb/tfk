@@ -16,6 +16,7 @@ const DraggableImage = ({ image, x, y }: Props) => {
   return (
     <Draggable bounds={'parent'} onStop={eventLogger}>
       <img
+        alt='nuthin'
         src={image}
         style={{
           position: 'absolute',
@@ -32,7 +33,8 @@ export function ReactDndTest() {
   return (
     <>
       <img
-        src='/images/Smell/Child_touch.png'
+        alt='nuthin'
+        src='/images/Smell/childTouch.png'
         style={{
           position: 'relative',
           left: 540,

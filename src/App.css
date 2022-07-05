@@ -16,6 +16,32 @@
   border-bottom: white 2px solid;
 }
 
+.App-header-split {
+  display: flex;
+  height: 152px;
+  background: #103159;
+  font-size: 60px;
+  color: #fff;
+  border-bottom: white 2px solid;
+}
+
+.App-header-split-left {
+  flex: 0 0 641px;
+  height: 100%;
+  line-height: 64px;
+  text-align: left;
+}
+
+.App-header-split-right {
+  flex: 0 0 439px;
+  font-size: 40px;
+  background: #30619C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
 .App-stage {
   background-image: url('/images/BG.png');
   background-repeat: no-repeat;

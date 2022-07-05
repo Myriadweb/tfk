@@ -19,6 +19,12 @@ const es: Translation = {
         // here go all the key-value pairs with the strings we need in the navbar
       },
     },
+    common: {
+      header: {
+        bodySystems: 'SISTEMAS CORPORALES',
+        procedures: 'PROCEDIMIENTOS',
+      },
+    },
   },
 };
 

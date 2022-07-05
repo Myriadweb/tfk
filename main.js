@@ -3,19 +3,26 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { app, BrowserWindow } = require('electron');
 
+const isProductionBuild = process.env.NODE_ENV === 'production';
+
+const config = {
+  width: isProductionBuild ? 1080 : 540,
+  height: isProductionBuild ? 1920 : 960,
+  webPreferences: {
+    nodeIntegration: false,
+    zoomFactor: isProductionBuild ? undefined : 0.5,
+  }
+}
+
 const createMainWindow = () => {
   let mainWindow = new BrowserWindow({
-    width: 540,
-    height: 960,
+    ...config,
     show: false,
     backgroundColor: 'white',
     center: true,
-    fullscreen: true,
-    webPreferences: {
-      nodeIntegration: false
-    }
+    fullscreen: false,
   });
-  const startURL = 'http://localhost:3000';
+  const startURL = 'http://localhost:3000/';
 
   mainWindow.loadURL(startURL);
 

@@ -8,5 +8,7 @@ type Props = {
 type ReturnComponent = ({ path }: Props) => JSX.Element;
 
 export const getNavbarComponent = (path: Paths) => {
+  console.debug(path);
+
   return NavBarComponents[path] as ReturnComponent;
 };

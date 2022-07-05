@@ -22,6 +22,25 @@ const en: Translation = {
         proceduresButton: 'PROCEDURES',
       },
     },
+    [Paths.Sensory]: {
+      header: {
+        title: 'SENSORY',
+      },
+      scene: {
+        title: 'SENSORY',
+      },
+      navbar: {
+        selectPath: 'SELECT A PATH TO EXPLORE',
+        bodySystemButton: 'BODY SYSTEMS',
+        proceduresButton: 'PROCEDURES',
+      },
+    },
+    common: {
+      header: {
+        bodySystems: 'BODY SYSTEMS',
+        procedures: 'PROCEDURES',
+      },
+    },
   },
 };
 

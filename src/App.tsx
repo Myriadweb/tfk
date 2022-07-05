@@ -17,6 +17,9 @@ function App() {
             <Route path={Paths.Home} element={<Home />}>
               <Route path={Paths.MainMenu} element={<MainMenu />} />
             </Route>
+            <Route path={Paths.BodySystems} element={<Home />}>
+              <Route path={Paths.Sensory} element={<MainMenu />} />
+            </Route>
           </Routes>
         </BrowserRouter>
       </CharacterContextProvider>

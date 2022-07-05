@@ -25,7 +25,7 @@ const AnimatedChild = ({ i, x }: AnimatedChildProps) => {
   return (
     <animated.img
       key={i}
-      src={`images/MainMenu/Child_${i + 1}.png`}
+      src={`images/MainMenu/child${i + 1}.png`}
       style={{
         position: 'absolute',
         left: x,
@@ -54,8 +54,8 @@ const AnimatedArrow = ({
   style,
 }: AnimatedArrowProps) => (
   <animated.img
-    src={`images/MainMenu/${direction}_arrow${
-      disabled === direction ? '_disabled' : ''
+    src={`images/MainMenu/${direction}Arrow${
+      disabled === direction ? 'Disabled' : ''
     }.png`}
     style={{
       position: 'absolute',
