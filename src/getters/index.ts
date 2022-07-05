@@ -5,7 +5,7 @@ type Props = {
   path: Paths;
 };
 
-type ReturnComponent = ({path}: Props) => JSX.Element
+type ReturnComponent = ({ path }: Props) => JSX.Element;
 
 export const getNavbarComponent = (path: Paths) => {
   return NavBarComponents[path] as ReturnComponent;
