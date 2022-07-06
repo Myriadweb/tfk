@@ -21,6 +21,10 @@ export type Translation = {
         bodySystems: string;
         procedures: string;
       };
+      scene: {
+        play: string;
+        explore: string;
+      }
     };
   };
 };

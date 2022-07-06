@@ -26,7 +26,9 @@ const useCustomTranslation = (path: Paths) => {
   return t;
 };
 
-export const useHeaderTranslation = (path: Paths): [(word: string) => string, string?] => {
+export const useHeaderTranslation = (
+  path: Paths
+): [(word: string) => string, string?] => {
   const customT = useCustomTranslation(path);
   const location = useLocation();
   const { t } = useTranslation('translation');

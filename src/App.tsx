@@ -7,6 +7,7 @@ import { CharacterContextProvider } from './state/character';
 import { MainMenu } from './components/content/MainMenu';
 import './App.css';
 import { Paths } from './types/Paths';
+import Sensory from './components/content/Sensory';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
               <Route path={Paths.MainMenu} element={<MainMenu />} />
             </Route>
             <Route path={Paths.BodySystems} element={<Home />}>
-              <Route path={Paths.Sensory} element={<MainMenu />} />
+              <Route path={Paths.Sensory} element={<Sensory />} />
             </Route>
           </Routes>
         </BrowserRouter>

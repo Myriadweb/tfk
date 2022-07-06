@@ -37,7 +37,10 @@ const MainMenu = ({ path }: Props) => {
           }}
           to='/bodySystems'
         >
-          <img src='images/MainMenu/bodySystemButton.png'  alt='body systems icon'/>
+          <img
+            src='images/MainMenu/bodySystemButton.png'
+            alt='body systems icon'
+          />
           <span
             style={{
               marginTop: 23,
@@ -58,7 +61,10 @@ const MainMenu = ({ path }: Props) => {
           }}
           to='/procedures'
         >
-          <img src='images/MainMenu/proceduresButton.png' alt='procedures icon' />
+          <img
+            src='images/MainMenu/proceduresButton.png'
+            alt='procedures icon'
+          />
           <span
             style={{
               marginTop: 23,

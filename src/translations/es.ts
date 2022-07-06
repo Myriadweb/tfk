@@ -24,6 +24,10 @@ const es: Translation = {
         bodySystems: 'SISTEMAS CORPORALES',
         procedures: 'PROCEDIMIENTOS',
       },
+      scene: {
+        play: 'JUGAR',
+        explore: 'EXPLORAR',
+      }
     },
   },
 };

@@ -25,6 +25,14 @@ export function Home() {
     <div className='App'>
       <Header path={Paths[path]} />
       <div className='App-stage'>
+        {location.pathname !== '/' + Paths.MainMenu && (
+          <div className='Options-buttons-box'>
+            <img alt='explore' src='/images/Scene/exploreButton.png' />
+            <span>Test</span>
+            <img alt='play' src='/images/Scene/playButton.png' />
+            <span>Test 2</span>
+          </div>
+        )}
         <Outlet />
       </div>
       <NavBar path={Paths[path]} />

@@ -30,9 +30,7 @@ const en: Translation = {
         title: 'SENSORY',
       },
       navbar: {
-        selectPath: 'SELECT A PATH TO EXPLORE',
-        bodySystemButton: 'BODY SYSTEMS',
-        proceduresButton: 'PROCEDURES',
+        selectPath: 'CHOOSE A BODY SYSTEM TO EXPLORE',
       },
     },
     common: {
@@ -40,6 +38,10 @@ const en: Translation = {
         bodySystems: 'BODY SYSTEMS',
         procedures: 'PROCEDURES',
       },
+      scene: {
+        play: 'PLAY',
+        explore: 'EXPLORE',
+      }
     },
   },
 };

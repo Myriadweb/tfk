@@ -35,7 +35,7 @@
 .App-header-split-right {
   flex: 0 0 439px;
   font-size: 40px;
-  background: #30619C;
+  background: #30619c;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -62,4 +62,25 @@
   background: #103159;
   position: relative;
   border-top: white 2px solid;
+}
+
+.Options-buttons-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 951px;
+  left: 950px;
+  width: 100px;
+  font-family: LemonMilk, serif;
+  font-size: 20px;
+}
+
+.Options-buttons-box > span {
+  margin-top: 9px;
+}
+
+.Options-buttons-box > span:first-of-type {
+  margin-bottom: 28px;
 }
