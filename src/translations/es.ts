@@ -27,7 +27,7 @@ const es: Translation = {
       scene: {
         play: 'JUGAR',
         explore: 'EXPLORAR',
-      }
+      },
     },
   },
 };

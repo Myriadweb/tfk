@@ -41,7 +41,7 @@ const en: Translation = {
       scene: {
         play: 'PLAY',
         explore: 'EXPLORE',
-      }
+      },
     },
   },
 };

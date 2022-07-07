@@ -24,7 +24,7 @@ export type Translation = {
       scene: {
         play: string;
         explore: string;
-      }
+      };
     };
   };
 };
