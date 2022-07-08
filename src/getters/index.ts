@@ -3,12 +3,11 @@ import NavBarComponents from '../components/navigation';
 
 type Props = {
   path: Paths;
+  prefix: Paths;
 };
 
-type ReturnComponent = ({ path }: Props) => JSX.Element;
+type ReturnComponent = ({ path, prefix }: Props) => JSX.Element;
 
 export const getNavbarComponent = (path: Paths) => {
-  console.debug(path);
-
   return NavBarComponents[path] as ReturnComponent;
 };

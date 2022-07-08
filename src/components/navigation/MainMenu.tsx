@@ -35,7 +35,7 @@ const MainMenu = ({ path }: Props) => {
             flexDirection: 'column',
             textDecoration: 'none',
           }}
-          to='/bodySystems'
+          to='/bodySystems/sensory'
         >
           <img
             src='images/MainMenu/bodySystemButton.png'

@@ -26,11 +26,41 @@ const en: Translation = {
       header: {
         title: 'SENSORY',
       },
-      scene: {
-        title: 'SENSORY',
+    },
+    [Paths.Skeletal]: {
+      header: {
+        title: 'SKELETAL',
       },
+    },
+    [Paths.Muscular]: {
+      header: {
+        title: 'MUSCULAR',
+      }
+    },
+    [Paths.Cardiovascular]: {
+      header: {
+        title: 'CARDIOVASCULAR',
+      }
+    },
+    [Paths.Nervous]: {
+      header: {
+        title: 'NERVOUS',
+      }
+    },
+    [Paths.Digestive]: {
+      header: {
+        title: 'DIGESTIVE',
+      }
+    },
+    [Paths.BodySystems]: {
       navbar: {
         selectPath: 'CHOOSE A BODY SYSTEM TO EXPLORE',
+        sensory: 'SENSORY',
+        skeletal: 'SKELETAL',
+        digestive: 'DIGESTIVE',
+        nervous: 'NERVOUS',
+        cardiovascular: 'CARDIOVASCULAR',
+        muscular: 'MUSCULAR',
       },
     },
     common: {
@@ -41,6 +71,9 @@ const en: Translation = {
       scene: {
         play: 'PLAY',
         explore: 'EXPLORE',
+      },
+      navbar: {
+        exit: 'EXIT',
       },
     },
   },

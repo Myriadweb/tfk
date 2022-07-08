@@ -2,7 +2,7 @@ import { Paths } from './Paths';
 
 type TranslationMarkedType = {
   [key in Paths]?: {
-    header: {
+    header?: {
       title: string;
     };
     scene?: {
@@ -24,6 +24,9 @@ export type Translation = {
       scene: {
         play: string;
         explore: string;
+      };
+      navbar: {
+        exit: string;
       };
     };
   };

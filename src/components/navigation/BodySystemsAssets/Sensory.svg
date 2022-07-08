@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="191px" height="191px" viewBox="0 0 191 191" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Sensory</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="03A_Teammates_Systems_Sensory" transform="translate(-44.000000, -1556.000000)">
+            <g id="BottomMenu" transform="translate(-8.000000, 1435.000000)">
+                <g id="SELECTION" transform="translate(8.000000, 121.000000)">
+                    <g id="Sensory" transform="translate(44.000000, 0.000000)">
+                        <circle id="Oval" stroke="#000000" stroke-width="1.204" fill="#CD4845" cx="95.5" cy="95.5" r="94.898"></circle>
+                        <path d="M57.0931416,80.982551 C57.6448127,49.9705163 72.9308705,34.4644989 102.951315,34.4644989 C147.981982,34.4644989 144.80802,78.6645105 138.581062,88.3727958 C134.668637,94.4725531 126.714113,100.077338 122.186074,109.434749 C119.507352,114.970458 119.750123,122.067506 118.064321,130.684211 C113.528885,153.866358 102.638539,162.075103 90.3378378,162.075103 C78.0371363,162.075103 69.9887957,158.78305 67.0893817,135.254561" id="Path-11" stroke="#FFFFFF" stroke-width="5.16" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M83.6089251,87.7734875 C91.5363084,72.3327098 99.3432297,68.0472027 107.029689,74.9169664 C114.716148,81.78673 119.768277,81.78673 122.186074,74.9169664 C121.551452,62.0451104 115.293644,55.6091824 103.412651,55.6091824 C85.5911612,55.6091824 75.412153,68.758197 79.5342917,82.4005188 C83.6564303,96.0428406 98.781618,108.958306 93.4697566,118.625968 C89.9285156,125.071075 87.897013,128.461479 87.3752487,128.79718" id="Path-12" stroke="#FFFFFF" stroke-width="5.16" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

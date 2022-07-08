@@ -1,14 +1,18 @@
 import React from 'react';
-import { Navigate, Outlet, useLocation } from 'react-router-dom';
+import { Navigate, useLocation, Routes, Route } from 'react-router-dom';
 import { Header } from './Header';
 import { NavBar } from './NavBar';
 import { Paths } from '../types/Paths';
 import { usePathFromLocation } from '../hooks';
+import { MainMenu } from './content/MainMenu';
+import Sensory from './content/Sensory';
+import { useTranslation } from 'react-i18next';
 
 export function Home() {
   // This gets the current location from react router.
   const location = useLocation();
-  const path = usePathFromLocation(location.pathname);
+  const [path, prefix] = usePathFromLocation(location.pathname);
+  const { t } = useTranslation('translation');
 
   // By default, the app will render the Home component.
   // If we're on '/' we redirect to main-menu
@@ -28,14 +32,19 @@ export function Home() {
         {location.pathname !== '/' + Paths.MainMenu && (
           <div className='Options-buttons-box'>
             <img alt='explore' src='/images/Scene/exploreButton.png' />
-            <span>Test</span>
+            <span>{t('common.scene.explore')}</span>
             <img alt='play' src='/images/Scene/playButton.png' />
-            <span>Test 2</span>
+            <span>{t('common.scene.play')}</span>
           </div>
         )}
-        <Outlet />
+        <Routes>
+          <Route path={'/' + Paths.MainMenu} element={<MainMenu />} />
+          <Route path={Paths.BodySystems}>
+            <Route path={Paths.Sensory} element={<Sensory />} />
+          </Route>
+        </Routes>
       </div>
-      <NavBar path={Paths[path]} />
+      <NavBar path={Paths[path]} prefix={Paths[prefix]} />
     </div>
   );
 }

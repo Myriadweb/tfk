@@ -28,6 +28,9 @@ const es: Translation = {
         play: 'JUGAR',
         explore: 'EXPLORAR',
       },
+      navbar: {
+        exit: 'SALIR',
+      }
     },
   },
 };
