@@ -24,7 +24,7 @@ export default function Sensory() {
   const { t } = useTranslation('translation');
   const navigate = useNavigate();
   const [overlayStyle, overlayApi] = useSpring(() => ({ opacity: 1 }));
-  const [bodyStyle, bodyApi] = useSpring(() => ({ left: bodyLeft }))
+  const [bodyStyle, bodyApi] = useSpring(() => ({ left: bodyLeft }));
 
   // if we have an animated path, we need to show the slide in animation
   if (animatedPath === 'bodySystems/sensory') {
@@ -38,10 +38,10 @@ export default function Sensory() {
       to: { left: bodyLeft },
       from: { left: -300 },
       config: {
-        duration: 500
+        duration: 500,
       },
       onRest: () => navigate('/' + animatedPath),
-    })
+    });
     // we reset the animation
     setAnimatedPath('');
   } else if (animatedPath) {
@@ -51,7 +51,7 @@ export default function Sensory() {
       from: { opacity: 1 },
       config: {
         duration: 500,
-      }
+      },
     });
     bodyApi.start({
       // @ts-ignore
@@ -59,7 +59,7 @@ export default function Sensory() {
       to: { left: -300 },
       delay: 1000,
       onRest: () => navigate('/' + animatedPath),
-    })
+    });
     // then we navigate to the path
   }
 

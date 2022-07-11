@@ -1,9 +1,7 @@
 import React, { Context, Dispatch, SetStateAction } from 'react';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function
-const AnimateContext: Context<
-  [string, Dispatch<SetStateAction<string>>]
-> =
+const AnimateContext: Context<[string, Dispatch<SetStateAction<string>>]> =
   // @ts-ignore
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   React.createContext();

@@ -27,14 +27,14 @@ const en: Translation = {
         title: 'SENSORY',
       },
       scene: {
-        'hearing': 'HEARING',
-        'sight': 'SIGHT',
-        'proprioception': 'PROPRIOCEPTION',
-        'touch': 'TOUCH',
-        'vestibular': 'VESTIBULAR',
-        'taste': 'TASTE',
-        'smell': 'SMELL',
-      }
+        hearing: 'HEARING',
+        sight: 'SIGHT',
+        proprioception: 'PROPRIOCEPTION',
+        touch: 'TOUCH',
+        vestibular: 'VESTIBULAR',
+        taste: 'TASTE',
+        smell: 'SMELL',
+      },
     },
     [Paths.Skeletal]: {
       header: {
