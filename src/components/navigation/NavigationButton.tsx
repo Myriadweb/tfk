@@ -5,7 +5,7 @@ type NavigationButtonProps = {
   image: string;
   size: 'small' | 'large';
   alt: string;
-  link: string;
+  onClick: (...args: any) => void;
   text?: string;
 };
 
@@ -13,10 +13,10 @@ const NavigationButton = ({
   image,
   size,
   alt,
-  link,
   text,
+  onClick,
 }: NavigationButtonProps) => (
-  <Link to={link} style={{ position: 'relative' }}>
+  <div onClick={onClick}>
     <img
       src={image}
       alt={alt}
@@ -42,7 +42,7 @@ const NavigationButton = ({
         {text}
       </span>
     )}
-  </Link>
+  </div>
 );
 
 export default NavigationButton;

@@ -30,7 +30,7 @@ const es: Translation = {
       },
       navbar: {
         exit: 'SALIR',
-      }
+      },
     },
   },
 };

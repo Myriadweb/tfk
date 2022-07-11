@@ -2,11 +2,9 @@ import { PathKeys, Paths } from '../types/Paths';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 
-type ReturnPath = [PathKeys, PathKeys?]
+type ReturnPath = [PathKeys, PathKeys?];
 
-export const usePathFromLocation = (
-  location: string
-): ReturnPath => {
+export const usePathFromLocation = (location: string): ReturnPath => {
   if (location === '/') {
     return ['Home'];
   }

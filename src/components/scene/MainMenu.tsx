@@ -48,7 +48,6 @@ type AnimatedArrowProps = {
 
 const AnimatedArrow = ({
   direction,
-
   onClick,
   disabled,
   style,

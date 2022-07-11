@@ -24,19 +24,24 @@ export function NavBar({ path, prefix }: Props) {
             top: 383,
           }}
         >
-          <Link to={Paths.MainMenu} style={{
-            display: 'flex',
-            alignItems: 'center',
-          }}>
+          <Link
+            to={Paths.MainMenu}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+            }}
+          >
             <img src='/images/NavBar/exitButton.png' alt='exit' />
             <span
-            style={{
-              fontSize: 20,
-              color: '#FFF',
-              fontFamily: 'LemonMilk',
-              marginLeft: 15,
-            }}
-            >{t('common.navbar.exit')}</span>
+              style={{
+                fontSize: 20,
+                color: '#FFF',
+                fontFamily: 'LemonMilk',
+                marginLeft: 15,
+              }}
+            >
+              {t('common.navbar.exit')}
+            </span>
           </Link>
         </div>
       )}

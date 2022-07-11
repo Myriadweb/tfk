@@ -4,8 +4,8 @@ import { Header } from './Header';
 import { NavBar } from './NavBar';
 import { Paths } from '../types/Paths';
 import { usePathFromLocation } from '../hooks';
-import { MainMenu } from './content/MainMenu';
-import Sensory from './content/Sensory';
+import { MainMenu } from './scene/MainMenu';
+import Sensory from './scene/Sensory';
 import { useTranslation } from 'react-i18next';
 
 export function Home() {

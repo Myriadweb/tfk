@@ -26,6 +26,15 @@ const en: Translation = {
       header: {
         title: 'SENSORY',
       },
+      scene: {
+        'hearing': 'HEARING',
+        'sight': 'SIGHT',
+        'proprioception': 'PROPRIOCEPTION',
+        'touch': 'TOUCH',
+        'vestibular': 'VESTIBULAR',
+        'taste': 'TASTE',
+        'smell': 'SMELL',
+      }
     },
     [Paths.Skeletal]: {
       header: {
@@ -35,22 +44,22 @@ const en: Translation = {
     [Paths.Muscular]: {
       header: {
         title: 'MUSCULAR',
-      }
+      },
     },
     [Paths.Cardiovascular]: {
       header: {
         title: 'CARDIOVASCULAR',
-      }
+      },
     },
     [Paths.Nervous]: {
       header: {
         title: 'NERVOUS',
-      }
+      },
     },
     [Paths.Digestive]: {
       header: {
         title: 'DIGESTIVE',
-      }
+      },
     },
     [Paths.BodySystems]: {
       navbar: {
