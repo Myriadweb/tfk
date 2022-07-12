@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigate, useLocation, Routes, Route } from 'react-router-dom';
+import { Navigate, useLocation, Routes, Route, Link } from 'react-router-dom';
 import { Header } from './Header';
 import { NavBar } from './NavBar';
 import { Paths } from '../types/Paths';
@@ -7,6 +7,10 @@ import { usePathFromLocation } from '../hooks';
 import { MainMenu } from './scene/MainMenu';
 import Sensory from './scene/Sensory';
 import { useTranslation } from 'react-i18next';
+import { ReactComponent as PlaySVG } from './HomeAssets/Play.svg';
+import { ReactComponent as ExploreSVG } from './HomeAssets/Explore.svg';
+import { ReactComponent as OptionOverlaySVG } from './HomeAssets/IconOverlay.svg';
+import { Smell } from './Smell';
 
 export function Home() {
   // This gets the current location from react router.
@@ -25,24 +29,37 @@ export function Home() {
     return <Navigate to={Paths.Sensory} />;
   }
 
+  console.debug(location)
+
   return (
     <div className='App'>
       <Header path={Paths[path]} />
       <div className='App-stage'>
-        {location.pathname !== '/' + Paths.MainMenu && (
-          <div className='Options-buttons-box'>
-            <img alt='explore' src='/images/Scene/exploreButton.png' />
-            <span>{t('common.scene.explore')}</span>
-            <img alt='play' src='/images/Scene/playButton.png' />
-            <span>{t('common.scene.play')}</span>
-          </div>
-        )}
         <Routes>
           <Route path={'/' + Paths.MainMenu} element={<MainMenu />} />
           <Route path={Paths.BodySystems}>
             <Route path={Paths.Sensory} element={<Sensory />} />
+            <Route path={Paths.Sensory + '/' + Paths.Smell} element={<Smell />} />
           </Route>
         </Routes>
+        {location.pathname !== '/' + Paths.MainMenu && (
+          <div className='Options-buttons-box'>
+            <Link to={location.pathname}>
+              {!location.search && (
+                <OptionOverlaySVG style={{ position: 'absolute', top: 0 }} />
+              )}
+              <ExploreSVG />
+              <span>{t('common.scene.explore')}</span>
+            </Link>
+            <Link to={'?play=true'}>
+              {location.search === '?play=true' && (
+                <OptionOverlaySVG style={{ position: 'absolute', top: 160 }} />
+              )}
+              <PlaySVG />
+              <span>{t('common.scene.play')}</span>
+            </Link>
+          </div>
+        )}
       </div>
       <NavBar path={Paths[path]} prefix={Paths[prefix]} />
     </div>

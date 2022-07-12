@@ -35,6 +35,16 @@ const en: Translation = {
         taste: 'TASTE',
         smell: 'SMELL',
       },
+      navbar: {
+        selectPath: 'CHOOSE A SENSE, THEN DRAG\nAN OBJECT TO SEE ITS EFFECT.',
+        smell: 'smell',
+        hearing: 'hearing',
+        proprioception: 'proprioception',
+        sight: 'sight',
+        taste: 'taste',
+        touch: 'touch',
+        vestibular: 'vestibular',
+      }
     },
     [Paths.Skeletal]: {
       header: {
@@ -71,6 +81,11 @@ const en: Translation = {
         cardiovascular: 'CARDIOVASCULAR',
         muscular: 'MUSCULAR',
       },
+    },
+    [Paths.Smell]: {
+     header: {
+        title: 'SMELL',
+     }
     },
     common: {
       header: {

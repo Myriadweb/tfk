@@ -1,0 +1,104 @@
+import * as React from 'react';
+import { useNavBarTranslation } from '../../hooks';
+import { Paths } from '../../types/Paths';
+import Hearing from './SensoryAssets/Hearing.svg';
+import Proprioception from './SensoryAssets/Proprioception.svg';
+import Sight from './SensoryAssets/Sight.svg';
+import Smell from './SensoryAssets/Smell.svg';
+import Taste from './SensoryAssets/Taste.svg';
+import Vestibular from './SensoryAssets/Vestibular.svg';
+import Touch from './SensoryAssets/Touch.svg';
+
+import NavigationButton from './NavigationButton';
+import { useNavigate } from 'react-router-dom';
+
+type Props = {
+  path: Paths;
+  prefix: Paths;
+};
+
+const NavigationPrefix = `${Paths.BodySystems}/${Paths.Sensory}/`;
+
+const Sensory = ({ path, prefix }: Props) => {
+  const t = useNavBarTranslation(prefix);
+  const navigate = useNavigate();
+
+  return (
+    <div>
+      <span
+        style={{
+          display: 'block',
+          fontSize: 20,
+          color: '#FFF',
+          fontFamily: 'LemonMilk',
+          marginTop: 45,
+          whiteSpace: 'pre-wrap',
+        }}
+      >
+        {t('selectPath')}
+      </span>
+      <div
+        style={{
+          marginTop: 47,
+          background: '#0E1F33',
+          height: 191,
+          display: 'flex',
+          justifyContent: 'space-around',
+          alignItems: 'center',
+        }}
+      >
+        <NavigationButton
+          image={Hearing}
+          alt='sensory'
+          size={path === Paths.Hearing ? 'large' : 'small'}
+          onClick={() => navigate(NavigationPrefix + Paths.Hearing)}
+          text={path === Paths.Hearing ? t('hearing') : ''}
+        />
+        <NavigationButton
+          image={Taste}
+          alt='skeletal'
+          size={path === Paths.Taste ? 'large' : 'small'}
+          onClick={() => navigate(NavigationPrefix + Paths.Taste)}
+          text={path === Paths.Taste ? t('taste') : ''}
+        />
+        <NavigationButton
+          image={Sight}
+          alt='cardiovascular'
+          size={path === Paths.Sight ? 'large' : 'small'}
+          onClick={() => navigate(NavigationPrefix + Paths.Sight)}
+          text={path === Paths.Sight ? t('sight') : ''}
+        />
+        <NavigationButton
+          image={Smell}
+          alt='muscular'
+          size={path === Paths.Smell ? 'large' : 'small'}
+          onClick={() => navigate(NavigationPrefix + Paths.Smell)}
+          text={path === Paths.Smell ? t('smell') : ''}
+        />
+        <NavigationButton
+          image={Proprioception}
+          alt='nervous'
+          size={path === Paths.Proprioception ? 'large' : 'small'}
+          onClick={() => navigate(NavigationPrefix + Paths.Proprioception)}
+          text={path === Paths.Proprioception ? t('proprioception') : ''}
+        />
+        <NavigationButton
+          image={Vestibular}
+          alt='digestive'
+          size={path === Paths.Vestibular ? 'large' : 'small'}
+          onClick={() => navigate(NavigationPrefix + Paths.Vestibular)}
+          text={path === Paths.Vestibular ? t('vestibular') : ''}
+        />
+        <NavigationButton
+          image={Touch}
+          alt='digestive'
+          size={path === Paths.Touch ? 'large' : 'small'}
+          onClick={() => navigate(NavigationPrefix + Paths.Touch)}
+          text={path === Paths.Touch ? t('touch') : ''}
+        />
+      </div>
+    </div>
+  );
+};
+
+export default Sensory;

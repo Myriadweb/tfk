@@ -77,10 +77,10 @@
   font-size: 20px;
 }
 
-.Options-buttons-box > span {
+.Options-buttons-box span {
   margin-top: 9px;
 }
 
-.Options-buttons-box > span:first-of-type {
+.Options-buttons-box a:first-of-type {
   margin-bottom: 28px;
 }

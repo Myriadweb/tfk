@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAnimateContext } from '../../state/animate';
 import { useSpring, animated } from 'react-spring';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const labelStyle = {
   background: '#30619C',
@@ -25,6 +25,11 @@ export default function Sensory() {
   const navigate = useNavigate();
   const [overlayStyle, overlayApi] = useSpring(() => ({ opacity: 1 }));
   const [bodyStyle, bodyApi] = useSpring(() => ({ left: bodyLeft }));
+  const location = useLocation();
+
+  if (location.search === '?play=true') {
+    navigate('/bodySystems/sensory/smell?play=true');
+  }
 
   // if we have an animated path, we need to show the slide in animation
   if (animatedPath === 'bodySystems/sensory') {
@@ -57,7 +62,7 @@ export default function Sensory() {
       // @ts-ignore
       from: { left: bodyLeft },
       to: { left: -300 },
-      delay: 1000,
+      delay: 300,
       onRest: () => navigate('/' + animatedPath),
     });
     // then we navigate to the path

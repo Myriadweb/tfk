@@ -16,7 +16,7 @@ const NavigationButton = ({
   text,
   onClick,
 }: NavigationButtonProps) => (
-  <div onClick={onClick}>
+  <div onClick={onClick} style={{ position: 'relative' }}>
     <img
       src={image}
       alt={alt}
