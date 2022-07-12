@@ -29,7 +29,7 @@ export function Home() {
     return <Navigate to={Paths.Sensory} />;
   }
 
-  console.debug(location)
+  console.debug(location);
 
   return (
     <div className='App'>
@@ -39,7 +39,10 @@ export function Home() {
           <Route path={'/' + Paths.MainMenu} element={<MainMenu />} />
           <Route path={Paths.BodySystems}>
             <Route path={Paths.Sensory} element={<Sensory />} />
-            <Route path={Paths.Sensory + '/' + Paths.Smell} element={<Smell />} />
+            <Route
+              path={Paths.Sensory + '/' + Paths.Smell}
+              element={<Smell />}
+            />
           </Route>
         </Routes>
         {location.pathname !== '/' + Paths.MainMenu && (

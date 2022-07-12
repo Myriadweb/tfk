@@ -44,7 +44,7 @@ const en: Translation = {
         taste: 'taste',
         touch: 'touch',
         vestibular: 'vestibular',
-      }
+      },
     },
     [Paths.Skeletal]: {
       header: {
@@ -83,9 +83,9 @@ const en: Translation = {
       },
     },
     [Paths.Smell]: {
-     header: {
+      header: {
         title: 'SMELL',
-     }
+      },
     },
     common: {
       header: {

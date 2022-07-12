@@ -98,23 +98,25 @@ export function Smell() {
         />
       )}
       {smellState === 'bad' && (
-        <img src='/images/Smell/Flies.png'
-             style={{
-               transform: 'translate(-50%, -50%)',
-               position: 'absolute',
-               top: 867,
-               left: 517,
-             }}
+        <img
+          src='/images/Smell/Flies.png'
+          style={{
+            transform: 'translate(-50%, -50%)',
+            position: 'absolute',
+            top: 867,
+            left: 517,
+          }}
         />
       )}
       {smellState && (
-        <img src='/images/Smell/Brain.png'
-             style={{
-               transform: 'translate(-50%, -50%)',
-               position: 'absolute',
-               top: 507,
-               left: 536,
-             }}
+        <img
+          src='/images/Smell/Brain.png'
+          style={{
+            transform: 'translate(-50%, -50%)',
+            position: 'absolute',
+            top: 507,
+            left: 536,
+          }}
         />
       )}
       <DraggableImage
