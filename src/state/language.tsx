@@ -1,4 +1,5 @@
 import React, { Context } from 'react';
+import i18next from 'i18next';
 
 export enum Language {
   'en' = 'en',
@@ -20,8 +21,15 @@ export const LanguageContextProvider = ({
   children,
 }: LanguageContextProviderProps) => {
   const [language, setLanguage] = React.useState<Language>(Language.en);
+
+  const handleLanguageChange = (lang: Language) => {
+    i18next.changeLanguage(lang).then(() => {
+      setLanguage(lang);
+    })
+  }
+
   return (
-    <LanguageContext.Provider value={[language, setLanguage]}>
+    <LanguageContext.Provider value={[language, handleLanguageChange]}>
       {children}
     </LanguageContext.Provider>
   );

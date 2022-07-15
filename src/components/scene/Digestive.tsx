@@ -1,30 +1,25 @@
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAnimateContext } from '../../state/animate';
-import { useSpring, animated } from 'react-spring';
+import { animated, useSpring } from 'react-spring';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Paths } from '../../types/Paths';
-
-const labelStyle = {
-  background: '#30619C',
-  border: '#FFF 3px solid',
-  fontSize: 30,
-  letterSpacing: 1.49,
-  padding: '10px 15px',
-  color: '#FFF',
-  transform: 'translate(-50%, -50%)',
-  position: 'absolute',
-  fontFamily: 'LemonMilk',
-  fontWeight: 'bold',
-} as React.CSSProperties;
+import { columnLabelStyleLeft, columnLabelStyleRight } from './common';
+import { CSSProperties } from 'react';
 
 const bodyLeft = 540;
 
-export default function Sensory() {
+const digestiveLabelStyle = {
+  padding: '5px 15px 7px',
+  whiteSpace: 'pre-wrap',
+  lineHeight: '1.2',
+} as CSSProperties
+
+export default function Digestive() {
   const [animatedPath, setAnimatedPath] = useAnimateContext();
   const { t } = useTranslation('translation');
   const navigate = useNavigate();
-  const shouldShowIntroAnimation = animatedPath === `${Paths.BodySystems}/${Paths.Sensory}`;
+  const shouldShowIntroAnimation = animatedPath === `${Paths.BodySystems}/${Paths.Digestive}`;
   const [overlayStyle, overlayApi] = useSpring(() => ({
     from: { opacity: shouldShowIntroAnimation ? 0 : 1 },
     to: { opacity: 1 },
@@ -43,11 +38,11 @@ export default function Sensory() {
   const location = useLocation();
 
   if (location.search === '?play=true') {
-    navigate(`/${Paths.BodySystems}/${Paths.Sensory}/${Paths.Smell}?play=true`);
+    navigate(`/${Paths.BodySystems}/${Paths.Digestive}?play=true`);
   }
 
   // if we have an animated path, we need to show the slide in animation
-  if (animatedPath === `${Paths.BodySystems}/${Paths.Sensory}`) {
+  if (animatedPath === `${Paths.BodySystems}/${Paths.Digestive}`) {
     // we reset the animation
     setAnimatedPath('');
   } else if (animatedPath) {
@@ -73,7 +68,7 @@ export default function Sensory() {
     <>
       <animated.img
         alt='sensory'
-        src='images/Sensory/sensoryBody.png'
+        src='images/Digestive/digestiveBody.png'
         style={{
           top: 343,
           position: 'absolute',
@@ -83,9 +78,9 @@ export default function Sensory() {
       />
       <animated.img
         alt='sensory'
-        src='images/Sensory/sensoryLabels.png'
+        src='images/Digestive/digestiveLabels.png'
         style={{
-          top: 224,
+          top: 518,
           position: 'absolute',
           left: 540,
           transform: 'translate(-50%, 0)',
@@ -94,73 +89,100 @@ export default function Sensory() {
       />
       <animated.span
         style={{
-          ...labelStyle,
+          ...columnLabelStyleLeft,
           ...overlayStyle,
-          top: 388,
-          left: 901,
+          ...digestiveLabelStyle,
+          top: 576,
+          padding: '5px 12px 7px',
         }}
       >
-        {t('sensory.scene.hearing')}
+        {t('digestive.scene.esophagus')}
       </animated.span>
       <animated.span
         style={{
-          ...labelStyle,
+          ...columnLabelStyleLeft,
           ...overlayStyle,
-          top: 493,
-          left: 212,
+          top: 653,
         }}
       >
-        {t('sensory.scene.proprioception')}
+        {t('digestive.scene.liver')}
       </animated.span>
       <animated.span
         style={{
-          ...labelStyle,
+          ...columnLabelStyleLeft,
           ...overlayStyle,
-          top: 744,
-          left: 172,
+          ...digestiveLabelStyle,
+          top: 743,
+          whiteSpace: 'pre-wrap',
+          padding: '5px 12px 7px',
         }}
       >
-        {t('sensory.scene.sight')}
+        {t('digestive.scene.gallbladder')}
       </animated.span>
       <animated.span
         style={{
-          ...labelStyle,
+          ...columnLabelStyleLeft,
           ...overlayStyle,
-          top: 620,
-          left: 922,
+          ...digestiveLabelStyle,
+          top: 823,
         }}
       >
-        {t('sensory.scene.vestibular')}
+        {t('digestive.scene.largeIntestine')}
       </animated.span>
       <animated.span
         style={{
-          ...labelStyle,
+          ...columnLabelStyleLeft,
           ...overlayStyle,
-          top: 983,
-          left: 171,
+          top: 934,
         }}
       >
-        {t('sensory.scene.taste')}
+        {t('digestive.scene.appendix')}
       </animated.span>
       <animated.span
         style={{
-          ...labelStyle,
+          ...columnLabelStyleLeft,
           ...overlayStyle,
-          top: 860,
-          left: 901,
+          top: 1014,
         }}
       >
-        {t('sensory.scene.smell')}
+        {t('digestive.scene.rectum')}
       </animated.span>
       <animated.span
         style={{
-          ...labelStyle,
+          ...columnLabelStyleRight,
           ...overlayStyle,
-          top: 1105,
-          left: 782,
+          top: 521,
         }}
       >
-        {t('sensory.scene.touch')}
+        {t('digestive.scene.mouth')}
+      </animated.span>
+      <animated.span
+        style={{
+          ...columnLabelStyleRight,
+          ...overlayStyle,
+          top: 604,
+        }}
+      >
+        {t('digestive.scene.stomach')}
+      </animated.span>
+      <animated.span
+        style={{
+          ...columnLabelStyleRight,
+          ...overlayStyle,
+          ...digestiveLabelStyle,
+          top: 726,
+        }}
+      >
+        {t('digestive.scene.smallIntestine')}
+      </animated.span>
+      <animated.span
+        style={{
+          ...columnLabelStyleRight,
+          ...overlayStyle,
+          top: 862,
+        }}
+      >
+        {t('digestive.scene.anus')}
       </animated.span>
     </>
   );

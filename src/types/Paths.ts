@@ -5,6 +5,7 @@ export enum Paths {
   Procedures = 'procedures',
   Sensory = 'sensory',
   Skeletal = 'skeletal',
+  Game = 'game',
   Muscular = 'muscular',
   Nervous = 'nervous',
   Digestive = 'digestive',

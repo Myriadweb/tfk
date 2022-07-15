@@ -17,6 +17,20 @@ const es: Translation = {
       },
       navbar: {
         // here go all the key-value pairs with the strings we need in the navbar
+        selectPath: 'SELECT A PATH TO EXPLORE',
+        bodySystemButton: 'SISTEMAS\nCORPORALES',
+        proceduresButton: 'PROCEDIMIENTOS',
+      },
+    },
+    [Paths.BodySystems]: {
+      navbar: {
+        selectPath: 'EXPLORA UN SISTEMA CORPORAL',
+        sensory: 'SENSORIAL',
+        skeletal: 'ESQUELÉTICO',
+        digestive: 'DIGESTIVO',
+        nervous: 'NERVIOSO',
+        cardiovascular: 'CARDIOVASCULAR',
+        muscular: 'MUSCULAR',
       },
     },
     common: {
@@ -30,6 +44,9 @@ const es: Translation = {
       },
       navbar: {
         exit: 'SALIR',
+        bodySystems: 'SISTEMAS CORPORALES',
+        en: 'ENG',
+        es: 'ESP'
       },
     },
   },

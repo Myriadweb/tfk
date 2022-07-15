@@ -2,6 +2,7 @@ import React from 'react';
 import { Paths } from '../types/Paths';
 import { useHeaderTranslation } from '../hooks';
 import { useLocation } from 'react-router-dom';
+import { useLanguageContext } from '../state/language';
 
 type Props = {
   path: Paths;
@@ -10,6 +11,7 @@ type Props = {
 export function Header(props: Props) {
   const [t, section] = useHeaderTranslation(props.path);
   const location = useLocation();
+  const [lang] = useLanguageContext();
 
   if (props.path === Paths.MainMenu) {
     return <div className='App-header'>{t('title')}</div>;
@@ -21,7 +23,7 @@ export function Header(props: Props) {
     <div className='App-header-split'>
       <div className='App-header-split-left'>
         <img
-          src={`/images/Header/${locationPath}Icon.png`}
+          src={`images/Header/${locationPath}Icon.png`}
           style={{
             marginRight: 28,
             display: 'inline-block',
@@ -35,6 +37,7 @@ export function Header(props: Props) {
             position: 'relative',
             top: -8,
             letterSpacing: 2.98,
+            fontSize: lang === 'en' ? 60 : 42,
           }}
         >
           {section}

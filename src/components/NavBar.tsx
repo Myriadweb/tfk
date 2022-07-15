@@ -3,6 +3,7 @@ import { Paths } from '../types/Paths';
 import { getNavbarComponent } from '../getters';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import { LanguageToggle } from './LanguageToggle';
 
 type Props = {
   path: Paths;
@@ -31,7 +32,7 @@ export function NavBar({ path, prefix }: Props) {
               alignItems: 'center',
             }}
           >
-            <img src='/images/NavBar/exitButton.png' alt='exit' />
+            <img src='images/NavBar/exitButton.png' alt='exit' />
             <span
               style={{
                 fontSize: 20,
@@ -45,6 +46,36 @@ export function NavBar({ path, prefix }: Props) {
           </Link>
         </div>
       )}
+      {prefix === Paths.Sensory && (
+        <div
+          style={{
+            position: 'absolute',
+            left: 207,
+            top: 383,
+          }}
+        >
+          <Link
+            to={`${Paths.BodySystems}/${Paths.Sensory}`}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+            }}
+          >
+            <img src='images/NavBar/bodySystemsButton.png' alt='body systems' />
+            <span
+              style={{
+                fontSize: 20,
+                color: '#FFF',
+                fontFamily: 'LemonMilk',
+                marginLeft: 15,
+              }}
+            >
+              {t('common.navbar.bodySystems')}
+            </span>
+          </Link>
+        </div>
+      )}
+      <LanguageToggle />
     </div>
   );
 }

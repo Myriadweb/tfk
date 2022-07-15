@@ -1,5 +1,6 @@
 {
   "name": "teammates",
+  "author": "Myriad",
   "version": "0.1.0",
   "private": true,
   "main": "main.js",
@@ -7,9 +8,25 @@
     "node": "^16.15.1",
     "npm": "^8.11.0"
   },
+  "homepage": "./",
+  "build": {
+    "appId": "Myriad.TeammatesForKids",
+    "productName": "Teammates for Kids",
+    "files": [
+      "./build/**/*",
+      "./main.js",
+      "package.json"
+    ],
+    "extends": null,
+    "mac": {
+      "category": "public.app-category.education",
+      "type": "development"
+    }
+  },
   "dependencies": {
     "@inlet/react-pixi": "^6.8.0",
     "concurrently": "^7.2.2",
+    "electron-is": "^3.0.0",
     "i18next": "^21.8.11",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -23,7 +40,8 @@
   "scripts": {
     "electron:dev": "concurrently \"npm start\" \"wait-on http://localhost:3000 && electron .\"",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "PUBLIC_URL=/ react-scripts build",
+    "build-electron": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint \"**/*.{ts,tsx,js,jsx}\" --color",
@@ -31,7 +49,9 @@
     "format": "prettier --write 'src/**/*.{ts,tsx,scss,css,json}'",
     "prepare": "husky install",
     "typecheck": "tsc --noEmit",
-    "precommit": "npm run lint:fix && npm run typecheck && npm run format"
+    "precommit": "npm run lint:fix && npm run typecheck && npm run format",
+    "electron:build": "npm run build-electron && electron-builder build --publish never -wm",
+    "electron:build:no-scripts": "electron-builder build --publish never -wm"
   },
   "eslintConfig": {
     "plugins": [
@@ -69,6 +89,7 @@
     "@typescript-eslint/eslint-plugin": "^5.29.0",
     "@typescript-eslint/parser": "^5.29.0",
     "electron": "^19.0.6",
+    "electron-builder": "^23.1.0",
     "eslint": "^8.18.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-jest": "^26.5.3",

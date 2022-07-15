@@ -50,26 +50,84 @@ const en: Translation = {
       header: {
         title: 'SKELETAL',
       },
+      scene: {
+        skull: 'SKULL',
+        mandible: 'MANDIBLE',
+        clavicle: 'CLAVICLE',
+        scapula: 'SCAPULA',
+        ribs: 'RIBS',
+        pelvis: 'PELVIS',
+        carpals: 'CARPALS',
+        metacarpals: 'METACARPALS',
+        femur: 'FEMUR',
+        tibia: 'TIBIA',
+        tarsals: 'TARSALS',
+        metatarsals: 'METATARSALS',
+        sternum: 'STERNUM',
+        vertebrae: 'VERTEBRAE',
+        humerus: 'HUMERUS',
+        radius: 'RADIUS',
+        ulna: 'ULNA',
+        patella: 'PATELLA',
+        fibula: 'FIBULA',
+      }
     },
     [Paths.Muscular]: {
       header: {
         title: 'MUSCULAR',
       },
+      scene: {
+        lattismus: 'LATTISMUS\nDORSI',
+        pectorals: 'PECTORALS',
+        abs: 'ABDOMINAL\nMUSCLES',
+        quadriceps: 'QUADRICEPS',
+        hamstrings: 'HAMSTRINGS',
+        deltoids: 'DELTOIDS',
+        biceps: 'BICEPS',
+        triceps: 'TRICEPS',
+        gluteus: 'GLUTEUS\nMAXIMUS',
+        calves: 'CALVES',
+      }
     },
     [Paths.Cardiovascular]: {
       header: {
         title: 'CARDIOVASCULAR',
       },
+      scene: {
+        heart: 'HEART',
+        lungs: 'LUNGS',
+        arteries: 'ARTERIES',
+        veins: 'VEINS',
+      }
     },
     [Paths.Nervous]: {
       header: {
         title: 'NERVOUS',
       },
+      scene: {
+        brain: 'BRAIN',
+        cerebellum: 'CEREBELLUM',
+        nerves: 'NERVES',
+        brainStem: 'BRAIN\nSTEM',
+        spinalCord: 'SPINAL\nCORD',
+      }
     },
     [Paths.Digestive]: {
       header: {
         title: 'DIGESTIVE',
       },
+      scene: {
+        stomach: 'STOMACH',
+        esophagus: 'ESOPHAGUS',
+        largeIntestine: 'LARGE\nINTESTINE',
+        smallIntestine: 'SMALL\nINTESTINE',
+        liver: 'LIVER',
+        gallbladder: 'GALLBLADDER',
+        appendix: 'APPENDIX',
+        rectum: 'RECTUM',
+        mouth: 'MOUTH',
+        anus: 'ANUS'
+      }
     },
     [Paths.BodySystems]: {
       navbar: {
@@ -98,6 +156,9 @@ const en: Translation = {
       },
       navbar: {
         exit: 'EXIT',
+        bodySystems: 'BODY SYSTEMS',
+        en: 'ENG',
+        es: 'ESP'
       },
     },
   },

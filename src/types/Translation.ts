@@ -26,7 +26,7 @@ export type Translation = {
         explore: string;
       };
       navbar: {
-        exit: string;
+        [key: string]: string;
       };
     };
   };

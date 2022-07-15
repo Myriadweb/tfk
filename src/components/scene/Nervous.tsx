@@ -1,30 +1,18 @@
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAnimateContext } from '../../state/animate';
-import { useSpring, animated } from 'react-spring';
+import { animated, useSpring } from 'react-spring';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Paths } from '../../types/Paths';
-
-const labelStyle = {
-  background: '#30619C',
-  border: '#FFF 3px solid',
-  fontSize: 30,
-  letterSpacing: 1.49,
-  padding: '10px 15px',
-  color: '#FFF',
-  transform: 'translate(-50%, -50%)',
-  position: 'absolute',
-  fontFamily: 'LemonMilk',
-  fontWeight: 'bold',
-} as React.CSSProperties;
+import { columnLabelStyleLeft, columnLabelStyleRight } from './common';
 
 const bodyLeft = 540;
 
-export default function Sensory() {
+export default function Nervous() {
   const [animatedPath, setAnimatedPath] = useAnimateContext();
   const { t } = useTranslation('translation');
   const navigate = useNavigate();
-  const shouldShowIntroAnimation = animatedPath === `${Paths.BodySystems}/${Paths.Sensory}`;
+  const shouldShowIntroAnimation = animatedPath === `${Paths.BodySystems}/${Paths.Nervous}`;
   const [overlayStyle, overlayApi] = useSpring(() => ({
     from: { opacity: shouldShowIntroAnimation ? 0 : 1 },
     to: { opacity: 1 },
@@ -43,11 +31,11 @@ export default function Sensory() {
   const location = useLocation();
 
   if (location.search === '?play=true') {
-    navigate(`/${Paths.BodySystems}/${Paths.Sensory}/${Paths.Smell}?play=true`);
+    navigate(`/${Paths.BodySystems}/${Paths.Nervous}?play=true`);
   }
 
   // if we have an animated path, we need to show the slide in animation
-  if (animatedPath === `${Paths.BodySystems}/${Paths.Sensory}`) {
+  if (animatedPath === `${Paths.BodySystems}/${Paths.Nervous}`) {
     // we reset the animation
     setAnimatedPath('');
   } else if (animatedPath) {
@@ -73,7 +61,7 @@ export default function Sensory() {
     <>
       <animated.img
         alt='sensory'
-        src='images/Sensory/sensoryBody.png'
+        src='images/Nervous/nervousBody.png'
         style={{
           top: 343,
           position: 'absolute',
@@ -83,9 +71,9 @@ export default function Sensory() {
       />
       <animated.img
         alt='sensory'
-        src='images/Sensory/sensoryLabels.png'
+        src='images/Nervous/nervousLabels.png'
         style={{
-          top: 224,
+          top: 375,
           position: 'absolute',
           left: 540,
           transform: 'translate(-50%, 0)',
@@ -94,73 +82,48 @@ export default function Sensory() {
       />
       <animated.span
         style={{
-          ...labelStyle,
+          ...columnLabelStyleLeft,
           ...overlayStyle,
-          top: 388,
-          left: 901,
+          top: 370,
         }}
       >
-        {t('sensory.scene.hearing')}
+        {t('nervous.scene.brain')}
       </animated.span>
       <animated.span
         style={{
-          ...labelStyle,
+          ...columnLabelStyleLeft,
           ...overlayStyle,
-          top: 493,
-          left: 212,
+          top: 456,
         }}
       >
-        {t('sensory.scene.proprioception')}
+        {t('nervous.scene.cerebellum')}
       </animated.span>
       <animated.span
         style={{
-          ...labelStyle,
+          ...columnLabelStyleLeft,
           ...overlayStyle,
-          top: 744,
-          left: 172,
+          top: 692,
         }}
       >
-        {t('sensory.scene.sight')}
+        {t('nervous.scene.nerves')}
       </animated.span>
       <animated.span
         style={{
-          ...labelStyle,
+          ...columnLabelStyleRight,
           ...overlayStyle,
-          top: 620,
-          left: 922,
+          top: 474,
         }}
       >
-        {t('sensory.scene.vestibular')}
+        {t('nervous.scene.brainStem')}
       </animated.span>
       <animated.span
         style={{
-          ...labelStyle,
+          ...columnLabelStyleRight,
           ...overlayStyle,
-          top: 983,
-          left: 171,
+          top: 578,
         }}
       >
-        {t('sensory.scene.taste')}
-      </animated.span>
-      <animated.span
-        style={{
-          ...labelStyle,
-          ...overlayStyle,
-          top: 860,
-          left: 901,
-        }}
-      >
-        {t('sensory.scene.smell')}
-      </animated.span>
-      <animated.span
-        style={{
-          ...labelStyle,
-          ...overlayStyle,
-          top: 1105,
-          left: 782,
-        }}
-      >
-        {t('sensory.scene.touch')}
+        {t('nervous.scene.spinalCord')}
       </animated.span>
     </>
   );

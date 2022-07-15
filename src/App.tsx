@@ -1,7 +1,7 @@
 import React from 'react';
 import Home from './components/Home';
 
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import { LanguageContextProvider } from './state/language';
 import { CharacterContextProvider } from './state/character';
 import { AnimateContextProvider } from './state/animate';
@@ -12,11 +12,11 @@ function App() {
     <LanguageContextProvider>
       <AnimateContextProvider>
         <CharacterContextProvider>
-          <BrowserRouter>
+          <HashRouter>
             <Routes>
               <Route path='*' element={<Home />} />
             </Routes>
-          </BrowserRouter>
+          </HashRouter>
         </CharacterContextProvider>
       </AnimateContextProvider>
     </LanguageContextProvider>

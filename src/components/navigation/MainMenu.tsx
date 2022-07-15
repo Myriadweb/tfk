@@ -34,12 +34,17 @@ const MainMenu = ({ path }: Props) => {
             display: 'inline-flex',
             flexDirection: 'column',
             textDecoration: 'none',
+            width: 213,
           }}
           to='/bodySystems/sensory'
         >
           <img
             src='images/MainMenu/bodySystemButton.png'
             alt='body systems icon'
+            style={{
+              width: 192,
+              height: 192,
+            }}
           />
           <span
             style={{
@@ -47,6 +52,7 @@ const MainMenu = ({ path }: Props) => {
               fontSize: 25,
               color: '#FFF',
               letterSpacing: 1.24,
+              whiteSpace: 'pre-wrap'
             }}
           >
             {t('bodySystemButton')}
@@ -58,12 +64,17 @@ const MainMenu = ({ path }: Props) => {
             flexDirection: 'column',
             textDecoration: 'none',
             letterSpacing: 1.24,
+            width: 213,
           }}
           to='/procedures'
         >
           <img
             src='images/MainMenu/proceduresButton.png'
             alt='procedures icon'
+            style={{
+              width: 192,
+              height: 192,
+            }}
           />
           <span
             style={{

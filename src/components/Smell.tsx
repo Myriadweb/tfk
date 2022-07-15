@@ -1,6 +1,6 @@
 import React from 'react';
 import Draggable from 'react-draggable';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 type SmellType = 'good' | 'bad';
 
@@ -41,13 +41,14 @@ const DraggableImage = ({ image, x, y, onChange, smellType }: Props) => {
 };
 
 const childImages = {
-  good: '/images/Smell/ChildHappy.png',
-  bad: '/images/Smell/ChildScared.png',
+  good: 'images/Smell/ChildHappy.png',
+  bad: 'images/Smell/ChildScared.png',
 };
 
 export function Smell() {
   const [smellState, setSmellState] = React.useState<SmellType | null>(null);
   const navigate = useNavigate();
+  const location = useLocation();
 
   if (!location.search) {
     navigate('/bodySystems/sensory');
@@ -60,7 +61,7 @@ export function Smell() {
       {smellState === 'bad' && (
         <img
           alt='nuthin'
-          src='/images/BGBad.png'
+          src='images/BGBad.png'
           style={{
             position: 'absolute',
             left: 0,
@@ -71,7 +72,7 @@ export function Smell() {
       )}
       <img
         alt='nuthin'
-        src={childImage || '/images/Smell/Child.png'}
+        src={childImage || 'images/Smell/Child.png'}
         style={{
           position: 'absolute',
           left: 540,
@@ -80,7 +81,7 @@ export function Smell() {
         }}
       />
       <img
-        src='/images/Smell/BottomOverlay.png'
+        src='images/Smell/BottomOverlay.png'
         style={{
           position: 'absolute',
           bottom: 0,
@@ -89,45 +90,48 @@ export function Smell() {
       />
       {smellState === 'good' && (
         <img
-          src='/images/Smell/Sparkles.png'
+          src='images/Smell/Sparkles.png'
           style={{
             position: 'absolute',
             top: 721,
             left: 234,
           }}
+          alt='sparkles'
         />
       )}
       {smellState === 'bad' && (
         <img
-          src='/images/Smell/Flies.png'
+          src='images/Smell/Flies.png'
           style={{
             transform: 'translate(-50%, -50%)',
             position: 'absolute',
             top: 867,
             left: 517,
           }}
+          alt='flies'
         />
       )}
       {smellState && (
         <img
-          src='/images/Smell/Brain.png'
+          src='images/Smell/Brain.png'
           style={{
             transform: 'translate(-50%, -50%)',
             position: 'absolute',
             top: 507,
             left: 536,
           }}
+          alt='brain'
         />
       )}
       <DraggableImage
-        image='/images/Smell/Flower.png'
+        image='images/Smell/Flower.png'
         x={0}
         y={850}
         smellType='good'
         onChange={setSmellState}
       />
       <DraggableImage
-        image='/images/Smell/Shoe.png'
+        image='images/Smell/Shoe.png'
         x={700}
         y={850}
         smellType='bad'

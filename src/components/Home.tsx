@@ -11,6 +11,11 @@ import { ReactComponent as PlaySVG } from './HomeAssets/Play.svg';
 import { ReactComponent as ExploreSVG } from './HomeAssets/Explore.svg';
 import { ReactComponent as OptionOverlaySVG } from './HomeAssets/IconOverlay.svg';
 import { Smell } from './Smell';
+import Skeletal from './scene/Skeletal';
+import Cardiovascular from './scene/Cardiovascular';
+import Muscular from './scene/Muscular';
+import Nervous from './scene/Nervous';
+import Digestive from './scene/Digestive';
 
 export function Home() {
   // This gets the current location from react router.
@@ -29,12 +34,13 @@ export function Home() {
     return <Navigate to={Paths.Sensory} />;
   }
 
-  console.debug(location);
-
   return (
     <div className='App'>
       <Header path={Paths[path]} />
-      <div className='App-stage'>
+      <div
+        className='App-stage'
+        style={{ backgroundImage: 'url("images/BG.png")' }}
+      >
         <Routes>
           <Route path={'/' + Paths.MainMenu} element={<MainMenu />} />
           <Route path={Paths.BodySystems}>
@@ -43,6 +49,11 @@ export function Home() {
               path={Paths.Sensory + '/' + Paths.Smell}
               element={<Smell />}
             />
+            <Route path={Paths.Skeletal} element={<Skeletal />} />
+            <Route path={Paths.Cardiovascular} element={<Cardiovascular />} />
+            <Route path={Paths.Muscular} element={<Muscular />} />
+            <Route path={Paths.Nervous} element={<Nervous />} />
+            <Route path={Paths.Digestive} element={<Digestive />} />
           </Route>
         </Routes>
         {location.pathname !== '/' + Paths.MainMenu && (
