@@ -5,12 +5,12 @@ import './index.css';
 import './i18n';
 
 async function loadFonts() {
-  const changaOne =  new FontFace('ChangaOne', 'url("fonts/ChangaOne.ttf")')
-  const lemonMilk = new FontFace('LemonMilk', 'url("fonts/LemonMilk.otf")')
+  const changaOne = new FontFace('ChangaOne', 'url("fonts/ChangaOne.ttf")');
+  const lemonMilk = new FontFace('LemonMilk', 'url("fonts/LemonMilk.otf")');
 
-  await Promise.all([changaOne.load(), lemonMilk.load()])
-  document.fonts.add(changaOne)
-  document.fonts.add(lemonMilk)
+  await Promise.all([changaOne.load(), lemonMilk.load()]);
+  document.fonts.add(changaOne);
+  document.fonts.add(lemonMilk);
 }
 
 loadFonts();

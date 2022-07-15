@@ -25,8 +25,8 @@ export const LanguageContextProvider = ({
   const handleLanguageChange = (lang: Language) => {
     i18next.changeLanguage(lang).then(() => {
       setLanguage(lang);
-    })
-  }
+    });
+  };
 
   return (
     <LanguageContext.Provider value={[language, handleLanguageChange]}>

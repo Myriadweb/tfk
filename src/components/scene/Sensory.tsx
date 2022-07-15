@@ -24,21 +24,22 @@ export default function Sensory() {
   const [animatedPath, setAnimatedPath] = useAnimateContext();
   const { t } = useTranslation('translation');
   const navigate = useNavigate();
-  const shouldShowIntroAnimation = animatedPath === `${Paths.BodySystems}/${Paths.Sensory}`;
+  const shouldShowIntroAnimation =
+    animatedPath === `${Paths.BodySystems}/${Paths.Sensory}`;
   const [overlayStyle, overlayApi] = useSpring(() => ({
     from: { opacity: shouldShowIntroAnimation ? 0 : 1 },
     to: { opacity: 1 },
     delay: 500,
     config: {
       duration: 500,
-    }
+    },
   }));
   const [bodyStyle, bodyApi] = useSpring(() => ({
     from: { left: shouldShowIntroAnimation ? -300 : bodyLeft },
     to: { left: bodyLeft },
     config: {
       duration: 500,
-    }
+    },
   }));
   const location = useLocation();
 

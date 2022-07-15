@@ -22,6 +22,113 @@ const es: Translation = {
         proceduresButton: 'PROCEDIMIENTOS',
       },
     },
+    [Paths.Sensory]: {
+      header: {
+        title: 'SENSORIAL',
+      },
+      scene: {
+        hearing: 'OÍDO',
+        sight: 'VISTA',
+        proprioception: 'PROPRIOCEPCIÓN',
+        touch: 'TACTO',
+        vestibular: 'VESTIBULAR',
+        taste: 'GUSTO',
+        smell: 'OLFATO',
+      },
+      navbar: {
+        selectPath: 'CHOOSE A SENSE, THEN DRAG\nAN OBJECT TO SEE ITS EFFECT.',
+        hearing: 'OÍDO',
+        sight: 'VISTA',
+        proprioception: 'PROPRIOCEPCIÓN',
+        touch: 'TACTO',
+        vestibular: 'VESTIBULAR',
+        taste: 'GUSTO',
+        smell: 'OLFATO',
+      },
+    },
+    [Paths.Skeletal]: {
+      header: {
+        title: 'ESQUELÉTICO',
+      },
+      scene: {
+        skull: 'CRÁNEO',
+        mandible: 'MANDÍBULA',
+        clavicle: 'CLAVÍCULA',
+        scapula: 'ESCÁPULA',
+        ribs: 'COSTILLAS',
+        pelvis: 'PELVIS',
+        wrist: 'MUÑECA',
+        hand: 'MANO',
+        femur: 'FÉMUR',
+        tibia: 'TIBIA',
+        ankles: 'TOBILLOS',
+        feet: 'PIES',
+        sternum: 'ESTERNÓN',
+        vertebrae: 'VÉRTEBRAS',
+        humerus: 'HÚMERO',
+        radius: 'RADIO',
+        ulna: 'CÚBITO',
+        patella: 'RÓTULA',
+        fibula: 'PERONÉ',
+      },
+    },
+    [Paths.Muscular]: {
+      header: {
+        title: 'MUSCULAR',
+      },
+      scene: {
+        latissimus: 'LATISSIMUS\nDORSI',
+        pectorals: 'PECTORALES',
+        abs: 'RECTO\nABDOMINAL',
+        quadriceps: 'CUÁDRICEPS',
+        hamstrings: 'ISQUIOTIBIALES',
+        deltoids: 'DELTOIDES',
+        biceps: 'BÍCEPS',
+        triceps: 'TRÍCEPS',
+        gluteus: 'GLUTÉO\nMAYOR',
+        calves: 'PANTORILLAS',
+      },
+    },
+    [Paths.Cardiovascular]: {
+      header: {
+        title: 'CARDIOVASCULAR',
+      },
+      scene: {
+        heart: 'CORAZÓN',
+        lungs: 'PULMONES',
+        arteries: 'ARTERIAS',
+        veins: 'VENAS',
+      },
+    },
+    [Paths.Nervous]: {
+      header: {
+        title: 'NERVIOSO',
+      },
+      scene: {
+        brain: 'CEREBRO',
+        cerebellum: 'CEREBELO',
+        nerves: 'NERVIOS',
+        brainStem: 'TRONCO\nENCEFÁLICO',
+        spinalCord: 'MÉDULA\nESPINAL',
+      },
+    },
+    [Paths.Digestive]: {
+      header: {
+        title: 'DIGESTIVO',
+      },
+      scene: {
+        stomach: 'ESTÓMAGO',
+        esophagus: 'ESÓFAGO',
+        largeIntestine: 'INTESTINO\nGRUESO',
+        smallIntestine: 'INTESTINO\nDELGADO',
+        liver: 'HIGADO',
+        gallbladder: 'VESÍCULA BILIAR',
+        appendix: 'APPENDIX',
+        rectum: 'RECTO',
+        mouth: 'BOCA',
+        anus: 'ANO',
+      },
+    },
     [Paths.BodySystems]: {
       navbar: {
         selectPath: 'EXPLORA UN SISTEMA CORPORAL',
@@ -46,7 +153,7 @@ const es: Translation = {
         exit: 'SALIR',
         bodySystems: 'SISTEMAS CORPORALES',
         en: 'ENG',
-        es: 'ESP'
+        es: 'ESP',
       },
     },
   },

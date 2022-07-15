@@ -57,12 +57,12 @@ const en: Translation = {
         scapula: 'SCAPULA',
         ribs: 'RIBS',
         pelvis: 'PELVIS',
-        carpals: 'CARPALS',
-        metacarpals: 'METACARPALS',
+        wrist: 'WRIST',
+        hand: 'HAND',
         femur: 'FEMUR',
         tibia: 'TIBIA',
-        tarsals: 'TARSALS',
-        metatarsals: 'METATARSALS',
+        ankles: 'ANKLES',
+        feet: 'FEET',
         sternum: 'STERNUM',
         vertebrae: 'VERTEBRAE',
         humerus: 'HUMERUS',
@@ -70,14 +70,14 @@ const en: Translation = {
         ulna: 'ULNA',
         patella: 'PATELLA',
         fibula: 'FIBULA',
-      }
+      },
     },
     [Paths.Muscular]: {
       header: {
         title: 'MUSCULAR',
       },
       scene: {
-        lattismus: 'LATTISMUS\nDORSI',
+        latissimus: 'LATISSIMUS\nDORSI',
         pectorals: 'PECTORALS',
         abs: 'ABDOMINAL\nMUSCLES',
         quadriceps: 'QUADRICEPS',
@@ -87,7 +87,7 @@ const en: Translation = {
         triceps: 'TRICEPS',
         gluteus: 'GLUTEUS\nMAXIMUS',
         calves: 'CALVES',
-      }
+      },
     },
     [Paths.Cardiovascular]: {
       header: {
@@ -98,7 +98,7 @@ const en: Translation = {
         lungs: 'LUNGS',
         arteries: 'ARTERIES',
         veins: 'VEINS',
-      }
+      },
     },
     [Paths.Nervous]: {
       header: {
@@ -110,7 +110,7 @@ const en: Translation = {
         nerves: 'NERVES',
         brainStem: 'BRAIN\nSTEM',
         spinalCord: 'SPINAL\nCORD',
-      }
+      },
     },
     [Paths.Digestive]: {
       header: {
@@ -126,8 +126,8 @@ const en: Translation = {
         appendix: 'APPENDIX',
         rectum: 'RECTUM',
         mouth: 'MOUTH',
-        anus: 'ANUS'
-      }
+        anus: 'ANUS',
+      },
     },
     [Paths.BodySystems]: {
       navbar: {
@@ -158,7 +158,7 @@ const en: Translation = {
         exit: 'EXIT',
         bodySystems: 'BODY SYSTEMS',
         en: 'ENG',
-        es: 'ESP'
+        es: 'ESP',
       },
     },
   },

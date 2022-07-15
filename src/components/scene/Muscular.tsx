@@ -13,27 +13,28 @@ const muscularLabelStyle = {
   padding: '5px 15px 7px',
   whiteSpace: 'pre-wrap',
   lineHeight: '1.2',
-} as CSSProperties
+} as CSSProperties;
 
 export default function Muscular() {
   const [animatedPath, setAnimatedPath] = useAnimateContext();
   const { t } = useTranslation('translation');
   const navigate = useNavigate();
-  const shouldShowIntroAnimation = animatedPath === `${Paths.BodySystems}/${Paths.Muscular}`;
+  const shouldShowIntroAnimation =
+    animatedPath === `${Paths.BodySystems}/${Paths.Muscular}`;
   const [overlayStyle, overlayApi] = useSpring(() => ({
     from: { opacity: shouldShowIntroAnimation ? 0 : 1 },
     to: { opacity: 1 },
     delay: 500,
     config: {
       duration: 500,
-    }
+    },
   }));
   const [bodyStyle, bodyApi] = useSpring(() => ({
     from: { left: shouldShowIntroAnimation ? -300 : bodyLeft },
     to: { left: bodyLeft },
     config: {
       duration: 500,
-    }
+    },
   }));
   const location = useLocation();
 
@@ -96,7 +97,7 @@ export default function Muscular() {
           padding: '5px 12px 7px',
         }}
       >
-        {t('muscular.scene.lattismus')}
+        {t('muscular.scene.latissimus')}
       </animated.span>
       <animated.span
         style={{

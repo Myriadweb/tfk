@@ -4,10 +4,7 @@ import { useAnimateContext } from '../../state/animate';
 import { animated, useSpring } from 'react-spring';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Paths } from '../../types/Paths';
-import {
-  columnLabelStyleLeft,
-  columnLabelStyleRight,
-} from './common';
+import { columnLabelStyleLeft, columnLabelStyleRight } from './common';
 
 const bodyLeft = 540;
 
@@ -145,7 +142,7 @@ export default function Skeletal() {
           top: 760,
         }}
       >
-        {t('skeletal.scene.carpals')}
+        {t('skeletal.scene.wrist')}
       </animated.span>
       <animated.span
         style={{
@@ -154,7 +151,7 @@ export default function Skeletal() {
           top: 842,
         }}
       >
-        {t('skeletal.scene.metacarpals')}
+        {t('skeletal.scene.hand')}
       </animated.span>
       <animated.span
         style={{
@@ -181,7 +178,7 @@ export default function Skeletal() {
           top: 1095,
         }}
       >
-        {t('skeletal.scene.tarsals')}
+        {t('skeletal.scene.ankles')}
       </animated.span>
       <animated.span
         style={{
@@ -190,7 +187,7 @@ export default function Skeletal() {
           top: 1182,
         }}
       >
-        {t('skeletal.scene.metatarsals')}
+        {t('skeletal.scene.feet')}
       </animated.span>
       <animated.span
         style={{

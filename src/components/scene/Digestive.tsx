@@ -13,27 +13,28 @@ const digestiveLabelStyle = {
   padding: '5px 15px 7px',
   whiteSpace: 'pre-wrap',
   lineHeight: '1.2',
-} as CSSProperties
+} as CSSProperties;
 
 export default function Digestive() {
   const [animatedPath, setAnimatedPath] = useAnimateContext();
   const { t } = useTranslation('translation');
   const navigate = useNavigate();
-  const shouldShowIntroAnimation = animatedPath === `${Paths.BodySystems}/${Paths.Digestive}`;
+  const shouldShowIntroAnimation =
+    animatedPath === `${Paths.BodySystems}/${Paths.Digestive}`;
   const [overlayStyle, overlayApi] = useSpring(() => ({
     from: { opacity: shouldShowIntroAnimation ? 0 : 1 },
     to: { opacity: 1 },
     delay: 500,
     config: {
       duration: 500,
-    }
+    },
   }));
   const [bodyStyle, bodyApi] = useSpring(() => ({
     from: { left: shouldShowIntroAnimation ? -300 : bodyLeft },
     to: { left: bodyLeft },
     config: {
       duration: 500,
-    }
+    },
   }));
   const location = useLocation();
 

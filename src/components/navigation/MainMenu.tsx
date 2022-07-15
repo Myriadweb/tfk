@@ -52,7 +52,7 @@ const MainMenu = ({ path }: Props) => {
               fontSize: 25,
               color: '#FFF',
               letterSpacing: 1.24,
-              whiteSpace: 'pre-wrap'
+              whiteSpace: 'pre-wrap',
             }}
           >
             {t('bodySystemButton')}
