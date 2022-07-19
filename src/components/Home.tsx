@@ -31,7 +31,7 @@ export function Home() {
 
   // TEMPORARY
   if (location.pathname === '/bodySystems') {
-    return <Navigate to={Paths.Sensory} />;
+    return <Navigate to={Paths.BodySystems + '/' + Paths.Sensory} />;
   }
 
   return (

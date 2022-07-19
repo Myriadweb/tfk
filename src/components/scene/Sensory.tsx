@@ -24,8 +24,10 @@ export default function Sensory() {
   const [animatedPath, setAnimatedPath] = useAnimateContext();
   const { t } = useTranslation('translation');
   const navigate = useNavigate();
+
   const shouldShowIntroAnimation =
     animatedPath === `${Paths.BodySystems}/${Paths.Sensory}`;
+
   const [overlayStyle, overlayApi] = useSpring(() => ({
     from: { opacity: shouldShowIntroAnimation ? 0 : 1 },
     to: { opacity: 1 },
