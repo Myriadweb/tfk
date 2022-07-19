@@ -33,10 +33,11 @@ const MainMenu = ({ path }: Props) => {
             marginRight: 82,
             display: 'inline-flex',
             flexDirection: 'column',
+            alignItems: 'center',
             textDecoration: 'none',
             width: 213,
           }}
-          to='/bodySystems/sensory'
+          to={`/${Paths.BodySystems}/${Paths.Sensory}`}
         >
           <img
             src='images/MainMenu/bodySystemButton.png'
@@ -64,9 +65,10 @@ const MainMenu = ({ path }: Props) => {
             flexDirection: 'column',
             textDecoration: 'none',
             letterSpacing: 1.24,
+            alignItems: 'center',
             width: 213,
           }}
-          to='/procedures'
+          to={`/${Paths.Procedures}/${Paths.SurgicalPrep}`}
         >
           <img
             src='images/MainMenu/proceduresButton.png'

@@ -145,6 +145,47 @@ const en: Translation = {
         title: 'SMELL',
       },
     },
+    [Paths.Procedures]: {
+      navbar: {
+        selectPath: 'CHOOSE A HOSPITAL PROCEDURE TO COMPLETE',
+        surgicalPrep: 'SURGICAL PREP',
+        xRay: 'X-RAY',
+        eeg: 'EEG',
+        wellness: 'WELLNESS',
+        mri: 'MRI',
+        iv: 'IV',
+      },
+    },
+    [Paths.SurgicalPrep]: {
+      header: {
+        title: 'SURGICAL PREP',
+      },
+    },
+    [Paths.XRay]: {
+      header: {
+        title: 'X-RAY',
+      },
+    },
+    [Paths.Eeg]: {
+      header: {
+        title: 'EEG',
+      },
+    },
+    [Paths.Wellness]: {
+      header: {
+        title: 'WELLNESS',
+      },
+    },
+    [Paths.Mri]: {
+      header: {
+        title: 'MRI',
+      },
+    },
+    [Paths.Iv]: {
+      header: {
+        title: 'IV',
+      },
+    },
     common: {
       header: {
         bodySystems: 'BODY SYSTEMS',

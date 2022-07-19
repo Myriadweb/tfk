@@ -34,6 +34,13 @@ export function Home() {
     return <Navigate to={Paths.BodySystems + '/' + Paths.Sensory} />;
   }
 
+  console.debug(location.pathname);
+
+  // TEMPORARY
+  if (location.pathname === '/procedures') {
+    return <Navigate to={Paths.Procedures + '/' + Paths.SurgicalPrep} />;
+  }
+
   return (
     <div className='App'>
       <Header path={Paths[path]} />
@@ -55,8 +62,11 @@ export function Home() {
             <Route path={Paths.Nervous} element={<Nervous />} />
             <Route path={Paths.Digestive} element={<Digestive />} />
           </Route>
+          <Route path={Paths.Procedures}>
+
+          </Route>
         </Routes>
-        {location.pathname !== '/' + Paths.MainMenu && (
+        {location.pathname.includes(Paths.BodySystems) && (
           <div className='Options-buttons-box'>
             <Link to={location.pathname}>
               {!location.search && (

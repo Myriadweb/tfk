@@ -5,7 +5,6 @@ export enum Paths {
   Procedures = 'procedures',
   Sensory = 'sensory',
   Skeletal = 'skeletal',
-  Game = 'game',
   Muscular = 'muscular',
   Nervous = 'nervous',
   Digestive = 'digestive',
@@ -17,6 +16,12 @@ export enum Paths {
   Taste = 'taste',
   Touch = 'touch',
   Vestibular = 'vestibular',
+  Eeg = 'eeg',
+  Iv = 'iv',
+  Mri = 'mri',
+  SurgicalPrep = 'surgicalPrep',
+  Wellness = 'wellness',
+  XRay = 'xRay',
 }
 
 export type PathKeys = keyof typeof Paths;

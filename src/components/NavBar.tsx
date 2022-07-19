@@ -14,6 +14,8 @@ export function NavBar({ path, prefix }: Props) {
   const Component = getNavbarComponent(prefix || path);
   const { t } = useTranslation('translation');
 
+  if (!Component) return null;
+
   return (
     <div className='App-navigation'>
       <Component path={path} prefix={prefix} />
