@@ -34,7 +34,7 @@ export function NavBar({ path, prefix }: Props) {
               alignItems: 'center',
             }}
           >
-            <img src='images/NavBar/exitButton.png' alt='exit' />
+            <img src='images/NavBar/exitButton.png' />
             <span
               style={{
                 fontSize: 20,
@@ -63,7 +63,7 @@ export function NavBar({ path, prefix }: Props) {
               alignItems: 'center',
             }}
           >
-            <img src='images/NavBar/bodySystemsButton.png' alt='body systems' />
+            <img src='images/NavBar/bodySystemsButton.png' />
             <span
               style={{
                 fontSize: 20,

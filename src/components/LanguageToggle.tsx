@@ -51,10 +51,9 @@ export const LanguageToggle = () => {
       >
         {t(`common.navbar.en`)}
       </span>
-      <img src='images/NavBar/languageToggleBase.png' alt='language toggle' />
+      <img src='images/NavBar/languageToggleBase.png' />
       <animated.img
         src='images/NavBar/languageToggle.png'
-        alt='language toggle'
         style={{
           position: 'absolute',
           ...toggleStyle,

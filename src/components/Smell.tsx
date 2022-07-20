@@ -29,7 +29,6 @@ const DraggableImage = ({ image, x, y, onChange, smellType, onTop }: Props) => {
   return (
     <Draggable bounds={'parent'} onDrag={smellTest}>
       <img
-        alt='nuthin'
         src={image}
         style={{
           position: 'absolute',
@@ -90,7 +89,6 @@ export function Smell() {
     <>
       {smellState === 'bad' && (
         <img
-          alt='background red'
           src='images/BGBad.png'
           style={{
             position: 'absolute',
@@ -101,7 +99,6 @@ export function Smell() {
         />
       )}
       <img
-        alt='child'
         src={childImage || 'images/Smell/Child.png'}
         style={{
           position: 'absolute',
@@ -139,7 +136,6 @@ export function Smell() {
               zIndex: 2,
               ...effectStyle,
             }}
-            alt='sparkles'
           />
         </>
       )}
@@ -165,7 +161,7 @@ export function Smell() {
               zIndex: 1,
               ...effectStyle,
             }}
-            alt='flies'
+            
           />
         </>
       )}
@@ -179,7 +175,7 @@ export function Smell() {
             left: 536,
             ...brain,
           }}
-          alt='brain'
+          
         />
       )}
       <DraggableImage

@@ -30,7 +30,6 @@ export function Header(props: Props) {
             marginTop: 49,
             marginLeft: 39,
           }}
-          alt={`Icon relative to ${locationPath}`}
         />
         <span
           style={{

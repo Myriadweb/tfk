@@ -4,16 +4,15 @@ import { useAnimateContext } from '../../state/animate';
 import { animated, useSpring } from 'react-spring';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Paths } from '../../types/Paths';
-import { columnLabelStyleLeft, columnLabelStyleRight } from './common';
 
 const bodyLeft = 540;
 
-export default function Cardiovascular() {
+export default function Mri() {
   const [animatedPath, setAnimatedPath] = useAnimateContext();
   const { t } = useTranslation('translation');
   const navigate = useNavigate();
   const shouldShowIntroAnimation =
-    animatedPath === `${Paths.BodySystems}/${Paths.Cardiovascular}`;
+    animatedPath === `${Paths.Procedures}/${Paths.Mri}`;
   const [overlayStyle, overlayApi] = useSpring(() => ({
     from: { opacity: shouldShowIntroAnimation ? 0 : 1 },
     to: { opacity: 1 },
@@ -32,11 +31,11 @@ export default function Cardiovascular() {
   const location = useLocation();
 
   if (location.search === '?play=true') {
-    navigate(`/${Paths.BodySystems}/${Paths.Cardiovascular}?play=true`);
+    navigate(`/${Paths.Procedures}/${Paths.Mri}?play=true`);
   }
 
   // if we have an animated path, we need to show the slide in animation
-  if (animatedPath === `${Paths.BodySystems}/${Paths.Cardiovascular}`) {
+  if (animatedPath === `${Paths.Procedures}/${Paths.Mri}`) {
     // we reset the animation
     setAnimatedPath('');
   } else if (animatedPath) {
@@ -62,9 +61,9 @@ export default function Cardiovascular() {
     <>
       <animated.img
         
-        src='images/Cardiovascular/cardiovascularBody.png'
+        src='images/Mri/mriChild.png'
         style={{
-          top: 343,
+          top: 275,
           position: 'absolute',
           transform: 'translate(-50%, 0)',
           ...bodyStyle,
@@ -72,51 +71,14 @@ export default function Cardiovascular() {
       />
       <animated.img
         
-        src='images/Cardiovascular/cardiovascularLabels.png'
+        src='images/Mri/mriScreen.png'
         style={{
-          top: 589,
+          top: 572,
           position: 'absolute',
-          left: 540,
           transform: 'translate(-50%, 0)',
           ...overlayStyle,
         }}
       />
-      <animated.span
-        style={{
-          ...columnLabelStyleLeft,
-          ...overlayStyle,
-          top: 594,
-        }}
-      >
-        {t('cardiovascular.scene.lungs')}
-      </animated.span>
-      <animated.span
-        style={{
-          ...columnLabelStyleLeft,
-          ...overlayStyle,
-          top: 710,
-        }}
-      >
-        {t('cardiovascular.scene.arteries')}
-      </animated.span>
-      <animated.span
-        style={{
-          ...columnLabelStyleRight,
-          ...overlayStyle,
-          top: 589,
-        }}
-      >
-        {t('cardiovascular.scene.heart')}
-      </animated.span>
-      <animated.span
-        style={{
-          ...columnLabelStyleRight,
-          ...overlayStyle,
-          top: 690,
-        }}
-      >
-        {t('cardiovascular.scene.veins')}
-      </animated.span>
     </>
   );
 }

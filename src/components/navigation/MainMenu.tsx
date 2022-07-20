@@ -41,7 +41,7 @@ const MainMenu = ({ path }: Props) => {
         >
           <img
             src='images/MainMenu/bodySystemButton.png'
-            alt='body systems icon'
+            
             style={{
               width: 192,
               height: 192,
@@ -72,7 +72,7 @@ const MainMenu = ({ path }: Props) => {
         >
           <img
             src='images/MainMenu/proceduresButton.png'
-            alt='procedures icon'
+            
             style={{
               width: 192,
               height: 192,

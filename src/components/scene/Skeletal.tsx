@@ -61,7 +61,7 @@ export default function Skeletal() {
   return (
     <>
       <animated.img
-        alt='sensory'
+        
         src='images/Skeletal/skeletalBody.png'
         style={{
           top: 343,
@@ -71,7 +71,7 @@ export default function Skeletal() {
         }}
       />
       <animated.img
-        alt='sensory'
+        
         src='images/Skeletal/skeletalLabels.png'
         style={{
           top: 263,

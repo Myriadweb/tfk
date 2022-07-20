@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 type NavigationButtonProps = {
   image: string;
   size: 'small' | 'large';
-  alt: string;
   onClick: (...args: any) => void;
   text?: string;
 };
@@ -12,14 +11,12 @@ type NavigationButtonProps = {
 const NavigationButton = ({
   image,
   size,
-  alt,
   text,
   onClick,
 }: NavigationButtonProps) => (
   <div onClick={onClick} style={{ position: 'relative' }}>
     <img
       src={image}
-      alt={alt}
       style={{
         width: size === 'small' ? 111 : 191,
         height: size === 'small' ? 111 : 191,

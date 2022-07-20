@@ -68,7 +68,7 @@ export default function Digestive() {
   return (
     <>
       <animated.img
-        alt='sensory'
+        
         src='images/Digestive/digestiveBody.png'
         style={{
           top: 343,
@@ -78,7 +78,7 @@ export default function Digestive() {
         }}
       />
       <animated.img
-        alt='sensory'
+        
         src='images/Digestive/digestiveLabels.png'
         style={{
           top: 518,

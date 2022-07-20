@@ -49,7 +49,7 @@ const Sensory = ({ path, prefix }: Props) => {
       >
         <NavigationButton
           image={Hearing}
-          alt='sensory'
+          
           size={path === Paths.Hearing ? 'large' : 'small'}
           onClick={() =>
             navigate(NavigationPrefix + Paths.Hearing + '?play=true')
@@ -58,7 +58,7 @@ const Sensory = ({ path, prefix }: Props) => {
         />
         <NavigationButton
           image={Taste}
-          alt='skeletal'
+          
           size={path === Paths.Taste ? 'large' : 'small'}
           onClick={() =>
             navigate(NavigationPrefix + Paths.Taste + '?play=true')
@@ -67,7 +67,7 @@ const Sensory = ({ path, prefix }: Props) => {
         />
         <NavigationButton
           image={Sight}
-          alt='cardiovascular'
+          
           size={path === Paths.Sight ? 'large' : 'small'}
           onClick={() =>
             navigate(NavigationPrefix + Paths.Sight + '?play=true')
@@ -76,7 +76,7 @@ const Sensory = ({ path, prefix }: Props) => {
         />
         <NavigationButton
           image={Smell}
-          alt='muscular'
+          
           size={path === Paths.Smell ? 'large' : 'small'}
           onClick={() =>
             navigate(NavigationPrefix + Paths.Smell + '?play=true')
@@ -85,7 +85,7 @@ const Sensory = ({ path, prefix }: Props) => {
         />
         <NavigationButton
           image={Proprioception}
-          alt='nervous'
+          
           size={path === Paths.Proprioception ? 'large' : 'small'}
           onClick={() =>
             navigate(NavigationPrefix + Paths.Proprioception + '?play=true')
@@ -94,7 +94,7 @@ const Sensory = ({ path, prefix }: Props) => {
         />
         <NavigationButton
           image={Vestibular}
-          alt='digestive'
+          
           size={path === Paths.Vestibular ? 'large' : 'small'}
           onClick={() =>
             navigate(NavigationPrefix + Paths.Vestibular + '?play=true')
@@ -103,7 +103,7 @@ const Sensory = ({ path, prefix }: Props) => {
         />
         <NavigationButton
           image={Touch}
-          alt='digestive'
+          
           size={path === Paths.Touch ? 'large' : 'small'}
           onClick={() =>
             navigate(NavigationPrefix + Paths.Touch + '?play=true')

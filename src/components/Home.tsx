@@ -16,6 +16,12 @@ import Cardiovascular from './scene/Cardiovascular';
 import Muscular from './scene/Muscular';
 import Nervous from './scene/Nervous';
 import Digestive from './scene/Digestive';
+import XRay from './scene/XRay';
+import Mri from './scene/Mri';
+import Iv from './scene/Iv';
+import Wellness from './scene/Wellness';
+import Eeg from './scene/Eeg';
+import SurgicalPrep from './scene/SurgicalPrep';
 
 export function Home() {
   // This gets the current location from react router.
@@ -33,8 +39,6 @@ export function Home() {
   if (location.pathname === '/bodySystems') {
     return <Navigate to={Paths.BodySystems + '/' + Paths.Sensory} />;
   }
-
-  console.debug(location.pathname);
 
   // TEMPORARY
   if (location.pathname === '/procedures') {
@@ -63,7 +67,12 @@ export function Home() {
             <Route path={Paths.Digestive} element={<Digestive />} />
           </Route>
           <Route path={Paths.Procedures}>
-
+            <Route path={Paths.XRay} element={<XRay />} />
+            <Route path={Paths.Mri} element={<Mri />} />
+            <Route path={Paths.Iv} element={<Iv />} />
+            <Route path={Paths.Wellness} element={<Wellness />} />
+            <Route path={Paths.Eeg} element={<Eeg />} />
+            <Route path={Paths.SurgicalPrep} element={<SurgicalPrep />} />
           </Route>
         </Routes>
         {location.pathname.includes(Paths.BodySystems) && (

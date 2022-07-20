@@ -61,7 +61,7 @@ export default function Nervous() {
   return (
     <>
       <animated.img
-        alt='sensory'
+        
         src='images/Nervous/nervousBody.png'
         style={{
           top: 343,
@@ -71,7 +71,7 @@ export default function Nervous() {
         }}
       />
       <animated.img
-        alt='sensory'
+        
         src='images/Nervous/nervousLabels.png'
         style={{
           top: 375,
