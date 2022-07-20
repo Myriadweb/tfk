@@ -61,7 +61,6 @@ export default function Skeletal() {
   return (
     <>
       <animated.img
-        
         src='images/Skeletal/skeletalBody.png'
         style={{
           top: 343,
@@ -71,7 +70,6 @@ export default function Skeletal() {
         }}
       />
       <animated.img
-        
         src='images/Skeletal/skeletalLabels.png'
         style={{
           top: 263,

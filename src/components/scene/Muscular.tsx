@@ -68,7 +68,6 @@ export default function Muscular() {
   return (
     <>
       <animated.img
-        
         src='images/Muscular/muscularBody.png'
         style={{
           top: 343,
@@ -78,7 +77,6 @@ export default function Muscular() {
         }}
       />
       <animated.img
-        
         src='images/Muscular/muscularLabels.png'
         style={{
           top: 198,

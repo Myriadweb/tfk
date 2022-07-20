@@ -60,7 +60,6 @@ export default function Wellness() {
   return (
     <>
       <animated.img
-        
         src='images/Wellness/wellnessChild.png'
         style={{
           top: 275,
@@ -70,7 +69,6 @@ export default function Wellness() {
         }}
       />
       <animated.img
-        
         src='images/Wellness/wellnessMachine.png'
         style={{
           top: 470,

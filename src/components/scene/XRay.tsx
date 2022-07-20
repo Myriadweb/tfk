@@ -60,7 +60,6 @@ export default function XRay() {
   return (
     <>
       <animated.img
-        
         src='images/XRay/xRayChild.png'
         style={{
           top: 275,
@@ -70,7 +69,6 @@ export default function XRay() {
         }}
       />
       <animated.img
-        
         src='images/XRay/xRayScreen.png'
         style={{
           top: 613,

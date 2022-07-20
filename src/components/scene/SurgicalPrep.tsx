@@ -60,7 +60,6 @@ export default function SurgicalPrep() {
   return (
     <>
       <animated.img
-        
         src='images/SurgicalPrep/surgicalPrepChild.png'
         style={{
           top: 220,

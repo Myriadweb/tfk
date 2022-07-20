@@ -60,7 +60,6 @@ export default function Eeg() {
   return (
     <>
       <animated.img
-        
         src='images/Eeg/eegChild.png'
         style={{
           top: 275,
@@ -70,7 +69,6 @@ export default function Eeg() {
         }}
       />
       <animated.img
-        
         src='images/Eeg/eegScreen.png'
         style={{
           top: 229,

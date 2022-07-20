@@ -60,7 +60,6 @@ export default function Mri() {
   return (
     <>
       <animated.img
-        
         src='images/Mri/mriChild.png'
         style={{
           top: 275,
@@ -70,7 +69,6 @@ export default function Mri() {
         }}
       />
       <animated.img
-        
         src='images/Mri/mriScreen.png'
         style={{
           top: 572,

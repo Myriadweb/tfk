@@ -75,7 +75,6 @@ export default function Sensory() {
   return (
     <>
       <animated.img
-        
         src='images/Sensory/sensoryBody.png'
         style={{
           top: 343,
@@ -85,7 +84,6 @@ export default function Sensory() {
         }}
       />
       <animated.img
-        
         src='images/Sensory/sensoryLabels.png'
         style={{
           top: 224,

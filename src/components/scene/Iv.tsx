@@ -60,7 +60,6 @@ export default function Iv() {
   return (
     <>
       <animated.img
-        
         src='images/Iv/ivChild.png'
         style={{
           top: 275,
@@ -70,7 +69,6 @@ export default function Iv() {
         }}
       />
       <animated.img
-
         src='images/Iv/ivMachine.png'
         style={{
           top: 288,

@@ -49,7 +49,6 @@ const Sensory = ({ path, prefix }: Props) => {
       >
         <NavigationButton
           image={Hearing}
-          
           size={path === Paths.Hearing ? 'large' : 'small'}
           onClick={() =>
             navigate(NavigationPrefix + Paths.Hearing + '?play=true')
@@ -58,7 +57,6 @@ const Sensory = ({ path, prefix }: Props) => {
         />
         <NavigationButton
           image={Taste}
-          
           size={path === Paths.Taste ? 'large' : 'small'}
           onClick={() =>
             navigate(NavigationPrefix + Paths.Taste + '?play=true')
@@ -67,7 +65,6 @@ const Sensory = ({ path, prefix }: Props) => {
         />
         <NavigationButton
           image={Sight}
-          
           size={path === Paths.Sight ? 'large' : 'small'}
           onClick={() =>
             navigate(NavigationPrefix + Paths.Sight + '?play=true')
@@ -76,7 +73,6 @@ const Sensory = ({ path, prefix }: Props) => {
         />
         <NavigationButton
           image={Smell}
-          
           size={path === Paths.Smell ? 'large' : 'small'}
           onClick={() =>
             navigate(NavigationPrefix + Paths.Smell + '?play=true')
@@ -85,7 +81,6 @@ const Sensory = ({ path, prefix }: Props) => {
         />
         <NavigationButton
           image={Proprioception}
-          
           size={path === Paths.Proprioception ? 'large' : 'small'}
           onClick={() =>
             navigate(NavigationPrefix + Paths.Proprioception + '?play=true')
@@ -94,7 +89,6 @@ const Sensory = ({ path, prefix }: Props) => {
         />
         <NavigationButton
           image={Vestibular}
-          
           size={path === Paths.Vestibular ? 'large' : 'small'}
           onClick={() =>
             navigate(NavigationPrefix + Paths.Vestibular + '?play=true')
@@ -103,7 +97,6 @@ const Sensory = ({ path, prefix }: Props) => {
         />
         <NavigationButton
           image={Touch}
-          
           size={path === Paths.Touch ? 'large' : 'small'}
           onClick={() =>
             navigate(NavigationPrefix + Paths.Touch + '?play=true')

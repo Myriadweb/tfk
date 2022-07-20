@@ -61,7 +61,6 @@ export default function Cardiovascular() {
   return (
     <>
       <animated.img
-        
         src='images/Cardiovascular/cardiovascularBody.png'
         style={{
           top: 343,
@@ -71,7 +70,6 @@ export default function Cardiovascular() {
         }}
       />
       <animated.img
-        
         src='images/Cardiovascular/cardiovascularLabels.png'
         style={{
           top: 589,

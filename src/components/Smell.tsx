@@ -161,7 +161,6 @@ export function Smell() {
               zIndex: 1,
               ...effectStyle,
             }}
-            
           />
         </>
       )}
@@ -175,7 +174,6 @@ export function Smell() {
             left: 536,
             ...brain,
           }}
-          
         />
       )}
       <DraggableImage
