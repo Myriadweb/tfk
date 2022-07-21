@@ -4,6 +4,8 @@ import { useAnimateContext } from '../../state/animate';
 import { animated, useSpring } from 'react-spring';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Paths } from '../../types/Paths';
+import ProceduresTextBox from './ProceduresTextBox';
+import { CSSProperties } from 'react';
 
 const bodyLeft = 540;
 
@@ -76,6 +78,12 @@ export default function Mri() {
           transform: 'translate(-50%, 0)',
           ...overlayStyle,
         }}
+      />
+      <ProceduresTextBox
+        text={t('mri.scene.text')}
+        animatedStyle={overlayStyle as unknown as CSSProperties}
+        label={t('mri.scene.label')}
+        buttonText={t('mri.scene.buttonText')}
       />
     </>
   );

@@ -4,6 +4,8 @@ import { useAnimateContext } from '../../state/animate';
 import { animated, useSpring } from 'react-spring';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Paths } from '../../types/Paths';
+import ProceduresTextBox from './ProceduresTextBox';
+import { CSSProperties } from 'react';
 
 const bodyLeft = 540;
 
@@ -76,6 +78,12 @@ export default function Eeg() {
           left: 327,
           ...overlayStyle,
         }}
+      />
+      <ProceduresTextBox
+        text={t('eeg.scene.text')}
+        animatedStyle={overlayStyle as unknown as CSSProperties}
+        label={t('eeg.scene.label')}
+        buttonText={t('eeg.scene.buttonText')}
       />
     </>
   );

@@ -160,30 +160,61 @@ const en: Translation = {
       header: {
         title: 'SURGICAL PREP',
       },
+      scene: {
+        text: 'LOREM IPSUM DOLOR SIT\nAMET, CONSECTETUR\nADIPISCING ELIT, SED DO\nEIUSMOD TEMPOR',
+        label: 'SURGICAL PREP',
+        buttonText: 'BEGIN PREP',
+      },
     },
     [Paths.XRay]: {
       header: {
         title: 'X-RAY',
+      },
+
+      scene: {
+        text: 'An X-ray machine\ntakes pictures that\ncan see through your\nbody to find injuries.',
+        label: 'X-RAY',
+        buttonText: 'TAKE AN X-RAY',
       },
     },
     [Paths.Eeg]: {
       header: {
         title: 'EEG',
       },
+      scene: {
+        text: 'LOREM IPSUM DOLOR SIT\nAMET, CONSECTETUR\nADIPISCING ELIT, SED DO\nEIUSMOD TEMPOR',
+        label: 'EEG',
+        buttonText: 'TAKE AN EEG',
+      },
     },
     [Paths.Wellness]: {
       header: {
         title: 'WELLNESS',
+      },
+      scene: {
+        text: 'LOREM IPSUM DOLOR SIT\nAMET, CONSECTETUR\nADIPISCING ELIT, SED DO\nEIUSMOD TEMPOR',
+        label: 'WELLNESS',
+        buttonText: 'CHECK VITALS',
       },
     },
     [Paths.Mri]: {
       header: {
         title: 'MRI',
       },
+      scene: {
+        text: 'LOREM IPSUM DOLOR SIT\nAMET, CONSECTETUR\nADIPISCING ELIT, SED DO\nEIUSMOD TEMPOR',
+        label: 'MRI',
+        buttonText: 'TAKE AN MRI',
+      },
     },
     [Paths.Iv]: {
       header: {
         title: 'IV',
+      },
+      scene: {
+        text: 'LOREM IPSUM DOLOR SIT\nAMET, CONSECTETUR\nADIPISCING ELIT, SED DO\nEIUSMOD TEMPOR',
+        label: 'IV',
+        buttonText: 'INSERT IV',
       },
     },
     common: {

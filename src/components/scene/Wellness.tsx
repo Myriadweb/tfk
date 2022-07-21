@@ -4,6 +4,8 @@ import { useAnimateContext } from '../../state/animate';
 import { animated, useSpring } from 'react-spring';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Paths } from '../../types/Paths';
+import ProceduresTextBox from './ProceduresTextBox';
+import { CSSProperties } from 'react';
 
 const bodyLeft = 458;
 
@@ -76,6 +78,12 @@ export default function Wellness() {
           position: 'absolute',
           ...overlayStyle,
         }}
+      />
+      <ProceduresTextBox
+        text={t('wellness.scene.text')}
+        animatedStyle={overlayStyle as unknown as CSSProperties}
+        label={t('wellness.scene.label')}
+        buttonText={t('wellness.scene.buttonText')}
       />
     </>
   );

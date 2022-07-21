@@ -4,6 +4,8 @@ import { useAnimateContext } from '../../state/animate';
 import { animated, useSpring } from 'react-spring';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Paths } from '../../types/Paths';
+import ProceduresTextBox from './ProceduresTextBox';
+import { CSSProperties } from 'react';
 
 const bodyLeft = 461;
 
@@ -76,6 +78,12 @@ export default function Iv() {
           left: 225,
           ...overlayStyle,
         }}
+      />
+      <ProceduresTextBox
+        text={t('iv.scene.text')}
+        animatedStyle={overlayStyle as unknown as CSSProperties}
+        label={t('iv.scene.label')}
+        buttonText={t('iv.scene.buttonText')}
       />
     </>
   );
