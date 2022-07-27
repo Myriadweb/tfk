@@ -28,7 +28,7 @@ const ProceduresTextBox = ({
     setProcedureStep({ step: 0 });
     playSound('click');
     onClick();
-  }
+  };
 
   return (
     <animated.div

@@ -1,12 +1,14 @@
 import React, { Context, Dispatch, SetStateAction } from 'react';
 
 type Procedure = {
-  step: number,
-  value?: string,
-}
+  step: number;
+  value?: string;
+};
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function
-const ProcedureContext: Context<[Procedure, Dispatch<SetStateAction<Procedure>>]> =
+const ProcedureContext: Context<
+  [Procedure, Dispatch<SetStateAction<Procedure>>]
+> =
   // @ts-ignore
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   React.createContext();

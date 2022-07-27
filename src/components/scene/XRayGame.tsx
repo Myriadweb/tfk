@@ -5,7 +5,6 @@ import { ReactComponent as PainLines } from './XRayAssets/painLines.svg';
 import { ReactComponent as Arrow } from './SceneAssets/Arrow.svg';
 import { useProcedureContext } from '../../state/procedure';
 
-
 export default function XRayGame() {
   const [{ step, value }, setStep] = useProcedureContext();
   const [animatedDiv, animatedDivApi] = useSpring(() => ({

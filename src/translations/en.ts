@@ -177,14 +177,16 @@ const en: Translation = {
       },
       navbar: {
         '0-mainText': 'LOCATE THE INJURY',
-        '0-subText': 'WHEN YOU’VE FOUND THE AFFECTED AREA,\nTOUCH IT TO CONTINUE.',
+        '0-subText':
+          'WHEN YOU’VE FOUND THE AFFECTED AREA,\nTOUCH IT TO CONTINUE.',
         '1-mainText': 'GREAT JOB!',
-        '1-subText': 'YOU’VE LOCATED THE INJURY. NOW IT’S TIME\nTO TAKE AN X-RAY IMAGE OF THE AREA',
+        '1-subText':
+          'YOU’VE LOCATED THE INJURY. NOW IT’S TIME\nTO TAKE AN X-RAY IMAGE OF THE AREA',
         '1-buttonText': 'CONTINUE',
         '2-mainText': 'X-RAY MACHINE',
         '2-subText': 'PRESS THE START BUTTON TO\nTAKE AN IMAGE OF THE AREA.',
         '2-buttonText': 'START',
-      }
+      },
     },
     [Paths.Eeg]: {
       header: {
@@ -226,9 +228,7 @@ const en: Translation = {
         buttonText: 'INSERT IV',
       },
     },
-    [Paths.Game]: {
-
-    },
+    [Paths.Game]: {},
     common: {
       header: {
         bodySystems: 'BODY SYSTEMS',

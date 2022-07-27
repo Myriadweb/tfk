@@ -90,7 +90,7 @@ export function Home() {
               <ExploreSVG />
               <span>{t('common.scene.explore')}</span>
             </Link>
-            <Link to={'?play=true'} onClick={() => playSound(('click'))}>
+            <Link to={'?play=true'} onClick={() => playSound('click')}>
               {location.search === '?play=true' && (
                 <OptionOverlaySVG style={{ position: 'absolute', top: 160 }} />
               )}
