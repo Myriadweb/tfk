@@ -35,7 +35,8 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "^2.1.3",
     "react-spring": "^9.4.5",
-    "typescript": "^4.7.4"
+    "typescript": "^4.7.4",
+    "use-sound": "^4.0.1"
   },
   "scripts": {
     "electron:dev": "concurrently \"npm start\" \"wait-on http://localhost:3000 && electron .\"",

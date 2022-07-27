@@ -46,6 +46,7 @@
   background-repeat: no-repeat;
   height: 1270px;
   position: relative;
+  overflow: hidden;
 }
 
 .slide-left {

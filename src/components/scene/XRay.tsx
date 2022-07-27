@@ -84,6 +84,7 @@ export default function XRay() {
         animatedStyle={overlayStyle as unknown as CSSProperties}
         label={t('xRay.scene.label')}
         buttonText={t('xRay.scene.buttonText')}
+        onClick={() => navigate(`/${Paths.Procedures}/${Paths.XRay}/${Paths.Game}`)}
       />
     </>
   );

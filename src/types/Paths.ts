@@ -22,6 +22,7 @@ export enum Paths {
   SurgicalPrep = 'surgicalPrep',
   Wellness = 'wellness',
   XRay = 'xRay',
+  Game = 'game',
 }
 
 export type PathKeys = keyof typeof Paths;

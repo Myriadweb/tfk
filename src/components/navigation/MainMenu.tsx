@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { useNavBarTranslation } from '../../hooks';
 import { Paths } from '../../types/Paths';
+import playSound from '../../sound';
 
 type Props = {
   path: Paths;
@@ -38,6 +39,7 @@ const MainMenu = ({ path }: Props) => {
             width: 213,
           }}
           to={`/${Paths.BodySystems}/${Paths.Sensory}`}
+          onClick={() => playSound('click')}
         >
           <img
             src='images/MainMenu/bodySystemButton.png'
@@ -68,6 +70,7 @@ const MainMenu = ({ path }: Props) => {
             width: 213,
           }}
           to={`/${Paths.Procedures}/${Paths.SurgicalPrep}`}
+          onClick={() => playSound('click')}
         >
           <img
             src='images/MainMenu/proceduresButton.png'

@@ -22,6 +22,8 @@ import Iv from './scene/Iv';
 import Wellness from './scene/Wellness';
 import Eeg from './scene/Eeg';
 import SurgicalPrep from './scene/SurgicalPrep';
+import XRayGame from './scene/XRayGame';
+import playSound from '../sound';
 
 export function Home() {
   // This gets the current location from react router.
@@ -47,7 +49,7 @@ export function Home() {
 
   return (
     <div className='App'>
-      <Header path={Paths[path]} />
+      <Header path={Paths[path === 'Game' ? prefix : path]} />
       <div
         className='App-stage'
         style={{ backgroundImage: 'url("images/BG.png")' }}
@@ -68,6 +70,10 @@ export function Home() {
           </Route>
           <Route path={Paths.Procedures}>
             <Route path={Paths.XRay} element={<XRay />} />
+            <Route
+              path={Paths.XRay + '/' + Paths.Game}
+              element={<XRayGame />}
+            />
             <Route path={Paths.Mri} element={<Mri />} />
             <Route path={Paths.Iv} element={<Iv />} />
             <Route path={Paths.Wellness} element={<Wellness />} />
@@ -77,14 +83,14 @@ export function Home() {
         </Routes>
         {location.pathname.includes(Paths.BodySystems) && (
           <div className='Options-buttons-box'>
-            <Link to={location.pathname}>
+            <Link to={location.pathname} onClick={() => playSound('click')}>
               {!location.search && (
                 <OptionOverlaySVG style={{ position: 'absolute', top: 0 }} />
               )}
               <ExploreSVG />
               <span>{t('common.scene.explore')}</span>
             </Link>
-            <Link to={'?play=true'}>
+            <Link to={'?play=true'} onClick={() => playSound(('click'))}>
               {location.search === '?play=true' && (
                 <OptionOverlaySVG style={{ position: 'absolute', top: 160 }} />
               )}

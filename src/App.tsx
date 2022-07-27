@@ -6,18 +6,21 @@ import { LanguageContextProvider } from './state/language';
 import { CharacterContextProvider } from './state/character';
 import { AnimateContextProvider } from './state/animate';
 import './App.css';
+import { ProcedureContextProvider } from './state/procedure';
 
 function App() {
   return (
     <LanguageContextProvider>
       <AnimateContextProvider>
-        <CharacterContextProvider>
-          <HashRouter>
-            <Routes>
-              <Route path='*' element={<Home />} />
-            </Routes>
-          </HashRouter>
-        </CharacterContextProvider>
+        <ProcedureContextProvider>
+          <CharacterContextProvider>
+            <HashRouter>
+              <Routes>
+                <Route path='*' element={<Home />} />
+              </Routes>
+            </HashRouter>
+          </CharacterContextProvider>
+        </ProcedureContextProvider>
       </AnimateContextProvider>
     </LanguageContextProvider>
   );

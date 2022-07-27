@@ -1,13 +1,17 @@
 import { ReactComponent as Arrow } from './SceneAssets/Arrow.svg';
-import { animated, AnimatedProps, useSpring } from 'react-spring';
+import { animated } from 'react-spring';
 import * as React from 'react';
 import { CSSProperties } from 'react';
+import playSound from '../../sound';
+import { useProcedureContext } from '../../state/procedure';
+import { set } from 'husky';
 
 type Props = {
   animatedStyle: CSSProperties;
   label: string;
   text: string;
   buttonText: string;
+  onClick?: () => void;
 };
 
 const ProceduresTextBox = ({
@@ -15,7 +19,17 @@ const ProceduresTextBox = ({
   label,
   text,
   buttonText,
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  onClick = () => {},
 }: Props) => {
+  const [, setProcedureStep] = useProcedureContext();
+
+  const clickHandler = () => {
+    setProcedureStep({ step: 0 });
+    playSound('click');
+    onClick();
+  }
+
   return (
     <animated.div
       style={{
@@ -72,6 +86,7 @@ const ProceduresTextBox = ({
             padding: '0 20px',
             width: '100%',
           }}
+          onClick={clickHandler}
         >
           {buttonText} <Arrow />
         </button>

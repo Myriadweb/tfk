@@ -2,6 +2,7 @@ import React from 'react';
 import Draggable from 'react-draggable';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useSpring, animated } from 'react-spring';
+import playSound from '../sound';
 
 type SmellType = 'good' | 'bad';
 
@@ -20,6 +21,7 @@ const DraggableImage = ({ image, x, y, onChange, smellType, onTop }: Props) => {
     const newY = data.y + y;
 
     if (newX >= 190 && newX <= 580 && newY >= 430 && newY <= 730) {
+      playSound(smellType === 'good' ? 'smellsGood' : 'smellsBad');
       onChange(smellType);
     } else {
       onChange(null);
@@ -43,8 +45,8 @@ const DraggableImage = ({ image, x, y, onChange, smellType, onTop }: Props) => {
 };
 
 const childImages = {
-  good: 'images/Smell/ChildHappy.png',
-  bad: 'images/Smell/ChildScared.png',
+  good: 'images/Smell/childHappy.png',
+  bad: 'images/Smell/childScared.png',
 };
 
 export function Smell() {
@@ -62,11 +64,12 @@ export function Smell() {
       config: {
         duration: 500,
       },
+      delay: 500,
     });
     effectAPI.start({
       from: { opacity: 0 },
       to: { opacity: 1 },
-      delay: 300,
+      delay: 1000,
     });
     overlayAPI.start({
       to: [{ opacity: 1 }],
@@ -74,9 +77,12 @@ export function Smell() {
       config: {
         duration: 500,
       },
+      delay: 500,
     });
   } else {
     effectAPI.set({ opacity: 0 });
+    brainAPI.set({ opacity: 0 });
+    overlayAPI.set({ opacity: 0 });
   }
 
   if (!location.search) {
@@ -99,7 +105,7 @@ export function Smell() {
         />
       )}
       <img
-        src={childImage || 'images/Smell/Child.png'}
+        src={childImage || 'images/Smell/child.png'}
         style={{
           position: 'absolute',
           left: 540,
@@ -177,7 +183,7 @@ export function Smell() {
         />
       )}
       <DraggableImage
-        image='images/Smell/Flower.png'
+        image='images/Smell/flower.png'
         x={0}
         y={850}
         smellType='good'
@@ -185,7 +191,7 @@ export function Smell() {
         onTop={smellState === 'good'}
       />
       <DraggableImage
-        image='images/Smell/Shoe.png'
+        image='images/Smell/shoe.png'
         x={700}
         y={850}
         smellType='bad'
