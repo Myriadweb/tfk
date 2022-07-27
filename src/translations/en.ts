@@ -174,6 +174,9 @@ const en: Translation = {
         text: 'An X-ray machine\ntakes pictures that\ncan see through your\nbody to find injuries.',
         label: 'X-RAY',
         buttonText: 'TAKE AN X-RAY',
+        brokenBoneLabel: 'BROKEN BONE',
+        brokenBoneText:
+          'LOREM IPSUM DOLOR SIT\nAMET, CONSECTETUR\nADIPISCING ELIT, SED DO\nEIUSMOD TEMPOR .',
       },
       navbar: {
         '0-mainText': 'LOCATE THE INJURY',
@@ -186,6 +189,19 @@ const en: Translation = {
         '2-mainText': 'X-RAY MACHINE',
         '2-subText': 'PRESS THE START BUTTON TO\nTAKE AN IMAGE OF THE AREA.',
         '2-buttonText': 'START',
+        '3-mainText': 'X-RAY MACHINE',
+        '3-subText': 'PROCESSING...',
+        '4-mainText': 'GREAT JOB!',
+        '4-subText':
+          'YOU’VE DISCOVERED THAT A BROKEN BONE\nWAS THE CAUSE OF THE INJURY.',
+        '4-buttonText': 'FINISH',
+        '5-mainText': 'GREAT JOB!',
+        '5-subText':
+          'YOU’VE SUCCESSFULLY TREATED THE INJURY!\nNOW CHOOSE YOUR PATIENT’S REWARD.',
+        '5-buttonText': 'CONTINUE',
+        '6-subText': 'YOU’VE DONE AN x-RAY!\nTAP BELOW TO LEARN MORE ABOUT',
+        '6-boldText': 'THE SKELETAL SYSTEM',
+        '6-back': 'BACK TO\nPROCEDURES',
       },
     },
     [Paths.Eeg]: {

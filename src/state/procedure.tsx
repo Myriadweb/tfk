@@ -3,6 +3,7 @@ import React, { Context, Dispatch, SetStateAction } from 'react';
 type Procedure = {
   step: number;
   value?: string;
+  hideButtons?: boolean;
 };
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function

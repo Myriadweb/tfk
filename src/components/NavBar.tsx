@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { LanguageToggle } from './LanguageToggle';
 import playSound from '../sound';
+import { useProcedureContext } from '../state/procedure';
 
 type Props = {
   path: Paths;
@@ -13,12 +14,13 @@ type Props = {
 
 export function NavBar({ path, prefix }: Props) {
   const Component = getNavbarComponent(prefix || path);
+  const [{ hideButtons }, setStep] = useProcedureContext();
   const { t } = useTranslation('translation');
 
   return (
     <div className='App-navigation'>
       {Component ? <Component path={path} prefix={prefix} /> : <></>}
-      {path !== Paths.MainMenu && (
+      {path !== Paths.MainMenu && !hideButtons && (
         <div
           style={{
             position: 'absolute',
@@ -32,7 +34,10 @@ export function NavBar({ path, prefix }: Props) {
               display: 'flex',
               alignItems: 'center',
             }}
-            onClick={() => playSound('click')}
+            onClick={() => {
+              playSound('click');
+              setStep({ step: 0 });
+            }}
           >
             <img src='images/NavBar/exitButton.png' />
             <span
@@ -58,7 +63,10 @@ export function NavBar({ path, prefix }: Props) {
         >
           <Link
             to={`${Paths.BodySystems}/${Paths.Sensory}`}
-            onClick={() => playSound('click')}
+            onClick={() => {
+              playSound('click');
+              setStep({ step: 0 });
+            }}
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -78,7 +86,7 @@ export function NavBar({ path, prefix }: Props) {
           </Link>
         </div>
       )}
-      {path === Paths.Game && (
+      {path === Paths.Game && !hideButtons && (
         <div
           style={{
             position: 'absolute',
@@ -88,7 +96,10 @@ export function NavBar({ path, prefix }: Props) {
         >
           <Link
             to={`${Paths.Procedures}/${prefix}`}
-            onClick={() => playSound('click')}
+            onClick={() => {
+              playSound('click');
+              setStep({ step: 0 });
+            }}
             style={{
               display: 'flex',
               alignItems: 'center',

@@ -7,15 +7,15 @@ import { useProcedureContext } from '../../state/procedure';
 import { set } from 'husky';
 
 type Props = {
-  animatedStyle: CSSProperties;
+  animatedStyle?: CSSProperties;
   label: string;
   text: string;
-  buttonText: string;
+  buttonText?: string;
   onClick?: () => void;
 };
 
 const ProceduresTextBox = ({
-  animatedStyle,
+  animatedStyle = {},
   label,
   text,
   buttonText,
@@ -70,26 +70,27 @@ const ProceduresTextBox = ({
           zIndex: 1,
         }}
       >
-        {text}
-        <button
-          style={{
-            marginTop: 17,
-            height: 65,
-            borderRadius: '15px',
-            marginBottom: 21,
-            background: '#CD4845',
-            fontSize: 20,
-            color: '#FFF',
-            fontFamily: 'LemonMilk',
-            fontWeight: 'bold',
-            display: 'block',
-            padding: '0 20px',
-            width: '100%',
-          }}
-          onClick={clickHandler}
-        >
-          {buttonText} <Arrow />
-        </button>
+        <span style={{ display: 'inline-block', marginBottom: 20 }}>{text}</span>
+        {buttonText && (
+          <button
+            style={{
+              height: 65,
+              borderRadius: '15px',
+              marginBottom: 21,
+              background: '#CD4845',
+              fontSize: 20,
+              color: '#FFF',
+              fontFamily: 'LemonMilk',
+              fontWeight: 'bold',
+              display: 'block',
+              padding: '0 20px',
+              width: '100%',
+            }}
+            onClick={clickHandler}
+          >
+            {buttonText} <Arrow />
+          </button>
+        )}
       </div>
     </animated.div>
   );
