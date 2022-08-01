@@ -4,7 +4,6 @@ import * as React from 'react';
 import { CSSProperties } from 'react';
 import playSound from '../../sound';
 import { useProcedureContext } from '../../state/procedure';
-import { set } from 'husky';
 
 type Props = {
   animatedStyle?: CSSProperties;
@@ -70,7 +69,9 @@ const ProceduresTextBox = ({
           zIndex: 1,
         }}
       >
-        <span style={{ display: 'inline-block', marginBottom: 20 }}>{text}</span>
+        <span style={{ display: 'inline-block', marginBottom: 20 }}>
+          {text}
+        </span>
         {buttonText && (
           <button
             style={{

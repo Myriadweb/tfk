@@ -1,4 +1,4 @@
-import * as React from 'react';
+  import * as React from 'react';
 import { useNavBarTranslation } from '../../hooks';
 import { Paths } from '../../types/Paths';
 import { useProcedureContext } from '../../state/procedure';
@@ -16,7 +16,7 @@ type Props = {
   prefix: Paths;
 };
 
-const XRay = ({ path, prefix }: Props) => {
+const XRay = ({ prefix }: Props) => {
   const t = useNavBarTranslation(prefix);
   const navigate = useNavigate();
   const [{ step, value }, setStep] = useProcedureContext();
@@ -37,7 +37,7 @@ const XRay = ({ path, prefix }: Props) => {
           marginTop: 20,
         }}
         onClick={() => {
-          playSound('click');
+          playSound('completeStep');
           setStep({ step: 2 });
         }}
       >
@@ -79,7 +79,7 @@ const XRay = ({ path, prefix }: Props) => {
           marginTop: 20,
         }}
         onClick={() => {
-          playSound('click');
+          playSound('completeProcedure');
           setStep((oldState) => ({ ...oldState, step: 5, hideButtons: true }));
         }}
       >
