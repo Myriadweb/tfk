@@ -87,14 +87,22 @@ export function Home() {
         </Routes>
         {location.pathname.includes(Paths.BodySystems) && (
           <div className='Options-buttons-box'>
-            <Link to={location.pathname} onClick={() => location.search && playSound('click')}>
+            <Link
+              to={location.pathname}
+              onClick={() => location.search && playSound('click')}
+            >
               {!location.search && (
                 <OptionOverlaySVG style={{ position: 'absolute', top: 0 }} />
               )}
               <ExploreSVG />
               <span>{t('common.scene.explore')}</span>
             </Link>
-            <Link to={'?play=true'} onClick={() => location.search !== '?play=true' && playSound('click')}>
+            <Link
+              to={'?play=true'}
+              onClick={() =>
+                location.search !== '?play=true' && playSound('click')
+              }
+            >
               {location.search === '?play=true' && (
                 <OptionOverlaySVG style={{ position: 'absolute', top: 160 }} />
               )}

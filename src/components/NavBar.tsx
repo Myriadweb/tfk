@@ -23,7 +23,7 @@ const ProceduresPaths = [
   Paths.Iv,
   Paths.Wellness,
   Paths.Eeg,
-]
+];
 
 type Props = {
   path: Paths;
@@ -38,7 +38,7 @@ const getNavigationPath = (path: Paths) => {
     return Paths.Procedures;
   }
   return '';
-}
+};
 
 const getNavigationIcon = (path: Paths) => {
   if (bodySystemPaths.includes(path)) {
@@ -48,7 +48,7 @@ const getNavigationIcon = (path: Paths) => {
     return 'proceduresButton';
   }
   return '';
-}
+};
 
 export function NavBar({ path, prefix }: Props) {
   const Component = getNavbarComponent(prefix || path);
