@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAnimateContext } from '../../state/animate';
 import { useSpring, animated } from 'react-spring';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { Paths } from '../../types/Paths';
 
 const labelStyle = {
@@ -21,7 +21,7 @@ const labelStyle = {
 const bodyLeft = 540;
 
 export default function Sensory() {
-  const [animatedPath, setAnimatedPath] = useAnimateContext();
+  const [animatedPath] = useAnimateContext();
   const { t } = useTranslation('translation');
   const navigate = useNavigate();
 
@@ -46,14 +46,15 @@ export default function Sensory() {
   const location = useLocation();
 
   if (location.search === '?play=true') {
-    navigate(`/${Paths.BodySystems}/${Paths.Sensory}/${Paths.Smell}?play=true`);
+    return (
+      <Navigate
+        to={`/${Paths.BodySystems}/${Paths.Sensory}/${Paths.Smell}?play=true`}
+      />
+    );
   }
 
   // if we have an animated path, we need to show the slide in animation
-  if (animatedPath === `${Paths.BodySystems}/${Paths.Sensory}`) {
-    // we reset the animation
-    setAnimatedPath('');
-  } else if (animatedPath) {
+  if (animatedPath) {
     // if we have a different animatedPath, we show the slide out animation
     overlayApi.start({
       to: [{ opacity: 0 }],

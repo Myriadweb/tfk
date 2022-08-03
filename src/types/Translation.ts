@@ -9,7 +9,7 @@ type TranslationMarkedType = {
       [key: string]: string;
     };
     navbar?: {
-      [key: string]: string;
+      [key: string]: any;
     };
   };
 };

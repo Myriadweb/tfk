@@ -10,7 +10,7 @@ import { useTranslation } from 'react-i18next';
 import { ReactComponent as PlaySVG } from './HomeAssets/Play.svg';
 import { ReactComponent as ExploreSVG } from './HomeAssets/Explore.svg';
 import { ReactComponent as OptionOverlaySVG } from './HomeAssets/IconOverlay.svg';
-import { Smell } from './Smell';
+import { Smell } from './scene/Smell';
 import Skeletal from './scene/Skeletal';
 import Cardiovascular from './scene/Cardiovascular';
 import Muscular from './scene/Muscular';
@@ -63,6 +63,10 @@ export function Home() {
               element={<Smell />}
             />
             <Route path={Paths.Skeletal} element={<Skeletal />} />
+            <Route
+              path={Paths.Skeletal + '/' + Paths.Game}
+              element={<Skeletal />}
+            />
             <Route path={Paths.Cardiovascular} element={<Cardiovascular />} />
             <Route path={Paths.Muscular} element={<Muscular />} />
             <Route path={Paths.Nervous} element={<Nervous />} />
@@ -83,14 +87,14 @@ export function Home() {
         </Routes>
         {location.pathname.includes(Paths.BodySystems) && (
           <div className='Options-buttons-box'>
-            <Link to={location.pathname} onClick={() => playSound('click')}>
+            <Link to={location.pathname} onClick={() => location.search && playSound('click')}>
               {!location.search && (
                 <OptionOverlaySVG style={{ position: 'absolute', top: 0 }} />
               )}
               <ExploreSVG />
               <span>{t('common.scene.explore')}</span>
             </Link>
-            <Link to={'?play=true'} onClick={() => playSound('click')}>
+            <Link to={'?play=true'} onClick={() => location.search !== '?play=true' && playSound('click')}>
               {location.search === '?play=true' && (
                 <OptionOverlaySVG style={{ position: 'absolute', top: 160 }} />
               )}

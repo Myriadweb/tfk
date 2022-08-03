@@ -16,7 +16,7 @@ const digestiveLabelStyle = {
 } as CSSProperties;
 
 export default function Digestive() {
-  const [animatedPath, setAnimatedPath] = useAnimateContext();
+  const [animatedPath] = useAnimateContext();
   const { t } = useTranslation('translation');
   const navigate = useNavigate();
   const shouldShowIntroAnimation =
@@ -43,10 +43,7 @@ export default function Digestive() {
   }
 
   // if we have an animated path, we need to show the slide in animation
-  if (animatedPath === `${Paths.BodySystems}/${Paths.Digestive}`) {
-    // we reset the animation
-    setAnimatedPath('');
-  } else if (animatedPath) {
+  if (animatedPath) {
     // if we have a different animatedPath, we show the slide out animation
     overlayApi.start({
       to: [{ opacity: 0 }],

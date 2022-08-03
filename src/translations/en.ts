@@ -71,6 +71,58 @@ const en: Translation = {
         patella: 'PATELLA',
         fibula: 'FIBULA',
       },
+      navbar: {
+        selectPath: 'DRAG THE BONES TO THE\nBODY TO COMPLETE THE SKELETON.',
+        skull: {
+          title: 'SKULL',
+          description:
+            "The skull is actually many bones connected\nby joints that don't move. It has an\nimportant job -- protecting your brain!.",
+        },
+        ribs: {
+          title: 'RIBS',
+          description: 'LOREM IPSUM DOLOR SIT AMET,\nCONSECTETUR ADIPISCING ELIT,\nSED DO EIUSMOD TEMPOR',
+        },
+        vertebrae: {
+          title: 'VERTEBRAE',
+          description: 'LOREM IPSUM DOLOR SIT AMET,\nCONSECTETUR ADIPISCING ELIT,\nSED DO EIUSMOD TEMPOR',
+        },
+        'carpals&metacarpals': {
+          title: 'CARPALS & METACARPALS',
+          description: 'LOREM IPSUM DOLOR SIT AMET,\nCONSECTETUR ADIPISCING ELIT,\nSED DO EIUSMOD TEMPOR',
+        },
+        scapula: {
+          title: 'SCAPULA',
+          description: 'LOREM IPSUM DOLOR SIT AMET,\nCONSECTETUR ADIPISCING ELIT,\nSED DO EIUSMOD TEMPOR',
+        },
+        clavicle: {
+          title: 'CLAVICLE',
+          description: 'LOREM IPSUM DOLOR SIT AMET,\nCONSECTETUR ADIPISCING ELIT,\nSED DO EIUSMOD TEMPOR',
+        },
+        pelvis: {
+          title: 'PELVIS',
+          description: 'LOREM IPSUM DOLOR SIT AMET,\nCONSECTETUR ADIPISCING ELIT,\nSED DO EIUSMOD TEMPOR',
+        },
+        femur: {
+          title: 'FEMUR',
+          description: 'LOREM IPSUM DOLOR SIT AMET,\nCONSECTETUR ADIPISCING ELIT,\nSED DO EIUSMOD TEMPOR',
+        },
+        'fibule&tibia': {
+          title: 'FIBULE & TIBIA',
+          description: 'LOREM IPSUM DOLOR SIT AMET,\nCONSECTETUR ADIPISCING ELIT,\nSED DO EIUSMOD TEMPOR',
+        },
+        humerus: {
+          title: 'HUMERUS',
+          description: 'LOREM IPSUM DOLOR SIT AMET,\nCONSECTETUR ADIPISCING ELIT,\nSED DO EIUSMOD TEMPOR',
+        },
+        'radius&ulna': {
+          title: 'RADIUS & ULNA',
+          description: 'LOREM IPSUM DOLOR SIT AMET,\nCONSECTETUR ADIPISCING ELIT,\nSED DO EIUSMOD TEMPOR',
+        },
+        'tarsals&metatarsals': {
+          title: 'TARSALS & METATARSALS',
+          description: 'LOREM IPSUM DOLOR SIT AMET,\nCONSECTETUR ADIPISCING ELIT,\nSED DO EIUSMOD TEMPOR',
+        }
+      },
     },
     [Paths.Muscular]: {
       header: {

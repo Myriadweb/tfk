@@ -5,13 +5,13 @@ import { animated, useSpring } from 'react-spring';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Paths } from '../../types/Paths';
 import { columnLabelStyleLeft, columnLabelStyleRight } from './common';
+import SkeletalGame from './SkeletalGame';
 
 const bodyLeft = 540;
 
 export default function Skeletal() {
-  const [animatedPath, setAnimatedPath] = useAnimateContext();
+  const [animatedPath] = useAnimateContext();
   const { t } = useTranslation('translation');
-  const navigate = useNavigate();
   const shouldShowIntroAnimation =
     animatedPath === `${Paths.BodySystems}/${Paths.Skeletal}`;
   const [overlayStyle, overlayApi] = useSpring(() => ({
@@ -29,17 +29,18 @@ export default function Skeletal() {
       duration: 500,
     },
   }));
+  const navigate = useNavigate();
   const location = useLocation();
 
-  if (location.search === '?play=true') {
-    navigate(`/${Paths.BodySystems}/${Paths.Skeletal}?play=true`);
-  }
+  const isGame =
+    location.pathname ===
+    `/${Paths.BodySystems}/${Paths.Skeletal}/${Paths.Game}`;
 
   // if we have an animated path, we need to show the slide in animation
-  if (animatedPath === `${Paths.BodySystems}/${Paths.Skeletal}`) {
-    // we reset the animation
-    setAnimatedPath('');
-  } else if (animatedPath) {
+  if (
+    animatedPath &&
+    animatedPath !== `${Paths.BodySystems}/${Paths.Skeletal}`
+  ) {
     // if we have a different animatedPath, we show the slide out animation
     overlayApi.start({
       to: [{ opacity: 0 }],
@@ -55,7 +56,29 @@ export default function Skeletal() {
       delay: 300,
       onRest: () => navigate('/' + animatedPath),
     });
-    // then we navigate to the path
+  } else {
+    overlayApi.start({
+      to: [{ opacity: 1 }],
+      from: { opacity: 0 },
+      config: {
+        duration: 500,
+      },
+    });
+  }
+
+  if (!isGame && location.search === '?play=true') {
+    overlayApi.start({
+      to: [{ opacity: 0 }],
+      from: { opacity: 1 },
+      config: {
+        duration: 500,
+      },
+      onRest: () => setTimeout(() => navigate(`${Paths.Game}?play=true`), 500),
+    });
+  }
+
+  if (isGame) {
+    return <SkeletalGame />;
   }
 
   return (

@@ -16,7 +16,7 @@ const muscularLabelStyle = {
 } as CSSProperties;
 
 export default function Muscular() {
-  const [animatedPath, setAnimatedPath] = useAnimateContext();
+  const [animatedPath] = useAnimateContext();
   const { t } = useTranslation('translation');
   const navigate = useNavigate();
   const shouldShowIntroAnimation =
@@ -45,7 +45,6 @@ export default function Muscular() {
   // if we have an animated path, we need to show the slide in animation
   if (animatedPath === `${Paths.BodySystems}/${Paths.Muscular}`) {
     // we reset the animation
-    setAnimatedPath('');
   } else if (animatedPath) {
     // if we have a different animatedPath, we show the slide out animation
     overlayApi.start({

@@ -1,4 +1,4 @@
-  import * as React from 'react';
+import * as React from 'react';
 import { useNavBarTranslation } from '../../hooks';
 import { Paths } from '../../types/Paths';
 import { useProcedureContext } from '../../state/procedure';

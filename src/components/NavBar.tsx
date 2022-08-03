@@ -7,10 +7,48 @@ import { LanguageToggle } from './LanguageToggle';
 import playSound from '../sound';
 import { useProcedureContext } from '../state/procedure';
 
+const bodySystemPaths = [
+  Paths.Sensory,
+  Paths.Skeletal,
+  Paths.Cardiovascular,
+  Paths.Muscular,
+  Paths.Nervous,
+  Paths.Digestive,
+];
+
+const ProceduresPaths = [
+  Paths.SurgicalPrep,
+  Paths.XRay,
+  Paths.Mri,
+  Paths.Iv,
+  Paths.Wellness,
+  Paths.Eeg,
+]
+
 type Props = {
   path: Paths;
   prefix?: Paths;
 };
+
+const getNavigationPath = (path: Paths) => {
+  if (bodySystemPaths.includes(path)) {
+    return Paths.BodySystems;
+  }
+  if (ProceduresPaths.includes(path)) {
+    return Paths.Procedures;
+  }
+  return '';
+}
+
+const getNavigationIcon = (path: Paths) => {
+  if (bodySystemPaths.includes(path)) {
+    return 'bodySystemsButton';
+  }
+  if (ProceduresPaths.includes(path)) {
+    return 'proceduresButton';
+  }
+  return '';
+}
 
 export function NavBar({ path, prefix }: Props) {
   const Component = getNavbarComponent(prefix || path);
@@ -95,7 +133,7 @@ export function NavBar({ path, prefix }: Props) {
           }}
         >
           <Link
-            to={`${Paths.Procedures}/${prefix}`}
+            to={`${getNavigationPath(prefix)}/${prefix}`}
             onClick={() => {
               playSound('click');
               setStep({ step: 0 });
@@ -105,7 +143,7 @@ export function NavBar({ path, prefix }: Props) {
               alignItems: 'center',
             }}
           >
-            <img src='images/NavBar/proceduresButton.png' />
+            <img src={`images/NavBar/${getNavigationIcon(prefix)}.png`} />
             <span
               style={{
                 fontSize: 20,

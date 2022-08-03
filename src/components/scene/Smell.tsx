@@ -1,8 +1,8 @@
 import React from 'react';
 import Draggable from 'react-draggable';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 import { useSpring, animated } from 'react-spring';
-import playSound from '../sound';
+import playSound from '../../sound';
 
 type SmellType = 'good' | 'bad';
 
@@ -16,7 +16,7 @@ type Props = {
 };
 
 const DraggableImage = ({ image, x, y, onChange, smellType, onTop }: Props) => {
-  const smellTest = (e: MouseEvent, data: any) => {
+  const smellTest = (_e: MouseEvent, data: any) => {
     const newX = data.x + x;
     const newY = data.y + y;
 
@@ -51,7 +51,6 @@ const childImages = {
 
 export function Smell() {
   const [smellState, setSmellState] = React.useState<SmellType | null>(null);
-  const navigate = useNavigate();
   const location = useLocation();
   const [overlay, overlayAPI] = useSpring(() => ({ opacity: 0 }));
   const [brain, brainAPI] = useSpring(() => ({ opacity: 0 }));
@@ -86,7 +85,7 @@ export function Smell() {
   }
 
   if (!location.search) {
-    navigate('/bodySystems/sensory');
+    return <Navigate to={'/bodySystems/sensory'} />;
   }
 
   const childImage = childImages[smellState];
@@ -95,7 +94,7 @@ export function Smell() {
     <>
       {smellState === 'bad' && (
         <img
-          src='images/BGBad.png'
+          src='public/images/BGBad.png'
           style={{
             position: 'absolute',
             left: 0,
@@ -114,7 +113,7 @@ export function Smell() {
         }}
       />
       <img
-        src='images/Smell/bottomOverlay.png'
+        src='public/images/Smell/bottomOverlay.png'
         style={{
           position: 'absolute',
           bottom: 0,

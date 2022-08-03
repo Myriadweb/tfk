@@ -4,6 +4,7 @@ import { Paths } from '../../types/Paths';
 import Sensory from './Sensory';
 import Procedures from './Procedures';
 import XRay from './XRay';
+import SkeletalNav from './SkeletalNav';
 
 export default {
   [Paths.MainMenu]: MainMenu,
@@ -11,4 +12,5 @@ export default {
   [Paths.Sensory]: Sensory,
   [Paths.Procedures]: Procedures,
   [Paths.XRay]: XRay,
+  [Paths.Skeletal]: SkeletalNav,
 };
