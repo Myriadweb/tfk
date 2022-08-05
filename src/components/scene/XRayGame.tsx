@@ -6,14 +6,14 @@ import { ReactComponent as XRayBody } from './XRayAssets/xRayBody.svg';
 import { ReactComponent as PopupLine } from './XRayAssets/popupLine.svg';
 import { ReactComponent as Cast } from './XRayAssets/cast.svg';
 import { ReactComponent as Signature } from './XRayAssets/signature.svg';
-import { useProcedureContext } from '../../state/procedure';
+import { useGameContext } from '../../state/game';
 import playSound from '../../sound';
 import { useEffect } from 'react';
 import ProceduresTextBox from './ProceduresTextBox';
 import { useTranslation } from 'react-i18next';
 
 export default function XRayGame() {
-  const [{ step, value }, setStep] = useProcedureContext();
+  const [{ step, value }, setStep] = useGameContext();
   const { t } = useTranslation('translation');
 
   const [animatedDiv, animatedDivApi] = useSpring(() => ({

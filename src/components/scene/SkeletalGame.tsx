@@ -19,7 +19,7 @@ import { ReactComponent as Vertebrae } from './SkeletalAssets/Vertebrae.svg';
 import Draggable from 'react-draggable';
 import playSound from '../../sound';
 import { Dispatch, SetStateAction } from 'react';
-import { useProcedureContext } from '../../state/procedure';
+import { useGameContext } from '../../state/game';
 
 type Props = {
   ImageComponent: React.FC<React.SVGProps<SVGSVGElement>> | string;
@@ -51,7 +51,7 @@ const DraggableImage = ({
     x: number;
     y: number;
   }>(null);
-  const [, setProcedureState] = useProcedureContext();
+  const [, setGameState] = useGameContext();
   const [placed, setPlaced] = React.useState(false);
   const randomX = React.useRef(getRandom(100, 980));
   const randomY = React.useRef(getRandom(100, 1170));
@@ -101,7 +101,7 @@ const DraggableImage = ({
         top: y - data.y,
       });
       setPlaced(true);
-      setProcedureState({ step: 0, value });
+      setGameState({ step: 0, value });
     } else {
       if (placed) {
         setPlaced(false);
@@ -139,7 +139,7 @@ const DraggableImage = ({
 
 export default function SkeletalGame() {
   const [placedNumber, setPlacedNumber] = React.useState(0);
-  const [, setProcedureState] = useProcedureContext();
+  const [, setGameState] = useGameContext();
   const navigate = useNavigate();
   const location = useLocation();
   const leaving = !location.search;
@@ -148,7 +148,7 @@ export default function SkeletalGame() {
   if (!location.search) {
     setTimeout(() => {
       navigate(`/${Paths.BodySystems}/${Paths.Skeletal}`);
-      setProcedureState({ step: 0, value: '' });
+      setGameState({ step: 0, value: '' });
     }, 1000);
   }
 

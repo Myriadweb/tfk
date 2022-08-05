@@ -37,6 +37,7 @@ const en: Translation = {
       },
       navbar: {
         selectPath: 'CHOOSE A SENSE, THEN DRAG\nAN OBJECT TO SEE ITS EFFECT.',
+        continueButton: 'CONTINUE',
         smell: 'smell',
         hearing: 'hearing',
         proprioception: 'proprioception',
@@ -44,6 +45,11 @@ const en: Translation = {
         taste: 'taste',
         touch: 'touch',
         vestibular: 'vestibular',
+        badSmell: {
+          title: "GROSS! HERE'S A TIP...",
+          description:
+            'BLOCKING YOUR NOSE WHEN THERE’S A BAD\nSMELL AROUND CAN MAKE IT DISAPPEAR.',
+        },
       },
     },
     [Paths.Skeletal]: {

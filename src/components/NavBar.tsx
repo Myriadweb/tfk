@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { LanguageToggle } from './LanguageToggle';
 import playSound from '../sound';
-import { useProcedureContext } from '../state/procedure';
+import { useGameContext } from '../state/game';
 
 const bodySystemPaths = [
   Paths.Sensory,
@@ -52,7 +52,7 @@ const getNavigationIcon = (path: Paths) => {
 
 export function NavBar({ path, prefix }: Props) {
   const Component = getNavbarComponent(prefix || path);
-  const [{ hideButtons }, setStep] = useProcedureContext();
+  const [{ hideButtons }, setStep] = useGameContext();
   const { t } = useTranslation('translation');
 
   return (

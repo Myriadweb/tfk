@@ -3,7 +3,7 @@ import { animated } from 'react-spring';
 import * as React from 'react';
 import { CSSProperties } from 'react';
 import playSound from '../../sound';
-import { useProcedureContext } from '../../state/procedure';
+import { useGameContext } from '../../state/game';
 
 type Props = {
   animatedStyle?: CSSProperties;
@@ -21,7 +21,7 @@ const ProceduresTextBox = ({
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   onClick = () => {},
 }: Props) => {
-  const [, setProcedureStep] = useProcedureContext();
+  const [, setProcedureStep] = useGameContext();
 
   const clickHandler = () => {
     setProcedureStep({ step: 0 });

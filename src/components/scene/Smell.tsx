@@ -1,46 +1,82 @@
-import React from 'react';
-import Draggable from 'react-draggable';
+import React, { useEffect } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { useSpring, animated } from 'react-spring';
 import playSound from '../../sound';
+import { ReactComponent as Flower } from './SmellAssets/Flower.svg';
+import { ReactComponent as Shoe } from './SmellAssets/Shoe.svg';
+import { ReactComponent as Closepin } from './SmellAssets/Closepin.svg';
+import { useGameContext } from '../../state/game';
 
 type SmellType = 'good' | 'bad';
 
 type Props = {
-  image: string;
+  Component: React.FC<React.SVGProps<SVGSVGElement>>;
   x: number;
   y: number;
   onChange: (type: SmellType) => void;
   smellType: SmellType;
   onTop?: boolean;
+  reset?: boolean;
 };
 
-const DraggableImage = ({ image, x, y, onChange, smellType, onTop }: Props) => {
-  const smellTest = (_e: MouseEvent, data: any) => {
-    const newX = data.x + x;
-    const newY = data.y + y;
+const ClickableImage = ({
+  Component,
+  x,
+  y,
+  onChange,
+  smellType,
+  onTop,
+  reset,
+}: Props) => {
+  const [style, styleApi] = useSpring(() => ({
+    transform: `translate(0%, 0%) rotate(0deg)`,
+    left: x,
+    top: y,
+  }));
+  const [{ value }, setGameState] = useGameContext();
 
-    if (newX >= 190 && newX <= 580 && newY >= 430 && newY <= 730) {
-      playSound(smellType === 'good' ? 'smellsGood' : 'smellsBad');
-      onChange(smellType);
-    } else {
-      onChange(null);
+  useEffect(() => {
+    if (reset) {
+      smellTest();
     }
+  }, [reset]);
+
+  const smellTest = () => {
+    if (onTop) {
+      styleApi.start({
+        transform: `translate(0%, 0%) rotate(0deg)`,
+        left: x,
+        top: y,
+      });
+      if (!reset) {
+        setGameState({ step: 0, value: '' });
+      }
+      onChange(null);
+      return;
+    }
+
+    playSound(smellType === 'good' ? 'smellsGood' : 'smellsBad');
+    styleApi.start({
+      left: 540,
+      top: 950,
+      transform: `translate(-50%, -50%) rotate(${
+        smellType === 'good' ? '13' : '0'
+      }deg)`,
+    });
+    setGameState({ step: 0, value: smellType === 'bad' ? 'badSmell' : '' });
+    onChange(smellType);
   };
 
   return (
-    <Draggable bounds={'parent'} onDrag={smellTest}>
-      <img
-        src={image}
-        style={{
-          position: 'absolute',
-          left: x,
-          top: y,
-          transform: 'translate(-50%, -50%)',
-          zIndex: onTop ? 2 : 0,
-        }}
-      />
-    </Draggable>
+    <animated.div
+      style={{
+        position: 'absolute',
+        zIndex: onTop ? 2 : 0,
+        ...style,
+      }}
+    >
+      <Component onClick={smellTest} />
+    </animated.div>
   );
 };
 
@@ -55,8 +91,9 @@ export function Smell() {
   const [overlay, overlayAPI] = useSpring(() => ({ opacity: 0 }));
   const [brain, brainAPI] = useSpring(() => ({ opacity: 0 }));
   const [effectStyle, effectAPI] = useSpring(() => ({ opacity: 0 }));
+  const [{ value }] = useGameContext();
 
-  if (smellState) {
+  if (smellState && value !== 'badSmell-final') {
     brainAPI.start({
       from: { opacity: 0 },
       to: { opacity: 1 },
@@ -175,27 +212,31 @@ export function Smell() {
           style={{
             transform: 'translate(-50%, -50%)',
             position: 'absolute',
-            top: 507,
+            top: 499,
             left: 536,
             ...brain,
           }}
         />
       )}
-      <DraggableImage
-        image='images/Smell/flower.png'
-        x={0}
-        y={850}
+      {value === 'badSmell-final' && (
+        <Closepin style={{ position: 'absolute', left: 508, top: 739 }} />
+      )}
+      <ClickableImage
+        Component={Flower}
+        x={228}
+        y={945}
         smellType='good'
         onChange={setSmellState}
         onTop={smellState === 'good'}
       />
-      <DraggableImage
-        image='images/Smell/shoe.png'
-        x={700}
-        y={850}
+      <ClickableImage
+        Component={Shoe}
+        x={624}
+        y={950}
         smellType='bad'
         onChange={setSmellState}
         onTop={smellState === 'bad'}
+        reset={smellState === 'bad' && value === 'badSmell-final'}
       />
     </>
   );

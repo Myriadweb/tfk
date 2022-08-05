@@ -6,13 +6,13 @@ import { LanguageContextProvider } from './state/language';
 import { CharacterContextProvider } from './state/character';
 import { AnimateContextProvider } from './state/animate';
 import './App.css';
-import { ProcedureContextProvider } from './state/procedure';
+import { GameContextProvider } from './state/game';
 
 function App() {
   return (
     <LanguageContextProvider>
       <AnimateContextProvider>
-        <ProcedureContextProvider>
+        <GameContextProvider>
           <CharacterContextProvider>
             <HashRouter>
               <Routes>
@@ -20,7 +20,7 @@ function App() {
               </Routes>
             </HashRouter>
           </CharacterContextProvider>
-        </ProcedureContextProvider>
+        </GameContextProvider>
       </AnimateContextProvider>
     </LanguageContextProvider>
   );

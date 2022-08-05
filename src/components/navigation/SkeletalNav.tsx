@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useNavBarTranslation } from '../../hooks';
 import { Paths } from '../../types/Paths';
-import { useProcedureContext } from '../../state/procedure';
+import { useGameContext } from '../../state/game';
 
 type Props = {
   path: Paths;
@@ -10,7 +10,7 @@ type Props = {
 
 const SkeletalNav = ({ prefix }: Props) => {
   const t = useNavBarTranslation(prefix);
-  const [{ value }] = useProcedureContext();
+  const [{ value }] = useGameContext();
 
   return (
     <div>

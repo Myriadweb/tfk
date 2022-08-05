@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useNavBarTranslation } from '../../hooks';
 import { Paths } from '../../types/Paths';
-import { useProcedureContext } from '../../state/procedure';
+import { useGameContext } from '../../state/game';
 import { ReactComponent as Arrow } from '../scene/SceneAssets/Arrow.svg';
 import playSound from '../../sound';
 import NavigationButton from './NavigationButton';
@@ -19,7 +19,7 @@ type Props = {
 const XRay = ({ prefix }: Props) => {
   const t = useNavBarTranslation(prefix);
   const navigate = useNavigate();
-  const [{ step, value }, setStep] = useProcedureContext();
+  const [{ step, value }, setStep] = useGameContext();
 
   const stepComponentConfig = {
     0: null,
