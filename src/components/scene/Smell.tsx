@@ -212,14 +212,14 @@ export function Smell() {
           style={{
             transform: 'translate(-50%, -50%)',
             position: 'absolute',
-            top: 499,
+            top: 507,
             left: 536,
             ...brain,
           }}
         />
       )}
       {value === 'badSmell-final' && (
-        <Closepin style={{ position: 'absolute', left: 508, top: 739 }} />
+        <Closepin style={{ position: 'absolute', left: 499, top: 739 }} />
       )}
       <ClickableImage
         Component={Flower}
