@@ -5,7 +5,11 @@ import { useGameContext } from '../../state/game';
 import { ClickableImage, VariationsType } from './ClickableImage';
 
 const finalValueType = 'badSight';
-const activeStyle = { left: 540, top: 180, transform: 'translate(-50%, -50%) rotate(0deg)' };
+const activeStyle = {
+  left: 540,
+  top: 180,
+  transform: 'translate(-50%, -50%) rotate(0deg)',
+};
 const childImages = {
   bad: 'images/Sensory/childScared.png',
 };
@@ -145,7 +149,7 @@ export default function Sight() {
             left: 540,
             top: 682,
             transform: 'translate(-50%, -50%)',
-        }}
+          }}
         />
       )}
       <ClickableImage

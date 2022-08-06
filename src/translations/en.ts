@@ -51,9 +51,10 @@ const en: Translation = {
             'BLOCKING YOUR NOSE WHEN THERE’S A BAD\nSMELL AROUND CAN MAKE IT DISAPPEAR.',
         },
         badSight: {
-          title: "OUCH! HERE’S A TIP…",
-          description: 'Wearing SUNGLASSES OUTSIDE CAN HELP\nPROTECT YOUR EYES FROM BRIGHT LIGHT.'
-        }
+          title: 'OUCH! HERE’S A TIP…',
+          description:
+            'Wearing SUNGLASSES OUTSIDE CAN HELP\nPROTECT YOUR EYES FROM BRIGHT LIGHT.',
+        },
       },
     },
     [Paths.Skeletal]: {
