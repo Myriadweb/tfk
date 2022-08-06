@@ -25,6 +25,7 @@ import SurgicalPrep from './scene/SurgicalPrep';
 import XRayGame from './scene/XRayGame';
 import playSound from '../sound';
 import Sight from './scene/Sight';
+import { Hearing } from './scene/Hearing';
 
 export function Home() {
   // This gets the current location from react router.
@@ -59,6 +60,10 @@ export function Home() {
           <Route path={'/' + Paths.MainMenu} element={<MainMenu />} />
           <Route path={Paths.BodySystems}>
             <Route path={Paths.Sensory} element={<Sensory />} />
+            <Route
+              path={Paths.Sensory + '/' + Paths.Hearing}
+              element={<Hearing />}
+            />
             <Route
               path={Paths.Sensory + '/' + Paths.Smell}
               element={<Smell />}

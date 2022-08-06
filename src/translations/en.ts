@@ -55,6 +55,10 @@ const en: Translation = {
           description:
             'Wearing SUNGLASSES OUTSIDE CAN HELP\nPROTECT YOUR EYES FROM BRIGHT LIGHT.',
         },
+        badSound: {
+          title: 'OUCH! HERE’S A TIP…',
+          description: 'Wearing EAR PLUGS CAN HELP\nMAKE LOUD NOISES SOFTER.',
+        },
       },
     },
     [Paths.Skeletal]: {

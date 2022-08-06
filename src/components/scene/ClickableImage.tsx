@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { animated, useSpring } from 'react-spring';
 import { useGameContext } from '../../state/game';
-import { Sounds } from '../../sound';
+import playSound, { Sounds } from '../../sound';
 
 export type VariationsType = 'good' | 'bad';
 
@@ -15,7 +15,7 @@ type Props = {
   sound: Sounds;
   onTop?: boolean;
   reset?: boolean;
-  finalValueType?: string;
+  valueType?: string;
 };
 export const ClickableImage = ({
   Component,
@@ -25,8 +25,9 @@ export const ClickableImage = ({
   type,
   onTop,
   reset,
-  finalValueType,
+  valueType,
   activeStyle,
+  sound,
 }: Props) => {
   const [style, styleApi] = useSpring(() => ({
     transform: `translate(-0%, -0%) rotate(0deg)`,
@@ -55,36 +56,46 @@ export const ClickableImage = ({
       return;
     }
 
-    // TODO: Add sound
-    // playSound(type === 'good' ? 'smellsGood' : 'smellsBad');
+    playSound(sound);
     styleApi.start(activeStyle);
-    setGameState({ step: 0, value: type === 'bad' ? finalValueType : '' });
+    setGameState({ step: 0, value: type === 'bad' ? valueType : '' });
     onChange(type);
   };
 
-  if (typeof Component === 'string') {
-    return (
-      <animated.img
-        src={Component}
-        style={{
-          position: 'absolute',
-          zIndex: onTop ? 2 : 0,
-          ...style,
-        }}
-        onClick={handleAnimation}
-      />
-    );
-  }
-
   return (
-    <animated.div
-      style={{
-        position: 'absolute',
-        zIndex: onTop ? 2 : 0,
-        ...style,
-      }}
-    >
-      <Component onClick={handleAnimation} />
-    </animated.div>
+    <>
+      {typeof Component === 'string' ? (
+        <animated.img
+          src={Component}
+          style={{
+            position: 'absolute',
+            zIndex: onTop ? 2 : 0,
+            ...style,
+          }}
+          onClick={handleAnimation}
+        />
+      ) : (
+        <animated.div
+          style={{
+            position: 'absolute',
+            zIndex: onTop ? 2 : 0,
+            ...style,
+          }}
+        >
+          <Component onClick={handleAnimation} />
+        </animated.div>
+      )}
+      {onTop && (
+        <div
+          style={{
+            position: 'absolute',
+            zIndex: 2,
+            width: '100%',
+            height: '100%',
+          }}
+          onClick={handleAnimation}
+        />
+      )}
+    </>
   );
 };

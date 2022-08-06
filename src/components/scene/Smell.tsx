@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { useSpring, animated } from 'react-spring';
-import playSound from '../../sound';
 import { ReactComponent as Flower } from './SmellAssets/Flower.svg';
 import { ReactComponent as Shoe } from './SmellAssets/Shoe.svg';
 import { ReactComponent as Closepin } from './SmellAssets/Closepin.svg';
 import { useGameContext } from '../../state/game';
 import { ClickableImage, VariationsType } from './ClickableImage';
 
-const finalValueType = 'badSmell';
+const valueType = 'badSmell';
+const finalValueType = valueType + '-final';
 const activePosition = { left: 540, top: 950 };
 
 const childImages = {
@@ -22,19 +22,10 @@ export function Smell() {
   );
   const location = useLocation();
   const [overlay, overlayAPI] = useSpring(() => ({ opacity: 0 }));
-  const [brain, brainAPI] = useSpring(() => ({ opacity: 0 }));
   const [effectStyle, effectAPI] = useSpring(() => ({ opacity: 0 }));
   const [{ value }] = useGameContext();
 
   if (sensoryState && value !== 'badSmell-final') {
-    brainAPI.start({
-      from: { opacity: 0 },
-      to: { opacity: 1 },
-      config: {
-        duration: 500,
-      },
-      delay: 500,
-    });
     effectAPI.start({
       from: { opacity: 0 },
       to: { opacity: 1 },
@@ -50,7 +41,6 @@ export function Smell() {
     });
   } else {
     effectAPI.set({ opacity: 0 });
-    brainAPI.set({ opacity: 0 });
     overlayAPI.set({ opacity: 0 });
   }
 
@@ -140,18 +130,30 @@ export function Smell() {
         </>
       )}
       {sensoryState && (
-        <animated.img
-          src='images/Sensory/brain.png'
-          style={{
-            transform: 'translate(-50%, -50%)',
-            position: 'absolute',
-            top: 507,
-            left: 536,
-            ...brain,
-          }}
-        />
+        <>
+          <animated.img
+            src='images/Sensory/brain.png'
+            style={{
+              transform: 'translate(-50%, -50%)',
+              position: 'absolute',
+              top: 507,
+              left: 536,
+              ...overlay,
+            }}
+          />
+          <animated.img
+            src='images/Smell/NoseHighlight.png'
+            style={{
+              transform: 'translate(-50%, -50%)',
+              position: 'absolute',
+              top: 507,
+              left: 536,
+              ...overlay,
+            }}
+          />
+        </>
       )}
-      {value === 'badSmell-final' && (
+      {value === finalValueType && (
         <Closepin style={{ position: 'absolute', left: 499, top: 739 }} />
       )}
       <ClickableImage
@@ -174,8 +176,8 @@ export function Smell() {
         type='bad'
         onChange={setSensoryState}
         onTop={sensoryState === 'bad'}
-        reset={sensoryState === 'bad' && value === 'badSmell-final'}
-        finalValueType={finalValueType}
+        reset={sensoryState === 'bad' && value === finalValueType}
+        valueType={valueType}
         activeStyle={{
           ...activePosition,
           transform: `translate(-50%, -50%) rotate(0deg)`,

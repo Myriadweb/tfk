@@ -23,6 +23,7 @@ type Props = {
 const VALUES = {
   badSmell: true,
   badSight: true,
+  badSound: true,
 };
 
 const NavigationPrefix = `${Paths.BodySystems}/${Paths.Sensory}/`;
