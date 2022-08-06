@@ -14,6 +14,8 @@ Sounds.click.preload = 'auto';
 Sounds.smellsBad.preload = 'auto';
 Sounds.smellsGood.preload = 'auto';
 
-export default function playSound(sound: keyof typeof Sounds) {
+export type Sounds = keyof typeof Sounds;
+
+export default function playSound(sound: Sounds) {
   Sounds[sound].play();
 }

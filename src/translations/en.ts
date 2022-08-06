@@ -50,6 +50,10 @@ const en: Translation = {
           description:
             'BLOCKING YOUR NOSE WHEN THERE’S A BAD\nSMELL AROUND CAN MAKE IT DISAPPEAR.',
         },
+        badSight: {
+          title: "OUCH! HERE’S A TIP…",
+          description: 'Wearing SUNGLASSES OUTSIDE CAN HELP\nPROTECT YOUR EYES FROM BRIGHT LIGHT.'
+        }
       },
     },
     [Paths.Skeletal]: {
@@ -212,6 +216,11 @@ const en: Translation = {
     [Paths.Smell]: {
       header: {
         title: 'SMELL',
+      },
+    },
+    [Paths.Sight]: {
+      header: {
+        title: 'SIGHT',
       },
     },
     [Paths.Procedures]: {

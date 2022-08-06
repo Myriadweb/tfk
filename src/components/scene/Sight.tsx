@@ -1,22 +1,16 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-import { useSpring, animated } from 'react-spring';
-import playSound from '../../sound';
-import { ReactComponent as Flower } from './SmellAssets/Flower.svg';
-import { ReactComponent as Shoe } from './SmellAssets/Shoe.svg';
-import { ReactComponent as Closepin } from './SmellAssets/Closepin.svg';
+import { animated, useSpring } from 'react-spring';
 import { useGameContext } from '../../state/game';
 import { ClickableImage, VariationsType } from './ClickableImage';
 
-const finalValueType = 'badSmell';
-const activePosition = { left: 540, top: 950 };
-
+const finalValueType = 'badSight';
+const activeStyle = { left: 540, top: 180, transform: 'translate(-50%, -50%) rotate(0deg)' };
 const childImages = {
-  good: 'images/Sensory/childHappy.png',
   bad: 'images/Sensory/childScared.png',
 };
 
-export function Smell() {
+export default function Sight() {
   const [sensoryState, setSensoryState] = React.useState<VariationsType | null>(
     null
   );
@@ -26,7 +20,7 @@ export function Smell() {
   const [effectStyle, effectAPI] = useSpring(() => ({ opacity: 0 }));
   const [{ value }] = useGameContext();
 
-  if (sensoryState && value !== 'badSmell-final') {
+  if (sensoryState && value !== `${finalValueType}-final`) {
     brainAPI.start({
       from: { opacity: 0 },
       to: { opacity: 1 },
@@ -38,7 +32,7 @@ export function Smell() {
     effectAPI.start({
       from: { opacity: 0 },
       to: { opacity: 1 },
-      delay: 1000,
+      delay: 500,
     });
     overlayAPI.start({
       to: [{ opacity: 1 }],
@@ -64,7 +58,7 @@ export function Smell() {
     <>
       {sensoryState === 'bad' && (
         <img
-          src='public/images/BGBad.png'
+          src='images/BGBad.png'
           style={{
             position: 'absolute',
             left: 0,
@@ -93,48 +87,14 @@ export function Smell() {
       {sensoryState === 'good' && (
         <>
           <animated.img
-            src='images/Smell/overlayGOOD.png'
+            src='images/Sight/overlayGOOD.png'
             style={{
               position: 'absolute',
-              left: 0,
-              top: -180,
-              zIndex: 1,
-              ...overlay,
-            }}
-          />
-          <animated.img
-            src='images/Smell/sparkles.png'
-            style={{
-              position: 'absolute',
-              top: 721,
-              left: 234,
-              zIndex: 2,
-              ...effectStyle,
-            }}
-          />
-        </>
-      )}
-      {sensoryState === 'bad' && (
-        <>
-          <animated.img
-            src='images/Smell/overlayBAD.png'
-            style={{
-              position: 'absolute',
-              left: 0,
-              top: -180,
-              zIndex: 1,
-              ...overlay,
-            }}
-          />
-          <animated.img
-            src='images/Smell/flies.png'
-            style={{
+              left: 543,
+              top: 630,
               transform: 'translate(-50%, -50%)',
-              position: 'absolute',
-              top: 867,
-              left: 517,
               zIndex: 1,
-              ...effectStyle,
+              ...overlay,
             }}
           />
         </>
@@ -151,36 +111,64 @@ export function Smell() {
           }}
         />
       )}
-      {value === 'badSmell-final' && (
-        <Closepin style={{ position: 'absolute', left: 499, top: 739 }} />
+      {sensoryState === 'bad' && (
+        <>
+          <animated.img
+            src='images/Sight/Cone.png'
+            style={{
+              position: 'absolute',
+              left: 517,
+              top: 241,
+              transform: 'translate(-50%, 0)',
+              ...effectStyle,
+            }}
+          />
+
+          <animated.img
+            src='images/Sight/overlayBAD.png'
+            style={{
+              position: 'absolute',
+              left: 539,
+              top: 630,
+              transform: 'translate(-50%, -50%)',
+              zIndex: 1,
+              ...overlay,
+            }}
+          />
+        </>
+      )}
+      {value === finalValueType + '-final' && (
+        <img
+          src='images/Sight/Sunglasses.png'
+          style={{
+            position: 'absolute',
+            left: 540,
+            top: 682,
+            transform: 'translate(-50%, -50%)',
+        }}
+        />
       )}
       <ClickableImage
-        Component={Flower}
-        x={228}
-        y={945}
+        Component={'images/Sight/Moon.png'}
+        x={615}
+        y={957}
         type='good'
         onChange={setSensoryState}
         onTop={sensoryState === 'good'}
-        activeStyle={{
-          ...activePosition,
-          transform: `translate(-50%, -50%) rotate(13deg)`,
-        }}
-        sound={'smellsGood'}
+        activeStyle={activeStyle}
+        sound={'completeProcedure'}
       />
       <ClickableImage
-        Component={Shoe}
-        x={624}
-        y={950}
+        Component={'images/Sight/Sun.png'}
+        x={185}
+        y={943}
         type='bad'
         onChange={setSensoryState}
         onTop={sensoryState === 'bad'}
-        reset={sensoryState === 'bad' && value === 'badSmell-final'}
+        reset={sensoryState === 'bad' && value === finalValueType + '-final'}
         finalValueType={finalValueType}
-        activeStyle={{
-          ...activePosition,
-          transform: `translate(-50%, -50%) rotate(0deg)`,
-        }}
-        sound={'smellsBad'}
+        activeStyle={activeStyle}
+        sound={'completeProcedure'}
       />
     </>
   );
