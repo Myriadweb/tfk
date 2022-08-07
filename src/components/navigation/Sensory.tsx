@@ -24,6 +24,7 @@ const VALUES = {
   badSmell: true,
   badSight: true,
   badSound: true,
+  badTouch: true,
 };
 
 const NavigationPrefix = `${Paths.BodySystems}/${Paths.Sensory}/`;

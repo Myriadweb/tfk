@@ -53,11 +53,16 @@ const en: Translation = {
         badSight: {
           title: 'OUCH! HERE’S A TIP…',
           description:
-            'Wearing SUNGLASSES OUTSIDE CAN HELP\nPROTECT YOUR EYES FROM BRIGHT LIGHT.',
+            'WEARING SUNGLASSES OUTSIDE CAN HELP\nPROTECT YOUR EYES FROM BRIGHT LIGHT.',
         },
         badSound: {
           title: 'OUCH! HERE’S A TIP…',
-          description: 'Wearing EAR PLUGS CAN HELP\nMAKE LOUD NOISES SOFTER.',
+          description: 'WEARING EAR PLUGS CAN HELP\nMAKE LOUD NOISES SOFTER.',
+        },
+        badTouch: {
+          title: 'OUCH! HERE’S A TIP…',
+          description:
+            'WEARING AN OVER MITT CAN PROTECT\nYOUR HANDS FROM HOT OBJECTS',
         },
       },
     },
@@ -226,6 +231,16 @@ const en: Translation = {
     [Paths.Sight]: {
       header: {
         title: 'SIGHT',
+      },
+    },
+    [Paths.Hearing]: {
+      header: {
+        title: 'HEARING',
+      },
+    },
+    [Paths.Touch]: {
+      header: {
+        title: 'TOUCH',
       },
     },
     [Paths.Procedures]: {

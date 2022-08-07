@@ -11,7 +11,12 @@ type Props = {
   y: number;
   onChange: (type: VariationsType) => void;
   type: VariationsType;
-  activeStyle: { left?: number; top?: number; transform?: string };
+  activeStyle: {
+    left?: number;
+    top?: number;
+    transform?: string;
+    opacity?: number;
+  };
   sound: Sounds;
   onTop?: boolean;
   reset?: boolean;
@@ -33,6 +38,7 @@ export const ClickableImage = ({
     transform: `translate(-0%, -0%) rotate(0deg)`,
     left: x,
     top: y,
+    opacity: 1,
   }));
   const [, setGameState] = useGameContext();
 
@@ -48,6 +54,7 @@ export const ClickableImage = ({
         left: x,
         top: y,
         transform: `translate(-0%, -0%) rotate(0deg)`,
+        opacity: 1,
       });
       if (!reset) {
         setGameState({ step: 0, value: '' });

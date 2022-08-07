@@ -1,19 +1,25 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { useSpring, animated } from 'react-spring';
 import { useGameContext } from '../../state/game';
 import { ClickableImage, VariationsType } from './ClickableImage';
+import { ReactComponent as OvenMitt } from './TouchAssets/OvenMitt.svg';
+import ChildGood from './TouchAssets/ChildGood.png';
+import ChildBad from './TouchAssets/ChildBad.png';
+import pan from './TouchAssets/Pan.png';
+import { ReactComponent as PlushToy } from './TouchAssets/PlushToy.svg';
+import { ReactComponent as Sparkles } from './TouchAssets/Sparkles.svg';
 
-const valueType = 'badSound';
+const valueType = 'badTouch';
 const finalValueType = valueType + '-final';
-const activePosition = { left: 540, top: 950 };
+const activePosition = { left: 530, top: 690 };
 
 const childImages = {
-  good: 'images/Sensory/childHappy.png',
-  bad: 'images/Sensory/childScared.png',
+  good: ChildGood,
+  bad: ChildBad,
 };
 
-export default function Hearing() {
+export default function Touch() {
   const [sensoryState, setSensoryState] = React.useState<VariationsType | null>(
     null
   );
@@ -45,7 +51,7 @@ export default function Hearing() {
     return <Navigate to={'/bodySystems/sensory'} />;
   }
 
-  const childImage = childImages[sensoryState];
+  const ResultChildImage = childImages[sensoryState];
 
   return (
     <>
@@ -61,12 +67,12 @@ export default function Hearing() {
         />
       )}
       <img
-        src={childImage || 'images/Sensory/child.png'}
+        src='images/Sensory/child.png'
         style={{
           position: 'absolute',
-          left: 540,
-          top: 276,
-          transform: 'translate(-50%, 0)',
+          left: 982,
+          top: -574,
+          transform: 'translate(-50%, 0px) scale(1.4)',
         }}
       />
       <img
@@ -77,30 +83,6 @@ export default function Hearing() {
           left: 0,
         }}
       />
-      {sensoryState && (
-        <>
-          <animated.img
-            src='images/Sensory/brain.png'
-            style={{
-              transform: 'translate(-50%, -50%)',
-              position: 'absolute',
-              top: 507,
-              left: 536,
-              ...overlay,
-            }}
-          />
-          <animated.img
-            src='images/Hearing/SensoryHighlight.png'
-            style={{
-              transform: 'translate(-50%, -50%)',
-              position: 'absolute',
-              top: 688,
-              left: 536,
-              ...overlay,
-            }}
-          />
-        </>
-      )}
       {sensoryState === 'good' && (
         <>
           <animated.img
@@ -114,22 +96,11 @@ export default function Hearing() {
               ...overlay,
             }}
           />
-          <animated.img
-            src='images/Hearing/musicSparkles.png'
+          <Sparkles
             style={{
               position: 'absolute',
-              top: 664,
+              top: 642,
               left: 274,
-              zIndex: 2,
-              ...effectStyle,
-            }}
-          />
-          <animated.img
-            src='images/Hearing/musicLines.png'
-            style={{
-              position: 'absolute',
-              top: 669,
-              left: 195,
               zIndex: 2,
               ...effectStyle,
             }}
@@ -149,29 +120,21 @@ export default function Hearing() {
               ...overlay,
             }}
           />
-          <animated.img
-            src='images/Hearing/soundLines.png'
-            style={{
-              transform: 'translate(-50%, -50%)',
-              position: 'absolute',
-              top: 630,
-              left: 538,
-              zIndex: 1,
-              ...effectStyle,
-            }}
-          />
         </>
       )}
       {value === finalValueType && (
-        <animated.img
-          src='images/Hearing/sirenAirplugsReaction.png'
-          style={{ position: 'absolute', left: 246, top: 681 }}
+        <OvenMitt
+          style={{
+            position: 'absolute',
+            top: 424,
+            left: 416,
+          }}
         />
       )}
       <ClickableImage
-        Component='images/Hearing/music.png'
+        Component={PlushToy}
         x={618}
-        y={945}
+        y={900}
         type='good'
         onChange={setSensoryState}
         onTop={sensoryState === 'good'}
@@ -182,20 +145,33 @@ export default function Hearing() {
         sound={'completeStep'}
       />
       <ClickableImage
-        Component='images/Hearing/siren.png'
-        x={200}
-        y={910}
+        Component={pan}
+        x={0}
+        y={688}
         type='bad'
         onChange={setSensoryState}
         onTop={sensoryState === 'bad'}
         reset={sensoryState === 'bad' && value === finalValueType}
         valueType={valueType}
         activeStyle={{
-          ...activePosition,
-          transform: `translate(-50%, -50%) rotate(0deg)`,
+          top: 290,
         }}
         sound={'completeStep'}
       />
+      {sensoryState && (
+        <>
+          <animated.img
+            src={ResultChildImage}
+            style={{
+              position: 'absolute',
+              left: 91,
+              bottom: 37,
+              zIndex: 2,
+              ...overlay,
+            }}
+          />
+        </>
+      )}
     </>
   );
 }

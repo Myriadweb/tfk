@@ -25,7 +25,10 @@ import SurgicalPrep from './scene/SurgicalPrep';
 import XRayGame from './scene/XRayGame';
 import playSound from '../sound';
 import Sight from './scene/Sight';
-import { Hearing } from './scene/Hearing';
+import Touch from './scene/Touch';
+import Hearing from './scene/Hearing';
+import Taste from './scene/Taste';
+import Proprioception from './scene/Proprioception';
 
 export function Home() {
   // This gets the current location from react router.
@@ -71,6 +74,18 @@ export function Home() {
             <Route
               path={Paths.Sensory + '/' + Paths.Sight}
               element={<Sight />}
+            />
+            <Route
+              path={Paths.Sensory + '/' + Paths.Touch}
+              element={<Touch />}
+            />
+            <Route
+              path={Paths.Sensory + '/' + Paths.Taste}
+              element={<Taste />}
+            />
+            <Route
+              path={Paths.Sensory + '/' + Paths.Proprioception}
+              element={<Proprioception />}
             />
             <Route path={Paths.Skeletal} element={<Skeletal />} />
             <Route

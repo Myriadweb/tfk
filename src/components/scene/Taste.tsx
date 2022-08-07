@@ -1,33 +1,35 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { useSpring, animated } from 'react-spring';
 import { useGameContext } from '../../state/game';
 import { ClickableImage, VariationsType } from './ClickableImage';
-
-const valueType = 'badSound';
-const finalValueType = valueType + '-final';
-const activePosition = { left: 540, top: 950 };
+import ChildGood from './TasteAssets/ChildGood.png';
+import ChildBad from './TasteAssets/ChildBad.png';
+import Child from './TasteAssets/Child.png';
+import { ReactComponent as Sparkles } from './TasteAssets/Sparkles.svg';
+import IceCream from './TasteAssets/IceCream.png';
+import Bottle from './TasteAssets/Bottle.png';
+import SenseHighlight from './TasteAssets/SenseHighlight.png';
+import Drop from './TasteAssets/Drop.png';
 
 const childImages = {
-  good: 'images/Sensory/childHappy.png',
-  bad: 'images/Sensory/childScared.png',
+  good: ChildGood,
+  bad: ChildBad,
 };
 
-export default function Hearing() {
+export default function Taste() {
   const [sensoryState, setSensoryState] = React.useState<VariationsType | null>(
     null
   );
   const location = useLocation();
   const [overlay, overlayAPI] = useSpring(() => ({ opacity: 0 }));
-  const [effectStyle, effectAPI] = useSpring(() => ({ opacity: 0 }));
+  const [dropStyle, dropAPI] = useSpring(() => ({
+    opacity: 0,
+    transform: 'translateY(-200px)',
+  }));
   const [{ value }] = useGameContext();
 
-  if (sensoryState && value !== finalValueType) {
-    effectAPI.start({
-      from: { opacity: 0 },
-      to: { opacity: 1 },
-      delay: 1000,
-    });
+  if (sensoryState) {
     overlayAPI.start({
       to: [{ opacity: 1 }],
       from: { opacity: 0 },
@@ -36,16 +38,20 @@ export default function Hearing() {
       },
       delay: 500,
     });
+    dropAPI.start({
+      to: [{ opacity: 1, transform: 'translateY(-0px)' }],
+      delay: 500,
+    });
   } else {
-    effectAPI.set({ opacity: 0 });
     overlayAPI.set({ opacity: 0 });
+    dropAPI.set({ opacity: 0, transform: 'translateY(-200px)' });
   }
 
   if (!location.search) {
     return <Navigate to={'/bodySystems/sensory'} />;
   }
 
-  const childImage = childImages[sensoryState];
+  const ResultChildImage = childImages[sensoryState];
 
   return (
     <>
@@ -61,12 +67,12 @@ export default function Hearing() {
         />
       )}
       <img
-        src={childImage || 'images/Sensory/child.png'}
+        src={ResultChildImage || Child}
         style={{
           position: 'absolute',
           left: 540,
-          top: 276,
-          transform: 'translate(-50%, 0)',
+          top: 270,
+          transform: 'translate(-50%, 0px)',
         }}
       />
       <img
@@ -78,28 +84,16 @@ export default function Hearing() {
         }}
       />
       {sensoryState && (
-        <>
-          <animated.img
-            src='images/Sensory/brain.png'
-            style={{
-              transform: 'translate(-50%, -50%)',
-              position: 'absolute',
-              top: 507,
-              left: 536,
-              ...overlay,
-            }}
-          />
-          <animated.img
-            src='images/Hearing/SensoryHighlight.png'
-            style={{
-              transform: 'translate(-50%, -50%)',
-              position: 'absolute',
-              top: 688,
-              left: 536,
-              ...overlay,
-            }}
-          />
-        </>
+        <animated.img
+          src='images/Sensory/brain.png'
+          style={{
+            transform: 'translate(-50%, -50%)',
+            position: 'absolute',
+            top: 507,
+            left: 536,
+            ...overlay,
+          }}
+        />
       )}
       {sensoryState === 'good' && (
         <>
@@ -114,30 +108,42 @@ export default function Hearing() {
               ...overlay,
             }}
           />
-          <animated.img
-            src='images/Hearing/musicSparkles.png'
+          <animated.div
             style={{
               position: 'absolute',
-              top: 664,
+              top: 642,
               left: 274,
-              zIndex: 2,
-              ...effectStyle,
+              zIndex: 3,
+              ...overlay,
             }}
-          />
-          <animated.img
-            src='images/Hearing/musicLines.png'
-            style={{
-              position: 'absolute',
-              top: 669,
-              left: 195,
-              zIndex: 2,
-              ...effectStyle,
-            }}
-          />
+          >
+            <Sparkles />
+          </animated.div>
         </>
       )}
       {sensoryState === 'bad' && (
         <>
+          <animated.img
+            src={Drop}
+            style={{
+              position: 'absolute',
+              left: 529,
+              top: 811,
+              zIndex: 1,
+              ...dropStyle,
+            }}
+          />
+          <animated.img
+            src={SenseHighlight}
+            style={{
+              position: 'absolute',
+              left: 539,
+              top: 758,
+              transform: 'translate(-50%, -50%)',
+              zIndex: 1,
+              ...overlay,
+            }}
+          />
           <animated.img
             src='images/Hearing/overlayBAD.png'
             style={{
@@ -149,50 +155,33 @@ export default function Hearing() {
               ...overlay,
             }}
           />
-          <animated.img
-            src='images/Hearing/soundLines.png'
-            style={{
-              transform: 'translate(-50%, -50%)',
-              position: 'absolute',
-              top: 630,
-              left: 538,
-              zIndex: 1,
-              ...effectStyle,
-            }}
-          />
         </>
       )}
-      {value === finalValueType && (
-        <animated.img
-          src='images/Hearing/sirenAirplugsReaction.png'
-          style={{ position: 'absolute', left: 246, top: 681 }}
-        />
-      )}
       <ClickableImage
-        Component='images/Hearing/music.png'
-        x={618}
-        y={945}
+        Component={IceCream}
+        x={638}
+        y={871}
         type='good'
         onChange={setSensoryState}
         onTop={sensoryState === 'good'}
         activeStyle={{
-          ...activePosition,
+          top: 955,
+          left: 547,
           transform: `translate(-50%, -50%) rotate(0deg)`,
         }}
         sound={'completeStep'}
       />
       <ClickableImage
-        Component='images/Hearing/siren.png'
-        x={200}
-        y={910}
+        Component={Bottle}
+        x={215}
+        y={865}
         type='bad'
         onChange={setSensoryState}
         onTop={sensoryState === 'bad'}
-        reset={sensoryState === 'bad' && value === finalValueType}
-        valueType={valueType}
         activeStyle={{
-          ...activePosition,
-          transform: `translate(-50%, -50%) rotate(0deg)`,
+          transform: 'translate(0%, 0%) rotate(108deg)',
+          left: 317,
+          top: 340,
         }}
         sound={'completeStep'}
       />

@@ -48,7 +48,7 @@ export default function Sensory() {
   if (location.search === '?play=true') {
     return (
       <Navigate
-        to={`/${Paths.BodySystems}/${Paths.Sensory}/${Paths.Smell}?play=true`}
+        to={`/${Paths.BodySystems}/${Paths.Sensory}/${Paths.Hearing}?play=true`}
       />
     );
   }
