@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useSpring, animated } from 'react-spring';
 import {
-  Character,
   CharacterArray,
+  Characters,
   useCharacterContext,
 } from '../../state/character';
 
@@ -22,10 +22,11 @@ const AnimatedChild = ({ i, x }: AnimatedChildProps) => {
     },
   });
 
+  const ChildComponent = Characters.default[i];
+
   return (
-    <animated.img
+    <animated.div
       key={i}
-      src={`images/MainMenu/child${i + 1}.png`}
       style={{
         position: 'absolute',
         left: x,
@@ -34,7 +35,9 @@ const AnimatedChild = ({ i, x }: AnimatedChildProps) => {
         ...props,
       }}
       ref={ref}
-    />
+    >
+      <ChildComponent />
+    </animated.div>
   );
 };
 
@@ -70,8 +73,8 @@ const AnimatedArrow = ({
 const getCurrentPosition = (x: number) => ((x - 540) * -1) / 1080;
 
 export function MainMenu() {
-  const [, setChild] = useCharacterContext();
-  const [x, setX] = useState(540);
+  const [selectedChild, setChild] = useCharacterContext();
+  const [x, setX] = useState(540 - selectedChild * 1080);
   const [disabled, setDisabled] = useState<'left' | 'right' | null>(null);
   const [arrowStyles, api] = useSpring(() => ({ opacity: 1 }));
 
@@ -102,7 +105,7 @@ export function MainMenu() {
     const newX = x + sign * 1080;
     setX(newX);
     const newPosition = getCurrentPosition(newX);
-    setChild(Character[`child_${newPosition + 1}`]);
+    setChild(newPosition);
   };
 
   return (

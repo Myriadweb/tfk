@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { LanguageToggle } from './LanguageToggle';
 import playSound from '../sound';
 import { useGameContext } from '../state/game';
+import { useAnimateContext } from '../state/animate';
 
 const bodySystemPaths = [
   Paths.Sensory,
@@ -53,6 +54,8 @@ const getNavigationIcon = (path: Paths) => {
 export function NavBar({ path, prefix }: Props) {
   const Component = getNavbarComponent(prefix || path);
   const [{ hideButtons }, setStep] = useGameContext();
+  const [, setAnimatedPath] = useAnimateContext();
+
   const { t } = useTranslation('translation');
 
   return (
@@ -75,6 +78,7 @@ export function NavBar({ path, prefix }: Props) {
             onClick={() => {
               playSound('click');
               setStep({ step: 0 });
+              setAnimatedPath('');
             }}
           >
             <img src='images/NavBar/exitButton.png' />

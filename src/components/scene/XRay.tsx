@@ -6,11 +6,18 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Paths } from '../../types/Paths';
 import ProceduresTextBox from './ProceduresTextBox';
 import { CSSProperties } from 'react';
+import {
+  Characters,
+  childWidth,
+  useCharacterContext,
+} from '../../state/character';
+import { ReactComponent as XrayMachine } from './XRayAssets/XRayMachine.svg';
 
 const bodyLeft = 540;
 
 export default function XRay() {
-  const [animatedPath, setAnimatedPath] = useAnimateContext();
+  const [animatedPath] = useAnimateContext();
+  const [selectedChild] = useCharacterContext();
   const { t } = useTranslation('translation');
   const navigate = useNavigate();
   const shouldShowIntroAnimation =
@@ -37,10 +44,7 @@ export default function XRay() {
   }
 
   // if we have an animated path, we need to show the slide in animation
-  if (animatedPath === `${Paths.Procedures}/${Paths.XRay}`) {
-    // we reset the animation
-    setAnimatedPath('');
-  } else if (animatedPath) {
+  if (animatedPath) {
     // if we have a different animatedPath, we show the slide out animation
     overlayApi.start({
       to: [{ opacity: 0 }],
@@ -56,29 +60,33 @@ export default function XRay() {
       delay: 300,
       onRest: () => navigate('/' + animatedPath),
     });
-    // then we navigate to the path
   }
+
+  const Child = Characters.smock[selectedChild];
+  const width = childWidth[selectedChild];
 
   return (
     <>
-      <animated.img
-        src='images/XRay/xRayChild.png'
+      <animated.div
         style={{
           top: 275,
           position: 'absolute',
-          transform: 'translate(-50%, 0)',
+          transform: `translate(-${width / 2}px, 0)`,
           ...bodyStyle,
         }}
-      />
-      <animated.img
-        src='images/XRay/xRayScreen.png'
+      >
+        <Child />
+      </animated.div>
+      <animated.div
         style={{
-          top: 613,
+          top: 0,
           position: 'absolute',
-          left: 492,
+          left: 95,
           ...overlayStyle,
         }}
-      />
+      >
+        <XrayMachine />
+      </animated.div>
       <ProceduresTextBox
         text={t('xRay.scene.text')}
         animatedStyle={overlayStyle as unknown as CSSProperties}
