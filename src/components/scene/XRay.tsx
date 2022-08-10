@@ -6,18 +6,14 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Paths } from '../../types/Paths';
 import ProceduresTextBox from './ProceduresTextBox';
 import { CSSProperties } from 'react';
-import {
-  Characters,
-  childWidth,
-  useCharacterContext,
-} from '../../state/character';
+
 import { ReactComponent as XrayMachine } from './XRayAssets/XRayMachine.svg';
+import { Characters, childWidth } from './SharedAssets/childrenAssets';
 
 const bodyLeft = 540;
 
 export default function XRay() {
   const [animatedPath] = useAnimateContext();
-  const [selectedChild] = useCharacterContext();
   const { t } = useTranslation('translation');
   const navigate = useNavigate();
   const shouldShowIntroAnimation =
@@ -62,8 +58,8 @@ export default function XRay() {
     });
   }
 
-  const Child = Characters.smock[selectedChild];
-  const width = childWidth[selectedChild];
+  const Child = Characters.smock[4];
+  const width = childWidth[4];
 
   return (
     <>

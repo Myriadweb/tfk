@@ -6,20 +6,23 @@ import { ReactComponent as Shoe } from './SmellAssets/Shoe.svg';
 import { ReactComponent as Closepin } from './SmellAssets/Closepin.svg';
 import { useGameContext } from '../../state/game';
 import { ClickableImage, VariationsType } from './ClickableImage';
+import { Characters, sensoryChildWidth } from './SharedAssets/childrenAssets';
+import { useCharacterContext } from '../../state/character';
 
 const valueType = 'badSmell';
 const finalValueType = valueType + '-final';
 const activePosition = { left: 540, top: 950 };
 
 const childImages = {
-  good: 'images/Sensory/childHappy.png',
-  bad: 'images/Sensory/childScared.png',
+  good: 'happySensory',
+  bad: 'scaredSensory',
 };
 
 export function Smell() {
   const [sensoryState, setSensoryState] = React.useState<VariationsType | null>(
     null
   );
+  const [selectedCharacter] = useCharacterContext();
   const location = useLocation();
   const [overlay, overlayAPI] = useSpring(() => ({ opacity: 0 }));
   const [effectStyle, effectAPI] = useSpring(() => ({ opacity: 0 }));
@@ -48,8 +51,12 @@ export function Smell() {
     return <Navigate to={'/bodySystems/sensory'} />;
   }
 
-  const childImage = childImages[sensoryState];
+  const ChildReaction = sensoryState
+    ? Characters[childImages[sensoryState]][selectedCharacter]
+    : null;
 
+  const ChildComponent = ChildReaction || Characters.sensory[selectedCharacter];
+  const width = sensoryChildWidth;
   return (
     <>
       {sensoryState === 'bad' && (
@@ -63,15 +70,16 @@ export function Smell() {
           }}
         />
       )}
-      <img
-        src={childImage || 'images/Sensory/child.png'}
+      <div
         style={{
           position: 'absolute',
           left: 540,
           top: 276,
-          transform: 'translate(-50%, 0)',
+          transform: `translate(-${width / 2}px, 0)`,
         }}
-      />
+      >
+        <ChildComponent />
+      </div>
       <img
         src='images/Sensory/bottomOverlay.png'
         style={{
@@ -146,7 +154,7 @@ export function Smell() {
             style={{
               transform: 'translate(-50%, -50%)',
               position: 'absolute',
-              top: 507,
+              top: 758,
               left: 536,
               ...overlay,
             }}

@@ -1,10 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useSpring, animated } from 'react-spring';
-import {
-  CharacterArray,
-  Characters,
-  useCharacterContext,
-} from '../../state/character';
+import { CharacterArray, useCharacterContext } from '../../state/character';
+import { Characters } from './SharedAssets/childrenAssets';
 
 type AnimatedChildProps = {
   i: number;

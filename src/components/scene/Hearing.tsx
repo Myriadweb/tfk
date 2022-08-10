@@ -3,20 +3,23 @@ import { Navigate, useLocation } from 'react-router-dom';
 import { useSpring, animated } from 'react-spring';
 import { useGameContext } from '../../state/game';
 import { ClickableImage, VariationsType } from './ClickableImage';
+import { useCharacterContext } from '../../state/character';
+import { Characters, sensoryChildWidth } from './SharedAssets/childrenAssets';
 
 const valueType = 'badSound';
 const finalValueType = valueType + '-final';
 const activePosition = { left: 540, top: 950 };
 
 const childImages = {
-  good: 'images/Sensory/childHappy.png',
-  bad: 'images/Sensory/childScared.png',
+  good: 'happySensory',
+  bad: 'scaredSensory',
 };
 
 export default function Hearing() {
   const [sensoryState, setSensoryState] = React.useState<VariationsType | null>(
     null
   );
+  const [selectedCharacter] = useCharacterContext();
   const location = useLocation();
   const [overlay, overlayAPI] = useSpring(() => ({ opacity: 0 }));
   const [effectStyle, effectAPI] = useSpring(() => ({ opacity: 0 }));
@@ -45,7 +48,12 @@ export default function Hearing() {
     return <Navigate to={'/bodySystems/sensory'} />;
   }
 
-  const childImage = childImages[sensoryState];
+  const ChildReaction = sensoryState
+    ? Characters[childImages[sensoryState]][selectedCharacter]
+    : null;
+
+  const ChildComponent = ChildReaction || Characters.sensory[selectedCharacter];
+  const width = sensoryChildWidth;
 
   return (
     <>
@@ -60,15 +68,16 @@ export default function Hearing() {
           }}
         />
       )}
-      <img
-        src={childImage || 'images/Sensory/child.png'}
+      <div
         style={{
           position: 'absolute',
           left: 540,
-          top: 276,
-          transform: 'translate(-50%, 0)',
+          top: 271,
+          transform: `translate(-${width / 2}px, 0)`,
         }}
-      />
+      >
+        <ChildComponent />
+      </div>
       <img
         src='images/Sensory/bottomOverlay.png'
         style={{
@@ -94,8 +103,8 @@ export default function Hearing() {
             style={{
               transform: 'translate(-50%, -50%)',
               position: 'absolute',
-              top: 688,
-              left: 536,
+              top: 704,
+              left: 541,
               ...overlay,
             }}
           />
