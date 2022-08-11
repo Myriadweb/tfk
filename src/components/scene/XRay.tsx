@@ -7,8 +7,8 @@ import { Paths } from '../../types/Paths';
 import ProceduresTextBox from './ProceduresTextBox';
 import { CSSProperties } from 'react';
 
-import { ReactComponent as XrayMachine } from './XRayAssets/XRayMachine.svg';
-import { Characters, childWidth } from './SharedAssets/childrenAssets';
+import { ReactComponent as XrayMachine } from './XRayAssets/xRayMachine.svg';
+import { Characters, childWidth } from './ChildrenAssets/childrenAssets';
 
 const bodyLeft = 540;
 

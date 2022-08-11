@@ -1,15 +1,15 @@
 import * as React from 'react';
 import { animated, useSpring } from 'react-spring';
 import { ReactComponent as XRayScene } from './XRayAssets/xRayScene.svg';
+import { ReactComponent as XRayScene2 } from './XRayAssets/xRayScene2.svg';
+import { ReactComponent as XRayMachineScene } from './XRayAssets/xRayMachineScene.svg';
 import { ReactComponent as PainLines } from './XRayAssets/painLines.svg';
 import { ReactComponent as XRayBody } from './XRayAssets/xRayBody.svg';
-import { ReactComponent as PopupLine } from './XRayAssets/popupLine.svg';
 import { ReactComponent as Cast } from './XRayAssets/cast.svg';
 import { ReactComponent as Signature } from './XRayAssets/signature.svg';
 import { useGameContext } from '../../state/game';
 import playSound from '../../sound';
 import { useEffect } from 'react';
-import ProceduresTextBox from './ProceduresTextBox';
 import { useTranslation } from 'react-i18next';
 
 export default function XRayGame() {
@@ -30,23 +30,29 @@ export default function XRayGame() {
   const [xRayFlash, xRayFlashApi] = useSpring(() => ({
     opacity: 0,
   }));
-  const [popupStyle, popupApi] = useSpring(() => ({
-    opacity: 0,
+  const [xRayMachineStyle, xRayMachineApi] = useSpring(() => ({
+    transform: 'translateX(-1080px)',
   }));
 
   useEffect(() => {
-    if (step === 3) {
-      xRayFlashApi.start({ opacity: 1 });
+    if (step === 2) {
+      xRayMachineApi.start({
+        transform: 'translateX(0px)',
+        config: {
+          duration: 1000,
+        },
+      });
+    } else if (step === 3) {
+      xRayFlashApi.start({ opacity: 0.8 });
       setTimeout(() => {
         setStep((oldState) => ({ ...oldState, step: 4 }));
       }, 3000);
     } else if (step === 4) {
       xRayFlashApi.start({
         opacity: 0,
-        onRest: () => popupApi.start({ opacity: 1 }),
       });
     }
-  }, [step]);
+  }, [step, setStep, xRayFlashApi]);
 
   const scaleIt = () => {
     let n = 0;
@@ -72,7 +78,7 @@ export default function XRayGame() {
 
   return (
     <>
-      {step < 4 && (
+      {step < 2 && (
         <animated.div
           style={{
             ...animatedDiv,
@@ -82,19 +88,8 @@ export default function XRayGame() {
           <XRayScene
             style={{
               position: 'absolute',
-              top: -152,
-              left: 0,
+              left: -22,
             }}
-          />
-          <img
-            style={{
-              position: 'absolute',
-              left: 572,
-              top: 770,
-              width: 145,
-              height: 122,
-            }}
-            src={'images/XRay/JoeDiMaggioLogo.png'}
           />
           <animated.div
             style={{
@@ -106,6 +101,38 @@ export default function XRayGame() {
           </animated.div>
         </animated.div>
       )}
+      {step > 1 && step < 4 && (
+        <>
+          <XRayScene2 />
+          <animated.div
+            style={{ position: 'absolute', top: -5, ...xRayMachineStyle }}
+          >
+            <XRayMachineScene />
+          </animated.div>
+        </>
+      )}
+      {step === 4 && (
+        <>
+          <XRayBody
+            style={{
+              position: 'absolute',
+              left: 540,
+              top: 630,
+              transform: 'translate(-50%, -50%)',
+            }}
+          />
+        </>
+      )}
+      <animated.div
+        style={{
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
+          background: 'white',
+          top: 0,
+          ...xRayFlash,
+        }}
+      />
       {step === 0 && (
         <div
           style={{
@@ -117,36 +144,6 @@ export default function XRayGame() {
             top: 931,
           }}
           onClick={() => scaleIt()}
-        />
-      )}
-      {step === 4 && (
-        <>
-          <XRayBody style={{ position: 'absolute', left: 0, top: -170 }} />
-          <animated.div style={popupStyle}>
-            <PopupLine
-              style={{
-                position: 'absolute',
-                left: 470,
-                top: 420,
-                transform: 'scale(1.1)',
-              }}
-            />
-            <ProceduresTextBox
-              label={t('xRay.scene.brokenBoneLabel')}
-              text={t('xRay.scene.brokenBoneText')}
-            />
-          </animated.div>
-        </>
-      )}
-      {step >= 3 && (
-        <animated.div
-          style={{
-            position: 'absolute',
-            width: '100%',
-            height: '100%',
-            background: 'white',
-            ...xRayFlash,
-          }}
         />
       )}
       {step >= 5 && (

@@ -10,6 +10,8 @@ import Bear from './XRayAssets/bear.svg';
 import SignCast from './XRayAssets/signCast.svg';
 import Skeletal from './BodySystemsAssets/Skeletal.svg';
 import { Link, useNavigate } from 'react-router-dom';
+import { useSpring, animated } from 'react-spring';
+import { useEffect } from 'react';
 
 type Props = {
   path: Paths;
@@ -20,6 +22,20 @@ const XRay = ({ prefix }: Props) => {
   const t = useNavBarTranslation(prefix);
   const navigate = useNavigate();
   const [{ step, value }, setStep] = useGameContext();
+  const [delayStyle, delayApi] = useSpring(() => ({ opacity: 1 }));
+
+  useEffect(() => {
+    if (step === 2) {
+      delayApi.start({
+        from: { opacity: 0 },
+        to: { opacity: 1 },
+        delay: 1000,
+        config: {
+          duration: 100,
+        },
+      });
+    }
+  }, [step]);
 
   const stepComponentConfig = {
     0: null,
@@ -216,7 +232,7 @@ const XRay = ({ prefix }: Props) => {
   };
 
   return (
-    <div>
+    <animated.div style={delayStyle}>
       {step < 6 && (
         <span
           style={{
@@ -258,7 +274,7 @@ const XRay = ({ prefix }: Props) => {
         </span>
       )}
       {stepComponentConfig[step] && stepComponentConfig[step]()}
-    </div>
+    </animated.div>
   );
 };
 

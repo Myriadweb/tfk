@@ -3,6 +3,8 @@ import { Navigate, useLocation } from 'react-router-dom';
 import { animated, useSpring } from 'react-spring';
 import { useGameContext } from '../../state/game';
 import { ClickableImage, VariationsType } from './ClickableImage';
+import { useCharacterContext } from '../../state/character';
+import { Characters, sensoryChildWidth } from './ChildrenAssets/childrenAssets';
 
 const valueType = 'badSight';
 const finalValueType = valueType + '-final';
@@ -11,14 +13,17 @@ const activeStyle = {
   top: 180,
   transform: 'translate(-50%, -50%) rotate(0deg)',
 };
+
 const childImages = {
-  bad: 'images/Sensory/childScared.png',
+  good: 'moon',
+  bad: 'sun',
 };
 
 export default function Sight() {
   const [sensoryState, setSensoryState] = React.useState<VariationsType | null>(
     null
   );
+  const [selectedCharacter] = useCharacterContext();
   const location = useLocation();
   const [overlay, overlayAPI] = useSpring(() => ({ opacity: 0 }));
   const [brain, brainAPI] = useSpring(() => ({ opacity: 0 }));
@@ -57,7 +62,12 @@ export default function Sight() {
     return <Navigate to={'/bodySystems/sensory'} />;
   }
 
-  const childImage = childImages[sensoryState];
+  const ChildReaction = sensoryState
+    ? Characters[childImages[sensoryState]][selectedCharacter]
+    : null;
+
+  const ChildComponent = ChildReaction || Characters.sensory[selectedCharacter];
+  const width = sensoryChildWidth;
 
   return (
     <>
@@ -72,13 +82,22 @@ export default function Sight() {
           }}
         />
       )}
-      <img
-        src={childImage || 'images/Sensory/child.png'}
+      <div
         style={{
           position: 'absolute',
           left: 540,
           top: 276,
-          transform: 'translate(-50%, 0)',
+          transform: `translate(-${width / 2}px, 0)`,
+        }}
+      >
+        <ChildComponent />
+      </div>
+      <img
+        src='images/Sensory/bottomOverlay.png'
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
         }}
       />
       <img
@@ -147,8 +166,8 @@ export default function Sight() {
           src='images/Sight/sunglasses.png'
           style={{
             position: 'absolute',
-            left: 540,
-            top: 682,
+            left: 544,
+            top: 693,
             transform: 'translate(-50%, -50%)',
           }}
         />

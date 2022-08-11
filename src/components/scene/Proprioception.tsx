@@ -1,7 +1,6 @@
 import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { useSpring, animated } from 'react-spring';
-import { useGameContext } from '../../state/game';
 import { ClickableImage, VariationsType } from './ClickableImage';
 import ChildGood from './ProprioceptionAssets/ChildGood.png';
 import ChildBad from './ProprioceptionAssets/ChildBad.png';
@@ -25,11 +24,6 @@ export default function Proprioception() {
   );
   const location = useLocation();
   const [overlay, overlayAPI] = useSpring(() => ({ opacity: 0 }));
-  const [dropStyle, dropAPI] = useSpring(() => ({
-    opacity: 0,
-    transform: 'translateY(-200px)',
-  }));
-  const [{ value }] = useGameContext();
 
   if (sensoryState) {
     overlayAPI.start({
@@ -40,13 +34,8 @@ export default function Proprioception() {
       },
       delay: 500,
     });
-    dropAPI.start({
-      to: [{ opacity: 1, transform: 'translateY(-0px)' }],
-      delay: 500,
-    });
   } else {
     overlayAPI.set({ opacity: 0 });
-    dropAPI.set({ opacity: 0, transform: 'translateY(-200px)' });
   }
 
   if (!location.search) {

@@ -1,33 +1,31 @@
 import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { useSpring, animated } from 'react-spring';
-import { useGameContext } from '../../state/game';
 import { ClickableImage, VariationsType } from './ClickableImage';
-import ChildGood from './TasteAssets/ChildGood.png';
-import ChildBad from './TasteAssets/ChildBad.png';
-import Child from './TasteAssets/Child.png';
 import { ReactComponent as Sparkles } from './TasteAssets/Sparkles.svg';
 import IceCream from './TasteAssets/IceCream.png';
 import Bottle from './TasteAssets/Bottle.png';
 import SenseHighlight from './TasteAssets/SenseHighlight.png';
 import Drop from './TasteAssets/Drop.png';
+import { useCharacterContext } from '../../state/character';
+import { Characters, sensoryChildWidth } from './ChildrenAssets/childrenAssets';
 
 const childImages = {
-  good: ChildGood,
-  bad: ChildBad,
+  good: 'iceCream',
+  bad: 'hotSauce',
 };
 
 export default function Taste() {
   const [sensoryState, setSensoryState] = React.useState<VariationsType | null>(
     null
   );
+  const [selectedCharacter] = useCharacterContext();
   const location = useLocation();
   const [overlay, overlayAPI] = useSpring(() => ({ opacity: 0 }));
   const [dropStyle, dropAPI] = useSpring(() => ({
     opacity: 0,
     transform: 'translateY(-200px)',
   }));
-  const [{ value }] = useGameContext();
 
   if (sensoryState) {
     overlayAPI.start({
@@ -51,7 +49,13 @@ export default function Taste() {
     return <Navigate to={'/bodySystems/sensory'} />;
   }
 
-  const ResultChildImage = childImages[sensoryState];
+  const ChildReaction = sensoryState
+    ? Characters[childImages[sensoryState]][selectedCharacter]
+    : null;
+
+  const ChildComponent =
+    ChildReaction || Characters.mouthOpen[selectedCharacter];
+  const width = sensoryChildWidth;
 
   return (
     <>
@@ -66,15 +70,16 @@ export default function Taste() {
           }}
         />
       )}
-      <img
-        src={ResultChildImage || Child}
+      <div
         style={{
           position: 'absolute',
           left: 540,
           top: 270,
-          transform: 'translate(-50%, 0px)',
+          transform: `translate(-${width / 2}px, 0)`,
         }}
-      />
+      >
+        <ChildComponent />
+      </div>
       <img
         src='images/Sensory/bottomOverlay.png'
         style={{

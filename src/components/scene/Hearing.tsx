@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { useSpring, animated } from 'react-spring';
 import { useGameContext } from '../../state/game';
 import { ClickableImage, VariationsType } from './ClickableImage';
 import { useCharacterContext } from '../../state/character';
-import { Characters, sensoryChildWidth } from './SharedAssets/childrenAssets';
+import { Characters, sensoryChildWidth } from './ChildrenAssets/childrenAssets';
 
 const valueType = 'badSound';
 const finalValueType = valueType + '-final';

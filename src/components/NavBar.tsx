@@ -51,6 +51,16 @@ const getNavigationIcon = (path: Paths) => {
   return '';
 };
 
+const getNavigationText = (path: Paths) => {
+  if (bodySystemPaths.includes(path)) {
+    return 'bodySystems';
+  }
+  if (ProceduresPaths.includes(path)) {
+    return 'procedures';
+  }
+  return '';
+};
+
 export function NavBar({ path, prefix }: Props) {
   const Component = getNavbarComponent(prefix || path);
   const [{ hideButtons }, setStep] = useGameContext();
@@ -156,7 +166,7 @@ export function NavBar({ path, prefix }: Props) {
                 marginLeft: 15,
               }}
             >
-              {t('common.navbar.procedures')}
+              {t(`common.navbar.${getNavigationText(prefix)}`)}
             </span>
           </Link>
         </div>

@@ -9,6 +9,8 @@ import ChildBad from './TouchAssets/ChildBad.png';
 import pan from './TouchAssets/Pan.png';
 import { ReactComponent as PlushToy } from './TouchAssets/PlushToy.svg';
 import { ReactComponent as Sparkles } from './TouchAssets/Sparkles.svg';
+import { useCharacterContext } from '../../state/character';
+import { Characters } from './ChildrenAssets/childrenAssets';
 
 const valueType = 'badTouch';
 const finalValueType = valueType + '-final';
@@ -23,6 +25,7 @@ export default function Touch() {
   const [sensoryState, setSensoryState] = React.useState<VariationsType | null>(
     null
   );
+  const [selectedCharacter] = useCharacterContext();
   const location = useLocation();
   const [overlay, overlayAPI] = useSpring(() => ({ opacity: 0 }));
   const [effectStyle, effectAPI] = useSpring(() => ({ opacity: 0 }));
@@ -53,6 +56,8 @@ export default function Touch() {
 
   const ResultChildImage = childImages[sensoryState];
 
+  const ChildComponent = Characters.default[selectedCharacter];
+
   return (
     <>
       {sensoryState === 'bad' && (
@@ -66,15 +71,16 @@ export default function Touch() {
           }}
         />
       )}
-      <img
-        src='images/Sensory/child.png'
+      <div
         style={{
           position: 'absolute',
-          left: 982,
-          top: -574,
-          transform: 'translate(-50%, 0px) scale(1.4)',
+          left: 960,
+          top: -83,
+          transform: 'translate(-50%, 0px) scale(2.7)',
         }}
-      />
+      >
+        <ChildComponent />
+      </div>
       <img
         src='images/Sensory/bottomOverlay.png'
         style={{
