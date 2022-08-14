@@ -37,10 +37,7 @@ export default function Iv() {
   }
 
   // if we have an animated path, we need to show the slide in animation
-  if (animatedPath === `${Paths.Procedures}/${Paths.Iv}`) {
-    // we reset the animation
-    setAnimatedPath('');
-  } else if (animatedPath) {
+  if (animatedPath) {
     // if we have a different animatedPath, we show the slide out animation
     overlayApi.start({
       to: [{ opacity: 0 }],

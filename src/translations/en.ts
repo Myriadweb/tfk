@@ -331,6 +331,29 @@ const en: Translation = {
         label: 'MRI',
         buttonText: 'TAKE AN MRI',
       },
+      navbar: {
+        nap: 'NAP',
+        vr: 'VR',
+        music: 'MUSIC',
+        '0-mainText': 'PICK A DISTRACTION',
+        '1-mainText': 'GOOD JOB!',
+        '1-subText': 'THE PATIENT IS DISTRACTED',
+        '1-buttonText': 'CONTINUE',
+        '2-mainText': 'MRI MACHINE',
+        '2-subText': 'PRESS THE START BUTTON TO\nTAKE AN IMAGE OF THE AREA.',
+        '2-buttonText': 'START',
+        '4-mainText': 'GREAT JOB!',
+        '4-subText':
+          'YOU’VE DISCOVERED THAT A ROTATOR CUFF\nTEAR WAS THE CAUSE OF THE PAIN.',
+        '4-buttonText': 'FINISH',
+        '5-mainText': 'GREAT JOB!',
+        '5-subText':
+          'YOU’VE SUCCESSFULLY TREATED THE INJURY!\nNOW CHOOSE YOUR PATIENT’S REWARD.',
+        '5-buttonText': 'CONTINUE',
+        '6-subText': 'YOU’VE DONE AN x-RAY!\nTAP BELOW TO LEARN MORE ABOUT',
+        '6-boldText': 'THE SKELETAL SYSTEM',
+        '6-back': 'BACK TO\nPROCEDURES',
+      },
     },
     [Paths.Iv]: {
       header: {

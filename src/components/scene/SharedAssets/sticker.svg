@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="103px" height="103px" viewBox="0 0 103 103" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Reward</title>
+    <defs>
+        <circle id="path-1" cx="37.5" cy="37.5" r="37.5"></circle>
+        <filter x="-8.7%" y="-7.3%" width="117.3%" height="117.3%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="03M_C_Teammates_Procedures_IV" transform="translate(-529.000000, -774.000000)">
+            <g id="Reward" transform="translate(534.572067, 778.572067)">
+                <g id="Sticker" transform="translate(45.927933, 45.927933) rotate(-15.000000) translate(-45.927933, -45.927933) translate(8.427933, 8.427933)">
+                    <g id="Oval">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                        <circle stroke="#000000" stroke-width="1" stroke-linejoin="square" fill="#FFBF3D" fill-rule="evenodd" cx="37.5" cy="37.5" r="37"></circle>
+                    </g>
+                    <path d="M14.5931891,46.4730523 C20.8073435,57.139719 28.668202,62.4730523 38.1757644,62.4730523 C47.6833268,62.4730523 54.8224684,57.139719 59.5931891,46.4730523" id="Path-524" stroke="#000000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <line x1="22.8909943" y1="34.8385954" x2="22.8909943" y2="17.8385954" id="Path-525" stroke="#000000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></line>
+                    <line x1="50.7827249" y1="35.0652289" x2="50.7827249" y2="18.0652289" id="Path-525-Copy" stroke="#000000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></line>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

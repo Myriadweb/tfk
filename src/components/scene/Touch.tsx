@@ -3,14 +3,16 @@ import { Navigate, useLocation } from 'react-router-dom';
 import { useSpring, animated } from 'react-spring';
 import { useGameContext } from '../../state/game';
 import { ClickableImage, VariationsType } from './ClickableImage';
-import { ReactComponent as OvenMitt } from './TouchAssets/OvenMitt.svg';
-import ChildGood from './TouchAssets/ChildGood.png';
-import ChildBad from './TouchAssets/ChildBad.png';
-import pan from './TouchAssets/Pan.png';
-import { ReactComponent as PlushToy } from './TouchAssets/PlushToy.svg';
-import { ReactComponent as Sparkles } from './TouchAssets/Sparkles.svg';
+import { ReactComponent as OvenMitt } from './TouchAssets/ovenMitt.svg';
+import ChildGood from './TouchAssets/childGood.png';
+import ChildBad from './TouchAssets/childBad.png';
+import pan from './TouchAssets/pan.png';
+import { ReactComponent as PlushToy } from './TouchAssets/plushToy.svg';
+import { ReactComponent as Sparkles } from './TouchAssets/sparkles.svg';
 import { useCharacterContext } from '../../state/character';
 import { Characters } from './ChildrenAssets/childrenAssets';
+import OverlayGood from './TouchAssets/overlayGood.png';
+import OverlayBad from './TouchAssets/overlayBad.png';
 
 const valueType = 'badTouch';
 const finalValueType = valueType + '-final';
@@ -92,7 +94,7 @@ export default function Touch() {
       {sensoryState === 'good' && (
         <>
           <animated.img
-            src='images/Hearing/overlayGOOD.png'
+            src={OverlayGood}
             style={{
               position: 'absolute',
               left: 539,
@@ -116,7 +118,7 @@ export default function Touch() {
       {sensoryState === 'bad' && (
         <>
           <animated.img
-            src='images/Hearing/overlayBAD.png'
+            src={OverlayBad}
             style={{
               position: 'absolute',
               left: 539,

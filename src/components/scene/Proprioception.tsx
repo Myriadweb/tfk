@@ -6,6 +6,8 @@ import ChildGood from './ProprioceptionAssets/ChildGood.png';
 import ChildBad from './ProprioceptionAssets/ChildBad.png';
 import Feather from './ProprioceptionAssets/Feather.png';
 import Dumbell from './ProprioceptionAssets/Dumbell.png';
+import OverlayBad from './ProprioceptionAssets/overlayBad.png';
+import OverlayGood from './ProprioceptionAssets/overlayGood.png';
 
 const childImages = {
   good: {
@@ -96,7 +98,7 @@ export default function Proprioception() {
       {sensoryState === 'good' && (
         <>
           <animated.img
-            src='images/Hearing/overlayGOOD.png'
+            src={OverlayGood}
             style={{
               position: 'absolute',
               left: 539,
@@ -111,7 +113,7 @@ export default function Proprioception() {
       {sensoryState === 'bad' && (
         <>
           <animated.img
-            src='images/Hearing/overlayBAD.png'
+            src={OverlayBad}
             style={{
               position: 'absolute',
               left: 539,

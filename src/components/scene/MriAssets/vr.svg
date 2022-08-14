@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="507px" height="225px" viewBox="0 0 507 225" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>VR Goggles</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#EFF8FF" offset="0%"></stop>
+            <stop stop-color="#DBEEFD" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#EFF8FF" offset="0%"></stop>
+            <stop stop-color="#DBEEFD" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#EFF8FF" offset="0%"></stop>
+            <stop stop-color="#DBEEFD" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="04C_Teammates_Procedures_MRI-" transform="translate(-299.000000, -402.000000)">
+            <g id="VR-Goggles" transform="translate(299.000000, 402.000000)">
+                <path d="M467,1.5 C477.631481,1.5 487.256481,5.80925928 494.223611,12.7763889 C501.190741,19.7435186 505.5,29.3685186 505.5,40 L505.5,40 L505.5,185 C505.5,195.631481 501.190741,205.256481 494.223611,212.223611 C487.256481,219.190741 477.631481,223.5 467,223.5 L467,223.5 L307.321783,223.5 C300.317977,223.5 293.446844,221.589471 287.448285,217.974143 C274.720029,210.302831 261.800685,206.481808 248.697842,206.481808 C235.471961,206.481808 222.192335,210.376381 208.867585,218.200101 C202.957274,221.670381 196.227715,223.5 189.373912,223.5 L189.373912,223.5 L40,223.5 C29.3685186,223.5 19.7435186,219.190741 12.7763889,212.223611 C5.80925928,205.256481 1.5,195.631481 1.5,185 L1.5,185 L1.5,40 C1.5,29.3685186 5.80925928,19.7435186 12.7763889,12.7763889 C19.7435186,5.80925928 29.3685186,1.5 40,1.5 L40,1.5 Z" id="Rectangle" stroke="#000000" stroke-width="3" fill="#DBEEFD"></path>
+                <path d="M447,25.5 C455.698485,25.5 463.573485,29.0257576 469.273864,34.7261364 C474.974242,40.4265152 478.5,48.3015152 478.5,57 L478.5,57 L478.5,169 C478.5,177.698485 474.974242,185.573485 469.273864,191.273864 C463.573485,196.974242 455.698485,200.5 447,200.5 L447,200.5 L305.150362,200.5 C298.937888,200.500001 292.864123,198.662994 287.692974,195.220023 C277.357899,188.338892 264.375607,184.887941 248.739022,184.887941 C232.918674,184.887941 219.551901,188.419785 208.633196,195.466598 C203.542067,198.752356 197.611297,200.5 191.551942,200.5 L191.551942,200.5 L59,200.5 C50.3015152,200.5 42.4265152,196.974242 36.7261364,191.273864 C31.0257576,185.573485 27.5,177.698485 27.5,169 L27.5,169 L27.5,57 C27.5,48.3015152 31.0257576,40.4265152 36.7261364,34.7261364 C42.4265152,29.0257576 50.3015152,25.5 59,25.5 L59,25.5 Z" id="Rectangle" stroke="#000000" fill="#393E42"></path>
+                <rect id="Rectangle" fill="url(#linearGradient-1)" opacity="0.50117638" x="326" y="25" width="82" height="176"></rect>
+                <rect id="Rectangle-Copy-7" fill="url(#linearGradient-2)" opacity="0.206657773" transform="translate(118.500000, 52.500000) rotate(-270.000000) translate(-118.500000, -52.500000) " x="107" y="-20" width="23" height="145" rx="9"></rect>
+                <rect id="Rectangle-Copy-6" fill="url(#linearGradient-3)" opacity="0.50117638" x="418" y="25" width="29" height="176"></rect>
+                <rect id="Rectangle" stroke="#000000" fill="#DBEEFD" x="202.5" y="36.5" width="93" height="32" rx="16"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

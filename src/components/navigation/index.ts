@@ -5,6 +5,7 @@ import Sensory from './Sensory';
 import Procedures from './Procedures';
 import XRay from './XRay';
 import SkeletalNav from './SkeletalNav';
+import Mri from './Mri';
 
 export default {
   [Paths.MainMenu]: MainMenu,
@@ -13,4 +14,5 @@ export default {
   [Paths.Procedures]: Procedures,
   [Paths.XRay]: XRay,
   [Paths.Skeletal]: SkeletalNav,
+  [Paths.Mri]: Mri,
 };

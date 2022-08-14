@@ -29,6 +29,7 @@ import Touch from './scene/Touch';
 import Hearing from './scene/Hearing';
 import Taste from './scene/Taste';
 import Proprioception from './scene/Proprioception';
+import MriGame from './scene/MriGame';
 
 export function Home() {
   // This gets the current location from react router.
@@ -104,6 +105,7 @@ export function Home() {
               element={<XRayGame />}
             />
             <Route path={Paths.Mri} element={<Mri />} />
+            <Route path={Paths.Mri + '/' + Paths.Game} element={<MriGame />} />
             <Route path={Paths.Iv} element={<Iv />} />
             <Route path={Paths.Wellness} element={<Wellness />} />
             <Route path={Paths.Eeg} element={<Eeg />} />

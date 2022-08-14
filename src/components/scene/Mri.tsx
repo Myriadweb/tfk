@@ -6,11 +6,12 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Paths } from '../../types/Paths';
 import ProceduresTextBox from './ProceduresTextBox';
 import { CSSProperties } from 'react';
+import { ReactComponent as MriScene } from './MriAssets/mriScene.svg';
 
 const bodyLeft = 540;
 
 export default function Mri() {
-  const [animatedPath, setAnimatedPath] = useAnimateContext();
+  const [animatedPath] = useAnimateContext();
   const { t } = useTranslation('translation');
   const navigate = useNavigate();
   const shouldShowIntroAnimation =
@@ -37,10 +38,7 @@ export default function Mri() {
   }
 
   // if we have an animated path, we need to show the slide in animation
-  if (animatedPath === `${Paths.Procedures}/${Paths.Mri}`) {
-    // we reset the animation
-    setAnimatedPath('');
-  } else if (animatedPath) {
+  if (animatedPath) {
     // if we have a different animatedPath, we show the slide out animation
     overlayApi.start({
       to: [{ opacity: 0 }],
@@ -61,29 +59,24 @@ export default function Mri() {
 
   return (
     <>
-      <animated.img
-        src='images/Mri/mriChild.png'
+      <animated.div
         style={{
-          top: 275,
+          top: -150,
           position: 'absolute',
           transform: 'translate(-50%, 0)',
           ...bodyStyle,
         }}
-      />
-      <animated.img
-        src='images/Mri/mriScreen.png'
-        style={{
-          top: 572,
-          position: 'absolute',
-          transform: 'translate(-50%, 0)',
-          ...overlayStyle,
-        }}
-      />
+      >
+        <MriScene />
+      </animated.div>
       <ProceduresTextBox
         text={t('mri.scene.text')}
         animatedStyle={overlayStyle as unknown as CSSProperties}
         label={t('mri.scene.label')}
         buttonText={t('mri.scene.buttonText')}
+        onClick={() =>
+          navigate(`/${Paths.Procedures}/${Paths.Mri}/${Paths.Game}`)
+        }
       />
     </>
   );
