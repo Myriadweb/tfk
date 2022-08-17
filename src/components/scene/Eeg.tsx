@@ -6,11 +6,12 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Paths } from '../../types/Paths';
 import ProceduresTextBox from './ProceduresTextBox';
 import { CSSProperties } from 'react';
+import EegBody from './EegAssets/eegBody.svg';
 
 const bodyLeft = 540;
 
 export default function Eeg() {
-  const [animatedPath, setAnimatedPath] = useAnimateContext();
+  const [animatedPath] = useAnimateContext();
   const { t } = useTranslation('translation');
   const navigate = useNavigate();
   const shouldShowIntroAnimation =
@@ -59,21 +60,12 @@ export default function Eeg() {
   return (
     <>
       <animated.img
-        src='images/Eeg/eegChild.png'
+        src={EegBody}
         style={{
-          top: 275,
+          top: 250,
           position: 'absolute',
           transform: 'translate(-50%, 0)',
           ...bodyStyle,
-        }}
-      />
-      <animated.img
-        src='images/Eeg/eegScreen.png'
-        style={{
-          top: 229,
-          position: 'absolute',
-          left: 327,
-          ...overlayStyle,
         }}
       />
       <ProceduresTextBox
@@ -81,6 +73,9 @@ export default function Eeg() {
         animatedStyle={overlayStyle as unknown as CSSProperties}
         label={t('eeg.scene.label')}
         buttonText={t('eeg.scene.buttonText')}
+        onClick={() =>
+          navigate(`/${Paths.Procedures}/${Paths.Eeg}/${Paths.Game}`)
+        }
       />
     </>
   );

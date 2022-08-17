@@ -311,6 +311,11 @@ const en: Translation = {
         label: 'EEG',
         buttonText: 'TAKE AN EEG',
       },
+      navbar: {
+        '0-mainText': 'TAKE AN EEG',
+        '0-subText': 'FOLLOW THE STEPS TO TAKE AN EEG',
+        '0-buttonText': 'CONTINUE',
+      }
     },
     [Paths.Wellness]: {
       header: {

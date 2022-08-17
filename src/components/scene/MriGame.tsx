@@ -189,7 +189,7 @@ export default function MriGame() {
               style={{
                 position: 'absolute',
                 left: 405,
-                top: 627,
+                top: 627 ,
               }}
             >
               <Sticker />
