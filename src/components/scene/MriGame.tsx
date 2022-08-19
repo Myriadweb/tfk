@@ -31,7 +31,6 @@ const ChildFinalStep = Characters.default[2];
 
 export default function MriGame() {
   const [{ step, value }, setStep] = useGameContext();
-  const { t } = useTranslation('translation');
 
   const [animatedScene, animatedSceneApi] = useSpring(() => ({
     transform: 'scale(1.4) translateY(-700px)',

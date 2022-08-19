@@ -6,6 +6,7 @@ import Procedures from './Procedures';
 import XRay from './XRay';
 import SkeletalNav from './SkeletalNav';
 import Mri from './Mri';
+import Wellness from './Wellness';
 
 export default {
   [Paths.MainMenu]: MainMenu,
@@ -15,4 +16,5 @@ export default {
   [Paths.XRay]: XRay,
   [Paths.Skeletal]: SkeletalNav,
   [Paths.Mri]: Mri,
+  [Paths.Wellness]: Wellness,
 };

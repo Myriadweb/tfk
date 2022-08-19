@@ -2,107 +2,142 @@ import * as React from 'react';
 import { useNavBarTranslation } from '../../hooks';
 import { Paths } from '../../types/Paths';
 import { useGameContext } from '../../state/game';
-import { ReactComponent as Arrow } from '../scene/SceneAssets/Arrow.svg';
-import playSound from '../../sound';
-import NavigationButton from './UI/NavigationButton';
-import Bear from './SharedAssets/bear.svg';
-import Medal from './SharedAssets/medal.svg';
-import SignCast from './XRayAssets/signCast.svg';
-import Skeletal from './BodySystemsAssets/Skeletal.svg';
 import { Link, useNavigate } from 'react-router-dom';
-import { useSpring, animated } from 'react-spring';
-import { useEffect } from 'react';
+import playSound from '../../sound';
+import { animated, useSpring } from 'react-spring';
+import ContinueButton from './UI/ContinueButton';
+import BlueBar from './UI/BlueBar';
+import BpPumpBase from './WellnessAssets/bpCuffPumpBase.svg';
+import BpPumpButton from './WellnessAssets/bpCuffPumpButton.svg';
+import BpPumpOneBar from './WellnessAssets/bpCuffPumpOneBar.svg';
+import BpPumpTwoBar from './WellnessAssets/bpCuffPumpTwoBar.svg';
+import BpPumpThreeBar from './WellnessAssets/bpCuffPumpThreeBar.svg';
+import NavigationButton from './UI/NavigationButton';
+import JumpRope from './WellnessAssets/jumpRope.svg';
+import Basketball from './WellnessAssets/basketball.svg';
+import Baseball from './WellnessAssets/baseball.svg';
+import { ReactComponent as Arrow } from '../scene/SceneAssets/Arrow.svg';
+import Cardiovascular from './BodySystemsAssets/Cardiovascular.svg';
+
+const PUMPS_CONFIG = {
+  1: BpPumpOneBar,
+  2: BpPumpTwoBar,
+  3: BpPumpThreeBar,
+};
 
 type Props = {
   path: Paths;
   prefix: Paths;
 };
 
-const XRay = ({ prefix }: Props) => {
+type BlueBarContinueProps = {
+  text: string;
+  onClick: (...args: any) => void;
+};
+
+const BlueBarContinue = ({ text, onClick }: BlueBarContinueProps) => (
+  <BlueBar
+    style={{
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    }}
+  >
+    <ContinueButton text={text} onClick={onClick} />
+  </BlueBar>
+);
+
+const Wellness = ({ prefix }: Props) => {
   const t = useNavBarTranslation(prefix);
   const navigate = useNavigate();
   const [{ step, value }, setStep] = useGameContext();
+  const [pumps, addPump] = React.useState(0);
   const [delayStyle, delayApi] = useSpring(() => ({ opacity: 1 }));
 
-  useEffect(() => {
-    if (step === 2) {
-      delayApi.start({
-        from: { opacity: 0 },
-        to: { opacity: 1 },
-        delay: 1000,
-        config: {
-          duration: 100,
-        },
-      });
-    }
-  }, [step]);
-
   const stepComponentConfig = {
-    0: null,
-    1: () => (
-      <button
-        style={{
-          fontFamily: 'LemonMilk',
-          fontSize: 20,
-          color: '#fff',
-          background: '#CD4845',
-          border: '1px solid #000',
-          borderRadius: 12,
-          width: 241,
-          height: 65,
-          marginTop: 20,
-        }}
+    2: () => (
+      <BlueBarContinue
+        text={t(`${step}-buttonText`)}
         onClick={() => {
           playSound('completeStep');
-          setStep({ step: 2 });
-        }}
-      >
-        {t(`${step}-buttonText`)} <Arrow />
-      </button>
-    ),
-    2: () => (
-      <button
-        style={{
-          fontFamily: 'LemonMilk',
-          fontSize: 20,
-          color: '#fff',
-          background: '#CD4845',
-          border: '1px solid #000',
-          borderRadius: 55,
-          width: 109,
-          height: 109,
-          marginTop: 20,
-        }}
-        onClick={() => {
-          playSound('xRay');
           setStep({ step: 3 });
         }}
-      >
-        {t(`${step}-buttonText`)} <Arrow />
-      </button>
+      />
     ),
     4: () => (
-      <button
+      <BlueBar
         style={{
-          fontFamily: 'LemonMilk',
-          fontSize: 20,
-          color: '#fff',
-          background: '#CD4845',
-          border: '1px solid #000',
-          borderRadius: 12,
-          width: 241,
-          height: 65,
-          marginTop: 20,
-        }}
-        onClick={() => {
-          playSound('completeProcedure');
-          setStep((oldState) => ({ ...oldState, step: 5, hideButtons: true }));
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
         }}
       >
-        {t(`${step}-buttonText`)} <Arrow />
-      </button>
+        <div style={{ position: 'relative' }}>
+          <img src={BpPumpBase} />
+          <button
+            style={{
+              position: 'absolute',
+              left: 1,
+              top: 6,
+              background: 'transparent',
+              border: 'none',
+            }}
+            onClick={() => {
+              if (pumps >= 3) return;
+
+              const newPumpValue = pumps + 1;
+              addPump((pumps) => pumps + 1);
+              if (newPumpValue < 3) return;
+
+              setTimeout(() => {
+                playSound('completeStep');
+                setStep({ step: 5 });
+              }, 800);
+            }}
+          >
+            <img src={BpPumpButton} />
+            {pumps && (
+              <img
+                src={PUMPS_CONFIG[pumps]}
+                style={{
+                  position: 'absolute',
+                  left: 121,
+                  top: 17,
+                }}
+              />
+            )}
+          </button>
+        </div>
+      </BlueBar>
     ),
     5: () => (
+      <BlueBarContinue
+        text={t(`${step}-buttonText`)}
+        onClick={() => {
+          playSound('completeStep');
+          setStep({ step: 6 });
+        }}
+      />
+    ),
+    8: () => (
+      <BlueBarContinue
+        text={t(`${step}-buttonText`)}
+        onClick={() => {
+          playSound('completeStep');
+          setStep({ step: 9 });
+        }}
+      />
+    ),
+    9: () => (
+      <BlueBarContinue
+        text={t(`${step}-buttonText`)}
+        onClick={() => {
+          playSound('completeProcedure');
+          setStep({ step: 10, hideButtons: true });
+        }}
+      />
+    ),
+    10: () => (
       <>
         <div
           style={{
@@ -122,26 +157,26 @@ const XRay = ({ prefix }: Props) => {
             }}
           >
             <NavigationButton
-              image={SignCast}
-              size={value === 'signature' ? 'large' : 'small'}
+              image={JumpRope}
+              size={value === 'jumpRope' ? 'large' : 'small'}
               onClick={() =>
-                setStep((oldState) => ({ ...oldState, value: 'signature' }))
+                setStep((oldState) => ({ ...oldState, value: 'jumpRope' }))
               }
               text=''
             />
             <NavigationButton
-              image={Bear}
-              size={value === 'doll' ? 'large' : 'small'}
+              image={Baseball}
+              size={value === 'baseball' ? 'large' : 'small'}
               onClick={() =>
-                setStep((oldState) => ({ ...oldState, value: 'doll' }))
+                setStep((oldState) => ({ ...oldState, value: 'baseball' }))
               }
               text=''
             />
             <NavigationButton
-              image={Medal}
-              size={value === 'medal' ? 'large' : 'small'}
+              image={Basketball}
+              size={value === 'basketball' ? 'large' : 'small'}
               onClick={() =>
-                setStep((oldState) => ({ ...oldState, value: 'medal' }))
+                setStep((oldState) => ({ ...oldState, value: 'basketball' }))
               }
               text=''
             />
@@ -163,14 +198,14 @@ const XRay = ({ prefix }: Props) => {
             if (!value) return; // if no value is selected, don't continue
 
             playSound('click');
-            setStep((oldState) => ({ ...oldState, step: 6 }));
+            setStep((oldState) => ({ ...oldState, step: 11 }));
           }}
         >
           {t(`${step}-buttonText`)} <Arrow />
         </button>
       </>
     ),
-    6: () => (
+    11: () => (
       <>
         <div
           style={{
@@ -183,12 +218,12 @@ const XRay = ({ prefix }: Props) => {
           }}
         >
           <NavigationButton
-            image={Skeletal}
+            image={Cardiovascular}
             size={'large'}
             onClick={() => {
               playSound('click');
               setStep({ step: 0 });
-              navigate(Paths.BodySystems + '/' + Paths.Skeletal);
+              navigate(Paths.BodySystems + '/' + Paths.Cardiovascular);
             }}
             text=''
           />
@@ -232,17 +267,19 @@ const XRay = ({ prefix }: Props) => {
   };
 
   return (
-    <animated.div style={delayStyle}>
-      {step < 6 && (
+    <>
+      {step < 11 && (
         <span
           style={{
             display: 'block',
             fontSize: 40,
             color: '#FFF',
             fontFamily: 'LemonMilk',
-            marginTop: 45,
+            marginTop: 30,
             letterSpacing: 2,
             fontWeight: 'bolder',
+            visibility: [1, 7].includes(step) ? 'hidden' : 'visible',
+            minHeight: 54,
           }}
         >
           {t(`${step}-mainText`)}
@@ -254,13 +291,15 @@ const XRay = ({ prefix }: Props) => {
           fontSize: 20,
           color: '#FFF',
           fontFamily: 'LemonMilk',
-          marginTop: step !== 5 ? 45 : 12,
+          marginTop: step === 11 ? 45 : 12,
           whiteSpace: 'pre',
+          minHeight: 54,
+          visibility: [1, 7].includes(step) ? 'hidden' : 'visible',
         }}
       >
         {t(`${step}-subText`)}
       </span>
-      {step === 6 && (
+      {step === 11 && (
         <span
           style={{
             fontSize: 20,
@@ -273,9 +312,9 @@ const XRay = ({ prefix }: Props) => {
           {t(`${step}-boldText`)}
         </span>
       )}
-      {stepComponentConfig[step] && stepComponentConfig[step]()}
-    </animated.div>
+      {stepComponentConfig[step] ? stepComponentConfig[step]() : <BlueBar />}
+    </>
   );
 };
 
-export default XRay;
+export default Wellness;

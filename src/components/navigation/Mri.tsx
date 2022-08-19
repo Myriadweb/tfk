@@ -4,7 +4,7 @@ import { Paths } from '../../types/Paths';
 import { useGameContext } from '../../state/game';
 import { ReactComponent as Arrow } from '../scene/SceneAssets/Arrow.svg';
 import playSound from '../../sound';
-import NavigationButton from './NavigationButton';
+import NavigationButton from './UI/NavigationButton';
 import Music from './SharedAssets/music.svg';
 import VR from './MriAssets/vr.svg';
 import Nap from './MriAssets/nap.svg';

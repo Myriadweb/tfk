@@ -174,8 +174,8 @@ export default function Sight() {
       )}
       <ClickableImage
         Component='images/Sight/moon.png'
-        x={615}
-        y={957}
+        x={645}
+        y={991}
         type='good'
         onChange={setSensoryState}
         onTop={sensoryState === 'good'}

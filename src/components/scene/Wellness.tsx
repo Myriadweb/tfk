@@ -81,6 +81,9 @@ export default function Wellness() {
         animatedStyle={overlayStyle as unknown as CSSProperties}
         label={t('wellness.scene.label')}
         buttonText={t('wellness.scene.buttonText')}
+        onClick={() =>
+          navigate(`/${Paths.Procedures}/${Paths.Wellness}/${Paths.Game}`)
+        }
       />
     </>
   );
