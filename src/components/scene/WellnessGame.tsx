@@ -298,7 +298,6 @@ export default function WellnessGame() {
               top: 777,
               left: 478,
               display: value === 'baseball' ? 'block' : 'none',
-
             }}
           />
           <img
@@ -308,7 +307,6 @@ export default function WellnessGame() {
               top: 832,
               left: 624,
               display: value === 'baseball' ? 'block' : 'none',
-
             }}
           />
           <img

@@ -3,7 +3,7 @@ import * as React from 'react';
 type Props = {
   children?: React.ReactNode;
   style?: React.CSSProperties;
-}
+};
 
 const BlueBar = ({ children = null, style }: Props) => {
   return (
@@ -18,6 +18,6 @@ const BlueBar = ({ children = null, style }: Props) => {
       {children}
     </div>
   );
-}
+};
 
 export default BlueBar;
