@@ -1,9 +1,9 @@
-import { ReactComponent as Arrow } from './SceneAssets/Arrow.svg';
+import { ReactComponent as Arrow } from '../SceneAssets/Arrow.svg';
 import { animated } from 'react-spring';
 import * as React from 'react';
 import { CSSProperties } from 'react';
-import playSound from '../../sound';
-import { useGameContext } from '../../state/game';
+import playSound from '../../../sound';
+import { useGameContext } from '../../../state/game';
 
 type Props = {
   animatedStyle?: CSSProperties;

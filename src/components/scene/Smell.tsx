@@ -5,7 +5,10 @@ import { ReactComponent as Flower } from './SmellAssets/Flower.svg';
 import { ReactComponent as Shoe } from './SmellAssets/Shoe.svg';
 import { ReactComponent as Closepin } from './SmellAssets/Closepin.svg';
 import { useGameContext } from '../../state/game';
-import { ClickableImage, VariationsType } from './ClickableImage';
+import {
+  ClickableImage,
+  VariationsType,
+} from './SharedComponents/ClickableImage';
 import { Characters, sensoryChildWidth } from './ChildrenAssets/childrenAssets';
 import { useCharacterContext } from '../../state/character';
 

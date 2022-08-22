@@ -2,7 +2,10 @@ import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { useSpring, animated } from 'react-spring';
 import { useGameContext } from '../../state/game';
-import { ClickableImage, VariationsType } from './ClickableImage';
+import {
+  ClickableImage,
+  VariationsType,
+} from './SharedComponents/ClickableImage';
 import { ReactComponent as OvenMitt } from './TouchAssets/ovenMitt.svg';
 import ChildGood from './TouchAssets/childGood.png';
 import ChildBad from './TouchAssets/childBad.png';

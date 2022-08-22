@@ -4,17 +4,20 @@ import { useAnimateContext } from '../../state/animate';
 import { animated, useSpring } from 'react-spring';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Paths } from '../../types/Paths';
-import ProceduresTextBox from './ProceduresTextBox';
+import ProceduresTextBox from './SharedComponents/ProceduresTextBox';
 import { CSSProperties } from 'react';
+import { Characters } from './ChildrenAssets/childrenAssets';
+import InitialPromptIV from './IvAssets/initialPromptIV.svg';
 
 const bodyLeft = 461;
 
 export default function Iv() {
-  const [animatedPath, setAnimatedPath] = useAnimateContext();
+  const [animatedPath] = useAnimateContext();
   const { t } = useTranslation('translation');
   const navigate = useNavigate();
   const shouldShowIntroAnimation =
     animatedPath === `${Paths.Procedures}/${Paths.Iv}`;
+
   const [overlayStyle, overlayApi] = useSpring(() => ({
     from: { opacity: shouldShowIntroAnimation ? 0 : 1 },
     to: { opacity: 1 },
@@ -56,19 +59,22 @@ export default function Iv() {
     // then we navigate to the path
   }
 
+  const Child = Characters.default[0];
+
   return (
     <>
-      <animated.img
-        src='images/Iv/ivChild.png'
+      <animated.div
         style={{
           top: 275,
           left: 461,
           position: 'absolute',
           ...bodyStyle,
         }}
-      />
+      >
+        <Child />
+      </animated.div>
       <animated.img
-        src='images/Iv/ivMachine.png'
+        src={InitialPromptIV}
         style={{
           top: 288,
           position: 'absolute',
@@ -81,6 +87,9 @@ export default function Iv() {
         animatedStyle={overlayStyle as unknown as CSSProperties}
         label={t('iv.scene.label')}
         buttonText={t('iv.scene.buttonText')}
+        onClick={() =>
+          navigate(`/${Paths.Procedures}/${Paths.Iv}/${Paths.Game}`)
+        }
       />
     </>
   );

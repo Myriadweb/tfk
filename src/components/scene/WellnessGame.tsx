@@ -1,13 +1,12 @@
 import * as React from 'react';
 import { animated, useSpring } from 'react-spring';
-import Draggable from 'react-draggable';
 import { ReactComponent as WellnessScene } from './WellnessAssets/wellnessScene.svg';
-import Tray from './WellnessAssets/tray.png';
+import Tray from './SharedAssets/tray.png';
 import Thermometer from './WellnessAssets/thermometer.svg';
 import ThermometerActive from './WellnessAssets/thermometerActive.svg';
 import ThermometerResults from './WellnessAssets/thermometerResults.svg';
 import BPCuff from './WellnessAssets/bpCuff.svg';
-import BPTarget from './WellnessAssets/target.svg';
+import BPTarget from './SharedAssets/target.svg';
 import BPCuffOnArm from './WellnessAssets/bpCuffOnArm.svg';
 import BPCuffResults from './WellnessAssets/bpCuffResults.svg';
 import Oximeter from './WellnessAssets/oximeter.svg';
@@ -22,56 +21,7 @@ import JumpRope from './WellnessAssets/jumpRope.svg';
 
 import { useGameContext } from '../../state/game';
 import playSound from '../../sound';
-
-const bodyLeft = 540;
-
-type Props = {
-  ImageComponent: React.FC<React.SVGProps<SVGSVGElement>> | string;
-  x: number;
-  y: number;
-  onComplete: (x: number, y: number) => void;
-  bounds?:
-    | {
-        left?: number;
-        top?: number;
-        right?: number;
-        bottom?: number;
-      }
-    | string;
-};
-
-const DraggableImage = ({
-  ImageComponent,
-  x,
-  y,
-  onComplete,
-  bounds,
-}: Props) => {
-  const track = (_e: MouseEvent, data: any) => {
-    const newX = Math.floor(x + data.x);
-    const newY = Math.floor(y + data.y);
-
-    onComplete(newX, newY);
-  };
-
-  return (
-    <Draggable bounds={bounds || 'parent'} onDrag={track} position={null}>
-      <animated.div
-        style={{
-          position: 'absolute',
-          left: x,
-          top: y,
-        }}
-      >
-        {typeof ImageComponent === 'string' ? (
-          <img src={ImageComponent} />
-        ) : (
-          <ImageComponent />
-        )}
-      </animated.div>
-    </Draggable>
-  );
-};
+import { DraggableImage } from './SharedComponents/DraggableImage';
 
 export default function WellnessGame() {
   const [{ step, value }, setGameState] = useGameContext();

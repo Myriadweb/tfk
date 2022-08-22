@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="53px" height="281px" viewBox="0 0 53 281" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>IV</title>
+    <defs>
+        <filter x="-32.9%" y="-4.0%" width="165.8%" height="108.0%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.678965322 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="07E_Teammates_Procedures_SurgicalPrep" transform="translate(-827.000000, -1046.000000)" stroke="#000000" stroke-width="1.8">
+            <g id="IV" filter="url(#filter-1)" transform="translate(836.034253, 1055.000000)">
+                <g id="Group-4">
+                    <polygon id="Path-438" fill="#ECECEC" points="18.110841 0 11.8173656 256.818703 20.3539454 256.818703"></polygon>
+                    <rect id="Rectangle" fill="#FFBDE3" x="1.22185655" y="188.009962" width="32.3536712" height="70.0373995" rx="7.2"></rect>
+                    <polygon id="Path-439" fill="#FFBDE3" stroke-linejoin="round" points="11.8173656 114.552344 22.6131528 114.552344 22.6131528 138.694857 11.8173656 138.694857"></polygon>
+                    <polygon id="Path-439-Copy" fill="#FFBDE3" stroke-linejoin="round" points="8.95015244 126.670445 25.1282072 126.670445 25.1282072 132.729496 8.95015244 132.729496"></polygon>
+                    <polygon id="Path-439-Copy-3" fill="#FFBDE3" stroke-linejoin="round" points="0 166.209113 17.327178 162.640004 34.6543561 166.209113 29.5458375 189.147686 4.6093487 189.147686"></polygon>
+                    <path d="M7.1525908,132.729496 L26.9257689,132.729496 L26.9257689,163.785972 C24.0506915,165.830164 20.813855,166.852261 17.2152592,166.852261 C13.6166635,166.852261 10.2624407,165.830164 7.1525908,163.785972 L7.1525908,132.729496 Z" id="Path-439-Copy-2" fill="#FFBDE3" stroke-linejoin="round"></path>
+                    <rect id="Rectangle" fill="#FFBDE3" x="11.4679579" y="162.866872" width="10.7829315" height="10.7715449"></rect>
+                    <path d="M24.0484511,173.642482 L24.0484511,204.537435 L16.8594237,208.49553 L9.67039628,204.537435 L9.67039628,173.642482 L24.0484511,173.642482 Z" id="Rectangle-Copy-2" fill="#FFBDE3"></path>
+                    <path d="M22.7901579,245.479882 L22.7901579,262.010716 C21.3562704,262.747371 19.5557208,263.1 17.3986922,263.1 C15.2416636,263.1 13.4411139,262.747371 12.0072264,262.010716 L12.0072264,262.010716 L12.0072264,245.479882 L22.7901579,245.479882 Z" id="Rectangle" fill="#FFBDE3"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

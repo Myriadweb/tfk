@@ -7,6 +7,7 @@ import XRay from './XRay';
 import SkeletalNav from './SkeletalNav';
 import Mri from './Mri';
 import Wellness from './Wellness';
+import Iv from './Iv';
 
 export default {
   [Paths.MainMenu]: MainMenu,
@@ -17,4 +18,5 @@ export default {
   [Paths.Skeletal]: SkeletalNav,
   [Paths.Mri]: Mri,
   [Paths.Wellness]: Wellness,
+  [Paths.Iv]: Iv,
 };

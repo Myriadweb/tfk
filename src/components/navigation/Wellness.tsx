@@ -4,20 +4,20 @@ import { Paths } from '../../types/Paths';
 import { useGameContext } from '../../state/game';
 import { Link, useNavigate } from 'react-router-dom';
 import playSound from '../../sound';
-import { animated, useSpring } from 'react-spring';
-import ContinueButton from './UI/ContinueButton';
-import BlueBar from './UI/BlueBar';
+import { useSpring } from 'react-spring';
+import BlueBar from './UIComponents/BlueBar';
 import BpPumpBase from './WellnessAssets/bpCuffPumpBase.svg';
 import BpPumpButton from './WellnessAssets/bpCuffPumpButton.svg';
 import BpPumpOneBar from './WellnessAssets/bpCuffPumpOneBar.svg';
 import BpPumpTwoBar from './WellnessAssets/bpCuffPumpTwoBar.svg';
 import BpPumpThreeBar from './WellnessAssets/bpCuffPumpThreeBar.svg';
-import NavigationButton from './UI/NavigationButton';
+import NavigationButton from './UIComponents/NavigationButton';
 import JumpRope from './WellnessAssets/jumpRope.svg';
 import Basketball from './WellnessAssets/basketball.svg';
 import Baseball from './WellnessAssets/baseball.svg';
 import { ReactComponent as Arrow } from '../scene/SceneAssets/Arrow.svg';
 import Cardiovascular from './BodySystemsAssets/Cardiovascular.svg';
+import { BlueBarContinue } from './BlueBarContinue';
 
 const PUMPS_CONFIG = {
   1: BpPumpOneBar,
@@ -29,23 +29,6 @@ type Props = {
   path: Paths;
   prefix: Paths;
 };
-
-type BlueBarContinueProps = {
-  text: string;
-  onClick: (...args: any) => void;
-};
-
-const BlueBarContinue = ({ text, onClick }: BlueBarContinueProps) => (
-  <BlueBar
-    style={{
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-    }}
-  >
-    <ContinueButton text={text} onClick={onClick} />
-  </BlueBar>
-);
 
 const Wellness = ({ prefix }: Props) => {
   const t = useNavBarTranslation(prefix);

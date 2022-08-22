@@ -7,7 +7,7 @@ import Muscular from './BodySystemsAssets/Muscular.svg';
 import Nervous from './BodySystemsAssets/Nervous.svg';
 import Sensory from './BodySystemsAssets/Sensory.svg';
 import Skeletal from './BodySystemsAssets/Skeletal.svg';
-import NavigationButton from './UI/NavigationButton';
+import NavigationButton from './UIComponents/NavigationButton';
 import { useAnimateContext } from '../../state/animate';
 
 type Props = {
