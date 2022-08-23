@@ -16,6 +16,8 @@ import Bear from './SharedAssets/bear.svg';
 import Medal from './SharedAssets/medal.svg';
 import { BlueBarContinue } from './BlueBarContinue';
 import BlueBar from './UIComponents/BlueBar';
+import { ReactComponent as Arrow } from '../scene/SceneAssets/Arrow.svg';
+import Skeletal from './BodySystemsAssets/Cardiovascular.svg';
 
 type Props = {
   path: Paths;
@@ -35,6 +37,7 @@ const Iv = ({ prefix }: Props) => {
   const t = useNavBarTranslation(prefix);
   const navigate = useNavigate();
   const [{ step, value }, setStep] = useGameContext();
+  const [shouldShowComponent, setShouldShowComponent] = React.useState(true);
   const [delayStyle, delayApi] = useSpring(() => ({ opacity: 1 }));
 
   useEffect(() => {
@@ -46,6 +49,18 @@ const Iv = ({ prefix }: Props) => {
         config: {
           duration: 100,
         },
+      });
+    } else if (step === 6) {
+      delayApi.set({ opacity: 0 });
+      setShouldShowComponent(false);
+    } else if (step === 7) {
+      delayApi.start({
+        opacity: 1,
+        delay: 2000,
+        config: {
+          duration: 1,
+        },
+        onRest: () => setShouldShowComponent(true),
       });
     }
   }, [step]);
@@ -139,6 +154,160 @@ const Iv = ({ prefix }: Props) => {
         }}
       />
     ),
+    5: () => (
+      <BlueBarContinue
+        text={t(`${step}-buttonText`)}
+        onClick={() => {
+          playSound('completeStep');
+          setStep({ step: 6 });
+        }}
+      />
+    ),
+    7: () => (
+      <BlueBarContinue
+        text={t(`${step}-buttonText`)}
+        onClick={() => {
+          playSound('completeStep');
+          setStep({ step: 8 });
+        }}
+      />
+    ),
+    9: () => (
+      <BlueBarContinue
+        text={t(`${step}-buttonText`)}
+        onClick={() => {
+          playSound('completeProcedure');
+          setStep({ step: 10, hideButtons: true });
+        }}
+      />
+    ),
+    10: () => (
+      <>
+        <div
+          style={{
+            marginTop: 12,
+            background: '#0E1F33',
+            height: 192,
+          }}
+        >
+          <div
+            style={{
+              margin: '0 auto',
+              display: 'flex',
+              justifyContent: 'space-around',
+              alignItems: 'center',
+              height: '100%',
+              width: 592,
+            }}
+          >
+            <NavigationButton
+              image={Sticker}
+              size={value === 'sticker' ? 'large' : 'small'}
+              onClick={() =>
+                setStep((oldState) => ({ ...oldState, value: 'sticker' }))
+              }
+              text=''
+            />
+            <NavigationButton
+              image={Bear}
+              size={value === 'doll' ? 'large' : 'small'}
+              onClick={() =>
+                setStep((oldState) => ({ ...oldState, value: 'doll' }))
+              }
+              text=''
+            />
+            <NavigationButton
+              image={Medal}
+              size={value === 'medal' ? 'large' : 'small'}
+              onClick={() =>
+                setStep((oldState) => ({ ...oldState, value: 'medal' }))
+              }
+              text=''
+            />
+          </div>
+        </div>
+        <button
+          style={{
+            fontFamily: 'LemonMilk',
+            fontSize: 20,
+            color: '#fff',
+            background: '#CD4845',
+            border: '1px solid #000',
+            borderRadius: 12,
+            width: 241,
+            height: 65,
+            marginTop: 20,
+          }}
+          onClick={() => {
+            if (!value) return; // if no value is selected, don't continue
+
+            playSound('click');
+            setStep((oldStep) => ({ ...oldStep, step: 11 }));
+          }}
+        >
+          {t(`${step}-buttonText`)} <Arrow />
+        </button>
+      </>
+    ),
+    11: () => (
+      <>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-around',
+            alignItems: 'center',
+            marginTop: 49,
+            background: '#0E1F33',
+            height: 192,
+          }}
+        >
+          <NavigationButton
+            image={Skeletal}
+            size={'large'}
+            onClick={() => {
+              playSound('click');
+              setStep({ step: 0 });
+              navigate(Paths.BodySystems + '/' + Paths.Cardiovascular);
+            }}
+            text=''
+          />
+        </div>
+
+        <div
+          style={{
+            position: 'absolute',
+            left: 44,
+            top: 383,
+          }}
+        >
+          <Link
+            to={`${Paths.Procedures}/${prefix}`}
+            onClick={() => {
+              playSound('click');
+              setStep({ step: 0 });
+            }}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+            }}
+          >
+            <img src='images/NavBar/proceduresButton.png' />
+            <span
+              style={{
+                fontSize: 20,
+                color: '#FFF',
+                fontFamily: 'LemonMilk',
+                marginLeft: 15,
+                whiteSpace: 'pre',
+                textAlign: 'left',
+              }}
+            >
+              {t(`${step}-back`)}
+            </span>
+          </Link>
+        </div>
+      </>
+    ),
   };
 
   return (
@@ -146,7 +315,7 @@ const Iv = ({ prefix }: Props) => {
       <animated.div style={delayStyle}>
         <span
           style={{
-            display: 'block',
+            display: step !== 11 ? 'block' : 'none',
             fontSize: 40,
             color: '#FFF',
             fontFamily: 'LemonMilk',
@@ -165,7 +334,7 @@ const Iv = ({ prefix }: Props) => {
               fontSize: 20,
               color: '#FFF',
               fontFamily: 'LemonMilk',
-              marginTop: 12,
+              marginTop: step !== 11 ? 12 : 45,
               whiteSpace: 'pre',
               minHeight: 54,
             }}
@@ -174,7 +343,24 @@ const Iv = ({ prefix }: Props) => {
           </span>
         )}
       </animated.div>
-      {stepComponentConfig[step] ? stepComponentConfig[step]() : <BlueBar />}
+      {step === 11 && (
+        <span
+          style={{
+            fontSize: 20,
+            color: '#FFF',
+            fontFamily: 'LemonMilk',
+            whiteSpace: 'pre',
+            fontWeight: 'bold',
+          }}
+        >
+          {t(`${step}-boldText`)}
+        </span>
+      )}
+      {shouldShowComponent && stepComponentConfig[step] ? (
+        stepComponentConfig[step]()
+      ) : (
+        <BlueBar />
+      )}
     </>
   );
 };
