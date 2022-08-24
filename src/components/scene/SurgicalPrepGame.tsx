@@ -3,63 +3,44 @@ import { animated, useSpring } from 'react-spring';
 import { useGameContext } from '../../state/game';
 import { DraggableImage } from './SharedComponents/DraggableImage';
 import playSound from '../../sound';
-import { ReactComponent as ChildBed } from './IvAssets/childBed.svg';
-import { ReactComponent as ChildBedSmiling } from './IvAssets/childBedSmiling.svg';
-import Tablet from './IvAssets/tablet.svg';
-import Bubbles from './IvAssets/bubbles.svg';
-import Music from './SharedAssets/music.svg';
+import { ReactComponent as ChildBed } from './SurgicalPrepAssets/child.svg';
+import { ReactComponent as ChildBedSleeping } from './SurgicalPrepAssets/childSleeping.svg';
 import Tray from './SharedAssets/tray.png';
-import Tourniquet from './IvAssets/tourniquet.svg';
-import TourniquetApplied from './IvAssets/tourniquetApplied.svg';
+import BPCuff from './SharedAssets/bpCuff.svg';
 import Target from './SharedAssets/target.svg';
-import Disinfectant from './IvAssets/disinfectant.svg';
-import DisinfectantApplied from './IvAssets/disinfectantApplied.svg';
 import XRayView from './SharedAssets/xRayView.svg';
+import BPCuffOnArm from './SharedAssets/bpCuffOnArm.svg';
+import BPCuffResults from './SharedAssets/bpCuffResults.svg';
 import NeedleChoice from './IvAssets/needleChoice.svg';
 import NeedlePlaced1 from './IvAssets/needlePlaced1.svg';
 import NeedlePlaced2 from './IvAssets/needlePlaced2.svg';
 import NeedlePlaced3 from './IvAssets/needlePlaced3.svg';
 import BandageSelection from './SharedAssets/bandageSelection.svg';
 import BandagePlaced from './SharedAssets/bandagePlaced.svg';
+import AnesthesiaMask from './SurgicalPrepAssets/anesthesiaMask.svg';
 import Sticker from './SharedAssets/sticker.svg';
 import Doll from './SharedAssets/doll.png';
 import Medal from './SharedAssets/medal.png';
-import { Characters } from './ChildrenAssets/childrenAssets';
-import InitialPromptIV from './IvAssets/initialPromptIV.svg';
+import { ReactComponent as SurgicalPrepChild } from './SurgicalPrepAssets/surgicalPrep.svg';
 
-const ChildFinalStep = Characters.default[0];
-
-export default function IvGame() {
+export default function SurgicalPrepGame() {
   const [{ step, value }, setGameState] = useGameContext();
   const [childStyle, childApi] = useSpring(() => ({
     transform: 'scale(1) translate(0px, 0px)',
-  }));
-  const [bubbleStyle, bubbleApi] = useSpring(() => ({
-    transform: 'translate(0px, 0px)',
   }));
   const [trayStyle, trayApi] = useSpring(() => ({
     transform: 'translateX(600px)',
   }));
   const [targetStyle, targetApi] = useSpring(() => ({
     opacity: 0,
-    top: 533,
-    left: 360,
+    top: 489,
+    left: 345,
   }));
   const [needleComponentPhase, setNeedleComponentPhase] = React.useState(1);
+  const [darkLayerStyle, darkLayerApi] = useSpring(() => ({ opacity: 0 }));
 
   React.useEffect(() => {
-    if (step === 1 && value === 'bubbles') {
-      bubbleApi.start({
-        from: { transform: 'translate(10px, 5px)' },
-        to: { transform: 'translate(-10px, -5px)' },
-        loop: () => ({
-          reverse: true,
-        }),
-        config: {
-          duration: 300,
-        },
-      });
-    } else if (step === 2) {
+    if (step === 1) {
       childApi.start({
         transform: 'scale(2) translate(232px, -222px)',
         onRest: () => {
@@ -70,8 +51,8 @@ export default function IvGame() {
     } else if (step === 3) {
       targetApi.set({
         opacity: 0,
-        top: 834,
-        left: 237,
+        top: 822,
+        left: 268,
       });
     } else if (step === 4) {
       trayApi.start({ transform: 'translateX(0px)' });
@@ -80,75 +61,54 @@ export default function IvGame() {
       targetApi.set({
         opacity: 0,
         top: 822,
-        left: 268,
+        left: 239,
       });
     } else if (step === 6) {
       trayApi.start({ transform: 'translateX(0px)' });
       targetApi.start({ opacity: 1 });
-    } else if (step === 7) {
-      targetApi.set({
-        opacity: 0,
-        top: 822,
-        left: 239,
-      });
     } else if (step === 8) {
-      trayApi.start({ transform: 'translateX(0px)' });
-      targetApi.start({ opacity: 1 });
+      childApi.start({
+        transform: 'scale(2) translate(0px, 400px)',
+        onRest: () => {
+          setGameState({ step: 9 });
+        },
+      });
+    } else if (step === 12) {
+      darkLayerApi.start({
+        opacity: 1,
+        onRest: () => {
+          setGameState({ step: 13 });
+        },
+        config: {
+          duration: 2000,
+        },
+      });
+    } else if (step === 13) {
+      darkLayerApi.start({
+        opacity: 0,
+        config: {
+          duration: 2000,
+        },
+      });
     }
   }, [step]);
 
-  const ChildComponent = step === 0 ? ChildBed : ChildBedSmiling;
+  const ChildComponent = step < 11 ? ChildBed : ChildBedSleeping;
 
   return (
     <>
-      {step < 10 && (
+      {step < 13 && (
         <>
           <animated.div
             style={{
               position: 'relative',
-              top: -45,
+              top: 27,
               ...childStyle,
             }}
           >
             <ChildComponent />
           </animated.div>
-
-          {step < 2 && (
-            <>
-              {value === 'tablet' && (
-                <img
-                  src={Tablet}
-                  style={{
-                    position: 'absolute',
-                    top: 467,
-                    left: 578,
-                  }}
-                />
-              )}
-              {value === 'bubbles' && (
-                <animated.img
-                  src={Bubbles}
-                  style={{
-                    position: 'absolute',
-                    top: 124,
-                    left: 38,
-                    ...bubbleStyle,
-                  }}
-                />
-              )}
-              {value === 'music' && (
-                <img
-                  src={Music}
-                  style={{
-                    position: 'absolute',
-                    top: 100,
-                    left: 283,
-                  }}
-                />
-              )}
-            </>
-          )}
-          {step === 6 && (
+          {step === 4 && (
             <animated.img
               style={{
                 position: 'absolute',
@@ -160,34 +120,14 @@ export default function IvGame() {
             />
           )}
 
-          {step >= 3 && (
-            <img
-              src={TourniquetApplied}
-              style={{
-                position: 'absolute',
-                top: 505,
-                left: 377,
-              }}
-            />
-          )}
-          {step === 5 && (
-            <animated.img
-              src={DisinfectantApplied}
-              style={{
-                position: 'absolute',
-                top: 792,
-                left: 228,
-              }}
-            />
-          )}
-          {step >= 7 && step < 9 && (
+          {step >= 5 && step < 7 && (
             <>
               <animated.img
                 src={NeedlePlaced1}
                 style={{
                   position: 'absolute',
                   top: 838,
-                  left: 308,
+                  left: 296,
                   display: needleComponentPhase === 1 ? 'block' : 'none',
                 }}
               />
@@ -196,7 +136,7 @@ export default function IvGame() {
                 style={{
                   position: 'absolute',
                   top: 839,
-                  left: 335,
+                  left: 323,
                   display: needleComponentPhase === 2 ? 'block' : 'none',
                 }}
               />
@@ -205,80 +145,85 @@ export default function IvGame() {
                 style={{
                   position: 'absolute',
                   top: 748,
-                  left: 314,
+                  left: 302,
                   display: needleComponentPhase === 3 ? 'block' : 'none',
                 }}
               />
             </>
           )}
-          {step > 8 && (
+          {step > 6 && step < 8 && (
             <img
               src={BandagePlaced}
               style={{
                 position: 'absolute',
                 top: 408,
-                left: 12,
+                left: 0,
               }}
             />
           )}
-          {[2, 4, 6, 8].includes(step) && (
+          {[1, 4, 6].includes(step) && (
             <animated.img
               style={{ position: 'absolute', ...targetStyle }}
               src={Target}
+            />
+          )}
+          {[2, 3].includes(step) && (
+            <animated.img
+              src={BPCuffOnArm}
+              style={{ position: 'absolute', top: 449, left: 338 }}
+            />
+          )}
+          <animated.img
+            src={BPCuffResults}
+            style={{
+              position: 'absolute',
+              top: 1063,
+              left: 688,
+              display: step === 3 ? 'block' : 'none',
+            }}
+          />
+          {step >= 10 && (
+            <animated.img
+              src={AnesthesiaMask}
+              style={{
+                position: 'absolute',
+                top: 759,
+                left: 316,
+              }}
             />
           )}
           <animated.div
             style={{ position: 'absolute', top: 806, left: 614, ...trayStyle }}
           >
             <animated.img src={Tray} />
-            {[2].includes(step) && (
+            {[1].includes(step) && (
               <DraggableImage
-                ImageComponent={Tourniquet}
-                x={66}
-                y={90}
+                ImageComponent={BPCuff}
+                x={64}
+                y={23}
                 onComplete={(newX, newY) => {
                   if (
-                    newX > -314 &&
-                    newX < -192 &&
-                    newY > -467 &&
-                    newY < -269
+                    newX > -415 &&
+                    newX < -195 &&
+                    newY > -446 &&
+                    newY < -266
                   ) {
                     playSound('completeStep');
                     trayApi.start({ transform: 'translateX(600px)' });
+
                     // A little hacky, but it helps to avoid errors in the console
-                    setTimeout(() => setGameState({ step: 3 }), 1);
+                    setTimeout(() => setGameState({ step: 2 }), 1);
                   }
                 }}
                 bounds={{
                   left: -677,
-                  top: -895,
-                  right: 68,
+                  top: -832,
+                  right: 48,
                   bottom: 85,
                 }}
               />
             )}
             {[4].includes(step) && (
-              <DraggableImage
-                ImageComponent={Disinfectant}
-                x={200}
-                y={145}
-                onComplete={(newX, newY) => {
-                  if (newX > -350 && newX < -244 && newY > -145 && newY < 164) {
-                    playSound('completeStep');
-                    trayApi.start({ transform: 'translateX(600px)' });
-                    // A little hacky, but it helps to avoid errors in the console
-                    setTimeout(() => setGameState({ step: 5 }), 1);
-                  }
-                }}
-                bounds={{
-                  left: -820,
-                  top: -959,
-                  right: 136,
-                  bottom: 185,
-                }}
-              />
-            )}
-            {[6].includes(step) && (
               <DraggableImage
                 ImageComponent={NeedleChoice}
                 x={230}
@@ -288,7 +233,7 @@ export default function IvGame() {
                     playSound('completeStep');
                     trayApi.start({ transform: 'translateX(600px)' });
                     // A little hacky, but it helps to avoid errors in the console
-                    setTimeout(() => setGameState({ step: 7 }), 1);
+                    setTimeout(() => setGameState({ step: 5 }), 1);
 
                     setTimeout(() => setNeedleComponentPhase(2), 1000);
                     setTimeout(() => setNeedleComponentPhase(3), 2000);
@@ -302,7 +247,7 @@ export default function IvGame() {
                 }}
               />
             )}
-            {[8].includes(step) && (
+            {[6].includes(step) && (
               <DraggableImage
                 ImageComponent={BandageSelection}
                 x={151}
@@ -312,7 +257,7 @@ export default function IvGame() {
                     playSound('completeStep');
                     trayApi.start({ transform: 'translateX(600px)' });
                     // A little hacky, but it helps to avoid errors in the console
-                    setTimeout(() => setGameState({ step: 9 }), 1);
+                    setTimeout(() => setGameState({ step: 7 }), 1);
                   }
                 }}
                 bounds={{
@@ -326,7 +271,7 @@ export default function IvGame() {
           </animated.div>
         </>
       )}
-      {step >= 10 && (
+      {step >= 13 && (
         <>
           <div
             style={{
@@ -335,16 +280,8 @@ export default function IvGame() {
               position: 'absolute',
             }}
           >
-            <ChildFinalStep />
+            <SurgicalPrepChild />
           </div>
-          <img
-            src={InitialPromptIV}
-            style={{
-              top: 288,
-              position: 'absolute',
-              left: 225,
-            }}
-          />
           {value === 'sticker' && (
             <animated.img
               style={{
@@ -378,6 +315,18 @@ export default function IvGame() {
           )}
         </>
       )}
+      <animated.div
+        style={{
+          display: step >= 12 ? 'block' : 'none',
+          position: 'absolute',
+          top: 0,
+          background: 'black',
+          left: 0,
+          width: 1080,
+          height: 1300,
+          ...darkLayerStyle,
+        }}
+      />
     </>
   );
 }

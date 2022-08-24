@@ -32,6 +32,7 @@ import Proprioception from './scene/Proprioception';
 import MriGame from './scene/MriGame';
 import WellnessGame from './scene/WellnessGame';
 import IvGame from './scene/IvGame';
+import SurgicalPrepGame from './scene/SurgicalPrepGame';
 
 export function Home() {
   // This gets the current location from react router.
@@ -117,6 +118,10 @@ export function Home() {
             />
             <Route path={Paths.Eeg} element={<Eeg />} />
             <Route path={Paths.SurgicalPrep} element={<SurgicalPrep />} />
+            <Route
+              path={Paths.SurgicalPrep + '/' + Paths.Game}
+              element={<SurgicalPrepGame />}
+            />
           </Route>
         </Routes>
         {location.pathname.includes(Paths.BodySystems) && (

@@ -5,10 +5,10 @@ import Tray from './SharedAssets/tray.png';
 import Thermometer from './WellnessAssets/thermometer.svg';
 import ThermometerActive from './WellnessAssets/thermometerActive.svg';
 import ThermometerResults from './WellnessAssets/thermometerResults.svg';
-import BPCuff from './WellnessAssets/bpCuff.svg';
+import BPCuff from './SharedAssets/bpCuff.svg';
 import BPTarget from './SharedAssets/target.svg';
-import BPCuffOnArm from './WellnessAssets/bpCuffOnArm.svg';
-import BPCuffResults from './WellnessAssets/bpCuffResults.svg';
+import BPCuffOnArm from './SharedAssets/bpCuffOnArm.svg';
+import BPCuffResults from './SharedAssets/bpCuffResults.svg';
 import Oximeter from './WellnessAssets/oximeter.svg';
 import OximeterOnArm from './WellnessAssets/oximeterOnArm.svg';
 import OximeterOnArmActive from './WellnessAssets/oximeterOnArmActive.svg';
@@ -143,7 +143,6 @@ export default function WellnessGame() {
             x={64}
             y={23}
             onComplete={(newX, newY) => {
-              console.debug({ newX, newY });
               if (newX > -564 && newX < -370 && newY > -173 && newY < 5) {
                 playSound('completeStep');
                 trayApi.start({ transform: 'translateX(600px)' });

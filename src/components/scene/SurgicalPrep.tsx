@@ -6,6 +6,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Paths } from '../../types/Paths';
 import ProceduresTextBox from './SharedComponents/ProceduresTextBox';
 import { CSSProperties } from 'react';
+import SurgicalPrepChild from './SurgicalPrepAssets/surgicalPrep.svg'
 
 const bodyLeft = 540;
 
@@ -59,7 +60,7 @@ export default function SurgicalPrep() {
   return (
     <>
       <animated.img
-        src='images/SurgicalPrep/surgicalPrepChild.png'
+        src={SurgicalPrepChild}
         style={{
           top: 220,
           position: 'absolute',
@@ -72,6 +73,9 @@ export default function SurgicalPrep() {
         animatedStyle={overlayStyle as unknown as CSSProperties}
         label={t('surgicalPrep.scene.label')}
         buttonText={t('surgicalPrep.scene.buttonText')}
+        onClick={() =>
+          navigate(`/${Paths.Procedures}/${Paths.SurgicalPrep}/${Paths.Game}`)
+        }
       />
     </>
   );

@@ -8,6 +8,7 @@ import SkeletalNav from './SkeletalNav';
 import Mri from './Mri';
 import Wellness from './Wellness';
 import Iv from './Iv';
+import SurgicalPrep from './SurgicalPrep';
 
 export default {
   [Paths.MainMenu]: MainMenu,
@@ -19,4 +20,5 @@ export default {
   [Paths.Mri]: Mri,
   [Paths.Wellness]: Wellness,
   [Paths.Iv]: Iv,
+  [Paths.SurgicalPrep]: SurgicalPrep,
 };
