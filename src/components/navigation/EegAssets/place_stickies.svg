@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="109px" height="109px" viewBox="0 0 109 109" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>StartButton</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="06B_Teammates_Procedures_EEG" transform="translate(-214.000000, -1631.000000)">
+            <g id="BottomMenu" transform="translate(-8.000000, 1435.000000)">
+                <g id="StartButton" transform="translate(222.000000, 196.000000)">
+                    <circle id="Oval" stroke="#000000" stroke-width="2" fill="#CD4845" cx="54.5" cy="54.5" r="53.5"></circle>
+                    <g id="Group-10" transform="translate(22.000000, 23.868164)">
+                        <polygon id="+" fill="#FFFFFF" fill-rule="nonzero" points="54.0075651 24.5498047 54.0075651 14.8916016 62.295651 14.8916016 62.295651 9.61328125 54.0075651 9.61328125 54.0075651 0 48.7292448 0 48.7292448 9.61328125 40.4186979 9.61328125 40.4186979 14.8916016 48.7292448 14.8916016 48.7292448 24.5498047"></polygon>
+                        <g id="Group-9" transform="translate(0.000000, 1.131836)">
+                            <circle id="Oval" stroke="#FFFFFF" stroke-width="2" cx="22" cy="32" r="3"></circle>
+                            <circle id="Oval-Copy-4" stroke="#FFFFFF" stroke-width="2" cx="32" cy="32" r="3"></circle>
+                            <circle id="Oval-Copy-7" stroke="#FFFFFF" stroke-width="2" cx="32" cy="22" r="3"></circle>
+                            <circle id="Oval-Copy-9" stroke="#FFFFFF" stroke-width="2" cx="32" cy="42" r="3"></circle>
+                            <circle id="Oval-Copy-6" stroke="#FFFFFF" stroke-width="2" cx="42" cy="32" r="3"></circle>
+                            <path d="M32,0 C34.9301875,0 37.7683894,0.3938371 40.464559,1.13146456 L39.342315,3.93755013 C36.9973043,3.32569542 34.5366873,3 32,3 C15.9837423,3 3,15.9837423 3,32 C3,48.0162577 15.9837423,61 32,61 C48.0162577,61 61,48.0162577 61,32 C61,29.9581923 60.7889879,27.9656691 60.3875811,26.0430481 L63.1733557,24.7420006 C63.7141357,27.0739342 64,29.5035835 64,32 C64,49.673112 49.673112,64 32,64 C14.326888,64 0,49.673112 0,32 C0,14.326888 14.326888,0 32,0 Z" id="Combined-Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

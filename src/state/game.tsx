@@ -2,7 +2,7 @@ import React, { Context, Dispatch, SetStateAction } from 'react';
 
 type Game = {
   step: number;
-  value?: string;
+  value?: any;
   hideButtons?: boolean;
 };
 

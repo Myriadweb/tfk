@@ -315,6 +315,9 @@ const en: Translation = {
         '0-mainText': 'TAKE AN EEG',
         '0-subText': 'FOLLOW THE STEPS TO TAKE AN EEG',
         '0-buttonText': 'CONTINUE',
+        '2-mainText': 'Good Job',
+        '2-subText': 'Youve placed the sticky dots',
+        '2-buttonText': 'CONTINUE',
       }
     },
     [Paths.Wellness]: {

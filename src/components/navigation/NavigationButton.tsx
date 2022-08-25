@@ -6,6 +6,7 @@ type NavigationButtonProps = {
   size: 'small' | 'large';
   onClick: (...args: any) => void;
   text?: string;
+  disabled?: boolean;
 };
 
 const NavigationButton = ({
@@ -13,8 +14,10 @@ const NavigationButton = ({
   size,
   text,
   onClick,
+  disabled,
 }: NavigationButtonProps) => {
   const clickHandler = () => {
+    if (disabled) return;
     playSound('click');
     onClick();
   };
@@ -26,6 +29,7 @@ const NavigationButton = ({
         style={{
           width: size === 'small' ? 111 : 191,
           height: size === 'small' ? 111 : 191,
+          opacity: disabled ? 0.5 : 1,
         }}
       />
       {text && (
