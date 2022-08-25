@@ -1,15 +1,12 @@
 import * as React from 'react';
+import { useEffect } from 'react';
 import { useNavBarTranslation } from '../../hooks';
 import { Paths } from '../../types/Paths';
 import { useGameContext } from '../../state/game';
 import playSound from '../../sound';
 import NavigationButton from './UIComponents/NavigationButton';
 import { Link, useNavigate } from 'react-router-dom';
-import { useSpring, animated } from 'react-spring';
-import { useEffect } from 'react';
-import Sticker from './SharedAssets/sticker.svg';
-import Bear from './SharedAssets/bear.svg';
-import Medal from './SharedAssets/medal.svg';
+import { animated, useSpring } from 'react-spring';
 import { BlueBarContinue } from './BlueBarContinue';
 import BlueBar from './UIComponents/BlueBar';
 import { ReactComponent as Arrow } from '../scene/SceneAssets/Arrow.svg';
@@ -19,7 +16,14 @@ import BpPumpButton from './SharedAssets/bpCuffPumpButton.svg';
 import BpPumpOneBar from './SharedAssets/bpCuffPumpOneBar.svg';
 import BpPumpTwoBar from './SharedAssets/bpCuffPumpTwoBar.svg';
 import BpPumpThreeBar from './SharedAssets/bpCuffPumpThreeBar.svg';
-import Mask from './SurgicalPrepAssets/Teammates_Procedures_SurgicalPrep_BottomMenu_AnesthesiaMask_Button.png';
+import Mask from './SurgicalPrepAssets/anesthesiaMask.png';
+import JuiceBox from './SurgicalPrepAssets/juicebox.svg';
+import Popsicle from './SurgicalPrepAssets/popsicle.svg';
+import IceCream from './SurgicalPrepAssets/iceCream.svg';
+import { ReactComponent as AwakeFace } from './SurgicalPrepAssets/sliderAwake.svg';
+import { ReactComponent as AsleepFace } from './SurgicalPrepAssets/sliderAsleep.svg';
+
+import { CustomSlider } from './CustomSlider';
 
 const PUMPS_CONFIG = {
   1: BpPumpOneBar,
@@ -36,15 +40,17 @@ const SurgicalPrep = ({ prefix }: Props) => {
   const t = useNavBarTranslation(prefix);
   const navigate = useNavigate();
   const [{ step, value }, setStep] = useGameContext();
+  const [shouldShowComponent, setShouldShowComponent] = React.useState(true);
   const [pumps, addPump] = React.useState(0);
   const [delayStyle, delayApi] = useSpring(() => ({ opacity: 1 }));
 
   useEffect(() => {
     if (step === 9) {
       delayApi.set({ opacity: 1 });
-    }
-    if (step === 9) {
-      delayApi.set({ opacity: 1 });
+    } else if (step === 4) {
+      setShouldShowComponent(false);
+    } else if (step === 5 && !shouldShowComponent) {
+      setTimeout(() => setShouldShowComponent(true), 2000);
     }
   }, [step]);
 
@@ -160,13 +166,25 @@ const SurgicalPrep = ({ prefix }: Props) => {
       </BlueBar>
     ),
     10: () => (
-      <BlueBarContinue
-        text={t(`${step}-buttonText`)}
-        onClick={() => {
-          playSound('completeStep');
-          setStep({ step: 11 });
+      <BlueBar
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
         }}
-      />
+      >
+        <AwakeFace style={{ marginRight: 60 }} />
+        <CustomSlider
+          callback={(value) => {
+            if (value === 100) {
+              setStep({ step: 11 });
+            }
+          }}
+          width={261}
+          height={26}
+        />
+        <AsleepFace style={{ marginLeft: 60 }} />
+      </BlueBar>
     ),
     11: () => (
       <BlueBarContinue
@@ -181,8 +199,8 @@ const SurgicalPrep = ({ prefix }: Props) => {
       <BlueBarContinue
         text={t(`${step}-buttonText`)}
         onClick={() => {
-          playSound('completeStep');
-          setStep({ step: 13 });
+          playSound('completeProcedure');
+          setStep({ step: 14, hideButtons: true });
         }}
       />
     ),
@@ -206,26 +224,26 @@ const SurgicalPrep = ({ prefix }: Props) => {
             }}
           >
             <NavigationButton
-              image={Sticker}
-              size={value === 'sticker' ? 'large' : 'small'}
+              image={JuiceBox}
+              size={value === 'juicebox' ? 'large' : 'small'}
               onClick={() =>
-                setStep((oldState) => ({ ...oldState, value: 'sticker' }))
+                setStep((oldState) => ({ ...oldState, value: 'juicebox' }))
               }
               text=''
             />
             <NavigationButton
-              image={Bear}
-              size={value === 'doll' ? 'large' : 'small'}
+              image={Popsicle}
+              size={value === 'popsicle' ? 'large' : 'small'}
               onClick={() =>
-                setStep((oldState) => ({ ...oldState, value: 'doll' }))
+                setStep((oldState) => ({ ...oldState, value: 'popsicle' }))
               }
               text=''
             />
             <NavigationButton
-              image={Medal}
-              size={value === 'medal' ? 'large' : 'small'}
+              image={IceCream}
+              size={value === 'icecream' ? 'large' : 'small'}
               onClick={() =>
-                setStep((oldState) => ({ ...oldState, value: 'medal' }))
+                setStep((oldState) => ({ ...oldState, value: 'icecream' }))
               }
               text=''
             />
@@ -247,7 +265,7 @@ const SurgicalPrep = ({ prefix }: Props) => {
             if (!value) return; // if no value is selected, don't continue
 
             playSound('click');
-            setStep((oldStep) => ({ ...oldStep, step: 11 }));
+            setStep((oldStep) => ({ ...oldStep, step: 15 }));
           }}
         >
           {t(`${step}-buttonText`)} <Arrow />
@@ -361,7 +379,11 @@ const SurgicalPrep = ({ prefix }: Props) => {
           {t(`${step}-boldText`)}
         </span>
       )}
-      {stepComponentConfig[step] ? stepComponentConfig[step]() : <BlueBar />}
+      {shouldShowComponent && stepComponentConfig[step] ? (
+        stepComponentConfig[step]()
+      ) : (
+        <BlueBar />
+      )}
     </>
   );
 };

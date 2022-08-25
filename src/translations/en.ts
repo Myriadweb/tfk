@@ -265,12 +265,10 @@ const en: Translation = {
       },
       navbar: {
         '0-mainText': 'PREP THE PATIENT FOR SURGERY',
-        '0-subText':
-          'FOLLOW THE STEPS TO PREP THE PATIENT\nFOR SURGERY',
+        '0-subText': 'FOLLOW THE STEPS TO PREP THE PATIENT\nFOR SURGERY',
         '0-buttonText': 'CONTINUE',
         '1-mainText': 'APPLY THE BP CUFF',
-        '1-subText':
-          'DRAG THE BP CUFF TO THE UPPER ARM\nTO PLACE IT' ,
+        '1-subText': 'DRAG THE BP CUFF TO THE UPPER ARM\nTO PLACE IT',
         '2-mainText': 'PUMP UP THE BP CUFF',
         '2-subText': 'KEEP TAPPING THE BUTTON TO PUMP UP\nTHE BP CUFF',
         '3-mainText': 'GREAT JOB!',
@@ -296,7 +294,14 @@ const en: Translation = {
         '13-mainText': 'GREAT JOB!',
         '13-subText': 'YOUR PATIENT IS OUT OF SURGERY',
         '13-buttonText': 'FINISH',
-      }
+        '14-mainText': 'GREAT JOB!',
+        '14-subText': 'YOU FINISHED THE SURGERY',
+        '14-buttonText': 'CONTINUE',
+        '15-subText':
+          'YOU FINISHED THE SURGERY!\nTAP BELOW TO LEARN MORE ABOUT',
+        '15-boldText': 'THE CARDIOVASCULAR SYSTEM',
+        '15-back': 'BACK TO\nPROCEDURES',
+      },
     },
     [Paths.XRay]: {
       header: {

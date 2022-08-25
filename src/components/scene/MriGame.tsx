@@ -9,7 +9,7 @@ import { ReactComponent as MachineBed } from './MriAssets/machineBed.svg';
 import { ReactComponent as Music } from './SharedAssets/music.svg';
 import { ReactComponent as Nap } from './MriAssets/nap.svg';
 import { ReactComponent as VR } from './MriAssets/vr.svg';
-import { ReactComponent as MriBody } from './MriAssets/mriBody.svg';
+import MriBody from './MriAssets/mriBody.png';
 import Doll from './SharedAssets/doll.png';
 import Medal from './SharedAssets/medal.png';
 import { ReactComponent as Sticker } from './SharedAssets/sticker.svg';
@@ -157,7 +157,8 @@ export default function MriGame() {
       )}
       {step === 4 && (
         <>
-          <MriBody
+          <img
+            src={MriBody}
             style={{
               position: 'absolute',
               left: 540,
