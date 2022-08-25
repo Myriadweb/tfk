@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { animated, useSpring } from 'react-spring';
-import { useGameContext } from '../../state/game';
-import playSound, { Sounds } from '../../sound';
+import { useGameContext } from '../../../state/game';
+import playSound, { Sounds } from '../../../sound';
 
 export type VariationsType = 'good' | 'bad';
 

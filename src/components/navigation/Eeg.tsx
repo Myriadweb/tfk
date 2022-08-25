@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useGameContext } from '../../state/game';
 import { animated } from 'react-spring';
 import playSound from '../../sound';
-import NavigationButton from './NavigationButton';
+import NavigationButton from './UIComponents/NavigationButton';
 import { ReactComponent as Arrow } from '../scene/SceneAssets/Arrow.svg';
 import { Paths } from '../../types/Paths';
 import Cap from '../navigation/EegAssets/cap.svg';

@@ -1,0 +1,369 @@
+import * as React from 'react';
+import { useNavBarTranslation } from '../../hooks';
+import { Paths } from '../../types/Paths';
+import { useGameContext } from '../../state/game';
+
+import playSound from '../../sound';
+import NavigationButton from './UIComponents/NavigationButton';
+import Music from './SharedAssets/music.svg';
+import Tablet from './IvAssets/iPad.svg';
+import Bubbles from './IvAssets/bubbles.svg';
+import { Link, useNavigate } from 'react-router-dom';
+import { useSpring, animated } from 'react-spring';
+import { useEffect } from 'react';
+import Sticker from './SharedAssets/sticker.svg';
+import Bear from './SharedAssets/bear.svg';
+import Medal from './SharedAssets/medal.svg';
+import { BlueBarContinue } from './BlueBarContinue';
+import BlueBar from './UIComponents/BlueBar';
+import { ReactComponent as Arrow } from '../scene/SceneAssets/Arrow.svg';
+import Skeletal from './BodySystemsAssets/Cardiovascular.svg';
+
+type Props = {
+  path: Paths;
+  prefix: Paths;
+};
+
+const distractionTextStyle = {
+  fontFamily: 'LemonMilk',
+  fontSize: 25,
+  fontWeight: 'bold',
+  letterSpacing: 1.24,
+  marginTop: 12,
+  color: '#fff',
+};
+
+const Iv = ({ prefix }: Props) => {
+  const t = useNavBarTranslation(prefix);
+  const navigate = useNavigate();
+  const [{ step, value }, setStep] = useGameContext();
+  const [shouldShowComponent, setShouldShowComponent] = React.useState(true);
+  const [delayStyle, delayApi] = useSpring(() => ({ opacity: 1 }));
+
+  useEffect(() => {
+    if (step === 2) {
+      delayApi.start({
+        from: { opacity: 0 },
+        to: { opacity: 1 },
+        delay: 1000,
+        config: {
+          duration: 100,
+        },
+      });
+    } else if (step === 6) {
+      delayApi.set({ opacity: 0 });
+      setShouldShowComponent(false);
+    } else if (step === 7) {
+      delayApi.start({
+        opacity: 1,
+        delay: 2000,
+        config: {
+          duration: 1,
+        },
+        onRest: () => setShouldShowComponent(true),
+      });
+    }
+  }, [step]);
+
+  const stepComponentConfig = {
+    0: () => (
+      <>
+        <div
+          style={{
+            marginTop: 12,
+            background: '#0E1F33',
+            height: 192,
+          }}
+        >
+          <div
+            style={{
+              margin: '0 auto',
+              display: 'flex',
+              justifyContent: 'space-around',
+              alignItems: 'start',
+              height: '100%',
+              width: 592,
+              paddingTop: 19,
+            }}
+          >
+            <div>
+              <NavigationButton
+                image={Tablet}
+                size={'small'}
+                onClick={() =>
+                  setStep((oldState) => ({
+                    ...oldState,
+                    step: 1,
+                    value: 'tablet',
+                  }))
+                }
+                text=''
+              />
+              <span style={distractionTextStyle}> {t('tablet')}</span>
+            </div>
+            <div>
+              <NavigationButton
+                image={Bubbles}
+                size={'small'}
+                onClick={() =>
+                  setStep((oldState) => ({
+                    ...oldState,
+                    step: 1,
+                    value: 'bubbles',
+                  }))
+                }
+                text=''
+              />
+              <span style={distractionTextStyle}> {t('bubbles')}</span>
+            </div>
+            <div>
+              <NavigationButton
+                image={Music}
+                size={'small'}
+                onClick={() =>
+                  setStep((oldState) => ({
+                    ...oldState,
+                    step: 1,
+                    value: 'music',
+                  }))
+                }
+                text=''
+              />
+              <span style={distractionTextStyle}> {t('music')}</span>
+            </div>
+          </div>
+        </div>
+      </>
+    ),
+    1: () => (
+      <BlueBarContinue
+        text={t(`${step}-buttonText`)}
+        onClick={() => {
+          delayApi.set({ opacity: 0 });
+          playSound('completeStep');
+          setStep({ step: 2 });
+        }}
+      />
+    ),
+    3: () => (
+      <BlueBarContinue
+        text={t(`${step}-buttonText`)}
+        onClick={() => {
+          playSound('completeStep');
+          setStep({ step: 4 });
+        }}
+      />
+    ),
+    5: () => (
+      <BlueBarContinue
+        text={t(`${step}-buttonText`)}
+        onClick={() => {
+          playSound('completeStep');
+          setStep({ step: 6 });
+        }}
+      />
+    ),
+    7: () => (
+      <BlueBarContinue
+        text={t(`${step}-buttonText`)}
+        onClick={() => {
+          playSound('completeStep');
+          setStep({ step: 8 });
+        }}
+      />
+    ),
+    9: () => (
+      <BlueBarContinue
+        text={t(`${step}-buttonText`)}
+        onClick={() => {
+          playSound('completeProcedure');
+          setStep({ step: 10, hideButtons: true });
+        }}
+      />
+    ),
+    10: () => (
+      <>
+        <div
+          style={{
+            marginTop: 12,
+            background: '#0E1F33',
+            height: 192,
+          }}
+        >
+          <div
+            style={{
+              margin: '0 auto',
+              display: 'flex',
+              justifyContent: 'space-around',
+              alignItems: 'center',
+              height: '100%',
+              width: 592,
+            }}
+          >
+            <NavigationButton
+              image={Sticker}
+              size={value === 'sticker' ? 'large' : 'small'}
+              onClick={() =>
+                setStep((oldState) => ({ ...oldState, value: 'sticker' }))
+              }
+              text=''
+            />
+            <NavigationButton
+              image={Bear}
+              size={value === 'doll' ? 'large' : 'small'}
+              onClick={() =>
+                setStep((oldState) => ({ ...oldState, value: 'doll' }))
+              }
+              text=''
+            />
+            <NavigationButton
+              image={Medal}
+              size={value === 'medal' ? 'large' : 'small'}
+              onClick={() =>
+                setStep((oldState) => ({ ...oldState, value: 'medal' }))
+              }
+              text=''
+            />
+          </div>
+        </div>
+        <button
+          style={{
+            fontFamily: 'LemonMilk',
+            fontSize: 20,
+            color: '#fff',
+            background: '#CD4845',
+            border: '1px solid #000',
+            borderRadius: 12,
+            width: 241,
+            height: 65,
+            marginTop: 20,
+          }}
+          onClick={() => {
+            if (!value) return; // if no value is selected, don't continue
+
+            playSound('click');
+            setStep((oldStep) => ({ ...oldStep, step: 11 }));
+          }}
+        >
+          {t(`${step}-buttonText`)} <Arrow />
+        </button>
+      </>
+    ),
+    11: () => (
+      <>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-around',
+            alignItems: 'center',
+            marginTop: 49,
+            background: '#0E1F33',
+            height: 192,
+          }}
+        >
+          <NavigationButton
+            image={Skeletal}
+            size={'large'}
+            onClick={() => {
+              playSound('click');
+              setStep({ step: 0 });
+              navigate(Paths.BodySystems + '/' + Paths.Cardiovascular);
+            }}
+            text=''
+          />
+        </div>
+
+        <div
+          style={{
+            position: 'absolute',
+            left: 44,
+            top: 383,
+          }}
+        >
+          <Link
+            to={`${Paths.Procedures}/${prefix}`}
+            onClick={() => {
+              playSound('click');
+              setStep({ step: 0 });
+            }}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+            }}
+          >
+            <img src='images/NavBar/proceduresButton.png' />
+            <span
+              style={{
+                fontSize: 20,
+                color: '#FFF',
+                fontFamily: 'LemonMilk',
+                marginLeft: 15,
+                whiteSpace: 'pre',
+                textAlign: 'left',
+              }}
+            >
+              {t(`${step}-back`)}
+            </span>
+          </Link>
+        </div>
+      </>
+    ),
+  };
+
+
+  return (
+    <>
+      <animated.div style={delayStyle}>
+        <span
+          style={{
+            display: step !== 11 ? 'block' : 'none',
+            fontSize: 40,
+            color: '#FFF',
+            fontFamily: 'LemonMilk',
+            marginTop: 30,
+            letterSpacing: 2,
+            fontWeight: 'bolder',
+            minHeight: 54,
+          }}
+        >
+          {t(`${step}-mainText`)}
+        </span>
+        {step !== 0 && (
+          <span
+            style={{
+              display: 'block',
+              fontSize: 20,
+              color: '#FFF',
+              fontFamily: 'LemonMilk',
+              marginTop: step !== 11 ? 12 : 45,
+              whiteSpace: 'pre',
+              minHeight: 54,
+            }}
+          >
+            {t(`${step}-subText`)}
+          </span>
+        )}
+      </animated.div>
+      {step === 11 && (
+        <span
+          style={{
+            fontSize: 20,
+            color: '#FFF',
+            fontFamily: 'LemonMilk',
+            whiteSpace: 'pre',
+            fontWeight: 'bold',
+          }}
+        >
+          {t(`${step}-boldText`)}
+        </span>
+      )}
+      {shouldShowComponent && stepComponentConfig[step] ? (
+        stepComponentConfig[step]()
+      ) : (
+        <BlueBar />
+      )}
+    </>
+  );
+};
+
+export default Iv;

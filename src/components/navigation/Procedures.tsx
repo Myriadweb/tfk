@@ -7,7 +7,7 @@ import MRI from './Procedures/MRI.svg';
 import SurgicalPrep from './Procedures/SurgicalPrep.svg';
 import Wellness from './Procedures/Wellness.svg';
 import XRay from './Procedures/XRay.svg';
-import NavigationButton from './NavigationButton';
+import NavigationButton from './UIComponents/NavigationButton';
 import { useAnimateContext } from '../../state/animate';
 
 type Props = {

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import playSound from '../../sound';
+import playSound from '../../../sound';
 
 type NavigationButtonProps = {
   image: string;

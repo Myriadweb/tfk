@@ -2,7 +2,10 @@ import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { animated, useSpring } from 'react-spring';
 import { useGameContext } from '../../state/game';
-import { ClickableImage, VariationsType } from './ClickableImage';
+import {
+  ClickableImage,
+  VariationsType,
+} from './SharedComponents/ClickableImage';
 import { useCharacterContext } from '../../state/character';
 import { Characters, sensoryChildWidth } from './ChildrenAssets/childrenAssets';
 
@@ -174,8 +177,8 @@ export default function Sight() {
       )}
       <ClickableImage
         Component='images/Sight/moon.png'
-        x={615}
-        y={957}
+        x={645}
+        y={991}
         type='good'
         onChange={setSensoryState}
         onTop={sensoryState === 'good'}

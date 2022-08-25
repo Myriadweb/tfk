@@ -1,7 +1,10 @@
 import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { useSpring, animated } from 'react-spring';
-import { ClickableImage, VariationsType } from './ClickableImage';
+import {
+  ClickableImage,
+  VariationsType,
+} from './SharedComponents/ClickableImage';
 import { ReactComponent as Sparkles } from './TasteAssets/Sparkles.svg';
 import IceCream from './TasteAssets/IceCream.png';
 import Bottle from './TasteAssets/Bottle.png';

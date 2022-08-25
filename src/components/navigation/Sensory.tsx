@@ -9,7 +9,7 @@ import Taste from './SensoryAssets/Taste.svg';
 import Vestibular from './SensoryAssets/Vestibular.svg';
 import Touch from './SensoryAssets/Touch.svg';
 
-import NavigationButton from './NavigationButton';
+import NavigationButton from './UIComponents/NavigationButton';
 import { useNavigate } from 'react-router-dom';
 import { useGameContext } from '../../state/game';
 import playSound from '../../sound';

@@ -4,7 +4,7 @@ import { Paths } from '../../types/Paths';
 import { useGameContext } from '../../state/game';
 import { ReactComponent as Arrow } from '../scene/SceneAssets/Arrow.svg';
 import playSound from '../../sound';
-import NavigationButton from './NavigationButton';
+import NavigationButton from './UIComponents/NavigationButton';
 import Bear from './SharedAssets/bear.svg';
 import Medal from './SharedAssets/medal.svg';
 import SignCast from './XRayAssets/signCast.svg';

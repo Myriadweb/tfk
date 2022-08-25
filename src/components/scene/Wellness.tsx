@@ -4,13 +4,14 @@ import { useAnimateContext } from '../../state/animate';
 import { animated, useSpring } from 'react-spring';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Paths } from '../../types/Paths';
-import ProceduresTextBox from './ProceduresTextBox';
+import ProceduresTextBox from './SharedComponents/ProceduresTextBox';
 import { CSSProperties } from 'react';
+import { Characters } from './ChildrenAssets/childrenAssets';
 
 const bodyLeft = 458;
 
 export default function Wellness() {
-  const [animatedPath, setAnimatedPath] = useAnimateContext();
+  const [animatedPath] = useAnimateContext();
   const { t } = useTranslation('translation');
   const navigate = useNavigate();
   const shouldShowIntroAnimation =
@@ -56,17 +57,20 @@ export default function Wellness() {
     // then we navigate to the path
   }
 
+  const Child = Characters.default[3];
+
   return (
     <>
-      <animated.img
-        src='images/Wellness/wellnessChild.png'
+      <animated.div
         style={{
           top: 275,
           left: 458,
           position: 'absolute',
           ...bodyStyle,
         }}
-      />
+      >
+        <Child />
+      </animated.div>
       <animated.img
         src='images/Wellness/wellnessMachine.png'
         style={{
@@ -81,6 +85,9 @@ export default function Wellness() {
         animatedStyle={overlayStyle as unknown as CSSProperties}
         label={t('wellness.scene.label')}
         buttonText={t('wellness.scene.buttonText')}
+        onClick={() =>
+          navigate(`/${Paths.Procedures}/${Paths.Wellness}/${Paths.Game}`)
+        }
       />
     </>
   );

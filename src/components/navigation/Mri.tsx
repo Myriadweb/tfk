@@ -4,11 +4,11 @@ import { Paths } from '../../types/Paths';
 import { useGameContext } from '../../state/game';
 import { ReactComponent as Arrow } from '../scene/SceneAssets/Arrow.svg';
 import playSound from '../../sound';
-import NavigationButton from './NavigationButton';
+import NavigationButton from './UIComponents/NavigationButton';
 import Music from './SharedAssets/music.svg';
 import VR from './MriAssets/vr.svg';
 import Nap from './MriAssets/nap.svg';
-import Skeletal from './BodySystemsAssets/Skeletal.svg';
+import Muscular from './BodySystemsAssets/Muscular.svg';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSpring, animated } from 'react-spring';
 import { useEffect } from 'react';
@@ -259,12 +259,70 @@ const Mri = ({ prefix }: Props) => {
             if (!value) return; // if no value is selected, don't continue
 
             playSound('click');
-            setStep({ step: 0 });
-            navigate(`${Paths.Procedures}/${Paths.Mri}`);
+            setStep((oldState) => ({ ...oldState, step: 6 }));
           }}
         >
           {t(`${step}-buttonText`)} <Arrow />
         </button>
+      </>
+    ),
+    6: () => (
+      <>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-around',
+            alignItems: 'center',
+            marginTop: 49,
+            background: '#0E1F33',
+            height: 192,
+          }}
+        >
+          <NavigationButton
+            image={Muscular}
+            size={'large'}
+            onClick={() => {
+              playSound('click');
+              setStep({ step: 0 });
+              navigate(Paths.BodySystems + '/' + Paths.Muscular);
+            }}
+            text=''
+          />
+        </div>
+
+        <div
+          style={{
+            position: 'absolute',
+            left: 44,
+            top: 383,
+          }}
+        >
+          <Link
+            to={`${Paths.Procedures}/${prefix}`}
+            onClick={() => {
+              playSound('click');
+              setStep({ step: 0 });
+            }}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+            }}
+          >
+            <img src='images/NavBar/proceduresButton.png' />
+            <span
+              style={{
+                fontSize: 20,
+                color: '#FFF',
+                fontFamily: 'LemonMilk',
+                marginLeft: 15,
+                whiteSpace: 'pre',
+                textAlign: 'left',
+              }}
+            >
+              {t(`${step}-back`)}
+            </span>
+          </Link>
+        </div>
       </>
     ),
   };
@@ -276,7 +334,7 @@ const Mri = ({ prefix }: Props) => {
       <>
         <span
           style={{
-            display: 'block',
+            display: step !== 6 ? 'block' : 'none',
             fontSize: 40,
             color: '#FFF',
             fontFamily: 'LemonMilk',
@@ -294,7 +352,7 @@ const Mri = ({ prefix }: Props) => {
               fontSize: 20,
               color: '#FFF',
               fontFamily: 'LemonMilk',
-              marginTop: 12,
+              marginTop: step !== 6 ? 12 : 45,
               whiteSpace: 'pre',
             }}
           >
@@ -302,6 +360,19 @@ const Mri = ({ prefix }: Props) => {
           </span>
         )}
       </>
+      {step === 6 && (
+        <span
+          style={{
+            fontSize: 20,
+            color: '#FFF',
+            fontFamily: 'LemonMilk',
+            whiteSpace: 'pre',
+            fontWeight: 'bold',
+          }}
+        >
+          {t(`${step}-boldText`)}
+        </span>
+      )}
       {stepComponentConfig[step] && stepComponentConfig[step]()}
     </animated.div>
   );

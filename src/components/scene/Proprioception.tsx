@@ -1,7 +1,10 @@
 import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { useSpring, animated } from 'react-spring';
-import { ClickableImage, VariationsType } from './ClickableImage';
+import {
+  ClickableImage,
+  VariationsType,
+} from './SharedComponents/ClickableImage';
 import ChildGood from './ProprioceptionAssets/ChildGood.png';
 import ChildBad from './ProprioceptionAssets/ChildBad.png';
 import Feather from './ProprioceptionAssets/Feather.png';

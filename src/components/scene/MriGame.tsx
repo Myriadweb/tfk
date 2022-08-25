@@ -2,13 +2,11 @@ import * as React from 'react';
 import { animated, useSpring } from 'react-spring';
 import { ReactComponent as MriBed } from './MriAssets/mriBed.svg';
 import { ReactComponent as MriBedSleeping } from './MriAssets/mriBedSleeping.svg';
-import { ReactComponent as Cast } from './XRayAssets/cast.svg';
-import { ReactComponent as Signature } from './XRayAssets/signature.svg';
 import { ReactComponent as Background } from './MriAssets/background.svg';
 import { ReactComponent as MachineBottom } from './MriAssets/machineBottom.svg';
 import { ReactComponent as MachineTop } from './MriAssets/machineTop.svg';
 import { ReactComponent as MachineBed } from './MriAssets/machineBed.svg';
-import { ReactComponent as Music } from './MriAssets/music.svg';
+import { ReactComponent as Music } from './SharedAssets/music.svg';
 import { ReactComponent as Nap } from './MriAssets/nap.svg';
 import { ReactComponent as VR } from './MriAssets/vr.svg';
 import { ReactComponent as MriBody } from './MriAssets/mriBody.svg';
@@ -17,9 +15,7 @@ import Medal from './SharedAssets/medal.png';
 import { ReactComponent as Sticker } from './SharedAssets/sticker.svg';
 
 import { useGameContext } from '../../state/game';
-import playSound from '../../sound';
 import { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Characters } from './ChildrenAssets/childrenAssets';
 
 const sceneStyle = {
@@ -31,7 +27,6 @@ const ChildFinalStep = Characters.default[2];
 
 export default function MriGame() {
   const [{ step, value }, setStep] = useGameContext();
-  const { t } = useTranslation('translation');
 
   const [animatedScene, animatedSceneApi] = useSpring(() => ({
     transform: 'scale(1.4) translateY(-700px)',
