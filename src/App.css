@@ -94,7 +94,7 @@
 }
 .nav-middle {
   margin-top: 50px;
-  background: #0E1F33;
+  background: #0e1f33;
   padding: 33px 0px;
 }
 .nav-items-container {
@@ -122,13 +122,12 @@
   font-family: 'LemonMilk', sans-serif;
   font-size: 20px;
   color: #fff;
-  background: #CD4845;
+  background: #cd4845;
   border: 1px solid #000;
   border-radius: 12px;
   padding: 10px 20px;
   min-width: 240px;
 }
-
 
 /* EEG game scene styling */
 .sticky-dots-container {

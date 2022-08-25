@@ -6,7 +6,7 @@ import Procedures from './Procedures';
 import XRay from './XRay';
 import SkeletalNav from './SkeletalNav';
 import Mri from './Mri';
-import Eeg from './Eeg'
+import Eeg from './Eeg';
 
 export default {
   [Paths.MainMenu]: MainMenu,

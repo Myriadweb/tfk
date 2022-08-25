@@ -101,8 +101,8 @@ export function NavBar({ path, prefix }: Props) {
                   marginLeft: 15,
                 }}
               >
-              {t('common.navbar.exit')}
-            </span>
+                {t('common.navbar.exit')}
+              </span>
             </Link>
           </div>
         )}
@@ -134,8 +134,8 @@ export function NavBar({ path, prefix }: Props) {
                   marginLeft: 15,
                 }}
               >
-              {t('common.navbar.bodySystems')}
-            </span>
+                {t('common.navbar.bodySystems')}
+              </span>
             </Link>
           </div>
         )}
@@ -167,8 +167,8 @@ export function NavBar({ path, prefix }: Props) {
                   marginLeft: 15,
                 }}
               >
-              {t(`common.navbar.${getNavigationText(prefix)}`)}
-            </span>
+                {t(`common.navbar.${getNavigationText(prefix)}`)}
+              </span>
             </Link>
           </div>
         )}

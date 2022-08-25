@@ -318,7 +318,7 @@ const en: Translation = {
         '2-mainText': 'Good Job',
         '2-subText': 'Youve placed the sticky dots',
         '2-buttonText': 'CONTINUE',
-      }
+      },
     },
     [Paths.Wellness]: {
       header: {
