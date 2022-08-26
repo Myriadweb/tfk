@@ -265,12 +265,10 @@ const en: Translation = {
       },
       navbar: {
         '0-mainText': 'PREP THE PATIENT FOR SURGERY',
-        '0-subText':
-          'FOLLOW THE STEPS TO PREP THE PATIENT\nFOR SURGERY',
+        '0-subText': 'FOLLOW THE STEPS TO PREP THE PATIENT\nFOR SURGERY',
         '0-buttonText': 'CONTINUE',
         '1-mainText': 'APPLY THE BP CUFF',
-        '1-subText':
-          'DRAG THE BP CUFF TO THE UPPER ARM\nTO PLACE IT' ,
+        '1-subText': 'DRAG THE BP CUFF TO THE UPPER ARM\nTO PLACE IT',
         '2-mainText': 'PUMP UP THE BP CUFF',
         '2-subText': 'KEEP TAPPING THE BUTTON TO PUMP UP\nTHE BP CUFF',
         '3-mainText': 'GREAT JOB!',
@@ -296,7 +294,7 @@ const en: Translation = {
         '13-mainText': 'GREAT JOB!',
         '13-subText': 'YOUR PATIENT IS OUT OF SURGERY',
         '13-buttonText': 'FINISH',
-      }
+      },
     },
     [Paths.XRay]: {
       header: {
@@ -349,9 +347,18 @@ const en: Translation = {
         '0-mainText': 'TAKE AN EEG',
         '0-subText': 'FOLLOW THE STEPS TO TAKE AN EEG',
         '0-buttonText': 'CONTINUE',
+        '1-mainText': 'Place the Sticky Dots',
+        '1-subText': 'Tap the hotspots on the head to place the sticky dots',
         '2-mainText': 'Good Job',
-        '2-subText': 'Youve placed the sticky dots',
+        '2-subText': 'You\'ve placed the sticky dots',
         '2-buttonText': 'CONTINUE',
+        '3-mainText': 'Put on the Rainbow Hair',
+        '3-subText': 'Tap the hotspots on the head to place the leads',
+        '4-mainText': 'Great Job',
+        '4-subText': 'You\'ve successfully placed the leads',
+        '4-buttonText': 'Continue',
+        '5-mainText': 'Put on the EEG Cap',
+        '5-subText': 'Now place the EEG cap over the leads to finish',
       },
     },
     [Paths.Wellness]: {

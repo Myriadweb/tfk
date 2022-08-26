@@ -135,13 +135,32 @@
   top: 50px;
   left: 540px;
   transform: translateX(-50%);
-  width: 600px;
+  width: 570px;
 }
 .sticky-dots {
   position: absolute;
 }
 .leads-head-container {
   position: absolute;
+  top: -10px;
+  left: 540px;
+  transform: translateX(-50%);
+  width: 682px;
+}
+.leads-machine-container {
+  position: absolute;
+  top: -212px;
+  left: 530px;
+  transform: translateX(-50%);
+  width: 197px;
+}
+.leads-head-container svg, .leads-machine-container svg, .cap-container svg {
+  position: absolute;
+}
+.cap-container {
+  position: absolute;
+  width: 616px;
   top: 0;
+  left: 540px;
   transform: translateX(-50%);
 }

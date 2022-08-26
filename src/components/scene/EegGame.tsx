@@ -8,7 +8,21 @@ import { ReactComponent as Row2 } from '../scene/EegAssets/row2.svg';
 import { ReactComponent as Row3 } from '../scene/EegAssets/row3.svg';
 import { ReactComponent as Row4 } from '../scene/EegAssets/row4.svg';
 import { ReactComponent as Row5 } from '../scene/EegAssets/row5.svg';
+import { ReactComponent as StickyDotsRowRef } from '../scene/EegAssets/stickyDotsRef.svg';
 import { ReactComponent as LeadsHeadRef } from '../scene/EegAssets/leadsHeadReference.svg';
+import { ReactComponent as LeadsHeadRow1 } from '../scene/EegAssets/leadsHeadRow1.svg';
+import { ReactComponent as LeadsHeadRow2 } from '../scene/EegAssets/leadsHeadRow2.svg';
+import { ReactComponent as LeadsHeadRow3 } from '../scene/EegAssets/leadsHeadRow3.svg';
+import { ReactComponent as LeadsHeadRow4 } from '../scene/EegAssets/leadsHeadRow4.svg';
+import { ReactComponent as LeadsHeadRow5 } from '../scene/EegAssets/leadsHeadRow5.svg';
+import { ReactComponent as LeadsHeadMachineRow1 } from '../scene/EegAssets/leadsMachineRow1.svg';
+import { ReactComponent as LeadsHeadMachineRow2 } from '../scene/EegAssets/leadsMachineRow2.svg';
+import { ReactComponent as LeadsHeadMachineRow3 } from '../scene/EegAssets/leadsMachineRow3.svg';
+import { ReactComponent as LeadsHeadMachineRow4 } from '../scene/EegAssets/leadsMachineRow4.svg';
+import { ReactComponent as LeadsHeadMachineRow5 } from '../scene/EegAssets/leadsMachineRow5.svg';
+import { ReactComponent as LeadsHeadMachineRef } from '../scene/EegAssets/leadsMachineReference.svg';
+import { ReactComponent as HeadCap } from '../scene/EegAssets/headCap.svg';
+
 
 export default function EegGame() {
   const [{ step, value }, setStep] = useGameContext();
@@ -20,6 +34,12 @@ export default function EegGame() {
   const shouldShowDots = (index: number) => {
     return (value && value.includes(index)) || step > 1;
   };
+  const shouldShowLeads = (index: number) => {
+    return (value && value.includes(index)) || step > 3;
+  };
+  const shouldShowComponent = (index: number, stepValue: number) => {
+    return (value && value.includes(index)) || step > stepValue;
+  }
 
   return (
     <div className='game'>
@@ -34,7 +54,7 @@ export default function EegGame() {
           position: 'absolute',
           transform: 'translateX(-50%)',
           left: 540,
-          top: 71,
+          top: 75,
         }}
       />
       <div
@@ -53,19 +73,25 @@ export default function EegGame() {
         />
         {step > 0 && step < 6 && (
           <div className='sticky-dots-container'>
+            <StickyDotsRowRef className='sticky-dots'
+                style={{
+                  left: 10,
+                  opacity: 0,
+                }}
+              />
             <Row1
               className='sticky-dots'
               style={{
-                top: 130,
-                left: 40,
+                top: 155,
+                left: 10,
                 display: shouldShowDots(1) ? 'block' : 'none',
               }}
             />
             <Row2
               className='sticky-dots'
               style={{
-                top: 40,
-                left: 120,
+                top: 25,
+                left: 100,
                 display: shouldShowDots(2) ? 'block' : 'none',
               }}
             />
@@ -80,7 +106,7 @@ export default function EegGame() {
             <Row4
               className='sticky-dots'
               style={{
-                top: 40,
+                top: 25,
                 left: 400,
                 display: shouldShowDots(4) ? 'block' : 'none',
               }}
@@ -88,7 +114,7 @@ export default function EegGame() {
             <Row5
               className='sticky-dots'
               style={{
-                top: 130,
+                top: 150,
                 left: 500,
                 display: shouldShowDots(5) ? 'block' : 'none',
               }}
@@ -96,10 +122,29 @@ export default function EegGame() {
           </div>
         )}
         {step > 2 && step < 6 && (
-          <div className='leads-head-container'>
-            <LeadsHeadRef className='leads-head' />
-          </div>
+          <>
+            <div className='leads-machine-container'>
+              <LeadsHeadMachineRef  style={{ top: 0, left: 0, opacity: 0 }}/>
+              <LeadsHeadMachineRow1 style={{ top: 0, left: 0, display: shouldShowLeads(1) ? 'block' : 'none' }} />
+              <LeadsHeadMachineRow2 style={{ top: 0, left: 37, display: shouldShowLeads(2) ? 'block' : 'none' }} />
+              <LeadsHeadMachineRow3 style={{ top: 0, left: 74, display: shouldShowLeads(3) ? 'block' : 'none' }} />
+              <LeadsHeadMachineRow4 style={{ top: 0, left: 110, display: shouldShowLeads(4) ? 'block' : 'none' }} />
+              <LeadsHeadMachineRow5 style={{ top: 0, left: 150, display: shouldShowLeads(5) ? 'block' : 'none' }} />
+            </div>
+            <div className='leads-head-container'>
+              <LeadsHeadRef  style={{ top: 0, left: 0, opacity: 0 }}/>
+              <LeadsHeadRow1 style={{ top: 0, left: 0, display: shouldShowLeads(1) ? 'block' : 'none' }} />
+              <LeadsHeadRow2 style={{ top: 0, left: 100, display: shouldShowLeads(2) ? 'block' : 'none' }} />
+              <LeadsHeadRow3 style={{ top: 0, left: 310, display: shouldShowLeads(3) ? 'block' : 'none' }} />
+              <LeadsHeadRow4 style={{ top: 0, left: 452, display: shouldShowLeads(4) ? 'block' : 'none' }} />
+              <LeadsHeadRow5 style={{ top: 0, left: 515, display: shouldShowLeads(5) ? 'block' : 'none' }} />
+            </div>
+            <div className='cap-container'>
+              <HeadCap  style={{ top: 0, left: 0, display: shouldShowComponent(6, 5) ? 'block' : 'none' }} />
+            </div>
+          </>
         )}
+
       </div>
     </div>
   );

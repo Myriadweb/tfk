@@ -13,6 +13,7 @@ import Medal from '../navigation/SharedAssets/medal.svg';
 import PlaceLeads from '../navigation/EegAssets/place_leads.svg';
 import PlaceStickies from '../navigation/EegAssets/place_stickies.svg';
 import SignCast from './XRayAssets/signCast.svg';
+import PlaceCap from '../navigation/EegAssets/cap.svg';
 
 type Props = {
   path: Paths;
@@ -28,7 +29,7 @@ export default function Eeg({ prefix }: Props) {
     //setStep((oldState) => ({ ...oldState, step: 2, value: [...oldState.value, 5] }))
     setStep((oldState) => {
       const newValue = [...oldState.value, index];
-      const newStep = newValue.length === 5 ? 2 : oldState.step;
+      const newStep = newValue.length === 5 ? oldState.step+1 : oldState.step;
       return { step: newStep, value: newValue };
     });
   };
@@ -95,6 +96,67 @@ export default function Eeg({ prefix }: Props) {
         {t(`${step}-buttonText`)} <Arrow />
       </button>
     ),
+    3: () => (
+      <div className='nav-items-container'>
+        <NavigationButton
+          image={PlaceLeads}
+          size='small'
+          disabled={value.includes(1)}
+          onClick={() => handleNavigationButtonClick(1)}
+          text=''
+        />
+        <NavigationButton
+          image={PlaceLeads}
+          size='small'
+          disabled={value.includes(2)}
+          onClick={() => handleNavigationButtonClick(2)}
+          text=''
+        />
+        <NavigationButton
+          image={PlaceLeads}
+          size='small'
+          disabled={value.includes(3)}
+          onClick={() => handleNavigationButtonClick(3)}
+          text=''
+        />
+        <NavigationButton
+          image={PlaceLeads}
+          size='small'
+          disabled={value.includes(4)}
+          onClick={() => handleNavigationButtonClick(4)}
+          text=''
+        />
+        <NavigationButton
+          image={PlaceLeads}
+          size='small'
+          disabled={value.includes(5)}
+          onClick={() => handleNavigationButtonClick(5)}
+          text=''
+        />
+      </div>
+    ),
+    4: () => (
+      <button
+        className='nav-button'
+        onClick={() => {
+          playSound('completeStep');
+          setStep({ step: 5, value: [] });
+        }}
+      >
+        {t(`${step}-buttonText`)} <Arrow />
+      </button>
+    ),
+    5: () => (
+      <div className='nav-items-container'>
+        <NavigationButton
+          image={PlaceCap}
+          size='small'
+          disabled={value.includes(1)}
+          onClick={() => handleNavigationButtonClick(6)}
+          text=''
+        />
+      </div>
+    )
   };
 
   return (
