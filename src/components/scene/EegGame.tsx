@@ -23,7 +23,6 @@ import { ReactComponent as LeadsHeadMachineRow5 } from '../scene/EegAssets/leads
 import { ReactComponent as LeadsHeadMachineRef } from '../scene/EegAssets/leadsMachineReference.svg';
 import { ReactComponent as HeadCap } from '../scene/EegAssets/headCap.svg';
 
-
 export default function EegGame() {
   const [{ step, value }, setStep] = useGameContext();
   console.log(value);
@@ -39,7 +38,7 @@ export default function EegGame() {
   };
   const shouldShowComponent = (index: number, stepValue: number) => {
     return (value && value.includes(index)) || step > stepValue;
-  }
+  };
 
   return (
     <div className='game'>
@@ -73,12 +72,13 @@ export default function EegGame() {
         />
         {step > 0 && step < 6 && (
           <div className='sticky-dots-container'>
-            <StickyDotsRowRef className='sticky-dots'
-                style={{
-                  left: 10,
-                  opacity: 0,
-                }}
-              />
+            <StickyDotsRowRef
+              className='sticky-dots'
+              style={{
+                left: 10,
+                opacity: 0,
+              }}
+            />
             <Row1
               className='sticky-dots'
               style={{
@@ -124,27 +124,92 @@ export default function EegGame() {
         {step > 2 && step < 6 && (
           <>
             <div className='leads-machine-container'>
-              <LeadsHeadMachineRef  style={{ top: 0, left: 0, opacity: 0 }}/>
-              <LeadsHeadMachineRow1 style={{ top: 0, left: 0, display: shouldShowLeads(1) ? 'block' : 'none' }} />
-              <LeadsHeadMachineRow2 style={{ top: 0, left: 37, display: shouldShowLeads(2) ? 'block' : 'none' }} />
-              <LeadsHeadMachineRow3 style={{ top: 0, left: 74, display: shouldShowLeads(3) ? 'block' : 'none' }} />
-              <LeadsHeadMachineRow4 style={{ top: 0, left: 110, display: shouldShowLeads(4) ? 'block' : 'none' }} />
-              <LeadsHeadMachineRow5 style={{ top: 0, left: 150, display: shouldShowLeads(5) ? 'block' : 'none' }} />
+              <LeadsHeadMachineRef style={{ top: 0, left: 0, opacity: 0 }} />
+              <LeadsHeadMachineRow1
+                style={{
+                  top: 0,
+                  left: 0,
+                  display: shouldShowLeads(1) ? 'block' : 'none',
+                }}
+              />
+              <LeadsHeadMachineRow2
+                style={{
+                  top: 0,
+                  left: 37,
+                  display: shouldShowLeads(2) ? 'block' : 'none',
+                }}
+              />
+              <LeadsHeadMachineRow3
+                style={{
+                  top: 0,
+                  left: 74,
+                  display: shouldShowLeads(3) ? 'block' : 'none',
+                }}
+              />
+              <LeadsHeadMachineRow4
+                style={{
+                  top: 0,
+                  left: 110,
+                  display: shouldShowLeads(4) ? 'block' : 'none',
+                }}
+              />
+              <LeadsHeadMachineRow5
+                style={{
+                  top: 0,
+                  left: 150,
+                  display: shouldShowLeads(5) ? 'block' : 'none',
+                }}
+              />
             </div>
             <div className='leads-head-container'>
-              <LeadsHeadRef  style={{ top: 0, left: 0, opacity: 0 }}/>
-              <LeadsHeadRow1 style={{ top: 0, left: 0, display: shouldShowLeads(1) ? 'block' : 'none' }} />
-              <LeadsHeadRow2 style={{ top: 0, left: 100, display: shouldShowLeads(2) ? 'block' : 'none' }} />
-              <LeadsHeadRow3 style={{ top: 0, left: 310, display: shouldShowLeads(3) ? 'block' : 'none' }} />
-              <LeadsHeadRow4 style={{ top: 0, left: 452, display: shouldShowLeads(4) ? 'block' : 'none' }} />
-              <LeadsHeadRow5 style={{ top: 0, left: 515, display: shouldShowLeads(5) ? 'block' : 'none' }} />
+              <LeadsHeadRef style={{ top: 0, left: 0, opacity: 0 }} />
+              <LeadsHeadRow1
+                style={{
+                  top: 0,
+                  left: 0,
+                  display: shouldShowLeads(1) ? 'block' : 'none',
+                }}
+              />
+              <LeadsHeadRow2
+                style={{
+                  top: 0,
+                  left: 100,
+                  display: shouldShowLeads(2) ? 'block' : 'none',
+                }}
+              />
+              <LeadsHeadRow3
+                style={{
+                  top: 0,
+                  left: 310,
+                  display: shouldShowLeads(3) ? 'block' : 'none',
+                }}
+              />
+              <LeadsHeadRow4
+                style={{
+                  top: 0,
+                  left: 452,
+                  display: shouldShowLeads(4) ? 'block' : 'none',
+                }}
+              />
+              <LeadsHeadRow5
+                style={{
+                  top: 0,
+                  left: 515,
+                  display: shouldShowLeads(5) ? 'block' : 'none',
+                }}
+              />
             </div>
             <div className='cap-container'>
-              <HeadCap  style={{ top: 0, left: 0, display: shouldShowComponent(6, 5) ? 'block' : 'none' }} />
+              <HeadCap
+                style={{
+                  top: 0,
+                  left: 0,
+                  display: shouldShowComponent(6, 5) ? 'block' : 'none',
+                }}
+              />
             </div>
           </>
         )}
-
       </div>
     </div>
   );

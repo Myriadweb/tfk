@@ -29,7 +29,7 @@ export default function Eeg({ prefix }: Props) {
     //setStep((oldState) => ({ ...oldState, step: 2, value: [...oldState.value, 5] }))
     setStep((oldState) => {
       const newValue = [...oldState.value, index];
-      const newStep = newValue.length === 5 ? oldState.step+1 : oldState.step;
+      const newStep = newValue.length === 5 ? oldState.step + 1 : oldState.step;
       return { step: newStep, value: newValue };
     });
   };
@@ -156,7 +156,7 @@ export default function Eeg({ prefix }: Props) {
           text=''
         />
       </div>
-    )
+    ),
   };
 
   return (

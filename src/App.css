@@ -154,7 +154,9 @@
   transform: translateX(-50%);
   width: 197px;
 }
-.leads-head-container svg, .leads-machine-container svg, .cap-container svg {
+.leads-head-container svg,
+.leads-machine-container svg,
+.cap-container svg {
   position: absolute;
 }
 .cap-container {
