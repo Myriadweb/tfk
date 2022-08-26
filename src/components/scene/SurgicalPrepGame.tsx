@@ -18,10 +18,11 @@ import NeedlePlaced3 from './IvAssets/needlePlaced3.svg';
 import BandageSelection from './SharedAssets/bandageSelection.svg';
 import BandagePlaced from './SharedAssets/bandagePlaced.svg';
 import AnesthesiaMask from './SurgicalPrepAssets/anesthesiaMask.svg';
-import Sticker from './SharedAssets/sticker.svg';
-import Doll from './SharedAssets/doll.png';
-import Medal from './SharedAssets/medal.png';
-import { ReactComponent as SurgicalPrepChild } from './SurgicalPrepAssets/surgicalPrep.svg';
+import Juicebox from './SurgicalPrepAssets/juicebox.svg';
+import Popsicle from './SurgicalPrepAssets/popsicle.svg';
+import IceCream from './SurgicalPrepAssets/iceCream.svg';
+
+import { ReactComponent as FinalChild } from './SurgicalPrepAssets/finalChild.svg';
 
 export default function SurgicalPrepGame() {
   const [{ step, value }, setGameState] = useGameContext();
@@ -273,42 +274,41 @@ export default function SurgicalPrepGame() {
       )}
       {step >= 13 && (
         <>
-          <div
+          <FinalChild
             style={{
-              top: 275,
-              left: 461,
               position: 'absolute',
+              transform: 'translateX(-50%)',
+              left: 540,
+              top: 220,
             }}
-          >
-            <SurgicalPrepChild />
-          </div>
-          {value === 'sticker' && (
+          />
+          {value === 'juicebox' && (
             <animated.img
+              src={Juicebox}
               style={{
                 position: 'absolute',
-                left: 529,
-                top: 627,
-              }}
-              src={Sticker}
-            />
-          )}
-          {value === 'doll' && (
-            <animated.img
-              src={Doll}
-              style={{
-                position: 'absolute',
-                left: 391,
-                top: 663,
+                left: 754,
+                top: 786,
               }}
             />
           )}
-          {value === 'medal' && (
+          {value === 'popsicle' && (
             <animated.img
-              src={Medal}
+              src={Popsicle}
               style={{
                 position: 'absolute',
-                left: 654,
-                top: 607,
+                left: 734,
+                top: 740,
+              }}
+            />
+          )}
+          {value === 'icecream' && (
+            <animated.img
+              src={IceCream}
+              style={{
+                position: 'absolute',
+                left: 803,
+                top: 778,
                 transform: 'translate(-50%, 0)',
               }}
             />

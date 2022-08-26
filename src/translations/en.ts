@@ -294,6 +294,13 @@ const en: Translation = {
         '13-mainText': 'GREAT JOB!',
         '13-subText': 'YOUR PATIENT IS OUT OF SURGERY',
         '13-buttonText': 'FINISH',
+        '14-mainText': 'GREAT JOB!',
+        '14-subText': 'YOU FINISHED THE SURGERY',
+        '14-buttonText': 'CONTINUE',
+        '15-subText':
+          'YOU FINISHED THE SURGERY!\nTAP BELOW TO LEARN MORE ABOUT',
+        '15-boldText': 'THE CARDIOVASCULAR SYSTEM',
+        '15-back': 'BACK TO\nPROCEDURES',
       },
     },
     [Paths.XRay]: {
