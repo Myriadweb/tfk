@@ -6,6 +6,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Paths } from '../../types/Paths';
 import { columnLabelStyleLeft, columnLabelStyleRight } from './common';
 import { CSSProperties } from 'react';
+import DigestiveGame from './DigestiveGame';
 
 const bodyLeft = 540;
 
@@ -39,7 +40,7 @@ export default function Digestive() {
   const location = useLocation();
 
   if (location.search === '?play=true') {
-    navigate(`/${Paths.BodySystems}/${Paths.Digestive}?play=true`);
+    return <DigestiveGame />
   }
 
   // if we have an animated path, we need to show the slide in animation

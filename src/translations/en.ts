@@ -243,6 +243,21 @@ const en: Translation = {
         title: 'TOUCH',
       },
     },
+    [Paths.Taste]: {
+      header: {
+        title: 'TASTE',
+      },
+    },
+    [Paths.Proprioception]: {
+      header: {
+        title: 'PROPRIOCEPTION',
+      },
+    },
+    [Paths.Vestibular]: {
+      header: {
+        title: 'VESTIBULAR',
+      },
+    },
     [Paths.Procedures]: {
       navbar: {
         selectPath: 'CHOOSE A HOSPITAL PROCEDURE TO COMPLETE',

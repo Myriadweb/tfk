@@ -33,10 +33,13 @@ import MriGame from './scene/MriGame';
 import WellnessGame from './scene/WellnessGame';
 import IvGame from './scene/IvGame';
 import SurgicalPrepGame from './scene/SurgicalPrepGame';
+import Vestibular from './scene/Vestibular';
+import { useAnimateContext } from '../state/animate';
 
 export function Home() {
   // This gets the current location from react router.
   const location = useLocation();
+  const [, setAnimateState] = useAnimateContext();
   const [path, prefix] = usePathFromLocation(location.pathname);
   const { t } = useTranslation('translation');
 
@@ -91,15 +94,27 @@ export function Home() {
               path={Paths.Sensory + '/' + Paths.Proprioception}
               element={<Proprioception />}
             />
+            <Route
+              path={Paths.Sensory + '/' + Paths.Vestibular}
+              element={<Vestibular />}
+            />
             <Route path={Paths.Skeletal} element={<Skeletal />} />
             <Route
               path={Paths.Skeletal + '/' + Paths.Game}
               element={<Skeletal />}
             />
             <Route path={Paths.Cardiovascular} element={<Cardiovascular />} />
+            <Route
+              path={Paths.Cardiovascular + '/' + Paths.Game}
+              element={<Cardiovascular />}
+            />
             <Route path={Paths.Muscular} element={<Muscular />} />
             <Route path={Paths.Nervous} element={<Nervous />} />
             <Route path={Paths.Digestive} element={<Digestive />} />
+            <Route
+              path={Paths.Digestive + '/' + Paths.Game}
+              element={<Digestive />}
+            />
           </Route>
           <Route path={Paths.Procedures}>
             <Route path={Paths.XRay} element={<XRay />} />
@@ -138,9 +153,10 @@ export function Home() {
             </Link>
             <Link
               to={'?play=true'}
-              onClick={() =>
-                location.search !== '?play=true' && playSound('click')
-              }
+              onClick={() => {
+                setAnimateState('');
+                location.search !== '?play=true' && playSound('click');
+              }}
             >
               {location.search === '?play=true' && (
                 <OptionOverlaySVG style={{ position: 'absolute', top: 160 }} />
