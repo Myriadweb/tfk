@@ -630,7 +630,7 @@ const LiftWeightCharacters = {
   [Character.child3]: () => (
     <span style={{ position: 'relative' }}>
       <img
-        src={Child3LiftWeightBody }
+        src={Child3LiftWeightBody}
         style={{
           ...liftFeatherStyle,
           width: 633,
@@ -664,7 +664,7 @@ const LiftWeightCharacters = {
   ),
   [Character.child6]: () => (
     <span style={{ position: 'relative' }}>
-      <Child6LiftWeightBody  style={liftFeatherStyle} />
+      <Child6LiftWeightBody style={liftFeatherStyle} />
       <Child6Pain style={{ ...vestibularHeadStyle, top: 5, left: -8 }} />
     </span>
   ),

@@ -40,7 +40,7 @@ export default function Digestive() {
   const location = useLocation();
 
   if (location.search === '?play=true') {
-    return <DigestiveGame />
+    return <DigestiveGame />;
   }
 
   // if we have an animated path, we need to show the slide in animation

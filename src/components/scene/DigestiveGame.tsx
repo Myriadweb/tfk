@@ -5,7 +5,6 @@ import { useCharacterContext } from '../../state/character';
 import { Characters, sensoryChildWidth } from './ChildrenAssets/childrenAssets';
 import { Paths } from '../../types/Paths';
 
-
 export default function DigestiveGame() {
   const [selectedCharacter] = useCharacterContext();
   const location = useLocation();
