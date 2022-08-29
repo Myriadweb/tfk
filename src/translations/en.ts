@@ -171,6 +171,16 @@ const en: Translation = {
         gluteus: 'GLUTEUS\nMAXIMUS',
         calves: 'CALVES',
       },
+      navbar: {
+        chooseMuscle:
+          'CHOOSE A PART OF THE BODY TO SEE HOW YOUR MUSCLES WORK TOGETHER.',
+        arm: 'ARM',
+        armDescription:
+          'EACH MUSCLE CAN ONLY PULL IN ONE DIRECTION, SO THEY\nNEED TO WORK TOGETHER. WHEN YOU BEND YOUR ELBOW,\nYOUR BICEPS PULL YOUR ARM UP. WHEN YOU STRAIGHTEN\nIT, THE TRICEPS PULL BACK DOWN.',
+        leg: 'LEG',
+        legDescription:
+          'WHEN YOU BEND YOUR KNEE, YOUR HAMSTRINGS DO THE\nPULLING. WHEN YOU STRAIGHTEN YOUR LEG, THE\nQUADRICEPS PULL IN THE OPPOSITE DIRECTION.',
+      },
     },
     [Paths.Cardiovascular]: {
       header: {
