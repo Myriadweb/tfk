@@ -152,7 +152,7 @@ export default function Eeg({ prefix }: Props) {
           image={PlaceCap}
           size='small'
           disabled={value.includes(1)}
-          onClick={() => handleNavigationButtonClick(6)}
+          onClick={() => setStep({step: 6})}
           text=''
         />
       </div>
