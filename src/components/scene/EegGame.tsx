@@ -25,17 +25,23 @@ import { ReactComponent as HeadCap } from '../scene/EegAssets/headCap.svg';
 import { ReactComponent as PrinterBottom } from '../scene/EegAssets/printerBottom.svg';
 import { ReactComponent as PrinterPrintoutMiddle } from '../scene/EegAssets/printerPrintoutMiddle.svg';
 import { ReactComponent as PrinterTop } from '../scene/EegAssets/printerTop.svg';
-import {useSpring, animated} from "react-spring";
-import {useEffect} from "react";
+import { useSpring, animated } from 'react-spring';
+import { useEffect } from 'react';
 
 export default function EegGame() {
   const [{ step, value }, setStep] = useGameContext();
-  const [printoutStyle, printoutApi] = useSpring(()=> ({transform: 'translateY(0px)'}));
-  useEffect(()=>{
+  const [printoutStyle, printoutApi] = useSpring(() => ({
+    transform: 'translateY(0px)',
+  }));
+  useEffect(() => {
     if (step === 6) {
-      printoutApi.start({transform: 'translateY(276px)', delay: 1000, config: {duration: 2000}})
+      printoutApi.start({
+        transform: 'translateY(276px)',
+        delay: 1000,
+        config: { duration: 2000 },
+      });
     }
-  }, [step])
+  }, [step]);
   console.log(value);
   if (value && value.length === 5) {
     //setStep( { step: 2 })
@@ -53,186 +59,197 @@ export default function EegGame() {
 
   return (
     <div className='game'>
-      {step < 6 &&
-          <>
-              <BG
+      {step < 6 && (
+        <>
+          <BG
+            style={{
+              width: '100%',
+              height: '100%',
+            }}
+          />
+          <EegMonitor
+            style={{
+              position: 'absolute',
+              transform: 'translateX(-50%)',
+              left: 540,
+              top: 75,
+            }}
+          />
+          <div
+            className='child-container'
+            style={{
+              position: 'absolute',
+              left: 0,
+              top: step === 0 ? -40 : 400,
+            }}
+          >
+            <Child
+              style={{
+                width: '100%',
+                height: 'auto',
+              }}
+            />
+            {step > 0 && step < 6 && (
+              <div className='sticky-dots-container'>
+                <StickyDotsRowRef
+                  className='sticky-dots'
                   style={{
-                    width: '100%',
-                    height: '100%',
+                    left: 10,
+                    opacity: 0,
                   }}
-              />
-              <EegMonitor
+                />
+                <Row1
+                  className='sticky-dots'
                   style={{
-                    position: 'absolute',
-                    transform: 'translateX(-50%)',
-                    left: 540,
-                    top: 75,
+                    top: 155,
+                    left: 10,
+                    display: shouldShowDots(1) ? 'block' : 'none',
                   }}
-              />
-              <div
-                  className='child-container'
+                />
+                <Row2
+                  className='sticky-dots'
                   style={{
-                    position: 'absolute',
-                    left: 0,
-                    top: step === 0 ? -40 : 400,
+                    top: 25,
+                    left: 100,
+                    display: shouldShowDots(2) ? 'block' : 'none',
                   }}
-              >
-                  <Child
-                      style={{
-                        width: '100%',
-                        height: 'auto',
-                      }}
-                  />
-                {step > 0 && step < 6 && (
-                  <div className='sticky-dots-container'>
-                    <StickyDotsRowRef
-                      className='sticky-dots'
-                      style={{
-                        left: 10,
-                        opacity: 0,
-                      }}
-                    />
-                    <Row1
-                      className='sticky-dots'
-                      style={{
-                        top: 155,
-                        left: 10,
-                        display: shouldShowDots(1) ? 'block' : 'none',
-                      }}
-                    />
-                    <Row2
-                      className='sticky-dots'
-                      style={{
-                        top: 25,
-                        left: 100,
-                        display: shouldShowDots(2) ? 'block' : 'none',
-                      }}
-                    />
-                    <Row3
-                      className='sticky-dots'
-                      style={{
-                        top: 0,
-                        left: 260,
-                        display: shouldShowDots(3) ? 'block' : 'none',
-                      }}
-                    />
-                    <Row4
-                      className='sticky-dots'
-                      style={{
-                        top: 25,
-                        left: 400,
-                        display: shouldShowDots(4) ? 'block' : 'none',
-                      }}
-                    />
-                    <Row5
-                      className='sticky-dots'
-                      style={{
-                        top: 150,
-                        left: 500,
-                        display: shouldShowDots(5) ? 'block' : 'none',
-                      }}
-                    />
-                  </div>
-                )}
-                {step > 2 && step < 6 && (
-                  <>
-                    <div className='leads-machine-container'>
-                      <LeadsHeadMachineRef style={{top: 0, left: 0, opacity: 0}}/>
-                      <LeadsHeadMachineRow1
-                        style={{
-                          top: 0,
-                          left: 0,
-                          display: shouldShowLeads(1) ? 'block' : 'none',
-                        }}
-                      />
-                      <LeadsHeadMachineRow2
-                        style={{
-                          top: 0,
-                          left: 37,
-                          display: shouldShowLeads(2) ? 'block' : 'none',
-                        }}
-                      />
-                      <LeadsHeadMachineRow3
-                        style={{
-                          top: 0,
-                          left: 74,
-                          display: shouldShowLeads(3) ? 'block' : 'none',
-                        }}
-                      />
-                      <LeadsHeadMachineRow4
-                        style={{
-                          top: 0,
-                          left: 110,
-                          display: shouldShowLeads(4) ? 'block' : 'none',
-                        }}
-                      />
-                      <LeadsHeadMachineRow5
-                        style={{
-                          top: 0,
-                          left: 150,
-                          display: shouldShowLeads(5) ? 'block' : 'none',
-                        }}
-                      />
-                    </div>
-                    <div className='leads-head-container'>
-                      <LeadsHeadRef style={{top: 0, left: 0, opacity: 0}}/>
-                      <LeadsHeadRow1
-                        style={{
-                          top: 0,
-                          left: 0,
-                          display: shouldShowLeads(1) ? 'block' : 'none',
-                        }}
-                      />
-                      <LeadsHeadRow2
-                        style={{
-                          top: 0,
-                          left: 100,
-                          display: shouldShowLeads(2) ? 'block' : 'none',
-                        }}
-                      />
-                      <LeadsHeadRow3
-                        style={{
-                          top: 0,
-                          left: 310,
-                          display: shouldShowLeads(3) ? 'block' : 'none',
-                        }}
-                      />
-                      <LeadsHeadRow4
-                        style={{
-                          top: 0,
-                          left: 452,
-                          display: shouldShowLeads(4) ? 'block' : 'none',
-                        }}
-                      />
-                      <LeadsHeadRow5
-                        style={{
-                          top: 0,
-                          left: 515,
-                          display: shouldShowLeads(5) ? 'block' : 'none',
-                        }}
-                      />
-                    </div>
-                    <div className='cap-container'>
-                      <HeadCap
-                        style={{
-                          top: 0,
-                          left: 0,
-                          display: shouldShowComponent(6, 5) ? 'block' : 'none',
-                        }}
-                      />
-                    </div>
-                  </>
-                )}
+                />
+                <Row3
+                  className='sticky-dots'
+                  style={{
+                    top: 0,
+                    left: 260,
+                    display: shouldShowDots(3) ? 'block' : 'none',
+                  }}
+                />
+                <Row4
+                  className='sticky-dots'
+                  style={{
+                    top: 25,
+                    left: 400,
+                    display: shouldShowDots(4) ? 'block' : 'none',
+                  }}
+                />
+                <Row5
+                  className='sticky-dots'
+                  style={{
+                    top: 150,
+                    left: 500,
+                    display: shouldShowDots(5) ? 'block' : 'none',
+                  }}
+                />
               </div>
-          </>
-      }
+            )}
+            {step > 2 && step < 6 && (
+              <>
+                <div className='leads-machine-container'>
+                  <LeadsHeadMachineRef
+                    style={{ top: 0, left: 0, opacity: 0 }}
+                  />
+                  <LeadsHeadMachineRow1
+                    style={{
+                      top: 0,
+                      left: 0,
+                      display: shouldShowLeads(1) ? 'block' : 'none',
+                    }}
+                  />
+                  <LeadsHeadMachineRow2
+                    style={{
+                      top: 0,
+                      left: 37,
+                      display: shouldShowLeads(2) ? 'block' : 'none',
+                    }}
+                  />
+                  <LeadsHeadMachineRow3
+                    style={{
+                      top: 0,
+                      left: 74,
+                      display: shouldShowLeads(3) ? 'block' : 'none',
+                    }}
+                  />
+                  <LeadsHeadMachineRow4
+                    style={{
+                      top: 0,
+                      left: 110,
+                      display: shouldShowLeads(4) ? 'block' : 'none',
+                    }}
+                  />
+                  <LeadsHeadMachineRow5
+                    style={{
+                      top: 0,
+                      left: 150,
+                      display: shouldShowLeads(5) ? 'block' : 'none',
+                    }}
+                  />
+                </div>
+                <div className='leads-head-container'>
+                  <LeadsHeadRef style={{ top: 0, left: 0, opacity: 0 }} />
+                  <LeadsHeadRow1
+                    style={{
+                      top: 0,
+                      left: 0,
+                      display: shouldShowLeads(1) ? 'block' : 'none',
+                    }}
+                  />
+                  <LeadsHeadRow2
+                    style={{
+                      top: 0,
+                      left: 100,
+                      display: shouldShowLeads(2) ? 'block' : 'none',
+                    }}
+                  />
+                  <LeadsHeadRow3
+                    style={{
+                      top: 0,
+                      left: 310,
+                      display: shouldShowLeads(3) ? 'block' : 'none',
+                    }}
+                  />
+                  <LeadsHeadRow4
+                    style={{
+                      top: 0,
+                      left: 452,
+                      display: shouldShowLeads(4) ? 'block' : 'none',
+                    }}
+                  />
+                  <LeadsHeadRow5
+                    style={{
+                      top: 0,
+                      left: 515,
+                      display: shouldShowLeads(5) ? 'block' : 'none',
+                    }}
+                  />
+                </div>
+                <div className='cap-container'>
+                  <HeadCap
+                    style={{
+                      top: 0,
+                      left: 0,
+                      display: shouldShowComponent(6, 5) ? 'block' : 'none',
+                    }}
+                  />
+                </div>
+              </>
+            )}
+          </div>
+        </>
+      )}
       {step === 6 && (
         <>
-          <PrinterBottom style={{ position: 'absolute', top: 757, left: 171, }}/>
-          <animated.div style={{ position: 'absolute', top: 481, left: 275, ...printoutStyle }}>
+          <PrinterBottom
+            style={{ position: 'absolute', top: 757, left: 171 }}
+          />
+          <animated.div
+            style={{
+              position: 'absolute',
+              top: 481,
+              left: 275,
+              ...printoutStyle,
+            }}
+          >
             <PrinterPrintoutMiddle />
           </animated.div>
-          <PrinterTop style={{ position: 'absolute', top: 267, left: 171,  }}/>
+          <PrinterTop style={{ position: 'absolute', top: 267, left: 171 }} />
         </>
       )}
     </div>
