@@ -10,7 +10,9 @@ export default function CardiovascularGame() {
   const location = useLocation();
 
   if (!location.search) {
-    return <Navigate to={Paths.BodySystems + '/' + Paths.Cardiovascular} />;
+    return (
+      <Navigate to={'/' + Paths.BodySystems + '/' + Paths.Cardiovascular} />
+    );
   }
 
   const ChildComponent = Characters.sensory[selectedCharacter];

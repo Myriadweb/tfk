@@ -2,10 +2,11 @@ import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAnimateContext } from '../../state/animate';
 import { animated, useSpring } from 'react-spring';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { Paths } from '../../types/Paths';
 import { columnLabelStyleLeft, columnLabelStyleRight } from './common';
 import { CSSProperties } from 'react';
+import MuscularGame from './MuscularGame';
 
 const bodyLeft = 540;
 
@@ -39,7 +40,7 @@ export default function Muscular() {
   const location = useLocation();
 
   if (location.search === '?play=true') {
-    navigate(`/${Paths.BodySystems}/${Paths.Muscular}?play=true`);
+    return <Navigate to={Paths.Game + '?play=true'} />;
   }
 
   // if we have an animated path, we need to show the slide in animation

@@ -10,7 +10,7 @@ export default function DigestiveGame() {
   const location = useLocation();
 
   if (!location.search) {
-    return <Navigate to={Paths.BodySystems + '/' + Paths.Cardiovascular} />;
+    return <Navigate to={'/' + Paths.BodySystems + '/' + Paths.Digestive} />;
   }
 
   const ChildComponent = Characters.mouthOpen[selectedCharacter];

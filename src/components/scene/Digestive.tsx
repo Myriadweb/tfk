@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAnimateContext } from '../../state/animate';
 import { animated, useSpring } from 'react-spring';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { Paths } from '../../types/Paths';
 import { columnLabelStyleLeft, columnLabelStyleRight } from './common';
 import { CSSProperties } from 'react';
@@ -40,7 +40,7 @@ export default function Digestive() {
   const location = useLocation();
 
   if (location.search === '?play=true') {
-    return <DigestiveGame />;
+    return <Navigate to={Paths.Game + '?play=true'} />;
   }
 
   // if we have an animated path, we need to show the slide in animation
