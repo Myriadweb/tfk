@@ -23,4 +23,8 @@ export default {
   [Paths.Wellness]: Wellness,
   [Paths.Iv]: Iv,
   [Paths.SurgicalPrep]: SurgicalPrep,
+  [Paths.Muscular]: () => null,
+  [Paths.Digestive]: () => null,
+  [Paths.Nervous]: () => null,
+  [Paths.Cardiovascular]: () => null,
 };

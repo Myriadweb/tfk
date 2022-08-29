@@ -5,20 +5,16 @@ import {
   ClickableImage,
   VariationsType,
 } from './SharedComponents/ClickableImage';
-import ChildGood from './ProprioceptionAssets/ChildGood.png';
-import ChildBad from './ProprioceptionAssets/ChildBad.png';
-import Feather from './ProprioceptionAssets/Feather.png';
-import Dumbell from './ProprioceptionAssets/Dumbell.png';
-import OverlayBad from './ProprioceptionAssets/overlayBad.png';
-import OverlayGood from './ProprioceptionAssets/overlayGood.png';
-import { Characters, sensoryChildWidth } from './ChildrenAssets/childrenAssets';
-import { useCharacterContext } from '../../state/character';
 
-export default function Proprioception() {
+import SpinIcon from './VestibularAssets/spinIcon.png';
+import JumpIcon from './VestibularAssets/jumpIcon.png';
+import OverlayBad from './VestibularAssets/overlayBad.png';
+import OverlayGood from './VestibularAssets/overlayGood.png';
+
+export default function Vestibular() {
   const [sensoryState, setSensoryState] = React.useState<VariationsType | null>(
     null
   );
-  const [selectedCharacter] = useCharacterContext();
   const location = useLocation();
   const [overlay, overlayAPI] = useSpring(() => ({ opacity: 0 }));
 
@@ -39,10 +35,6 @@ export default function Proprioception() {
     return <Navigate to={'/bodySystems/sensory'} />;
   }
 
-  const Character = Characters.default[selectedCharacter];
-  const CharacterGood = Characters['liftFeather'][selectedCharacter];
-  const CharacterBad = Characters['liftWeight'][selectedCharacter];
-
   return (
     <>
       {sensoryState === 'bad' && (
@@ -56,7 +48,8 @@ export default function Proprioception() {
           }}
         />
       )}
-      <div
+      <img
+        src='images/Sensory/childFull.png'
         style={{
           position: 'absolute',
           left: 540,
@@ -64,31 +57,7 @@ export default function Proprioception() {
           transform: 'translate(-50%, 0px)',
           opacity: sensoryState ? 0 : 1,
         }}
-      >
-        <Character />
-      </div>
-      <div
-        style={{
-          position: 'absolute',
-          left: 320,
-          top: 270,
-          transform: 'translate(-50%, 0px)',
-          opacity: sensoryState === 'good' ? 1 : 0,
-        }}
-      >
-        <CharacterGood />
-      </div>
-      <div
-        style={{
-          position: 'absolute',
-          left: 330,
-          top: 270,
-          transform: 'translate(-50%, 0px)',
-          opacity: sensoryState === 'bad' ? 1 : 0,
-        }}
-      >
-        <CharacterBad />
-      </div>
+      />
       <img
         src='images/Sensory/bottomOverlay.png'
         style={{
@@ -103,7 +72,7 @@ export default function Proprioception() {
             src={OverlayGood}
             style={{
               position: 'absolute',
-              left: 539,
+              left: 540,
               top: 630,
               transform: 'translate(-50%, -50%)',
               zIndex: 1,
@@ -118,7 +87,7 @@ export default function Proprioception() {
             src={OverlayBad}
             style={{
               position: 'absolute',
-              left: 539,
+              left: 540,
               top: 630,
               transform: 'translate(-50%, -50%)',
               zIndex: 1,
@@ -128,24 +97,24 @@ export default function Proprioception() {
         </>
       )}
       <ClickableImage
-        Component={Feather}
-        x={187}
-        y={1058}
-        type='good'
+        Component={SpinIcon}
+        x={336}
+        y={1046}
+        type='bad'
         onChange={setSensoryState}
-        onTop={sensoryState === 'good'}
+        onTop={sensoryState === 'bad'}
         activeStyle={{
           opacity: 0,
         }}
         sound={'completeStep'}
       />
       <ClickableImage
-        Component={Dumbell}
-        x={563}
-        y={1085}
-        type='bad'
+        Component={JumpIcon}
+        x={546}
+        y={1046}
+        type='good'
         onChange={setSensoryState}
-        onTop={sensoryState === 'bad'}
+        onTop={sensoryState === 'good'}
         activeStyle={{ opacity: 0 }}
         sound={'completeStep'}
       />

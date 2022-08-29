@@ -53,7 +53,7 @@ function Sensory({ path, prefix }: Props) {
       </span>
       <div
         style={{
-          marginTop: 47,
+          marginTop: 20,
           background: '#0E1F33',
           height: 191,
           display: 'flex',

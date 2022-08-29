@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import { Character } from '../../../state/character';
 
 import { ReactComponent as Child1 } from './Child1/default.svg';
@@ -544,6 +544,132 @@ const IceCreamCharacters = {
   ),
 };
 
+const liftFeatherStyle = {
+  width: 439,
+  height: 687,
+  position: 'absolute',
+  top: 289,
+  left: -10,
+} as CSSProperties;
+const vestibularHeadStyle = {
+  position: 'absolute',
+  width: 439,
+  height: 307,
+  top: 0,
+};
+
+const LiftFeatherCharacters = {
+  [Character.child1]: () => (
+    <span style={{ position: 'relative' }}>
+      <Child1LiftFeatherBody style={liftFeatherStyle} />
+      <Child1Happy style={{ ...vestibularHeadStyle, top: 7 }} />
+    </span>
+  ),
+  [Character.child2]: () => (
+    <span style={{ position: 'relative' }}>
+      <Child2LiftFeatherBody style={liftFeatherStyle} />
+      <Child2Happy style={{ ...vestibularHeadStyle, top: 5, left: 2 }} />
+    </span>
+  ),
+  [Character.child3]: () => (
+    <span style={{ position: 'relative' }}>
+      <img
+        src={Child3LiftFeatherBody}
+        style={{
+          ...liftFeatherStyle,
+          width: 633,
+          height: 756,
+          top: 226,
+          left: -95,
+        }}
+      />
+      <Child3Happy
+        style={{
+          ...vestibularHeadStyle,
+          top: 5,
+          width: 306,
+          height: 307,
+          left: 70,
+        }}
+      />
+    </span>
+  ),
+  [Character.child4]: () => (
+    <span style={{ position: 'relative' }}>
+      <Child4LiftFeatherBody style={liftFeatherStyle} />
+      <Child4Happy style={{ ...vestibularHeadStyle, top: 5 }} />
+    </span>
+  ),
+  [Character.child5]: () => (
+    <span style={{ position: 'relative' }}>
+      <Child5LiftFeatherBody style={liftFeatherStyle} />
+      <Child5Happy style={{ ...vestibularHeadStyle, top: 5 }} />
+    </span>
+  ),
+  [Character.child6]: () => (
+    <span style={{ position: 'relative' }}>
+      <Child6LiftFeatherBody style={liftFeatherStyle} />
+      <Child6Happy style={{ ...vestibularHeadStyle, top: 5, left: 2 }} />
+    </span>
+  ),
+};
+
+const LiftWeightCharacters = {
+  [Character.child1]: () => (
+    <span style={{ position: 'relative' }}>
+      <Child1LiftWeightBody style={liftFeatherStyle} />
+      <Child1Pain style={{ ...vestibularHeadStyle, top: 8, left: -12 }} />
+    </span>
+  ),
+  [Character.child2]: () => (
+    <span style={{ position: 'relative' }}>
+      <Child2LiftWeightBody style={liftFeatherStyle} />
+      <Child2Pain style={{ ...vestibularHeadStyle, top: 5, left: -8 }} />
+    </span>
+  ),
+  [Character.child3]: () => (
+    <span style={{ position: 'relative' }}>
+      <img
+        src={Child3LiftWeightBody}
+        style={{
+          ...liftFeatherStyle,
+          width: 633,
+          height: 756,
+          top: 226,
+          left: -105,
+        }}
+      />
+      <Child3Pain
+        style={{
+          ...vestibularHeadStyle,
+          top: 5,
+          width: 306,
+          height: 307,
+          left: 60,
+        }}
+      />
+    </span>
+  ),
+  [Character.child4]: () => (
+    <span style={{ position: 'relative' }}>
+      <Child4LiftWeightBody style={liftFeatherStyle} />
+      <Child4Pain style={{ ...vestibularHeadStyle, top: 5, left: -8 }} />
+    </span>
+  ),
+  [Character.child5]: () => (
+    <span style={{ position: 'relative' }}>
+      <Child5LiftWeightBody style={liftFeatherStyle} />
+      <Child5Pain style={{ ...vestibularHeadStyle, top: 5, left: -8 }} />
+    </span>
+  ),
+  [Character.child6]: () => (
+    <span style={{ position: 'relative' }}>
+      <Child6LiftWeightBody style={liftFeatherStyle} />
+      <Child6Pain style={{ ...vestibularHeadStyle, top: 5, left: -8 }} />
+    </span>
+  ),
+};
+
 export const Characters: {
   default: { [key in Character]: React.FC };
   worried: { [key in Character]: React.FC };
@@ -556,6 +682,8 @@ export const Characters: {
   mouthOpen: { [key in Character]: React.FC };
   hotSauce: { [key in Character]: React.FC };
   iceCream: { [key in Character]: React.FC };
+  liftFeather: { [key in Character]: React.FC };
+  liftWeight: { [key in Character]: React.FC };
 } = {
   default: DefaultCharacters,
   worried: WorriedCharacters,
@@ -568,4 +696,6 @@ export const Characters: {
   mouthOpen: MouthOpenCharacters,
   hotSauce: HotSauceCharacters,
   iceCream: IceCreamCharacters,
+  liftFeather: LiftFeatherCharacters,
+  liftWeight: LiftWeightCharacters,
 };

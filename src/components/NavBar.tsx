@@ -62,7 +62,9 @@ const getNavigationText = (path: Paths) => {
 };
 
 export function NavBar({ path, prefix }: Props) {
+  console.debug({ path, prefix });
   const Component = getNavbarComponent(prefix || path);
+  console.debug(Component);
   const [{ hideButtons }, setStep] = useGameContext();
   const [, setAnimatedPath] = useAnimateContext();
 

@@ -34,10 +34,17 @@ import EegGame from './scene/EegGame';
 import WellnessGame from './scene/WellnessGame';
 import IvGame from './scene/IvGame';
 import SurgicalPrepGame from './scene/SurgicalPrepGame';
+import Vestibular from './scene/Vestibular';
+import { useAnimateContext } from '../state/animate';
+import NervousGame from './scene/nervousGame';
+import CardiovascularGame from './scene/CardiovascularGame';
+import MuscularGame from './scene/MuscularGame';
+import DigestiveGame from './scene/DigestiveGame';
 
 export function Home() {
   // This gets the current location from react router.
   const location = useLocation();
+  const [, setAnimateState] = useAnimateContext();
   const [path, prefix] = usePathFromLocation(location.pathname);
   const { t } = useTranslation('translation');
 
@@ -92,15 +99,35 @@ export function Home() {
               path={Paths.Sensory + '/' + Paths.Proprioception}
               element={<Proprioception />}
             />
+            <Route
+              path={Paths.Sensory + '/' + Paths.Vestibular}
+              element={<Vestibular />}
+            />
             <Route path={Paths.Skeletal} element={<Skeletal />} />
             <Route
               path={Paths.Skeletal + '/' + Paths.Game}
               element={<Skeletal />}
             />
             <Route path={Paths.Cardiovascular} element={<Cardiovascular />} />
+            <Route
+              path={Paths.Cardiovascular + '/' + Paths.Game}
+              element={<CardiovascularGame />}
+            />
             <Route path={Paths.Muscular} element={<Muscular />} />
+            <Route
+              path={Paths.Muscular + '/' + Paths.Game}
+              element={<MuscularGame />}
+            />
             <Route path={Paths.Nervous} element={<Nervous />} />
+            <Route
+              path={Paths.Nervous + '/' + Paths.Game}
+              element={<NervousGame />}
+            />
             <Route path={Paths.Digestive} element={<Digestive />} />
+            <Route
+              path={Paths.Digestive + '/' + Paths.Game}
+              element={<DigestiveGame />}
+            />
           </Route>
           <Route path={Paths.Procedures}>
             <Route path={Paths.XRay} element={<XRay />} />
@@ -136,19 +163,22 @@ export function Home() {
                 <OptionOverlaySVG style={{ position: 'absolute', top: 0 }} />
               )}
               <ExploreSVG />
-              <span>{t('common.scene.explore')}</span>
+              <span style={{ color: 'white' }}>
+                {t('common.scene.explore')}
+              </span>
             </Link>
             <Link
               to={'?play=true'}
-              onClick={() =>
-                location.search !== '?play=true' && playSound('click')
-              }
+              onClick={() => {
+                setAnimateState('');
+                location.search !== '?play=true' && playSound('click');
+              }}
             >
               {location.search === '?play=true' && (
                 <OptionOverlaySVG style={{ position: 'absolute', top: 160 }} />
               )}
               <PlaySVG />
-              <span>{t('common.scene.play')}</span>
+              <span style={{ color: 'white' }}>{t('common.scene.play')}</span>
             </Link>
           </div>
         )}

@@ -2,9 +2,10 @@ import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAnimateContext } from '../../state/animate';
 import { animated, useSpring } from 'react-spring';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { Paths } from '../../types/Paths';
 import { columnLabelStyleLeft, columnLabelStyleRight } from './common';
+import CardiovascularGame from './CardiovascularGame';
 
 const bodyLeft = 540;
 
@@ -32,7 +33,7 @@ export default function Cardiovascular() {
   const location = useLocation();
 
   if (location.search === '?play=true') {
-    navigate(`/${Paths.BodySystems}/${Paths.Cardiovascular}?play=true`);
+    return <Navigate to={Paths.Game + '?play=true'} />;
   }
 
   // if we have an animated path, we need to show the slide in animation
@@ -52,7 +53,6 @@ export default function Cardiovascular() {
       delay: 300,
       onRest: () => navigate('/' + animatedPath),
     });
-    // then we navigate to the path
   }
 
   return (
