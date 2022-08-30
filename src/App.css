@@ -169,3 +169,46 @@
   left: 540px;
   transform: translateX(-50%);
 }
+
+.still {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.still2 {
+  animation: fadeIn 1s forwards 2s;
+}
+.still3 {
+  animation: fadeIn 1s forwards 5s;
+}
+.still4 {
+  animation: fadeIn 1s forwards 8s;
+}
+.still5 {
+  animation: fadeIn 1s forwards 11s;
+}
+.still6 {
+  animation: fadeIn 1s forwards 14s;
+}
+.still7 {
+  animation: fadeIn 1s forwards 17s;
+}
+.still8 {
+  animation: fadeIn 1s forwards 20s;
+}
+.still9 {
+  animation: fadeIn 1s forwards 23s;
+}
+.still10 {
+  animation: fadeIn 1s forwards 26s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
