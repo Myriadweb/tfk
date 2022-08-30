@@ -9,9 +9,9 @@ import Still4 from './NervousAssets/06J_Teammates_Systems_Nervous.png';
 import Still5 from './NervousAssets/06Q_Teammates_Systems_Nervous.png';
 
 import { Paths } from '../../types/Paths';
-import {animated} from "react-spring";
+import { animated } from 'react-spring';
 
-import {useGameContext} from "../../state/game";
+import { useGameContext } from '../../state/game';
 
 export default function NervousGame() {
   const location = useLocation();
@@ -27,34 +27,14 @@ export default function NervousGame() {
           src={Still1}
           className='still still1'
           style={{
-            opacity: 1
+            opacity: 1,
           }}
         ></animated.img>
       )}
-      {value != 2 && (
-        <animated.img
-          src={Still2}
-          className='still still2'
-        />
-      )}
-      {value != 3 && (
-        <animated.img
-          src={Still3}
-          className='still still3'
-        />
-      )}
-      {value != 4 && (
-        <animated.img
-          src={Still4}
-          className='still still4'
-        />
-      )}
-      {value != 5 && (
-        <animated.img
-          src={Still5}
-          className='still still5'
-        />
-      )}
+      {value != 2 && <animated.img src={Still2} className='still still2' />}
+      {value != 3 && <animated.img src={Still3} className='still still3' />}
+      {value != 4 && <animated.img src={Still4} className='still still4' />}
+      {value != 5 && <animated.img src={Still5} className='still still5' />}
     </>
   );
 }

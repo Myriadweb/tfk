@@ -6,7 +6,7 @@ import playSound from '../../sound';
 import { ReactComponent as ArmButton } from './MuscularAssets/armButton.svg';
 import { ReactComponent as LegButton } from './MuscularAssets/legButton.svg';
 import { useGameContext } from '../../state/game';
-import {ReactComponent as Arrow} from "../scene/SceneAssets/Arrow.svg";
+import { ReactComponent as Arrow } from '../scene/SceneAssets/Arrow.svg';
 
 type Props = {
   prefix: Paths;
@@ -31,8 +31,7 @@ const Nervous = ({ prefix }: Props) => {
           onClick={() => {
             setGameState({ value: 1 });
           }}
-        >
-        </button>
+        ></button>
       </div>
     </>
   );
