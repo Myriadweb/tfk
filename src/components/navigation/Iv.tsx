@@ -163,9 +163,7 @@ const Iv = ({ prefix }: Props) => {
         }}
       />
     ),
-    6: () => (
-      <></>
-    ),
+    6: () => <></>,
     7: () => (
       <BlueBarContinue
         text={t(`${step}-buttonText`)}
