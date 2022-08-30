@@ -30,10 +30,9 @@ import Doll from './SharedAssets/doll.png';
 import Medal from './SharedAssets/medal.png';
 import Sticker from './SharedAssets/sticker.svg';
 
-
 import { useSpring, animated } from 'react-spring';
 import { useEffect } from 'react';
-import {ReactComponent as Signature} from "./XRayAssets/signature.svg";
+import { ReactComponent as Signature } from './XRayAssets/signature.svg';
 
 export default function EegGame() {
   const [{ step, value }, setStep] = useGameContext();
@@ -261,13 +260,14 @@ export default function EegGame() {
       )}
       {step >= 8 && (
         <>
-          <Child6FullBody style={{
-            position: 'absolute',
-            left: '50%',
-            bottom: 20,
-            height: '80%',
-            transform: 'translate(-50%, 0)'
-          }}
+          <Child6FullBody
+            style={{
+              position: 'absolute',
+              left: '50%',
+              bottom: 20,
+              height: '80%',
+              transform: 'translate(-50%, 0)',
+            }}
           />
           {value === 'sticker' && (
             <animated.img
@@ -277,8 +277,7 @@ export default function EegGame() {
                 left: 420,
                 top: 600,
               }}
-            >
-            </animated.img>
+            ></animated.img>
           )}
           {value === 'doll' && (
             <animated.img

@@ -15,7 +15,7 @@ import PlaceLeads from '../navigation/EegAssets/place_leads.svg';
 import PlaceStickies from '../navigation/EegAssets/place_stickies.svg';
 import SignCast from './XRayAssets/signCast.svg';
 import PlaceCap from '../navigation/EegAssets/cap.svg';
-import Nervous from "./BodySystemsAssets/Nervous.svg";
+import Nervous from './BodySystemsAssets/Nervous.svg';
 
 type Props = {
   path: Paths;
@@ -204,7 +204,7 @@ export default function Eeg({ prefix }: Props) {
             image={Medal}
             size={value === 'medal' ? 'large' : 'small'}
             onClick={() =>
-              setStep((oldState) => ({ ...oldState, value: 'medal'}))
+              setStep((oldState) => ({ ...oldState, value: 'medal' }))
             }
             text=''
           />
@@ -222,21 +222,23 @@ export default function Eeg({ prefix }: Props) {
             playSound('click');
             setStep((oldStep) => ({ ...oldStep, step: 9, hideButtons: false }));
           }}
-        >{t(`${step}-buttonText`)} <Arrow /></button>
+        >
+          {t(`${step}-buttonText`)} <Arrow />
+        </button>
       </>
     ),
     9: () => (
-        <NavigationButton
-          image={Nervous}
-          size={'large'}
-          onClick={() => {
-            playSound('click');
-            setStep({ step: 0 });
-            navigate(Paths.BodySystems + '/' + Paths.Nervous);
-          }}
-          text=''
-        />
-    )
+      <NavigationButton
+        image={Nervous}
+        size={'large'}
+        onClick={() => {
+          playSound('click');
+          setStep({ step: 0 });
+          navigate(Paths.BodySystems + '/' + Paths.Nervous);
+        }}
+        text=''
+      />
+    ),
   };
 
   return (
