@@ -47,6 +47,7 @@
   height: 1270px;
   position: relative;
   overflow: hidden;
+  font-family: 'LemonMilk', sans-serif;
 }
 
 .slide-left {
@@ -62,6 +63,7 @@
   background: #103159;
   position: relative;
   border-top: white 2px solid;
+  font-family: 'LemonMilk', sans-serif;
 }
 
 .Options-buttons-box {
@@ -83,4 +85,130 @@
 
 .Options-buttons-box a:first-of-type {
   margin-bottom: 28px;
+}
+
+/* navigation styling */
+.nav-top {
+  width: 100%;
+  color: #ffffff;
+}
+.nav-middle {
+  margin-top: 50px;
+  background: #0e1f33;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 115px;
+}
+.nav-items-container {
+  margin: 0px auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  width: 700px;
+}
+.main-text {
+  font-size: 40px;
+  margin-top: 30px;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+.sub-text {
+  font-size: 20px;
+  margin-top: 12px;
+  white-space: pre;
+}
+
+/* button styling */
+.nav-button {
+  font-family: 'LemonMilk', sans-serif;
+  font-size: 20px;
+  color: #fff;
+  background: #cd4845;
+  border: 1px solid #000;
+  border-radius: 12px;
+  padding: 10px 20px;
+  min-width: 240px;
+}
+
+/* EEG game scene styling */
+.sticky-dots-container {
+  position: absolute;
+  top: 50px;
+  left: 540px;
+  transform: translateX(-50%);
+  width: 570px;
+}
+.sticky-dots {
+  position: absolute;
+}
+.leads-head-container {
+  position: absolute;
+  top: -10px;
+  left: 540px;
+  transform: translateX(-50%);
+  width: 682px;
+}
+.leads-machine-container {
+  position: absolute;
+  top: -212px;
+  left: 530px;
+  transform: translateX(-50%);
+  width: 197px;
+}
+.leads-head-container svg,
+.leads-machine-container svg,
+.cap-container svg {
+  position: absolute;
+}
+.cap-container {
+  position: absolute;
+  width: 616px;
+  top: 0;
+  left: 540px;
+  transform: translateX(-50%);
+}
+
+.still {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.still2 {
+  animation: fadeIn 1s forwards 2s;
+}
+.still3 {
+  animation: fadeIn 1s forwards 5s;
+}
+.still4 {
+  animation: fadeIn 1s forwards 8s;
+}
+.still5 {
+  animation: fadeIn 1s forwards 11s;
+}
+.still6 {
+  animation: fadeIn 1s forwards 14s;
+}
+.still7 {
+  animation: fadeIn 1s forwards 17s;
+}
+.still8 {
+  animation: fadeIn 1s forwards 20s;
+}
+.still9 {
+  animation: fadeIn 1s forwards 23s;
+}
+.still10 {
+  animation: fadeIn 1s forwards 26s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

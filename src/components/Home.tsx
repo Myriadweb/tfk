@@ -30,6 +30,7 @@ import Hearing from './scene/Hearing';
 import Taste from './scene/Taste';
 import Proprioception from './scene/Proprioception';
 import MriGame from './scene/MriGame';
+import EegGame from './scene/EegGame';
 import WellnessGame from './scene/WellnessGame';
 import IvGame from './scene/IvGame';
 import SurgicalPrepGame from './scene/SurgicalPrepGame';
@@ -144,6 +145,7 @@ export function Home() {
               element={<WellnessGame />}
             />
             <Route path={Paths.Eeg} element={<Eeg />} />
+            <Route path={Paths.Eeg + '/' + Paths.Game} element={<EegGame />} />
             <Route path={Paths.SurgicalPrep} element={<SurgicalPrep />} />
             <Route
               path={Paths.SurgicalPrep + '/' + Paths.Game}

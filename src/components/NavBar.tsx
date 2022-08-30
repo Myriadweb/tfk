@@ -71,107 +71,109 @@ export function NavBar({ path, prefix }: Props) {
   return (
     <div className='App-navigation'>
       {Component ? <Component path={path} prefix={prefix} /> : <></>}
-      {path !== Paths.MainMenu && !hideButtons && (
-        <div
-          style={{
-            position: 'absolute',
-            left: 44,
-            top: 383,
-          }}
-        >
-          <Link
-            to={Paths.MainMenu}
+      <div className='nav-bottom'>
+        {path !== Paths.MainMenu && !hideButtons && (
+          <div
             style={{
-              display: 'flex',
-              alignItems: 'center',
-            }}
-            onClick={() => {
-              playSound('click');
-              setStep({ step: 0 });
-              setAnimatedPath('');
+              position: 'absolute',
+              left: 44,
+              top: 383,
             }}
           >
-            <img src='images/NavBar/exitButton.png' />
-            <span
+            <Link
+              to={Paths.MainMenu}
               style={{
-                fontSize: 20,
-                color: '#FFF',
-                fontFamily: 'LemonMilk',
-                marginLeft: 15,
+                display: 'flex',
+                alignItems: 'center',
+              }}
+              onClick={() => {
+                playSound('click');
+                setStep({ step: 0 });
+                setAnimatedPath('');
               }}
             >
-              {t('common.navbar.exit')}
-            </span>
-          </Link>
-        </div>
-      )}
-      {prefix === Paths.Sensory && (
-        <div
-          style={{
-            position: 'absolute',
-            left: 207,
-            top: 383,
-          }}
-        >
-          <Link
-            to={`${Paths.BodySystems}/${Paths.Sensory}`}
-            onClick={() => {
-              playSound('click');
-              setStep({ step: 0 });
-            }}
+              <img src='images/NavBar/exitButton.png' />
+              <span
+                style={{
+                  fontSize: 20,
+                  color: '#FFF',
+                  fontFamily: 'LemonMilk',
+                  marginLeft: 15,
+                }}
+              >
+                {t('common.navbar.exit')}
+              </span>
+            </Link>
+          </div>
+        )}
+        {prefix === Paths.Sensory && (
+          <div
             style={{
-              display: 'flex',
-              alignItems: 'center',
+              position: 'absolute',
+              left: 207,
+              top: 383,
             }}
           >
-            <img src='images/NavBar/bodySystemsButton.png' />
-            <span
+            <Link
+              to={`${Paths.BodySystems}/${Paths.Sensory}`}
+              onClick={() => {
+                playSound('click');
+                setStep({ step: 0 });
+              }}
               style={{
-                fontSize: 20,
-                color: '#FFF',
-                fontFamily: 'LemonMilk',
-                marginLeft: 15,
+                display: 'flex',
+                alignItems: 'center',
               }}
             >
-              {t('common.navbar.bodySystems')}
-            </span>
-          </Link>
-        </div>
-      )}
-      {path === Paths.Game && !hideButtons && (
-        <div
-          style={{
-            position: 'absolute',
-            left: 207,
-            top: 383,
-          }}
-        >
-          <Link
-            to={`${getNavigationPath(prefix)}/${prefix}`}
-            onClick={() => {
-              playSound('click');
-              setStep({ step: 0 });
-            }}
+              <img src='images/NavBar/bodySystemsButton.png' />
+              <span
+                style={{
+                  fontSize: 20,
+                  color: '#FFF',
+                  fontFamily: 'LemonMilk',
+                  marginLeft: 15,
+                }}
+              >
+                {t('common.navbar.bodySystems')}
+              </span>
+            </Link>
+          </div>
+        )}
+        {path === Paths.Game && !hideButtons && (
+          <div
             style={{
-              display: 'flex',
-              alignItems: 'center',
+              position: 'absolute',
+              left: 207,
+              top: 383,
             }}
           >
-            <img src={`images/NavBar/${getNavigationIcon(prefix)}.png`} />
-            <span
+            <Link
+              to={`${getNavigationPath(prefix)}/${prefix}`}
+              onClick={() => {
+                playSound('click');
+                setStep({ step: 0 });
+              }}
               style={{
-                fontSize: 20,
-                color: '#FFF',
-                fontFamily: 'LemonMilk',
-                marginLeft: 15,
+                display: 'flex',
+                alignItems: 'center',
               }}
             >
-              {t(`common.navbar.${getNavigationText(prefix)}`)}
-            </span>
-          </Link>
-        </div>
-      )}
-      <LanguageToggle />
+              <img src={`images/NavBar/${getNavigationIcon(prefix)}.png`} />
+              <span
+                style={{
+                  fontSize: 20,
+                  color: '#FFF',
+                  fontFamily: 'LemonMilk',
+                  marginLeft: 15,
+                }}
+              >
+                {t(`common.navbar.${getNavigationText(prefix)}`)}
+              </span>
+            </Link>
+          </div>
+        )}
+        <LanguageToggle />
+      </div>
     </div>
   );
 }

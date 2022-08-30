@@ -51,8 +51,8 @@ const Iv = ({ prefix }: Props) => {
         },
       });
     } else if (step === 6) {
-      delayApi.set({ opacity: 0 });
-      setShouldShowComponent(false);
+      //delayApi.set({ opacity: 0 });
+      //setShouldShowComponent(false);
     } else if (step === 7) {
       delayApi.start({
         opacity: 1,
@@ -163,6 +163,7 @@ const Iv = ({ prefix }: Props) => {
         }}
       />
     ),
+    6: () => <></>,
     7: () => (
       <BlueBarContinue
         text={t(`${step}-buttonText`)}
