@@ -15,6 +15,7 @@ import { ReactComponent as Child1MouthOpen } from './Child1/mouthOpen.svg';
 import { ReactComponent as Child1MouthClosed } from './Child1/mouthClosed.svg';
 import { ReactComponent as Child1LiftFeatherBody } from './Child1/liftFeather.svg';
 import { ReactComponent as Child1LiftWeightBody } from './Child1/liftWeight.svg';
+import Child1Breathe from './Child1/breathe.png';
 
 import { ReactComponent as Child2 } from './Child2/default.svg';
 import { ReactComponent as Child2Worried } from './Child2/worried.svg';
@@ -30,6 +31,7 @@ import { ReactComponent as Child2MouthOpen } from './Child2/mouthOpen.svg';
 import { ReactComponent as Child2MouthClosed } from './Child2/mouthClosed.svg';
 import { ReactComponent as Child2LiftFeatherBody } from './Child2/liftFeather.svg';
 import { ReactComponent as Child2LiftWeightBody } from './Child2/liftWeight.svg';
+import Child2Breathe from './Child2/breathe.svg';
 
 import Child3 from './Child3/default.png';
 import { ReactComponent as Child3Worried } from './Child3/worried.svg';
@@ -46,6 +48,7 @@ import { ReactComponent as Child3MouthOpen } from './Child3/mouthOpen.svg';
 import { ReactComponent as Child3MouthClosed } from './Child3/mouthClosed.svg';
 import Child3LiftFeatherBody from './Child3/liftFeather.png';
 import Child3LiftWeightBody from './Child3/liftWeight.png';
+import Child3Breathe from './Child3/breathe.svg';
 
 import { ReactComponent as Child4 } from './Child4/default.svg';
 import { ReactComponent as Child4Worried } from './Child4/worried.svg';
@@ -61,6 +64,7 @@ import { ReactComponent as Child4MouthOpen } from './Child4/mouthOpen.svg';
 import { ReactComponent as Child4MouthClosed } from './Child4/mouthClosed.svg';
 import { ReactComponent as Child4LiftFeatherBody } from './Child4/liftFeather.svg';
 import { ReactComponent as Child4LiftWeightBody } from './Child4/liftWeight.svg';
+import Child4Breathe from './Child4/breathe.svg';
 
 import { ReactComponent as Child5 } from './Child5/default.svg';
 import { ReactComponent as Child5Worried } from './Child5/worried.svg';
@@ -76,6 +80,7 @@ import { ReactComponent as Child5MouthOpen } from './Child5/mouthOpen.svg';
 import { ReactComponent as Child5MouthClosed } from './Child5/mouthClosed.svg';
 import { ReactComponent as Child5LiftFeatherBody } from './Child5/liftFeather.svg';
 import { ReactComponent as Child5LiftWeightBody } from './Child5/liftWeight.svg';
+import Child5Breathe from './Child5/breathe.png';
 
 import { ReactComponent as Child6 } from './Child6/default.svg';
 import { ReactComponent as Child6Worried } from './Child6/worried.svg';
@@ -91,6 +96,7 @@ import { ReactComponent as Child6MouthOpen } from './Child6/mouthOpen.svg';
 import { ReactComponent as Child6MouthClosed } from './Child6/mouthClosed.svg';
 import { ReactComponent as Child6LiftFeatherBody } from './Child6/liftFeather.svg';
 import { ReactComponent as Child6LiftWeightBody } from './Child6/liftWeight.svg';
+import Child6Breathe from './Child6/breathe.svg';
 
 import { ReactComponent as SmockRaw } from '../XRayAssets/smock.svg';
 
@@ -670,6 +676,80 @@ const LiftWeightCharacters = {
   ),
 };
 
+const BreathingHead = {
+  [Character.child1]: () => (
+    <img
+      src={Child1Breathe}
+      style={{
+        position: 'relative',
+        width: 784,
+        height: 616,
+        top: 8,
+      }}
+    />
+  ),
+  [Character.child2]: () => (
+    <img
+      src={Child2Breathe}
+      style={{
+        position: 'relative',
+        width: 667,
+        height: 586,
+        top: 30,
+        left: 65,
+      }}
+    />
+  ),
+  [Character.child3]: () => (
+    <img
+      src={Child3Breathe}
+      style={{
+        position: 'relative',
+        width: 611,
+        height: 614,
+        top: 0,
+        left: 92,
+      }}
+    />
+  ),
+  [Character.child4]: () => (
+    <img
+      src={Child4Breathe}
+      style={{
+        position: 'relative',
+        width: 695,
+        height: 614,
+        top: 6,
+        left: 52,
+      }}
+    />
+  ),
+  [Character.child5]: () => (
+    <img
+      src={Child5Breathe}
+      style={{
+        position: 'relative',
+        width: 744,
+        height: 614,
+        top: 0,
+        left: 19,
+      }}
+    />
+  ),
+  [Character.child6]: () => (
+    <img
+      src={Child6Breathe}
+      style={{
+        position: 'relative',
+        width: 617,
+        height: 614,
+        top: 0,
+        left: 92,
+      }}
+    />
+  ),
+};
+
 export const Characters: {
   default: { [key in Character]: React.FC };
   worried: { [key in Character]: React.FC };
@@ -684,6 +764,7 @@ export const Characters: {
   iceCream: { [key in Character]: React.FC };
   liftFeather: { [key in Character]: React.FC };
   liftWeight: { [key in Character]: React.FC };
+  breathe: { [key in Character]: React.FC };
 } = {
   default: DefaultCharacters,
   worried: WorriedCharacters,
@@ -698,4 +779,5 @@ export const Characters: {
   iceCream: IceCreamCharacters,
   liftFeather: LiftFeatherCharacters,
   liftWeight: LiftWeightCharacters,
+  breathe: BreathingHead,
 };

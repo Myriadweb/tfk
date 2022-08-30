@@ -5,7 +5,6 @@ import { animated, useSpring } from 'react-spring';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { Paths } from '../../types/Paths';
 import { columnLabelStyleLeft, columnLabelStyleRight } from './common';
-import CardiovascularGame from './CardiovascularGame';
 
 const bodyLeft = 540;
 
