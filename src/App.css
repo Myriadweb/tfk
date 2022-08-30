@@ -95,7 +95,10 @@
 .nav-middle {
   margin-top: 50px;
   background: #0e1f33;
-  padding: 33px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 115px;
 }
 .nav-items-container {
   margin: 0px auto;

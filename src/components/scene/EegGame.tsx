@@ -25,8 +25,15 @@ import { ReactComponent as HeadCap } from '../scene/EegAssets/headCap.svg';
 import { ReactComponent as PrinterBottom } from '../scene/EegAssets/printerBottom.svg';
 import { ReactComponent as PrinterPrintoutMiddle } from '../scene/EegAssets/printerPrintoutMiddle.svg';
 import { ReactComponent as PrinterTop } from '../scene/EegAssets/printerTop.svg';
+import { ReactComponent as Child6FullBody } from '../scene/ChildrenAssets/Child6/fullBody.svg';
+import Doll from './SharedAssets/doll.png';
+import Medal from './SharedAssets/medal.png';
+import Sticker from './SharedAssets/sticker.svg';
+
+
 import { useSpring, animated } from 'react-spring';
 import { useEffect } from 'react';
+import {ReactComponent as Signature} from "./XRayAssets/signature.svg";
 
 export default function EegGame() {
   const [{ step, value }, setStep] = useGameContext();
@@ -38,7 +45,7 @@ export default function EegGame() {
       printoutApi.start({
         transform: 'translateY(276px)',
         delay: 1000,
-        config: { duration: 2000 },
+        config: { duration: 3000 },
       });
     }
   }, [step]);
@@ -59,7 +66,7 @@ export default function EegGame() {
 
   return (
     <div className='game'>
-      {step < 6 && (
+      {step < 7 && (
         <>
           <BG
             style={{
@@ -140,7 +147,7 @@ export default function EegGame() {
                 />
               </div>
             )}
-            {step > 2 && step < 6 && (
+            {step > 2 && step < 7 && (
               <>
                 <div className='leads-machine-container'>
                   <LeadsHeadMachineRef
@@ -234,7 +241,7 @@ export default function EegGame() {
           </div>
         </>
       )}
-      {step === 6 && (
+      {step === 7 && (
         <>
           <PrinterBottom
             style={{ position: 'absolute', top: 757, left: 171 }}
@@ -250,6 +257,50 @@ export default function EegGame() {
             <PrinterPrintoutMiddle />
           </animated.div>
           <PrinterTop style={{ position: 'absolute', top: 267, left: 171 }} />
+        </>
+      )}
+      {step >= 8 && (
+        <>
+          <Child6FullBody style={{
+            position: 'absolute',
+            left: '50%',
+            bottom: 20,
+            height: '80%',
+            transform: 'translate(-50%, 0)'
+          }}
+          />
+          {value === 'sticker' && (
+            <animated.img
+              src={Sticker}
+              style={{
+                position: 'absolute',
+                left: 420,
+                top: 600,
+              }}
+            >
+            </animated.img>
+          )}
+          {value === 'doll' && (
+            <animated.img
+              src={Doll}
+              style={{
+                position: 'absolute',
+                left: 278,
+                top: 656,
+              }}
+            />
+          )}
+          {value === 'medal' && (
+            <animated.img
+              src={Medal}
+              style={{
+                position: 'absolute',
+                left: '50%',
+                top: 597,
+                transform: 'translate(-50%, 0)',
+              }}
+            />
+          )}
         </>
       )}
     </div>

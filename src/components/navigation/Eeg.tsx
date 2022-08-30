@@ -10,10 +10,12 @@ import { Paths } from '../../types/Paths';
 import Cap from '../navigation/EegAssets/cap.svg';
 import Bear from '../navigation/SharedAssets/bear.svg';
 import Medal from '../navigation/SharedAssets/medal.svg';
+import Sticker from '../navigation/SharedAssets/sticker.svg';
 import PlaceLeads from '../navigation/EegAssets/place_leads.svg';
 import PlaceStickies from '../navigation/EegAssets/place_stickies.svg';
 import SignCast from './XRayAssets/signCast.svg';
 import PlaceCap from '../navigation/EegAssets/cap.svg';
+import Nervous from "./BodySystemsAssets/Nervous.svg";
 
 type Props = {
   path: Paths;
@@ -157,6 +159,84 @@ export default function Eeg({ prefix }: Props) {
         />
       </div>
     ),
+    6: () => (
+      <button
+        className='nav-button'
+        onClick={() => {
+          playSound('completeStep');
+          setStep({ step: 7, value: [] });
+        }}
+      >
+        {t(`${step}-buttonText`)} <Arrow />
+      </button>
+    ),
+    7: () => (
+      <button
+        className='nav-button'
+        onClick={() => {
+          playSound('completeStep');
+          setStep({ step: 8, hideButtons: true });
+        }}
+      >
+        {t(`${step}-buttonText`)} <Arrow />
+      </button>
+    ),
+    8: () => (
+      <>
+        <div className='nav-items-container'>
+          <NavigationButton
+            image={Sticker}
+            size={value === 'sticker' ? 'large' : 'small'}
+            onClick={() =>
+              setStep((oldState) => ({ ...oldState, value: 'sticker' }))
+            }
+            text=''
+          />
+          <NavigationButton
+            image={Bear}
+            size={value === 'doll' ? 'large' : 'small'}
+            onClick={() =>
+              setStep((oldState) => ({ ...oldState, value: 'doll' }))
+            }
+            text=''
+          />
+          <NavigationButton
+            image={Medal}
+            size={value === 'medal' ? 'large' : 'small'}
+            onClick={() =>
+              setStep((oldState) => ({ ...oldState, value: 'medal'}))
+            }
+            text=''
+          />
+        </div>
+        <button
+          className='nav-button'
+          style={{
+            position: 'absolute',
+            bottom: 50,
+            left: '50%',
+            transform: 'translateX(-50%)',
+          }}
+          onClick={() => {
+            if (!value) return; // if no value is selected, don't continue
+            playSound('click');
+            setStep((oldStep) => ({ ...oldStep, step: 9, hideButtons: false }));
+          }}
+        >{t(`${step}-buttonText`)} <Arrow /></button>
+      </>
+    ),
+    9: () => (
+        <NavigationButton
+          image={Nervous}
+          size={'large'}
+          onClick={() => {
+            playSound('click');
+            setStep({ step: 0 });
+            navigate(Paths.BodySystems + '/' + Paths.Nervous);
+          }}
+          text=''
+        />
+    )
   };
 
   return (
