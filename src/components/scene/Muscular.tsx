@@ -6,7 +6,7 @@ import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { Paths } from '../../types/Paths';
 import { columnLabelStyleLeft, columnLabelStyleRight } from './common';
 import { CSSProperties } from 'react';
-import MuscularGame from './MuscularGame';
+import Labels from './MuscularAssets/labels.svg';
 
 const bodyLeft = 540;
 
@@ -77,11 +77,11 @@ export default function Muscular() {
         }}
       />
       <animated.img
-        src='images/Muscular/muscularLabels.png'
+        src={Labels}
         style={{
-          top: 198,
+          top: 202,
           position: 'absolute',
-          left: 540,
+          left: 543,
           transform: 'translate(-50%, 0)',
           ...overlayStyle,
         }}
@@ -93,6 +93,7 @@ export default function Muscular() {
           ...muscularLabelStyle,
           top: 440,
           padding: '5px 12px 7px',
+          left: 33,
         }}
       >
         {t('muscular.scene.latissimus')}

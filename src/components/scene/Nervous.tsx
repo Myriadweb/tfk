@@ -5,7 +5,7 @@ import { animated, useSpring } from 'react-spring';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { Paths } from '../../types/Paths';
 import { columnLabelStyleLeft, columnLabelStyleRight } from './common';
-import NervousGame from './nervousGame';
+import NervousGame from './NervousAssets/nervousMain.svg';
 
 const bodyLeft = 540;
 
@@ -33,7 +33,6 @@ export default function Nervous() {
   const location = useLocation();
 
   if (location.search === '?play=true') {
-    console.debug(location.search);
     return <Navigate to={Paths.Game + '?play=true'} />;
   }
 
@@ -60,9 +59,10 @@ export default function Nervous() {
   return (
     <>
       <animated.img
-        src='images/Nervous/nervousBody.png'
+        src={NervousGame}
         style={{
           top: 343,
+          width: 400,
           position: 'absolute',
           transform: 'translate(-50%, 0)',
           ...bodyStyle,
