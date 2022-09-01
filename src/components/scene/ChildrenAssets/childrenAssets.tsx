@@ -16,6 +16,9 @@ import { ReactComponent as Child1MouthClosed } from './Child1/mouthClosed.svg';
 import { ReactComponent as Child1LiftFeatherBody } from './Child1/liftFeather.svg';
 import { ReactComponent as Child1LiftWeightBody } from './Child1/liftWeight.svg';
 import Child1Breathe from './Child1/breathe.png';
+import { ReactComponent as Child1HitFloor } from './Child1/hitFloor.svg';
+import Child1Protection from './Child1/protection.svg';
+import { ReactComponent as Child1HappyStanding } from './Child1/happyStanding.svg';
 
 import { ReactComponent as Child2 } from './Child2/default.svg';
 import { ReactComponent as Child2Worried } from './Child2/worried.svg';
@@ -32,6 +35,9 @@ import { ReactComponent as Child2MouthClosed } from './Child2/mouthClosed.svg';
 import { ReactComponent as Child2LiftFeatherBody } from './Child2/liftFeather.svg';
 import { ReactComponent as Child2LiftWeightBody } from './Child2/liftWeight.svg';
 import Child2Breathe from './Child2/breathe.svg';
+import { ReactComponent as Child2HitFloor } from './Child2/hitFloor.svg';
+import Child2Protection from './Child2/protection.svg';
+import { ReactComponent as Child2HappyStanding } from './Child2/happyStanding.svg';
 
 import Child3 from './Child3/default.png';
 import { ReactComponent as Child3Worried } from './Child3/worried.svg';
@@ -49,6 +55,9 @@ import { ReactComponent as Child3MouthClosed } from './Child3/mouthClosed.svg';
 import Child3LiftFeatherBody from './Child3/liftFeather.png';
 import Child3LiftWeightBody from './Child3/liftWeight.png';
 import Child3Breathe from './Child3/breathe.svg';
+import { ReactComponent as Child3HitFloor } from './Child3/hitFloor.svg';
+import Child3Protection from './Child3/protection.svg';
+import { ReactComponent as Child3HappyStanding } from './Child3/happyStanding.svg';
 
 import { ReactComponent as Child4 } from './Child4/default.svg';
 import { ReactComponent as Child4Worried } from './Child4/worried.svg';
@@ -65,6 +74,9 @@ import { ReactComponent as Child4MouthClosed } from './Child4/mouthClosed.svg';
 import { ReactComponent as Child4LiftFeatherBody } from './Child4/liftFeather.svg';
 import { ReactComponent as Child4LiftWeightBody } from './Child4/liftWeight.svg';
 import Child4Breathe from './Child4/breathe.svg';
+import { ReactComponent as Child4HitFloor } from './Child4/hitFloor.svg';
+import Child4Protection from './Child4/protection.svg';
+import { ReactComponent as Child4HappyStanding } from './Child4/happyStanding.svg';
 
 import { ReactComponent as Child5 } from './Child5/default.svg';
 import { ReactComponent as Child5Worried } from './Child5/worried.svg';
@@ -81,6 +93,9 @@ import { ReactComponent as Child5MouthClosed } from './Child5/mouthClosed.svg';
 import { ReactComponent as Child5LiftFeatherBody } from './Child5/liftFeather.svg';
 import { ReactComponent as Child5LiftWeightBody } from './Child5/liftWeight.svg';
 import Child5Breathe from './Child5/breathe.png';
+import { ReactComponent as Child5HitFloor } from './Child5/hitFloor.svg';
+import Child5Protection from './Child5/protection.svg';
+import { ReactComponent as Child5HappyStanding } from './Child5/happyStanding.svg';
 
 import { ReactComponent as Child6 } from './Child6/default.svg';
 import { ReactComponent as Child6Worried } from './Child6/worried.svg';
@@ -97,6 +112,9 @@ import { ReactComponent as Child6MouthClosed } from './Child6/mouthClosed.svg';
 import { ReactComponent as Child6LiftFeatherBody } from './Child6/liftFeather.svg';
 import { ReactComponent as Child6LiftWeightBody } from './Child6/liftWeight.svg';
 import Child6Breathe from './Child6/breathe.svg';
+import { ReactComponent as Child6HitFloor } from './Child6/hitFloor.svg';
+import Child6Protection from './Child6/protection.svg';
+import { ReactComponent as Child6HappyStanding } from './Child6/happyStanding.svg';
 
 import { ReactComponent as SmockRaw } from '../XRayAssets/smock.svg';
 
@@ -750,6 +768,33 @@ const BreathingHead = {
   ),
 };
 
+const HappyCharacters = {
+  [Character.child1]: Child1HappyStanding,
+  [Character.child2]: Child2HappyStanding,
+  [Character.child3]: Child3HappyStanding,
+  [Character.child4]: Child4HappyStanding,
+  [Character.child5]: Child5HappyStanding,
+  [Character.child6]: Child6HappyStanding,
+};
+
+const HitFloorCharacters = {
+  [Character.child1]: () => <Child1HitFloor height='648' width='724' />,
+  [Character.child2]: () => <Child2HitFloor height='648' width='724' />,
+  [Character.child3]: () => <Child3HitFloor height='648' width='724' />,
+  [Character.child4]: () => <Child4HitFloor height='648' width='724' />,
+  [Character.child5]: () => <Child5HitFloor height='648' width='724' />,
+  [Character.child6]: () => <Child6HitFloor height='648' width='724' />,
+};
+
+const ProtectionCharacters = {
+  [Character.child1]: Child1Protection,
+  [Character.child2]: Child2Protection,
+  [Character.child3]: Child3Protection,
+  [Character.child4]: Child4Protection,
+  [Character.child5]: Child5Protection,
+  [Character.child6]: Child6Protection,
+};
+
 export const Characters: {
   default: { [key in Character]: React.FC };
   worried: { [key in Character]: React.FC };
@@ -765,6 +810,9 @@ export const Characters: {
   liftFeather: { [key in Character]: React.FC };
   liftWeight: { [key in Character]: React.FC };
   breathe: { [key in Character]: React.FC };
+  hitFloor: { [key in Character]: React.FC };
+  protection: { [key in Character]: string };
+  happy: { [key in Character]: string };
 } = {
   default: DefaultCharacters,
   worried: WorriedCharacters,
@@ -780,4 +828,7 @@ export const Characters: {
   liftFeather: LiftFeatherCharacters,
   liftWeight: LiftWeightCharacters,
   breathe: BreathingHead,
+  hitFloor: HitFloorCharacters,
+  protection: ProtectionCharacters,
+  happy: HappyCharacters,
 };

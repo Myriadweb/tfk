@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { CSSProperties, useEffect } from 'react';
 import { animated, useSpring } from 'react-spring';
 import { useGameContext } from '../../../state/game';
 import playSound, { Sounds } from '../../../sound';
@@ -11,7 +11,7 @@ type Props = {
   y: number;
   onChange: (type: VariationsType) => void;
   type: VariationsType;
-  activeStyle: {
+  activeStyle?: {
     left?: number;
     top?: number;
     transform?: string;
@@ -21,6 +21,7 @@ type Props = {
   onTop?: boolean;
   reset?: boolean;
   valueType?: string;
+  style?: CSSProperties;
 };
 export const ClickableImage = ({
   Component,
@@ -32,6 +33,7 @@ export const ClickableImage = ({
   reset,
   valueType,
   activeStyle,
+  style: BaseStyle,
   sound,
 }: Props) => {
   const [style, styleApi] = useSpring(() => ({
@@ -64,7 +66,9 @@ export const ClickableImage = ({
     }
 
     playSound(sound);
-    styleApi.start(activeStyle);
+    if (activeStyle) {
+      styleApi.start(activeStyle);
+    }
     setGameState({ step: 0, value: type === 'bad' ? valueType : '' });
     onChange(type);
   };
@@ -73,12 +77,13 @@ export const ClickableImage = ({
     <>
       {typeof Component === 'string' ? (
         <animated.img
-          src={Component}
           style={{
             position: 'absolute',
             zIndex: onTop ? 2 : 0,
             ...style,
+            ...BaseStyle,
           }}
+          src={Component}
           onClick={handleAnimation}
         />
       ) : (
@@ -87,6 +92,7 @@ export const ClickableImage = ({
             position: 'absolute',
             zIndex: onTop ? 2 : 0,
             ...style,
+            ...BaseStyle,
           }}
         >
           <Component onClick={handleAnimation} />

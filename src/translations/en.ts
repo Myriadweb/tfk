@@ -64,6 +64,11 @@ const en: Translation = {
           description:
             'WEARING AN OVER MITT CAN PROTECT\nYOUR HANDS FROM HOT OBJECTS',
         },
+        badVestibular: {
+          title: 'WHOA! HERE’S A TIP…',
+          description:
+            'SPINNING AROUND CAN MAKE YOU DIZZY, BUT WEARING\nA HELMET AND PADS CAN PROTECT YOU IF YOU FALL.',
+        },
       },
     },
     [Paths.Skeletal]: {

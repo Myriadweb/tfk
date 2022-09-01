@@ -14,6 +14,7 @@ import { useNavigate } from 'react-router-dom';
 import { useGameContext } from '../../state/game';
 import playSound from '../../sound';
 import { ReactComponent as Arrow } from '../scene/SceneAssets/Arrow.svg';
+import { useState } from 'react';
 
 type Props = {
   path: Paths;
@@ -25,6 +26,7 @@ const VALUES = {
   badSight: true,
   badSound: true,
   badTouch: true,
+  badVestibular: true,
 };
 
 const NavigationPrefix = `${Paths.BodySystems}/${Paths.Sensory}/`;
@@ -32,10 +34,17 @@ const NavigationPrefix = `${Paths.BodySystems}/${Paths.Sensory}/`;
 function Sensory({ path, prefix }: Props) {
   const t = useNavBarTranslation(prefix);
   const [{ value }, setGameState] = useGameContext();
+  const [showVestibular, setShowVestibular] = useState(false);
 
   const navigate = useNavigate();
 
-  const hasValue = VALUES[value];
+  let hasValue;
+
+  if (value === 'badVestibular' && !showVestibular) {
+    setTimeout(() => setShowVestibular(true), 2000);
+  } else {
+    hasValue = VALUES[value];
+  }
 
   return (
     <>
