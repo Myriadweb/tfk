@@ -46,7 +46,8 @@ function Sensory({ path, prefix }: Props) {
     hasValue = VALUES[value];
   }
 
-  const selectPathText = path === Paths.Vestibular ? 'selectPathVestibular' : 'selectPath'
+  const selectPathText =
+    path === Paths.Vestibular ? 'selectPathVestibular' : 'selectPath';
 
   return (
     <>
