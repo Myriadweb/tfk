@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="150px" height="217px" viewBox="0 0 150 217" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 8</title>
+    <defs>
+        <path d="M10.5648471,204.809322 C-12.7366855,181.063894 8.10760369,170.314338 19.7054398,123.072989 C31.303276,75.8316407 5.18741188,40.3847246 22.7289207,13.4240915 C40.2704294,-13.5365416 95.3569289,3.04600933 121.656959,37.16294 C147.956988,71.2798707 152.631089,115.321144 134.793889,158.656954 C116.956689,201.992765 33.8663797,228.55475 10.5648471,204.809322 Z" id="path-1"></path>
+        <filter x="-6.9%" y="-4.6%" width="113.8%" height="109.3%" filterUnits="objectBoundingBox" id="filter-2">
+            <feGaussianBlur stdDeviation="7.5" in="SourceAlpha" result="shadowBlurInner1"></feGaussianBlur>
+            <feOffset dx="0" dy="2" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="07I_Teammates_Systems_Digestive" transform="translate(-599.000000, -787.000000)">
+            <g id="Group-3" transform="translate(-44.000000, -264.000000)">
+                <g id="Group-8" transform="translate(645.292006, 1052.711685)">
+                    <g id="Path-546">
+                        <use fill="#7D2D4C" fill-rule="evenodd" xlink:href="#path-1"></use>
+                        <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                        <use stroke="#4D161A" stroke-width="3" xlink:href="#path-1"></use>
+                    </g>
+                    <path d="M72.7248996,116.541626 C89.7536283,119.323676 82.5920123,130.562028 97.331023,130.562028 C103.952897,130.562028 108.58609,127.732033 113.086557,124.614937 L113.956456,124.008726 L113.956456,124.008726 L114.82603,123.399442 C119.75835,119.945865 124.819084,116.541626 132.456839,116.541626 C137.444618,116.541626 141.63654,116.757683 145.032606,117.189798 C143.903876,130.852514 140.501236,144.790847 134.793889,158.656954 C116.956689,201.992765 33.8663797,228.55475 10.5648471,204.809322 C-12.1530359,181.658662 7.09109765,170.860994 18.8173786,126.554943 C26.5376356,132.049313 33.0079,133.385861 38.2274097,130.562028 C46.1985075,126.249543 55.6961708,113.759576 72.7248996,116.541626 Z" id="Combined-Shape" stroke="#4D161A" stroke-width="1.5" fill="#87B45A"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

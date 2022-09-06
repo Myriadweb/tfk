@@ -46,6 +46,8 @@ function Sensory({ path, prefix }: Props) {
     hasValue = VALUES[value];
   }
 
+  const selectPathText = path === Paths.Vestibular ? 'selectPathVestibular' : 'selectPath'
+
   return (
     <>
       <span
@@ -58,7 +60,7 @@ function Sensory({ path, prefix }: Props) {
           whiteSpace: 'pre-wrap',
         }}
       >
-        {t(hasValue ? value + '.title' : 'selectPath')}
+        {t(hasValue ? value + '.title' : selectPathText)}
       </span>
       <div
         style={{

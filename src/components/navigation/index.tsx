@@ -13,6 +13,7 @@ import SurgicalPrep from './SurgicalPrep';
 import Muscular from './Muscular';
 import Nervous from './Nervous';
 import Cardiovascular from './Cardiovascular';
+import Digestive from './Digestive';
 
 export default {
   [Paths.MainMenu]: MainMenu,
@@ -27,8 +28,8 @@ export default {
   [Paths.Iv]: Iv,
   [Paths.SurgicalPrep]: SurgicalPrep,
   [Paths.Muscular]: Muscular,
-  [Paths.Digestive]: () => null,
-  [Paths.Nervous]: () => Nervous,
+  [Paths.Digestive]: Digestive,
+  [Paths.Nervous]: Nervous,
   [Paths.Cardiovascular]: () => null,
   [Paths.Nervous]: () => null,
   [Paths.Cardiovascular]: Cardiovascular,

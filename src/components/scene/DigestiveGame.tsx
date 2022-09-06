@@ -1,24 +1,188 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 
 import { useCharacterContext } from '../../state/character';
 import { Characters, sensoryChildWidth } from './ChildrenAssets/childrenAssets';
 import { Paths } from '../../types/Paths';
-import Still1 from './DigestiveAssets/07B_Teammates_Systems_Digestive.png';
-import Still2 from './DigestiveAssets/07D_Teammates_Systems_Digestive.png';
-import Still3 from './DigestiveAssets/07F_Teammates_Systems_Digestive.png';
-import Still4 from './DigestiveAssets/07H_Teammates_Systems_Digestive.png';
-import Still5 from './DigestiveAssets/07I_Teammates_Systems_Digestive.png';
-import Still6 from './DigestiveAssets/07J_Teammates_Systems_Digestive.png';
-import Still7 from './DigestiveAssets/07K_Teammates_Systems_Digestive.png';
-import Still8 from './DigestiveAssets/07L_Teammates_Systems_Digestive.png';
-import Still9 from './DigestiveAssets/07M_Teammates_Systems_Digestive.png';
-import Still10 from './DigestiveAssets/07N_Teammates_Systems_Digestive.png';
-import { animated } from 'react-spring';
+import { useGameContext } from '../../state/game';
+import Apple from './DigestiveAssets/apple.svg';
+import IceCream from './DigestiveAssets/iceCream.svg';
+import ChewMeterBlank from './DigestiveAssets/chewMeterBlank.svg';
+import ChewMeter1 from './DigestiveAssets/chewMeter1.svg';
+import ChewMeter2 from './DigestiveAssets/chewMeter2.svg';
+import ChewMeter3 from './DigestiveAssets/chewMeter3.svg';
+import BG from './DigestiveAssets/bg.png';
+import DigestiveSystem from './DigestiveAssets/digestiveSystem.svg';
+import Oval from './DigestiveAssets/oval.png';
+import Stomach from './DigestiveAssets/stomachXRayView.svg';
+import StomachLines from './DigestiveAssets/stomachLeaderLine.svg';
+import StomachOverlay from './DigestiveAssets/stomachOverlay.png';
+import SmallIntestineLine from './DigestiveAssets/smallIntestineLeaderLine.svg';
+import SmallIntestineOverlay from './DigestiveAssets/smallIntestineOverlay.png';
+import Vomit from './DigestiveAssets/vomit.svg';
+import WasteBlueBox from './DigestiveAssets/wasteBlueBox.svg';
+import LargeIntestineLine from './DigestiveAssets/largelIntestineLeaderLine.svg';
+import Waste from './DigestiveAssets/waste.svg';
+
+import { useSpring, animated } from 'react-spring';
+import { columnLabelStyle } from './common';
+import { Trans, useTranslation } from 'react-i18next';
 
 export default function DigestiveGame() {
   const [selectedCharacter] = useCharacterContext();
+  const [{ step }, setGameState] = useGameContext();
   const location = useLocation();
+  const { t } = useTranslation('translation');
+  const [bodySystemStyle, bodySystemApi] = useSpring(
+    () =>
+      ({
+        position: 'absolute',
+        top: 282,
+        left: 533,
+        width: 787,
+        height: 1813,
+        transform: 'translate(-50%, 0px) scale(1)',
+      } as CSSProperties)
+  );
+  const [ovalStyle, ovalApi] = useSpring(
+    () =>
+      ({
+        transform: 'translate(-50%, 0px)',
+      } as CSSProperties)
+  );
+  const [stomachStyle, stomachApi] = useSpring(() => ({
+    opacity: 0,
+  }));
+  const [stomachOverlaysStyle, stomachOverlaysApi] = useSpring(() => ({
+    opacity: 0,
+  }));
+  const [blueBoxOverlaysStyle, blueBoxOverlaysApi] = useSpring(() => ({
+    opacity: 0,
+  }));
+  const [smallIntestineStyle, smallIntestineApi] = useSpring(() => ({
+    opacity: 0,
+  }));
+  const [smallIntestineOverlaysStyle, smallIntestineOverlaysApi] = useSpring(
+    () => ({
+      opacity: 0,
+    })
+  );
+  const [largeIntestineStyle, largeIntestineApi] = useSpring(() => ({
+    opacity: 0,
+  }));
+
+  React.useEffect(() => {
+    if (step === 6) {
+      bodySystemApi.start({
+        to: [
+          {
+            transform: 'translate(-50%, -166px) scale(1.5)',
+            config: {
+              duration: 1000,
+            },
+          },
+          {
+            transform: 'translate(-50%, -283px) scale(1.5)',
+            config: {
+              duration: 500,
+            },
+          },
+          {
+            transform: 'translate(-50%, -363px) scale(1.5)',
+            onRest: () => {
+              stomachApi({ opacity: 1 });
+              stomachOverlaysApi({ opacity: 1 });
+              blueBoxOverlaysApi({ opacity: 1 });
+              setGameState({ step: 7 });
+            },
+          },
+        ],
+      });
+      ovalApi.start({
+        delay: 1000,
+        to: [
+          {
+            transform: 'translate(80px, 0px)',
+            config: {
+              duration: 500,
+            },
+          },
+        ],
+      });
+    } else if (step === 8) {
+      stomachOverlaysApi.start({ opacity: 0 });
+      blueBoxOverlaysApi.start({ opacity: 0 });
+    } else if (step === 9) {
+      stomachApi.start({
+        opacity: 0,
+        onRest: () => {
+          bodySystemApi.start({
+            to: [
+              {
+                transform: 'translate(-50%, -389px) scale(1.5)',
+                config: {
+                  duration: 500,
+                },
+              },
+              {
+                transform: 'translate(-50%, -590px) scale(1.5)',
+                delay: 500,
+                config: {
+                  duration: 500,
+                },
+              },
+            ],
+          });
+          ovalApi.start({
+            to: [
+              {
+                transform: 'translate(-215px, 0px)',
+                config: {
+                  duration: 1000,
+                },
+              },
+              {
+                transform: 'translate(-111px, 0px)',
+                config: {
+                  duration: 1000,
+                },
+                delay: 500,
+                onRest: () => setGameState({ step: 10 }),
+              },
+            ],
+          });
+        },
+      });
+    } else if (step === 10) {
+      blueBoxOverlaysApi.start({ opacity: 1 });
+      smallIntestineOverlaysApi.start({ opacity: 1 });
+      smallIntestineApi.start({ opacity: 1 });
+    } else if (step === 11) {
+      blueBoxOverlaysApi.start({ opacity: 0 });
+      smallIntestineOverlaysApi.start({ opacity: 0 });
+    } else if (step === 12) {
+      smallIntestineApi.start({ opacity: 0 });
+      ovalApi.start({
+        to: [
+          { transform: 'translate(-270px, 0px)' },
+          { transform: 'translate(-270px, -76px)' },
+          { transform: 'translate(173px, -76px)' },
+        ],
+        onRest: () => setGameState({ step: 13 }),
+      });
+    } else if (step === 13) {
+      largeIntestineApi.start({ opacity: 1 });
+    } else if (step === 14) {
+      ovalApi.start({
+        to: [
+          { transform: 'translate(173px, 140px)' },
+          { transform: 'translate(-53px, 140px)' },
+          { transform: 'translate(-53px, 242px)' },
+        ],
+        onRest: () => setGameState({ step: 15 }),
+      });
+    }
+  }, [step]);
 
   if (!location.search) {
     return <Navigate to={'/' + Paths.BodySystems + '/' + Paths.Digestive} />;
@@ -29,22 +193,248 @@ export default function DigestiveGame() {
 
   return (
     <>
-      <animated.img
-        src={Still1}
-        className='still still1'
-        style={{
-          opacity: 1,
-        }}
-      ></animated.img>
-      <animated.img src={Still2} className='still still2' />
-      <animated.img src={Still3} className='still still3' />
-      <animated.img src={Still4} className='still still4' />
-      <animated.img src={Still5} className='still still5' />
-      <animated.img src={Still6} className='still still6' />
-      <animated.img src={Still7} className='still still7' />
-      <animated.img src={Still8} className='still still8' />
-      <animated.img src={Still9} className='still still9' />
-      <animated.img src={Still10} className='still still10' />
+      {step < 5 && (
+        <div
+          style={{
+            position: 'absolute',
+            left: 540,
+            top: 271,
+            transform: `translate(-${width / 2}px, 0)`,
+          }}
+        >
+          <ChildComponent />
+        </div>
+      )}
+      {step >= 5 && <img src={BG} />}
+      {step >= 5 && step < 16 && (
+        <>
+          <animated.img src={DigestiveSystem} style={bodySystemStyle} />
+          <animated.img
+            src={StomachOverlay}
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              ...stomachOverlaysStyle,
+            }}
+          />
+          <animated.img
+            src={SmallIntestineOverlay}
+            style={{
+              position: 'absolute',
+              top: -164,
+              left: 0,
+              ...smallIntestineOverlaysStyle,
+            }}
+          />
+          <animated.img
+            src={Stomach}
+            style={{
+              position: 'absolute',
+              top: 527,
+              left: 584,
+              ...stomachStyle,
+            }}
+          />
+          <animated.img
+            src={StomachLines}
+            style={{
+              position: 'absolute',
+              top: 447,
+              left: 343,
+              ...stomachStyle,
+            }}
+          />
+          <animated.img
+            src={SmallIntestineLine}
+            style={{
+              position: 'absolute',
+              top: 660,
+              left: 562,
+              ...smallIntestineStyle,
+            }}
+          />
+          <animated.img
+            src={LargeIntestineLine}
+            style={{
+              position: 'absolute',
+              top: 765,
+              left: 210,
+              ...largeIntestineStyle,
+            }}
+          />
+          <animated.span
+            style={{
+              ...columnLabelStyle,
+              ...stomachStyle,
+              top: 385,
+              left: 245,
+            }}
+          >
+            {t('digestive.scene.stomach')}
+          </animated.span>
+          <animated.span
+            style={{
+              ...columnLabelStyle,
+              ...smallIntestineStyle,
+              padding: '8px 0 10px',
+              top: 616,
+              right: 37,
+              width: 208,
+            }}
+          >
+            {t('digestive.scene.smallIntestine')}
+          </animated.span>
+          <animated.span
+            style={{
+              ...columnLabelStyle,
+              ...largeIntestineStyle,
+              padding: '8px 0 10px',
+              top: 803,
+              left: 30,
+              width: 203,
+            }}
+          >
+            {t('digestive.scene.largeIntestine')}
+          </animated.span>
+          <animated.img
+            src={Oval}
+            style={{
+              position: 'absolute',
+              left: 540,
+              top: 655,
+              ...ovalStyle,
+            }}
+          />
+          <animated.div
+            style={{
+              ...columnLabelStyle,
+              ...blueBoxOverlaysStyle,
+              background: '#103159',
+              borderRadius: 18.5,
+              height: 315,
+              top: 900,
+              left: 540,
+              width: 448,
+              transform: 'translateX(-50%)',
+              display: 'flex',
+              alignItems: 'center',
+              flexDirection: 'column',
+            }}
+          >
+            <img
+              src={[7, 8].includes(step) ? Vomit : WasteBlueBox}
+              style={{
+                marginTop: 37,
+              }}
+            />
+            <div
+              style={{
+                border: '1px white solid',
+                marginTop: 18.5,
+                width: 45,
+              }}
+            />
+            <span
+              style={{
+                marginTop: 27,
+                fontFamily: 'LemonMilk',
+                fontSize: 20,
+                fontWeight: 400,
+              }}
+            >
+              <Trans i18nKey={`digestive.scene.${step}-blueBox`} />
+            </span>
+          </animated.div>
+        </>
+      )}
+      {step === 16 && (
+        <img
+          src={Waste}
+          style={{
+            position: 'absolute',
+            transform: 'translateX(-50%)',
+            left: 540,
+            top: 940,
+          }}
+        />
+      )}
+      {step === 0 && (
+        <>
+          <img
+            src={Apple}
+            style={{
+              position: 'absolute',
+              top: 1003,
+              left: 283,
+            }}
+            onClick={() => setGameState({ step: 1 })}
+          />
+          <img
+            src={IceCream}
+            style={{
+              position: 'absolute',
+              top: 945,
+              left: 560,
+            }}
+            onClick={() => setGameState({ step: 1 })}
+          />
+        </>
+      )}
+      {step >= 1 && step <= 4 && (
+        <>
+          <img
+            src='images/Sensory/bottomOverlay.png'
+            style={{
+              position: 'absolute',
+              bottom: 0,
+              left: 0,
+            }}
+          />
+          <img
+            src={ChewMeterBlank}
+            style={{
+              position: 'absolute',
+              transform: 'translateX(-50%)',
+              left: 540,
+              top: 1100,
+            }}
+          />
+        </>
+      )}
+      {step === 2 && (
+        <img
+          src={ChewMeter1}
+          style={{
+            position: 'absolute',
+            transform: 'translateX(-50%)',
+            left: 593,
+            top: 1107,
+          }}
+        />
+      )}
+      {step === 3 && (
+        <img
+          src={ChewMeter2}
+          style={{
+            position: 'absolute',
+            transform: 'translateX(-50%)',
+            left: 593,
+            top: 1107,
+          }}
+        />
+      )}
+      {step === 4 && (
+        <img
+          src={ChewMeter3}
+          style={{
+            position: 'absolute',
+            transform: 'translateX(-50%)',
+            left: 593,
+            top: 1107,
+          }}
+        />
+      )}
     </>
   );
 }

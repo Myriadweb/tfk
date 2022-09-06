@@ -36,7 +36,9 @@ const en: Translation = {
         smell: 'SMELL',
       },
       navbar: {
-        selectPath: 'CHOOSE A SENSE, THEN DRAG\nAN OBJECT TO SEE ITS EFFECT.',
+        selectPath: 'CHOOSE A SENSE, THEN CHOOSE\nAN OBJECT TO SEE ITS EFFECT.',
+        selectPathVestibular:
+          'CHOOSE A SENSE, THEN CHOOSE\nAN OPTION TO SEE ITS EFFECT.',
         continueButton: 'CONTINUE',
         smell: 'smell',
         hearing: 'hearing',
@@ -244,6 +246,40 @@ const en: Translation = {
         rectum: 'RECTUM',
         mouth: 'MOUTH',
         anus: 'ANUS',
+        '7-blueBox':
+          "If your <strong>stomach</strong> doesn't\n agree with the food, vomiting\nis a stopgap that the body\nuses to keep you safe.",
+        '8-blueBox':
+          "If your <strong>stomach</strong> doesn't\n agree with the food, vomiting\nis a stopgap that the body\nuses to keep you safe.",
+        '10-blueBox':
+          'IF THE <strong>SMALL INTESTINE</strong> FINDS THAT\nTHE FOOD DOES NOT AGREE WITH IT,\nIT WILL TRY TO PROTECT YOU BY\nEXPELLING IT AS DIARRHEA.',
+        '11-blueBox':
+          'IF THE <strong>SMALL INTESTINE</strong> FINDS THAT\nTHE FOOD DOES NOT AGREE WITH IT,\nIT WILL TRY TO PROTECT YOU BY\nEXPELLING IT AS DIARRHEA.',
+      },
+      navbar: {
+        continue: 'CONTINUE',
+        dissolving: 'DISSOLVING...',
+        goodJob: 'GOOD JOB!',
+        finish: 'FINISH',
+        '0-text':
+          'Choose a piece of food to follow it\nthrough the digestive system.',
+        '1-text':
+          'Digestion starts in the mouth.\nTap the button to <strong>chew</strong> your food.',
+        '2-text':
+          'Digestion starts in the mouth.\nTap the button to <strong>chew</strong> your food.',
+        '3-text':
+          'Digestion starts in the mouth.\nTap the button to <strong>chew</strong> your food.',
+        '4-text':
+          'Digestion starts in the mouth.\nTap the button to <strong>chew</strong> your food.',
+        '5-text':
+          'Food travels down the esophagus on the way to\nthe stomach. Tap the button to <strong>swallow</strong>.',
+        '8-text':
+          'Slide below to help <strong>stomach</strong> acid\ndissolve your food',
+        '11-text':
+          'HELP GUIDE THE FOOD THROUGH THE\n<strong>SMALL INTESTINE</strong>',
+        '13-text':
+          'HELP GUIDE THE FOOD THROUGH THE\n<strong>LARGE INTESTINE</strong>',
+        '15-text':
+          'TAP BELOW TO ALLOW THE FOOD TO LEAVE\nTHE BODY AS <strong>WASTE</strong>',
       },
     },
     [Paths.BodySystems]: {

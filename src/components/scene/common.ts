@@ -13,7 +13,7 @@ export const labelStyle = {
   fontWeight: 'bold',
 } as React.CSSProperties;
 
-const columnLabelStyle = {
+export const columnLabelStyle = {
   ...labelStyle,
   padding: '8px 17px 10px',
   transform: 'translate(0, 0)',
