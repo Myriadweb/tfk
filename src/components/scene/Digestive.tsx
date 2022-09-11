@@ -6,7 +6,6 @@ import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { Paths } from '../../types/Paths';
 import { columnLabelStyleLeft, columnLabelStyleRight } from './common';
 import { CSSProperties } from 'react';
-import DigestiveGame from './DigestiveGame';
 
 const bodyLeft = 540;
 

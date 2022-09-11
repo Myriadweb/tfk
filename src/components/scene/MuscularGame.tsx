@@ -18,7 +18,7 @@ import { columnLabelStyleLeft } from './common';
 import { useTranslation } from 'react-i18next';
 
 export default function MuscularGame() {
-  const [{ value }, setGameState] = useGameContext();
+  const [{ value }] = useGameContext();
   const { t } = useTranslation('translation');
   const [count, setCount] = useState(0);
   const intervalRef = useRef(null);
@@ -50,11 +50,15 @@ export default function MuscularGame() {
             style={{
               position: 'absolute',
               top: 464,
+              left: 0,
               visibility: count === 0 ? 'visible' : 'hidden',
             }}
           />
           <ArmMid
             style={{
+              position: 'absolute',
+              left: 0,
+              top: 0,
               visibility: count === 1 ? 'visible' : 'hidden',
             }}
           />

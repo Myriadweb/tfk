@@ -1,6 +1,5 @@
 import { Sprite, Stage, useTick } from '@inlet/react-pixi';
 import React from 'react';
-import { useCharacterContext } from '../state/character';
 
 export type Direction = 'left' | 'right' | null;
 

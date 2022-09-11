@@ -39,8 +39,6 @@ export default function Vestibular() {
 
   const [{ value }] = useGameContext();
 
-  console.debug(value);
-
   const Character = Characters.default[selectedCharacter];
   const CharacterGood = Characters.happy[selectedCharacter];
   const CharacterBad = Characters.hitFloor[selectedCharacter];

@@ -10,11 +10,9 @@ import { ReactComponent as Signature } from './XRayAssets/signature.svg';
 import { useGameContext } from '../../state/game';
 import playSound from '../../sound';
 import { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
 
 export default function XRayGame() {
   const [{ step, value }, setStep] = useGameContext();
-  const { t } = useTranslation('translation');
 
   const [animatedDiv, animatedDivApi] = useSpring(() => ({
     transform: 'scale(1)',
@@ -52,7 +50,7 @@ export default function XRayGame() {
         opacity: 0,
       });
     }
-  }, [step, setStep, xRayFlashApi]);
+  }, [step, setStep, xRayFlashApi, xRayMachineApi]);
 
   const scaleIt = () => {
     let n = 0;

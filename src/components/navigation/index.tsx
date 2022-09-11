@@ -30,7 +30,5 @@ export default {
   [Paths.Muscular]: Muscular,
   [Paths.Digestive]: Digestive,
   [Paths.Nervous]: Nervous,
-  [Paths.Cardiovascular]: () => null,
-  [Paths.Nervous]: () => null,
   [Paths.Cardiovascular]: Cardiovascular,
 };

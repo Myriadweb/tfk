@@ -7,13 +7,11 @@ import playSound from '../../sound';
 import NavigationButton from './UIComponents/NavigationButton';
 import { ReactComponent as Arrow } from '../scene/SceneAssets/Arrow.svg';
 import { Paths } from '../../types/Paths';
-import Cap from '../navigation/EegAssets/cap.svg';
 import Bear from '../navigation/SharedAssets/bear.svg';
 import Medal from '../navigation/SharedAssets/medal.svg';
 import Sticker from '../navigation/SharedAssets/sticker.svg';
 import PlaceLeads from '../navigation/EegAssets/place_leads.svg';
 import PlaceStickies from '../navigation/EegAssets/place_stickies.svg';
-import SignCast from './XRayAssets/signCast.svg';
 import PlaceCap from '../navigation/EegAssets/cap.svg';
 import Nervous from './BodySystemsAssets/Nervous.svg';
 

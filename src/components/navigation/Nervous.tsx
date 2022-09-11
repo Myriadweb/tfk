@@ -1,38 +1,121 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
 import { useNavBarTranslation } from '../../hooks';
 import { Paths } from '../../types/Paths';
-import playSound from '../../sound';
-import { ReactComponent as ArmButton } from './MuscularAssets/armButton.svg';
-import { ReactComponent as LegButton } from './MuscularAssets/legButton.svg';
 import { useGameContext } from '../../state/game';
-import { ReactComponent as Arrow } from '../scene/SceneAssets/Arrow.svg';
+import { ReactComponent as InfoButton } from './Nervous/infoButton.svg';
+import { ReactComponent as LeftButton } from './Nervous/leftButton.svg';
+import { ReactComponent as RightButton } from './Nervous/rightButton.svg';
 
 type Props = {
   prefix: Paths;
 };
 
+const hemisphereConfig = {
+  0: 'leftHemisphereSec',
+  1: 'rightHemisphereSec',
+  2: 'frontViewSec',
+};
+
 const Nervous = ({ prefix }: Props) => {
   const t = useNavBarTranslation(prefix);
-  const [{ value }, setGameState] = useGameContext();
+  const [
+    {
+      step,
+      value: { isInfoPressed, highlight } = {
+        isInfoPressed: false,
+        highlight: '',
+      },
+    },
+    setGameState,
+  ] = useGameContext();
+
+  const handleRight = () => {
+    if (step >= 2) return;
+
+    setGameState({ step: step + 1 });
+  };
+
+  const handleLeft = () => {
+    if (step === 0) return;
+
+    setGameState({ step: step - 1 });
+  };
 
   return (
     <>
       <div
         style={{
-          height: 169,
+          height: 145,
           background: '#0E1F33',
-          paddingTop: 20,
           boxSizing: 'border-box',
+          fontSize: 17,
+          color: '#FFF',
+          paddingTop: 21,
         }}
       >
-        <button
-          className='nav-button'
-          onClick={() => {
-            setGameState({ value: 1 });
+        <span>
+          <strong>{t(hemisphereConfig[step])}</strong> view
+        </span>
+        <div
+          style={{
+            boxSizing: 'border-box',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'flex-start',
+            marginTop: 14,
           }}
-        ></button>
+        >
+          <div style={{ marginRight: 37, borderRight: '1px solid #FFF' }}>
+            <InfoButton
+              style={{ marginRight: 35, opacity: isInfoPressed ? 0.4 : 1 }}
+              onClick={() =>
+                setGameState((old) => ({
+                  ...old,
+                  value: {
+                    ...old.value,
+                    isInfoPressed: !isInfoPressed,
+                  },
+                }))
+              }
+            />
+          </div>
+          <LeftButton
+            style={{ marginRight: 25, opacity: step === 0 ? 0.4 : 1 }}
+            onClick={handleLeft}
+          />
+          <RightButton
+            style={{ opacity: step === 2 ? 0.4 : 1 }}
+            onClick={handleRight}
+          />
+        </div>
       </div>
+      {highlight && (
+        <>
+          <span
+            style={{
+              fontSize: 40,
+              color: '#FFF',
+              letterSpacing: 2,
+              display: 'block',
+              marginTop: 14,
+              fontWeight: 'bold',
+            }}
+          >
+            {t(highlight + '.title')}
+          </span>
+          <span
+            style={{
+              marginTop: 12,
+              display: 'block',
+              fontSize: 20,
+              color: '#FFF',
+              whiteSpace: 'pre',
+            }}
+          >
+            {t(highlight + '.text')}
+          </span>
+        </>
+      )}
     </>
   );
 };

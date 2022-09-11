@@ -2,13 +2,10 @@ import * as React from 'react';
 import { useNavBarTranslation } from '../../hooks';
 import { Paths } from '../../types/Paths';
 import { useGameContext } from '../../state/game';
-import { ReactComponent as Arrow } from '../scene/SceneAssets/Arrow.svg';
 import playSound from '../../sound';
 import NavigationButton from './UIComponents/NavigationButton';
 import BreatheButton from './CardiovascularAssets/breatheButton.svg';
-import { Link, useNavigate } from 'react-router-dom';
-import { useSpring, animated } from 'react-spring';
-import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ContinueButton from './UIComponents/ContinueButton';
 import { ReactComponent as HeartbeatButton } from './CardiovascularAssets/heartbeatButton.svg';
 
@@ -17,33 +14,10 @@ type Props = {
   prefix: Paths;
 };
 
-const distractionTextStyle = {
-  fontFamily: 'LemonMilk',
-  fontSize: 25,
-  fontWeight: 'bold',
-  letterSpacing: 1.24,
-  marginTop: 12,
-  color: '#fff',
-};
-
 const Cardiovascular = ({ prefix }: Props) => {
   const t = useNavBarTranslation(prefix);
   const navigate = useNavigate();
-  const [{ step, value }, setStep] = useGameContext();
-  const [delayStyle, delayApi] = useSpring(() => ({ opacity: 1 }));
-
-  useEffect(() => {
-    if (step === 2) {
-      delayApi.start({
-        from: { opacity: 0 },
-        to: { opacity: 1 },
-        delay: 1000,
-        config: {
-          duration: 100,
-        },
-      });
-    }
-  }, [step]);
+  const [{ step }, setStep] = useGameContext();
 
   const stepComponentConfig = {
     0: () => (
