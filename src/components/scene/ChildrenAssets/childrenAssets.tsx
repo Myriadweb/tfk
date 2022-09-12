@@ -2,7 +2,6 @@ import React, { CSSProperties } from 'react';
 import { Character } from '../../../state/character';
 
 import { ReactComponent as Child1 } from './Child1/default.svg';
-import { ReactComponent as Child1Neutral } from './Child1/defaultFace.svg';
 import { ReactComponent as Child1Worried } from './Child1/worried.svg';
 import { ReactComponent as Child1Happy } from './Child1/happy.svg';
 import { ReactComponent as Child1Pain } from './Child1/pain.svg';
@@ -12,7 +11,6 @@ import { ReactComponent as Child1Sun } from './Child1/sun.svg';
 import { ReactComponent as Child1HotSauce } from './Child1/hotSauce.svg';
 import { ReactComponent as Child1IceCream } from './Child1/iceCream.svg';
 import { ReactComponent as Child1MouthOpen } from './Child1/mouthOpen.svg';
-import { ReactComponent as Child1MouthClosed } from './Child1/mouthClosed.svg';
 import { ReactComponent as Child1LiftFeatherBody } from './Child1/liftFeather.svg';
 import { ReactComponent as Child1LiftWeightBody } from './Child1/liftWeight.svg';
 import Child1Breathe from './Child1/breathe.png';
@@ -22,7 +20,6 @@ import { ReactComponent as Child1HappyStanding } from './Child1/happyStanding.sv
 
 import { ReactComponent as Child2 } from './Child2/default.svg';
 import { ReactComponent as Child2Worried } from './Child2/worried.svg';
-import { ReactComponent as Child2Neutral } from './Child2/defaultFace.svg';
 import { ReactComponent as Child2Happy } from './Child2/happy.svg';
 import { ReactComponent as Child2Pain } from './Child2/pain.svg';
 import { ReactComponent as Child2Scared } from './Child2/scared.svg';
@@ -31,7 +28,6 @@ import { ReactComponent as Child2Sun } from './Child2/sun.svg';
 import { ReactComponent as Child2HotSauce } from './Child2/hotSauce.svg';
 import { ReactComponent as Child2IceCream } from './Child2/iceCream.svg';
 import { ReactComponent as Child2MouthOpen } from './Child2/mouthOpen.svg';
-import { ReactComponent as Child2MouthClosed } from './Child2/mouthClosed.svg';
 import { ReactComponent as Child2LiftFeatherBody } from './Child2/liftFeather.svg';
 import { ReactComponent as Child2LiftWeightBody } from './Child2/liftWeight.svg';
 import Child2Breathe from './Child2/breathe.svg';
@@ -42,7 +38,6 @@ import { ReactComponent as Child2HappyStanding } from './Child2/happyStanding.sv
 import Child3 from './Child3/default.png';
 import { ReactComponent as Child3Worried } from './Child3/worried.svg';
 import { ReactComponent as Child3Standing } from './Child3/standing.svg';
-import { ReactComponent as Child3Neutral } from './Child3/defaultFace.svg';
 import { ReactComponent as Child3Happy } from './Child3/happy.svg';
 import { ReactComponent as Child3Pain } from './Child3/pain.svg';
 import { ReactComponent as Child3Scared } from './Child3/scared.svg';
@@ -51,7 +46,6 @@ import { ReactComponent as Child3Sun } from './Child3/sun.svg';
 import { ReactComponent as Child3HotSauce } from './Child3/hotSauce.svg';
 import { ReactComponent as Child3IceCream } from './Child3/iceCream.svg';
 import { ReactComponent as Child3MouthOpen } from './Child3/mouthOpen.svg';
-import { ReactComponent as Child3MouthClosed } from './Child3/mouthClosed.svg';
 import Child3LiftFeatherBody from './Child3/liftFeather.png';
 import Child3LiftWeightBody from './Child3/liftWeight.png';
 import Child3Breathe from './Child3/breathe.svg';
@@ -61,7 +55,6 @@ import { ReactComponent as Child3HappyStanding } from './Child3/happyStanding.sv
 
 import { ReactComponent as Child4 } from './Child4/default.svg';
 import { ReactComponent as Child4Worried } from './Child4/worried.svg';
-import { ReactComponent as Child4Neutral } from './Child4/defaultFace.svg';
 import { ReactComponent as Child4Happy } from './Child4/happy.svg';
 import { ReactComponent as Child4Pain } from './Child4/pain.svg';
 import { ReactComponent as Child4Scared } from './Child4/scared.svg';
@@ -70,7 +63,6 @@ import { ReactComponent as Child4Sun } from './Child4/sun.svg';
 import { ReactComponent as Child4HotSauce } from './Child4/hotSauce.svg';
 import { ReactComponent as Child4IceCream } from './Child4/iceCream.svg';
 import { ReactComponent as Child4MouthOpen } from './Child4/mouthOpen.svg';
-import { ReactComponent as Child4MouthClosed } from './Child4/mouthClosed.svg';
 import { ReactComponent as Child4LiftFeatherBody } from './Child4/liftFeather.svg';
 import { ReactComponent as Child4LiftWeightBody } from './Child4/liftWeight.svg';
 import Child4Breathe from './Child4/breathe.svg';
@@ -80,7 +72,6 @@ import { ReactComponent as Child4HappyStanding } from './Child4/happyStanding.sv
 
 import { ReactComponent as Child5 } from './Child5/default.svg';
 import { ReactComponent as Child5Worried } from './Child5/worried.svg';
-import { ReactComponent as Child5Neutral } from './Child5/defaultFace.svg';
 import { ReactComponent as Child5Happy } from './Child5/happy.svg';
 import { ReactComponent as Child5Pain } from './Child5/pain.svg';
 import { ReactComponent as Child5Scared } from './Child5/scared.svg';
@@ -89,7 +80,6 @@ import { ReactComponent as Child5Sun } from './Child5/sun.svg';
 import { ReactComponent as Child5HotSauce } from './Child5/hotSauce.svg';
 import { ReactComponent as Child5IceCream } from './Child5/iceCream.svg';
 import { ReactComponent as Child5MouthOpen } from './Child5/mouthOpen.svg';
-import { ReactComponent as Child5MouthClosed } from './Child5/mouthClosed.svg';
 import { ReactComponent as Child5LiftFeatherBody } from './Child5/liftFeather.svg';
 import { ReactComponent as Child5LiftWeightBody } from './Child5/liftWeight.svg';
 import Child5Breathe from './Child5/breathe.png';
@@ -99,7 +89,6 @@ import { ReactComponent as Child5HappyStanding } from './Child5/happyStanding.sv
 
 import { ReactComponent as Child6 } from './Child6/default.svg';
 import { ReactComponent as Child6Worried } from './Child6/worried.svg';
-import { ReactComponent as Child6Neutral } from './Child6/defaultFace.svg';
 import { ReactComponent as Child6Happy } from './Child6/happy.svg';
 import { ReactComponent as Child6Pain } from './Child6/pain.svg';
 import { ReactComponent as Child6Scared } from './Child6/scared.svg';
@@ -108,7 +97,6 @@ import { ReactComponent as Child6Sun } from './Child6/sun.svg';
 import { ReactComponent as Child6HotSauce } from './Child6/hotSauce.svg';
 import { ReactComponent as Child6IceCream } from './Child6/iceCream.svg';
 import { ReactComponent as Child6MouthOpen } from './Child6/mouthOpen.svg';
-import { ReactComponent as Child6MouthClosed } from './Child6/mouthClosed.svg';
 import { ReactComponent as Child6LiftFeatherBody } from './Child6/liftFeather.svg';
 import { ReactComponent as Child6LiftWeightBody } from './Child6/liftWeight.svg';
 import Child6Breathe from './Child6/breathe.svg';

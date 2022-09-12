@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
 import { useNavBarTranslation } from '../../hooks';
 import { Paths } from '../../types/Paths';
 import playSound from '../../sound';

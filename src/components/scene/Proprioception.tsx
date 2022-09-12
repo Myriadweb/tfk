@@ -5,13 +5,11 @@ import {
   ClickableImage,
   VariationsType,
 } from './SharedComponents/ClickableImage';
-import ChildGood from './ProprioceptionAssets/ChildGood.png';
-import ChildBad from './ProprioceptionAssets/ChildBad.png';
 import Feather from './ProprioceptionAssets/Feather.png';
 import Dumbell from './ProprioceptionAssets/Dumbell.png';
 import OverlayBad from './ProprioceptionAssets/overlayBad.png';
 import OverlayGood from './ProprioceptionAssets/overlayGood.png';
-import { Characters, sensoryChildWidth } from './ChildrenAssets/childrenAssets';
+import { Characters } from './ChildrenAssets/childrenAssets';
 import { useCharacterContext } from '../../state/character';
 
 export default function Proprioception() {

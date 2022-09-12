@@ -18,7 +18,7 @@ import { columnLabelStyleLeft, columnLabelStyleRight } from './common';
 import { useTranslation } from 'react-i18next';
 
 export default function CardiovascularGame() {
-  const [{ step, value }, setGameState] = useGameContext();
+  const [{ step }, setGameState] = useGameContext();
   const [selectedCharacter] = useCharacterContext();
   const location = useLocation();
   const { t } = useTranslation('translation');

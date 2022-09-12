@@ -11,7 +11,7 @@ import SurgicalPrepChild from './SurgicalPrepAssets/surgicalPrep.svg';
 const bodyLeft = 540;
 
 export default function SurgicalPrep() {
-  const [animatedPath, setAnimatedPath] = useAnimateContext();
+  const [animatedPath] = useAnimateContext();
   const { t } = useTranslation('translation');
   const navigate = useNavigate();
   const shouldShowIntroAnimation =

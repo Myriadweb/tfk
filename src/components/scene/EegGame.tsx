@@ -32,10 +32,9 @@ import Sticker from './SharedAssets/sticker.svg';
 
 import { useSpring, animated } from 'react-spring';
 import { useEffect } from 'react';
-import { ReactComponent as Signature } from './XRayAssets/signature.svg';
 
 export default function EegGame() {
-  const [{ step, value }, setStep] = useGameContext();
+  const [{ step, value }] = useGameContext();
   const [printoutStyle, printoutApi] = useSpring(() => ({
     transform: 'translateY(0px)',
   }));
@@ -48,7 +47,7 @@ export default function EegGame() {
       });
     }
   }, [step]);
-  console.log(value);
+
   if (value && value.length === 5) {
     //setStep( { step: 2 })
     console.log('all buttons clicked');
