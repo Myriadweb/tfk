@@ -14,6 +14,7 @@
   align-items: center;
   justify-content: center;
   border-bottom: white 2px solid;
+  font-family: 'ChangaOne';
 }
 
 .App-header-split {
@@ -23,6 +24,7 @@
   font-size: 60px;
   color: #fff;
   border-bottom: white 2px solid;
+  font-family: 'ChangaOne';
 }
 
 .App-header-split-left {
@@ -64,6 +66,10 @@
   position: relative;
   border-top: white 2px solid;
   font-family: 'LemonMilk', sans-serif;
+}
+
+App-navigation img:hover {
+
 }
 
 .Options-buttons-box {
