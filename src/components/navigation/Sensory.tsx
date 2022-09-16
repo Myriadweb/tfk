@@ -15,7 +15,7 @@ import { useGameContext } from '../../state/game';
 import playSound from '../../sound';
 import { ReactComponent as Arrow } from '../scene/SceneAssets/Arrow.svg';
 import { useState } from 'react';
-import {animated} from "react-spring";
+import { animated } from 'react-spring';
 
 type Props = {
   path: Paths;
@@ -53,19 +53,11 @@ function Sensory({ path, prefix }: Props) {
   return (
     <>
       <animated.div>
-        <div className="nav-top">
-          {hasValue && (
-            <div className="header-text">
-              {t(value + '.title')}
-            </div>
-          )}
-          {!hasValue && (
-          <div className="body-text">
-            {t(selectPathText)}
-          </div>
-          )}
+        <div className='nav-top'>
+          {hasValue && <div className='header-text'>{t(value + '.title')}</div>}
+          {!hasValue && <div className='body-text'>{t(selectPathText)}</div>}
         </div>
-        <div className="nav-middle">
+        <div className='nav-middle'>
           {!hasValue && (
             <div className='nav-items-container'>
               <NavigationButton
@@ -104,7 +96,9 @@ function Sensory({ path, prefix }: Props) {
                 image={Proprioception}
                 size={path === Paths.Proprioception ? 'large' : 'small'}
                 onClick={() =>
-                  navigate(NavigationPrefix + Paths.Proprioception + '?play=true')
+                  navigate(
+                    NavigationPrefix + Paths.Proprioception + '?play=true'
+                  )
                 }
                 text={path === Paths.Proprioception ? t('proprioception') : ''}
               />
@@ -127,11 +121,10 @@ function Sensory({ path, prefix }: Props) {
             </div>
           )}
           {hasValue && (
-            <div className="nav-middle-container">
-              <div className="description">
-                {t(value + '.description')}
-              </div>
-              <button className="continue-button"
+            <div className='nav-middle-container'>
+              <div className='description'>{t(value + '.description')}</div>
+              <button
+                className='continue-button'
                 onClick={() => {
                   playSound('click');
                   setGameState({ step: 0, value: value + '-final' });

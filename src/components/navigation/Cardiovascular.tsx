@@ -8,7 +8,7 @@ import BreatheButton from './CardiovascularAssets/breatheButton.svg';
 import { useNavigate } from 'react-router-dom';
 import ContinueButton from './UIComponents/ContinueButton';
 import { ReactComponent as HeartbeatButton } from './CardiovascularAssets/heartbeatButton.svg';
-import {animated} from "react-spring";
+import { animated } from 'react-spring';
 
 type Props = {
   path: Paths;
@@ -94,15 +94,21 @@ const Cardiovascular = ({ prefix }: Props) => {
   return (
     <animated.div>
       <div className='nav-top'>
-        <div className='body-text' style={{ display: step !== 9 ? 'block' : 'none'}}>
+        <div
+          className='body-text'
+          style={{ display: step !== 9 ? 'block' : 'none' }}
+        >
           {t(`${step}-text`)}
         </div>
-        <div className='body-text' style={{ display: step === 9 ? 'block' : 'none'}}>
+        <div
+          className='body-text'
+          style={{ display: step === 9 ? 'block' : 'none' }}
+        >
           {t(`${step}-boldText`)}
         </div>
       </div>
-      <div className="nav-middle">
-        <div className="nav-items-container" style={{ height: 191 }}>
+      <div className='nav-middle'>
+        <div className='nav-items-container' style={{ height: 191 }}>
           {stepComponentConfig[step] && stepComponentConfig[step]()}
         </div>
       </div>

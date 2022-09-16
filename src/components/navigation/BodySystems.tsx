@@ -26,13 +26,11 @@ const BodySystems = ({ path, prefix }: Props) => {
 
   return (
     <div>
-      <div className="nav-top">
-        <div className="body-text">
-          {t('selectPath')}
-        </div>
+      <div className='nav-top'>
+        <div className='body-text'>{t('selectPath')}</div>
       </div>
-      <div className="nav-middle">
-        <div className="nav-items-container">
+      <div className='nav-middle'>
+        <div className='nav-items-container'>
           <NavigationButton
             image={Sensory}
             size={path === Paths.Sensory ? 'large' : 'small'}

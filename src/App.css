@@ -186,11 +186,11 @@
   color: white;
   width: 350px;
 }
-.procedures-box  .label {
+.procedures-box .label {
   font-family: LemonMilkBold;
   display: inline-block;
-  background: #30619C;
-  border: #FFF 3px solid;
+  background: #30619c;
+  border: #fff 3px solid;
   border-bottom: none;
   font-size: 30px;
   letter-spacing: 1.49px;
@@ -199,7 +199,7 @@
 }
 .procedures-box .text {
   background: #103159;
-  border: #FFF 3px solid;
+  border: #fff 3px solid;
   border-radius: 15px;
   padding: 20px 40px 0 40px;
   font-size: 17px;

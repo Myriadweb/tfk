@@ -8,7 +8,8 @@ type Props = {
 
 const ContinueButton = ({ onClick, text }: Props) => {
   return (
-    <button className="continue-button"
+    <button
+      className='continue-button'
       onClick={onClick}
       style={{ marginTop: 0 }}
     >

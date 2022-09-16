@@ -8,8 +8,12 @@ const Sounds = {
   smellsBad: new Audio('sounds/Smells_Bad.mp3'),
   smellsGood: new Audio('sounds/Smells_Good.mp3'),
   xRay: new Audio('sounds/XRay.mp3'),
-  cardiovascularNormalHeartbeat: new Audio('sounds/Cardiovascular_Normal_Heartbeat.mp3'),
-  cardiovascularSlowHeartbeat: new Audio('sounds/Cardiovascular_Slow_Heartbeat.mp3'),
+  cardiovascularNormalHeartbeat: new Audio(
+    'sounds/Cardiovascular_Normal_Heartbeat.mp3'
+  ),
+  cardiovascularSlowHeartbeat: new Audio(
+    'sounds/Cardiovascular_Slow_Heartbeat.mp3'
+  ),
   digestionChewing: new Audio('sounds/Digestion_Chewing.mp3'),
   digestionStomachGurgle: new Audio('sounds/Digestion_Stomach_Gurgle.mp3'),
   digestionSwallow: new Audio('sounds/Digestion_Swallow.mp3'),

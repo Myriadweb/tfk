@@ -181,7 +181,7 @@ export default function Eeg({ prefix }: Props) {
     ),
     8: () => (
       <>
-        <div className='nav-items-container' style={{width: 700}}>
+        <div className='nav-items-container' style={{ width: 700 }}>
           <NavigationButton
             image={Sticker}
             size={value === 'sticker' ? 'large' : 'small'}

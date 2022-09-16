@@ -30,22 +30,19 @@ const ProceduresTextBox = ({
   };
 
   return (
-    <animated.div className="procedures-box"
+    <animated.div
+      className='procedures-box'
       style={{
         ...animatedStyle,
       }}
     >
-      <div className="label">
-        {label}
-      </div>
-      <div className="text">
+      <div className='label'>{label}</div>
+      <div className='text'>
         <span style={{ display: 'inline-block', marginBottom: 20 }}>
           {text}
         </span>
         {buttonText && (
-          <button className="button"
-            onClick={clickHandler}
-          >
+          <button className='button' onClick={clickHandler}>
             {buttonText} <Arrow />
           </button>
         )}

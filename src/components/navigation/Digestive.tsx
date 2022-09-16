@@ -13,7 +13,7 @@ import { CustomSlider } from './CustomSlider';
 import { ReactComponent as Dissolve } from './DigestiveAssets/stomachSliderDissolve.svg';
 import WasteButton from './DigestiveAssets/wasteButton.svg';
 import { useNavigate } from 'react-router-dom';
-import {animated} from "react-spring";
+import { animated } from 'react-spring';
 
 type Props = {
   prefix: Paths;
@@ -186,19 +186,20 @@ const Digestive = ({ prefix }: Props) => {
   return (
     <animated.div>
       <div className='nav-top'>
-        <div className='body-text'
-           style={{
-             fontSize: step !== 16 ? 20 : 40,
-             visibility: [6, 7, 9, 10, 12, 14].includes(step)
-               ? 'hidden'
-               : 'visible',
-           }}
+        <div
+          className='body-text'
+          style={{
+            fontSize: step !== 16 ? 20 : 40,
+            visibility: [6, 7, 9, 10, 12, 14].includes(step)
+              ? 'hidden'
+              : 'visible',
+          }}
         >
           <Trans i18nKey={step !== 16 ? t(`${step}-text`) : t('goodJob')} />
         </div>
       </div>
-      <div className="nav-middle">
-        <div className="nav-items-container" style={{ height: 191 }}>
+      <div className='nav-middle'>
+        <div className='nav-items-container' style={{ height: 191 }}>
           {stepComponentConfig[step] && stepComponentConfig[step]()}
         </div>
       </div>

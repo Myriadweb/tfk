@@ -64,9 +64,7 @@ const SurgicalPrep = ({ prefix }: Props) => {
         }}
       />
     ),
-    1: () => (
-      <BlueBar></BlueBar>
-    ),
+    1: () => <BlueBar></BlueBar>,
     2: () => (
       <BlueBar>
         <div style={{ position: 'relative' }}>
@@ -116,9 +114,7 @@ const SurgicalPrep = ({ prefix }: Props) => {
         }}
       />
     ),
-    4: () => (
-      <BlueBar></BlueBar>
-    ),
+    4: () => <BlueBar></BlueBar>,
     5: () => (
       <BlueBarContinue
         text={t(`${step}-buttonText`)}
@@ -128,9 +124,7 @@ const SurgicalPrep = ({ prefix }: Props) => {
         }}
       />
     ),
-    6: () => (
-      <BlueBar></BlueBar>
-    ),
+    6: () => <BlueBar></BlueBar>,
     7: () => (
       <BlueBarContinue
         text={t(`${step}-buttonText`)}
@@ -141,17 +135,15 @@ const SurgicalPrep = ({ prefix }: Props) => {
         }}
       />
     ),
-    8: () => (
-      <BlueBar></BlueBar>
-    ),
+    8: () => <BlueBar></BlueBar>,
     9: () => (
       <BlueBar>
-          <NavigationButton
-            image={Mask}
-            size='small'
-            onClick={() => setStep({ step: 10 })}
-            text=''
-          />
+        <NavigationButton
+          image={Mask}
+          size='small'
+          onClick={() => setStep({ step: 10 })}
+          text=''
+        />
       </BlueBar>
     ),
     10: () => (
@@ -178,9 +170,7 @@ const SurgicalPrep = ({ prefix }: Props) => {
         }}
       />
     ),
-    12: () => (
-      <BlueBar></BlueBar>
-    ),
+    12: () => <BlueBar></BlueBar>,
     13: () => (
       <BlueBarContinue
         text={t(`${step}-buttonText`)}
@@ -193,7 +183,7 @@ const SurgicalPrep = ({ prefix }: Props) => {
     14: () => (
       <>
         <BlueBar style={{ height: 192 }}>
-          <div className="nav-items-container" style={{ width: 592 }}>
+          <div className='nav-items-container' style={{ width: 592 }}>
             <NavigationButton
               image={JuiceBox}
               size={value === 'juicebox' ? 'large' : 'small'}
@@ -220,7 +210,8 @@ const SurgicalPrep = ({ prefix }: Props) => {
             />
           </div>
         </BlueBar>
-        <button className="continue-button"
+        <button
+          className='continue-button'
           style={{
             marginTop: 20,
           }}
@@ -290,14 +281,20 @@ const SurgicalPrep = ({ prefix }: Props) => {
   return (
     <animated.div>
       <div className='nav-top'>
-        <div className='header-text' style={{ display: step != 12 && step !=8 && step != 15 ? 'block' : 'none'}}>
+        <div
+          className='header-text'
+          style={{
+            display: step != 12 && step != 8 && step != 15 ? 'block' : 'none',
+          }}
+        >
           {t(`${step}-mainText`)}
         </div>
-        <div className='body-text' style={{ display: step != 12 && step != 8 ? 'block' : 'none'}}>
+        <div
+          className='body-text'
+          style={{ display: step != 12 && step != 8 ? 'block' : 'none' }}
+        >
           {t(`${step}-subText`)}
-          {step === 15 && (
-            t(`${step}-boldText`)
-          )}
+          {step === 15 && t(`${step}-boldText`)}
         </div>
       </div>
       {stepComponentConfig[step] && stepComponentConfig[step]()}

@@ -52,7 +52,7 @@ const Mri = ({ prefix }: Props) => {
   const stepComponentConfig = {
     0: () => (
       <>
-        <div className="nav-items-container" style={{ width: 592 }}>
+        <div className='nav-items-container' style={{ width: 592 }}>
           <div>
             <NavigationButton
               image={Nap}
@@ -98,7 +98,8 @@ const Mri = ({ prefix }: Props) => {
       </>
     ),
     1: () => (
-      <button className="continue-button"
+      <button
+        className='continue-button'
         onClick={() => {
           playSound('completeStep');
           delayApi.start({
@@ -134,7 +135,8 @@ const Mri = ({ prefix }: Props) => {
       </button>
     ),
     4: () => (
-      <button className="continue-button"
+      <button
+        className='continue-button'
         onClick={() => {
           playSound('completeProcedure');
           setStep((oldState) => ({ ...oldState, step: 5, hideButtons: true }));
@@ -145,7 +147,7 @@ const Mri = ({ prefix }: Props) => {
     ),
     5: () => (
       <>
-        <div className="nav-items-container" style={{ width: 592 }}>
+        <div className='nav-items-container' style={{ width: 592 }}>
           <NavigationButton
             image={Sticker}
             size={value === 'sticker' ? 'large' : 'small'}
@@ -171,12 +173,13 @@ const Mri = ({ prefix }: Props) => {
             text=''
           />
         </div>
-        <button className="continue-button"
+        <button
+          className='continue-button'
           style={{
             position: 'absolute',
             bottom: 50,
             left: '50%',
-            transform: 'translateX(-50%)'
+            transform: 'translateX(-50%)',
           }}
           onClick={() => {
             if (!value) return; // if no value is selected, don't continue
@@ -191,7 +194,7 @@ const Mri = ({ prefix }: Props) => {
     ),
     6: () => (
       <>
-        <div className="nav-items-container">
+        <div className='nav-items-container'>
           <NavigationButton
             image={Muscular}
             size={'large'}
@@ -246,17 +249,23 @@ const Mri = ({ prefix }: Props) => {
   return (
     <animated.div style={delayStyle}>
       <div className='nav-top'>
-        <div className='header-text' style={{ display: step != 6 ? 'block' : 'none'}}>
+        <div
+          className='header-text'
+          style={{ display: step != 6 ? 'block' : 'none' }}
+        >
           {t(`${step}-mainText`)}
         </div>
-        <div className='body-text' style={{ display: step != 0 ? 'block' : 'none'}}>
+        <div
+          className='body-text'
+          style={{ display: step != 0 ? 'block' : 'none' }}
+        >
           {t(`${step}-subText`)}
           {step === 6 && (
-            <span className="bold-text">t(`${step}-boldText`)</span>
+            <span className='bold-text'>t(`${step}-boldText`)</span>
           )}
         </div>
       </div>
-      <div className="nav-middle" style={{ padding: step < 5 ? 20 : 0 }}>
+      <div className='nav-middle' style={{ padding: step < 5 ? 20 : 0 }}>
         {stepComponentConfig[step] && stepComponentConfig[step]()}
       </div>
     </animated.div>

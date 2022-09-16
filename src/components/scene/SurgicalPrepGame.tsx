@@ -36,7 +36,7 @@ export default function SurgicalPrepGame() {
     opacity: 0,
     top: 489,
     left: 345,
-    scale: 1
+    scale: 1,
   }));
   const [needleComponentPhase, setNeedleComponentPhase] = React.useState(1);
   const [darkLayerStyle, darkLayerApi] = useSpring(() => ({ opacity: 0 }));
@@ -48,8 +48,8 @@ export default function SurgicalPrepGame() {
         onRest: () => {
           trayApi.start({ transform: 'translateX(0px)' });
           targetApi.start({ opacity: 1 });
-          targetApi.start( {
-            from: { scale: .75 },
+          targetApi.start({
+            from: { scale: 0.75 },
             to: { scale: 1 },
             loop: () => ({
               reverse: true,
@@ -64,8 +64,8 @@ export default function SurgicalPrepGame() {
     } else if (step === 4) {
       trayApi.start({ transform: 'translateX(0px)' });
       targetApi.start({ opacity: 1 });
-      targetApi.start( {
-        from: { scale: .75, top: 822, left: 268, opacity: 1 },
+      targetApi.start({
+        from: { scale: 0.75, top: 822, left: 268, opacity: 1 },
         to: { scale: 1, top: 822, left: 268, opacity: 1 },
         loop: () => ({
           reverse: true,
@@ -78,8 +78,8 @@ export default function SurgicalPrepGame() {
     } else if (step === 6) {
       trayApi.start({ transform: 'translateX(0px)' });
       targetApi.start({ opacity: 1 });
-      targetApi.start( {
-        from: { scale: .75, top: 822, left: 239 },
+      targetApi.start({
+        from: { scale: 0.75, top: 822, left: 239 },
         to: { scale: 1, top: 822, left: 239 },
         loop: () => ({
           reverse: true,

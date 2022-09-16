@@ -44,7 +44,7 @@ export default function IvGame() {
     opacity: 0,
     top: 533,
     left: 360,
-    scale: .75,
+    scale: 0.75,
   }));
   const [needleComponentPhase, setNeedleComponentPhase] = React.useState(1);
 
@@ -66,8 +66,8 @@ export default function IvGame() {
         onRest: () => {
           trayApi.start({ transform: 'translateX(0px)' });
           targetApi.start({ opacity: 1 });
-          targetApi.start( {
-            from: { scale: .75 },
+          targetApi.start({
+            from: { scale: 0.75 },
             to: { scale: 1 },
             loop: () => ({
               reverse: true,
@@ -84,8 +84,8 @@ export default function IvGame() {
     } else if (step === 4) {
       trayApi.start({ transform: 'translateX(0px)' });
       targetApi.start({ opacity: 1 });
-      targetApi.start( {
-        from: { scale: .75 },
+      targetApi.start({
+        from: { scale: 0.75 },
         to: { scale: 1 },
         loop: () => ({
           reverse: true,
@@ -109,8 +109,8 @@ export default function IvGame() {
     } else if (step === 8) {
       trayApi.start({ transform: 'translateX(0px)' });
       targetApi.start({ opacity: 1 });
-      targetApi.start( {
-        from: { scale: .75 },
+      targetApi.start({
+        from: { scale: 0.75 },
         to: { scale: 1 },
         loop: () => ({
           reverse: true,

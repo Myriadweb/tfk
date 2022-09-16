@@ -8,6 +8,6 @@ type BlueBarContinueProps = {
 };
 export const BlueBarContinue = ({ text, onClick }: BlueBarContinueProps) => (
   <BlueBar>
-    <ContinueButton text={text} onClick={onClick}  />
+    <ContinueButton text={text} onClick={onClick} />
   </BlueBar>
 );

@@ -7,7 +7,8 @@ type Props = {
 
 const BlueBar = ({ children = null, style }: Props) => {
   return (
-    <div className="blue-bar"
+    <div
+      className='blue-bar'
       style={{
         ...style,
       }}

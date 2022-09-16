@@ -11,7 +11,6 @@ import exitButton from './navigation/SharedAssets/exitButton.svg';
 import proceduresButton from './navigation/SharedAssets/proceduresButton.svg';
 import bodySystemsButton from './navigation/SharedAssets/bodySystemsButton.svg';
 
-
 const bodySystemPaths = [
   Paths.Sensory,
   Paths.Skeletal,
@@ -76,50 +75,47 @@ export function NavBar({ path, prefix }: Props) {
     <div className='App-navigation'>
       {Component ? <Component path={path} prefix={prefix} /> : <></>}
       <div className='nav-bottom'>
-        <div className="links-container">
-        {path !== Paths.MainMenu && !hideButtons && (
-          <Link className="link"
-            to={Paths.MainMenu}
-            onClick={() => {
-              playSound('click');
-              setStep({ step: 0 });
-              setAnimatedPath('');
-            }}
-          >
-            <img src={exitButton} />
-            <span>
-              {t('common.navbar.exit')}
-            </span>
-          </Link>
-        )}
-        {prefix === Paths.Sensory && (
-          <Link className="link"
-            to={`${Paths.BodySystems}/${Paths.Sensory}`}
-            onClick={() => {
-              playSound('click');
-              setStep({ step: 0 });
-            }}
-          >
-            <img src={proceduresButton} />
-            <span>
-              {t('common.navbar.bodySystems')}
-            </span>
-          </Link>
-        )}
-        {path === Paths.Game && !hideButtons && (
-          <Link className="link"
-            to={`${getNavigationPath(prefix)}/${prefix}`}
-            onClick={() => {
-              playSound('click');
-              setStep({ step: 0 });
-            }}
-          >
-            <img src={getNavigationIcon(prefix)} />
-            <span>
-              {t(`common.navbar.${getNavigationText(prefix)}`)}
-            </span>
-          </Link>
-        )}
+        <div className='links-container'>
+          {path !== Paths.MainMenu && !hideButtons && (
+            <Link
+              className='link'
+              to={Paths.MainMenu}
+              onClick={() => {
+                playSound('click');
+                setStep({ step: 0 });
+                setAnimatedPath('');
+              }}
+            >
+              <img src={exitButton} />
+              <span>{t('common.navbar.exit')}</span>
+            </Link>
+          )}
+          {prefix === Paths.Sensory && (
+            <Link
+              className='link'
+              to={`${Paths.BodySystems}/${Paths.Sensory}`}
+              onClick={() => {
+                playSound('click');
+                setStep({ step: 0 });
+              }}
+            >
+              <img src={proceduresButton} />
+              <span>{t('common.navbar.bodySystems')}</span>
+            </Link>
+          )}
+          {path === Paths.Game && !hideButtons && (
+            <Link
+              className='link'
+              to={`${getNavigationPath(prefix)}/${prefix}`}
+              onClick={() => {
+                playSound('click');
+                setStep({ step: 0 });
+              }}
+            >
+              <img src={getNavigationIcon(prefix)} />
+              <span>{t(`common.navbar.${getNavigationText(prefix)}`)}</span>
+            </Link>
+          )}
         </div>
         <LanguageToggle />
       </div>

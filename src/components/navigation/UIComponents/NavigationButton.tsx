@@ -23,8 +23,9 @@ const NavigationButton = ({
   };
 
   return (
-    <div onClick={clickHandler} className="nav-item">
-      <img className="nav-button-image"
+    <div onClick={clickHandler} className='nav-item'>
+      <img
+        className='nav-button-image'
         src={image}
         style={{
           width: size === 'small' ? 111 : 191,
@@ -32,11 +33,7 @@ const NavigationButton = ({
           opacity: disabled ? 0.5 : 1,
         }}
       />
-      {text && (
-        <span className="nav-text">
-          {text}
-        </span>
-      )}
+      {text && <span className='nav-text'>{text}</span>}
     </div>
   );
 };

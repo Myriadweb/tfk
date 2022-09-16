@@ -40,9 +40,7 @@ const XRay = ({ prefix }: Props) => {
   }, [step]);
 
   const stepComponentConfig = {
-    0: () => (
-      <BlueBar></BlueBar>
-    ),
+    0: () => <BlueBar></BlueBar>,
     1: () => (
       <BlueBarContinue
         text={t(`${step}-buttonText`)}
@@ -54,13 +52,14 @@ const XRay = ({ prefix }: Props) => {
     ),
     2: () => (
       <BlueBar>
-        <button className="continue-button"
+        <button
+          className='continue-button'
           style={{
             borderRadius: 55,
             width: 109,
             height: 109,
             minWidth: 'auto',
-            padding: 0
+            padding: 0,
           }}
           onClick={() => {
             playSound('xRay');
@@ -83,7 +82,7 @@ const XRay = ({ prefix }: Props) => {
     5: () => (
       <>
         <BlueBar style={{ height: 192 }}>
-          <div className="nav-items-container" style={{ width: 592 }}>
+          <div className='nav-items-container' style={{ width: 592 }}>
             <NavigationButton
               image={SignCast}
               size={value === 'signature' ? 'large' : 'small'}
@@ -110,7 +109,8 @@ const XRay = ({ prefix }: Props) => {
             />
           </div>
         </BlueBar>
-        <button className="continue-button"
+        <button
+          className='continue-button'
           style={{
             marginBottom: -50,
           }}
@@ -128,7 +128,7 @@ const XRay = ({ prefix }: Props) => {
     6: () => (
       <>
         <BlueBar style={{ height: 192 }}>
-          <div className="nav-items-container">
+          <div className='nav-items-container'>
             <NavigationButton
               image={Skeletal}
               size={'large'}
@@ -179,7 +179,7 @@ const XRay = ({ prefix }: Props) => {
   };
 
   return (
-    <animated.div className="nav-top">
+    <animated.div className='nav-top'>
       <div className='nav-header'>
         <div className='header-text'>{t(`${step}-mainText`)}</div>
         <div className='body-text'>{t(`${step}-subText`)}</div>

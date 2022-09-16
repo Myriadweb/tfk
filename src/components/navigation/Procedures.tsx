@@ -26,13 +26,14 @@ const Procedures = ({ path, prefix }: Props) => {
 
   return (
     <div>
-      <div className="nav-top">
-        <div className="body-text">
-          {t('selectPath')}
-        </div>
+      <div className='nav-top'>
+        <div className='body-text'>{t('selectPath')}</div>
       </div>
-      <div className="nav-middle">
-        <div className="nav-items-container" style={{ paddingLeft: 20, paddingRight: 30 }}>
+      <div className='nav-middle'>
+        <div
+          className='nav-items-container'
+          style={{ paddingLeft: 20, paddingRight: 30 }}
+        >
           <NavigationButton
             image={SurgicalPrep}
             size={path === Paths.SurgicalPrep ? 'large' : 'small'}

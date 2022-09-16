@@ -41,7 +41,6 @@ import CardiovascularGame from './scene/CardiovascularGame';
 import MuscularGame from './scene/MuscularGame';
 import DigestiveGame from './scene/DigestiveGame';
 
-
 export function Home() {
   // This gets the current location from react router.
   const location = useLocation();

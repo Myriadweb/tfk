@@ -68,8 +68,8 @@ const Iv = ({ prefix }: Props) => {
   const stepComponentConfig = {
     0: () => (
       <>
-        <div className="nav-middle" style={{ height: 192 }}>
-          <div className="nav-items-container" style={{ width: 592 }}>
+        <div className='nav-middle' style={{ height: 192 }}>
+          <div className='nav-items-container' style={{ width: 592 }}>
             <div>
               <NavigationButton
                 image={Tablet}
@@ -301,14 +301,18 @@ const Iv = ({ prefix }: Props) => {
   return (
     <animated.div>
       <div className='nav-top'>
-        <div className='header-text' style={{ display: step != 11 ? 'block' : 'none'}}>
+        <div
+          className='header-text'
+          style={{ display: step != 11 ? 'block' : 'none' }}
+        >
           {t(`${step}-mainText`)}
         </div>
-        <div className='body-text' style={{ display: step != 0 ? 'block' : 'none'}}>
+        <div
+          className='body-text'
+          style={{ display: step != 0 ? 'block' : 'none' }}
+        >
           {t(`${step}-subText`)}
-          {step === 11 && (
-            t(`${step}-boldText`)
-          )}
+          {step === 11 && t(`${step}-boldText`)}
         </div>
       </div>
       {shouldShowComponent && stepComponentConfig[step] ? (
