@@ -68,35 +68,20 @@ const Iv = ({ prefix }: Props) => {
   const stepComponentConfig = {
     0: () => (
       <>
-        <div
-          style={{
-            marginTop: 12,
-            background: '#0E1F33',
-            height: 192,
-          }}
-        >
-          <div
-            style={{
-              margin: '0 auto',
-              display: 'flex',
-              justifyContent: 'space-around',
-              alignItems: 'start',
-              height: '100%',
-              width: 592,
-              paddingTop: 19,
-            }}
-          >
+        <div className="nav-middle" style={{ height: 192 }}>
+          <div className="nav-items-container" style={{ width: 592 }}>
             <div>
               <NavigationButton
                 image={Tablet}
                 size={'small'}
-                onClick={() =>
+                onClick={() => {
                   setStep((oldState) => ({
                     ...oldState,
                     step: 1,
                     value: 'tablet',
-                  }))
-                }
+                  }));
+                  playSound('iVTablet');
+                }}
                 text=''
               />
               <span style={distractionTextStyle}> {t('tablet')}</span>
@@ -105,13 +90,14 @@ const Iv = ({ prefix }: Props) => {
               <NavigationButton
                 image={Bubbles}
                 size={'small'}
-                onClick={() =>
+                onClick={() => {
                   setStep((oldState) => ({
                     ...oldState,
                     step: 1,
                     value: 'bubbles',
-                  }))
-                }
+                  }));
+                  playSound('iVBubbles');
+                }}
                 text=''
               />
               <span style={distractionTextStyle}> {t('bubbles')}</span>
@@ -120,13 +106,14 @@ const Iv = ({ prefix }: Props) => {
               <NavigationButton
                 image={Music}
                 size={'small'}
-                onClick={() =>
+                onClick={() => {
                   setStep((oldState) => ({
                     ...oldState,
                     step: 1,
                     value: 'music',
-                  }))
-                }
+                  }));
+                  playSound('iVHeadphones');
+                }}
                 text=''
               />
               <span style={distractionTextStyle}> {t('music')}</span>
@@ -312,57 +299,24 @@ const Iv = ({ prefix }: Props) => {
   };
 
   return (
-    <>
-      <animated.div style={delayStyle}>
-        <span
-          style={{
-            display: step !== 11 ? 'block' : 'none',
-            fontSize: 40,
-            color: '#FFF',
-            fontFamily: 'LemonMilk',
-            marginTop: 30,
-            letterSpacing: 2,
-            fontWeight: 'bolder',
-            minHeight: 54,
-          }}
-        >
+    <animated.div>
+      <div className='nav-top'>
+        <div className='header-text' style={{ display: step != 11 ? 'block' : 'none'}}>
           {t(`${step}-mainText`)}
-        </span>
-        {step !== 0 && (
-          <span
-            style={{
-              display: 'block',
-              fontSize: 20,
-              color: '#FFF',
-              fontFamily: 'LemonMilk',
-              marginTop: step !== 11 ? 12 : 45,
-              whiteSpace: 'pre',
-              minHeight: 54,
-            }}
-          >
-            {t(`${step}-subText`)}
-          </span>
-        )}
-      </animated.div>
-      {step === 11 && (
-        <span
-          style={{
-            fontSize: 20,
-            color: '#FFF',
-            fontFamily: 'LemonMilk',
-            whiteSpace: 'pre',
-            fontWeight: 'bold',
-          }}
-        >
-          {t(`${step}-boldText`)}
-        </span>
-      )}
+        </div>
+        <div className='body-text' style={{ display: step != 0 ? 'block' : 'none'}}>
+          {t(`${step}-subText`)}
+          {step === 11 && (
+            t(`${step}-boldText`)
+          )}
+        </div>
+      </div>
       {shouldShowComponent && stepComponentConfig[step] ? (
         stepComponentConfig[step]()
       ) : (
         <BlueBar />
       )}
-    </>
+    </animated.div>
   );
 };
 

@@ -44,6 +44,7 @@ export default function IvGame() {
     opacity: 0,
     top: 533,
     left: 360,
+    scale: .75,
   }));
   const [needleComponentPhase, setNeedleComponentPhase] = React.useState(1);
 
@@ -65,6 +66,13 @@ export default function IvGame() {
         onRest: () => {
           trayApi.start({ transform: 'translateX(0px)' });
           targetApi.start({ opacity: 1 });
+          targetApi.start( {
+            from: { scale: .75 },
+            to: { scale: 1 },
+            loop: () => ({
+              reverse: true,
+            }),
+          });
         },
       });
     } else if (step === 3) {
@@ -76,6 +84,13 @@ export default function IvGame() {
     } else if (step === 4) {
       trayApi.start({ transform: 'translateX(0px)' });
       targetApi.start({ opacity: 1 });
+      targetApi.start( {
+        from: { scale: .75 },
+        to: { scale: 1 },
+        loop: () => ({
+          reverse: true,
+        }),
+      });
     } else if (step === 5) {
       targetApi.set({
         opacity: 0,
@@ -94,6 +109,13 @@ export default function IvGame() {
     } else if (step === 8) {
       trayApi.start({ transform: 'translateX(0px)' });
       targetApi.start({ opacity: 1 });
+      targetApi.start( {
+        from: { scale: .75 },
+        to: { scale: 1 },
+        loop: () => ({
+          reverse: true,
+        }),
+      });
     }
   }, [step]);
 
@@ -243,7 +265,7 @@ export default function IvGame() {
                     newY > -467 &&
                     newY < -269
                   ) {
-                    playSound('completeStep');
+                    playSound('iVTourniquetNeedle');
                     trayApi.start({ transform: 'translateX(600px)' });
                     // A little hacky, but it helps to avoid errors in the console
                     setTimeout(() => setGameState({ step: 3 }), 1);
@@ -285,7 +307,7 @@ export default function IvGame() {
                 y={95}
                 onComplete={(newX, newY) => {
                   if (newX > -351 && newX < -244 && newY > -40 && newY < 180) {
-                    playSound('completeStep');
+                    playSound('iVTourniquetNeedle');
                     trayApi.start({ transform: 'translateX(600px)' });
                     // A little hacky, but it helps to avoid errors in the console
                     setTimeout(() => setGameState({ step: 7 }), 1);

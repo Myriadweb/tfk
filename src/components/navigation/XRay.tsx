@@ -12,6 +12,8 @@ import Skeletal from './BodySystemsAssets/Skeletal.svg';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSpring, animated } from 'react-spring';
 import { useEffect } from 'react';
+import { BlueBarContinue } from './BlueBarContinue';
+import BlueBar from './UIComponents/BlueBar';
 
 type Props = {
   path: Paths;
@@ -38,89 +40,50 @@ const XRay = ({ prefix }: Props) => {
   }, [step]);
 
   const stepComponentConfig = {
-    0: null,
+    0: () => (
+      <BlueBar></BlueBar>
+    ),
     1: () => (
-      <button
-        style={{
-          fontFamily: 'LemonMilk',
-          fontSize: 20,
-          color: '#fff',
-          background: '#CD4845',
-          border: '1px solid #000',
-          borderRadius: 12,
-          width: 241,
-          height: 65,
-          marginTop: 20,
-        }}
+      <BlueBarContinue
+        text={t(`${step}-buttonText`)}
         onClick={() => {
           playSound('completeStep');
           setStep({ step: 2 });
         }}
-      >
-        {t(`${step}-buttonText`)} <Arrow />
-      </button>
+      />
     ),
     2: () => (
-      <button
-        style={{
-          fontFamily: 'LemonMilk',
-          fontSize: 20,
-          color: '#fff',
-          background: '#CD4845',
-          border: '1px solid #000',
-          borderRadius: 55,
-          width: 109,
-          height: 109,
-          marginTop: 20,
-        }}
-        onClick={() => {
-          playSound('xRay');
-          setStep({ step: 3 });
-        }}
-      >
-        {t(`${step}-buttonText`)} <Arrow />
-      </button>
+      <BlueBar>
+        <button className="continue-button"
+          style={{
+            borderRadius: 55,
+            width: 109,
+            height: 109,
+            minWidth: 'auto',
+            padding: 0
+          }}
+          onClick={() => {
+            playSound('xRay');
+            setStep({ step: 3 });
+          }}
+        >
+          {t(`${step}-buttonText`)} <Arrow />
+        </button>
+      </BlueBar>
     ),
     4: () => (
-      <button
-        style={{
-          fontFamily: 'LemonMilk',
-          fontSize: 20,
-          color: '#fff',
-          background: '#CD4845',
-          border: '1px solid #000',
-          borderRadius: 12,
-          width: 241,
-          height: 65,
-          marginTop: 20,
-        }}
+      <BlueBarContinue
+        text={t(`${step}-buttonText`)}
         onClick={() => {
           playSound('completeProcedure');
           setStep((oldState) => ({ ...oldState, step: 5, hideButtons: true }));
         }}
-      >
-        {t(`${step}-buttonText`)} <Arrow />
-      </button>
+      />
     ),
     5: () => (
       <>
-        <div
-          style={{
-            marginTop: 12,
-            background: '#0E1F33',
-            height: 192,
-          }}
-        >
-          <div
-            style={{
-              margin: '0 auto',
-              display: 'flex',
-              justifyContent: 'space-around',
-              alignItems: 'center',
-              height: '100%',
-              width: 592,
-            }}
-          >
+        <BlueBar style={{ height: 192 }}>
+          <div className="nav-items-container" style={{ width: 592 }}>
             <NavigationButton
               image={SignCast}
               size={value === 'signature' ? 'large' : 'small'}
@@ -146,18 +109,10 @@ const XRay = ({ prefix }: Props) => {
               text=''
             />
           </div>
-        </div>
-        <button
+        </BlueBar>
+        <button className="continue-button"
           style={{
-            fontFamily: 'LemonMilk',
-            fontSize: 20,
-            color: '#fff',
-            background: '#CD4845',
-            border: '1px solid #000',
-            borderRadius: 12,
-            width: 241,
-            height: 65,
-            marginTop: 20,
+            marginBottom: -50,
           }}
           onClick={() => {
             if (!value) return; // if no value is selected, don't continue
@@ -172,28 +127,20 @@ const XRay = ({ prefix }: Props) => {
     ),
     6: () => (
       <>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-around',
-            alignItems: 'center',
-            marginTop: 49,
-            background: '#0E1F33',
-            height: 192,
-          }}
-        >
-          <NavigationButton
-            image={Skeletal}
-            size={'large'}
-            onClick={() => {
-              playSound('click');
-              setStep({ step: 0 });
-              navigate(Paths.BodySystems + '/' + Paths.Skeletal);
-            }}
-            text=''
-          />
-        </div>
-
+        <BlueBar style={{ height: 192 }}>
+          <div className="nav-items-container">
+            <NavigationButton
+              image={Skeletal}
+              size={'large'}
+              onClick={() => {
+                playSound('click');
+                setStep({ step: 0 });
+                navigate(Paths.BodySystems + '/' + Paths.Skeletal);
+              }}
+              text=''
+            />
+          </div>
+        </BlueBar>
         <div
           style={{
             position: 'absolute',
@@ -232,47 +179,11 @@ const XRay = ({ prefix }: Props) => {
   };
 
   return (
-    <animated.div style={delayStyle}>
-      {step < 6 && (
-        <span
-          style={{
-            display: 'block',
-            fontSize: 40,
-            color: '#FFF',
-            fontFamily: 'LemonMilk',
-            marginTop: 45,
-            letterSpacing: 2,
-            fontWeight: 'bolder',
-          }}
-        >
-          {t(`${step}-mainText`)}
-        </span>
-      )}
-      <span
-        style={{
-          display: 'block',
-          fontSize: 20,
-          color: '#FFF',
-          fontFamily: 'LemonMilk',
-          marginTop: step !== 5 ? 45 : 12,
-          whiteSpace: 'pre',
-        }}
-      >
-        {t(`${step}-subText`)}
-      </span>
-      {step === 6 && (
-        <span
-          style={{
-            fontSize: 20,
-            color: '#FFF',
-            fontFamily: 'LemonMilk',
-            whiteSpace: 'pre',
-            fontWeight: 'bold',
-          }}
-        >
-          {t(`${step}-boldText`)}
-        </span>
-      )}
+    <animated.div className="nav-top">
+      <div className='nav-header'>
+        <div className='header-text'>{t(`${step}-mainText`)}</div>
+        <div className='body-text'>{t(`${step}-subText`)}</div>
+      </div>
       {stepComponentConfig[step] && stepComponentConfig[step]()}
     </animated.div>
   );

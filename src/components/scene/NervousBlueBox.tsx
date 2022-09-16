@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { CSSProperties } from 'react';
-import { Highlight } from './NervousGame';
+import { Highlight } from './nervousGame';
 import { useTranslation } from 'react-i18next';
 
 type Icons =

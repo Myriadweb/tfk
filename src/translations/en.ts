@@ -475,7 +475,7 @@ const en: Translation = {
         title: 'X-RAY',
       },
       scene: {
-        text: 'An x-ray machine takes pictures \nthat help doctors see through \nyour body to find injuries.',
+        text: 'An x-ray machine takes pictures that help doctors see through your body to find injuries.',
         label: 'X-RAY',
         buttonText: 'TAKE AN X-RAY',
         brokenBoneLabel: 'BROKEN BONE',
@@ -648,7 +648,7 @@ const en: Translation = {
         '1-buttonText': 'CONTINUE',
         '2-mainText': 'PLACE A TOURNIQUET',
         '2-subText':
-          "A band around the patient's arm helps to find their veins.",
+          "A band around the patient's arm helps to \nfind their veins.",
         '3-mainText': 'GREAT JOB!',
         '3-subText': 'The patient is ready for the next step.',
         '3-buttonText': 'CONTINUE',

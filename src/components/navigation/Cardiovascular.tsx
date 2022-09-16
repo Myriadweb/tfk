@@ -8,6 +8,7 @@ import BreatheButton from './CardiovascularAssets/breatheButton.svg';
 import { useNavigate } from 'react-router-dom';
 import ContinueButton from './UIComponents/ContinueButton';
 import { ReactComponent as HeartbeatButton } from './CardiovascularAssets/heartbeatButton.svg';
+import {animated} from "react-spring";
 
 type Props = {
   path: Paths;
@@ -91,53 +92,21 @@ const Cardiovascular = ({ prefix }: Props) => {
   };
 
   return (
-    <>
-      <>
-        <span
-          style={{
-            display: step !== 9 ? 'block' : 'none',
-            fontSize: 20,
-            color: '#FFF',
-            fontFamily: 'LemonMilk',
-            marginTop: 47,
-            whiteSpace: 'pre',
-            minHeight: 54,
-            visibility: [1, 2].includes(step) ? 'hidden' : 'visible',
-          }}
-        >
+    <animated.div>
+      <div className='nav-top'>
+        <div className='body-text' style={{ display: step !== 9 ? 'block' : 'none'}}>
           {t(`${step}-text`)}
-        </span>
-        {step === 9 && (
-          <span
-            style={{
-              display: 'block',
-              fontSize: 40,
-              color: '#FFF',
-              fontFamily: 'LemonMilk',
-              marginTop: 40,
-              letterSpacing: 2,
-              fontWeight: 'bolder',
-            }}
-          >
-            {t(`${step}-boldText`)}
-          </span>
-        )}
-      </>
-      {
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-around',
-            alignItems: 'center',
-            marginTop: step !== 9 ? 20 : 26,
-            background: '#0E1F33',
-            height: 191,
-          }}
-        >
+        </div>
+        <div className='body-text' style={{ display: step === 9 ? 'block' : 'none'}}>
+          {t(`${step}-boldText`)}
+        </div>
+      </div>
+      <div className="nav-middle">
+        <div className="nav-items-container" style={{ height: 191 }}>
           {stepComponentConfig[step] && stepComponentConfig[step]()}
         </div>
-      }
-    </>
+      </div>
+    </animated.div>
   );
 };
 

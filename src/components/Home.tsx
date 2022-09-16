@@ -36,10 +36,11 @@ import IvGame from './scene/IvGame';
 import SurgicalPrepGame from './scene/SurgicalPrepGame';
 import Vestibular from './scene/Vestibular';
 import { useAnimateContext } from '../state/animate';
-import NervousGame from './scene/NervousGame';
+import NervousGame from './scene/nervousGame';
 import CardiovascularGame from './scene/CardiovascularGame';
 import MuscularGame from './scene/MuscularGame';
 import DigestiveGame from './scene/DigestiveGame';
+
 
 export function Home() {
   // This gets the current location from react router.

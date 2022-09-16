@@ -23,8 +23,8 @@ const NavigationButton = ({
   };
 
   return (
-    <div onClick={clickHandler} style={{ position: 'relative' }}>
-      <img
+    <div onClick={clickHandler} className="nav-item">
+      <img className="nav-button-image"
         src={image}
         style={{
           width: size === 'small' ? 111 : 191,
@@ -33,19 +33,7 @@ const NavigationButton = ({
         }}
       />
       {text && (
-        <span
-          style={{
-            fontFamily: 'LemonMilk',
-            fontWeight: 'bold',
-            color: '#FFF',
-            fontSize: 25,
-            letterSpacing: 1.24,
-            position: 'absolute',
-            transform: 'translate(-50%, -50%)',
-            left: '50%',
-            top: `calc(50% + 130px)`,
-          }}
-        >
+        <span className="nav-text">
           {text}
         </span>
       )}
