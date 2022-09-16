@@ -3,12 +3,24 @@ import { Link } from 'react-router-dom';
 import { useNavBarTranslation } from '../../hooks';
 import { Paths } from '../../types/Paths';
 import playSound from '../../sound';
+import { useCharacterContext } from '../../state/character';
 
 type Props = {
   path: Paths;
 };
 
+const PROCEDURES_CONFIG = {
+  0: Paths.Iv,
+  1: Paths.SurgicalPrep,
+  2: Paths.Mri,
+  3: Paths.Wellness,
+  4: Paths.XRay,
+  5: Paths.Eeg,
+};
+
 const MainMenu = ({ path }: Props) => {
+  const [character] = useCharacterContext();
+
   const t = useNavBarTranslation(path);
 
   return (
@@ -69,7 +81,7 @@ const MainMenu = ({ path }: Props) => {
             alignItems: 'center',
             width: 213,
           }}
-          to={`/${Paths.Procedures}/${Paths.SurgicalPrep}`}
+          to={`/${Paths.Procedures}/${PROCEDURES_CONFIG[character]}`}
           onClick={() => playSound('click')}
         >
           <img
