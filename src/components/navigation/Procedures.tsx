@@ -35,16 +35,16 @@ const Procedures = ({ path, prefix }: Props) => {
           style={{ paddingLeft: 20, paddingRight: 30 }}
         >
           <NavigationButton
-            image={SurgicalPrep}
-            size={path === Paths.SurgicalPrep ? 'large' : 'small'}
-            onClick={() => onClickHandler(Paths.SurgicalPrep)}
-            text={path === Paths.SurgicalPrep ? t('surgicalPrep') : ''}
-          />
-          <NavigationButton
             image={XRay}
             size={path === Paths.XRay ? 'large' : 'small'}
             onClick={() => onClickHandler(Paths.XRay)}
             text={path === Paths.XRay ? t('xRay') : ''}
+          />
+          <NavigationButton
+            image={SurgicalPrep}
+            size={path === Paths.SurgicalPrep ? 'large' : 'small'}
+            onClick={() => onClickHandler(Paths.SurgicalPrep)}
+            text={path === Paths.SurgicalPrep ? t('surgicalPrep') : ''}
           />
           <NavigationButton
             image={EEG}

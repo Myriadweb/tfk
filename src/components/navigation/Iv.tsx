@@ -239,16 +239,7 @@ const Iv = ({ prefix }: Props) => {
     ),
     11: () => (
       <>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-around',
-            alignItems: 'center',
-            marginTop: 49,
-            background: '#0E1F33',
-            height: 192,
-          }}
-        >
+        <div className="nav-middle">
           <NavigationButton
             image={Skeletal}
             size={'large'}
@@ -312,7 +303,9 @@ const Iv = ({ prefix }: Props) => {
           style={{ display: step != 0 ? 'block' : 'none' }}
         >
           {t(`${step}-subText`)}
-          {step === 11 && t(`${step}-boldText`)}
+          {step === 11 && (
+            <span className='bold-text'>{t(`${step}-boldText`)}</span>
+          )}
         </div>
       </div>
       {shouldShowComponent && stepComponentConfig[step] ? (

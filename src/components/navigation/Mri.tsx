@@ -261,7 +261,7 @@ const Mri = ({ prefix }: Props) => {
         >
           {t(`${step}-subText`)}
           {step === 6 && (
-            <span className='bold-text'>t(`${step}-boldText`)</span>
+            <span className='bold-text'>{t(`${step}-boldText`)}</span>
           )}
         </div>
       </div>

@@ -41,8 +41,8 @@ export default function EegGame() {
   useEffect(() => {
     if (step === 6) {
       printoutApi.start({
-        transform: 'translateY(276px)',
-        delay: 1000,
+        transform: 'translateY(457px)',
+        delay: 2000,
         config: { duration: 3000 },
       });
     }
@@ -107,7 +107,7 @@ export default function EegGame() {
                   className='sticky-dots'
                   style={{
                     top: 155,
-                    left: 10,
+                    left: 25,
                     display: shouldShowDots(1) ? 'block' : 'none',
                   }}
                 />
@@ -115,7 +115,7 @@ export default function EegGame() {
                   className='sticky-dots'
                   style={{
                     top: 25,
-                    left: 100,
+                    left: 110,
                     display: shouldShowDots(2) ? 'block' : 'none',
                   }}
                 />
@@ -191,36 +191,36 @@ export default function EegGame() {
                   <LeadsHeadRef style={{ top: 0, left: 0, opacity: 0 }} />
                   <LeadsHeadRow1
                     style={{
-                      top: 0,
-                      left: 0,
+                      top: -12,
+                      left: 23,
                       display: shouldShowLeads(1) ? 'block' : 'none',
                     }}
                   />
                   <LeadsHeadRow2
                     style={{
-                      top: 0,
-                      left: 100,
+                      top: -7,
+                      left: 116,
                       display: shouldShowLeads(2) ? 'block' : 'none',
                     }}
                   />
                   <LeadsHeadRow3
                     style={{
-                      top: 0,
-                      left: 310,
+                      top: -7,
+                      left: 319,
                       display: shouldShowLeads(3) ? 'block' : 'none',
                     }}
                   />
                   <LeadsHeadRow4
                     style={{
-                      top: 0,
-                      left: 452,
+                      top: -10,
+                      left: 465,
                       display: shouldShowLeads(4) ? 'block' : 'none',
                     }}
                   />
                   <LeadsHeadRow5
                     style={{
-                      top: 0,
-                      left: 515,
+                      top: -6,
+                      left: 525,
                       display: shouldShowLeads(5) ? 'block' : 'none',
                     }}
                   />
@@ -247,7 +247,7 @@ export default function EegGame() {
           <animated.div
             style={{
               position: 'absolute',
-              top: 481,
+              top: 300,
               left: 275,
               ...printoutStyle,
             }}
@@ -283,8 +283,8 @@ export default function EegGame() {
               src={Doll}
               style={{
                 position: 'absolute',
-                left: 278,
-                top: 656,
+                left: 273,
+                top: 645,
               }}
             />
           )}
@@ -294,7 +294,7 @@ export default function EegGame() {
               style={{
                 position: 'absolute',
                 left: '50%',
-                top: 597,
+                top: 575,
                 transform: 'translate(-50%, 0)',
               }}
             />

@@ -53,14 +53,7 @@ const XRay = ({ prefix }: Props) => {
     2: () => (
       <BlueBar>
         <button
-          className='continue-button'
-          style={{
-            borderRadius: 55,
-            width: 109,
-            height: 109,
-            minWidth: 'auto',
-            padding: 0,
-          }}
+          className='start-button'
           onClick={() => {
             playSound('xRay');
             setStep({ step: 3 });
@@ -181,8 +174,15 @@ const XRay = ({ prefix }: Props) => {
   return (
     <animated.div className='nav-top'>
       <div className='nav-header'>
-        <div className='header-text'>{t(`${step}-mainText`)}</div>
-        <div className='body-text'>{t(`${step}-subText`)}</div>
+        <div className='header-text' style={{ display: step != 6 ? 'block' : 'none' }}>
+          {t(`${step}-mainText`)}
+        </div>
+        <div className='body-text'>
+          {t(`${step}-subText`)}
+          {step === 6 && (
+            <span className='bold-text'>{t(`${step}-boldText`)}</span>
+          )}
+        </div>
       </div>
       {stepComponentConfig[step] && stepComponentConfig[step]()}
     </animated.div>

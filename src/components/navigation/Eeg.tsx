@@ -47,7 +47,7 @@ export default function Eeg({ prefix }: Props) {
       </button>
     ),
     1: () => (
-      <div className='nav-items-container'>
+      <div className='nav-items-container' style={{ width: 700 }}>
         <NavigationButton
           image={PlaceStickies}
           size='small'
@@ -97,7 +97,7 @@ export default function Eeg({ prefix }: Props) {
       </button>
     ),
     3: () => (
-      <div className='nav-items-container'>
+      <div className='nav-items-container' style={{ width: 700 }}>
         <NavigationButton
           image={PlaceLeads}
           size='small'
@@ -242,8 +242,17 @@ export default function Eeg({ prefix }: Props) {
   return (
     <animated.div>
       <div className='nav-top'>
-        <div className='header-text'>{t(`${step}-mainText`)}</div>
-        <div className='body-text'>{t(`${step}-subText`)}</div>
+        <div className='header-text'>
+          {step != 9 && (
+            t(`${step}-mainText`)
+          )}
+        </div>
+        <div className='body-text'>
+          {t(`${step}-subText`)}
+          {step === 9 && (
+            <span className='bold-text'>{t(`${step}-boldText`)}</span>
+          )}
+        </div>
       </div>
       <div className='nav-middle'>
         {stepComponentConfig[step] && stepComponentConfig[step]()}

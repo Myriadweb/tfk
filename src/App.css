@@ -99,6 +99,9 @@
   padding: 30px 0;
   box-sizing: border-box;
 }
+.nav-top .nav-header {
+  margin-bottom: 20px;
+}
 .nav-middle {
   background: #0e1f33;
   text-align: center;
@@ -147,6 +150,10 @@
   margin-top: 12px;
   white-space: pre;
 }
+.bold-text {
+  font-family: 'LemonMilkBold', sans-serif;
+  display: block;
+}
 
 /* button styling */
 .continue-button {
@@ -159,6 +166,18 @@
   min-width: 240px;
   margin-top: 20px;
   font-family: 'LemonMilkBold', sans-serif;
+}
+.start-button {
+  font-size: 20px;
+  color: #fff;
+  background: #cd4845;
+  font-family: 'LemonMilkBold', sans-serif;
+  border-radius: 50%;
+  width: 109px;
+  height: 109px;
+  min-width: auto;
+  padding: 0;
+  margin: 0;
 }
 .nav-bottom {
   font-size: 20px;
@@ -252,10 +271,13 @@
 }
 .cap-container {
   position: absolute;
-  width: 616px;
-  top: 0;
-  left: 540px;
+  width: 590px;
+  top: 30px;
+  left: 555px;
   transform: translateX(-50%);
+}
+.cap-container svg {
+  width: 100%;
 }
 
 .still {
