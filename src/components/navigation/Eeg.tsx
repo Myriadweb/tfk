@@ -242,11 +242,7 @@ export default function Eeg({ prefix }: Props) {
   return (
     <animated.div>
       <div className='nav-top'>
-        <div className='header-text'>
-          {step != 9 && (
-            t(`${step}-mainText`)
-          )}
-        </div>
+        <div className='header-text'>{step != 9 && t(`${step}-mainText`)}</div>
         <div className='body-text'>
           {t(`${step}-subText`)}
           {step === 9 && (

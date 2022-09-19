@@ -239,7 +239,7 @@ const Iv = ({ prefix }: Props) => {
     ),
     11: () => (
       <>
-        <div className="nav-middle">
+        <div className='nav-middle'>
           <NavigationButton
             image={Skeletal}
             size={'large'}

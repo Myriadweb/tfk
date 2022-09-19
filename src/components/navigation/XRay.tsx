@@ -174,7 +174,10 @@ const XRay = ({ prefix }: Props) => {
   return (
     <animated.div className='nav-top'>
       <div className='nav-header'>
-        <div className='header-text' style={{ display: step != 6 ? 'block' : 'none' }}>
+        <div
+          className='header-text'
+          style={{ display: step != 6 ? 'block' : 'none' }}
+        >
           {t(`${step}-mainText`)}
         </div>
         <div className='body-text'>
