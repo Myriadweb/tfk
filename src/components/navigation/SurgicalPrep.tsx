@@ -64,14 +64,9 @@ const SurgicalPrep = ({ prefix }: Props) => {
         }}
       />
     ),
+    1: () => <BlueBar></BlueBar>,
     2: () => (
-      <BlueBar
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
+      <BlueBar>
         <div style={{ position: 'relative' }}>
           <img src={BpPumpBase} />
           <button
@@ -84,13 +79,13 @@ const SurgicalPrep = ({ prefix }: Props) => {
             }}
             onClick={() => {
               if (pumps >= 3) return;
-
+              playSound('surgicalPrepBloodPressure');
               const newPumpValue = pumps + 1;
               addPump((pumps) => pumps + 1);
               if (newPumpValue < 3) return;
 
               setTimeout(() => {
-                playSound('completeStep');
+                playSound('surgicalPrepAirRelease');
                 setStep({ step: 3 });
               }, 800);
             }}
@@ -119,6 +114,7 @@ const SurgicalPrep = ({ prefix }: Props) => {
         }}
       />
     ),
+    4: () => <BlueBar></BlueBar>,
     5: () => (
       <BlueBarContinue
         text={t(`${step}-buttonText`)}
@@ -128,51 +124,30 @@ const SurgicalPrep = ({ prefix }: Props) => {
         }}
       />
     ),
+    6: () => <BlueBar></BlueBar>,
     7: () => (
       <BlueBarContinue
         text={t(`${step}-buttonText`)}
         onClick={() => {
-          playSound('completeStep');
+          playSound('surgicalPrepBloodTourniquet');
           delayApi.set({ opacity: 0 });
           setStep({ step: 8 });
         }}
       />
     ),
+    8: () => <BlueBar></BlueBar>,
     9: () => (
-      <BlueBar
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        <div
-          style={{
-            margin: '0 auto',
-            display: 'flex',
-            justifyContent: 'space-around',
-            alignItems: 'center',
-            height: '100%',
-            width: 592,
-          }}
-        >
-          <NavigationButton
-            image={Mask}
-            size='small'
-            onClick={() => setStep({ step: 10 })}
-            text=''
-          />
-        </div>
+      <BlueBar>
+        <NavigationButton
+          image={Mask}
+          size='small'
+          onClick={() => setStep({ step: 10 })}
+          text=''
+        />
       </BlueBar>
     ),
     10: () => (
-      <BlueBar
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
+      <BlueBar>
         <AwakeFace style={{ marginRight: 60 }} />
         <CustomSlider
           callback={(value) => {
@@ -195,6 +170,7 @@ const SurgicalPrep = ({ prefix }: Props) => {
         }}
       />
     ),
+    12: () => <BlueBar></BlueBar>,
     13: () => (
       <BlueBarContinue
         text={t(`${step}-buttonText`)}
@@ -206,23 +182,8 @@ const SurgicalPrep = ({ prefix }: Props) => {
     ),
     14: () => (
       <>
-        <div
-          style={{
-            marginTop: 12,
-            background: '#0E1F33',
-            height: 192,
-          }}
-        >
-          <div
-            style={{
-              margin: '0 auto',
-              display: 'flex',
-              justifyContent: 'space-around',
-              alignItems: 'center',
-              height: '100%',
-              width: 592,
-            }}
-          >
+        <BlueBar style={{ height: 192 }}>
+          <div className='nav-items-container' style={{ width: 592 }}>
             <NavigationButton
               image={JuiceBox}
               size={value === 'juicebox' ? 'large' : 'small'}
@@ -248,17 +209,10 @@ const SurgicalPrep = ({ prefix }: Props) => {
               text=''
             />
           </div>
-        </div>
+        </BlueBar>
         <button
+          className='continue-button'
           style={{
-            fontFamily: 'LemonMilk',
-            fontSize: 20,
-            color: '#fff',
-            background: '#CD4845',
-            border: '1px solid #000',
-            borderRadius: 12,
-            width: 241,
-            height: 65,
             marginTop: 20,
           }}
           onClick={() => {
@@ -274,16 +228,7 @@ const SurgicalPrep = ({ prefix }: Props) => {
     ),
     15: () => (
       <>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-around',
-            alignItems: 'center',
-            marginTop: 49,
-            background: '#0E1F33',
-            height: 192,
-          }}
-        >
+        <BlueBar style={{ height: 192 }}>
           <NavigationButton
             image={Cardiovascular}
             size={'large'}
@@ -294,7 +239,7 @@ const SurgicalPrep = ({ prefix }: Props) => {
             }}
             text=''
           />
-        </div>
+        </BlueBar>
 
         <div
           style={{
@@ -334,57 +279,26 @@ const SurgicalPrep = ({ prefix }: Props) => {
   };
 
   return (
-    <>
-      <animated.div style={delayStyle}>
-        <span
+    <animated.div>
+      <div className='nav-top'>
+        <div
+          className='header-text'
           style={{
-            display: step !== 15 ? 'block' : 'none',
-            fontSize: 40,
-            color: '#FFF',
-            fontFamily: 'LemonMilk',
-            marginTop: 30,
-            letterSpacing: 2,
-            fontWeight: 'bolder',
-            minHeight: 54,
-            visibility: step !== 12 ? 'visible' : 'hidden',
+            display: step != 12 && step != 8 && step != 15 ? 'block' : 'none',
           }}
         >
           {t(`${step}-mainText`)}
-        </span>
-        <span
-          style={{
-            display: 'block',
-            fontSize: 20,
-            color: '#FFF',
-            fontFamily: 'LemonMilk',
-            marginTop: step !== 15 ? 12 : 45,
-            whiteSpace: 'pre',
-            minHeight: 54,
-            visibility: step !== 12 ? 'visible' : 'hidden',
-          }}
+        </div>
+        <div
+          className='body-text'
+          style={{ display: step != 12 && step != 8 ? 'block' : 'none' }}
         >
           {t(`${step}-subText`)}
-        </span>
-      </animated.div>
-      {step === 15 && (
-        <span
-          style={{
-            fontSize: 20,
-            color: '#FFF',
-            fontFamily: 'LemonMilk',
-            whiteSpace: 'pre',
-            fontWeight: 'bold',
-          }}
-        >
-          {t(`${step}-boldText`)}
-        </span>
-      )}
-      {shouldShowComponent && stepComponentConfig[step] ? (
-        stepComponentConfig[step]()
-      ) : (
-        <BlueBar />
-      )}
-    </>
+          {step === 15 && t(`${step}-boldText`)}
+        </div>
+      </div>
+      {stepComponentConfig[step] && stepComponentConfig[step]()}
+    </animated.div>
   );
 };
 

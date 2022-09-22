@@ -52,132 +52,69 @@ const Mri = ({ prefix }: Props) => {
   const stepComponentConfig = {
     0: () => (
       <>
-        <div
-          style={{
-            marginTop: 12,
-            background: '#0E1F33',
-            height: 192,
-          }}
-        >
-          <div
-            style={{
-              margin: '0 auto',
-              display: 'flex',
-              justifyContent: 'space-around',
-              alignItems: 'start',
-              height: '100%',
-              width: 592,
-              paddingTop: 19,
-            }}
-          >
-            <div>
-              <NavigationButton
-                image={Nap}
-                size={'small'}
-                onClick={() =>
-                  setStep((oldState) => ({
-                    ...oldState,
-                    step: 1,
-                    value: 'nap',
-                  }))
-                }
-                text=''
-              />
-              <span style={distractionTextStyle}> {t('nap')}</span>
-            </div>
-            <div>
-              <NavigationButton
-                image={VR}
-                size={'small'}
-                onClick={() =>
-                  setStep((oldState) => ({ ...oldState, step: 1, value: 'vr' }))
-                }
-                text=''
-              />
-              <span style={distractionTextStyle}> {t('vr')}</span>
-            </div>
-            <div>
-              <NavigationButton
-                image={Music}
-                size={'small'}
-                onClick={() =>
-                  setStep((oldState) => ({
-                    ...oldState,
-                    step: 1,
-                    value: 'music',
-                  }))
-                }
-                text=''
-              />
-              <span style={distractionTextStyle}> {t('music')}</span>
-            </div>
+        <div className='nav-items-container' style={{ width: 592 }}>
+          <div>
+            <NavigationButton
+              image={Nap}
+              size={'small'}
+              onClick={() =>
+                setStep((oldState) => ({
+                  ...oldState,
+                  step: 1,
+                  value: 'nap',
+                }))
+              }
+              text=''
+            />
+            <span style={distractionTextStyle}> {t('nap')}</span>
+          </div>
+          <div>
+            <NavigationButton
+              image={VR}
+              size={'small'}
+              onClick={() =>
+                setStep((oldState) => ({ ...oldState, step: 1, value: 'vr' }))
+              }
+              text=''
+            />
+            <span style={distractionTextStyle}> {t('vr')}</span>
+          </div>
+          <div>
+            <NavigationButton
+              image={Music}
+              size={'small'}
+              onClick={() =>
+                setStep((oldState) => ({
+                  ...oldState,
+                  step: 1,
+                  value: 'music',
+                }))
+              }
+              text=''
+            />
+            <span style={distractionTextStyle}> {t('music')}</span>
           </div>
         </div>
       </>
     ),
     1: () => (
-      <div
-        style={{
-          marginTop: 13,
-          background: '#0E1F33',
-          padding: '33px 0',
+      <button
+        className='continue-button'
+        onClick={() => {
+          playSound('completeStep');
+          delayApi.start({
+            opacity: 0,
+            config: {
+              duration: 1,
+            },
+          });
+          setStep((old) => ({ ...old, step: 2 }));
         }}
       >
-        <button
-          style={{
-            fontFamily: 'LemonMilk',
-            fontSize: 20,
-            color: '#fff',
-            background: '#CD4845',
-            border: '1px solid #000',
-            borderRadius: 12,
-            width: 241,
-            height: 65,
-          }}
-          onClick={() => {
-            playSound('completeStep');
-            delayApi.start({
-              opacity: 0,
-              config: {
-                duration: 1,
-              },
-            });
-            setStep((old) => ({ ...old, step: 2 }));
-          }}
-        >
-          {t(`${step}-buttonText`)} <Arrow />
-        </button>
-      </div>
+        {t(`${step}-buttonText`)} <Arrow />
+      </button>
     ),
     2: () => (
-      <div
-        style={{
-          marginTop: 13,
-          background: '#0E1F33',
-          padding: '5px 0',
-        }}
-      >
-        <button
-          style={{
-            fontFamily: 'LemonMilk',
-            fontSize: 20,
-            color: '#fff',
-            background: '#CD4845',
-            border: '1px solid #000',
-            borderRadius: 55,
-            width: 109,
-            height: 109,
-          }}
-          onClick={() => {
-            playSound('xRay');
-            setStep((old) => ({ ...old, step: 3 }));
-          }}
-        >
-          {t(`${step}-buttonText`)} <Arrow />
-        </button>
-      </div>
-    ),
-    4: () => (
       <button
         style={{
           fontFamily: 'LemonMilk',
@@ -185,11 +122,21 @@ const Mri = ({ prefix }: Props) => {
           color: '#fff',
           background: '#CD4845',
           border: '1px solid #000',
-          borderRadius: 12,
-          width: 241,
-          height: 65,
-          marginTop: 20,
+          borderRadius: 55,
+          width: 109,
+          height: 109,
         }}
+        onClick={() => {
+          playSound('xRay');
+          setStep((old) => ({ ...old, step: 3 }));
+        }}
+      >
+        {t(`${step}-buttonText`)} <Arrow />
+      </button>
+    ),
+    4: () => (
+      <button
+        className='continue-button'
         onClick={() => {
           playSound('completeProcedure');
           setStep((oldState) => ({ ...oldState, step: 5, hideButtons: true }));
@@ -200,60 +147,39 @@ const Mri = ({ prefix }: Props) => {
     ),
     5: () => (
       <>
-        <div
-          style={{
-            marginTop: 12,
-            background: '#0E1F33',
-            height: 192,
-          }}
-        >
-          <div
-            style={{
-              margin: '0 auto',
-              display: 'flex',
-              justifyContent: 'space-around',
-              alignItems: 'center',
-              height: '100%',
-              width: 592,
-            }}
-          >
-            <NavigationButton
-              image={Sticker}
-              size={value === 'sticker' ? 'large' : 'small'}
-              onClick={() =>
-                setStep((oldState) => ({ ...oldState, value: 'sticker' }))
-              }
-              text=''
-            />
-            <NavigationButton
-              image={Bear}
-              size={value === 'doll' ? 'large' : 'small'}
-              onClick={() =>
-                setStep((oldState) => ({ ...oldState, value: 'doll' }))
-              }
-              text=''
-            />
-            <NavigationButton
-              image={Medal}
-              size={value === 'medal' ? 'large' : 'small'}
-              onClick={() =>
-                setStep((oldState) => ({ ...oldState, value: 'medal' }))
-              }
-              text=''
-            />
-          </div>
+        <div className='nav-items-container' style={{ width: 592 }}>
+          <NavigationButton
+            image={Sticker}
+            size={value === 'sticker' ? 'large' : 'small'}
+            onClick={() =>
+              setStep((oldState) => ({ ...oldState, value: 'sticker' }))
+            }
+            text=''
+          />
+          <NavigationButton
+            image={Bear}
+            size={value === 'doll' ? 'large' : 'small'}
+            onClick={() =>
+              setStep((oldState) => ({ ...oldState, value: 'doll' }))
+            }
+            text=''
+          />
+          <NavigationButton
+            image={Medal}
+            size={value === 'medal' ? 'large' : 'small'}
+            onClick={() =>
+              setStep((oldState) => ({ ...oldState, value: 'medal' }))
+            }
+            text=''
+          />
         </div>
         <button
+          className='continue-button'
           style={{
-            fontFamily: 'LemonMilk',
-            fontSize: 20,
-            color: '#fff',
-            background: '#CD4845',
-            border: '1px solid #000',
-            borderRadius: 12,
-            width: 241,
-            height: 65,
-            marginTop: 20,
+            position: 'absolute',
+            bottom: 50,
+            left: '50%',
+            transform: 'translateX(-50%)',
           }}
           onClick={() => {
             if (!value) return; // if no value is selected, don't continue
@@ -268,16 +194,7 @@ const Mri = ({ prefix }: Props) => {
     ),
     6: () => (
       <>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-around',
-            alignItems: 'center',
-            marginTop: 49,
-            background: '#0E1F33',
-            height: 192,
-          }}
-        >
+        <div className='nav-items-container'>
           <NavigationButton
             image={Muscular}
             size={'large'}
@@ -331,49 +248,26 @@ const Mri = ({ prefix }: Props) => {
 
   return (
     <animated.div style={delayStyle}>
-      <>
-        <span
-          style={{
-            display: step !== 6 ? 'block' : 'none',
-            fontSize: 40,
-            color: '#FFF',
-            fontFamily: 'LemonMilk',
-            marginTop: 30,
-            letterSpacing: 2,
-            fontWeight: 'bolder',
-          }}
+      <div className='nav-top'>
+        <div
+          className='header-text'
+          style={{ display: step != 6 ? 'block' : 'none' }}
         >
           {t(`${step}-mainText`)}
-        </span>
-        {step !== 0 && (
-          <span
-            style={{
-              display: 'block',
-              fontSize: 20,
-              color: '#FFF',
-              fontFamily: 'LemonMilk',
-              marginTop: step !== 6 ? 12 : 45,
-              whiteSpace: 'pre',
-            }}
-          >
-            {t(`${step}-subText`)}
-          </span>
-        )}
-      </>
-      {step === 6 && (
-        <span
-          style={{
-            fontSize: 20,
-            color: '#FFF',
-            fontFamily: 'LemonMilk',
-            whiteSpace: 'pre',
-            fontWeight: 'bold',
-          }}
+        </div>
+        <div
+          className='body-text'
+          style={{ display: step != 0 ? 'block' : 'none' }}
         >
-          {t(`${step}-boldText`)}
-        </span>
-      )}
-      {stepComponentConfig[step] && stepComponentConfig[step]()}
+          {t(`${step}-subText`)}
+          {step === 6 && (
+            <span className='bold-text'>{t(`${step}-boldText`)}</span>
+          )}
+        </div>
+      </div>
+      <div className='nav-middle' style={{ padding: step < 5 ? 20 : 0 }}>
+        {stepComponentConfig[step] && stepComponentConfig[step]()}
+      </div>
     </animated.div>
   );
 };

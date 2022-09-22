@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-
+import playSound from '../../sound';
 import { useCharacterContext } from '../../state/character';
 import { Characters, sensoryChildWidth } from './ChildrenAssets/childrenAssets';
 import { Paths } from '../../types/Paths';
@@ -16,6 +16,7 @@ import { ReactComponent as ArteriesLine } from './CardiovascularAssets/arteriesL
 import { ReactComponent as VeinsLine } from './CardiovascularAssets/veinsLines.svg';
 import { columnLabelStyleLeft, columnLabelStyleRight } from './common';
 import { useTranslation } from 'react-i18next';
+import ReactPlayer from 'react-player';
 
 export default function CardiovascularGame() {
   const [{ step }, setGameState] = useGameContext();
@@ -27,7 +28,7 @@ export default function CardiovascularGame() {
     if (step === 1) {
       setTimeout(() => setGameState({ step: 2 }), 1000);
     } else if (step === 2) {
-      setTimeout(() => setGameState({ step: 3 }), 1000);
+      setTimeout(() => setGameState({ step: 3 }), 10000);
     } else if (step === 5) {
       setTimeout(() => setGameState({ step: 6 }), 1000);
     } else if (step === 6) {
@@ -74,14 +75,17 @@ export default function CardiovascularGame() {
           )}
         </>
       )}
-      {step === 2 && (
-        <Heart1
-          style={{
-            position: 'relative',
-            left: -155,
-          }}
-        />
-      )}
+      {step === 2 &&
+        (playSound('cardiovascularNormalHeartbeat'),
+        (
+          <ReactPlayer
+            className='react-player'
+            playing
+            url='../../animations/cardiovascular1.webm'
+            width='100%'
+            height='100%'
+          />
+        ))}
       {step === 3 && (
         <Heart2
           style={{

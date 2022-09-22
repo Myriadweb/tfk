@@ -5,6 +5,7 @@ import { DraggableImage } from './SharedComponents/DraggableImage';
 import playSound from '../../sound';
 import { ReactComponent as ChildBed } from './IvAssets/childBed.svg';
 import { ReactComponent as ChildBedSmiling } from './IvAssets/childBedSmiling.svg';
+import { ReactComponent as ChildBedSmiling2 } from './IvAssets/childBedSmiling4.svg';
 import Tablet from './IvAssets/tablet.svg';
 import Bubbles from './IvAssets/bubbles.svg';
 import Music from './SharedAssets/music.svg';
@@ -44,6 +45,7 @@ export default function IvGame() {
     opacity: 0,
     top: 533,
     left: 360,
+    scale: 0.75,
   }));
   const [needleComponentPhase, setNeedleComponentPhase] = React.useState(1);
 
@@ -65,6 +67,13 @@ export default function IvGame() {
         onRest: () => {
           trayApi.start({ transform: 'translateX(0px)' });
           targetApi.start({ opacity: 1 });
+          targetApi.start({
+            from: { scale: 0.75 },
+            to: { scale: 1 },
+            loop: () => ({
+              reverse: true,
+            }),
+          });
         },
       });
     } else if (step === 3) {
@@ -76,6 +85,13 @@ export default function IvGame() {
     } else if (step === 4) {
       trayApi.start({ transform: 'translateX(0px)' });
       targetApi.start({ opacity: 1 });
+      targetApi.start({
+        from: { scale: 0.75, top: 834, left: 237 },
+        to: { scale: 1, top: 834, left: 237 },
+        loop: () => ({
+          reverse: true,
+        }),
+      });
     } else if (step === 5) {
       targetApi.set({
         opacity: 0,
@@ -85,6 +101,13 @@ export default function IvGame() {
     } else if (step === 6) {
       trayApi.start({ transform: 'translateX(0px)' });
       targetApi.start({ opacity: 1 });
+      targetApi.start({
+        from: { scale: 0.75, top: 822, left: 268 },
+        to: { scale: 1, top: 822, left: 268 },
+        loop: () => ({
+          reverse: true,
+        }),
+      });
     } else if (step === 7) {
       targetApi.set({
         opacity: 0,
@@ -94,10 +117,20 @@ export default function IvGame() {
     } else if (step === 8) {
       trayApi.start({ transform: 'translateX(0px)' });
       targetApi.start({ opacity: 1 });
+      targetApi.start({
+        from: { scale: 0.75 },
+        to: { scale: 1 },
+        loop: () => ({
+          reverse: true,
+        }),
+      });
     }
   }, [step]);
 
-  const ChildComponent = step === 0 ? ChildBed : ChildBedSmiling;
+  let ChildComponent = step === 0 ? ChildBed : ChildBedSmiling;
+  if (step === 1 && value === 'bubbles') {
+    ChildComponent = ChildBedSmiling2;
+  }
 
   return (
     <>
@@ -110,7 +143,7 @@ export default function IvGame() {
               ...childStyle,
             }}
           >
-            <ChildComponent />
+            <ChildComponent style={{ width: 1080, height: 1811 }} />
           </animated.div>
 
           {step < 2 && (
@@ -152,7 +185,6 @@ export default function IvGame() {
             <animated.img
               style={{
                 position: 'absolute',
-                ...targetStyle,
                 left: 165,
                 top: 726,
               }}
@@ -243,7 +275,7 @@ export default function IvGame() {
                     newY > -467 &&
                     newY < -269
                   ) {
-                    playSound('completeStep');
+                    playSound('iVTourniquetNeedle');
                     trayApi.start({ transform: 'translateX(600px)' });
                     // A little hacky, but it helps to avoid errors in the console
                     setTimeout(() => setGameState({ step: 3 }), 1);
@@ -284,8 +316,8 @@ export default function IvGame() {
                 x={230}
                 y={95}
                 onComplete={(newX, newY) => {
-                  if (newX > -351 && newX < -244 && newY > -40 && newY < 180) {
-                    playSound('completeStep');
+                  if (newX > -400 && newX < -150 && newY > -100 && newY < 280) {
+                    playSound('iVTourniquetNeedle');
                     trayApi.start({ transform: 'translateX(600px)' });
                     // A little hacky, but it helps to avoid errors in the console
                     setTimeout(() => setGameState({ step: 7 }), 1);
@@ -360,7 +392,7 @@ export default function IvGame() {
               src={Doll}
               style={{
                 position: 'absolute',
-                left: 391,
+                left: 395,
                 top: 663,
               }}
             />

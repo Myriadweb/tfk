@@ -7,13 +7,7 @@ type BlueBarContinueProps = {
   onClick: (...args: any) => void;
 };
 export const BlueBarContinue = ({ text, onClick }: BlueBarContinueProps) => (
-  <BlueBar
-    style={{
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-    }}
-  >
+  <BlueBar>
     <ContinueButton text={text} onClick={onClick} />
   </BlueBar>
 );

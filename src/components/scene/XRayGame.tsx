@@ -7,9 +7,12 @@ import { ReactComponent as PainLines } from './XRayAssets/painLines.svg';
 import { ReactComponent as XRayBody } from './XRayAssets/xRayBody.svg';
 import { ReactComponent as Cast } from './XRayAssets/cast.svg';
 import { ReactComponent as Signature } from './XRayAssets/signature.svg';
+import { Characters } from './ChildrenAssets/childrenAssets';
 import { useGameContext } from '../../state/game';
 import playSound from '../../sound';
 import { useEffect } from 'react';
+
+const ChildFinalStep = Characters.default[4];
 
 export default function XRayGame() {
   const [{ step, value }, setStep] = useGameContext();
@@ -55,7 +58,7 @@ export default function XRayGame() {
   const scaleIt = () => {
     let n = 0;
 
-    playSound('completeStep');
+    playSound('xRay_Red_Spot');
 
     painLinesApi.start({
       from: { scale: 0.5, opacity: 0 },
@@ -146,15 +149,16 @@ export default function XRayGame() {
       )}
       {step >= 5 && (
         <>
-          <img
-            src={`images/MainMenu/child7.png`}
+          <div
             style={{
               position: 'absolute',
               left: '50%',
               top: 274,
               transform: 'translate(-50%, 0)',
             }}
-          />
+          >
+            <ChildFinalStep />
+          </div>
           <Cast
             style={{
               position: 'absolute',

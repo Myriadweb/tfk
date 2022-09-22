@@ -197,7 +197,7 @@ export default function MriGame() {
               style={{
                 position: 'absolute',
                 left: 278,
-                top: 656,
+                top: 630,
               }}
             />
           )}

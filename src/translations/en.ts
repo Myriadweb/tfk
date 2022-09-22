@@ -475,7 +475,7 @@ const en: Translation = {
         title: 'X-RAY',
       },
       scene: {
-        text: 'An x-ray machine takes pictures \nthat help doctors see through \nyour body to find injuries.',
+        text: 'An x-ray machine takes pictures that help doctors see through your body to find injuries.',
         label: 'X-RAY',
         buttonText: 'TAKE AN X-RAY',
         brokenBoneLabel: 'BROKEN BONE',
@@ -547,7 +547,7 @@ const en: Translation = {
         '8-subText':
           'The EEG test is finished. Choose a reward for the patient!',
         '8-buttonText': 'Continue',
-        '9-subText': 'You finished the EEG! Tap below to learn more about',
+        '9-subText': 'You finished the EEG! \nTap below to learn more about',
         '9-boldText': 'THE NERVOUS SYSTEM',
         '9-back': 'BACK TO\nPROCEDURES',
       },
@@ -617,6 +617,8 @@ const en: Translation = {
         '2-subText':
           "Start the MRI machine to take a \npicture of the patient's injury.",
         '2-buttonText': 'START',
+        '3-mainText': ' ',
+        '3-subText': ' ',
         '4-mainText': 'MRI RESULTS',
         '4-subText': "You found an injury in the patient's shoulder muscles.",
         '4-buttonText': 'FINISH',
@@ -648,7 +650,7 @@ const en: Translation = {
         '1-buttonText': 'CONTINUE',
         '2-mainText': 'PLACE A TOURNIQUET',
         '2-subText':
-          "A band around the patient's arm helps to find their veins.",
+          "A band around the patient's arm helps to \nfind their veins.",
         '3-mainText': 'GREAT JOB!',
         '3-subText': 'The patient is ready for the next step.',
         '3-buttonText': 'CONTINUE',
@@ -672,7 +674,7 @@ const en: Translation = {
         '10-mainText': 'ALL DONE!',
         '10-subText': 'The IV is in place. Choose a reward for the patient.',
         '10-buttonText': 'CONTINUE',
-        '11-subText': 'You inserted the IV! Tap below to learn more about',
+        '11-subText': 'You inserted the IV! \nTap below to learn more about',
         '11-boldText': 'THE CARDIOVASCULAR SYSTEM',
         '11-back': 'BACK TO\nPROCEDURES',
       },

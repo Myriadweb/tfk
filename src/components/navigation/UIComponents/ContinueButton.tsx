@@ -9,17 +9,9 @@ type Props = {
 const ContinueButton = ({ onClick, text }: Props) => {
   return (
     <button
-      style={{
-        fontFamily: 'LemonMilk',
-        fontSize: 20,
-        color: '#fff',
-        background: '#CD4845',
-        border: '1px solid #000',
-        borderRadius: 12,
-        width: 241,
-        height: 65,
-      }}
+      className='continue-button'
       onClick={onClick}
+      style={{ marginTop: 0 }}
     >
       {text} <Arrow />
     </button>

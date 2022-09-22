@@ -2,9 +2,9 @@ import * as React from 'react';
 import { animated, useSpring } from 'react-spring';
 import { ReactComponent as WellnessScene } from './WellnessAssets/wellnessScene.svg';
 import Tray from './SharedAssets/tray.png';
-import Thermometer from './WellnessAssets/thermometer.svg';
-import ThermometerActive from './WellnessAssets/thermometerActive.svg';
-import ThermometerResults from './WellnessAssets/thermometerResults.svg';
+import Thermometer from './WellnessAssets/thermometerNew.svg';
+import ThermometerActive from './WellnessAssets/thermometerActiveNew.svg';
+import ThermometerResults from './WellnessAssets/thermometerResultsNew.svg';
 import BPCuff from './SharedAssets/bpCuff.svg';
 import BPTarget from './SharedAssets/target.svg';
 import BPCuffOnArm from './SharedAssets/bpCuffOnArm.svg';
@@ -209,8 +209,8 @@ export default function WellnessGame() {
       <animated.img
         src={ThermometerComponent}
         style={{
-          left: 687,
-          top: 996,
+          left: 800,
+          top: 850,
           position: 'absolute',
           display: step < 3 ? 'block' : 'none',
           ...thermometerStyle,

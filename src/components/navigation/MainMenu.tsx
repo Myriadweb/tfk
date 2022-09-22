@@ -22,24 +22,13 @@ const MainMenu = ({ path }: Props) => {
   const [character] = useCharacterContext();
 
   const t = useNavBarTranslation(path);
-
+  const navigate = useNavigate();
   return (
-    <div>
-      <span
-        style={{
-          display: 'block',
-          fontSize: 20,
-          color: '#FFF',
-          fontFamily: 'LemonMilk',
-          marginTop: 45,
-        }}
-      >
-        {t('selectPath')}
-      </span>
+    <div className='nav-top'>
+      <div className='body-text'>{t('selectPath')}</div>
       <div
-        style={{
-          marginTop: 45,
-        }}
+        className='nav-items-container'
+        style={{ width: 700, marginTop: 40 }}
       >
         <Link
           style={{

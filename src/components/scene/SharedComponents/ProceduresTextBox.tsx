@@ -31,64 +31,18 @@ const ProceduresTextBox = ({
 
   return (
     <animated.div
+      className='procedures-box'
       style={{
-        position: 'absolute',
-        right: 28,
-        bottom: 32,
         ...animatedStyle,
       }}
     >
-      <div
-        style={{
-          display: 'inline-block',
-          background: '#30619C',
-          border: '#FFF 3px solid',
-          borderBottom: 'none',
-          fontSize: 30,
-          letterSpacing: 1.49,
-          padding: '8px 15px 6px',
-          color: '#FFF',
-          fontFamily: 'LemonMilk',
-          fontWeight: 'bold',
-          zIndex: -1,
-        }}
-      >
-        {label}
-      </div>
-      <div
-        style={{
-          background: '#103159',
-          border: '#FFF 3px solid',
-          borderRadius: '15px',
-          padding: '20px 53px 0 48px',
-          fontSize: 17,
-          color: '#FFF',
-          fontFamily: 'LemonMilk',
-          whiteSpace: 'pre-wrap',
-          margin: 0,
-          zIndex: 1,
-        }}
-      >
+      <div className='label'>{label}</div>
+      <div className='text'>
         <span style={{ display: 'inline-block', marginBottom: 20 }}>
           {text}
         </span>
         {buttonText && (
-          <button
-            style={{
-              height: 65,
-              borderRadius: '15px',
-              marginBottom: 21,
-              background: '#CD4845',
-              fontSize: 20,
-              color: '#FFF',
-              fontFamily: 'LemonMilk',
-              fontWeight: 'bold',
-              display: 'block',
-              padding: '0 20px',
-              width: '100%',
-            }}
-            onClick={clickHandler}
-          >
+          <button className='button' onClick={clickHandler}>
             {buttonText} <Arrow />
           </button>
         )}
