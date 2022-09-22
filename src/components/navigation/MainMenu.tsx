@@ -5,7 +5,6 @@ import { Paths } from '../../types/Paths';
 import playSound from '../../sound';
 import { useCharacterContext } from '../../state/character';
 
-
 type Props = {
   path: Paths;
 };
