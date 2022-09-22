@@ -55,7 +55,7 @@ const XRay = ({ prefix }: Props) => {
         <button
           className='start-button'
           onClick={() => {
-            playSound('xRay');
+            playSound('xRay_Machine');
             setStep({ step: 3 });
           }}
         >

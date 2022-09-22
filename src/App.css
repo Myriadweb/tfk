@@ -322,3 +322,7 @@
     opacity: 1;
   }
 }
+
+.react-player video {
+  object-fit: cover;
+}

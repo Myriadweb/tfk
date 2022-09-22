@@ -79,13 +79,13 @@ const SurgicalPrep = ({ prefix }: Props) => {
             }}
             onClick={() => {
               if (pumps >= 3) return;
-
+              playSound('surgicalPrepBloodPressure');
               const newPumpValue = pumps + 1;
               addPump((pumps) => pumps + 1);
               if (newPumpValue < 3) return;
 
               setTimeout(() => {
-                playSound('completeStep');
+                playSound('surgicalPrepAirRelease');
                 setStep({ step: 3 });
               }, 800);
             }}
@@ -129,7 +129,7 @@ const SurgicalPrep = ({ prefix }: Props) => {
       <BlueBarContinue
         text={t(`${step}-buttonText`)}
         onClick={() => {
-          playSound('completeStep');
+          playSound('surgicalPrepBloodTourniquet');
           delayApi.set({ opacity: 0 });
           setStep({ step: 8 });
         }}

@@ -58,7 +58,7 @@ export default function XRayGame() {
   const scaleIt = () => {
     let n = 0;
 
-    playSound('completeStep');
+    playSound('xRay_Red_Spot');
 
     painLinesApi.start({
       from: { scale: 0.5, opacity: 0 },
