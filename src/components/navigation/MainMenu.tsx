@@ -5,6 +5,7 @@ import { Paths } from '../../types/Paths';
 import playSound from '../../sound';
 import { useCharacterContext } from '../../state/character';
 
+
 type Props = {
   path: Paths;
 };
@@ -22,7 +23,6 @@ const MainMenu = ({ path }: Props) => {
   const [character] = useCharacterContext();
 
   const t = useNavBarTranslation(path);
-  const navigate = useNavigate();
   return (
     <div className='nav-top'>
       <div className='body-text'>{t('selectPath')}</div>
