@@ -33,21 +33,29 @@ const Sounds = {
   muscularAscending: new Audio('sounds/Muscular_Ascending.mp3'),
   muscularDescending: new Audio('sounds/Muscular_Descending.mp3'),
   negativeAlert: new Audio('sounds/Negative_Alert.mp3'),
-  nervousBrainSectionSelection: new Audio('sounds/Nervous_Brain_Section_Selection.mp3'),
+  nervousBrainSectionSelection: new Audio(
+    'sounds/Nervous_Brain_Section_Selection.mp3'
+  ),
   nervousBrainTurn: new Audio('sounds/Nervous_Brain_Turn.mp3'),
   positiveAlert: new Audio('sounds/Positive_Alert.mp3'),
   proprioceptionFeather: new Audio('sounds/Proprioception_Feather.mp3'),
   proprioceptionHeavy: new Audio('sounds/Proprioception_Heavy.mp3'),
   sightHot: new Audio('sounds/Sight_Hot.mp3'),
   sightMoon: new Audio('sounds/Sight_Moon.mp3'),
-  skeletalBoneRightPosition: new Audio('sounds/Skeletal_Bone_Right_Position.mp3'),
-  skeletalBoneWrongPosition: new Audio('sounds/Skeletal_Bone_Wrong_Position.mp3'),
+  skeletalBoneRightPosition: new Audio(
+    'sounds/Skeletal_Bone_Right_Position.mp3'
+  ),
+  skeletalBoneWrongPosition: new Audio(
+    'sounds/Skeletal_Bone_Wrong_Position.mp3'
+  ),
   smellBad: new Audio('sounds/Smell_Bad.mp3'),
   smellGood: new Audio('sounds/Smell_Good.mp3'),
   smellsBad: new Audio('sounds/Smells_Bad.mp3'),
   smellsGood: new Audio('sounds/Smells_Good.mp3'),
   surgicalPrepAirRelease: new Audio('sounds/Surgical_Prep_Air_Release.mp3'),
-  surgicalPrepBloodPressure: new Audio('sounds/Surgical_Prep_Blood_Pressure.mp3'),
+  surgicalPrepBloodPressure: new Audio(
+    'sounds/Surgical_Prep_Blood_Pressure.mp3'
+  ),
   surgicalPrepBloodTourniquet: new Audio('sounds/Surgical_Prep_Tourniquet.mp3'),
   tasteGood: new Audio('sounds/Taste_Good.mp3'),
   tasteHot: new Audio('sounds/Taste_Hot.mp3'),

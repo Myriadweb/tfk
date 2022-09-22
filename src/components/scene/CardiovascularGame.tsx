@@ -18,7 +18,6 @@ import { columnLabelStyleLeft, columnLabelStyleRight } from './common';
 import { useTranslation } from 'react-i18next';
 import ReactPlayer from 'react-player';
 
-
 export default function CardiovascularGame() {
   const [{ step }, setGameState] = useGameContext();
   const [selectedCharacter] = useCharacterContext();
@@ -76,10 +75,17 @@ export default function CardiovascularGame() {
           )}
         </>
       )}
-      {step === 2 && (
-        playSound('cardiovascularNormalHeartbeat'),
-        <ReactPlayer className="react-player" playing url="../../animations/cardiovascular1.webm" width="100%" height="100%" />
-      )}
+      {step === 2 &&
+        (playSound('cardiovascularNormalHeartbeat'),
+        (
+          <ReactPlayer
+            className='react-player'
+            playing
+            url='../../animations/cardiovascular1.webm'
+            width='100%'
+            height='100%'
+          />
+        ))}
       {step === 3 && (
         <Heart2
           style={{
