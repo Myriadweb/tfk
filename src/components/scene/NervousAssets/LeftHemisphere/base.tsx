@@ -1,5 +1,5 @@
 import { CSSProperties } from 'react';
-import { Highlight } from '../../nervousGame';
+import { Highlight } from '../../NervousGame';
 import * as React from 'react';
 
 export default function LeftHemisphereBax({

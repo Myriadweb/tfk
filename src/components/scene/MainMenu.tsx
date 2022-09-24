@@ -1,42 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useSpring, animated } from 'react-spring';
-import { CharacterArray, useCharacterContext } from '../../state/character';
+import { Character, useCharacterContext } from '../../state/character';
 import { Characters } from './ChildrenAssets/childrenAssets';
-
-type AnimatedChildProps = {
-  i: number;
-  x: number;
-};
-
-const AnimatedChild = ({ i, x }: AnimatedChildProps) => {
-  const ref = useRef(null);
-  const props = useSpring({
-    to: { left: x },
-    from: { left: ref.current ? ref.current.left : x },
-    delay: 100,
-    config: {
-      duration: 500,
-    },
-  });
-
-  const ChildComponent = Characters.default[i];
-
-  return (
-    <animated.div
-      key={i}
-      style={{
-        position: 'absolute',
-        left: x,
-        top: 274,
-        transform: 'translate(-50%, 0)',
-        ...props,
-      }}
-      ref={ref}
-    >
-      <ChildComponent />
-    </animated.div>
-  );
-};
 
 type AnimatedArrowProps = {
   direction: 'left' | 'right';
@@ -63,33 +28,99 @@ const AnimatedArrow = ({
       transform: 'translate(-50%, 0)',
       ...style,
     }}
-    onPointerDown={() => onClick(direction)}
+    onPointerDown={() => !disabled && onClick(direction)}
   />
 );
 
-const getCurrentPosition = (x: number) => ((x - 540) * -1) / 1080;
+const SlidingChild = ({ i }: { i: number }) => {
+  const [previousChild, setPreviousChild] = useState(i);
+  const [prevStyle, prevApi] = useSpring(() => ({
+    left: 540,
+  }));
+  const [currentStyle, currentApi] = useSpring(() => ({
+    left: 540,
+  }));
+
+  const PreviousChild = Characters.default[previousChild];
+  const CurrentChild = Characters.default[i];
+
+  useEffect(() => {
+    if (i === previousChild) return;
+
+    let sign;
+
+    if (previousChild === 0 && i === 5) {
+      sign = -1;
+    } else if ((i === 0 && previousChild === 5) || i > previousChild) {
+      sign = 1;
+    } else {
+      sign = -1;
+    }
+
+    prevApi.start({
+      left: -sign * 1080 + 540,
+      config: {
+        duration: 600,
+      },
+    });
+
+    currentApi.start({
+      from: {
+        left: sign * 1080 + 540,
+      },
+      to: {
+        left: 540,
+      },
+      config: {
+        duration: 600,
+      },
+      onRest: () => {
+        setPreviousChild(i);
+        prevApi.set({ left: 540 });
+      },
+    });
+  }, [i]);
+
+  return (
+    <>
+      <animated.div
+        style={{
+          position: 'absolute',
+          top: 274,
+          transform: 'translate(-50%, 0)',
+          ...prevStyle,
+        }}
+      >
+        <PreviousChild />
+      </animated.div>
+      <animated.div
+        style={{
+          position: 'absolute',
+          top: 274,
+          transform: 'translate(-50%, 0)',
+          ...currentStyle,
+        }}
+      >
+        <CurrentChild />
+      </animated.div>
+    </>
+  );
+};
 
 export function MainMenu() {
   const [selectedChild, setChild] = useCharacterContext();
-  const [x, setX] = useState(540 - selectedChild * 1080);
   const [disabled, setDisabled] = useState<'left' | 'right' | null>(null);
   const [arrowStyles, api] = useSpring(() => ({ opacity: 1 }));
 
+  console.debug(selectedChild);
+
   useEffect(() => {
     if (disabled) {
-      setTimeout(() => setDisabled(null), 500);
+      setTimeout(() => setDisabled(null), 700);
     }
   }, [disabled]);
 
-  const currentPosition = ((x - 540) * -1) / 1080;
-
   const handleArrowClick = async (direction: 'left' | 'right') => {
-    if (
-      (direction === 'left' && currentPosition >= CharacterArray.length - 1) ||
-      (direction === 'right' && currentPosition <= 0)
-    )
-      return;
-
     api.start({
       to: [{ opacity: 0 }, { opacity: 1 }],
       from: { opacity: 1 },
@@ -97,19 +128,19 @@ export function MainMenu() {
 
     setDisabled(direction);
 
-    const sign = direction === 'left' ? -1 : 1;
-
-    const newX = x + sign * 1080;
-    setX(newX);
-    const newPosition = getCurrentPosition(newX);
-    setChild(newPosition);
+    setChild((oldPosition) => {
+      if (direction === 'left') {
+        if (oldPosition === 5) return 0;
+        return oldPosition + 1;
+      }
+      if (oldPosition === 0) return 5;
+      return oldPosition - 1;
+    });
   };
 
   return (
     <>
-      {CharacterArray.map((character, i) => (
-        <AnimatedChild i={i} x={x + 1080 * i} key={i} />
-      ))}
+      <SlidingChild i={selectedChild} />
       <AnimatedArrow
         disabled={disabled}
         onClick={handleArrowClick}

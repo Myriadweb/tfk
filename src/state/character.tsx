@@ -9,15 +9,8 @@ export enum Character {
   'child6',
 }
 
-export const CharacterArray = Object.values(Character).slice(
-  0,
-  Object.values(Character).length / 2
-);
-
 // eslint-disable-next-line @typescript-eslint/no-empty-function
-const CharacterContext: Context<
-  [Character, Dispatch<SetStateAction<Character>>]
-> =
+const CharacterContext: Context<[number, Dispatch<SetStateAction<Character>>]> =
   // @ts-ignore
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   React.createContext();
