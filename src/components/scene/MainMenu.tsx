@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useSpring, animated } from 'react-spring';
-import { Character, useCharacterContext } from '../../state/character';
+import { useCharacterContext } from '../../state/character';
 import { Characters } from './ChildrenAssets/childrenAssets';
 
 type AnimatedArrowProps = {
