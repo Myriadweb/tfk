@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useSpring, animated } from 'react-spring';
+import { useSpring, animated, easings } from 'react-spring';
 import { useCharacterContext } from '../../state/character';
 import { Characters } from './ChildrenAssets/childrenAssets';
 
@@ -61,6 +61,7 @@ const SlidingChild = ({ i }: { i: number }) => {
       left: -sign * 1080 + 540,
       config: {
         duration: 600,
+        easing: easings.linear,
       },
     });
 
@@ -73,6 +74,7 @@ const SlidingChild = ({ i }: { i: number }) => {
       },
       config: {
         duration: 600,
+        easing: easings.linear,
       },
       onRest: () => {
         setPreviousChild(i);
