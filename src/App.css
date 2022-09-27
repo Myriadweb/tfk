@@ -105,7 +105,6 @@
 .nav-middle {
   background: #0e1f33;
   text-align: center;
-  min-height: 115px;
   color: white;
   font-size: 20px;
   white-space: pre-wrap;
@@ -131,14 +130,19 @@
 }
 .nav-item {
   position: relative;
+  max-height: 191px;
 }
 .nav-item .nav-text {
+  font-family: LemonMilk;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
   font-size: 25px;
-  font-family: 'LemonMilkBold', sans-serif;
-  display: block;
-  margin-top: 20px;
-  margin-bottom: -50px;
-  letter-spacing: 1.25px;
+  letter-spacing: 1.24px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: calc(50% + 130px);
+  width: 200%;
 }
 .header-text {
   font-size: 40px;
@@ -150,6 +154,11 @@
   margin-top: 12px;
   white-space: pre;
 }
+
+.body-text-digestive {
+  min-height: 54px;
+}
+
 .bold-text {
   font-family: 'LemonMilkBold', sans-serif;
   display: block;

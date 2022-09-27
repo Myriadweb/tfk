@@ -92,6 +92,7 @@ const Digestive = ({ prefix }: Props) => {
     8: () => (
       <div
         style={{
+          position: 'relative',
           display: 'flex',
           alignItems: 'center',
           alignSelf: 'flex-start',
@@ -114,9 +115,9 @@ const Digestive = ({ prefix }: Props) => {
           style={{
             position: 'absolute',
             color: 'white',
-            top: 130,
+            top: 100,
             transform: 'translateX(-50%)',
-            left: 540,
+            left: '50%',
             fontSize: 22,
           }}
         >
@@ -187,7 +188,7 @@ const Digestive = ({ prefix }: Props) => {
     <animated.div>
       <div className='nav-top'>
         <div
-          className='body-text'
+          className='body-text body-text-digestive'
           style={{
             fontSize: step !== 16 ? 20 : 40,
             visibility: [6, 7, 9, 10, 12, 14].includes(step)

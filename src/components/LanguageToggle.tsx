@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import React from 'react';
 import { Language, useLanguageContext } from '../state/language';
 import { useSpring, animated } from 'react-spring';
+import { useAnimateContext } from '../state/animate';
 
 const langStyle = {
   fontSize: 20,
@@ -13,6 +14,7 @@ const langStyle = {
 export const LanguageToggle = () => {
   const { t } = useTranslation('translation');
   const [lang, setLang] = useLanguageContext();
+  const [, setAnimation] = useAnimateContext();
   const [toggleStyle, toggleApi] = useSpring(() => ({
     from: {
       left: lang === Language.en ? 70 : 120,
@@ -27,6 +29,8 @@ export const LanguageToggle = () => {
       to: [{ left: lang === Language.en ? 120 : 70 }],
       from: { left: lang === Language.en ? 70 : 120 },
     });
+
+    setAnimation('');
 
     setLang(lang === 'en' ? 'es' : 'en');
   };

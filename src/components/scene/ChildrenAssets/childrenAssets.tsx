@@ -17,6 +17,8 @@ import Child1Breathe from './Child1/breathe.png';
 import { ReactComponent as Child1HitFloor } from './Child1/hitFloor.svg';
 import Child1Protection from './Child1/protection.svg';
 import { ReactComponent as Child1HappyStanding } from './Child1/happyStanding.svg';
+import { ReactComponent as Child1DigestiveEyesOpen } from './Child1/digestiveEyesOpen.svg';
+import { ReactComponent as Child1DigestiveEyesClosed } from './Child1/digestiveEyesClosed.svg';
 
 import { ReactComponent as Child2 } from './Child2/default.svg';
 import { ReactComponent as Child2Worried } from './Child2/worried.svg';
@@ -34,6 +36,8 @@ import Child2Breathe from './Child2/breathe.svg';
 import { ReactComponent as Child2HitFloor } from './Child2/hitFloor.svg';
 import Child2Protection from './Child2/protection.svg';
 import { ReactComponent as Child2HappyStanding } from './Child2/happyStanding.svg';
+import { ReactComponent as Child2DigestiveEyesOpen } from './Child2/digestiveEyesOpen.svg';
+import { ReactComponent as Child2DigestiveEyesClosed } from './Child2/digestiveEyesClosed.svg';
 
 import Child3 from './Child3/default.png';
 import { ReactComponent as Child3Worried } from './Child3/worried.svg';
@@ -52,6 +56,8 @@ import Child3Breathe from './Child3/breathe.svg';
 import { ReactComponent as Child3HitFloor } from './Child3/hitFloor.svg';
 import Child3Protection from './Child3/protection.svg';
 import { ReactComponent as Child3HappyStanding } from './Child3/happyStanding.svg';
+import { ReactComponent as Child3DigestiveEyesOpen } from './Child3/digestiveEyesOpen.svg';
+import { ReactComponent as Child3DigestiveEyesClosed } from './Child3/digestiveEyesClosed.svg';
 
 import { ReactComponent as Child4 } from './Child4/default.svg';
 import { ReactComponent as Child4Worried } from './Child4/worried.svg';
@@ -69,6 +75,8 @@ import Child4Breathe from './Child4/breathe.svg';
 import { ReactComponent as Child4HitFloor } from './Child4/hitFloor.svg';
 import Child4Protection from './Child4/protection.svg';
 import { ReactComponent as Child4HappyStanding } from './Child4/happyStanding.svg';
+import { ReactComponent as Child4DigestiveEyesOpen } from './Child4/digestiveEyesOpen.svg';
+import { ReactComponent as Child4DigestiveEyesClosed } from './Child4/digestiveEyesClosed.svg';
 
 import { ReactComponent as Child5 } from './Child5/default.svg';
 import { ReactComponent as Child5Worried } from './Child5/worried.svg';
@@ -86,6 +94,8 @@ import Child5Breathe from './Child5/breathe.png';
 import { ReactComponent as Child5HitFloor } from './Child5/hitFloor.svg';
 import Child5Protection from './Child5/protection.svg';
 import { ReactComponent as Child5HappyStanding } from './Child5/happyStanding.svg';
+import { ReactComponent as Child5DigestiveEyesOpen } from './Child5/digestiveEyesOpen.svg';
+import { ReactComponent as Child5DigestiveEyesClosed } from './Child5/digestiveEyesClosed.svg';
 
 import { ReactComponent as Child6 } from './Child6/default.svg';
 import { ReactComponent as Child6Worried } from './Child6/worried.svg';
@@ -103,6 +113,8 @@ import Child6Breathe from './Child6/breathe.svg';
 import { ReactComponent as Child6HitFloor } from './Child6/hitFloor.svg';
 import Child6Protection from './Child6/protection.svg';
 import { ReactComponent as Child6HappyStanding } from './Child6/happyStanding.svg';
+import { ReactComponent as Child6DigestiveEyesOpen } from './Child6/digestiveEyesOpen.svg';
+import { ReactComponent as Child6DigestiveEyesClosed } from './Child6/digestiveEyesClosed.svg';
 
 import { ReactComponent as SmockRaw } from '../XRayAssets/smock.svg';
 
@@ -478,6 +490,104 @@ const MouthOpenCharacters = {
   ),
 };
 
+const DigestiveEyesOpen = {
+  [Character.child1]: () => (
+    <span style={{ position: 'relative' }}>
+      <Child1 style={SensoryStyle} />
+      <Child1DigestiveEyesOpen style={{ ...SensoryHeadStyle, top: 7 }} />
+    </span>
+  ),
+  [Character.child2]: () => (
+    <span style={{ position: 'relative' }}>
+      <Child2 style={SensoryStyle} />
+      <Child2DigestiveEyesOpen
+        style={{ ...SensoryHeadStyle, left: 8, top: 2 }}
+      />
+    </span>
+  ),
+  [Character.child3]: () => (
+    <span style={{ position: 'relative' }}>
+      <Child3Standing style={SensoryStyle} />
+      <Child3DigestiveEyesOpen
+        style={{ ...SensoryHeadStyle, left: 8, top: 2 }}
+      />
+    </span>
+  ),
+  [Character.child4]: () => (
+    <span style={{ position: 'relative' }}>
+      <Child4 style={SensoryStyle} />
+      <Child4DigestiveEyesOpen
+        style={{ ...SensoryHeadStyle, left: 5, top: 2 }}
+      />
+    </span>
+  ),
+  [Character.child5]: () => (
+    <span style={{ position: 'relative' }}>
+      <Child5 style={SensoryStyle} />
+      <Child5DigestiveEyesOpen
+        style={{ ...SensoryHeadStyle, left: 0, top: 2 }}
+      />
+    </span>
+  ),
+  [Character.child6]: () => (
+    <span style={{ position: 'relative' }}>
+      <Child6 style={SensoryStyle} />
+      <Child6DigestiveEyesOpen
+        style={{ ...SensoryHeadStyle, left: 8, top: 2 }}
+      />
+    </span>
+  ),
+};
+
+const DigestiveEyesClosed = {
+  [Character.child1]: () => (
+    <span style={{ position: 'relative' }}>
+      <Child1 style={SensoryStyle} />
+      <Child1DigestiveEyesClosed style={{ ...SensoryHeadStyle, top: 7 }} />
+    </span>
+  ),
+  [Character.child2]: () => (
+    <span style={{ position: 'relative' }}>
+      <Child2 style={SensoryStyle} />
+      <Child2DigestiveEyesClosed
+        style={{ ...SensoryHeadStyle, left: 8, top: 2 }}
+      />
+    </span>
+  ),
+  [Character.child3]: () => (
+    <span style={{ position: 'relative' }}>
+      <Child3Standing style={SensoryStyle} />
+      <Child3DigestiveEyesClosed
+        style={{ ...SensoryHeadStyle, left: 8, top: 2 }}
+      />
+    </span>
+  ),
+  [Character.child4]: () => (
+    <span style={{ position: 'relative' }}>
+      <Child4 style={SensoryStyle} />
+      <Child4DigestiveEyesClosed
+        style={{ ...SensoryHeadStyle, left: 5, top: 2 }}
+      />
+    </span>
+  ),
+  [Character.child5]: () => (
+    <span style={{ position: 'relative' }}>
+      <Child5 style={SensoryStyle} />
+      <Child5DigestiveEyesClosed
+        style={{ ...SensoryHeadStyle, left: 0, top: 2 }}
+      />
+    </span>
+  ),
+  [Character.child6]: () => (
+    <span style={{ position: 'relative' }}>
+      <Child6 style={SensoryStyle} />
+      <Child6DigestiveEyesClosed
+        style={{ ...SensoryHeadStyle, left: 8, top: 2 }}
+      />
+    </span>
+  ),
+};
+
 const HotSauceCharacters = {
   [Character.child1]: () => (
     <span style={{ position: 'relative' }}>
@@ -801,6 +911,8 @@ export const Characters: {
   hitFloor: { [key in Character]: React.FC };
   protection: { [key in Character]: string };
   happy: { [key in Character]: string };
+  digestiveEyesOpen: { [key in Character]: React.FC };
+  digestiveEyesClosed: { [key in Character]: React.FC };
 } = {
   default: DefaultCharacters,
   worried: WorriedCharacters,
@@ -819,4 +931,6 @@ export const Characters: {
   hitFloor: HitFloorCharacters,
   protection: ProtectionCharacters,
   happy: HappyCharacters,
+  digestiveEyesOpen: DigestiveEyesOpen,
+  digestiveEyesClosed: DigestiveEyesClosed,
 };
