@@ -5,9 +5,9 @@ import { useSpring, animated } from 'react-spring';
 import { useState } from 'react';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { Paths } from '../../types/Paths';
-import Hearing from './SensoryAssets/Teammates_Systems_Sensory_Assets_Hearing.svg';
-import HearingHighlight from './SensoryAssets/Teammates_Systems_Sensory_Assets_Sensory_Hearing&Vestibular_Highlight.png';
-import HearingLabel from './SensoryAssets/Teammates_Systems_Sensory_Assets_Callouts_Hearing.svg';
+import HearingHighlight from './SensoryAssets/hearingVestibularHighlight.png';
+import AnimatedLabel from './AnimatedLabel';
+
 const labelStyle = {
   background: '#30619C',
   border: '#FFF 3px solid',
@@ -28,7 +28,22 @@ export default function Sensory() {
   const { t } = useTranslation('translation');
   const navigate = useNavigate();
 
-  const [isActive, setIsActive] = useState(false);
+  const [highlighted, setHiglighted] = useState('');
+
+  const handleLongPress = (
+    e: React.PointerEvent<HTMLSpanElement>,
+    bodyPart: string
+  ) => {
+    e.preventDefault();
+
+    setHiglighted(bodyPart);
+  };
+
+  const handleRelease = () => {
+    setHiglighted('');
+  };
+
+  console.debug(highlighted);
 
   const shouldShowIntroAnimation =
     animatedPath === `${Paths.BodySystems}/${Paths.Sensory}`;
@@ -89,6 +104,16 @@ export default function Sensory() {
           ...bodyStyle,
         }}
       />
+      {/* This is the highlight. We put it here and then play with its opacity based on the value of higlighted */}
+      <img
+        src={HearingHighlight}
+        style={{
+          top: 453,
+          position: 'absolute',
+          transform: 'translate(-50%, 0)',
+          opacity: ['hearing', 'vestibular'].includes(highlighted) ? 1 : 0,
+        }}
+      />
       <animated.img
         src='images/Sensory/sensoryLabels.png'
         style={{
@@ -99,45 +124,19 @@ export default function Sensory() {
           ...overlayStyle,
         }}
       />
-      <animated.img
-        src={HearingLabel}
-        style={{
-          top: 221,
-          position: 'absolute',
-          right: 97,
-        }}
-        id='hearingLabel'
-      />
-      <animated.img
-        src={Hearing}
-        style={{
-          top: 465,
-          position: 'absolute',
-          transform: 'translate(-50%, 0)',
-          ...bodyStyle,
-        }}
-      />
-      <animated.img
-        src={HearingHighlight}
-        style={{
-          top: 465,
-          position: 'absolute',
-          transform: 'translate(-50%, 0)',
-          opacity: 0,
-          ...bodyStyle,
-        }}
-        id='hearingHighlight'
-      />
-      <animated.span
+      {/* This needs to be done for all spans */}
+      <AnimatedLabel
         style={{
           ...labelStyle,
           ...overlayStyle,
           top: 388,
           left: 901,
         }}
+        value='hearing'
+        setterFn={setHiglighted}
       >
         {t('sensory.scene.hearing')}
-      </animated.span>
+      </AnimatedLabel>
       <animated.span
         style={{
           ...labelStyle,
