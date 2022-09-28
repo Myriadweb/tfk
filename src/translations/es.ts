@@ -109,7 +109,7 @@ const es: Translation = {
         cerebellum: 'CEREBELO',
         nerves: 'NERVIOS',
         brainStem: 'TRONCO\nENCEFÁLICO',
-        spinalCord: 'MÉDULA\nESPINAL',
+        spinalCord: 'MÉDULA ESPINAL',
       },
     },
     [Paths.Digestive]: {

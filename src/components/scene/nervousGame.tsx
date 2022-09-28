@@ -107,6 +107,15 @@ export default function NervousGame() {
       <BG style={{ position: 'absolute', left: 0, top: 0 }} />
       {hemisphere === 'leftHemisphere' && (
         <>
+          <img
+            src={leftHemisphereImgs.backing}
+            style={{
+              position: 'absolute',
+              transform: 'translateX(-50%)',
+              left: 528,
+              top: 634,
+            }}
+          />
           <LeftHemisphere
             style={{
               position: 'absolute',
@@ -273,6 +282,15 @@ export default function NervousGame() {
       )}
       {hemisphere === 'rightHemisphere' && (
         <>
+          <img
+            src={rightHemisphereImgs.backing}
+            style={{
+              position: 'absolute',
+              transform: 'translateX(-50%)',
+              left: 557,
+              top: 634,
+            }}
+          />
           <RightHemisphere
             style={{
               position: 'absolute',
@@ -439,6 +457,15 @@ export default function NervousGame() {
       )}
       {hemisphere === 'frontView' && (
         <>
+          <img
+            src={frontImgs.backing}
+            style={{
+              position: 'absolute',
+              transform: 'translateX(-50%)',
+              left: 540,
+              top: 634,
+            }}
+          />
           <FrontView
             style={{
               position: 'absolute',

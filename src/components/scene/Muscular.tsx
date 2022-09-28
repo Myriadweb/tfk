@@ -7,6 +7,7 @@ import { Paths } from '../../types/Paths';
 import { columnLabelStyleLeft, columnLabelStyleRight } from './common';
 import { CSSProperties } from 'react';
 import Labels from './MuscularAssets/labels.svg';
+import { useLanguageContext } from '../../state/language';
 
 const bodyLeft = 540;
 
@@ -18,6 +19,8 @@ const muscularLabelStyle = {
 
 export default function Muscular() {
   const [animatedPath] = useAnimateContext();
+  const [language] = useLanguageContext();
+
   const { t } = useTranslation('translation');
   const navigate = useNavigate();
   const shouldShowIntroAnimation =
@@ -133,6 +136,7 @@ export default function Muscular() {
           ...columnLabelStyleLeft,
           ...overlayStyle,
           top: 1176,
+          left: language === 'es' ? 16 : columnLabelStyleLeft.left,
         }}
       >
         {t('muscular.scene.hamstrings')}
@@ -170,6 +174,7 @@ export default function Muscular() {
           ...overlayStyle,
           ...muscularLabelStyle,
           top: 737,
+          right: language === 'es' ? 50 : columnLabelStyleRight.right,
         }}
       >
         {t('muscular.scene.gluteus')}
