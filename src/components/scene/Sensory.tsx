@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAnimateContext } from '../../state/animate';
 import { useSpring, animated } from 'react-spring';
-import { useState } from "react";
+import { useState } from 'react';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { Paths } from '../../types/Paths';
 import Hearing from './SensoryAssets/Teammates_Systems_Sensory_Assets_Hearing.svg';
@@ -106,7 +106,7 @@ export default function Sensory() {
           position: 'absolute',
           right: 97,
         }}
-        id="hearingLabel"
+        id='hearingLabel'
       />
       <animated.img
         src={Hearing}
@@ -114,7 +114,7 @@ export default function Sensory() {
           top: 465,
           position: 'absolute',
           transform: 'translate(-50%, 0)',
-          ...bodyStyle
+          ...bodyStyle,
         }}
       />
       <animated.img
@@ -124,9 +124,9 @@ export default function Sensory() {
           position: 'absolute',
           transform: 'translate(-50%, 0)',
           opacity: 0,
-          ...bodyStyle
+          ...bodyStyle,
         }}
-        id="hearingHighlight"
+        id='hearingHighlight'
       />
       <animated.span
         style={{
