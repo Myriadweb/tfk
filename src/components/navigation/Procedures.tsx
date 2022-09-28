@@ -9,6 +9,7 @@ import Wellness from './Procedures/Wellness.svg';
 import XRay from './Procedures/XRay.svg';
 import NavigationButton from './UIComponents/NavigationButton';
 import { useAnimateContext } from '../../state/animate';
+import { useEffect, useState } from 'react';
 
 type Props = {
   path: Paths;
@@ -18,9 +19,19 @@ type Props = {
 const Procedures = ({ path, prefix }: Props) => {
   const t = useNavBarTranslation(prefix);
   const [, setAnimatedPath] = useAnimateContext();
+  const [buttonsDisabled, setButtonsDisabled] = useState(false);
+
+  useEffect(() => {
+    if (buttonsDisabled) {
+      setButtonsDisabled(false);
+    }
+  }, [path]);
 
   const onClickHandler = (destination: Paths) => {
-    if (path === destination) return;
+    if (path === destination || buttonsDisabled) return;
+
+    setButtonsDisabled(true);
+
     setAnimatedPath(Paths.Procedures + '/' + destination);
   };
 
@@ -29,7 +40,7 @@ const Procedures = ({ path, prefix }: Props) => {
       <div className='nav-top'>
         <div className='body-text'>{t('selectPath')}</div>
       </div>
-      <div className='nav-middle'>
+      <div className='nav-middle' style={{ height: 191 }}>
         <div
           className='nav-items-container'
           style={{ paddingLeft: 20, paddingRight: 30 }}

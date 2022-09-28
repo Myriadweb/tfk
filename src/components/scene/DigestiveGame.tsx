@@ -14,7 +14,6 @@ import ChewMeter3 from './DigestiveAssets/chewMeter3.svg';
 import BG from './DigestiveAssets/bg.png';
 import DigestiveSystem from './DigestiveAssets/digestiveSystem.svg';
 import Oval from './DigestiveAssets/oval.png';
-import Stomach from './DigestiveAssets/stomachXRayView.svg';
 import StomachLines from './DigestiveAssets/stomachLeaderLine.svg';
 import StomachOverlay from './DigestiveAssets/stomachOverlay.png';
 import SmallIntestineLine from './DigestiveAssets/smallIntestineLeaderLine.svg';
@@ -27,12 +26,24 @@ import Waste from './DigestiveAssets/waste.svg';
 import { useSpring, animated } from 'react-spring';
 import { columnLabelStyle } from './common';
 import { Trans, useTranslation } from 'react-i18next';
+import ReactPlayer from 'react-player';
+
+const STEP_TO_CHILD_CONFIG = {
+  0: 'mouthOpen',
+  1: 'digestiveEyesOpen',
+};
 
 export default function DigestiveGame() {
   const [selectedCharacter] = useCharacterContext();
   const [{ step }, setGameState] = useGameContext();
   const location = useLocation();
   const { t } = useTranslation('translation');
+  const [appleStyle, appleApi] = useSpring(() => ({
+    transform: 'translate(0px, 0px)',
+  }));
+  const [iceCreamStyle, iceCreamApi] = useSpring(() => ({
+    transform: 'translate(0px, 0px)',
+  }));
   const [bodySystemStyle, bodySystemApi] = useSpring(
     () =>
       ({
@@ -47,7 +58,7 @@ export default function DigestiveGame() {
   const [ovalStyle, ovalApi] = useSpring(
     () =>
       ({
-        transform: 'translate(-50%, 0px)',
+        transform: 'translate(-38px, 0px)',
       } as CSSProperties)
   );
   const [stomachStyle, stomachApi] = useSpring(() => ({
@@ -70,6 +81,20 @@ export default function DigestiveGame() {
   const [largeIntestineStyle, largeIntestineApi] = useSpring(() => ({
     opacity: 0,
   }));
+
+  const onAppleClick = () => {
+    appleApi.start({
+      transform: 'translate(134px, -300px)',
+      onRest: () => setGameState({ step: 1 }),
+    });
+  };
+
+  const onIceCreamClick = () => {
+    iceCreamApi.start({
+      transform: 'translate(-100px, -200px)',
+      onRest: () => setGameState({ step: 1 }),
+    });
+  };
 
   React.useEffect(() => {
     if (step === 6) {
@@ -188,7 +213,9 @@ export default function DigestiveGame() {
     return <Navigate to={'/' + Paths.BodySystems + '/' + Paths.Digestive} />;
   }
 
-  const ChildComponent = Characters.mouthOpen[selectedCharacter];
+  const childAsset = STEP_TO_CHILD_CONFIG[step] || 'digestiveEyesClosed';
+
+  const ChildComponent = Characters[childAsset][selectedCharacter];
   const width = sensoryChildWidth;
 
   return (
@@ -213,7 +240,7 @@ export default function DigestiveGame() {
             src={StomachOverlay}
             style={{
               position: 'absolute',
-              top: 0,
+              top: -200,
               left: 0,
               ...stomachOverlaysStyle,
             }}
@@ -227,15 +254,22 @@ export default function DigestiveGame() {
               ...smallIntestineOverlaysStyle,
             }}
           />
-          <animated.img
-            src={Stomach}
+          <animated.div
             style={{
               position: 'absolute',
-              top: 527,
-              left: 584,
+              top: -427,
+              left: -17,
               ...stomachStyle,
             }}
-          />
+          >
+            <ReactPlayer
+              playing
+              loop
+              url='../../animations/digestive1.webm'
+              width='100%'
+              height='100%'
+            />
+          </animated.div>
           <animated.img
             src={StomachLines}
             style={{
@@ -361,23 +395,25 @@ export default function DigestiveGame() {
       )}
       {step === 0 && (
         <>
-          <img
+          <animated.img
             src={Apple}
             style={{
               position: 'absolute',
               top: 1003,
               left: 283,
+              ...appleStyle,
             }}
-            onClick={() => setGameState({ step: 1 })}
+            onClick={() => onAppleClick()}
           />
-          <img
+          <animated.img
             src={IceCream}
             style={{
               position: 'absolute',
               top: 945,
               left: 560,
+              ...iceCreamStyle,
             }}
-            onClick={() => setGameState({ step: 1 })}
+            onClick={() => onIceCreamClick()}
           />
         </>
       )}
@@ -402,7 +438,7 @@ export default function DigestiveGame() {
           />
         </>
       )}
-      {step === 2 && (
+      {[2, 3, 4].includes(step) && (
         <img
           src={ChewMeter1}
           style={{
@@ -413,7 +449,7 @@ export default function DigestiveGame() {
           }}
         />
       )}
-      {step === 3 && (
+      {[3, 4].includes(step) && (
         <img
           src={ChewMeter2}
           style={{

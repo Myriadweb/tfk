@@ -9,6 +9,7 @@ import Sensory from './BodySystemsAssets/Sensory.svg';
 import Skeletal from './BodySystemsAssets/Skeletal.svg';
 import NavigationButton from './UIComponents/NavigationButton';
 import { useAnimateContext } from '../../state/animate';
+import { useEffect, useState } from 'react';
 
 type Props = {
   path: Paths;
@@ -18,9 +19,19 @@ type Props = {
 const BodySystems = ({ path, prefix }: Props) => {
   const t = useNavBarTranslation(prefix);
   const [, setAnimatedPath] = useAnimateContext();
+  const [buttonsDisabled, setButtonsDisabled] = useState(false);
+
+  useEffect(() => {
+    if (buttonsDisabled) {
+      setButtonsDisabled(false);
+    }
+  }, [path]);
 
   const onClickHandler = (destination: Paths) => {
-    if (path === destination) return;
+    if (destination === path || buttonsDisabled) return;
+
+    setButtonsDisabled(true);
+
     setAnimatedPath(Paths.BodySystems + '/' + destination);
   };
 
@@ -29,7 +40,7 @@ const BodySystems = ({ path, prefix }: Props) => {
       <div className='nav-top'>
         <div className='body-text'>{t('selectPath')}</div>
       </div>
-      <div className='nav-middle'>
+      <div className='nav-middle' style={{ height: 191 }}>
         <div className='nav-items-container'>
           <NavigationButton
             image={Sensory}

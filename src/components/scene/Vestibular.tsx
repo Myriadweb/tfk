@@ -17,6 +17,7 @@ import JumpLines from './VestibularAssets/jumpLines.svg';
 import { useCharacterContext } from '../../state/character';
 import { Characters } from './ChildrenAssets/childrenAssets';
 import { useGameContext } from '../../state/game';
+import ReactPlayer from 'react-player';
 
 const valueType = 'badVestibular';
 const finalValueType = valueType + '-final';
@@ -92,9 +93,9 @@ export default function Vestibular() {
     }
 
     setTornadoAnimation(true);
+
     setTimeout(() => {
       setSensoryState('bad');
-      setTornadoAnimation(false);
     }, 2000);
   };
 
@@ -185,17 +186,6 @@ export default function Vestibular() {
           />
         </>
       )}
-      {tornadoAnimation && (
-        <img
-          src={Tornado}
-          style={{
-            position: 'absolute',
-            left: 540,
-            top: 0,
-            transform: 'translateX(-50%)',
-          }}
-        />
-      )}
       <div
         style={{
           position: 'absolute',
@@ -217,6 +207,25 @@ export default function Vestibular() {
             ...starsStyle,
           }}
         />
+      )}
+      {tornadoAnimation && (
+        <animated.div
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+          }}
+        >
+          <ReactPlayer
+            playing
+            url='../../animations/vestibular.webm'
+            width='100%'
+            height='100%'
+            onEnded={() => {
+              setTornadoAnimation(false);
+            }}
+          />
+        </animated.div>
       )}
       {value === finalValueType && (
         <animated.img

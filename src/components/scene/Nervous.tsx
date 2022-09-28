@@ -6,11 +6,13 @@ import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { Paths } from '../../types/Paths';
 import { columnLabelStyleLeft, columnLabelStyleRight } from './common';
 import NervousGame from './NervousAssets/nervousMain.svg';
+import { useLanguageContext } from '../../state/language';
 
 const bodyLeft = 540;
 
 export default function Nervous() {
   const [animatedPath] = useAnimateContext();
+  const [language] = useLanguageContext();
   const { t } = useTranslation('translation');
   const navigate = useNavigate();
   const shouldShowIntroAnimation =
@@ -109,7 +111,7 @@ export default function Nervous() {
         style={{
           ...columnLabelStyleRight,
           ...overlayStyle,
-          top: 474,
+          top: language === 'es' ? 449 : 474,
         }}
       >
         {t('nervous.scene.brainStem')}

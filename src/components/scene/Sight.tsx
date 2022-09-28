@@ -89,7 +89,7 @@ export default function Sight() {
         style={{
           position: 'absolute',
           left: 540,
-          top: 276,
+          top: 270,
           transform: `translate(-${width / 2}px, 0)`,
         }}
       >

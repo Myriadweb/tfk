@@ -11,6 +11,7 @@ export const labelStyle = {
   position: 'absolute',
   fontFamily: 'LemonMilk',
   fontWeight: 'bold',
+  whiteSpace: 'pre',
 } as React.CSSProperties;
 
 export const columnLabelStyle = {
