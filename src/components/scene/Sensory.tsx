@@ -2,9 +2,12 @@ import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAnimateContext } from '../../state/animate';
 import { useSpring, animated } from 'react-spring';
+import { useState } from "react";
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { Paths } from '../../types/Paths';
-
+import Hearing from './SensoryAssets/Teammates_Systems_Sensory_Assets_Hearing.svg';
+import HearingHighlight from './SensoryAssets/Teammates_Systems_Sensory_Assets_Sensory_Hearing&Vestibular_Highlight.png';
+import HearingLabel from './SensoryAssets/Teammates_Systems_Sensory_Assets_Callouts_Hearing.svg';
 const labelStyle = {
   background: '#30619C',
   border: '#FFF 3px solid',
@@ -24,6 +27,8 @@ export default function Sensory() {
   const [animatedPath] = useAnimateContext();
   const { t } = useTranslation('translation');
   const navigate = useNavigate();
+
+  const [isActive, setIsActive] = useState(false);
 
   const shouldShowIntroAnimation =
     animatedPath === `${Paths.BodySystems}/${Paths.Sensory}`;
@@ -93,6 +98,35 @@ export default function Sensory() {
           transform: 'translate(-50%, 0)',
           ...overlayStyle,
         }}
+      />
+      <animated.img
+        src={HearingLabel}
+        style={{
+          top: 221,
+          position: 'absolute',
+          right: 97,
+        }}
+        id="hearingLabel"
+      />
+      <animated.img
+        src={Hearing}
+        style={{
+          top: 465,
+          position: 'absolute',
+          transform: 'translate(-50%, 0)',
+          ...bodyStyle
+        }}
+      />
+      <animated.img
+        src={HearingHighlight}
+        style={{
+          top: 465,
+          position: 'absolute',
+          transform: 'translate(-50%, 0)',
+          opacity: 0,
+          ...bodyStyle
+        }}
+        id="hearingHighlight"
       />
       <animated.span
         style={{
