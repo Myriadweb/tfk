@@ -10,7 +10,7 @@ import SkeletalGame from './SkeletalGame';
 const bodyLeft = 540;
 
 export default function Skeletal() {
-  const [animatedPath] = useAnimateContext();
+  const [animatedPath, setAnimatedPath] = useAnimateContext();
   const { t } = useTranslation('translation');
   const shouldShowIntroAnimation =
     animatedPath === `${Paths.BodySystems}/${Paths.Skeletal}`;
@@ -28,6 +28,7 @@ export default function Skeletal() {
     config: {
       duration: 500,
     },
+    onRest: () => setTimeout(() => setAnimatedPath(''), 0),
   }));
   const navigate = useNavigate();
   const location = useLocation();

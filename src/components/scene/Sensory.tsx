@@ -24,26 +24,11 @@ const labelStyle = {
 const bodyLeft = 540;
 
 export default function Sensory() {
-  const [animatedPath] = useAnimateContext();
+  const [animatedPath, setAnimatedPath] = useAnimateContext();
   const { t } = useTranslation('translation');
   const navigate = useNavigate();
 
   const [highlighted, setHiglighted] = useState('');
-
-  const handleLongPress = (
-    e: React.PointerEvent<HTMLSpanElement>,
-    bodyPart: string
-  ) => {
-    e.preventDefault();
-
-    setHiglighted(bodyPart);
-  };
-
-  const handleRelease = () => {
-    setHiglighted('');
-  };
-
-  console.debug(highlighted);
 
   const shouldShowIntroAnimation =
     animatedPath === `${Paths.BodySystems}/${Paths.Sensory}`;
@@ -62,6 +47,7 @@ export default function Sensory() {
     config: {
       duration: 500,
     },
+    onRest: () => setTimeout(() => setAnimatedPath(''), 0),
   }));
   const location = useLocation();
 

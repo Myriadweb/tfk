@@ -11,7 +11,7 @@ import { useLanguageContext } from '../../state/language';
 const bodyLeft = 540;
 
 export default function Nervous() {
-  const [animatedPath] = useAnimateContext();
+  const [animatedPath, setAnimatedPath] = useAnimateContext();
   const [language] = useLanguageContext();
   const { t } = useTranslation('translation');
   const navigate = useNavigate();
@@ -31,6 +31,7 @@ export default function Nervous() {
     config: {
       duration: 500,
     },
+    onRest: () => setTimeout(() => setAnimatedPath(''), 0),
   }));
   const location = useLocation();
 

@@ -18,7 +18,7 @@ const muscularLabelStyle = {
 } as CSSProperties;
 
 export default function Muscular() {
-  const [animatedPath] = useAnimateContext();
+  const [animatedPath, setAnimatedPath] = useAnimateContext();
   const [language] = useLanguageContext();
 
   const { t } = useTranslation('translation');
@@ -39,6 +39,7 @@ export default function Muscular() {
     config: {
       duration: 500,
     },
+    onRest: () => setTimeout(() => setAnimatedPath(''), 0),
   }));
   const location = useLocation();
 

@@ -16,7 +16,7 @@ const digestiveLabelStyle = {
 } as CSSProperties;
 
 export default function Digestive() {
-  const [animatedPath] = useAnimateContext();
+  const [animatedPath, setAnimatedPath] = useAnimateContext();
   const { t } = useTranslation('translation');
   const navigate = useNavigate();
   const shouldShowIntroAnimation =
@@ -35,6 +35,7 @@ export default function Digestive() {
     config: {
       duration: 500,
     },
+    onRest: () => setTimeout(() => setAnimatedPath(''), 0),
   }));
   const location = useLocation();
 
