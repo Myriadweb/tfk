@@ -6,7 +6,11 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Paths } from '../../types/Paths';
 import { columnLabelStyleLeft, columnLabelStyleRight } from './common';
 import SkeletalGame from './SkeletalGame';
-
+import AnimatedLabel from './AnimatedLabel';
+import {useState} from "react";
+import SkullHighlight from "./SkeletalAssets/skullHighlight.png";
+import MandibleHighlight from './SkeletalAssets/mandibleHighlight.png'
+import ClaviclesHighlight from './SkeletalAssets/claviclesHighlight.png'
 const bodyLeft = 540;
 
 export default function Skeletal() {
@@ -35,6 +39,10 @@ export default function Skeletal() {
   const isGame =
     location.pathname ===
     `/${Paths.BodySystems}/${Paths.Skeletal}/${Paths.Game}`;
+
+  const [highlighted, setHighlighted] = useState('');
+
+  console.debug(highlighted);
 
   // if we have an animated path, we need to show the slide in animation
   if (
@@ -102,33 +110,66 @@ export default function Skeletal() {
           ...overlayStyle,
         }}
       />
-      <animated.span
+      <img
+        src={SkullHighlight}
+        style={{
+          top: 330,
+          position: 'absolute',
+          transform: 'translate(-50%, 0)',
+          opacity: ['skull'].includes(highlighted) ? 1 : 0,
+        }}
+      />
+      <img
+        src={MandibleHighlight}
+        style={{
+          top: 330,
+          position: 'absolute',
+          transform: 'translate(-50%, 0)',
+          opacity: ['mandible'].includes(highlighted) ? 1 : 0,
+        }}
+      />
+      <img
+        src={ClaviclesHighlight}
+        style={{
+          top: 330,
+          position: 'absolute',
+          transform: 'translate(-50%, 0)',
+          opacity: ['clavicle'].includes(highlighted) ? 1 : 0,
+        }}
+      />
+      <AnimatedLabel
         style={{
           ...columnLabelStyleLeft,
           ...overlayStyle,
           top: 264,
         }}
+        value='skull'
+        setterFn={setHighlighted}
       >
         {t('skeletal.scene.skull')}
-      </animated.span>
-      <animated.span
+      </AnimatedLabel>
+      <AnimatedLabel
         style={{
           ...columnLabelStyleLeft,
           ...overlayStyle,
           top: 350,
         }}
+        value='mandible'
+        setterFn={setHighlighted}
       >
         {t('skeletal.scene.mandible')}
-      </animated.span>
-      <animated.span
+      </AnimatedLabel>
+      <AnimatedLabel
         style={{
           ...columnLabelStyleLeft,
           ...overlayStyle,
           top: 429,
         }}
+        value='clavicle'
+        setterFn={setHighlighted}
       >
         {t('skeletal.scene.clavicle')}
-      </animated.span>
+      </AnimatedLabel>
       <animated.span
         style={{
           ...columnLabelStyleLeft,
