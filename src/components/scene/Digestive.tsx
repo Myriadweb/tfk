@@ -5,7 +5,13 @@ import { animated, useSpring } from 'react-spring';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { Paths } from '../../types/Paths';
 import { columnLabelStyleLeft, columnLabelStyleRight } from './common';
-import { CSSProperties } from 'react';
+import {CSSProperties, useState} from 'react';
+import AnimatedLabel from "./AnimatedLabel";
+import GallbladderHighlight from './DigestiveAssets/gallbladderHighlight.png';
+import LargeIntestineHighlight from './DigestiveAssets/largeIntestineHighlight.png';
+import LiverHighlight from './DigestiveAssets/liverHighlight.png';
+import SmallIntestineHighlight from './DigestiveAssets/smallIntestineHighlight.png';
+import StomachHighlight from './DigestiveAssets/stomachHighlight.png';
 
 const bodyLeft = 540;
 
@@ -38,6 +44,7 @@ export default function Digestive() {
     onRest: () => setTimeout(() => setAnimatedPath(''), 0),
   }));
   const location = useLocation();
+  const [highlighted, setHighlighted] = useState('');
 
   if (location.search === '?play=true') {
     return <Navigate to={Paths.Game + '?play=true'} />;
@@ -84,7 +91,52 @@ export default function Digestive() {
           ...overlayStyle,
         }}
       />
-      <animated.span
+      <img
+        src={GallbladderHighlight}
+        style={{
+          top: 743,
+          left: 470,
+          position: 'absolute',
+          opacity: ['gallbladder'].includes(highlighted) ? 1 : 0,
+        }}
+      />
+      <img
+        src={LargeIntestineHighlight}
+        style={{
+          top: 777,
+          position: 'absolute',
+          transform: 'translate(-50%, 0)',
+          opacity: ['largeIntestine'].includes(highlighted) ? 1 : 0,
+        }}
+      />
+      <img
+        src={LiverHighlight}
+        style={{
+          top: 678,
+          position: 'absolute',
+          transform: 'translate(-80%, 0)',
+          opacity: ['liver'].includes(highlighted) ? 1 : 0,
+        }}
+      />
+      <img
+        src={SmallIntestineHighlight}
+        style={{
+          top: 803,
+          position: 'absolute',
+          transform: 'translate(-50%, 0)',
+          opacity: ['smallIntestine'].includes(highlighted) ? 1 : 0,
+        }}
+      />
+      <img
+        src={StomachHighlight}
+        style={{
+          top: 672,
+          position: 'absolute',
+          transform: 'translate(-25%, 0)',
+          opacity: ['stomach'].includes(highlighted) ? 1 : 0,
+        }}
+      />
+      <AnimatedLabel
         style={{
           ...columnLabelStyleLeft,
           ...overlayStyle,
@@ -92,19 +144,23 @@ export default function Digestive() {
           top: 576,
           padding: '5px 12px 7px',
         }}
+        value='esophagus'
+        setterFn={setHighlighted}
       >
         {t('digestive.scene.esophagus')}
-      </animated.span>
-      <animated.span
+      </AnimatedLabel>
+      <AnimatedLabel
         style={{
           ...columnLabelStyleLeft,
           ...overlayStyle,
           top: 653,
         }}
+        value='liver'
+        setterFn={setHighlighted}
       >
         {t('digestive.scene.liver')}
-      </animated.span>
-      <animated.span
+      </AnimatedLabel>
+      <AnimatedLabel
         style={{
           ...columnLabelStyleLeft,
           ...overlayStyle,
@@ -113,74 +169,90 @@ export default function Digestive() {
           whiteSpace: 'pre-wrap',
           padding: '5px 12px 7px',
         }}
+        value='gallbladder'
+        setterFn={setHighlighted}
       >
         {t('digestive.scene.gallbladder')}
-      </animated.span>
-      <animated.span
+      </AnimatedLabel>
+      <AnimatedLabel
         style={{
           ...columnLabelStyleLeft,
           ...overlayStyle,
           ...digestiveLabelStyle,
           top: 823,
         }}
+        value='largeIntestine'
+        setterFn={setHighlighted}
       >
         {t('digestive.scene.largeIntestine')}
-      </animated.span>
-      <animated.span
+      </AnimatedLabel>
+      <AnimatedLabel
         style={{
           ...columnLabelStyleLeft,
           ...overlayStyle,
           top: 934,
         }}
+        value='appendix'
+        setterFn={setHighlighted}
       >
         {t('digestive.scene.appendix')}
-      </animated.span>
-      <animated.span
+      </AnimatedLabel>
+      <AnimatedLabel
         style={{
           ...columnLabelStyleLeft,
           ...overlayStyle,
           top: 1014,
         }}
+        value='rectum'
+        setterFn={setHighlighted}
       >
         {t('digestive.scene.rectum')}
-      </animated.span>
-      <animated.span
+      </AnimatedLabel>
+      <AnimatedLabel
         style={{
           ...columnLabelStyleRight,
           ...overlayStyle,
           top: 521,
         }}
+        value='mouth'
+        setterFn={setHighlighted}
       >
         {t('digestive.scene.mouth')}
-      </animated.span>
-      <animated.span
+      </AnimatedLabel>
+      <AnimatedLabel
         style={{
           ...columnLabelStyleRight,
           ...overlayStyle,
           top: 604,
         }}
+        value='stomach'
+        setterFn={setHighlighted}
       >
         {t('digestive.scene.stomach')}
-      </animated.span>
-      <animated.span
+      </AnimatedLabel>
+      <AnimatedLabel
         style={{
           ...columnLabelStyleRight,
           ...overlayStyle,
           ...digestiveLabelStyle,
           top: 726,
         }}
+        value='smallIntestine'
+        setterFn={setHighlighted}
       >
         {t('digestive.scene.smallIntestine')}
-      </animated.span>
-      <animated.span
+      </AnimatedLabel>
+      <AnimatedLabel
         style={{
           ...columnLabelStyleRight,
           ...overlayStyle,
           top: 862,
         }}
+        value='anus'
+        setterFn={setHighlighted}
       >
         {t('digestive.scene.anus')}
-      </animated.span>
+      </AnimatedLabel>
     </>
   );
 }

@@ -23,6 +23,7 @@ import RadiusHighlight from './SkeletalAssets/radiusHighlight.png';
 import RibcageHighlight from './SkeletalAssets/ribcageHighlight.png';
 import ScapulaHighlight from './SkeletalAssets/scapulaHighlight.png';
 import SternumHighlight from './SkeletalAssets/sternumHighlight.png';
+import TarsalsHighlight from './SkeletalAssets/tarsalsHighlight.png';
 import TibiaHighlight from './SkeletalAssets/tibiaHighlight.png';
 import UlnaHighlight from './SkeletalAssets/ulnaHighlight.png';
 import VertebraeHighlight from './SkeletalAssets/vertebraeHighlight.png';
@@ -81,14 +82,6 @@ export default function Skeletal() {
       delay: 300,
       onRest: () => navigate('/' + animatedPath),
     });
-  } else {
-    overlayApi.start({
-      to: [{ opacity: 1 }],
-      from: { opacity: 0 },
-      config: {
-        duration: 500,
-      },
-    });
   }
 
   if (!isGame && location.search === '?play=true') {
@@ -139,7 +132,7 @@ export default function Skeletal() {
       <img
         src={MandibleHighlight}
         style={{
-          top: 330,
+          top: 500,
           position: 'absolute',
           transform: 'translate(-50%, 0)',
           opacity: ['mandible'].includes(highlighted) ? 1 : 0,
@@ -148,10 +141,154 @@ export default function Skeletal() {
       <img
         src={ClaviclesHighlight}
         style={{
-          top: 330,
+          top: 610,
           position: 'absolute',
           transform: 'translate(-50%, 0)',
           opacity: ['clavicle'].includes(highlighted) ? 1 : 0,
+        }}
+      />
+      <img
+        src={ScapulaHighlight}
+        style={{
+          top: 615,
+          position: 'absolute',
+          transform: 'translate(-50%, 0)',
+          opacity: ['scapula'].includes(highlighted) ? 1 : 0,
+        }}
+      />
+      <img
+        src={RibcageHighlight}
+        style={{
+          top: 600,
+          position: 'absolute',
+          transform: 'translate(-50%, 0)',
+          opacity: ['ribs'].includes(highlighted) ? 1 : 0,
+        }}
+      />
+      <img
+        src={PelvisHighlight}
+        style={{
+          top: 805,
+          position: 'absolute',
+          transform: 'translate(-50%, 0)',
+          opacity: ['pelvis'].includes(highlighted) ? 1 : 0,
+        }}
+      />
+      <img
+        src={CarpalsHighlight}
+        style={{
+          top: 810,
+          position: 'absolute',
+          transform: 'translate(-50%, 0)',
+          opacity: ['wrist'].includes(highlighted) ? 1 : 0,
+        }}
+      />
+      <img
+        src={MetacarpalsHighlight}
+        style={{
+          top: 820,
+          position: 'absolute',
+          transform: 'translate(-50%, 0)',
+          opacity: ['hand'].includes(highlighted) ? 1 : 0,
+        }}
+      />
+      <img
+        src={FemurHighlight}
+        style={{
+          top: 850,
+          position: 'absolute',
+          transform: 'translate(-50%, 0)',
+          opacity: ['femur'].includes(highlighted) ? 1 : 0,
+        }}
+      />
+      <img
+        src={TibiaHighlight}
+        style={{
+          top: 1000,
+          position: 'absolute',
+          transform: 'translate(-50%, 0)',
+          opacity: ['tibia'].includes(highlighted) ? 1 : 0,
+        }}
+      />
+      <img
+        src={TarsalsHighlight}
+        style={{
+          top: 1155,
+          position: 'absolute',
+          transform: 'translate(-50%, 0)',
+          opacity: ['ankles'].includes(highlighted) ? 1 : 0,
+        }}
+      />
+      <img
+        src={MetatarsalsHighlight}
+        style={{
+          top: 1160,
+          position: 'absolute',
+          transform: 'translate(-50%, 0)',
+          opacity: ['feet'].includes(highlighted) ? 1 : 0,
+        }}
+      />
+      <img
+        src={SternumHighlight}
+        style={{
+          top: 610,
+          position: 'absolute',
+          transform: 'translate(-50%, 0)',
+          opacity: ['sternum'].includes(highlighted) ? 1 : 0,
+        }}
+      />
+      <img
+        src={VertebraeHighlight}
+        style={{
+          top: 600,
+          position: 'absolute',
+          transform: 'translate(-50%, 0)',
+          opacity: ['vertebrae'].includes(highlighted) ? 1 : 0,
+        }}
+      />
+      <img
+        src={HumerusHighlight}
+        style={{
+          top: 625,
+          position: 'absolute',
+          transform: 'translate(-50%, 0)',
+          opacity: ['humerus'].includes(highlighted) ? 1 : 0,
+        }}
+      />
+      <img
+        src={RadiusHighlight}
+        style={{
+          top: 735,
+          position: 'absolute',
+          transform: 'translate(-50%, 0)',
+          opacity: ['radius'].includes(highlighted) ? 1 : 0,
+        }}
+      />
+      <img
+        src={UlnaHighlight}
+        style={{
+          top: 745,
+          position: 'absolute',
+          transform: 'translate(-50%, 0)',
+          opacity: ['ulna'].includes(highlighted) ? 1 : 0,
+        }}
+      />
+      <img
+        src={PatellaHighlight}
+        style={{
+          top: 985,
+          position: 'absolute',
+          transform: 'translate(-50%, 0)',
+          opacity: ['patella'].includes(highlighted) ? 1 : 0,
+        }}
+      />
+      <img
+        src={FibulaHighlight}
+        style={{
+          top: 1010,
+          position: 'absolute',
+          transform: 'translate(-50%, 0)',
+          opacity: ['fibula'].includes(highlighted) ? 1 : 0,
         }}
       />
       <AnimatedLabel
@@ -187,150 +324,182 @@ export default function Skeletal() {
       >
         {t('skeletal.scene.clavicle')}
       </AnimatedLabel>
-      <animated.span
+      <AnimatedLabel
         style={{
           ...columnLabelStyleLeft,
           ...overlayStyle,
           top: 510,
         }}
+        value='scapula'
+        setterFn={setHighlighted}
       >
         {t('skeletal.scene.scapula')}
-      </animated.span>
-      <animated.span
+      </AnimatedLabel>
+      <AnimatedLabel
         style={{
           ...columnLabelStyleLeft,
           ...overlayStyle,
           top: 591,
         }}
+        value='ribs'
+        setterFn={setHighlighted}
       >
         {t('skeletal.scene.ribs')}
-      </animated.span>
-      <animated.span
+      </AnimatedLabel>
+      <AnimatedLabel
         style={{
           ...columnLabelStyleLeft,
           ...overlayStyle,
           top: 683,
         }}
+        value='pelvis'
+        setterFn={setHighlighted}
       >
         {t('skeletal.scene.pelvis')}
-      </animated.span>
-      <animated.span
+      </AnimatedLabel>
+      <AnimatedLabel
         style={{
           ...columnLabelStyleLeft,
           ...overlayStyle,
           top: 760,
         }}
+        value='wrist'
+        setterFn={setHighlighted}
       >
         {t('skeletal.scene.wrist')}
-      </animated.span>
-      <animated.span
+      </AnimatedLabel>
+      <AnimatedLabel
         style={{
           ...columnLabelStyleLeft,
           ...overlayStyle,
           top: 842,
         }}
+        value='hand'
+        setterFn={setHighlighted}
       >
         {t('skeletal.scene.hand')}
-      </animated.span>
-      <animated.span
+      </AnimatedLabel>
+      <AnimatedLabel
         style={{
           ...columnLabelStyleLeft,
           ...overlayStyle,
           top: 929,
         }}
+        value='femur'
+        setterFn={setHighlighted}
       >
         {t('skeletal.scene.femur')}
-      </animated.span>
-      <animated.span
+      </AnimatedLabel>
+      <AnimatedLabel
         style={{
           ...columnLabelStyleLeft,
           ...overlayStyle,
           top: 1014,
         }}
+        value='tibia'
+        setterFn={setHighlighted}
       >
         {t('skeletal.scene.tibia')}
-      </animated.span>
-      <animated.span
+      </AnimatedLabel>
+      <AnimatedLabel
         style={{
           ...columnLabelStyleLeft,
           ...overlayStyle,
           top: 1095,
         }}
+        value='ankles'
+        setterFn={setHighlighted}
       >
         {t('skeletal.scene.ankles')}
-      </animated.span>
-      <animated.span
+      </AnimatedLabel>
+      <AnimatedLabel
         style={{
           ...columnLabelStyleLeft,
           ...overlayStyle,
           top: 1182,
         }}
+        value='feet'
+        setterFn={setHighlighted}
       >
         {t('skeletal.scene.feet')}
-      </animated.span>
-      <animated.span
+      </AnimatedLabel>
+      <AnimatedLabel
         style={{
           ...columnLabelStyleRight,
           ...overlayStyle,
           top: 363,
         }}
+        value='sternum'
+        setterFn={setHighlighted}
       >
         {t('skeletal.scene.sternum')}
-      </animated.span>
-      <animated.span
+      </AnimatedLabel>
+      <AnimatedLabel
         style={{
           ...columnLabelStyleRight,
           ...overlayStyle,
           top: 447,
         }}
+        value='vertebrae'
+        setterFn={setHighlighted}
       >
         {t('skeletal.scene.vertebrae')}
-      </animated.span>
-      <animated.span
+      </AnimatedLabel>
+      <AnimatedLabel
         style={{
           ...columnLabelStyleRight,
           ...overlayStyle,
           top: 532,
         }}
+        value='humerus'
+        setterFn={setHighlighted}
       >
         {t('skeletal.scene.humerus')}
-      </animated.span>
-      <animated.span
+      </AnimatedLabel>
+      <AnimatedLabel
         style={{
           ...columnLabelStyleRight,
           ...overlayStyle,
           top: 612,
         }}
+        value='radius'
+        setterFn={setHighlighted}
       >
         {t('skeletal.scene.radius')}
-      </animated.span>
-      <animated.span
+      </AnimatedLabel>
+      <AnimatedLabel
         style={{
           ...columnLabelStyleRight,
           ...overlayStyle,
           top: 695,
         }}
+        value='ulna'
+        setterFn={setHighlighted}
       >
         {t('skeletal.scene.ulna')}
-      </animated.span>
-      <animated.span
+      </AnimatedLabel>
+      <AnimatedLabel
         style={{
           ...columnLabelStyleRight,
           ...overlayStyle,
           top: 785,
         }}
+        value='patella'
+        setterFn={setHighlighted}
       >
         {t('skeletal.scene.patella')}
-      </animated.span>
-      <animated.span
+      </AnimatedLabel>
+      <AnimatedLabel
         style={{
           ...columnLabelStyleRight,
           ...overlayStyle,
           top: 860,
         }}
+        value='fibula'
+        setterFn={setHighlighted}
       >
         {t('skeletal.scene.fibula')}
-      </animated.span>
+      </AnimatedLabel>
     </>
   );
 }
