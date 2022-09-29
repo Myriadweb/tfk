@@ -5,27 +5,46 @@ import './index.css';
 import './i18n';
 
 async function loadFonts() {
-  const changaOne = new FontFace('ChangaOne', 'url("fonts/ChangaOne.ttf")');
+  const changaOne = new FontFace('ChangaOne', 'url("fonts/ChangaOne.ttf")', {
+    style: 'normal',
+  });
   const changaOneItalic = new FontFace(
-    'ChangaOneItalic',
-    'url("fonts/ChangaOne-italic.ttf")'
+    'ChangaOne',
+    'url("fonts/ChangaOne-italic.ttf")',
+    {
+      style: 'italic',
+    }
   );
   const lemonMilk = new FontFace('LemonMilk', 'url("fonts/LemonMilk.otf")');
   const lemonMilkBold = new FontFace(
-    'LemonMilkBold',
-    'url("fonts/LemonMilkbold.otf")'
+    'LemonMilk',
+    'url("fonts/LemonMilkbold.otf")',
+    {
+      weight: 'bold',
+    }
   );
   const lemonMilkBoldItalic = new FontFace(
-    'LemonMilkBoldItalic',
-    'url("fonts/LemonMilkbolditalic.otf")'
+    'LemonMilk',
+    'url("fonts/LemonMilkbolditalic.otf")',
+    {
+      weight: 'bold',
+      style: 'italic',
+    }
   );
   const lemonMilkLight = new FontFace(
-    'lemonMilkLight',
-    'url("fonts/LemonMilklight.otf")'
+    'LemonMilk',
+    'url("fonts/LemonMilklight.otf")',
+    {
+      weight: 'lighter',
+    }
   );
   const lemonMilkLightItalic = new FontFace(
-    'lemonMilkLightItalic',
-    'url("fonts/LemonMilklightitalic.otf")'
+    'LemonMilk',
+    'url("fonts/LemonMilklightitalic.otf")',
+    {
+      weight: 'lighter',
+      style: 'italic',
+    }
   );
 
   await Promise.all([

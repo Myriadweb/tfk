@@ -17,7 +17,6 @@ const labelStyle = {
   color: '#FFF',
   transform: 'translate(-50%, -50%)',
   position: 'absolute',
-  fontFamily: 'LemonMilk',
   fontWeight: 'bold',
 } as React.CSSProperties;
 
