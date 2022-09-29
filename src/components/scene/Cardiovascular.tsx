@@ -9,7 +9,7 @@ import { columnLabelStyleLeft, columnLabelStyleRight } from './common';
 const bodyLeft = 540;
 
 export default function Cardiovascular() {
-  const [animatedPath] = useAnimateContext();
+  const [animatedPath, setAnimatedPath] = useAnimateContext();
   const { t } = useTranslation('translation');
   const navigate = useNavigate();
   const shouldShowIntroAnimation =
@@ -28,6 +28,7 @@ export default function Cardiovascular() {
     config: {
       duration: 500,
     },
+    onRest: () => setTimeout(() => setAnimatedPath(''), 0),
   }));
   const location = useLocation();
 

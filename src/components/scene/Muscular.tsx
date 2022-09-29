@@ -18,13 +18,14 @@ const muscularLabelStyle = {
 } as CSSProperties;
 
 export default function Muscular() {
-  const [animatedPath] = useAnimateContext();
+  const [animatedPath, setAnimatedPath] = useAnimateContext();
   const [language] = useLanguageContext();
 
   const { t } = useTranslation('translation');
   const navigate = useNavigate();
   const shouldShowIntroAnimation =
     animatedPath === `${Paths.BodySystems}/${Paths.Muscular}`;
+
   const [overlayStyle, overlayApi] = useSpring(() => ({
     from: { opacity: shouldShowIntroAnimation ? 0 : 1 },
     to: { opacity: 1 },
@@ -33,13 +34,16 @@ export default function Muscular() {
       duration: 500,
     },
   }));
+
   const [bodyStyle, bodyApi] = useSpring(() => ({
     from: { left: shouldShowIntroAnimation ? -300 : bodyLeft },
     to: { left: bodyLeft },
     config: {
       duration: 500,
     },
+    onRest: () => setTimeout(() => setAnimatedPath(''), 0),
   }));
+
   const location = useLocation();
 
   if (location.search === '?play=true') {
