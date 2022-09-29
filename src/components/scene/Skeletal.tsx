@@ -7,10 +7,10 @@ import { Paths } from '../../types/Paths';
 import { columnLabelStyleLeft, columnLabelStyleRight } from './common';
 import SkeletalGame from './SkeletalGame';
 import AnimatedLabel from './AnimatedLabel';
-import {useState} from "react";
-import SkullHighlight from "./SkeletalAssets/skullHighlight.png";
-import MandibleHighlight from './SkeletalAssets/mandibleHighlight.png'
-import ClaviclesHighlight from './SkeletalAssets/claviclesHighlight.png'
+import { useState } from 'react';
+import SkullHighlight from './SkeletalAssets/skullHighlight.png';
+import MandibleHighlight from './SkeletalAssets/mandibleHighlight.png';
+import ClaviclesHighlight from './SkeletalAssets/claviclesHighlight.png';
 const bodyLeft = 540;
 
 export default function Skeletal() {
