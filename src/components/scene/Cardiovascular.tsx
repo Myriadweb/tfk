@@ -9,8 +9,8 @@ import HeartHighlight from './CardiovascularAssets/heartHighlight.png';
 import ArteriesHighlight from './CardiovascularAssets/arteriesHighlight.png';
 import LungsHighlight from './CardiovascularAssets/lungsHighlight.png';
 import VeinsHighlight from './CardiovascularAssets/veinsHighlight.png';
-import {useState} from "react";
-import AnimatedLabel from "./AnimatedLabel";
+import { useState } from 'react';
+import AnimatedLabel from './AnimatedLabel';
 
 const bodyLeft = 540;
 

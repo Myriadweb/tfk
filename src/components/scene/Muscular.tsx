@@ -5,7 +5,7 @@ import { animated, useSpring } from 'react-spring';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { Paths } from '../../types/Paths';
 import { columnLabelStyleLeft, columnLabelStyleRight } from './common';
-import {CSSProperties, useState} from 'react';
+import { CSSProperties, useState } from 'react';
 import Labels from './MuscularAssets/labels.svg';
 import { useLanguageContext } from '../../state/language';
 import AbdominalMusclesHighlight from './MuscularAssets/abdominalMusclesHighlight.png';
@@ -17,8 +17,8 @@ import HamstringsHighlight from './MuscularAssets/hamstringsHighlight.png';
 import LattisimusDosiHighlight from './MuscularAssets/lattisimusDosiHighlight.png';
 import PectoralsHighlight from './MuscularAssets/pectoralsHighlight.png';
 import QuadricepsHighlight from './MuscularAssets/quadricepsHighlight.png';
-import TricepsHighlight from './MuscularAssets/tricepsHighlight.png';;
-import AnimatedLabel from "./AnimatedLabel";
+import TricepsHighlight from './MuscularAssets/tricepsHighlight.png';
+import AnimatedLabel from './AnimatedLabel';
 
 const bodyLeft = 540;
 
