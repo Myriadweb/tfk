@@ -25,6 +25,7 @@ export default function Muscular() {
   const navigate = useNavigate();
   const shouldShowIntroAnimation =
     animatedPath === `${Paths.BodySystems}/${Paths.Muscular}`;
+
   const [overlayStyle, overlayApi] = useSpring(() => ({
     from: { opacity: shouldShowIntroAnimation ? 0 : 1 },
     to: { opacity: 1 },
@@ -33,6 +34,7 @@ export default function Muscular() {
       duration: 500,
     },
   }));
+
   const [bodyStyle, bodyApi] = useSpring(() => ({
     from: { left: shouldShowIntroAnimation ? -300 : bodyLeft },
     to: { left: bodyLeft },
@@ -41,6 +43,7 @@ export default function Muscular() {
     },
     onRest: () => setTimeout(() => setAnimatedPath(''), 0),
   }));
+
   const location = useLocation();
 
   if (location.search === '?play=true') {

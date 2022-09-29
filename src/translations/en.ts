@@ -177,6 +177,7 @@ const en: Translation = {
         triceps: 'TRICEPS',
         gluteus: 'GLUTEUS\nMAXIMUS',
         calves: 'CALVES',
+        contracting: 'CONTRACTING...',
       },
       navbar: {
         chooseMuscle:
