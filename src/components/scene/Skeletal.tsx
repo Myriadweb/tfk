@@ -11,6 +11,22 @@ import { useState } from 'react';
 import SkullHighlight from './SkeletalAssets/skullHighlight.png';
 import MandibleHighlight from './SkeletalAssets/mandibleHighlight.png';
 import ClaviclesHighlight from './SkeletalAssets/claviclesHighlight.png';
+import CarpalsHighlight from './SkeletalAssets/carpalsHighlight.png';
+import FemurHighlight from './SkeletalAssets/femurHighlight.png';
+import FibulaHighlight from './SkeletalAssets/fibulaHighlight.png';
+import HumerusHighlight from './SkeletalAssets/humerusHighlight.png';
+import MetacarpalsHighlight from './SkeletalAssets/metacarpalsHighlight.png';
+import MetatarsalsHighlight from './SkeletalAssets/metatarsalsHighlight.png';
+import PatellaHighlight from './SkeletalAssets/patellaHighlight.png';
+import PelvisHighlight from './SkeletalAssets/pelvisHighlight.png';
+import RadiusHighlight from './SkeletalAssets/radiusHighlight.png';
+import RibcageHighlight from './SkeletalAssets/ribcageHighlight.png';
+import ScapulaHighlight from './SkeletalAssets/scapulaHighlight.png';
+import SternumHighlight from './SkeletalAssets/sternumHighlight.png';
+import TibiaHighlight from './SkeletalAssets/tibiaHighlight.png';
+import UlnaHighlight from './SkeletalAssets/ulnaHighlight.png';
+import VertebraeHighlight from './SkeletalAssets/vertebraeHighlight.png';
+
 const bodyLeft = 540;
 
 export default function Skeletal() {
