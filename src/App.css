@@ -147,7 +147,8 @@
 .header-text {
   font-size: 40px;
   letter-spacing: 2px;
-  font-family: 'LemonMilkBold', sans-serif;
+  font-family: 'LemonMilk', sans-serif;
+  font-weight: bold;
 }
 .body-text {
   font-size: 20px;
@@ -160,7 +161,8 @@
 }
 
 .bold-text {
-  font-family: 'LemonMilkBold', sans-serif;
+  font-family: 'LemonMilk', sans-serif;
+  font-weight: bold;
   display: block;
 }
 
@@ -174,13 +176,15 @@
   padding: 15px 30px;
   min-width: 240px;
   margin-top: 20px;
-  font-family: 'LemonMilkBold', sans-serif;
+  font-family: 'LemonMilk', sans-serif;
+  font-weight: bold;
 }
 .start-button {
   font-size: 20px;
   color: #fff;
   background: #cd4845;
-  font-family: 'LemonMilkBold', sans-serif;
+  font-family: 'LemonMilk', sans-serif;
+  font-weight: bold;
   border-radius: 50%;
   width: 109px;
   height: 109px;
@@ -212,10 +216,11 @@
   right: 28px;
   bottom: 32px;
   color: white;
-  width: 350px;
+  width: 343px;
 }
 .procedures-box .label {
-  font-family: LemonMilkBold;
+  font-family: LemonMilk;
+  font-weight: bold;
   display: inline-block;
   background: #30619c;
   border: #fff 3px solid;
@@ -225,16 +230,23 @@
   padding: 8px 15px 6px;
   z-index: -1;
 }
+
 .procedures-box .text {
   background: #103159;
   border: #fff 3px solid;
   border-radius: 15px;
-  padding: 20px 40px 0 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
   font-size: 17px;
-  white-space: pre-wrap;
+  white-space: pre;
   margin: 0px;
   z-index: 1;
+  text-align: center;
 }
+
 .procedures-box .button {
   font-size: 20px;
   color: #fff;
@@ -242,10 +254,12 @@
   border: 1px solid #000;
   border-radius: 15px;
   padding: 15px 30px;
-  width: 100%;
-  font-family: 'LemonMilkBold', sans-serif;
+  width: 241px;
+  font-family: 'LemonMilk', sans-serif;
+  font-weight: bold;
   display: block;
   margin-bottom: 20px;
+  height: 65px;
 }
 
 /* EEG game scene styling */

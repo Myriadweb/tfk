@@ -422,7 +422,7 @@ const en: Translation = {
         title: 'SURGICAL PREP',
       },
       scene: {
-        text: 'There are a few \nimportant steps to get \npatients ready for surgery.',
+        text: 'There are a few\nimportant steps\nto get patients\nready for surgery.',
         label: 'SURGICAL PREP',
         buttonText: 'BEGIN PREP',
       },
@@ -476,7 +476,7 @@ const en: Translation = {
         title: 'X-RAY',
       },
       scene: {
-        text: 'An x-ray machine takes pictures that help doctors see through your body to find injuries.',
+        text: 'An x-ray machine takes\npictures that help\ndoctors see through your\nbody to find injuries.',
         label: 'X-RAY',
         buttonText: 'TAKE AN X-RAY',
         brokenBoneLabel: 'BROKEN BONE',
@@ -514,7 +514,7 @@ const en: Translation = {
         title: 'EEG',
       },
       scene: {
-        text: "An EEG is a test to record \nyour brain's electrical activity, or \nbrain waves, while you're in the hospital.",
+        text: "An EEG is a test to\nrecord your brain's\nelectrical activity,\nor brain waves, while\nyou're in the hospital.",
         label: 'EEG',
         buttonText: 'TAKE AN EEG',
       },
@@ -558,7 +558,7 @@ const en: Translation = {
         title: 'WELLNESS',
       },
       scene: {
-        text: "Even when you're feeling well, \nregular check-ups are an important part of \nmaking sure your body stays healthy.",
+        text: "Even when you're feeling\nwell, regular check-ups\nare an important part of\nmaking sure your body\nstays healthy.",
         label: 'WELLNESS',
         buttonText: 'CHECK VITALS',
       },
@@ -602,7 +602,7 @@ const en: Translation = {
         title: 'MRI',
       },
       scene: {
-        text: 'An MRI machine uses super strong \nmagnets to take pictures of your \nbrain, muscles, or internal organs.',
+        text: 'An MRI machine uses\nsuper strong magnets\nto take pictures of\nyour brain, muscles,\nor internal organs.',
         label: 'MRI',
         buttonText: 'TAKE AN MRI',
       },
@@ -637,7 +637,7 @@ const en: Translation = {
         title: 'IV',
       },
       scene: {
-        text: 'An IV is a tube that helps \ndeliver medicine when patients \nare sick or need a test.',
+        text: 'An IV is a tube that helps\ndeliver medicine or hydrate\n your body when patients\nare sick or need a test.',
         label: 'IV',
         buttonText: 'INSERT IV',
       },

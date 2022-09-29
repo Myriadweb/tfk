@@ -70,16 +70,16 @@ const Procedures = ({ path, prefix }: Props) => {
             text={path === Paths.Wellness ? t('wellness') : ''}
           />
           <NavigationButton
-            image={MRI}
-            size={path === Paths.Mri ? 'large' : 'small'}
-            onClick={() => onClickHandler(Paths.Mri)}
-            text={path === Paths.Mri ? t('mri') : ''}
-          />
-          <NavigationButton
             image={IV}
             size={path === Paths.Iv ? 'large' : 'small'}
             onClick={() => onClickHandler(Paths.Iv)}
             text={path === Paths.Iv ? t('iv') : ''}
+          />
+          <NavigationButton
+            image={MRI}
+            size={path === Paths.Mri ? 'large' : 'small'}
+            onClick={() => onClickHandler(Paths.Mri)}
+            text={path === Paths.Mri ? t('mri') : ''}
           />
         </div>
       </div>
