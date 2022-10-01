@@ -40,11 +40,13 @@ import NervousGame from './scene/NervousGame';
 import CardiovascularGame from './scene/CardiovascularGame';
 import MuscularGame from './scene/MuscularGame';
 import DigestiveGame from './scene/DigestiveGame';
+import { useGameContext } from '../state/game';
 
 export function Home() {
   // This gets the current location from react router.
   const location = useLocation();
   const [, setAnimateState] = useAnimateContext();
+  const [, setGameState] = useGameContext();
   const [path, prefix] = usePathFromLocation(location.pathname);
   const { t } = useTranslation('translation');
 
@@ -157,7 +159,10 @@ export function Home() {
           <div className='Options-buttons-box'>
             <Link
               to={location.pathname}
-              onClick={() => location.search && playSound('click')}
+              onClick={() => {
+                location.search && playSound('click');
+                location.search && setGameState({ step: 0 });
+              }}
             >
               {!location.search && (
                 <OptionOverlaySVG style={{ position: 'absolute', top: 0 }} />

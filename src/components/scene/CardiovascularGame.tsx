@@ -5,17 +5,18 @@ import { useCharacterContext } from '../../state/character';
 import { Characters, sensoryChildWidth } from './ChildrenAssets/childrenAssets';
 import { Paths } from '../../types/Paths';
 import { useGameContext } from '../../state/game';
-import { ReactComponent as Heart1 } from './CardiovascularAssets/heart1.svg';
-import { ReactComponent as Heart2 } from './CardiovascularAssets/heart2.svg';
-import { ReactComponent as Heart3 } from './CardiovascularAssets/heart3.svg';
-import { ReactComponent as Heart4 } from './CardiovascularAssets/heart4.svg';
-import { ReactComponent as Body1 } from './CardiovascularAssets/body1.svg';
-import { ReactComponent as Body2 } from './CardiovascularAssets/body2.svg';
 import { ReactComponent as Body3 } from './CardiovascularAssets/body3.svg';
 import { ReactComponent as ArteriesLine } from './CardiovascularAssets/arteriesLine.svg';
 import { ReactComponent as VeinsLine } from './CardiovascularAssets/veinsLines.svg';
 import { columnLabelStyleLeft, columnLabelStyleRight } from './common';
 import { useTranslation } from 'react-i18next';
+
+import Animation1A from '../../animations/cardiovascular1a.webm';
+import Animation1B from '../../animations/cardiovascular1b.webm';
+import Animation1C from '../../animations/cardiovascular1c.webm';
+import Animation2A from '../../animations/cardiovascular2a.webm';
+import Animation2B from '../../animations/cardiovascular2b.webm';
+
 import ReactPlayer from 'react-player';
 
 export default function CardiovascularGame() {
@@ -27,12 +28,6 @@ export default function CardiovascularGame() {
   useEffect(() => {
     if (step === 1) {
       setTimeout(() => setGameState({ step: 2 }), 1000);
-    } else if (step === 2) {
-      setTimeout(() => setGameState({ step: 3 }), 10000);
-    } else if (step === 5) {
-      setTimeout(() => setGameState({ step: 6 }), 1000);
-    } else if (step === 6) {
-      setTimeout(() => setGameState({ step: 7 }), 1000);
     }
   }, [step]);
 
@@ -75,72 +70,83 @@ export default function CardiovascularGame() {
           )}
         </>
       )}
-      {step === 2 &&
-        (playSound('cardiovascularNormalHeartbeat'),
-        (
-          <ReactPlayer
-            className='react-player'
-            playing
-            url='../../animations/cardiovascular1.webm'
-            width='100%'
-            height='100%'
-          />
-        ))}
-      {step === 3 && (
-        <Heart2
-          style={{
-            position: 'relative',
-            left: -155,
-          }}
-        />
-      )}
-      {step === 4 && (
-        <Heart3
-          style={{
-            position: 'relative',
-            left: -155,
-          }}
-        />
-      )}
-      {step === 5 && (
-        <Heart4
-          style={{
-            position: 'relative',
-            left: -155,
-          }}
-        />
-      )}
-      {step === 6 && (
-        <Body1
+      {[4, 5, 6].includes(step) && (
+        <ReactPlayer
+          className='react-player'
+          playing={[6].includes(step)}
+          url={Animation1C}
+          width='100%'
+          height='100%'
           style={{
             position: 'absolute',
-            top: 342,
-            left: 540,
-            transform: 'translateX(-50%)',
+            top: 0,
+            left: 0,
           }}
+          onEnded={() => setGameState({ step: 7 })}
         />
       )}
-      {step === 7 && (
-        <Body2
+      {[3, 4].includes(step) && (
+        <ReactPlayer
+          className='react-player'
+          playing={[4].includes(step)}
+          url={Animation1B}
+          width='100%'
+          height='100%'
           style={{
             position: 'absolute',
-            top: 342,
-            left: 540,
-            transform: 'translateX(-50%)',
+            top: 0,
+            left: 0,
           }}
+          onEnded={() => setGameState({ step: 5 })}
         />
       )}
-      {[8, 9].includes(step) && (
-        <Body3
+      {[2, 3].includes(step) && (
+        <ReactPlayer
+          className='react-player'
+          playing
+          url={Animation1A}
+          width='100%'
+          height='100%'
+          onEnded={() => setGameState({ step: 3 })}
           style={{
             position: 'absolute',
-            top: 342,
-            left: 540,
-            transform: 'translateX(-50%)',
+            top: 0,
+            left: 0,
           }}
         />
       )}
-      {[6, 7, 8].includes(step) && (
+      {[8, 9, 10, 11].includes(step) && (
+        <ReactPlayer
+          className='react-player'
+          playing={[9, 10, 11].includes(step)}
+          url={Animation2B}
+          width='100%'
+          height='100%'
+          onEnded={() => setGameState({ step: 10 })}
+          style={{
+            opacity: step === 8 ? 0 : 1,
+            position: 'absolute',
+            top: 170,
+            left: 0,
+          }}
+        />
+      )}
+      {[7, 8].includes(step) && (
+        <ReactPlayer
+          className='react-player'
+          playing
+          url={Animation2A}
+          width='100%'
+          height='100%'
+          onEnded={() => setGameState({ step: 8 })}
+          style={{
+            position: 'absolute',
+            top: 170,
+            left: 0,
+          }}
+        />
+      )}
+      {[7, 8, 9].includes(step) && (
         <>
           <ArteriesLine
             style={{
@@ -159,7 +165,7 @@ export default function CardiovascularGame() {
           </span>
         </>
       )}
-      {step === 8 && (
+      {step === 9 && (
         <>
           <VeinsLine
             style={{

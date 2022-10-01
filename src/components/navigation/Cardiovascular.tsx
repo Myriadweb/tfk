@@ -41,12 +41,12 @@ const Cardiovascular = ({ prefix }: Props) => {
         }}
       />
     ),
-    4: () => (
+    5: () => (
       <div style={{ height: '100%' }}>
         <HeartbeatButton
           onClick={() => {
             playSound('click');
-            setStep({ step: 5 });
+            setStep({ step: 6 });
           }}
         />
         <span
@@ -62,15 +62,6 @@ const Cardiovascular = ({ prefix }: Props) => {
         </span>
       </div>
     ),
-    7: () => (
-      <ContinueButton
-        text={t('continue')}
-        onClick={() => {
-          playSound('click');
-          setStep({ step: 8 });
-        }}
-      />
-    ),
     8: () => (
       <ContinueButton
         text={t('continue')}
@@ -80,9 +71,18 @@ const Cardiovascular = ({ prefix }: Props) => {
         }}
       />
     ),
-    9: () => (
+    10: () => (
       <ContinueButton
         text={t('continue')}
+        onClick={() => {
+          playSound('click');
+          setStep({ step: 11 });
+        }}
+      />
+    ),
+    11: () => (
+      <ContinueButton
+        text={t('finish')}
         onClick={() => {
           playSound('completeProcedure');
           navigate(`${Paths.BodySystems}/${prefix}`);
@@ -96,13 +96,19 @@ const Cardiovascular = ({ prefix }: Props) => {
       <div className='nav-top'>
         <div
           className='body-text'
-          style={{ display: step !== 9 ? 'block' : 'none' }}
+          style={{
+            visibility: [1, 2].includes(step) ? 'hidden' : 'visible',
+            display: step === 11 ? 'none' : 'block',
+          }}
         >
           {t(`${step}-text`)}
         </div>
         <div
-          className='body-text'
-          style={{ display: step === 9 ? 'block' : 'none' }}
+          className='body-text bold-text'
+          style={{
+            display: step === 11 ? 'block' : 'none',
+            fontWeight: 'bold',
+          }}
         >
           {t(`${step}-boldText`)}
         </div>

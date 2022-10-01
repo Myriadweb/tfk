@@ -154,6 +154,15 @@
   font-size: 20px;
   margin-top: 12px;
   white-space: pre;
+  min-height: 53px;
+}
+
+.bold-text {
+  font-size: 40px;
+  color: #fff;
+  letter-spacing: 2px;
+  font-weight: bolder;
+  margin-top: 8px;
 }
 
 .body-text-digestive {
@@ -206,7 +215,10 @@
   display: flex;
   align-items: center;
   margin-right: 40px;
+  white-space: pre;
+  text-align: left;
 }
+
 .links-container .link img {
   margin-right: 15px;
 }
