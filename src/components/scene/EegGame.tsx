@@ -34,16 +34,16 @@ import { useSpring, animated } from 'react-spring';
 import { useEffect } from 'react';
 
 export default function EegGame() {
-  const [{ step, value }] = useGameContext();
+  const [{ step, value }, setGameState] = useGameContext();
   const [printoutStyle, printoutApi] = useSpring(() => ({
     transform: 'translateY(0px)',
   }));
   useEffect(() => {
-    if (step === 6) {
+    if (step === 7) {
       printoutApi.start({
         transform: 'translateY(457px)',
-        delay: 2000,
         config: { duration: 3000 },
+        onRest: () => setGameState({ step: 8 }),
       });
     }
   }, [step]);
@@ -239,7 +239,7 @@ export default function EegGame() {
           </div>
         </>
       )}
-      {step === 7 && (
+      {[7, 8].includes(step) && (
         <>
           <PrinterBottom
             style={{ position: 'absolute', top: 757, left: 171 }}
@@ -257,7 +257,7 @@ export default function EegGame() {
           <PrinterTop style={{ position: 'absolute', top: 267, left: 171 }} />
         </>
       )}
-      {step >= 8 && (
+      {step >= 9 && (
         <>
           <Child6FullBody
             style={{

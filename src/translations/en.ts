@@ -534,7 +534,7 @@ const en: Translation = {
         '1-subText': "Tap the button to add sticky dots to the patient's head.",
         '2-mainText': 'Great Job!',
         '2-subText':
-          "The sticky dots are in place. Next, we'll connect the sticky dots to the machine.",
+          "The sticky dots are in place.\nNext, we'll connect the sticky dots to the machine.",
         '2-buttonText': 'CONTINUE',
         '3-mainText': 'CONNECT THE LEADS',
         '3-subText':
@@ -544,21 +544,25 @@ const en: Translation = {
         '4-buttonText': 'Continue',
         '5-mainText': 'Put on the EEG Cap',
         '5-subText':
-          'Place a cap over the rainbow hair to finish getting ready.',
+          'Place a cap over the rainbow hair\nto finish getting ready.',
         '6-mainText': 'ALL READY!',
         '6-subText':
-          'Press the button to start the EEG machine and get your results.',
+          'Press the button to start the EEG\nmachine and get your results.',
         '6-buttonText': 'Continue',
         '7-mainText': 'PRINTING...',
-        '7-subText': 'The EEG machine is working and printing out the results.',
-        '7-buttonText': 'Continue',
-        '8-mainText': 'Great Job',
+        '7-subText':
+          'The EEG machine is working and\nprinting out the results.',
+        '8-mainText': 'ALL DONE!',
         '8-subText':
-          'The EEG test is finished. Choose a reward for the patient!',
-        '8-buttonText': 'Continue',
-        '9-subText': 'You finished the EEG!\nTap below to learn more about',
-        '9-boldText': 'THE NERVOUS SYSTEM',
-        '9-back': 'BACK TO\nPROCEDURES',
+          'THE EEG TEST IS FINISHED\nCHOOSE A REWARD FOR THE PATIENT!',
+        '8-buttonText': 'FINISH',
+        '9-mainText': 'Great Job',
+        '9-subText':
+          'The EEG test is finished.\n Choose a reward for the patient!',
+        '9-buttonText': 'Continue',
+        '10-subText':
+          'You finished the EEG!\nTap below to learn more about\n<strong>the nervous system</strong>',
+        '10-back': 'BACK TO\nPROCEDURES',
       },
     },
     [Paths.Wellness]: {

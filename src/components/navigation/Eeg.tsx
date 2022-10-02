@@ -14,6 +14,9 @@ import PlaceLeads from '../navigation/EegAssets/place_leads.svg';
 import PlaceStickies from '../navigation/EegAssets/place_stickies.svg';
 import PlaceCap from '../navigation/EegAssets/cap.svg';
 import Nervous from './BodySystemsAssets/Nervous.svg';
+import { BlueBarContinue } from './BlueBarContinue';
+import BlueBar from './UIComponents/BlueBar';
+import { Trans } from 'react-i18next';
 
 type Props = {
   path: Paths;
@@ -36,18 +39,16 @@ export default function Eeg({ prefix }: Props) {
 
   const stepComponentConfig = {
     0: () => (
-      <button
-        className='continue-button'
+      <BlueBarContinue
+        text={t(`${step}-buttonText`)}
         onClick={() => {
           playSound('completeStep');
           setStep({ step: 1, value: [] });
         }}
-      >
-        {t(`${step}-buttonText`)} <Arrow />
-      </button>
+      />
     ),
     1: () => (
-      <div className='nav-items-container' style={{ width: 700 }}>
+      <BlueBar>
         <NavigationButton
           image={PlaceStickies}
           size='small'
@@ -83,21 +84,19 @@ export default function Eeg({ prefix }: Props) {
           onClick={() => handleNavigationButtonClick(5)}
           text=''
         />
-      </div>
+      </BlueBar>
     ),
     2: () => (
-      <button
-        className='continue-button'
+      <BlueBarContinue
+        text={t(`${step}-buttonText`)}
         onClick={() => {
           playSound('completeStep');
           setStep({ step: 3, value: [] });
         }}
-      >
-        {t(`${step}-buttonText`)} <Arrow />
-      </button>
+      />
     ),
     3: () => (
-      <div className='nav-items-container' style={{ width: 700 }}>
+      <BlueBar>
         <NavigationButton
           image={PlaceLeads}
           size='small'
@@ -133,21 +132,19 @@ export default function Eeg({ prefix }: Props) {
           onClick={() => handleNavigationButtonClick(5)}
           text=''
         />
-      </div>
+      </BlueBar>
     ),
     4: () => (
-      <button
-        className='continue-button'
+      <BlueBarContinue
+        text={t(`${step}-buttonText`)}
         onClick={() => {
           playSound('completeStep');
           setStep({ step: 5, value: [] });
         }}
-      >
-        {t(`${step}-buttonText`)} <Arrow />
-      </button>
+      />
     ),
     5: () => (
-      <div className='nav-items-container'>
+      <BlueBar>
         <NavigationButton
           image={PlaceCap}
           size='small'
@@ -155,104 +152,101 @@ export default function Eeg({ prefix }: Props) {
           onClick={() => setStep({ step: 6 })}
           text=''
         />
-      </div>
+      </BlueBar>
     ),
     6: () => (
-      <button
-        className='continue-button'
+      <BlueBarContinue
+        text={t(`${step}-buttonText`)}
         onClick={() => {
           playSound('completeStep');
           setStep({ step: 7, value: [] });
         }}
-      >
-        {t(`${step}-buttonText`)} <Arrow />
-      </button>
+      />
     ),
-    7: () => (
-      <button
-        className='continue-button'
+    7: () => <BlueBar />,
+    8: () => (
+      <BlueBarContinue
+        text={t(`${step}-buttonText`)}
         onClick={() => {
           playSound('completeStep');
-          setStep({ step: 8, hideButtons: true });
+          setStep({ step: 9, hideButtons: true });
         }}
-      >
-        {t(`${step}-buttonText`)} <Arrow />
-      </button>
+      />
     ),
-    8: () => (
+    9: () => (
       <>
-        <div className='nav-items-container' style={{ width: 700 }}>
-          <NavigationButton
-            image={Sticker}
-            size={value === 'sticker' ? 'large' : 'small'}
-            onClick={() =>
-              setStep((oldState) => ({ ...oldState, value: 'sticker' }))
-            }
-            text=''
-          />
-          <NavigationButton
-            image={Bear}
-            size={value === 'doll' ? 'large' : 'small'}
-            onClick={() =>
-              setStep((oldState) => ({ ...oldState, value: 'doll' }))
-            }
-            text=''
-          />
-          <NavigationButton
-            image={Medal}
-            size={value === 'medal' ? 'large' : 'small'}
-            onClick={() =>
-              setStep((oldState) => ({ ...oldState, value: 'medal' }))
-            }
-            text=''
-          />
-        </div>
+        <BlueBar style={{ height: 192 }}>
+          <div className='nav-items-container' style={{ width: 592 }}>
+            <NavigationButton
+              image={Sticker}
+              size={value === 'sticker' ? 'large' : 'small'}
+              onClick={() =>
+                setStep((oldState) => ({ ...oldState, value: 'sticker' }))
+              }
+              text=''
+            />
+            <NavigationButton
+              image={Bear}
+              size={value === 'doll' ? 'large' : 'small'}
+              onClick={() =>
+                setStep((oldState) => ({ ...oldState, value: 'doll' }))
+              }
+              text=''
+            />
+            <NavigationButton
+              image={Medal}
+              size={value === 'medal' ? 'large' : 'small'}
+              onClick={() =>
+                setStep((oldState) => ({ ...oldState, value: 'medal' }))
+              }
+              text=''
+            />
+          </div>
+        </BlueBar>
         <button
-          className='continue-button'
+          className='continue-button reward'
           style={{
-            position: 'absolute',
-            bottom: 50,
-            left: '50%',
-            transform: 'translateX(-50%)',
+            marginTop: 0,
           }}
           onClick={() => {
             if (!value) return; // if no value is selected, don't continue
             playSound('click');
-            setStep((oldStep) => ({ ...oldStep, step: 9, hideButtons: false }));
+            setStep((oldStep) => ({
+              ...oldStep,
+              step: 10,
+              hideButtons: false,
+            }));
           }}
         >
           {t(`${step}-buttonText`)} <Arrow />
         </button>
       </>
     ),
-    9: () => (
-      <NavigationButton
-        image={Nervous}
-        size={'large'}
-        onClick={() => {
-          playSound('click');
-          setStep({ step: 0 });
-          navigate(Paths.BodySystems + '/' + Paths.Nervous);
-        }}
-        text=''
-      />
+    10: () => (
+      <BlueBar style={{ height: 192 }}>
+        <NavigationButton
+          image={Nervous}
+          size={'large'}
+          onClick={() => {
+            playSound('click');
+            setStep({ step: 0 });
+            navigate(Paths.BodySystems + '/' + Paths.Nervous);
+          }}
+          text=''
+        />
+      </BlueBar>
     ),
   };
 
   return (
     <animated.div>
       <div className='nav-top'>
-        <div className='header-text'>{step != 9 && t(`${step}-mainText`)}</div>
+        <div className='header-text'>{step != 10 && t(`${step}-mainText`)}</div>
         <div className='body-text'>
-          {t(`${step}-subText`)}
-          {step === 9 && (
-            <span className='bold-text'>{t(`${step}-boldText`)}</span>
-          )}
+          <Trans i18nKey={t(`${step}-subText`)} />
         </div>
       </div>
-      <div className='nav-middle'>
-        {stepComponentConfig[step] && stepComponentConfig[step]()}
-      </div>
+      {stepComponentConfig[step] && stepComponentConfig[step]()}
     </animated.div>
   );
 }
