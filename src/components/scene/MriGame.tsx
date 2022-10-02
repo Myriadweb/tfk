@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { animated, useSpring } from 'react-spring';
-import { ReactComponent as MriBed } from './MriAssets/mriBed.svg';
+import MriBed from './MriAssets/mriBed.svg';
 import { ReactComponent as MriBedSleeping } from './MriAssets/mriBedSleeping.svg';
 import { ReactComponent as Background } from './MriAssets/background.svg';
 import { ReactComponent as MachineBottom } from './MriAssets/machineBottom.svg';
@@ -15,7 +15,7 @@ import Medal from './SharedAssets/medal.png';
 import { ReactComponent as Sticker } from './SharedAssets/sticker.svg';
 
 import { useGameContext } from '../../state/game';
-import { useEffect } from 'react';
+import { CSSProperties, useEffect } from 'react';
 import { Characters } from './ChildrenAssets/childrenAssets';
 
 const sceneStyle = {
@@ -95,7 +95,7 @@ export default function MriGame() {
             <MriBedSleeping
               style={{
                 ...sceneStyle,
-                top: 687,
+                top: 688,
               }}
             />
             {value === 'music' && (
@@ -136,9 +136,10 @@ export default function MriGame() {
         </animated.div>
       )}
       {step === 0 && (
-        <MriBed
+        <img
+          src={MriBed}
           style={{
-            ...sceneStyle,
+            ...(sceneStyle as CSSProperties),
             transform: 'translateX(-50%) scale(1.4)',
             top: 267,
             left: 540,

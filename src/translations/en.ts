@@ -635,8 +635,8 @@ const en: Translation = {
         '5-subText':
           'Now that they found the injury, doctors can help\nto treat it. Choose a reward for the patient.',
         '5-buttonText': 'CONTINUE',
-        '6-subText': 'You finished the MRI! Tap below to learn more about',
-        '6-boldText': 'THE MUSCULAR SYSTEM',
+        '6-subText':
+          'You finished the MRI!\nTap below to learn more about\n<strong>the muscular system</strong>',
         '6-back': 'BACK TO\nPROCEDURES',
       },
     },
