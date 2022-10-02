@@ -595,13 +595,12 @@ const en: Translation = {
         '9-subText':
           'You finished all the tests. Now pick an\nactivity to help the patient stay active and healthy.',
         '9-buttonText': 'FINISH',
-        '10-mainText': 'STAY ACTIVE',
+        '10-mainText': 'ALL DONE!',
         '10-subText':
-          'You finished all the tests.\nNow pick an activity to help the\npatient stay active and healthy.',
+          'You finished all the tests. Now pick an activity\nto help the patient stay active and healthy.',
         '10-buttonText': 'CONTINUE',
         '11-subText':
-          'YYou finished the wellness check! Tap below to learn more about',
-        '11-boldText': 'THE CARDIOVASCULAR SYSTEM',
+          'You finished the wellness check!\nTap below to learn more about\n<strong>the cardiovascular system</strong>',
         '11-back': 'BACK TO\nPROCEDURES',
       },
     },

@@ -17,6 +17,7 @@ import Baseball from './WellnessAssets/baseball.svg';
 import { ReactComponent as Arrow } from '../scene/SceneAssets/Arrow.svg';
 import Cardiovascular from './BodySystemsAssets/Cardiovascular.svg';
 import { BlueBarContinue } from './BlueBarContinue';
+import { Trans } from 'react-i18next';
 
 const PUMPS_CONFIG = {
   1: BpPumpOneBar,
@@ -120,13 +121,7 @@ const Wellness = ({ prefix }: Props) => {
     ),
     10: () => (
       <>
-        <div
-          style={{
-            marginTop: 12,
-            background: '#0E1F33',
-            height: 192,
-          }}
-        >
+        <BlueBar style={{ height: 192 }}>
           <div
             style={{
               margin: '0 auto',
@@ -162,18 +157,11 @@ const Wellness = ({ prefix }: Props) => {
               text=''
             />
           </div>
-        </div>
+        </BlueBar>
         <button
+          className='continue-button reward'
           style={{
-            fontFamily: 'LemonMilk',
-            fontSize: 20,
-            color: '#fff',
-            background: '#CD4845',
-            border: '1px solid #000',
-            borderRadius: 12,
-            width: 241,
-            height: 65,
-            marginTop: 20,
+            marginTop: 0,
           }}
           onClick={() => {
             if (!value) return; // if no value is selected, don't continue
@@ -188,16 +176,7 @@ const Wellness = ({ prefix }: Props) => {
     ),
     11: () => (
       <>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-around',
-            alignItems: 'center',
-            marginTop: 49,
-            background: '#0E1F33',
-            height: 192,
-          }}
-        >
+        <BlueBar style={{ height: 192 }}>
           <NavigationButton
             image={Cardiovascular}
             size={'large'}
@@ -208,7 +187,7 @@ const Wellness = ({ prefix }: Props) => {
             }}
             text=''
           />
-        </div>
+        </BlueBar>
 
         <div
           style={{
@@ -278,21 +257,9 @@ const Wellness = ({ prefix }: Props) => {
           visibility: [1, 7].includes(step) ? 'hidden' : 'visible',
         }}
       >
-        {t(`${step}-subText`)}
+        <Trans i18nKey={t(`${step}-subText`)} />
       </span>
-      {step === 11 && (
-        <span
-          style={{
-            fontSize: 20,
-            color: '#FFF',
-            fontFamily: 'LemonMilk',
-            whiteSpace: 'pre',
-            fontWeight: 'bold',
-          }}
-        >
-          {t(`${step}-boldText`)}
-        </span>
-      )}
+
       {stepComponentConfig[step] ? stepComponentConfig[step]() : <BlueBar />}
     </>
   );
