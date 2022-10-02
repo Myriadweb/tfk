@@ -7,6 +7,13 @@ import { Paths } from '../../types/Paths';
 import { columnLabelStyleLeft, columnLabelStyleRight } from './common';
 import NervousGame from './NervousAssets/nervousMain.svg';
 import { useLanguageContext } from '../../state/language';
+import AnimatedLabel from './AnimatedLabel';
+import { useState } from 'react';
+import BrainHighlight from './NervousAssets/brainHighlight.png';
+import BrainStemHighlight from './NervousAssets/brainStemHighlight.png';
+import CerebellumHighlight from './NervousAssets/cerebellumHighlight.png';
+import NervesHighlight from './NervousAssets/nervesHighlight.png';
+import SpinalChordHighlight from './NervousAssets/spinalChordHighlight.png';
 
 const bodyLeft = 540;
 
@@ -34,6 +41,7 @@ export default function Nervous() {
     onRest: () => setTimeout(() => setAnimatedPath(''), 0),
   }));
   const location = useLocation();
+  const [highlighted, setHighlighted] = useState('');
 
   if (location.search === '?play=true') {
     return <Navigate to={Paths.Game + '?play=true'} />;
@@ -81,51 +89,106 @@ export default function Nervous() {
           ...overlayStyle,
         }}
       />
-      <animated.span
+      <img
+        src={BrainHighlight}
+        style={{
+          top: 345,
+          position: 'absolute',
+          transform: 'translate(-50%, 0)',
+          opacity: ['brain'].includes(highlighted) ? 1 : 0,
+        }}
+      />
+      <img
+        src={BrainStemHighlight}
+        style={{
+          top: 450,
+          position: 'absolute',
+          transform: 'translate(-50%, 0)',
+          opacity: ['brainstem'].includes(highlighted) ? 1 : 0,
+        }}
+      />
+      <img
+        src={CerebellumHighlight}
+        style={{
+          top: 457,
+          position: 'absolute',
+          transform: 'translate(-50%, 0)',
+          opacity: ['cerebellum'].includes(highlighted) ? 1 : 0,
+        }}
+      />
+      <img
+        src={NervesHighlight}
+        style={{
+          top: 433,
+          position: 'absolute',
+          transform: 'translate(-50%, 0)',
+          opacity: ['nerves'].includes(highlighted) ? 1 : 0,
+        }}
+      />
+      <img
+        src={SpinalChordHighlight}
+        style={{
+          top: 530,
+          position: 'absolute',
+          transform: 'translate(-50%, 0)',
+          opacity: ['spinal'].includes(highlighted) ? 1 : 0,
+        }}
+      />
+      <AnimatedLabel
         style={{
           ...columnLabelStyleLeft,
           ...overlayStyle,
           top: 370,
         }}
+        value='brain'
+        setterFn={setHighlighted}
       >
         {t('nervous.scene.brain')}
-      </animated.span>
-      <animated.span
+      </AnimatedLabel>
+      <AnimatedLabel
         style={{
           ...columnLabelStyleLeft,
           ...overlayStyle,
           top: 456,
         }}
+        value='cerebellum'
+        setterFn={setHighlighted}
       >
         {t('nervous.scene.cerebellum')}
-      </animated.span>
-      <animated.span
+      </AnimatedLabel>
+      <AnimatedLabel
         style={{
           ...columnLabelStyleLeft,
           ...overlayStyle,
           top: 692,
         }}
+        value='nerves'
+        setterFn={setHighlighted}
       >
         {t('nervous.scene.nerves')}
-      </animated.span>
-      <animated.span
+      </AnimatedLabel>
+      <AnimatedLabel
         style={{
           ...columnLabelStyleRight,
           ...overlayStyle,
           top: language === 'es' ? 449 : 474,
         }}
+        value='brainstem'
+        setterFn={setHighlighted}
       >
         {t('nervous.scene.brainStem')}
-      </animated.span>
-      <animated.span
+      </AnimatedLabel>
+      <AnimatedLabel
         style={{
           ...columnLabelStyleRight,
           ...overlayStyle,
           top: 578,
         }}
+        value='spinal'
+        setterFn={setHighlighted}
       >
         {t('nervous.scene.spinalCord')}
-      </animated.span>
+      </AnimatedLabel>
     </>
   );
 }
