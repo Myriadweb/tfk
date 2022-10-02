@@ -1,8 +1,8 @@
 import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { useSpring, animated } from 'react-spring';
-import { ReactComponent as Flower } from './SmellAssets/Flower.svg';
-import { ReactComponent as Shoe } from './SmellAssets/Shoe.svg';
+import Flower from './SmellAssets/Flower.svg';
+import Shoe from './SmellAssets/Shoe.svg';
 import { ReactComponent as Closepin } from './SmellAssets/Closepin.svg';
 import { useGameContext } from '../../state/game';
 import {
