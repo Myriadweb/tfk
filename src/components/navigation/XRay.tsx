@@ -14,6 +14,7 @@ import { useSpring, animated } from 'react-spring';
 import { useEffect } from 'react';
 import { BlueBarContinue } from './BlueBarContinue';
 import BlueBar from './UIComponents/BlueBar';
+import { Trans } from 'react-i18next';
 
 type Props = {
   path: Paths;
@@ -63,6 +64,7 @@ const XRay = ({ prefix }: Props) => {
         </button>
       </BlueBar>
     ),
+    3: () => <BlueBar />,
     4: () => (
       <BlueBarContinue
         text={t(`${step}-buttonText`)}
@@ -103,10 +105,7 @@ const XRay = ({ prefix }: Props) => {
           </div>
         </BlueBar>
         <button
-          className='continue-button'
-          style={{
-            marginBottom: -50,
-          }}
+          className='continue-button reward'
           onClick={() => {
             if (!value) return; // if no value is selected, don't continue
 
@@ -176,15 +175,15 @@ const XRay = ({ prefix }: Props) => {
       <div className='nav-header'>
         <div
           className='header-text'
-          style={{ display: step != 6 ? 'block' : 'none' }}
+          style={{
+            display: ![3, 6].includes(step) ? 'block' : 'none',
+            visibility: step === 3 ? 'hidden' : 'visible',
+          }}
         >
           {t(`${step}-mainText`)}
         </div>
         <div className='body-text'>
-          {t(`${step}-subText`)}
-          {step === 6 && (
-            <span className='bold-text'>{t(`${step}-boldText`)}</span>
-          )}
+          {step !== 3 && <Trans i18nKey={t(`${step}-subText`)} />}
         </div>
       </div>
       {stepComponentConfig[step] && stepComponentConfig[step]()}

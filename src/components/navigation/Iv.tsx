@@ -17,7 +17,8 @@ import Medal from './SharedAssets/medal.svg';
 import { BlueBarContinue } from './BlueBarContinue';
 import BlueBar from './UIComponents/BlueBar';
 import { ReactComponent as Arrow } from '../scene/SceneAssets/Arrow.svg';
-import Skeletal from './BodySystemsAssets/Cardiovascular.svg';
+import Cardiovascular from './BodySystemsAssets/Cardiovascular.svg';
+import { Trans } from 'react-i18next';
 
 type Props = {
   path: Paths;
@@ -150,7 +151,7 @@ const Iv = ({ prefix }: Props) => {
         }}
       />
     ),
-    6: () => <></>,
+    6: () => <BlueBar />,
     7: () => (
       <BlueBarContinue
         text={t(`${step}-buttonText`)}
@@ -171,10 +172,8 @@ const Iv = ({ prefix }: Props) => {
     ),
     10: () => (
       <>
-        <div
+        <BlueBar
           style={{
-            marginTop: 12,
-            background: '#0E1F33',
             height: 192,
           }}
         >
@@ -213,19 +212,9 @@ const Iv = ({ prefix }: Props) => {
               text=''
             />
           </div>
-        </div>
+        </BlueBar>
         <button
-          style={{
-            fontFamily: 'LemonMilk',
-            fontSize: 20,
-            color: '#fff',
-            background: '#CD4845',
-            border: '1px solid #000',
-            borderRadius: 12,
-            width: 241,
-            height: 65,
-            marginTop: 20,
-          }}
+          className='continue-button reward'
           onClick={() => {
             if (!value) return; // if no value is selected, don't continue
 
@@ -239,9 +228,9 @@ const Iv = ({ prefix }: Props) => {
     ),
     11: () => (
       <>
-        <div className='nav-middle'>
+        <BlueBar style={{ height: 192 }}>
           <NavigationButton
-            image={Skeletal}
+            image={Cardiovascular}
             size={'large'}
             onClick={() => {
               playSound('click');
@@ -250,7 +239,7 @@ const Iv = ({ prefix }: Props) => {
             }}
             text=''
           />
-        </div>
+        </BlueBar>
 
         <div
           style={{
@@ -302,10 +291,7 @@ const Iv = ({ prefix }: Props) => {
           className='body-text'
           style={{ display: step != 0 ? 'block' : 'none' }}
         >
-          {t(`${step}-subText`)}
-          {step === 11 && (
-            <span className='bold-text'>{t(`${step}-boldText`)}</span>
-          )}
+          <Trans i18nKey={t(`${step}-subText`)} />
         </div>
       </div>
       {shouldShowComponent && stepComponentConfig[step] ? (

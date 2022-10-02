@@ -109,6 +109,7 @@
   font-size: 20px;
   white-space: pre-wrap;
 }
+
 .blue-bar {
   height: 130px;
   background: #0e1f33;
@@ -116,6 +117,14 @@
   align-items: center;
   justify-content: center;
 }
+
+.blue-bar.procedures {
+  position: absolute;
+  width: 100%;
+  top: 180px;
+  left: 0;
+}
+
 .nav-items-container {
   margin: 0px auto;
   display: flex;
@@ -188,6 +197,13 @@
   font-family: 'LemonMilk', sans-serif;
   font-weight: bold;
 }
+
+.continue-button.reward {
+  position: absolute;
+  top: 386px;
+  transform: translateX(-50%);
+}
+
 .start-button {
   font-size: 20px;
   color: #fff;

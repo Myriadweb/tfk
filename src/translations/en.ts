@@ -441,17 +441,17 @@ const en: Translation = {
         '0-subText': 'Help get the patient ready for their surgery.',
         '0-buttonText': 'CONTINUE',
         '1-mainText': 'CHECK BLOOD PRESSURE',
-        '1-subText': "Drag the blood pressure cuff \nto the patient's arm.",
+        '1-subText': "Drag the blood pressure cuff\nto the patient's arm.",
         '2-mainText': 'PUMP IT UP',
         '2-subText':
-          'Keep tapping the button to pump up \nthe blood pressure cuff',
+          'Keep tapping the button to pump up\nthe blood pressure cuff',
         '3-mainText': 'GREAT JOB!',
         '3-subText':
-          "You took the patient's blood pressure. \nTouch to continue.",
+          "You took the patient's blood pressure.\nTouch to continue.",
         '3-buttonText': 'CONTINUE',
         '4-mainText': 'INSERT THE IV',
         '4-subText':
-          'Drag the IV to the veins \nto attach a special bendy straw \nthat delivers fluids.',
+          'Drag the IV to the veins\nto attach a special bendy straw\nthat delivers fluids.',
         '5-mainText': 'GREAT JOB!',
         '5-subText': 'The bendy straw is in place.',
         '5-buttonText': 'CONTINUE',
@@ -459,7 +459,7 @@ const en: Translation = {
         '6-subText': 'Place the bandage over the bendy straw.',
         '7-mainText': 'GREAT JOB!',
         '7-subText':
-          "The IV is in place. Next, we'll help \nthe patient fall asleep for their surgery.",
+          "The IV is in place. Next, we'll help\nthe patient fall asleep for their surgery.",
         '7-buttonText': 'CONTINUE',
         '9-mainText': 'PUT ON THE MASK',
         '9-subText': "Tap the button to put on the patient's mask.",
@@ -473,11 +473,10 @@ const en: Translation = {
         '13-buttonText': 'FINISH',
         '14-mainText': 'GREAT JOB!',
         '14-subText':
-          'The surgical procedure was a success. \nChoose a reward for the patient!',
+          'The surgical procedure was a success.\nChoose a reward for the patient!',
         '14-buttonText': 'CONTINUE',
         '15-subText':
-          'You finished the surgery! Tap below \nto learn more about',
-        '15-boldText': 'THE CARDIOVASCULAR SYSTEM',
+          'You finished the surgery\nTap below to learn more about\n<strong>the cardiovascular1 system</strong>',
         '15-back': 'BACK TO\nPROCEDURES',
       },
     },
@@ -496,26 +495,25 @@ const en: Translation = {
       navbar: {
         '0-mainText': 'FIND THE INJURY',
         '0-subText':
-          "Find where the patient is hurting. When you've found it, \ntouch the area to continue.",
+          "Find where the patient is hurting. When you've\nfound it, touch the area to continue.",
         '1-mainText': 'GREAT JOB!',
         '1-subText':
-          "You found the injury. Now, let's take an \nx-ray picture of the patient's arm.",
+          "You found the injury. Now, let's take an\nx-ray picture of the patient's arm.",
         '1-buttonText': 'CONTINUE',
         '2-mainText': 'TAKE AN X-RAY',
         '2-subText':
-          "Start the x-ray machine to take \na picture of the patient's injury",
+          "Start the x-ray machine to take\na picture of the patient's injury",
         '2-buttonText': 'START',
-        '3-mainText': 'X-RAY MACHINE',
-        '3-subText': 'PROCESSING...',
-        '4-mainText': 'X-RAY RESULTS',
-        '4-subText': "You found a broken bone \nin the patient's arm.",
+        '4-mainText': 'BROKEN BONE',
+        '4-subText':
+          "DOCTORS CAN PUT A CAST ON THE PATIENT'S ARM\nTO HOLD THE BONE STILL WHILE IT HEALS.",
         '4-buttonText': 'FINISH',
         '5-mainText': 'ALL DONE!',
         '5-subText':
-          'Doctors treated the injury with a cast. \nChoose a reward for the patient!',
+          'Doctors treated the injury with a cast.\nChoose a reward for the patient!',
         '5-buttonText': 'CONTINUE',
-        '6-subText': 'You finished the X-ray! Tap below \nto learn more about',
-        '6-boldText': 'THE SKELETAL SYSTEM',
+        '6-subText':
+          'You finished the X-ray! Tap below\nto learn more about\n<strong>the skeletal system</strong>',
         '6-back': 'BACK TO\nPROCEDURES',
       },
     },
@@ -558,7 +556,7 @@ const en: Translation = {
         '8-subText':
           'The EEG test is finished. Choose a reward for the patient!',
         '8-buttonText': 'Continue',
-        '9-subText': 'You finished the EEG! \nTap below to learn more about',
+        '9-subText': 'You finished the EEG!\nTap below to learn more about',
         '9-boldText': 'THE NERVOUS SYSTEM',
         '9-back': 'BACK TO\nPROCEDURES',
       },
@@ -583,10 +581,10 @@ const en: Translation = {
         '3-subText': "Drag the blood pressure cuff to the patient's arm.",
         '4-mainText': 'PUMP IT UP',
         '4-subText':
-          'Keep tapping the button to pump up \nthe blood pressure cuff',
+          'Keep tapping the button to pump up\nthe blood pressure cuff',
         '5-mainText': 'GREAT JOB!',
         '5-subText':
-          "You took the patient's blood pressure. \nTouch to continue.",
+          "You took the patient's blood pressure.\nTouch to continue.",
         '5-buttonText': 'CONTINUE',
         '6-mainText': 'MEASURE PULSE AND BLOOD OXYGEN',
         '6-subText': "Put the clip on the patient's finger.",
@@ -595,11 +593,11 @@ const en: Translation = {
         '8-buttonText': 'CONTINUE',
         '9-mainText': 'STAY ACTIVE',
         '9-subText':
-          'You finished all the tests. Now pick an \nactivity to help the patient stay active and healthy.',
+          'You finished all the tests. Now pick an\nactivity to help the patient stay active and healthy.',
         '9-buttonText': 'FINISH',
         '10-mainText': 'STAY ACTIVE',
         '10-subText':
-          'You finished all the tests. \nNow pick an activity to help the \npatient stay active and healthy.',
+          'You finished all the tests.\nNow pick an activity to help the\npatient stay active and healthy.',
         '10-buttonText': 'CONTINUE',
         '11-subText':
           'YYou finished the wellness check! Tap below to learn more about',
@@ -626,7 +624,7 @@ const en: Translation = {
         '1-buttonText': 'CONTINUE',
         '2-mainText': 'TAKE AN MRI',
         '2-subText':
-          "Start the MRI machine to take a \npicture of the patient's injury.",
+          "Start the MRI machine to take a\npicture of the patient's injury.",
         '2-buttonText': 'START',
         '3-mainText': ' ',
         '3-subText': ' ',
@@ -635,7 +633,7 @@ const en: Translation = {
         '4-buttonText': 'FINISH',
         '5-mainText': 'ALL DONE!',
         '5-subText':
-          'Now that they found the injury, doctors can help \nto treat it. Choose a reward for the patient.',
+          'Now that they found the injury, doctors can help\nto treat it. Choose a reward for the patient.',
         '5-buttonText': 'CONTINUE',
         '6-subText': 'You finished the MRI! Tap below to learn more about',
         '6-boldText': 'THE MUSCULAR SYSTEM',
@@ -661,7 +659,7 @@ const en: Translation = {
         '1-buttonText': 'CONTINUE',
         '2-mainText': 'PLACE A TOURNIQUET',
         '2-subText':
-          "A band around the patient's arm helps to \nfind their veins.",
+          "A band around the patient's arm helps to\nfind their veins.",
         '3-mainText': 'GREAT JOB!',
         '3-subText': 'The patient is ready for the next step.',
         '3-buttonText': 'CONTINUE',
@@ -673,7 +671,7 @@ const en: Translation = {
         '5-buttonText': 'CONTINUE',
         '6-mainText': 'INSERT THE IV',
         '6-subText':
-          'Drag the IV to the veins to attach a special \nbendy straw that delivers fluids.',
+          'Drag the IV to the veins to attach a special\nbendy straw that delivers fluids.',
         '7-mainText': 'GREAT JOB!',
         '7-subText': 'The bendy straw is in place.',
         '7-buttonText': 'CONTINUE',
@@ -685,8 +683,8 @@ const en: Translation = {
         '10-mainText': 'ALL DONE!',
         '10-subText': 'The IV is in place. Choose a reward for the patient.',
         '10-buttonText': 'CONTINUE',
-        '11-subText': 'You inserted the IV! \nTap below to learn more about',
-        '11-boldText': 'THE CARDIOVASCULAR SYSTEM',
+        '11-subText':
+          'You inserted the IV!\nTap below to learn more about\n<strong>the cardiovascular system</strong>',
         '11-back': 'BACK TO\nPROCEDURES',
       },
     },

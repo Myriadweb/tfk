@@ -24,6 +24,7 @@ import { ReactComponent as AwakeFace } from './SurgicalPrepAssets/sliderAwake.sv
 import { ReactComponent as AsleepFace } from './SurgicalPrepAssets/sliderAsleep.svg';
 
 import { CustomSlider } from './CustomSlider';
+import { Trans } from 'react-i18next';
 
 const PUMPS_CONFIG = {
   1: BpPumpOneBar,
@@ -211,9 +212,9 @@ const SurgicalPrep = ({ prefix }: Props) => {
           </div>
         </BlueBar>
         <button
-          className='continue-button'
+          className='continue-button reward'
           style={{
-            marginTop: 20,
+            marginTop: 0,
           }}
           onClick={() => {
             if (!value) return; // if no value is selected, don't continue
@@ -293,8 +294,7 @@ const SurgicalPrep = ({ prefix }: Props) => {
           className='body-text'
           style={{ display: step != 12 && step != 8 ? 'block' : 'none' }}
         >
-          {t(`${step}-subText`)}
-          {step === 15 && t(`${step}-boldText`)}
+          <Trans i18nKey={t(`${step}-subText`)} />
         </div>
       </div>
       {stepComponentConfig[step] && stepComponentConfig[step]()}
