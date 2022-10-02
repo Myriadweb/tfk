@@ -27,12 +27,15 @@ import TarsalsHighlight from './SkeletalAssets/tarsalsHighlight.png';
 import TibiaHighlight from './SkeletalAssets/tibiaHighlight.png';
 import UlnaHighlight from './SkeletalAssets/ulnaHighlight.png';
 import VertebraeHighlight from './SkeletalAssets/vertebraeHighlight.png';
+import { useGameContext } from '../../state/game';
 
 const bodyLeft = 540;
 
 export default function Skeletal() {
   const [animatedPath, setAnimatedPath] = useAnimateContext();
+  const [{ value }, setGameState] = useGameContext();
   const { t } = useTranslation('translation');
+  const [uid, setUid] = useState(Date.now());
   const shouldShowIntroAnimation =
     animatedPath === `${Paths.BodySystems}/${Paths.Skeletal}`;
   const [overlayStyle, overlayApi] = useSpring(() => ({
@@ -51,16 +54,22 @@ export default function Skeletal() {
     },
     onRest: () => setTimeout(() => setAnimatedPath(''), 0),
   }));
+
   const navigate = useNavigate();
   const location = useLocation();
+
+  React.useEffect(() => {
+    if (value !== 'reset') return;
+
+    setGameState({ step: 0 });
+    setUid(Date.now());
+  }, [value]);
 
   const isGame =
     location.pathname ===
     `/${Paths.BodySystems}/${Paths.Skeletal}/${Paths.Game}`;
 
   const [highlighted, setHighlighted] = useState('');
-
-  console.debug(highlighted);
 
   // if we have an animated path, we need to show the slide in animation
   if (
@@ -96,7 +105,7 @@ export default function Skeletal() {
   }
 
   if (isGame) {
-    return <SkeletalGame />;
+    return <SkeletalGame key={uid} />;
   }
 
   return (

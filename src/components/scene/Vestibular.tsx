@@ -10,9 +10,9 @@ import SpinIcon from './VestibularAssets/spinIcon.png';
 import JumpIcon from './VestibularAssets/jumpIcon.png';
 import OverlayBad from './VestibularAssets/overlayBad.png';
 import OverlayGood from './VestibularAssets/overlayGood.png';
-import Tornado from './VestibularAssets/tornado.png';
 import Stars from './VestibularAssets/stars.svg';
 import JumpLines from './VestibularAssets/jumpLines.svg';
+import Animation from '../../animations/vestibular.webm';
 
 import { useCharacterContext } from '../../state/character';
 import { Characters } from './ChildrenAssets/childrenAssets';
@@ -218,7 +218,7 @@ export default function Vestibular() {
         >
           <ReactPlayer
             playing
-            url='../../animations/vestibular.webm'
+            url={Animation}
             width='100%'
             height='100%'
             onEnded={() => {

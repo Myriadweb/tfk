@@ -22,6 +22,7 @@ import Vomit from './DigestiveAssets/vomit.svg';
 import WasteBlueBox from './DigestiveAssets/wasteBlueBox.svg';
 import LargeIntestineLine from './DigestiveAssets/largelIntestineLeaderLine.svg';
 import Waste from './DigestiveAssets/waste.svg';
+import Animation from '../../animations/digestive1.webm';
 
 import { useSpring, animated } from 'react-spring';
 import { columnLabelStyle } from './common';
@@ -265,7 +266,7 @@ export default function DigestiveGame() {
             <ReactPlayer
               playing
               loop
-              url='../../animations/digestive1.webm'
+              url={Animation}
               width='100%'
               height='100%'
             />

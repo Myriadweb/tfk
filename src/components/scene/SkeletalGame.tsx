@@ -30,10 +30,20 @@ type Props = {
   leaving: boolean;
   isLast: boolean;
   setPlacedNumber: Dispatch<SetStateAction<number>>;
+  width: number;
 };
 
 // get random between two numbers
-const getRandom = (min: number, max: number) => {
+const getRandom = (min: number, max: number, width: number, x?: boolean) => {
+  if (x) {
+    let value;
+    do {
+      value = Math.random() * (max - min) + min;
+    } while (value > 320 - width && value < 740);
+
+    return value;
+  }
+
   return Math.random() * (max - min) + min;
 };
 
@@ -46,19 +56,24 @@ const DraggableImage = ({
   leaving,
   isLast,
   setPlacedNumber,
+  width,
 }: Props) => {
   const [preAnimationPosition, setPosition] = React.useState<{
     x: number;
     y: number;
   }>(null);
   const [, setGameState] = useGameContext();
+  const imageRef = React.useRef<HTMLDivElement>(null);
+
   const [placed, setPlaced] = React.useState(false);
-  const randomX = React.useRef(getRandom(100, 980));
-  const randomY = React.useRef(getRandom(100, 1170));
+
+  const randomX = React.useRef(getRandom(0, 900, width, true));
+  const randomY = React.useRef(getRandom(100, 1100, width));
+
   if (randomX.current > 900 && randomY.current > 900) {
     randomY.current = 850;
   }
-  const imageRef = React.useRef<HTMLDivElement>(null);
+
   const [style, styleAPI] = useSpring(() => ({
     from: { left: x, top: y },
     to: { left: randomX.current, top: randomY.current },
@@ -101,7 +116,7 @@ const DraggableImage = ({
         top: y - data.y,
       });
       setPlaced(true);
-      setGameState({ step: 0, value });
+      setGameState({ step: 0, value: isLast ? 'done' : value });
     } else {
       if (placed) {
         setPlaced(false);
@@ -122,6 +137,7 @@ const DraggableImage = ({
           position: 'absolute',
           left: x,
           top: y,
+          zIndex: placed ? 'auto' : 10,
           ...style,
         }}
       >
@@ -169,6 +185,7 @@ export default function SkeletalGame() {
         y={572}
         leaving={leaving}
         value={'vertebrae'}
+        width={29}
       />
       <DraggableImage
         setPlacedNumber={setPlacedNumber}
@@ -178,6 +195,7 @@ export default function SkeletalGame() {
         y={346}
         leaving={leaving}
         value={'skull'}
+        width={202}
       />
       <DraggableImage
         setPlacedNumber={setPlacedNumber}
@@ -187,6 +205,7 @@ export default function SkeletalGame() {
         y={825}
         leaving={leaving}
         value={'carpals&metacarpals'}
+        width={59}
       />
       <DraggableImage
         setPlacedNumber={setPlacedNumber}
@@ -197,6 +216,7 @@ export default function SkeletalGame() {
         specular
         leaving={leaving}
         value={'carpals&metacarpals'}
+        width={59}
       />
       <DraggableImage
         setPlacedNumber={setPlacedNumber}
@@ -206,6 +226,7 @@ export default function SkeletalGame() {
         y={626}
         leaving={leaving}
         value={'scapula'}
+        width={72}
       />
       <DraggableImage
         setPlacedNumber={setPlacedNumber}
@@ -216,6 +237,7 @@ export default function SkeletalGame() {
         specular
         leaving={leaving}
         value={'scapula'}
+        width={72}
       />
       <DraggableImage
         setPlacedNumber={setPlacedNumber}
@@ -225,6 +247,7 @@ export default function SkeletalGame() {
         y={612}
         leaving={leaving}
         value={'ribs'}
+        width={168}
       />
       <DraggableImage
         setPlacedNumber={setPlacedNumber}
@@ -234,6 +257,7 @@ export default function SkeletalGame() {
         y={624}
         leaving={leaving}
         value={'clavicle'}
+        width={239}
       />
       <DraggableImage
         setPlacedNumber={setPlacedNumber}
@@ -243,6 +267,7 @@ export default function SkeletalGame() {
         y={820}
         leaving={leaving}
         value={'pelvis'}
+        width={169}
       />
 
       <DraggableImage
@@ -253,6 +278,7 @@ export default function SkeletalGame() {
         y={869}
         leaving={leaving}
         value={'femur'}
+        width={48}
       />
       <DraggableImage
         setPlacedNumber={setPlacedNumber}
@@ -263,6 +289,7 @@ export default function SkeletalGame() {
         specular
         leaving={leaving}
         value={'femur'}
+        width={48}
       />
 
       <DraggableImage
@@ -273,6 +300,7 @@ export default function SkeletalGame() {
         y={1019}
         leaving={leaving}
         value={'fibule&tibia'}
+        width={37}
       />
       <DraggableImage
         setPlacedNumber={setPlacedNumber}
@@ -283,6 +311,7 @@ export default function SkeletalGame() {
         specular
         leaving={leaving}
         value={'fibule&tibia'}
+        width={37}
       />
       <DraggableImage
         setPlacedNumber={setPlacedNumber}
@@ -292,6 +321,7 @@ export default function SkeletalGame() {
         y={635}
         leaving={leaving}
         value={'humerus'}
+        width={37}
       />
       <DraggableImage
         setPlacedNumber={setPlacedNumber}
@@ -302,6 +332,7 @@ export default function SkeletalGame() {
         specular
         leaving={leaving}
         value={'humerus'}
+        width={72}
       />
       <DraggableImage
         setPlacedNumber={setPlacedNumber}
@@ -311,6 +342,7 @@ export default function SkeletalGame() {
         y={747}
         leaving={leaving}
         value={'radius&ulna'}
+        width={39}
       />
       <DraggableImage
         setPlacedNumber={setPlacedNumber}
@@ -321,6 +353,7 @@ export default function SkeletalGame() {
         specular
         leaving={leaving}
         value={'radius&ulna'}
+        width={39}
       />
       <DraggableImage
         setPlacedNumber={setPlacedNumber}
@@ -330,6 +363,7 @@ export default function SkeletalGame() {
         y={1167}
         leaving={leaving}
         value={'tarsals&metatarsals'}
+        width={81}
       />
       <DraggableImage
         setPlacedNumber={setPlacedNumber}
@@ -340,6 +374,7 @@ export default function SkeletalGame() {
         specular
         leaving={leaving}
         value={'tarsals&metatarsals'}
+        width={81}
       />
     </>
   );

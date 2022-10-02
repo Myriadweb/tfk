@@ -8,23 +8,36 @@ type Props = {
   prefix: Paths;
 };
 
-const SkeletalNav = ({ prefix }: Props) => {
+const Skeletal = ({ prefix }: Props) => {
   const t = useNavBarTranslation(prefix);
   const [{ value }] = useGameContext();
+
+  const isDone = value === 'done';
+  const isReset = value === 'reset';
 
   return (
     <div>
       <span
         style={{
-          display: 'block',
+          display: isDone ? 'none' : 'block',
           fontSize: 20,
           color: '#FFF',
           fontFamily: 'LemonMilk',
           marginTop: 39,
           whiteSpace: 'pre',
+          visibility: isReset ? 'hidden' : 'visible',
         }}
       >
         {t('selectPath')}
+      </span>
+      <span
+        className='bold-text body-text'
+        style={{
+          display: isDone ? 'block' : 'none',
+          marginTop: 32,
+        }}
+      >
+        {t('greatjob')}
       </span>
       <div
         style={{
@@ -47,11 +60,20 @@ const SkeletalNav = ({ prefix }: Props) => {
                 fontWeight: 700,
                 margin: '19px 0 7px',
                 letterSpacing: 2,
+                display: isDone || isReset ? 'none' : 'block',
               }}
             >
               {t(`${value}.title`)}
             </span>
-            <span style={{ fontSize: 20 }}>{t(`${value}.description`)}</span>
+            <span
+              style={{
+                fontSize: 20,
+                marginTop: isDone ? 27 : 'none',
+                visibility: isReset ? 'hidden' : 'visible',
+              }}
+            >
+              {t(`${value}.description`)}
+            </span>
           </>
         )}
       </div>
@@ -59,4 +81,4 @@ const SkeletalNav = ({ prefix }: Props) => {
   );
 };
 
-export default SkeletalNav;
+export default Skeletal;

@@ -4,7 +4,7 @@ import { Paths } from '../../types/Paths';
 import Sensory from './Sensory';
 import Procedures from './Procedures';
 import XRay from './XRay';
-import SkeletalNav from './SkeletalNav';
+import Skeletal from './Skeletal';
 import Mri from './Mri';
 import Eeg from './Eeg';
 import Wellness from './Wellness';
@@ -21,7 +21,7 @@ export default {
   [Paths.Sensory]: Sensory,
   [Paths.Procedures]: Procedures,
   [Paths.XRay]: XRay,
-  [Paths.Skeletal]: SkeletalNav,
+  [Paths.Skeletal]: Skeletal,
   [Paths.Mri]: Mri,
   [Paths.Eeg]: Eeg,
   [Paths.Wellness]: Wellness,

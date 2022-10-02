@@ -160,6 +160,11 @@ const en: Translation = {
           description:
             'LOREM IPSUM DOLOR SIT AMET,\nCONSECTETUR ADIPISCING ELIT,\nSED DO EIUSMOD TEMPOR',
         },
+        done: {
+          description:
+            'You finished the skeleton! All your bones\nwork together to support your body,\nprotect your organs, and help you move.',
+        },
+        greatjob: 'GREAT JOB!',
       },
     },
     [Paths.Muscular]: {
@@ -685,7 +690,6 @@ const en: Translation = {
         '11-back': 'BACK TO\nPROCEDURES',
       },
     },
-    [Paths.Game]: {},
     common: {
       header: {
         bodySystems: 'BODY SYSTEMS',

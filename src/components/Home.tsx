@@ -46,9 +46,11 @@ export function Home() {
   // This gets the current location from react router.
   const location = useLocation();
   const [, setAnimateState] = useAnimateContext();
-  const [, setGameState] = useGameContext();
+  const [gameState, setGameState] = useGameContext();
   const [path, prefix] = usePathFromLocation(location.pathname);
   const { t } = useTranslation('translation');
+
+  console.debug(location);
 
   // By default, the app will render the Home component.
   // If we're on '/' we redirect to main-menu
@@ -158,13 +160,19 @@ export function Home() {
         {location.pathname.includes(Paths.BodySystems) && (
           <div className='Options-buttons-box'>
             <Link
-              to={location.pathname}
+              to={
+                prefix === 'Skeletal' && gameState.value === 'done'
+                  ? location.pathname + location.search
+                  : location.pathname
+              }
               onClick={() => {
+                if (prefix === 'Skeletal' && gameState.value === 'done') return;
                 location.search && playSound('click');
                 location.search && setGameState({ step: 0 });
               }}
             >
-              {!location.search && (
+              {(!location.search ||
+                (prefix === 'Skeletal' && gameState.value === 'done')) && (
                 <OptionOverlaySVG style={{ position: 'absolute', top: 0 }} />
               )}
               <ExploreSVG />
@@ -175,13 +183,19 @@ export function Home() {
             <Link
               to={'?play=true'}
               onClick={() => {
+                if (prefix === 'Skeletal' && gameState.value === 'done') {
+                  setGameState({ value: 'reset' });
+                }
                 setAnimateState('');
                 location.search !== '?play=true' && playSound('click');
               }}
             >
-              {location.search === '?play=true' && (
-                <OptionOverlaySVG style={{ position: 'absolute', top: 160 }} />
-              )}
+              {location.search === '?play=true' &&
+                !(prefix === 'Skeletal' && gameState.value === 'done') && (
+                  <OptionOverlaySVG
+                    style={{ position: 'absolute', top: 160 }}
+                  />
+                )}
               <PlaySVG />
               <span style={{ color: 'white' }}>{t('common.scene.play')}</span>
             </Link>
