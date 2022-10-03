@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="218px" height="335px" viewBox="0 0 218 335" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Flower</title>
+    <defs>
+        <filter x="-51.1%" y="-27.3%" width="202.1%" height="154.0%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="17.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 1 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="25.8341697%" id="linearGradient-2">
+            <stop stop-color="#788C48" offset="0%"></stop>
+            <stop stop-color="#99BA5F" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="14.9007893%" x2="93.908092%" y2="85.0992107%" id="linearGradient-3">
+            <stop stop-color="#99BA5F" offset="0%"></stop>
+            <stop stop-color="#748B42" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="40.1209505%" y1="32.3359363%" x2="100%" y2="85.0992107%" id="linearGradient-4">
+            <stop stop-color="#99BA5F" offset="0%"></stop>
+            <stop stop-color="#70853F" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="36.6865177%" y1="30.4402779%" x2="50%" y2="100%" id="linearGradient-5">
+            <stop stop-color="#FFC84D" offset="0%"></stop>
+            <stop stop-color="#FFAB43" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="03B_Teammates_Systems_Sensory_Smell_1" transform="translate(-217.000000, -1075.000000)" stroke="#000000" stroke-width="2">
+            <g id="Flower" filter="url(#filter-1)" transform="translate(329.000000, 1244.000000) rotate(-374.000000) translate(-329.000000, -1244.000000) translate(259.000000, 1110.000000)">
+                <g id="Group-12">
+                    <path d="M76.7107309,85.8995041 L76.7107309,266.005595 C73.9116578,266.664214 71.6751234,267 70,267 C68.3100109,267 65.9401086,266.659786 62.8893213,265.992003 L62.8893213,85.8995041 L76.7107309,85.8995041 Z" id="Rectangle" fill="url(#linearGradient-2)"></path>
+                    <path d="M1.00226626,144.988067 C21.466274,146.288138 35.4594797,149.880657 42.9105993,155.900314 C50.3579935,161.916961 56.7339394,174.77496 62.1547788,194.374096 C41.9843834,198.418168 26.6921747,195.149536 16.363239,184.361746 C6.06820674,173.609365 0.952269653,160.481892 1.00226626,144.988067 Z" id="Rectangle" fill="url(#linearGradient-3)"></path>
+                    <path d="M77.5997617,144.988067 C98.0637694,146.288138 112.056975,149.880657 119.508095,155.900314 C126.955489,161.916961 133.331435,174.77496 138.752274,194.374096 C118.581879,198.418168 103.28967,195.149536 92.9607344,184.361746 C82.6657021,173.609365 77.549765,160.481892 77.5997617,144.988067 Z" id="Rectangle-Copy" fill="url(#linearGradient-4)" transform="translate(108.298748, 170.486196) scale(-1, 1) translate(-108.298748, -170.486196) "></path>
+                    <g id="Group-8" transform="translate(22.037797, 0.000000)">
+                        <path d="M22.9452015,27.6820627 C25.844356,20.7425809 28.6762054,15.5867712 31.4407497,12.2146337 C34.205294,8.84249623 38.8773694,4.77095166 45.456976,0 C52.2430877,4.6801443 57.0328056,8.75168888 59.8261295,12.2146337 C62.6194535,15.6775786 65.3336605,20.8333882 67.9687505,27.6820627 C57.9915407,34.7259472 50.4876159,38.2478895 45.456976,38.2478895 C40.4263361,38.2478895 32.9224113,34.7259472 22.9452015,27.6820627 Z" id="Path-447" fill="#FFC84D"></path>
+                        <path d="M45.6677851,85.6772214 C55.9159602,87.0616092 62.4669759,87.0616092 65.320832,85.6772214 C74.1184811,81.4095365 84.4522899,71.6083027 86.9827057,59.1351139 C90.7443782,40.5926867 90.7443782,20.8809821 86.9827057,0 C65.7907942,14.2012642 49.127984,27.0708996 36.9942751,38.6089061 C24.8605662,50.1469127 23.5497448,59.9186185 33.061811,67.9240237 L45.6677851,85.6772214 Z" id="Path-446" fill="#FFC84D"></path>
+                        <path d="M83.5536922,67.9240237 C70.8522157,60.0442718 59.396732,50.1522271 49.1872412,38.2478895 C38.9777504,26.3435519 22.5820033,13.5942554 0,0 C0.679637893,31.8457093 2.9029024,52.5841375 6.66979351,62.2152846 C11.157842,73.6902792 21.8178006,92.4212152 49.1872412,92.4212152 C65.8622958,92.4212152 77.3177795,84.2554847 83.5536922,67.9240237 Z" id="Path-445" fill="url(#linearGradient-5)"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

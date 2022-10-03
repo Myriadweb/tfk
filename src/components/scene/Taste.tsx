@@ -5,13 +5,18 @@ import {
   ClickableImage,
   VariationsType,
 } from './SharedComponents/ClickableImage';
-import { ReactComponent as Sparkles } from './TasteAssets/Sparkles.svg';
-import IceCream from './TasteAssets/IceCream.png';
-import Bottle from './TasteAssets/Bottle.png';
-import SenseHighlight from './TasteAssets/SenseHighlight.png';
-import Drop from './TasteAssets/Drop.png';
+import { ReactComponent as Sparkles } from './SensoryAssets/TasteAssets/Sparkles.svg';
+import IceCream from './SensoryAssets/TasteAssets/IceCream.png';
+import Bottle from './SensoryAssets/TasteAssets/Bottle.png';
+import SenseHighlight from './SensoryAssets/TasteAssets/SenseHighlight.png';
+import Drop from './SensoryAssets/TasteAssets/Drop.png';
 import { useCharacterContext } from '../../state/character';
 import { Characters, sensoryChildWidth } from './ChildrenAssets/childrenAssets';
+import BottomOverlay from './SensoryAssets/bottomOverlay.png';
+import OverlayGood from './SensoryAssets/overlayGOOD.png';
+import OverlayBad from './SensoryAssets/overlayBAD.png';
+import Brain from './SensoryAssets/brain.png';
+import BgBad from './SensoryAssets/BGBad.png';
 
 const childImages = {
   good: 'iceCream',
@@ -66,7 +71,7 @@ export default function Taste() {
     <>
       {sensoryState === 'bad' && (
         <img
-          src='images/BGBad.png'
+          src={BgBad}
           style={{
             position: 'absolute',
             left: 0,
@@ -86,7 +91,7 @@ export default function Taste() {
         <ChildComponent />
       </div>
       <img
-        src='images/Sensory/bottomOverlay.png'
+        src={BottomOverlay}
         style={{
           position: 'absolute',
           bottom: 0,
@@ -95,7 +100,7 @@ export default function Taste() {
       />
       {sensoryState && (
         <animated.img
-          src='images/Sensory/brain.png'
+          src={Brain}
           style={{
             transform: 'translate(-50%, -50%)',
             position: 'absolute',
@@ -108,7 +113,7 @@ export default function Taste() {
       {sensoryState === 'good' && (
         <>
           <animated.img
-            src='images/Hearing/overlayGOOD.png'
+            src={OverlayGood}
             style={{
               position: 'absolute',
               left: 539,
@@ -155,7 +160,7 @@ export default function Taste() {
             }}
           />
           <animated.img
-            src='images/Hearing/overlayBAD.png'
+            src={OverlayBad}
             style={{
               position: 'absolute',
               left: 539,
