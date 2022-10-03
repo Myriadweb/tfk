@@ -11,6 +11,8 @@ import OverlayBad from './ProprioceptionAssets/overlayBad.png';
 import OverlayGood from './ProprioceptionAssets/overlayGood.png';
 import { Characters } from './ChildrenAssets/childrenAssets';
 import { useCharacterContext } from '../../state/character';
+import BottomOverlay from './SensoryAssets/bottomOverlay.png';
+import BgBad from './SensoryAssets/BGBad.png';
 
 export default function Proprioception() {
   const [sensoryState, setSensoryState] = React.useState<VariationsType | null>(
@@ -45,7 +47,7 @@ export default function Proprioception() {
     <>
       {sensoryState === 'bad' && (
         <img
-          src='images/BGBad.png'
+          src={BgBad}
           style={{
             position: 'absolute',
             left: 0,
@@ -88,7 +90,7 @@ export default function Proprioception() {
         <CharacterBad />
       </div>
       <img
-        src='images/Sensory/bottomOverlay.png'
+        src={BottomOverlay}
         style={{
           position: 'absolute',
           bottom: 0,

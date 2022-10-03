@@ -1,9 +1,7 @@
 import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { useSpring, animated } from 'react-spring';
-import Flower from './SmellAssets/Flower.svg';
-import Shoe from './SmellAssets/Shoe.svg';
-import { ReactComponent as Closepin } from './SmellAssets/Closepin.svg';
+
 import { useGameContext } from '../../state/game';
 import {
   ClickableImage,
@@ -11,6 +9,17 @@ import {
 } from './SharedComponents/ClickableImage';
 import { Characters, sensoryChildWidth } from './ChildrenAssets/childrenAssets';
 import { useCharacterContext } from '../../state/character';
+import BottomOverlay from './SensoryAssets/bottomOverlay.png';
+import OverlayGood from './SensoryAssets/overlayGOOD.png';
+import OverlayBad from './SensoryAssets/overlayBAD.png';
+import Brain from './SensoryAssets/brain.png';
+import BgBad from './SensoryAssets/BGBad.png';
+import Flies from './SensoryAssets/SmellAssets/flies.png';
+import Flower from './SensoryAssets/SmellAssets/Flower.svg';
+import NoseHighlight from './SensoryAssets/SmellAssets/noseHighlight.png';
+import Shoe from './SensoryAssets/SmellAssets/Shoe.svg';
+import Sparkles from './SensoryAssets/SmellAssets/sparkles.png';
+import { ReactComponent as Closepin } from './SensoryAssets/SmellAssets/Closepin.svg';
 
 const valueType = 'badSmell';
 const finalValueType = valueType + '-final';
@@ -64,7 +73,7 @@ export function Smell() {
     <>
       {sensoryState === 'bad' && (
         <img
-          src='public/images/BGBad.png'
+          src={BgBad}
           style={{
             position: 'absolute',
             left: 0,
@@ -84,7 +93,7 @@ export function Smell() {
         <ChildComponent />
       </div>
       <img
-        src='images/Sensory/bottomOverlay.png'
+        src={BottomOverlay}
         style={{
           position: 'absolute',
           bottom: 0,
@@ -94,17 +103,18 @@ export function Smell() {
       {sensoryState === 'good' && (
         <>
           <animated.img
-            src='images/Smell/overlayGOOD.png'
+            src={OverlayGood}
             style={{
               position: 'absolute',
-              left: 0,
-              top: -180,
+              left: 539,
+              top: 630,
+              transform: 'translate(-50%, -50%)',
               zIndex: 1,
               ...overlay,
             }}
           />
           <animated.img
-            src='images/Smell/sparkles.png'
+            src={Sparkles}
             style={{
               position: 'absolute',
               top: 721,
@@ -118,17 +128,18 @@ export function Smell() {
       {sensoryState === 'bad' && (
         <>
           <animated.img
-            src='images/Smell/overlayBAD.png'
+            src={OverlayBad}
             style={{
               position: 'absolute',
-              left: 0,
-              top: -180,
+              left: 539,
+              top: 630,
+              transform: 'translate(-50%, -50%)',
               zIndex: 1,
               ...overlay,
             }}
           />
           <animated.img
-            src='images/Smell/flies.png'
+            src={Flies}
             style={{
               transform: 'translate(-50%, -50%)',
               position: 'absolute',
@@ -143,7 +154,7 @@ export function Smell() {
       {sensoryState && (
         <>
           <animated.img
-            src='images/Sensory/brain.png'
+            src={Brain}
             style={{
               transform: 'translate(-50%, -50%)',
               position: 'absolute',
@@ -153,7 +164,7 @@ export function Smell() {
             }}
           />
           <animated.img
-            src='images/Smell/NoseHighlight.png'
+            src={NoseHighlight}
             style={{
               transform: 'translate(-50%, -50%)',
               position: 'absolute',

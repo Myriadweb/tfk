@@ -8,6 +8,18 @@ import {
 } from './SharedComponents/ClickableImage';
 import { useCharacterContext } from '../../state/character';
 import { Characters, sensoryChildWidth } from './ChildrenAssets/childrenAssets';
+import BottomOverlay from './SensoryAssets/bottomOverlay.png';
+import OverlayGood from './SensoryAssets/overlayGOOD.png';
+import OverlayBad from './SensoryAssets/overlayBAD.png';
+import BgBad from './SensoryAssets/BGBad.png';
+import Brain from './SensoryAssets/brain.png';
+import SensoryHighlight from './SensoryAssets/SensoryHighlight.png';
+import Music from './SensoryAssets/HearingAssets/music.png';
+import MusicLines from './SensoryAssets/HearingAssets/musicLines.png';
+import MusicSparkles from './SensoryAssets/HearingAssets/musicSparkles.png';
+import Siren from './SensoryAssets/HearingAssets/siren.png';
+import SirenAirplugsReaction from './SensoryAssets/HearingAssets/sirenAirplugsReaction.png';
+import SoundLines from './SensoryAssets/HearingAssets/soundLines.png';
 
 const valueType = 'badSound';
 const finalValueType = valueType + '-final';
@@ -62,7 +74,7 @@ export default function Hearing() {
     <>
       {sensoryState === 'bad' && (
         <img
-          src='images/BGBad.png'
+          src={BgBad}
           style={{
             position: 'absolute',
             left: 0,
@@ -82,7 +94,7 @@ export default function Hearing() {
         <ChildComponent />
       </div>
       <img
-        src='images/Sensory/bottomOverlay.png'
+        src={BottomOverlay}
         style={{
           position: 'absolute',
           bottom: 0,
@@ -92,7 +104,7 @@ export default function Hearing() {
       {sensoryState && (
         <>
           <animated.img
-            src='images/Sensory/brain.png'
+            src={Brain}
             style={{
               transform: 'translate(-50%, -50%)',
               position: 'absolute',
@@ -102,7 +114,7 @@ export default function Hearing() {
             }}
           />
           <animated.img
-            src='images/Hearing/SensoryHighlight.png'
+            src={SensoryHighlight}
             style={{
               transform: 'translate(-50%, -50%)',
               position: 'absolute',
@@ -116,7 +128,7 @@ export default function Hearing() {
       {sensoryState === 'good' && (
         <>
           <animated.img
-            src='images/Hearing/overlayGOOD.png'
+            src={OverlayGood}
             style={{
               position: 'absolute',
               left: 539,
@@ -127,7 +139,7 @@ export default function Hearing() {
             }}
           />
           <animated.img
-            src='images/Hearing/musicSparkles.png'
+            src={MusicSparkles}
             style={{
               position: 'absolute',
               top: 664,
@@ -137,7 +149,7 @@ export default function Hearing() {
             }}
           />
           <animated.img
-            src='images/Hearing/musicLines.png'
+            src={MusicLines}
             style={{
               position: 'absolute',
               top: 669,
@@ -151,7 +163,7 @@ export default function Hearing() {
       {sensoryState === 'bad' && (
         <>
           <animated.img
-            src='images/Hearing/overlayBAD.png'
+            src={OverlayBad}
             style={{
               position: 'absolute',
               left: 539,
@@ -162,7 +174,7 @@ export default function Hearing() {
             }}
           />
           <animated.img
-            src='images/Hearing/soundLines.png'
+            src={SoundLines}
             style={{
               transform: 'translate(-50%, -50%)',
               position: 'absolute',
@@ -176,12 +188,12 @@ export default function Hearing() {
       )}
       {value === finalValueType && (
         <animated.img
-          src='images/Hearing/sirenAirplugsReaction.png'
+          src={SirenAirplugsReaction}
           style={{ position: 'absolute', left: 246, top: 681 }}
         />
       )}
       <ClickableImage
-        Component='images/Hearing/music.png'
+        Component={Music}
         x={618}
         y={945}
         type='good'
@@ -194,7 +206,7 @@ export default function Hearing() {
         sound={'completeStep'}
       />
       <ClickableImage
-        Component='images/Hearing/siren.png'
+        Component={Siren}
         x={200}
         y={910}
         type='bad'

@@ -6,13 +6,15 @@ import {
   VariationsType,
 } from './SharedComponents/ClickableImage';
 
-import SpinIcon from './VestibularAssets/spinIcon.png';
-import JumpIcon from './VestibularAssets/jumpIcon.png';
-import OverlayBad from './VestibularAssets/overlayBad.png';
-import OverlayGood from './VestibularAssets/overlayGood.png';
-import Stars from './VestibularAssets/stars.svg';
-import JumpLines from './VestibularAssets/jumpLines.svg';
+import SpinIcon from './SensoryAssets/VestibularAssets/spinIcon.png';
+import JumpIcon from './SensoryAssets/VestibularAssets/jumpIcon.png';
+import OverlayBad from './SensoryAssets/VestibularAssets/overlayBad.png';
+import OverlayGood from './SensoryAssets/VestibularAssets/overlayGood.png';
+import Stars from './SensoryAssets/VestibularAssets/stars.svg';
+import JumpLines from './SensoryAssets/VestibularAssets/jumpLines.svg';
 import Animation from '../../animations/vestibular.webm';
+import BottomOverlay from './SensoryAssets/bottomOverlay.png';
+import BgBad from './SensoryAssets/BGBad.png';
 
 import { useCharacterContext } from '../../state/character';
 import { Characters } from './ChildrenAssets/childrenAssets';
@@ -107,7 +109,7 @@ export default function Vestibular() {
     <>
       {(sensoryState === 'bad' || tornadoAnimation) && (
         <img
-          src='images/BGBad.png'
+          src={BgBad}
           style={{
             position: 'absolute',
             left: 0,
@@ -128,7 +130,7 @@ export default function Vestibular() {
         <Character />
       </div>
       <img
-        src='images/Sensory/bottomOverlay.png'
+        src={BottomOverlay}
         style={{
           position: 'absolute',
           bottom: 0,

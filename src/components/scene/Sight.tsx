@@ -8,6 +8,16 @@ import {
 } from './SharedComponents/ClickableImage';
 import { useCharacterContext } from '../../state/character';
 import { Characters, sensoryChildWidth } from './ChildrenAssets/childrenAssets';
+import BottomOverlay from './SensoryAssets/bottomOverlay.png';
+import OverlayGood from './SensoryAssets/overlayGOOD.png';
+import OverlayBad from './SensoryAssets/overlayBAD.png';
+import Brain from './SensoryAssets/brain.png';
+import BgBad from './SensoryAssets/BGBad.png';
+import Cone from './SensoryAssets/SightAssets/cone.png';
+import Moon from './SensoryAssets/SightAssets/moon.png';
+import Sun from './SensoryAssets/SightAssets/sun.png';
+import Sunglasses from './SensoryAssets/SightAssets/sunglasses.png';
+
 
 const valueType = 'badSight';
 const finalValueType = valueType + '-final';
@@ -76,7 +86,7 @@ export default function Sight() {
     <>
       {sensoryState === 'bad' && (
         <img
-          src='images/BGBad.png'
+          src={BgBad}
           style={{
             position: 'absolute',
             left: 0,
@@ -96,15 +106,7 @@ export default function Sight() {
         <ChildComponent />
       </div>
       <img
-        src='images/Sensory/bottomOverlay.png'
-        style={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-        }}
-      />
-      <img
-        src='images/Sensory/bottomOverlay.png'
+        src={BottomOverlay}
         style={{
           position: 'absolute',
           bottom: 0,
@@ -114,7 +116,7 @@ export default function Sight() {
       {sensoryState === 'good' && (
         <>
           <animated.img
-            src='images/Sight/overlayGOOD.png'
+            src={OverlayGood}
             style={{
               position: 'absolute',
               left: 543,
@@ -128,7 +130,7 @@ export default function Sight() {
       )}
       {sensoryState && (
         <animated.img
-          src='images/Sensory/brain.png'
+          src={Brain}
           style={{
             transform: 'translate(-50%, -50%)',
             position: 'absolute',
@@ -141,7 +143,7 @@ export default function Sight() {
       {sensoryState === 'bad' && (
         <>
           <animated.img
-            src='images/Sight/Cone.png'
+            src={Cone}
             style={{
               position: 'absolute',
               left: 517,
@@ -152,7 +154,7 @@ export default function Sight() {
           />
 
           <animated.img
-            src='images/Sight/overlayBAD.png'
+            src={OverlayBad}
             style={{
               position: 'absolute',
               left: 539,
@@ -166,7 +168,7 @@ export default function Sight() {
       )}
       {value === finalValueType && (
         <img
-          src='images/Sight/sunglasses.png'
+          src={Sunglasses}
           style={{
             position: 'absolute',
             left: 544,
@@ -176,7 +178,7 @@ export default function Sight() {
         />
       )}
       <ClickableImage
-        Component='images/Sight/moon.png'
+        Component={Moon}
         x={645}
         y={991}
         type='good'
@@ -186,7 +188,7 @@ export default function Sight() {
         sound={'completeProcedure'}
       />
       <ClickableImage
-        Component='images/Sight/sun.png'
+        Component={Sun}
         x={185}
         y={943}
         type='bad'

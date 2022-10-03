@@ -6,17 +6,18 @@ import {
   ClickableImage,
   VariationsType,
 } from './SharedComponents/ClickableImage';
-import { ReactComponent as OvenMitt } from './TouchAssets/ovenMitt.svg';
-import ChildGood from './TouchAssets/childGood.png';
-import ChildBad from './TouchAssets/childBad.png';
-import pan from './TouchAssets/pan.png';
-import { ReactComponent as PlushToy } from './TouchAssets/plushToy.svg';
-import { ReactComponent as Sparkles } from './TouchAssets/sparkles.svg';
+import { ReactComponent as OvenMitt } from './SensoryAssets/TouchAssets/ovenMitt.svg';
+import ChildGood from './SensoryAssets/TouchAssets/childGood.png';
+import ChildBad from './SensoryAssets/TouchAssets/childBad.png';
+import pan from './SensoryAssets/TouchAssets/pan.png';
+import { ReactComponent as PlushToy } from './SensoryAssets/TouchAssets/plushToy.svg';
+import { ReactComponent as Sparkles } from './SensoryAssets/TouchAssets/sparkles.svg';
 import { useCharacterContext } from '../../state/character';
 import { Characters } from './ChildrenAssets/childrenAssets';
-import OverlayGood from './TouchAssets/overlayGood.png';
-import OverlayBad from './TouchAssets/overlayBad.png';
-
+import OverlayGood from './SensoryAssets/TouchAssets/overlayGood.png';
+import OverlayBad from './SensoryAssets/TouchAssets/overlayBad.png';
+import BottomOverlay from './SensoryAssets/bottomOverlay.png';
+import BgBad from './SensoryAssets/BGBad.png';
 const valueType = 'badTouch';
 const finalValueType = valueType + '-final';
 const activePosition = { left: 530, top: 690 };
@@ -67,7 +68,7 @@ export default function Touch() {
     <>
       {sensoryState === 'bad' && (
         <img
-          src='images/BGBad.png'
+          src={BgBad}
           style={{
             position: 'absolute',
             left: 0,
@@ -87,7 +88,7 @@ export default function Touch() {
         <ChildComponent />
       </div>
       <img
-        src='images/Sensory/bottomOverlay.png'
+        src={BottomOverlay}
         style={{
           position: 'absolute',
           bottom: 0,
