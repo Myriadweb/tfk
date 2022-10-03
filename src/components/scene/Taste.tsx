@@ -31,6 +31,8 @@ export default function Taste() {
   }));
 
   if (sensoryState) {
+    overlayAPI.set({ opacity: 0 });
+    dropAPI.set({ opacity: 0, transform: 'translateY(-200px)' });
     overlayAPI.start({
       to: [{ opacity: 1 }],
       from: { opacity: 0 },

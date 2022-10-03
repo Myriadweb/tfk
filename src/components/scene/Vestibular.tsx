@@ -46,6 +46,7 @@ export default function Vestibular() {
   const CharacterProtected = Characters.protection[selectedCharacter];
 
   if ((sensoryState || tornadoAnimation) && value !== finalValueType) {
+    if (value === 'good') overlayAPI.set({ opacity: 0 });
     overlayAPI.start({
       to: [{ opacity: 1 }],
       config: {
@@ -71,6 +72,8 @@ export default function Vestibular() {
   }
 
   if (sensoryState === 'good') {
+    jumpApi.set({ transform: 'translate(-50%, 0px)' });
+    jumpLinesAPI.set({ opacity: 0 });
     jumpApi.start({
       to: [
         { transform: 'translate(-50%, -200px)' },
@@ -255,6 +258,7 @@ export default function Vestibular() {
         reset={sensoryState === 'bad' && value === finalValueType}
         sound={'completeStep'}
         valueType={valueType}
+        disableTimeout
       />
       <ClickableImage
         Component={JumpIcon}

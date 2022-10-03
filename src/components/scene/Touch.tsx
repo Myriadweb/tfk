@@ -37,6 +37,8 @@ export default function Touch() {
   const [{ value }] = useGameContext();
 
   if (sensoryState && value !== finalValueType) {
+    effectAPI.set({ opacity: 0 });
+    overlayAPI.set({ opacity: 0 });
     effectAPI.start({
       from: { opacity: 0 },
       to: { opacity: 1 },

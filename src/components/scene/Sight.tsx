@@ -34,6 +34,9 @@ export default function Sight() {
   const [{ value }] = useGameContext();
 
   if (sensoryState && value !== finalValueType) {
+    effectAPI.set({ opacity: 0 });
+    brainAPI.set({ opacity: 0 });
+    overlayAPI.set({ opacity: 0 });
     brainAPI.start({
       from: { opacity: 0 },
       to: { opacity: 1 },

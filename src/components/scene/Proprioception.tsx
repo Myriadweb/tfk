@@ -21,6 +21,7 @@ export default function Proprioception() {
   const [overlay, overlayAPI] = useSpring(() => ({ opacity: 0 }));
 
   if (sensoryState) {
+    overlayAPI.set({ opacity: 0 });
     overlayAPI.start({
       to: [{ opacity: 1 }],
       from: { opacity: 0 },
