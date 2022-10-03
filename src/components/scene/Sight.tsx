@@ -18,7 +18,6 @@ import Moon from './SensoryAssets/SightAssets/moon.png';
 import Sun from './SensoryAssets/SightAssets/sun.png';
 import Sunglasses from './SensoryAssets/SightAssets/sunglasses.png';
 
-
 const valueType = 'badSight';
 const finalValueType = valueType + '-final';
 const activeStyle = {
