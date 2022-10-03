@@ -41,6 +41,8 @@ export function Smell() {
   const [{ value }] = useGameContext();
 
   if (sensoryState && value !== 'badSmell-final') {
+    effectAPI.set({ opacity: 0 });
+    overlayAPI.set({ opacity: 0 });
     effectAPI.start({
       from: { opacity: 0 },
       to: { opacity: 1 },

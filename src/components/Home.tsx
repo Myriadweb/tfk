@@ -50,8 +50,6 @@ export function Home() {
   const [path, prefix] = usePathFromLocation(location.pathname);
   const { t } = useTranslation('translation');
 
-  console.debug(location);
-
   // By default, the app will render the Home component.
   // If we're on '/' we redirect to main-menu
   if (location.pathname === '/') {

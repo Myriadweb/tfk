@@ -1,7 +1,8 @@
-import React, { CSSProperties, useEffect } from 'react';
+import React, { CSSProperties, useEffect, useRef } from 'react';
 import { animated, useSpring } from 'react-spring';
 import { useGameContext } from '../../../state/game';
 import playSound, { Sounds } from '../../../sound';
+import { use } from 'i18next';
 
 export type VariationsType = 'good' | 'bad';
 
@@ -22,6 +23,7 @@ type Props = {
   reset?: boolean;
   valueType?: string;
   style?: CSSProperties;
+  disableTimeout?: boolean;
 };
 export const ClickableImage = ({
   Component,
@@ -35,6 +37,7 @@ export const ClickableImage = ({
   activeStyle,
   style: BaseStyle,
   sound,
+  disableTimeout,
 }: Props) => {
   const [style, styleApi] = useSpring(() => ({
     transform: `translate(-0%, -0%) rotate(0deg)`,
@@ -43,6 +46,7 @@ export const ClickableImage = ({
     opacity: 1,
   }));
   const [, setGameState] = useGameContext();
+  const timeout = useRef(null);
 
   useEffect(() => {
     if (reset) {
@@ -50,8 +54,15 @@ export const ClickableImage = ({
     }
   }, [reset]);
 
-  const handleAnimation = () => {
-    if (onTop) {
+  const handleAnimation = (res?: boolean) => {
+    console.debug('should be here');
+    if (style.transform.isAnimating) return;
+    console.debug('and still here');
+
+    if (timeout.current) {
+      clearTimeout(timeout.current);
+    }
+    if (onTop || res) {
       styleApi.start({
         left: x,
         top: y,
@@ -71,6 +82,10 @@ export const ClickableImage = ({
     }
     setGameState({ step: 0, value: type === 'bad' ? valueType : '' });
     onChange(type);
+
+    if (disableTimeout) return;
+
+    timeout.current = setTimeout(() => handleAnimation(true), 3000);
   };
 
   return (
@@ -84,7 +99,7 @@ export const ClickableImage = ({
             ...BaseStyle,
           }}
           src={Component}
-          onClick={handleAnimation}
+          onClick={() => handleAnimation()}
         />
       ) : (
         <animated.div
@@ -95,7 +110,7 @@ export const ClickableImage = ({
             ...BaseStyle,
           }}
         >
-          <Component onClick={handleAnimation} />
+          <Component onClick={() => handleAnimation()} />
         </animated.div>
       )}
       {onTop && (
@@ -106,7 +121,7 @@ export const ClickableImage = ({
             width: '100%',
             height: '100%',
           }}
-          onClick={handleAnimation}
+          onClick={() => handleAnimation()}
         />
       )}
     </>
