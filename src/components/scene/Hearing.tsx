@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-import { useSpring, animated } from 'react-spring';
+import { useSpring, animated, easings } from 'react-spring';
 import { useGameContext } from '../../state/game';
 import {
   ClickableImage,
@@ -38,11 +38,16 @@ export default function Hearing() {
   const location = useLocation();
   const [overlay, overlayAPI] = useSpring(() => ({ opacity: 0 }));
   const [effectStyle, effectAPI] = useSpring(() => ({ opacity: 0 }));
+  const [sparklesStyle, sparklesApi] = useSpring(() => ({
+    transform: 'scale(0)',
+    opacity: 1,
+  }));
   const [{ value }] = useGameContext();
 
   if (sensoryState && value !== finalValueType) {
     effectAPI.set({ opacity: 0 });
     overlayAPI.set({ opacity: 0 });
+    sparklesApi.set({ transform: 'scale(0)', opacity: 1 });
     effectAPI.start({
       from: { opacity: 0 },
       to: { opacity: 1 },
@@ -55,6 +60,15 @@ export default function Hearing() {
         duration: 500,
       },
       delay: 500,
+    });
+    sparklesApi.start({
+      transform: 'scale(2)',
+      opacity: 0,
+      delay: 1000,
+      config: {
+        duration: 500,
+        easing: easings.linear,
+      },
     });
   } else {
     effectAPI.set({ opacity: 0 });
@@ -147,7 +161,7 @@ export default function Hearing() {
               top: 664,
               left: 274,
               zIndex: 2,
-              ...effectStyle,
+              ...sparklesStyle,
             }}
           />
           <animated.img

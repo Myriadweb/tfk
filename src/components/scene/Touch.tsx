@@ -1,17 +1,27 @@
 import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-import { useSpring, animated } from 'react-spring';
+import { useSpring, animated, easings } from 'react-spring';
 import { useGameContext } from '../../state/game';
 import {
   ClickableImage,
   VariationsType,
 } from './SharedComponents/ClickableImage';
 import { ReactComponent as OvenMitt } from './SensoryAssets/TouchAssets/ovenMitt.svg';
-import ChildGood from './SensoryAssets/TouchAssets/childGood.png';
-import ChildBad from './SensoryAssets/TouchAssets/childBad.png';
+import Child1Good from './SensoryAssets/TouchAssets/1TouchGood.png';
+import Child1Bad from './SensoryAssets/TouchAssets/1TouchBad.png';
+import Child2Good from './SensoryAssets/TouchAssets/2TouchGood.png';
+import Child2Bad from './SensoryAssets/TouchAssets/2TouchBad.png';
+import Child3Good from './SensoryAssets/TouchAssets/3TouchGood.png';
+import Child3Bad from './SensoryAssets/TouchAssets/3TouchBad.png';
+import Child4Good from './SensoryAssets/TouchAssets/4TouchGood.png';
+import Child4Bad from './SensoryAssets/TouchAssets/4TouchBad.png';
+import Child5Good from './SensoryAssets/TouchAssets/5TouchGood.png';
+import Child5Bad from './SensoryAssets/TouchAssets/5TouchBad.png';
+import Child6Good from './SensoryAssets/TouchAssets/6TouchGood.png';
+import Child6Bad from './SensoryAssets/TouchAssets/6TouchBad.png';
 import pan from './SensoryAssets/TouchAssets/pan.png';
 import { ReactComponent as PlushToy } from './SensoryAssets/TouchAssets/plushToy.svg';
-import { ReactComponent as Sparkles } from './SensoryAssets/TouchAssets/sparkles.svg';
+import Sparkles from './SensoryAssets/TouchAssets/sparkles.svg';
 import { useCharacterContext } from '../../state/character';
 import { Characters } from './ChildrenAssets/childrenAssets';
 import OverlayGood from './SensoryAssets/TouchAssets/overlayGood.png';
@@ -23,8 +33,18 @@ const finalValueType = valueType + '-final';
 const activePosition = { left: 530, top: 690 };
 
 const childImages = {
-  good: ChildGood,
-  bad: ChildBad,
+  good1: Child1Good,
+  bad1: Child1Bad,
+  good2: Child2Good,
+  bad2: Child2Bad,
+  good3: Child3Good,
+  bad3: Child3Bad,
+  good4: Child4Good,
+  bad4: Child4Bad,
+  good5: Child5Good,
+  bad5: Child5Bad,
+  good6: Child6Good,
+  bad6: Child6Bad,
 };
 
 export default function Touch() {
@@ -34,17 +54,15 @@ export default function Touch() {
   const [selectedCharacter] = useCharacterContext();
   const location = useLocation();
   const [overlay, overlayAPI] = useSpring(() => ({ opacity: 0 }));
-  const [effectStyle, effectAPI] = useSpring(() => ({ opacity: 0 }));
+  const [sparklesStyle, sparklesApi] = useSpring(() => ({
+    transform: 'scale(0)',
+    opacity: 1,
+  }));
   const [{ value }] = useGameContext();
 
   if (sensoryState && value !== finalValueType) {
-    effectAPI.set({ opacity: 0 });
     overlayAPI.set({ opacity: 0 });
-    effectAPI.start({
-      from: { opacity: 0 },
-      to: { opacity: 1 },
-      delay: 1000,
-    });
+    sparklesApi.set({ transform: 'scale(0)', opacity: 1 });
     overlayAPI.start({
       to: [{ opacity: 1 }],
       from: { opacity: 0 },
@@ -53,8 +71,17 @@ export default function Touch() {
       },
       delay: 500,
     });
+    sparklesApi.start({
+      transform: 'scale(2)',
+      opacity: 0,
+      delay: 1000,
+      config: {
+        duration: 500,
+        easing: easings.linear,
+      },
+    });
   } else {
-    effectAPI.set({ opacity: 0 });
+    sparklesApi.set({ transform: 'scale(0)', opacity: 1 });
     overlayAPI.set({ opacity: 0 });
   }
 
@@ -62,7 +89,7 @@ export default function Touch() {
     return <Navigate to={'/bodySystems/sensory'} />;
   }
 
-  const ResultChildImage = childImages[sensoryState];
+  const ResultChildImage = childImages[sensoryState + (selectedCharacter + 1)];
 
   const ChildComponent = Characters.default[selectedCharacter];
 
@@ -110,13 +137,14 @@ export default function Touch() {
               ...overlay,
             }}
           />
-          <Sparkles
+          <animated.img
+            src={Sparkles}
             style={{
               position: 'absolute',
               top: 642,
               left: 274,
               zIndex: 2,
-              ...effectStyle,
+              ...sparklesStyle,
             }}
           />
         </>

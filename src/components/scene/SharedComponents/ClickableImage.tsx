@@ -55,9 +55,7 @@ export const ClickableImage = ({
   }, [reset]);
 
   const handleAnimation = (res?: boolean) => {
-    console.debug('should be here');
     if (style.transform.isAnimating) return;
-    console.debug('and still here');
 
     if (timeout.current) {
       clearTimeout(timeout.current);

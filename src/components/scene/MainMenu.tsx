@@ -114,8 +114,6 @@ export function MainMenu() {
   const [disabled, setDisabled] = useState<'left' | 'right' | null>(null);
   const [arrowStyles, api] = useSpring(() => ({ opacity: 1 }));
 
-  console.debug(selectedChild);
-
   useEffect(() => {
     if (disabled) {
       setTimeout(() => setDisabled(null), 700);

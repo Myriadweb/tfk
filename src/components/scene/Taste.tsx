@@ -1,11 +1,11 @@
 import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-import { useSpring, animated } from 'react-spring';
+import { useSpring, animated, easings } from 'react-spring';
 import {
   ClickableImage,
   VariationsType,
 } from './SharedComponents/ClickableImage';
-import { ReactComponent as Sparkles } from './SensoryAssets/TasteAssets/Sparkles.svg';
+import Sparkles from './SensoryAssets/TasteAssets/Sparkles.svg';
 import IceCream from './SensoryAssets/TasteAssets/IceCream.png';
 import Bottle from './SensoryAssets/TasteAssets/Bottle.png';
 import SenseHighlight from './SensoryAssets/TasteAssets/SenseHighlight.png';
@@ -34,10 +34,18 @@ export default function Taste() {
     opacity: 0,
     transform: 'translateY(-200px)',
   }));
+  const [sparklesStyle, sparklesApi] = useSpring(() => ({
+    transform: 'scale(0)',
+    opacity: 1,
+  }));
 
   if (sensoryState) {
     overlayAPI.set({ opacity: 0 });
     dropAPI.set({ opacity: 0, transform: 'translateY(-200px)' });
+    sparklesApi.set({
+      transform: 'scale(0)',
+      opacity: 1,
+    });
     overlayAPI.start({
       to: [{ opacity: 1 }],
       from: { opacity: 0 },
@@ -50,9 +58,22 @@ export default function Taste() {
       to: [{ opacity: 1, transform: 'translateY(-0px)' }],
       delay: 500,
     });
+    sparklesApi.start({
+      transform: 'scale(2)',
+      opacity: 0,
+      delay: 1000,
+      config: {
+        duration: 500,
+        easing: easings.linear,
+      },
+    });
   } else {
     overlayAPI.set({ opacity: 0 });
     dropAPI.set({ opacity: 0, transform: 'translateY(-200px)' });
+    sparklesApi.set({
+      transform: 'scale(0)',
+      opacity: 1,
+    });
   }
 
   if (!location.search) {
@@ -123,17 +144,16 @@ export default function Taste() {
               ...overlay,
             }}
           />
-          <animated.div
+          <animated.img
+            src={Sparkles}
             style={{
               position: 'absolute',
               top: 642,
               left: 274,
               zIndex: 3,
-              ...overlay,
+              ...sparklesStyle,
             }}
-          >
-            <Sparkles />
-          </animated.div>
+          />
         </>
       )}
       {sensoryState === 'bad' && (
