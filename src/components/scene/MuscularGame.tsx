@@ -8,13 +8,13 @@ import { ReactComponent as LegRelaxed } from './MuscularAssets/hamstringsContrac
 import { ReactComponent as LegFlex } from './MuscularAssets/quadricepsContracting.svg';
 import HamstringLeaderLine from './MuscularAssets/hamstringsLeaderLine.svg';
 import QuadricepsLeaderLine from './MuscularAssets/quadricepsLeaderLine.svg';
-import playSound, {Sounds} from '../../sound';
+import playSound, { Sounds } from '../../sound';
 
 import { Paths } from '../../types/Paths';
 import { useGameContext } from '../../state/game';
 import { columnLabelStyleLeft } from './common';
 import { useTranslation } from 'react-i18next';
-import {Simulate} from "react-dom/test-utils";
+import { Simulate } from 'react-dom/test-utils';
 
 const armLabel = {
   padding: '8px 54px 10px',
@@ -56,10 +56,9 @@ export default function MuscularGame() {
     intervalRef.current = setInterval(() => {
       setCount((c) => (c === 0 ? 1 : 0));
       if (n === 0) {
-        playSound('muscularAscending')
+        playSound('muscularAscending');
         n = 1;
-      }
-      else if (n === 1) {
+      } else if (n === 1) {
         playSound('muscularDescending');
         n = 0;
       }

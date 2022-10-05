@@ -29,7 +29,7 @@ import { ReactComponent as Child6FullBody } from '../scene/ChildrenAssets/Child6
 import Doll from './SharedAssets/doll.png';
 import Medal from './SharedAssets/medal.png';
 import Sticker from './SharedAssets/sticker.svg';
-import playSound from "../../sound";
+import playSound from '../../sound';
 
 import { useSpring, animated } from 'react-spring';
 import { useEffect } from 'react';

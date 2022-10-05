@@ -24,7 +24,7 @@ type Props = {
   valueType?: string;
   style?: CSSProperties;
   disableTimeout?: boolean;
-  timeoutDuration?: number
+  timeoutDuration?: number;
 };
 export const ClickableImage = ({
   Component,
@@ -85,7 +85,10 @@ export const ClickableImage = ({
 
     if (disableTimeout) return;
 
-    timeout.current = setTimeout(() => handleAnimation(true), timeoutDuration ? timeoutDuration : 3000);
+    timeout.current = setTimeout(
+      () => handleAnimation(true),
+      timeoutDuration ? timeoutDuration : 3000
+    );
   };
 
   return (

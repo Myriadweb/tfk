@@ -53,8 +53,7 @@ const Mri = ({ prefix }: Props) => {
                   value: 'nap',
                 }));
                 playSound('mRISnoring');
-                }
-              }
+              }}
               text=''
             />
             <span style={distractionTextStyle}> {t('nap')}</span>
@@ -66,8 +65,7 @@ const Mri = ({ prefix }: Props) => {
               onClick={() => {
                 setStep((oldState) => ({ ...oldState, step: 1, value: 'vr' }));
                 playSound('mRIVR');
-                }
-              }
+              }}
               text=''
             />
             <span style={distractionTextStyle}> {t('vr')}</span>
@@ -83,8 +81,7 @@ const Mri = ({ prefix }: Props) => {
                   value: 'music',
                 }));
                 playSound('mRIHeadphones');
-                }
-              }
+              }}
               text=''
             />
             <span style={distractionTextStyle}> {t('music')}</span>

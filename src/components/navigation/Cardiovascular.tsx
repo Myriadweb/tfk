@@ -85,7 +85,7 @@ const Cardiovascular = ({ prefix }: Props) => {
         text={t('finish')}
         onClick={() => {
           playSound('completeProcedure');
-          setStep({ step: 0 })
+          setStep({ step: 0 });
           navigate(`${Paths.BodySystems}/${prefix}`);
         }}
       />
