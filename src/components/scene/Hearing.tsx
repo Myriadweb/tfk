@@ -219,7 +219,7 @@ export default function Hearing() {
           ...activePosition,
           transform: `translate(-50%, -50%) rotate(0deg)`,
         }}
-        sound={'completeStep'}
+        sound={'hearingMusic'}
       />
       <ClickableImage
         Component={Siren}
@@ -234,7 +234,8 @@ export default function Hearing() {
           ...activePosition,
           transform: `translate(-50%, -50%) rotate(0deg)`,
         }}
-        sound={'completeStep'}
+        sound={'hearingSiren'}
+        timeoutDuration={7000}
       />
     </>
   );

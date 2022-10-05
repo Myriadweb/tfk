@@ -204,7 +204,7 @@ export default function Taste() {
           left: 547,
           transform: `translate(-50%, -50%) rotate(0deg)`,
         }}
-        sound={'completeStep'}
+        sound={'tasteGood'}
       />
       <ClickableImage
         Component={Bottle}
@@ -218,7 +218,7 @@ export default function Taste() {
           left: 317,
           top: 340,
         }}
-        sound={'completeStep'}
+        sound={'tasteHot'}
       />
     </>
   );

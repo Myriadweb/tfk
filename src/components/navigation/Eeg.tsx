@@ -54,6 +54,7 @@ export default function Eeg({ prefix }: Props) {
           size='small'
           disabled={value.includes(1)}
           onClick={() => handleNavigationButtonClick(1)}
+          sound='eEGTabs'
           text=''
         />
         <NavigationButton
@@ -61,6 +62,7 @@ export default function Eeg({ prefix }: Props) {
           size='small'
           disabled={value.includes(2)}
           onClick={() => handleNavigationButtonClick(2)}
+          sound='eEGTabs'
           text=''
         />
         <NavigationButton
@@ -68,6 +70,7 @@ export default function Eeg({ prefix }: Props) {
           size='small'
           disabled={value.includes(3)}
           onClick={() => handleNavigationButtonClick(3)}
+          sound='eEGTabs'
           text=''
         />
         <NavigationButton
@@ -75,6 +78,7 @@ export default function Eeg({ prefix }: Props) {
           size='small'
           disabled={value.includes(4)}
           onClick={() => handleNavigationButtonClick(4)}
+          sound='eEGTabs'
           text=''
         />
         <NavigationButton
@@ -82,6 +86,7 @@ export default function Eeg({ prefix }: Props) {
           size='small'
           disabled={value.includes(5)}
           onClick={() => handleNavigationButtonClick(5)}
+          sound='eEGTabs'
           text=''
         />
       </BlueBar>
@@ -102,6 +107,7 @@ export default function Eeg({ prefix }: Props) {
           size='small'
           disabled={value.includes(1)}
           onClick={() => handleNavigationButtonClick(1)}
+          sound='eEGAttachElectrodes'
           text=''
         />
         <NavigationButton
@@ -109,6 +115,7 @@ export default function Eeg({ prefix }: Props) {
           size='small'
           disabled={value.includes(2)}
           onClick={() => handleNavigationButtonClick(2)}
+          sound='eEGAttachElectrodes'
           text=''
         />
         <NavigationButton
@@ -116,6 +123,7 @@ export default function Eeg({ prefix }: Props) {
           size='small'
           disabled={value.includes(3)}
           onClick={() => handleNavigationButtonClick(3)}
+          sound='eEGAttachElectrodes'
           text=''
         />
         <NavigationButton
@@ -123,6 +131,7 @@ export default function Eeg({ prefix }: Props) {
           size='small'
           disabled={value.includes(4)}
           onClick={() => handleNavigationButtonClick(4)}
+          sound='eEGAttachElectrodes'
           text=''
         />
         <NavigationButton
@@ -130,6 +139,7 @@ export default function Eeg({ prefix }: Props) {
           size='small'
           disabled={value.includes(5)}
           onClick={() => handleNavigationButtonClick(5)}
+          sound='eEGAttachElectrodes'
           text=''
         />
       </BlueBar>
@@ -150,6 +160,7 @@ export default function Eeg({ prefix }: Props) {
           size='small'
           disabled={value.includes(1)}
           onClick={() => setStep({ step: 6 })}
+          sound='eEGSock'
           text=''
         />
       </BlueBar>
@@ -168,7 +179,7 @@ export default function Eeg({ prefix }: Props) {
       <BlueBarContinue
         text={t(`${step}-buttonText`)}
         onClick={() => {
-          playSound('completeStep');
+          playSound('completeProcedure');
           setStep({ step: 9, hideButtons: true });
         }}
       />
@@ -210,7 +221,7 @@ export default function Eeg({ prefix }: Props) {
           }}
           onClick={() => {
             if (!value) return; // if no value is selected, don't continue
-            playSound('click');
+            playSound('completeStep');
             setStep((oldStep) => ({
               ...oldStep,
               step: 10,

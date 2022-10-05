@@ -5,6 +5,7 @@ import { useGameContext } from '../../state/game';
 import { ReactComponent as InfoButton } from './Nervous/infoButton.svg';
 import { ReactComponent as LeftButton } from './Nervous/leftButton.svg';
 import { ReactComponent as RightButton } from './Nervous/rightButton.svg';
+import playSound from "../../sound";
 
 type Props = {
   prefix: Paths;
@@ -68,24 +69,26 @@ const Nervous = ({ prefix }: Props) => {
           <div style={{ marginRight: 37, borderRight: '1px solid #FFF' }}>
             <InfoButton
               style={{ marginRight: 35, opacity: isInfoPressed ? 0.4 : 1 }}
-              onClick={() =>
+              onClick={() => {
                 setGameState((old) => ({
                   ...old,
                   value: {
                     ...old.value,
                     isInfoPressed: !isInfoPressed,
                   },
-                }))
+                  }));
+                  playSound('nervousBrainSectionSelection')
+                }
               }
             />
           </div>
           <LeftButton
             style={{ marginRight: 25, opacity: step === 0 ? 0.4 : 1 }}
-            onClick={handleLeft}
+            onClick={() =>{handleLeft(); playSound('nervousBrainTurn'); }}
           />
           <RightButton
             style={{ opacity: step === 2 ? 0.4 : 1 }}
-            onClick={handleRight}
+            onClick={() =>{handleRight(); playSound('nervousBrainTurn'); }}
           />
         </div>
       </div>

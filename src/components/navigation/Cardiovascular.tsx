@@ -85,6 +85,7 @@ const Cardiovascular = ({ prefix }: Props) => {
         text={t('finish')}
         onClick={() => {
           playSound('completeProcedure');
+          setStep({ step: 0 })
           navigate(`${Paths.BodySystems}/${prefix}`);
         }}
       />
@@ -97,7 +98,7 @@ const Cardiovascular = ({ prefix }: Props) => {
         <div
           className='body-text'
           style={{
-            visibility: [1, 2].includes(step) ? 'hidden' : 'visible',
+            visibility: [1].includes(step) ? 'hidden' : 'visible',
             display: step === 11 ? 'none' : 'block',
           }}
         >

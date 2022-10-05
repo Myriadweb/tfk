@@ -258,7 +258,7 @@ export default function Vestibular() {
           opacity: sensoryState ? 0 : 1,
         }}
         reset={sensoryState === 'bad' && value === finalValueType}
-        sound={'completeStep'}
+        sound={'vestibularSpin'}
         valueType={valueType}
         disableTimeout
       />
@@ -272,7 +272,7 @@ export default function Vestibular() {
         style={{
           opacity: sensoryState ? 0 : 1,
         }}
-        sound={'completeStep'}
+        sound={'vestibularJump'}
       />
     </>
   );

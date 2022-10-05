@@ -46,12 +46,14 @@ const Mri = ({ prefix }: Props) => {
             <NavigationButton
               image={Nap}
               size={'small'}
-              onClick={() =>
+              onClick={() => {
                 setStep((oldState) => ({
                   ...oldState,
                   step: 1,
                   value: 'nap',
-                }))
+                }));
+                playSound('mRISnoring');
+                }
               }
               text=''
             />
@@ -61,8 +63,10 @@ const Mri = ({ prefix }: Props) => {
             <NavigationButton
               image={VR}
               size={'small'}
-              onClick={() =>
-                setStep((oldState) => ({ ...oldState, step: 1, value: 'vr' }))
+              onClick={() => {
+                setStep((oldState) => ({ ...oldState, step: 1, value: 'vr' }));
+                playSound('mRIVR');
+                }
               }
               text=''
             />
@@ -72,12 +76,14 @@ const Mri = ({ prefix }: Props) => {
             <NavigationButton
               image={Music}
               size={'small'}
-              onClick={() =>
+              onClick={() => {
                 setStep((oldState) => ({
                   ...oldState,
                   step: 1,
                   value: 'music',
-                }))
+                }));
+                playSound('mRIHeadphones');
+                }
               }
               text=''
             />

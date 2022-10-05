@@ -30,7 +30,7 @@ const Digestive = ({ prefix }: Props) => {
         image={ChewButton}
         size={'large'}
         onClick={() => {
-          playSound('click');
+          playSound('digestionChewing');
           setGameState({ step: 2 });
         }}
         text=''
@@ -41,7 +41,7 @@ const Digestive = ({ prefix }: Props) => {
         image={ChewButton}
         size={'large'}
         onClick={() => {
-          playSound('click');
+          playSound('digestionChewing');
           setGameState({ step: 3 });
         }}
         text=''
@@ -52,7 +52,7 @@ const Digestive = ({ prefix }: Props) => {
         image={ChewButton}
         size={'large'}
         onClick={() => {
-          playSound('click');
+          playSound('digestionSwallow');
           setGameState({ step: 4 });
         }}
         text=''
@@ -74,7 +74,7 @@ const Digestive = ({ prefix }: Props) => {
         image={SwallowButton}
         size={'large'}
         onClick={() => {
-          playSound('click');
+          playSound('digestionStomachGurgle');
           setGameState({ step: 6 });
         }}
         text=''

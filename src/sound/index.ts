@@ -63,8 +63,9 @@ const Sounds = {
   touchOuch: new Audio('sounds/Touch_Ouch.mp3'),
   vestibularJump: new Audio('sounds/Vestibular_Jump.mp3'),
   vestibularSpin: new Audio('sounds/Vestibular_Spin.mp3'),
+  wellnessBloodPressure: new Audio('sounds/Wellness_Blood_Pressure.mp3'),
   wellnessHeartMonitor: new Audio('sounds/Wellness_Heart_Monitor.mp3'),
-  xRay: new Audio('sounds/XRay.mp3'),
+  xRay: new Audio('sounds/Xray.mp3'),
   xRay_Machine: new Audio('sounds/XRay_Machine.mp3'),
   xRay_Red_Spot: new Audio('sounds/XRay_Red_Spot.mp3'),
 };

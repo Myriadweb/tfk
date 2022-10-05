@@ -207,6 +207,7 @@ export function Smell() {
           transform: `translate(-50%, -50%) rotate(0deg)`,
         }}
         sound={'smellsBad'}
+        timeoutDuration={7000}
       />
     </>
   );

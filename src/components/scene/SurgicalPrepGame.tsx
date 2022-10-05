@@ -272,7 +272,7 @@ export default function SurgicalPrepGame() {
                 y={138}
                 onComplete={(newX, newY) => {
                   if (newX > -452 && newX < -247 && newY > -120 && newY < 120) {
-                    playSound('completeStep');
+                    playSound('surgicalPrepBloodTourniquet');
                     trayApi.start({ transform: 'translateX(600px)' });
                     // A little hacky, but it helps to avoid errors in the console
                     setTimeout(() => setGameState({ step: 7 }), 1);

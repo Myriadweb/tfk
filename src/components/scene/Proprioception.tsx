@@ -138,7 +138,7 @@ export default function Proprioception() {
         activeStyle={{
           opacity: 0,
         }}
-        sound={'completeStep'}
+        sound={'proprioceptionFeather'}
       />
       <ClickableImage
         Component={Dumbell}
@@ -148,7 +148,7 @@ export default function Proprioception() {
         onChange={setSensoryState}
         onTop={sensoryState === 'bad'}
         activeStyle={{ opacity: 0 }}
-        sound={'completeStep'}
+        sound={'proprioceptionHeavy'}
       />
     </>
   );

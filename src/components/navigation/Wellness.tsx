@@ -68,11 +68,12 @@ const Wellness = ({ prefix }: Props) => {
               if (pumps >= 3) return;
 
               const newPumpValue = pumps + 1;
+              playSound('click');
               addPump((pumps) => pumps + 1);
               if (newPumpValue < 3) return;
 
               setTimeout(() => {
-                playSound('completeStep');
+                playSound('wellnessBloodPressure');
                 setStep({ step: 5 });
               }, 800);
             }}
@@ -105,7 +106,7 @@ const Wellness = ({ prefix }: Props) => {
       <BlueBarContinue
         text={t(`${step}-buttonText`)}
         onClick={() => {
-          playSound('completeStep');
+          playSound('wellnessHeartMonitor');
           setStep({ step: 9 });
         }}
       />

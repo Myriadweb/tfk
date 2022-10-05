@@ -187,7 +187,7 @@ export default function Sight() {
         onChange={setSensoryState}
         onTop={sensoryState === 'good'}
         activeStyle={activeStyle}
-        sound={'completeProcedure'}
+        sound={'sightMoon'}
       />
       <ClickableImage
         Component={Sun}
@@ -199,7 +199,8 @@ export default function Sight() {
         reset={sensoryState === 'bad' && value === finalValueType}
         valueType={valueType}
         activeStyle={activeStyle}
-        sound={'completeProcedure'}
+        sound={'sightHot'}
+        timeoutDuration={7000}
       />
     </>
   );

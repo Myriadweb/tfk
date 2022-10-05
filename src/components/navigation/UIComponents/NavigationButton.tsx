@@ -1,5 +1,5 @@
 import * as React from 'react';
-import playSound from '../../../sound';
+import playSound, {Sounds} from '../../../sound';
 
 type NavigationButtonProps = {
   image: string;
@@ -7,6 +7,7 @@ type NavigationButtonProps = {
   onClick: (...args: any) => void;
   text?: string;
   disabled?: boolean;
+  sound?: Sounds;
 };
 
 const NavigationButton = ({
@@ -15,10 +16,11 @@ const NavigationButton = ({
   text,
   onClick,
   disabled,
+  sound,
 }: NavigationButtonProps) => {
   const clickHandler = () => {
     if (disabled) return;
-    playSound('click');
+    playSound(sound ? sound : 'click');
     onClick();
   };
 

@@ -184,7 +184,8 @@ export default function Touch() {
           ...activePosition,
           transform: `translate(-50%, -50%) rotate(0deg)`,
         }}
-        sound={'completeStep'}
+        sound={'touchGood'}
+        timeoutDuration={10000}
       />
       <ClickableImage
         Component={pan}
@@ -198,7 +199,8 @@ export default function Touch() {
         activeStyle={{
           top: 290,
         }}
-        sound={'completeStep'}
+        sound={'touchOuch'}
+        timeoutDuration={7000}
       />
       {sensoryState && (
         <>

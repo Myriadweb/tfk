@@ -18,6 +18,7 @@ import Animation2A from '../../animations/cardiovascular2a.webm';
 import Animation2B from '../../animations/cardiovascular2b.webm';
 
 import ReactPlayer from 'react-player';
+import {Simulate} from "react-dom/test-utils";
 
 export default function CardiovascularGame() {
   const [{ step }, setGameState] = useGameContext();
@@ -28,6 +29,9 @@ export default function CardiovascularGame() {
   useEffect(() => {
     if (step === 1) {
       setTimeout(() => setGameState({ step: 2 }), 1000);
+    }
+    else if (step === 7) {
+      playSound('cardiovascularNormalHeartbeat')
     }
   }, [step]);
 
@@ -82,38 +86,39 @@ export default function CardiovascularGame() {
             top: 0,
             left: 0,
           }}
+          onStart={() => playSound('cardiovascularSlowHeartbeat')}
           onEnded={() => setGameState({ step: 7 })}
         />
       )}
       {[3, 4].includes(step) && (
-        <ReactPlayer
-          className='react-player'
-          playing={[4].includes(step)}
-          url={Animation1B}
-          width='100%'
-          height='100%'
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-          }}
-          onEnded={() => setGameState({ step: 5 })}
-        />
+          <ReactPlayer
+            className='react-player'
+            playing={[4].includes(step)}
+            url={Animation1B}
+            width='100%'
+            height='100%'
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+            }}
+            onEnded={() => setGameState({ step: 5 })}
+          />
       )}
       {[2, 3].includes(step) && (
-        <ReactPlayer
-          className='react-player'
-          playing
-          url={Animation1A}
-          width='100%'
-          height='100%'
-          onEnded={() => setGameState({ step: 3 })}
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-          }}
-        />
+          <ReactPlayer
+            className='react-player'
+            playing
+            url={Animation1A}
+            width='100%'
+            height='100%'
+            onEnded={() => setGameState({ step: 3 })}
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+            }}
+          />
       )}
       {[8, 9, 10, 11].includes(step) && (
         <ReactPlayer

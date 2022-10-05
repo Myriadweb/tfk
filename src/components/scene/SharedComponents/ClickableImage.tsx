@@ -24,6 +24,7 @@ type Props = {
   valueType?: string;
   style?: CSSProperties;
   disableTimeout?: boolean;
+  timeoutDuration?: number
 };
 export const ClickableImage = ({
   Component,
@@ -38,6 +39,7 @@ export const ClickableImage = ({
   style: BaseStyle,
   sound,
   disableTimeout,
+  timeoutDuration,
 }: Props) => {
   const [style, styleApi] = useSpring(() => ({
     transform: `translate(-0%, -0%) rotate(0deg)`,
@@ -83,7 +85,7 @@ export const ClickableImage = ({
 
     if (disableTimeout) return;
 
-    timeout.current = setTimeout(() => handleAnimation(true), 3000);
+    timeout.current = setTimeout(() => handleAnimation(true), timeoutDuration ? timeoutDuration : 3000);
   };
 
   return (

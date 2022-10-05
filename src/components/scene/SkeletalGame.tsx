@@ -110,7 +110,7 @@ const DraggableImage = ({
 
     setPosition({ x: data.x, y: data.y });
     if (newX < x + 70 && newX > x - 70 && newY > y - 70 && newY < y + 70) {
-      playSound(isLast ? 'completeProcedure' : 'positiveAlert');
+      playSound(isLast ? 'completeProcedure' : 'skeletalBoneRightPosition');
       styleAPI.start({
         left: x - data.x,
         top: y - data.y,
