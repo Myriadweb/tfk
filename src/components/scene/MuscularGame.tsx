@@ -52,19 +52,19 @@ export default function MuscularGame() {
   useEffect(() => {
     clearInterval(intervalRef.current);
     setCount(0);
-    let n = 0;
     intervalRef.current = setInterval(() => {
       setCount((c) => (c === 0 ? 1 : 0));
-      if (n === 0) {
-        playSound('muscularAscending');
-        n = 1;
-      } else if (n === 1) {
-        playSound('muscularDescending');
-        n = 0;
-      }
     }, 5000);
     return () => clearInterval(intervalRef.current);
   }, [value]);
+
+  useEffect(() => {
+    if (count === 1) {
+      playSound('muscularAscending');
+    } else if (count === 0) {
+      playSound('muscularDescending');
+    }
+  }, [count]);
 
   if (!location.search) {
     if (!location.search) {
