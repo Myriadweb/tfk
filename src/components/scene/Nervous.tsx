@@ -110,7 +110,8 @@ export default function Nervous() {
       <img
         src={CerebellumHighlight}
         style={{
-          top: 457,
+          top: 461,
+          left: 540,
           position: 'absolute',
           transform: 'translate(-50%, 0)',
           opacity: ['cerebellum'].includes(highlighted) ? 1 : 0,
@@ -119,9 +120,9 @@ export default function Nervous() {
       <img
         src={NervesHighlight}
         style={{
-          top: 433,
+          top: 435,
           position: 'absolute',
-          transform: 'translate(-50%, 0)',
+          transform: 'translate(-50%, 0px) scale(1.02)',
           opacity: ['nerves'].includes(highlighted) ? 1 : 0,
         }}
       />
