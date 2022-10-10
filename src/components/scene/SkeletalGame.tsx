@@ -68,7 +68,7 @@ const DraggableImage = ({
   const [placed, setPlaced] = React.useState(false);
 
   const randomX = React.useRef(getRandom(0, 900, width, true));
-  const randomY = React.useRef(getRandom(100, 1100, width));
+  const randomY = React.useRef(getRandom(550, 1100, width));
 
   if (randomX.current > 900 && randomY.current > 900) {
     randomY.current = 850;
@@ -111,16 +111,8 @@ const DraggableImage = ({
     setPosition({ x: data.x, y: data.y });
     if (newX < x + 70 && newX > x - 70 && newY > y - 70 && newY < y + 70) {
       playSound(isLast ? 'completeProcedure' : 'skeletalBoneRightPosition');
-      styleAPI.start({
-        left: x - data.x,
-        top: y - data.y,
-      });
       setPlaced(true);
       setGameState({ step: 0, value: isLast ? 'done' : value });
-    } else {
-      if (placed) {
-        setPlaced(false);
-      }
     }
   };
 
@@ -128,6 +120,14 @@ const DraggableImage = ({
     <Draggable
       bounds='parent'
       onDrag={track}
+      onStop={() => {
+        if (placed) {
+          styleAPI.start({
+            left: x - preAnimationPosition.x,
+            top: y - preAnimationPosition.y,
+          });
+        }
+      }}
       disabled={placed}
       position={preAnimationPosition || null}
     >
