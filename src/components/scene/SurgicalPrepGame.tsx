@@ -44,7 +44,10 @@ export default function SurgicalPrepGame() {
   React.useEffect(() => {
     if (step === 1) {
       childApi.start({
-        transform: 'scale(2) translate(232px, -222px)',
+        to: [
+          { transform: 'scale(1) translate(232px, -222px)' },
+          { transform: 'scale(2) translate(232px, -222px)' },
+        ],
         onRest: () => {
           trayApi.start({ transform: 'translateX(0px)' });
           targetApi.start({ opacity: 1 });
@@ -122,6 +125,7 @@ export default function SurgicalPrepGame() {
             style={{
               position: 'relative',
               top: 27,
+              willChange: 'transform',
               ...childStyle,
             }}
           >
@@ -247,7 +251,7 @@ export default function SurgicalPrepGame() {
                 x={230}
                 y={95}
                 onComplete={(newX, newY) => {
-                  if (newX > -351 && newX < -244 && newY > -40 && newY < 180) {
+                  if (newX > -351 && newX < -194 && newY > -222 && newY < 180) {
                     playSound('completeStep');
                     trayApi.start({ transform: 'translateX(600px)' });
                     // A little hacky, but it helps to avoid errors in the console
