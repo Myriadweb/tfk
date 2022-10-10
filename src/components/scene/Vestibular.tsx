@@ -161,7 +161,7 @@ export default function Vestibular() {
               position: 'absolute',
               left: 540,
               top: 630,
-              transform: 'translate(-50%, -50%)',
+              transform: 'translate(-50%, -50%) scale(1.03)',
               ...overlayStyle,
             }}
           />
@@ -183,9 +183,9 @@ export default function Vestibular() {
             src={OverlayBad}
             style={{
               position: 'absolute',
-              left: 540,
+              left: 524,
               top: 630,
-              transform: 'translate(-50%, -50%)',
+              transform: 'translate(-50%, -50%) scale(1.03)',
               ...overlayStyle,
             }}
           />
@@ -255,7 +255,7 @@ export default function Vestibular() {
         onChange={handleTornadoAnimation}
         onTop={sensoryState === 'bad'}
         style={{
-          opacity: sensoryState ? 0 : 1,
+          opacity: sensoryState || tornadoAnimation ? 0 : 1,
         }}
         reset={sensoryState === 'bad' && value === finalValueType}
         sound={'vestibularSpin'}
@@ -270,7 +270,7 @@ export default function Vestibular() {
         onChange={setSensoryState}
         onTop={sensoryState === 'good'}
         style={{
-          opacity: sensoryState ? 0 : 1,
+          opacity: sensoryState || tornadoAnimation ? 0 : 1,
         }}
         sound={'vestibularJump'}
       />
