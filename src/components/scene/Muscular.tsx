@@ -117,7 +117,7 @@ export default function Muscular() {
       <img
         src={BicepsHighlight}
         style={{
-          top: 655,
+          top: 671,
           position: 'absolute',
           transform: 'translate(-50%, 0)',
           opacity: ['biceps'].includes(highlighted) ? 1 : 0,
