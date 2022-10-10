@@ -68,12 +68,11 @@ const Wellness = ({ prefix }: Props) => {
               if (pumps >= 3) return;
 
               const newPumpValue = pumps + 1;
-              playSound('click');
+              playSound('wellnessBloodPressure');
               addPump((pumps) => pumps + 1);
               if (newPumpValue < 3) return;
 
               setTimeout(() => {
-                playSound('wellnessBloodPressure');
                 setStep({ step: 5 });
               }, 800);
             }}

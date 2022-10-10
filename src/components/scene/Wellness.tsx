@@ -7,6 +7,7 @@ import { Paths } from '../../types/Paths';
 import ProceduresTextBox from './SharedComponents/ProceduresTextBox';
 import { CSSProperties } from 'react';
 import { Characters } from './ChildrenAssets/childrenAssets';
+import WellnessMachine from './WellnessAssets/vitalsMachine.png';
 
 const bodyLeft = 458;
 
@@ -72,10 +73,10 @@ export default function Wellness() {
         <Child />
       </animated.div>
       <animated.img
-        src='images/Wellness/wellnessMachine.png'
+        src={WellnessMachine}
         style={{
           top: 470,
-          left: 245,
+          left: 243,
           position: 'absolute',
           ...overlayStyle,
         }}

@@ -155,6 +155,7 @@ export default function IvGame() {
                     position: 'absolute',
                     top: 467,
                     left: 578,
+                    transform: 'scale(0.996)',
                   }}
                 />
               )}
@@ -270,10 +271,10 @@ export default function IvGame() {
                 y={90}
                 onComplete={(newX, newY) => {
                   if (
-                    newX > -314 &&
-                    newX < -192 &&
+                    newX > -635 &&
+                    newX < -105 &&
                     newY > -467 &&
-                    newY < -269
+                    newY < -256
                   ) {
                     playSound('iVTourniquetNeedle');
                     trayApi.start({ transform: 'translateX(600px)' });

@@ -13,7 +13,7 @@ import Oximeter from './WellnessAssets/oximeter.svg';
 import OximeterOnArm from './WellnessAssets/oximeterOnArm.svg';
 import OximeterOnArmActive from './WellnessAssets/oximeterOnArmActive.svg';
 import OximeterResults from './WellnessAssets/oximeterResults.svg';
-import StandingChild from './WellnessAssets/standingChild.svg';
+import StandingChild from './WellnessAssets/standingChild.png';
 import BaseballBat from './WellnessAssets/baseballBat.svg';
 import BaseballBall from './WellnessAssets/baseballBall.svg';
 import Basketball from './WellnessAssets/basketball.svg';
