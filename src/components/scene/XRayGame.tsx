@@ -8,12 +8,13 @@ import { ReactComponent as PainLines } from './XRayAssets/painLines.svg';
 import { ReactComponent as XRayBody } from './XRayAssets/xRayBody.svg';
 import { ReactComponent as Cast } from './XRayAssets/cast.svg';
 import { ReactComponent as Signature } from './XRayAssets/signature.svg';
-import { Characters } from './ChildrenAssets/childrenAssets';
+import { ReactComponent as FinalCharacter } from './ChildrenAssets/Child5/defaultNoBracelet.svg';
+
 import { useGameContext } from '../../state/game';
 import playSound from '../../sound';
 import { useEffect } from 'react';
 
-const ChildFinalStep = Characters.default[4];
+const ChildFinalStep = FinalCharacter;
 
 export default function XRayGame() {
   const [{ step, value }, setStep] = useGameContext();
@@ -32,7 +33,7 @@ export default function XRayGame() {
   const woundStyle = useSpring({
     from: { transform: 'scale(0.5)', opacity: 1 },
     to: { transform: 'scale(1)', opacity: 0.1 },
-    loop: true
+    loop: true,
   });
   const [xRayFlash, xRayFlashApi] = useSpring(() => ({
     opacity: 0,
@@ -98,15 +99,17 @@ export default function XRayGame() {
               left: -22,
             }}
           />
-          {step === 0 && <animated.img
-            src={Wound}
-            style={{
-              position: 'absolute',
-              left: 771,
-              top: 882,
-              ...woundStyle,
-            }}
-          />}
+          {step === 0 && (
+            <animated.img
+              src={Wound}
+              style={{
+                position: 'absolute',
+                left: 771,
+                top: 882,
+                ...woundStyle,
+              }}
+            />
+          )}
           <animated.div
             style={{
               ...painLines,
@@ -172,13 +175,13 @@ export default function XRayGame() {
               transform: 'translate(-50%, 0)',
             }}
           >
-            <ChildFinalStep />
+            <ChildFinalStep height='984' width='392' />
           </div>
           <Cast
             style={{
               position: 'absolute',
-              left: 657,
-              top: 742,
+              left: 658,
+              top: 750,
             }}
           />
           {value === 'signature' && (
