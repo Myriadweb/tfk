@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { animated, useSpring } from 'react-spring';
+import Wound from './XRayAssets/wound.svg';
 import { ReactComponent as XRayScene } from './XRayAssets/xRayScene.svg';
 import { ReactComponent as XRayScene2 } from './XRayAssets/xRayScene2.svg';
 import { ReactComponent as XRayMachineScene } from './XRayAssets/xRayMachineScene.svg';
@@ -28,6 +29,11 @@ export default function XRayGame() {
     left: 884,
     top: 848,
   }));
+  const woundStyle = useSpring({
+    from: { transform: 'scale(0.5)', opacity: 1 },
+    to: { transform: 'scale(1)', opacity: 0.1 },
+    loop: true
+  });
   const [xRayFlash, xRayFlashApi] = useSpring(() => ({
     opacity: 0,
   }));
@@ -92,6 +98,15 @@ export default function XRayGame() {
               left: -22,
             }}
           />
+          {step === 0 && <animated.img
+            src={Wound}
+            style={{
+              position: 'absolute',
+              left: 771,
+              top: 882,
+              ...woundStyle,
+            }}
+          />}
           <animated.div
             style={{
               ...painLines,

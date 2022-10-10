@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="135px" height="216px" viewBox="0 0 135 216" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Bruise</title>
+    <defs>
+        <filter x="-14.4%" y="-8.1%" width="128.8%" height="116.3%" filterUnits="objectBoundingBox" id="filter-1">
+            <feGaussianBlur stdDeviation="5" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.368959699">
+        <g id="02B_Teammates_Procedures_Skeletal" transform="translate(-371.000000, -500.000000)" fill="#E72722">
+            <g id="Bruise" transform="translate(386.588910, 373.509230)">
+                <g transform="translate(0.000000, 142.427748)" id="Path-73">
+                    <path d="M79.578239,7.06302285 C26.5260797,-4.33250771 0,-1.93881663 0,14.2440961 C0,38.5184652 14.6675685,54.6479911 14.6675685,78.8009426 C14.6675685,102.953894 11.0699914,184.076039 39.7891195,184.076039 C68.5082476,184.076039 94.3041051,159.74616 94.3041051,125.89209 C94.3041051,92.0380197 104.001676,85.6809397 104.001676,63.7248591 C104.001676,49.087472 95.8605303,30.2001932 79.578239,7.06302285 Z" style="mix-blend-mode: multiply;" filter="url(#filter-1)"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
