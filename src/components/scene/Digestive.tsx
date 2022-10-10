@@ -12,13 +12,16 @@ import LargeIntestineHighlight from './DigestiveAssets/largeIntestineHighlight.p
 import LiverHighlight from './DigestiveAssets/liverHighlight.png';
 import SmallIntestineHighlight from './DigestiveAssets/smallIntestineHighlight.png';
 import StomachHighlight from './DigestiveAssets/stomachHighlight.png';
+import AnusHighlight from './DigestiveAssets/anusHighlight.png';
+import EsophagusHighlight from './DigestiveAssets/esophagusHighlight.png';
+import MouthHighlight from './DigestiveAssets/mouthHighlight.png';
+import RectumHighlight from './DigestiveAssets/rectumHighlight.png';
 
 const bodyLeft = 540;
 
 const digestiveLabelStyle = {
-  padding: '5px 15px 7px',
+  padding: '8px 17px 10px',
   whiteSpace: 'pre-wrap',
-  lineHeight: '1.2',
 } as CSSProperties;
 
 export default function Digestive() {
@@ -136,13 +139,52 @@ export default function Digestive() {
           opacity: ['stomach'].includes(highlighted) ? 1 : 0,
         }}
       />
+      <img
+        src={AnusHighlight}
+        style={{
+          top: 898,
+          left: 538,
+          position: 'absolute',
+          transform: 'translate(-50%, 0)',
+          opacity: ['anus'].includes(highlighted) ? 1 : 0,
+        }}
+      />
+      <img
+        src={RectumHighlight}
+        style={{
+          top: 872,
+          left: 538,
+          position: 'absolute',
+          transform: 'translate(-50%, 0)',
+          opacity: ['rectum'].includes(highlighted) ? 1 : 0,
+        }}
+      />
+      <img
+        src={EsophagusHighlight}
+        style={{
+          top: 578,
+          left: 542,
+          position: 'absolute',
+          transform: 'translate(-50%, 0)',
+          opacity: ['esophagus'].includes(highlighted) ? 1 : 0,
+        }}
+      />
+      <img
+        src={MouthHighlight}
+        style={{
+          top: 536,
+          left: 543,
+          position: 'absolute',
+          transform: 'translate(-50%, 0)',
+          opacity: ['mouth'].includes(highlighted) ? 1 : 0,
+        }}
+      />
       <AnimatedLabel
         style={{
           ...columnLabelStyleLeft,
           ...overlayStyle,
           ...digestiveLabelStyle,
           top: 576,
-          padding: '5px 12px 7px',
         }}
         value='esophagus'
         setterFn={setHighlighted}
@@ -167,7 +209,6 @@ export default function Digestive() {
           ...digestiveLabelStyle,
           top: 743,
           whiteSpace: 'pre-wrap',
-          padding: '5px 12px 7px',
         }}
         value='gallbladder'
         setterFn={setHighlighted}
@@ -180,6 +221,7 @@ export default function Digestive() {
           ...overlayStyle,
           ...digestiveLabelStyle,
           top: 823,
+          lineHeight: '1.2',
         }}
         value='largeIntestine'
         setterFn={setHighlighted}
@@ -236,6 +278,7 @@ export default function Digestive() {
           ...overlayStyle,
           ...digestiveLabelStyle,
           top: 726,
+          lineHeight: '1.2',
         }}
         value='smallIntestine'
         setterFn={setHighlighted}
