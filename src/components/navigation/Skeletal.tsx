@@ -71,7 +71,7 @@ const Skeletal = ({ prefix }: Props) => {
                 marginTop: isDone ? 27 : 'none',
                 visibility: isReset ? 'hidden' : 'visible',
                 width: 470,
-                whiteSpace: 'initial'
+                whiteSpace: 'initial',
               }}
             >
               {t(`${value}.description`)}

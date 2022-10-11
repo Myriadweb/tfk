@@ -28,7 +28,7 @@ import { useSpring, animated } from 'react-spring';
 import { columnLabelStyle } from './common';
 import { Trans, useTranslation } from 'react-i18next';
 import ReactPlayer from 'react-player';
-import playSound from "../../sound";
+import playSound from '../../sound';
 
 const STEP_TO_CHILD_CONFIG = {
   0: 'mouthOpen',

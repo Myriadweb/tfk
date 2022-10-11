@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-import {useSpring, animated, easings} from 'react-spring';
+import { useSpring, animated, easings } from 'react-spring';
 
 import { useGameContext } from '../../state/game';
 import {
@@ -140,7 +140,6 @@ export function Smell() {
               left: 234,
               zIndex: 2,
               ...sparklesStyle,
-
             }}
           />
         </>

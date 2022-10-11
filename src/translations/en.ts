@@ -138,7 +138,7 @@ const en: Translation = {
         femur: {
           title: 'FEMUR',
           description:
-            'The femur, or thighbone, is the largest bone in the body. Pound for pound, it\'s even stronger than concrete!',
+            "The femur, or thighbone, is the largest bone in the body. Pound for pound, it's even stronger than concrete!",
         },
         'fibule&tibia': {
           title: 'FIBULE & TIBIA',
