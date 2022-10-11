@@ -239,7 +239,7 @@ export default function Eeg({ prefix }: Props) {
           image={Nervous}
           size={'large'}
           onClick={() => {
-            playSound('click');
+            playSound('generalSelect');
             setStep({ step: 0 });
             navigate(Paths.BodySystems + '/' + Paths.Nervous);
           }}

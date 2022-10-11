@@ -47,36 +47,42 @@ const BodySystems = ({ path, prefix }: Props) => {
             size={path === Paths.Sensory ? 'large' : 'small'}
             onClick={() => onClickHandler(Paths.Sensory)}
             text={path === Paths.Sensory ? t('sensory') : ''}
+            sound='generalSelect'
           />
           <NavigationButton
             image={Skeletal}
             size={path === Paths.Skeletal ? 'large' : 'small'}
             onClick={() => onClickHandler(Paths.Skeletal)}
             text={path === Paths.Skeletal ? t('skeletal') : ''}
+            sound='generalSelect'
           />
           <NavigationButton
             image={Cardiovascular}
             size={path === Paths.Cardiovascular ? 'large' : 'small'}
             onClick={() => onClickHandler(Paths.Cardiovascular)}
             text={path === Paths.Cardiovascular ? t('cardiovascular') : ''}
+            sound='generalSelect'
           />
           <NavigationButton
             image={Muscular}
             size={path === Paths.Muscular ? 'large' : 'small'}
             onClick={() => onClickHandler(Paths.Muscular)}
             text={path === Paths.Muscular ? t('muscular') : ''}
+            sound='generalSelect'
           />
           <NavigationButton
             image={Nervous}
             size={path === Paths.Nervous ? 'large' : 'small'}
             onClick={() => onClickHandler(Paths.Nervous)}
             text={path === Paths.Nervous ? t('nervous') : ''}
+            sound='generalSelect'
           />
           <NavigationButton
             image={Digestive}
             size={path === Paths.Digestive ? 'large' : 'small'}
             onClick={() => onClickHandler(Paths.Digestive)}
             text={path === Paths.Digestive ? t('digestive') : ''}
+            sound='generalSelect'
           />
         </div>
       </div>

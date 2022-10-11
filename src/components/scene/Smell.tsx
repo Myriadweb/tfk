@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-import { useSpring, animated } from 'react-spring';
+import {useSpring, animated, easings} from 'react-spring';
 
 import { useGameContext } from '../../state/game';
 import {
@@ -39,10 +39,18 @@ export function Smell() {
   const [overlay, overlayAPI] = useSpring(() => ({ opacity: 0 }));
   const [effectStyle, effectAPI] = useSpring(() => ({ opacity: 0 }));
   const [{ value }] = useGameContext();
+  const [sparklesStyle, sparklesApi] = useSpring(() => ({
+    transform: 'scale(0)',
+    opacity: 1,
+  }));
 
   if (sensoryState && value !== 'badSmell-final') {
     effectAPI.set({ opacity: 0 });
     overlayAPI.set({ opacity: 0 });
+    sparklesApi.set({
+      transform: 'scale(0)',
+      opacity: 1,
+    });
     effectAPI.start({
       from: { opacity: 0 },
       to: { opacity: 1 },
@@ -55,6 +63,15 @@ export function Smell() {
         duration: 500,
       },
       delay: 500,
+    });
+    sparklesApi.start({
+      transform: 'scale(2)',
+      opacity: 0,
+      delay: 1000,
+      config: {
+        duration: 500,
+        easing: easings.linear,
+      },
     });
   } else {
     effectAPI.set({ opacity: 0 });
@@ -122,7 +139,8 @@ export function Smell() {
               top: 721,
               left: 234,
               zIndex: 2,
-              ...effectStyle,
+              ...sparklesStyle,
+
             }}
           />
         </>
@@ -191,7 +209,7 @@ export function Smell() {
           ...activePosition,
           transform: `translate(-50%, -50%) rotate(13deg)`,
         }}
-        sound={'smellsGood'}
+        sound={'smellGood'}
       />
       <ClickableImage
         Component={Shoe}
@@ -206,7 +224,7 @@ export function Smell() {
           ...activePosition,
           transform: `translate(-50%, -50%) rotate(0deg)`,
         }}
-        sound={'smellsBad'}
+        sound={'smellBad'}
         timeoutDuration={7000}
       />
     </>

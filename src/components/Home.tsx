@@ -165,7 +165,7 @@ export function Home() {
               }
               onClick={() => {
                 if (prefix === 'Skeletal' && gameState.value === 'done') return;
-                location.search && playSound('click');
+                location.search && playSound('generalSelect');
                 location.search && setGameState({ step: 0 });
               }}
             >
@@ -185,7 +185,7 @@ export function Home() {
                   setGameState({ value: 'reset' });
                 }
                 setAnimateState('');
-                location.search !== '?play=true' && playSound('click');
+                location.search !== '?play=true' && playSound('generalSelect');
               }}
             >
               {location.search === '?play=true' &&

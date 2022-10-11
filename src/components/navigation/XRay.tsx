@@ -143,7 +143,7 @@ const XRay = ({ prefix }: Props) => {
           <Link
             to={`${Paths.Procedures}/${prefix}`}
             onClick={() => {
-              playSound('click');
+              playSound('generalSelect');
               setStep({ step: 0 });
             }}
             style={{
