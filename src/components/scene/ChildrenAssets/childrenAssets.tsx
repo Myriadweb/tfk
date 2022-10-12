@@ -3,120 +3,124 @@ import { Character } from '../../../state/character';
 
 import { ReactComponent as Child1 } from './Child1/default.svg';
 import { ReactComponent as Child1Worried } from './Child1/worried.svg';
-import { ReactComponent as Child1Happy } from './Child1/happy.svg';
-import { ReactComponent as Child1Pain } from './Child1/pain.svg';
-import { ReactComponent as Child1Scared } from './Child1/scared.svg';
-import { ReactComponent as Child1Moon } from './Child1/moon.svg';
-import { ReactComponent as Child1Sun } from './Child1/sun.svg';
-import { ReactComponent as Child1HotSauce } from './Child1/hotSauce.svg';
-import { ReactComponent as Child1IceCream } from './Child1/iceCream.svg';
-import { ReactComponent as Child1MouthOpen } from './Child1/mouthOpen.svg';
-import { ReactComponent as Child1LiftFeatherBody } from './Child1/liftFeather.svg';
-import { ReactComponent as Child1LiftWeightBody } from './Child1/liftWeight.svg';
+import Child1Scared from './Child1/scared.svg';
+import Child1Moon from './Child1/moon.svg';
+import Child1Sun from './Child1/sun.svg';
+import Child1HotSauce from './Child1/hotSauce.svg';
+import Child1IceCream from './Child1/iceCream.svg';
+import Child1MouthOpen from './Child1/mouthOpen.svg';
+import Child1LiftFeather from './Child1/proprioceptionGood.svg';
+import Child1LiftWeight from './Child1/proprioceptionBad.svg';
 import Child1Breathe from './Child1/breathe.png';
 import { ReactComponent as Child1HitFloor } from './Child1/hitFloor.svg';
 import Child1Protection from './Child1/protection.svg';
+import { ReactComponent as Child1SensoryDefault } from './Child1/sensoryDefault.svg';
+import Child1happySensory from './Child1/happySensory.svg';
 import { ReactComponent as Child1HappyStanding } from './Child1/happyStanding.svg';
 import { ReactComponent as Child1DigestiveEyesOpen } from './Child1/digestiveEyesOpen.svg';
 import { ReactComponent as Child1DigestiveEyesClosed } from './Child1/digestiveEyesClosed.svg';
 
 import { ReactComponent as Child2 } from './Child2/default.svg';
 import { ReactComponent as Child2Worried } from './Child2/worried.svg';
-import { ReactComponent as Child2Happy } from './Child2/happy.svg';
-import { ReactComponent as Child2Pain } from './Child2/pain.svg';
-import { ReactComponent as Child2Scared } from './Child2/scared.svg';
-import { ReactComponent as Child2Moon } from './Child2/moon.svg';
-import { ReactComponent as Child2Sun } from './Child2/sun.svg';
-import { ReactComponent as Child2HotSauce } from './Child2/hotSauce.svg';
-import { ReactComponent as Child2IceCream } from './Child2/iceCream.svg';
-import { ReactComponent as Child2MouthOpen } from './Child2/mouthOpen.svg';
-import { ReactComponent as Child2LiftFeatherBody } from './Child2/liftFeather.svg';
-import { ReactComponent as Child2LiftWeightBody } from './Child2/liftWeight.svg';
+import Child2Scared from './Child2/scared.svg';
+import Child2Moon from './Child2/moon.svg';
+import Child2Sun from './Child2/sun.svg';
+import Child2HotSauce from './Child2/hotSauce.svg';
+import Child2IceCream from './Child2/iceCream.svg';
+import Child2MouthOpen from './Child2/mouthOpen.svg';
+import Child2LiftFeather from './Child2/proprioceptionGood.svg';
+import Child2LiftWeight from './Child2/proprioceptionBad.svg';
 import Child2Breathe from './Child2/breathe.svg';
 import { ReactComponent as Child2HitFloor } from './Child2/hitFloor.svg';
 import Child2Protection from './Child2/protection.svg';
 import { ReactComponent as Child2HappyStanding } from './Child2/happyStanding.svg';
 import { ReactComponent as Child2DigestiveEyesOpen } from './Child2/digestiveEyesOpen.svg';
 import { ReactComponent as Child2DigestiveEyesClosed } from './Child2/digestiveEyesClosed.svg';
+import { ReactComponent as Child2SensoryDefault } from './Child2/sensoryDefault.svg';
+import Child2happySensory from './Child2/happySensory.svg';
 
 import Child3 from './Child3/default.png';
 import { ReactComponent as Child3Worried } from './Child3/worried.svg';
-import { ReactComponent as Child3Standing } from './Child3/standing.svg';
-import { ReactComponent as Child3Happy } from './Child3/happy.svg';
-import { ReactComponent as Child3Pain } from './Child3/pain.svg';
-import { ReactComponent as Child3Scared } from './Child3/scared.svg';
-import { ReactComponent as Child3Moon } from './Child3/moon.svg';
-import { ReactComponent as Child3Sun } from './Child3/sun.svg';
-import { ReactComponent as Child3HotSauce } from './Child3/hotSauce.svg';
-import { ReactComponent as Child3IceCream } from './Child3/iceCream.svg';
-import { ReactComponent as Child3MouthOpen } from './Child3/mouthOpen.svg';
-import Child3LiftFeatherBody from './Child3/liftFeather.png';
-import Child3LiftWeightBody from './Child3/liftWeight.png';
+import { ReactComponent as Child3StandingDefault } from './Child3/standing.svg';
+import Child3Scared from './Child3/scared.svg';
+import Child3Moon from './Child3/moon.svg';
+import Child3Sun from './Child3/sun.svg';
+import Child3HotSauce from './Child3/hotSauce.svg';
+import Child3IceCream from './Child3/iceCream.svg';
+import Child3MouthOpen from './Child3/mouthOpen.svg';
+import Child3LiftFeather from './Child3/proprioceptionGood.svg';
+import Child3LiftWeight from './Child3/proprioceptionBad.svg';
 import Child3Breathe from './Child3/breathe.svg';
 import { ReactComponent as Child3HitFloor } from './Child3/hitFloor.svg';
 import Child3Protection from './Child3/protection.svg';
 import { ReactComponent as Child3HappyStanding } from './Child3/happyStanding.svg';
 import { ReactComponent as Child3DigestiveEyesOpen } from './Child3/digestiveEyesOpen.svg';
 import { ReactComponent as Child3DigestiveEyesClosed } from './Child3/digestiveEyesClosed.svg';
+import { ReactComponent as Child3SensoryDefault } from './Child3/sensoryDefault.svg';
+import Child3happySensory from './Child3/happySensory.svg';
 
 import { ReactComponent as Child4 } from './Child4/default.svg';
 import { ReactComponent as Child4Worried } from './Child4/worried.svg';
-import { ReactComponent as Child4Happy } from './Child4/happy.svg';
-import { ReactComponent as Child4Pain } from './Child4/pain.svg';
-import { ReactComponent as Child4Scared } from './Child4/scared.svg';
-import { ReactComponent as Child4Moon } from './Child4/moon.svg';
-import { ReactComponent as Child4Sun } from './Child4/sun.svg';
-import { ReactComponent as Child4HotSauce } from './Child4/hotSauce.svg';
-import { ReactComponent as Child4IceCream } from './Child4/iceCream.svg';
-import { ReactComponent as Child4MouthOpen } from './Child4/mouthOpen.svg';
-import { ReactComponent as Child4LiftFeatherBody } from './Child4/liftFeather.svg';
-import { ReactComponent as Child4LiftWeightBody } from './Child4/liftWeight.svg';
+import Child4Scared from './Child4/scared.svg';
+import Child4Moon from './Child4/moon.svg';
+import Child4Sun from './Child4/sun.svg';
+import Child4HotSauce from './Child4/hotSauce.svg';
+import Child4IceCream from './Child4/iceCream.svg';
+import Child4MouthOpen from './Child4/mouthOpen.svg';
+import Child4LiftFeather from './Child4/proprioceptionGood.svg';
+import Child4LiftWeight from './Child4/proprioceptionBad.svg';
 import Child4Breathe from './Child4/breathe.svg';
 import { ReactComponent as Child4HitFloor } from './Child4/hitFloor.svg';
 import Child4Protection from './Child4/protection.svg';
 import { ReactComponent as Child4HappyStanding } from './Child4/happyStanding.svg';
 import { ReactComponent as Child4DigestiveEyesOpen } from './Child4/digestiveEyesOpen.svg';
 import { ReactComponent as Child4DigestiveEyesClosed } from './Child4/digestiveEyesClosed.svg';
+import { ReactComponent as Child4SensoryDefault } from './Child4/sensoryDefault.svg';
+import Child4happySensory from './Child4/happySensory.svg';
 
 import { ReactComponent as Child5 } from './Child5/default.svg';
 import { ReactComponent as Child5Worried } from './Child5/worried.svg';
-import { ReactComponent as Child5Happy } from './Child5/happy.svg';
-import { ReactComponent as Child5Pain } from './Child5/pain.svg';
-import { ReactComponent as Child5Scared } from './Child5/scared.svg';
-import { ReactComponent as Child5Moon } from './Child5/moon.svg';
-import { ReactComponent as Child5Sun } from './Child5/sun.svg';
-import { ReactComponent as Child5HotSauce } from './Child5/hotSauce.svg';
-import { ReactComponent as Child5IceCream } from './Child5/iceCream.svg';
-import { ReactComponent as Child5MouthOpen } from './Child5/mouthOpen.svg';
-import { ReactComponent as Child5LiftFeatherBody } from './Child5/liftFeather.svg';
-import { ReactComponent as Child5LiftWeightBody } from './Child5/liftWeight.svg';
+import Child5Scared from './Child5/happySensory.svg';
+import Child5Moon from './Child5/moon.svg';
+import Child5Sun from './Child5/sun.svg';
+import Child5HotSauce from './Child5/hotSauce.svg';
+import Child5IceCream from './Child5/iceCream.svg';
+import Child5MouthOpen from './Child5/mouthOpen.svg';
+import Child5LiftFeather from './Child5/proprioceptionGood.svg';
+import Child5LiftWeight from './Child5/proprioceptionBad.svg';
 import Child5Breathe from './Child5/breathe.png';
 import { ReactComponent as Child5HitFloor } from './Child5/hitFloor.svg';
 import Child5Protection from './Child5/protection.svg';
 import { ReactComponent as Child5HappyStanding } from './Child5/happyStanding.svg';
 import { ReactComponent as Child5DigestiveEyesOpen } from './Child5/digestiveEyesOpen.svg';
 import { ReactComponent as Child5DigestiveEyesClosed } from './Child5/digestiveEyesClosed.svg';
+import { ReactComponent as Child5SensoryDefault } from './Child5/sensoryDefault.svg';
+import Child5happySensory from './Child5/scared.svg';
 
 import { ReactComponent as Child6 } from './Child6/default.svg';
 import { ReactComponent as Child6Worried } from './Child6/worried.svg';
-import { ReactComponent as Child6Happy } from './Child6/happy.svg';
-import { ReactComponent as Child6Pain } from './Child6/pain.svg';
-import { ReactComponent as Child6Scared } from './Child6/scared.svg';
-import { ReactComponent as Child6Moon } from './Child6/moon.svg';
-import { ReactComponent as Child6Sun } from './Child6/sun.svg';
-import { ReactComponent as Child6HotSauce } from './Child6/hotSauce.svg';
-import { ReactComponent as Child6IceCream } from './Child6/iceCream.svg';
-import { ReactComponent as Child6MouthOpen } from './Child6/mouthOpen.svg';
-import { ReactComponent as Child6LiftFeatherBody } from './Child6/liftFeather.svg';
-import { ReactComponent as Child6LiftWeightBody } from './Child6/liftWeight.svg';
+import Child6Scared from './Child6/scared.svg';
+import Child6Moon from './Child6/moon.svg';
+import Child6Sun from './Child6/sun.svg';
+import Child6HotSauce from './Child6/hotSauce.svg';
+import Child6IceCream from './Child6/iceCream.svg';
+import Child6MouthOpen from './Child6/mouthOpen.svg';
+import Child6LiftFeather from './Child6/proprioceptionGood.svg';
+import Child6LiftWeight from './Child6/proprioceptionBad.svg';
 import Child6Breathe from './Child6/breathe.svg';
 import { ReactComponent as Child6HitFloor } from './Child6/hitFloor.svg';
 import Child6Protection from './Child6/protection.svg';
 import { ReactComponent as Child6HappyStanding } from './Child6/happyStanding.svg';
 import { ReactComponent as Child6DigestiveEyesOpen } from './Child6/digestiveEyesOpen.svg';
 import { ReactComponent as Child6DigestiveEyesClosed } from './Child6/digestiveEyesClosed.svg';
+import { ReactComponent as Child6SensoryDefault } from './Child6/sensoryDefault.svg';
+import Child6happySensory from './Child6/happySensory.svg';
 
 import { ReactComponent as SmockRaw } from '../XRayAssets/smock.svg';
+
+export const Child3Standing = () => (
+  <Child3StandingDefault height='984' width='392' />
+);
 
 const childWidthInternal = {
   [Character.child3]: 633,
@@ -202,32 +206,32 @@ const SensoryHeadStyle = { position: 'absolute', width: 784, height: 616 };
 const SensoryCharacters = {
   [Character.child1]: () => (
     <span style={{ position: 'relative' }}>
-      <Child1 style={SensoryStyle} />
+      <Child1SensoryDefault />
     </span>
   ),
   [Character.child2]: () => (
     <span style={{ position: 'relative' }}>
-      <Child2 style={SensoryStyle} />
+      <Child2SensoryDefault />
     </span>
   ),
   [Character.child3]: () => (
     <span style={{ position: 'relative' }}>
-      <Child3Standing style={SensoryStyle} />
+      <Child3SensoryDefault />
     </span>
   ),
   [Character.child4]: () => (
     <span style={{ position: 'relative' }}>
-      <Child4 style={SensoryStyle} />
+      <Child4SensoryDefault />
     </span>
   ),
   [Character.child5]: () => (
     <span style={{ position: 'relative' }}>
-      <Child5 style={SensoryStyle} />
+      <Child5SensoryDefault />
     </span>
   ),
   [Character.child6]: () => (
     <span style={{ position: 'relative' }}>
-      <Child6 style={SensoryStyle} />
+      <Child6SensoryDefault />
     </span>
   ),
 };
@@ -235,38 +239,32 @@ const SensoryCharacters = {
 const HappySensoryCharacters = {
   [Character.child1]: () => (
     <span style={{ position: 'relative' }}>
-      <Child1 style={SensoryStyle} />
-      <Child1Happy style={{ ...SensoryHeadStyle, top: 7 }} />
+      <img src={Child1happySensory} />
     </span>
   ),
   [Character.child2]: () => (
     <span style={{ position: 'relative' }}>
-      <Child2 style={SensoryStyle} />
-      <Child2Happy style={{ ...SensoryHeadStyle, left: 8, top: 2 }} />
+      <img src={Child2happySensory} />
     </span>
   ),
   [Character.child3]: () => (
     <span style={{ position: 'relative' }}>
-      <Child3Standing style={SensoryStyle} />
-      <Child3Happy style={{ ...SensoryHeadStyle, left: 8, top: 2 }} />
+      <img src={Child3happySensory} />
     </span>
   ),
   [Character.child4]: () => (
     <span style={{ position: 'relative' }}>
-      <Child4 style={SensoryStyle} />
-      <Child4Happy style={{ ...SensoryHeadStyle, left: 5, top: 2 }} />
+      <img src={Child4happySensory} />
     </span>
   ),
   [Character.child5]: () => (
     <span style={{ position: 'relative' }}>
-      <Child5 style={SensoryStyle} />
-      <Child5Happy style={{ ...SensoryHeadStyle, left: 0, top: 2 }} />
+      <img src={Child5happySensory} />
     </span>
   ),
   [Character.child6]: () => (
     <span style={{ position: 'relative' }}>
-      <Child6 style={SensoryStyle} />
-      <Child6Happy style={{ ...SensoryHeadStyle, left: 8, top: 2 }} />
+      <img src={Child6happySensory} />
     </span>
   ),
 };
@@ -274,38 +272,32 @@ const HappySensoryCharacters = {
 const SensoryCharactersScared = {
   [Character.child1]: () => (
     <span style={{ position: 'relative' }}>
-      <Child1 style={SensoryStyle} />
-      <Child1Scared style={{ ...SensoryHeadStyle, top: 7 }} />
+      <img src={Child1Scared} />
     </span>
   ),
   [Character.child2]: () => (
     <span style={{ position: 'relative' }}>
-      <Child2 style={SensoryStyle} />
-      <Child2Scared style={{ ...SensoryHeadStyle, left: 8, top: 2 }} />
+      <img src={Child2Scared} />
     </span>
   ),
   [Character.child3]: () => (
     <span style={{ position: 'relative' }}>
-      <Child3Standing style={SensoryStyle} />
-      <Child3Scared style={{ ...SensoryHeadStyle, left: 8, top: 2 }} />
+      <img src={Child3Scared} />
     </span>
   ),
   [Character.child4]: () => (
     <span style={{ position: 'relative' }}>
-      <Child4 style={SensoryStyle} />
-      <Child4Scared style={{ ...SensoryHeadStyle, left: 5, top: 2 }} />
+      <img src={Child4Scared} />
     </span>
   ),
   [Character.child5]: () => (
     <span style={{ position: 'relative' }}>
-      <Child5 style={SensoryStyle} />
-      <Child5Scared style={{ ...SensoryHeadStyle, left: 0, top: 2 }} />
+      <img src={Child5Scared} />
     </span>
   ),
   [Character.child6]: () => (
     <span style={{ position: 'relative' }}>
-      <Child6 style={SensoryStyle} />
-      <Child6Scared style={{ ...SensoryHeadStyle, left: 8, top: 2 }} />
+      <img src={Child6Scared} />
     </span>
   ),
 };
@@ -375,39 +367,33 @@ const SmockCharacters = {
 
 const MoonCharactersSensory = {
   [Character.child1]: () => (
-    <span style={{ position: 'relative' }}>
-      <Child1 style={SensoryStyle} />
-      <Child1Moon style={{ ...SensoryHeadStyle, top: 7 }} />
+    <span>
+      <img src={Child1Moon} />
     </span>
   ),
   [Character.child2]: () => (
     <span style={{ position: 'relative' }}>
-      <Child2 style={SensoryStyle} />
-      <Child2Moon style={{ ...SensoryHeadStyle, left: 8, top: 2 }} />
+      <img src={Child2Moon} />
     </span>
   ),
   [Character.child3]: () => (
     <span style={{ position: 'relative' }}>
-      <Child3Standing style={SensoryStyle} />
-      <Child3Moon style={{ ...SensoryHeadStyle, left: 8, top: 2 }} />
+      <img src={Child3Moon} />
     </span>
   ),
   [Character.child4]: () => (
     <span style={{ position: 'relative' }}>
-      <Child4 style={SensoryStyle} />
-      <Child4Moon style={{ ...SensoryHeadStyle, left: 5, top: 2 }} />
+      <img src={Child4Moon} />
     </span>
   ),
   [Character.child5]: () => (
     <span style={{ position: 'relative' }}>
-      <Child5 style={SensoryStyle} />
-      <Child5Moon style={{ ...SensoryHeadStyle, left: 0, top: 2 }} />
+      <img src={Child5Moon} />
     </span>
   ),
   [Character.child6]: () => (
     <span style={{ position: 'relative' }}>
-      <Child6 style={SensoryStyle} />
-      <Child6Moon style={{ ...SensoryHeadStyle, left: 8, top: 2 }} />
+      <img src={Child6Moon} />
     </span>
   ),
 };
@@ -415,38 +401,32 @@ const MoonCharactersSensory = {
 const SunCharactersSensory = {
   [Character.child1]: () => (
     <span style={{ position: 'relative' }}>
-      <Child1 style={SensoryStyle} />
-      <Child1Sun style={{ ...SensoryHeadStyle, top: 7 }} />
+      <img src={Child1Sun} />
     </span>
   ),
   [Character.child2]: () => (
     <span style={{ position: 'relative' }}>
-      <Child2 style={SensoryStyle} />
-      <Child2Sun style={{ ...SensoryHeadStyle, left: 8, top: 2 }} />
+      <img src={Child2Sun} />
     </span>
   ),
   [Character.child3]: () => (
     <span style={{ position: 'relative' }}>
-      <Child3Standing style={SensoryStyle} />
-      <Child3Sun style={{ ...SensoryHeadStyle, left: 8, top: 2 }} />
+      <img src={Child3Sun} />
     </span>
   ),
   [Character.child4]: () => (
     <span style={{ position: 'relative' }}>
-      <Child4 style={SensoryStyle} />
-      <Child4Sun style={{ ...SensoryHeadStyle, left: 5, top: 2 }} />
+      <img src={Child4Sun} />
     </span>
   ),
   [Character.child5]: () => (
     <span style={{ position: 'relative' }}>
-      <Child5 style={SensoryStyle} />
-      <Child5Sun style={{ ...SensoryHeadStyle, left: 0, top: 2 }} />
+      <img src={Child5Sun} />
     </span>
   ),
   [Character.child6]: () => (
     <span style={{ position: 'relative' }}>
-      <Child6 style={SensoryStyle} />
-      <Child6Sun style={{ ...SensoryHeadStyle, left: 8, top: 2 }} />
+      <img src={Child6Sun} />
     </span>
   ),
 };
@@ -454,38 +434,32 @@ const SunCharactersSensory = {
 const MouthOpenCharacters = {
   [Character.child1]: () => (
     <span style={{ position: 'relative' }}>
-      <Child1 style={SensoryStyle} />
-      <Child1MouthOpen style={{ ...SensoryHeadStyle, top: 7 }} />
+      <img src={Child1MouthOpen} />
     </span>
   ),
   [Character.child2]: () => (
     <span style={{ position: 'relative' }}>
-      <Child2 style={SensoryStyle} />
-      <Child2MouthOpen style={{ ...SensoryHeadStyle, left: 8, top: 2 }} />
+      <img src={Child2MouthOpen} />
     </span>
   ),
   [Character.child3]: () => (
     <span style={{ position: 'relative' }}>
-      <Child3Standing style={SensoryStyle} />
-      <Child3MouthOpen style={{ ...SensoryHeadStyle, left: 8, top: 2 }} />
+      <img src={Child3MouthOpen} />
     </span>
   ),
   [Character.child4]: () => (
     <span style={{ position: 'relative' }}>
-      <Child4 style={SensoryStyle} />
-      <Child4MouthOpen style={{ ...SensoryHeadStyle, left: 5, top: 2 }} />
+      <img src={Child4MouthOpen} />
     </span>
   ),
   [Character.child5]: () => (
     <span style={{ position: 'relative' }}>
-      <Child5 style={SensoryStyle} />
-      <Child5MouthOpen style={{ ...SensoryHeadStyle, left: 0, top: 2 }} />
+      <img src={Child5MouthOpen} />
     </span>
   ),
   [Character.child6]: () => (
     <span style={{ position: 'relative' }}>
-      <Child6 style={SensoryStyle} />
-      <Child6MouthOpen style={{ ...SensoryHeadStyle, left: 8, top: 2 }} />
+      <img src={Child6MouthOpen} />
     </span>
   ),
 };
@@ -507,7 +481,7 @@ const DigestiveEyesOpen = {
   ),
   [Character.child3]: () => (
     <span style={{ position: 'relative' }}>
-      <Child3Standing style={SensoryStyle} />
+      <Child3StandingDefault style={SensoryStyle} />
       <Child3DigestiveEyesOpen
         style={{ ...SensoryHeadStyle, left: 8, top: 2 }}
       />
@@ -556,7 +530,7 @@ const DigestiveEyesClosed = {
   ),
   [Character.child3]: () => (
     <span style={{ position: 'relative' }}>
-      <Child3Standing style={SensoryStyle} />
+      <Child3StandingDefault style={SensoryStyle} />
       <Child3DigestiveEyesClosed
         style={{ ...SensoryHeadStyle, left: 8, top: 2 }}
       />
@@ -591,77 +565,65 @@ const DigestiveEyesClosed = {
 const HotSauceCharacters = {
   [Character.child1]: () => (
     <span style={{ position: 'relative' }}>
-      <Child1 style={SensoryStyle} />
-      <Child1HotSauce style={{ ...SensoryHeadStyle, top: 7 }} />
+      <img src={Child1HotSauce} />
     </span>
   ),
   [Character.child2]: () => (
     <span style={{ position: 'relative' }}>
-      <Child2 style={SensoryStyle} />
-      <Child2HotSauce style={{ ...SensoryHeadStyle, left: 8, top: 2 }} />
+      <img src={Child2HotSauce} />
     </span>
   ),
   [Character.child3]: () => (
     <span style={{ position: 'relative' }}>
-      <Child3Standing style={SensoryStyle} />
-      <Child3HotSauce style={{ ...SensoryHeadStyle, left: 8, top: 2 }} />
+      <img src={Child3HotSauce} />
     </span>
   ),
   [Character.child4]: () => (
     <span style={{ position: 'relative' }}>
-      <Child4 style={SensoryStyle} />
-      <Child4HotSauce style={{ ...SensoryHeadStyle, left: 5, top: 2 }} />
+      <img src={Child4HotSauce} />
     </span>
   ),
   [Character.child5]: () => (
     <span style={{ position: 'relative' }}>
-      <Child5 style={SensoryStyle} />
-      <Child5HotSauce style={{ ...SensoryHeadStyle, left: 0, top: 2 }} />
+      <img src={Child5HotSauce} />
     </span>
   ),
   [Character.child6]: () => (
     <span style={{ position: 'relative' }}>
-      <Child6 style={SensoryStyle} />
-      <Child6HotSauce style={{ ...SensoryHeadStyle, left: 8, top: 2 }} />
+      <img src={Child6HotSauce} />
     </span>
   ),
 };
 
 const IceCreamCharacters = {
   [Character.child1]: () => (
-    <span style={{ position: 'relative' }}>
-      <Child1 style={SensoryStyle} />
-      <Child1IceCream style={{ ...SensoryHeadStyle, top: 7 }} />
+    <span>
+      <img src={Child1IceCream} />
     </span>
   ),
   [Character.child2]: () => (
     <span style={{ position: 'relative' }}>
-      <Child2 style={SensoryStyle} />
-      <Child2IceCream style={{ ...SensoryHeadStyle, left: 8, top: 2 }} />
+      <img src={Child2IceCream} />
     </span>
   ),
   [Character.child3]: () => (
     <span style={{ position: 'relative' }}>
-      <Child3Standing style={SensoryStyle} />
-      <Child3IceCream style={{ ...SensoryHeadStyle, left: 8, top: 2 }} />
+      <img src={Child3IceCream} />
     </span>
   ),
   [Character.child4]: () => (
     <span style={{ position: 'relative' }}>
-      <Child4 style={SensoryStyle} />
-      <Child4IceCream style={{ ...SensoryHeadStyle, left: 5, top: 2 }} />
+      <img src={Child4IceCream} />
     </span>
   ),
   [Character.child5]: () => (
     <span style={{ position: 'relative' }}>
-      <Child5 style={SensoryStyle} />
-      <Child5IceCream style={{ ...SensoryHeadStyle, left: 0, top: 2 }} />
+      <img src={Child5IceCream} />
     </span>
   ),
   [Character.child6]: () => (
     <span style={{ position: 'relative' }}>
-      <Child6 style={SensoryStyle} />
-      <Child6IceCream style={{ ...SensoryHeadStyle, left: 8, top: 2 }} />
+      <img src={Child6IceCream} />
     </span>
   ),
 };
@@ -683,55 +645,32 @@ const vestibularHeadStyle = {
 const LiftFeatherCharacters = {
   [Character.child1]: () => (
     <span style={{ position: 'relative' }}>
-      <Child1LiftFeatherBody style={liftFeatherStyle} />
-      <Child1Happy style={{ ...vestibularHeadStyle, top: 7 }} />
+      <img src={Child1LiftFeather} height='984' width='392' />
     </span>
   ),
   [Character.child2]: () => (
     <span style={{ position: 'relative' }}>
-      <Child2LiftFeatherBody style={liftFeatherStyle} />
-      <Child2Happy style={{ ...vestibularHeadStyle, top: 5, left: 2 }} />
+      <img src={Child2LiftFeather} height='984' width='392' />
     </span>
   ),
   [Character.child3]: () => (
     <span style={{ position: 'relative' }}>
-      <img
-        src={Child3LiftFeatherBody}
-        style={{
-          ...liftFeatherStyle,
-          width: 633,
-          height: 756,
-          top: 226,
-          left: -95,
-        }}
-      />
-      <Child3Happy
-        style={{
-          ...vestibularHeadStyle,
-          top: 5,
-          width: 306,
-          height: 307,
-          left: 70,
-        }}
-      />
+      <img src={Child3LiftFeather} height='984' width='392' />
     </span>
   ),
   [Character.child4]: () => (
     <span style={{ position: 'relative' }}>
-      <Child4LiftFeatherBody style={liftFeatherStyle} />
-      <Child4Happy style={{ ...vestibularHeadStyle, top: 5 }} />
+      <img src={Child4LiftFeather} height='984' width='392' />
     </span>
   ),
   [Character.child5]: () => (
     <span style={{ position: 'relative' }}>
-      <Child5LiftFeatherBody style={liftFeatherStyle} />
-      <Child5Happy style={{ ...vestibularHeadStyle, top: 5 }} />
+      <img src={Child5LiftFeather} height='984' width='392' />
     </span>
   ),
   [Character.child6]: () => (
     <span style={{ position: 'relative' }}>
-      <Child6LiftFeatherBody style={liftFeatherStyle} />
-      <Child6Happy style={{ ...vestibularHeadStyle, top: 5, left: 2 }} />
+      <img src={Child6LiftFeather} height='984' width='392' />
     </span>
   ),
 };
@@ -739,55 +678,32 @@ const LiftFeatherCharacters = {
 const LiftWeightCharacters = {
   [Character.child1]: () => (
     <span style={{ position: 'relative' }}>
-      <Child1LiftWeightBody style={liftFeatherStyle} />
-      <Child1Pain style={{ ...vestibularHeadStyle, top: 8, left: -12 }} />
+      <img src={Child1LiftWeight} height='984' width='392' />
     </span>
   ),
   [Character.child2]: () => (
     <span style={{ position: 'relative' }}>
-      <Child2LiftWeightBody style={liftFeatherStyle} />
-      <Child2Pain style={{ ...vestibularHeadStyle, top: 5, left: -8 }} />
+      <img src={Child2LiftWeight} height='984' width='392' />
     </span>
   ),
   [Character.child3]: () => (
     <span style={{ position: 'relative' }}>
-      <img
-        src={Child3LiftWeightBody}
-        style={{
-          ...liftFeatherStyle,
-          width: 633,
-          height: 756,
-          top: 226,
-          left: -105,
-        }}
-      />
-      <Child3Pain
-        style={{
-          ...vestibularHeadStyle,
-          top: 5,
-          width: 306,
-          height: 307,
-          left: 60,
-        }}
-      />
+      <img src={Child3LiftWeight} height='984' width='392' />
     </span>
   ),
   [Character.child4]: () => (
     <span style={{ position: 'relative' }}>
-      <Child4LiftWeightBody style={liftFeatherStyle} />
-      <Child4Pain style={{ ...vestibularHeadStyle, top: 5, left: -8 }} />
+      <img src={Child4LiftWeight} height='984' width='392' />
     </span>
   ),
   [Character.child5]: () => (
     <span style={{ position: 'relative' }}>
-      <Child5LiftWeightBody style={liftFeatherStyle} />
-      <Child5Pain style={{ ...vestibularHeadStyle, top: 5, left: -8 }} />
+      <img src={Child5LiftWeight} height='984' width='392' />
     </span>
   ),
   [Character.child6]: () => (
     <span style={{ position: 'relative' }}>
-      <Child6LiftWeightBody style={liftFeatherStyle} />
-      <Child6Pain style={{ ...vestibularHeadStyle, top: 5, left: -8 }} />
+      <img src={Child6LiftWeight} height='984' width='392' />
     </span>
   ),
 };

@@ -9,7 +9,7 @@ import Feather from './ProprioceptionAssets/Feather.png';
 import Dumbell from './ProprioceptionAssets/Dumbell.png';
 import OverlayBad from './ProprioceptionAssets/overlayBad.png';
 import OverlayGood from './ProprioceptionAssets/overlayGood.png';
-import { Characters } from './ChildrenAssets/childrenAssets';
+import { Characters, Child3Standing } from './ChildrenAssets/childrenAssets';
 import { useCharacterContext } from '../../state/character';
 import BottomOverlay from './SensoryAssets/bottomOverlay.png';
 import BgBad from './SensoryAssets/BGBad.png';
@@ -40,7 +40,10 @@ export default function Proprioception() {
     return <Navigate to={'/bodySystems/sensory'} />;
   }
 
-  const Character = Characters.default[selectedCharacter];
+  const Character =
+    selectedCharacter !== 2
+      ? Characters.default[selectedCharacter]
+      : Child3Standing;
   const CharacterGood = Characters['liftFeather'][selectedCharacter];
   const CharacterBad = Characters['liftWeight'][selectedCharacter];
 
@@ -71,7 +74,7 @@ export default function Proprioception() {
       <div
         style={{
           position: 'absolute',
-          left: 320,
+          left: 540,
           top: 270,
           transform: 'translate(-50%, 0px)',
           opacity: sensoryState === 'good' ? 1 : 0,
@@ -82,7 +85,7 @@ export default function Proprioception() {
       <div
         style={{
           position: 'absolute',
-          left: 330,
+          left: 540,
           top: 270,
           transform: 'translate(-50%, 0px)',
           opacity: sensoryState === 'bad' ? 1 : 0,

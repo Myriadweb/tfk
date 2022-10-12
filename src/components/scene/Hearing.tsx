@@ -103,7 +103,7 @@ export default function Hearing() {
         style={{
           position: 'absolute',
           left: 540,
-          top: 271,
+          top: 270,
           transform: `translate(-${width / 2}px, 0)`,
         }}
       >
