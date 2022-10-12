@@ -39,7 +39,7 @@ const MainMenu = ({ path }: Props) => {
             width: 213,
           }}
           to={`/${Paths.BodySystems}/${Paths.Sensory}`}
-          onClick={() => playSound('click')}
+          onClick={() => playSound('generalSelect')}
         >
           <img
             src='images/MainMenu/bodySystemButton.png'
@@ -70,7 +70,7 @@ const MainMenu = ({ path }: Props) => {
             width: 213,
           }}
           to={`/${Paths.Procedures}/${PROCEDURES_CONFIG[character]}`}
-          onClick={() => playSound('click')}
+          onClick={() => playSound('generalSelect')}
         >
           <img
             src='images/MainMenu/proceduresButton.png'

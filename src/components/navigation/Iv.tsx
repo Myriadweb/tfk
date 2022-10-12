@@ -233,7 +233,7 @@ const Iv = ({ prefix }: Props) => {
             image={Cardiovascular}
             size={'large'}
             onClick={() => {
-              playSound('click');
+              playSound('generalSelect');
               setStep({ step: 0 });
               navigate(Paths.BodySystems + '/' + Paths.Cardiovascular);
             }}

@@ -86,7 +86,7 @@ const SurgicalPrep = ({ prefix }: Props) => {
               if (newPumpValue < 3) return;
 
               setTimeout(() => {
-                playSound('surgicalPrepBloodPressure');
+                playSound('surgicalPrepAirRelease');
                 setStep({ step: 3 });
               }, 800);
             }}
@@ -234,7 +234,7 @@ const SurgicalPrep = ({ prefix }: Props) => {
             image={Cardiovascular}
             size={'large'}
             onClick={() => {
-              playSound('click');
+              playSound('generalSelect');
               setStep({ step: 0 });
               navigate(Paths.BodySystems + '/' + Paths.Cardiovascular);
             }}

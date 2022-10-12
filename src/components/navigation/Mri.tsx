@@ -80,7 +80,7 @@ const Mri = ({ prefix }: Props) => {
                   step: 1,
                   value: 'music',
                 }));
-                playSound('mRIHeadphones');
+                playSound('hearingMusic');
               }}
               text=''
             />
@@ -201,7 +201,7 @@ const Mri = ({ prefix }: Props) => {
           <Link
             to={`${Paths.Procedures}/${prefix}`}
             onClick={() => {
-              playSound('click');
+              playSound('generalSelect');
               setStep({ step: 0 });
             }}
             style={{

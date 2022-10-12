@@ -144,7 +144,7 @@ export default function WellnessGame() {
             y={23}
             onComplete={(newX, newY) => {
               if (newX > -564 && newX < -370 && newY > -173 && newY < 5) {
-                playSound('completeStep');
+                playSound('wellnessHeartMonitor');
                 trayApi.start({ transform: 'translateX(600px)' });
 
                 // A little hacky, but it helps to avoid errors in the console

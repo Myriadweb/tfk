@@ -50,6 +50,7 @@
   position: relative;
   overflow: hidden;
   font-family: 'LemonMilk', sans-serif;
+  letter-spacing: 1px;
 }
 
 .slide-left {

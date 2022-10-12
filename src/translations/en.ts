@@ -108,57 +108,57 @@ const en: Translation = {
         ribs: {
           title: 'RIBS',
           description:
-            'LOREM IPSUM DOLOR SIT AMET,\nCONSECTETUR ADIPISCING ELIT,\nSED DO EIUSMOD TEMPOR',
+            'Twelve pairs of ribs form a cage that protects your heart, lungs, and other organs.',
         },
         vertebrae: {
           title: 'VERTEBRAE',
           description:
-            'LOREM IPSUM DOLOR SIT AMET,\nCONSECTETUR ADIPISCING ELIT,\nSED DO EIUSMOD TEMPOR',
+            'Your spine is a stack of bones called vertebrae, with flexible joints that move when you bend and twist.',
         },
         'carpals&metacarpals': {
           title: 'CARPALS & METACARPALS',
           description:
-            'LOREM IPSUM DOLOR SIT AMET,\nCONSECTETUR ADIPISCING ELIT,\nSED DO EIUSMOD TEMPOR',
+            'Your hand and wrist have 27 bones. You can find most of them – the phalanges – just looking at your fingers. Others – the carpals and metacarpals – you can only see in an x-ray.',
         },
         scapula: {
           title: 'SCAPULA',
           description:
-            'LOREM IPSUM DOLOR SIT AMET,\nCONSECTETUR ADIPISCING ELIT,\nSED DO EIUSMOD TEMPOR',
+            'Your arm bones hang down from each scapula, or shoulder blade.',
         },
         clavicle: {
           title: 'CLAVICLE',
           description:
-            'LOREM IPSUM DOLOR SIT AMET,\nCONSECTETUR ADIPISCING ELIT,\nSED DO EIUSMOD TEMPOR',
+            'The clavicles are sometimes called "collar bones", because they sit right beneath the collar of your shirt.',
         },
         pelvis: {
           title: 'PELVIS',
           description:
-            'LOREM IPSUM DOLOR SIT AMET,\nCONSECTETUR ADIPISCING ELIT,\nSED DO EIUSMOD TEMPOR',
+            'Your hip bones have round "sockets" where they form a joint with your thigh that can move in any direction.',
         },
         femur: {
           title: 'FEMUR',
           description:
-            'LOREM IPSUM DOLOR SIT AMET,\nCONSECTETUR ADIPISCING ELIT,\nSED DO EIUSMOD TEMPOR',
+            "The femur, or thighbone, is the largest bone in the body. Pound for pound, it's even stronger than concrete!",
         },
         'fibule&tibia': {
           title: 'FIBULE & TIBIA',
           description:
-            'LOREM IPSUM DOLOR SIT AMET,\nCONSECTETUR ADIPISCING ELIT,\nSED DO EIUSMOD TEMPOR',
+            'Your shin is actually two bones – the large tibia on the inside, and the smaller fibula on the outside.',
         },
         humerus: {
           title: 'HUMERUS',
           description:
-            'LOREM IPSUM DOLOR SIT AMET,\nCONSECTETUR ADIPISCING ELIT,\nSED DO EIUSMOD TEMPOR',
+            'Your largest arm bone has different joints at each end so you can bend your elbow like a hinge and spin your arm around at your shoulder.',
         },
         'radius&ulna': {
           title: 'RADIUS & ULNA',
           description:
-            'LOREM IPSUM DOLOR SIT AMET,\nCONSECTETUR ADIPISCING ELIT,\nSED DO EIUSMOD TEMPOR',
+            'The two bones in your forearm actually cross when you flip your palm upwards or downwards. Can you feel them move?',
         },
         'tarsals&metatarsals': {
           title: 'TARSALS & METATARSALS',
           description:
-            'LOREM IPSUM DOLOR SIT AMET,\nCONSECTETUR ADIPISCING ELIT,\nSED DO EIUSMOD TEMPOR',
+            'Your foot and ankle are made up of 26 different bones, called tarsals, metatarsals, and phalanges.',
         },
         done: {
           description:

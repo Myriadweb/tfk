@@ -70,6 +70,8 @@ const Skeletal = ({ prefix }: Props) => {
                 fontSize: 20,
                 marginTop: isDone ? 27 : 'none',
                 visibility: isReset ? 'hidden' : 'visible',
+                width: 470,
+                whiteSpace: 'initial',
               }}
             >
               {t(`${value}.description`)}

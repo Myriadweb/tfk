@@ -50,36 +50,42 @@ const Procedures = ({ path, prefix }: Props) => {
             size={path === Paths.XRay ? 'large' : 'small'}
             onClick={() => onClickHandler(Paths.XRay)}
             text={path === Paths.XRay ? t('xRay') : ''}
+            sound='generalSelect'
           />
           <NavigationButton
             image={SurgicalPrep}
             size={path === Paths.SurgicalPrep ? 'large' : 'small'}
             onClick={() => onClickHandler(Paths.SurgicalPrep)}
             text={path === Paths.SurgicalPrep ? t('surgicalPrep') : ''}
+            sound='generalSelect'
           />
           <NavigationButton
             image={EEG}
             size={path === Paths.Eeg ? 'large' : 'small'}
             onClick={() => onClickHandler(Paths.Eeg)}
             text={path === Paths.Eeg ? t('eeg') : ''}
+            sound='generalSelect'
           />
           <NavigationButton
             image={Wellness}
             size={path === Paths.Wellness ? 'large' : 'small'}
             onClick={() => onClickHandler(Paths.Wellness)}
             text={path === Paths.Wellness ? t('wellness') : ''}
+            sound='generalSelect'
           />
           <NavigationButton
             image={IV}
             size={path === Paths.Iv ? 'large' : 'small'}
             onClick={() => onClickHandler(Paths.Iv)}
             text={path === Paths.Iv ? t('iv') : ''}
+            sound='generalSelect'
           />
           <NavigationButton
             image={MRI}
             size={path === Paths.Mri ? 'large' : 'small'}
             onClick={() => onClickHandler(Paths.Mri)}
             text={path === Paths.Mri ? t('mri') : ''}
+            sound='generalSelect'
           />
         </div>
       </div>

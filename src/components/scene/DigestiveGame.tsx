@@ -28,6 +28,7 @@ import { useSpring, animated } from 'react-spring';
 import { columnLabelStyle } from './common';
 import { Trans, useTranslation } from 'react-i18next';
 import ReactPlayer from 'react-player';
+import playSound from '../../sound';
 
 const STEP_TO_CHILD_CONFIG = {
   0: 'mouthOpen',
@@ -116,6 +117,7 @@ export default function DigestiveGame() {
           {
             transform: 'translate(-50%, -363px) scale(1.5)',
             onRest: () => {
+              playSound('digestionStomachGurgle');
               stomachApi({ opacity: 1 });
               stomachOverlaysApi({ opacity: 1 });
               blueBoxOverlaysApi({ opacity: 1 });

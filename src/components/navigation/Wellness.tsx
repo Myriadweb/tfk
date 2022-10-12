@@ -105,7 +105,7 @@ const Wellness = ({ prefix }: Props) => {
       <BlueBarContinue
         text={t(`${step}-buttonText`)}
         onClick={() => {
-          playSound('wellnessHeartMonitor');
+          playSound('completeStep');
           setStep({ step: 9 });
         }}
       />
@@ -199,7 +199,7 @@ const Wellness = ({ prefix }: Props) => {
           <Link
             to={`${Paths.Procedures}/${prefix}`}
             onClick={() => {
-              playSound('click');
+              playSound('generalSelect');
               setStep({ step: 0 });
             }}
             style={{
