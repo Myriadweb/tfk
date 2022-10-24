@@ -218,7 +218,7 @@ const en: Translation = {
           'El lado izquierdo del corazón envía sangre al resto del cuerpo.',
         '5-text':
           'El lado izquierdo del corazón envía sangre al resto del cuerpo.',
-        '5-buttonText': 'TRIGGER HEARTBEAT',
+        '5-buttonText': 'latido del corazón',
         '6-text':
           'La sangre recorre las arterias para llevar oxígeno, nutrientes e incluso medicamentos y mensajes a todas las partes del cuerpo.',
         '7-text':
@@ -231,7 +231,7 @@ const en: Translation = {
           'La sangre vuelve al corazón a través de las venas, donde el ciclo vuelve a comenzar.',
         '11-boldText': '¡Buen trabajo!',
         continue: 'Continuar',
-        finish: 'Terminar',
+        finish: 'finalizar',
       },
     },
     [Paths.Nervous]: {
@@ -239,11 +239,11 @@ const en: Translation = {
         title: 'NERVOUS',
       },
       scene: {
-        brain: 'BRAIN',
-        cerebellum: 'Cerebelo',
-        nerves: 'NERVES',
-        brainStem: 'Tronco encefálico',
-        spinalCord: 'SPINAL CORD',
+        brain: 'cerebro',
+        cerebellum: 'cerebelo',
+        nerves: 'nervios',
+        brainStem: 'tronco encefálico',
+        spinalCord: 'médula espinal',
         touchText: 'Toque una parte del cerebro para obtener más información.',
         art: 'Arte',
         balance: 'balance',
@@ -349,7 +349,7 @@ const en: Translation = {
         continue: 'Continuar',
         dissolving: 'disolviendo...',
         goodJob: '¡Buen trabajo!',
-        finish: 'terminar',
+        finish: 'finalizar',
         '0-text':
           'Elija un trozo de comida para seguirlo a través del aparato digestivo.',
         '1-text':
@@ -436,7 +436,7 @@ const en: Translation = {
       scene: {
         text: 'Hay algunos pasos importantes para preparar a los pacientes para la cirugía.',
         label: 'CIRUGÍA',
-        buttonText: 'BEGIN PREP',
+        buttonText: 'iniciar',
       },
       navbar: {
         '0-mainText': 'PREPARE AL PACIENTE PARA LA CIRUGÍA',
@@ -508,11 +508,11 @@ const en: Translation = {
         '2-mainText': 'TOME UNA RADIOGRAFÍA',
         '2-subText':
           'Inicie el equipo de rayos X para tomar una imagen de la lesión del paciente.',
-        '2-buttonText': 'START',
+        '2-buttonText': 'iniciar',
         '4-mainText': 'HUESO FRACTURADO',
         '4-subText':
           'Los médicos pueden colocar una escayola en el brazo del paciente para mantener el hueso inmóvil mientras se cura.',
-        '4-buttonText': 'FINISH',
+        '4-buttonText': 'finalizar',
         '5-mainText': '¡LISTO!',
         '5-subText':
           'Los médicos trataron la lesión con una escayola. Elija una recompensa para el paciente.',
@@ -524,15 +524,15 @@ const en: Translation = {
     },
     [Paths.Eeg]: {
       header: {
-        title: 'EEG (ELECTROENCEFALOGRAMA)',
+        title: 'EEG',
       },
       scene: {
         text: 'Un EEG registra la actividad eléctrica, u ondas cerebrales, del cerebro mientras está en el hospital.',
-        label: 'EEG (ELECTROENCEFALOGRAMA)',
-        buttonText: 'TOME UN ELECTROENCEFALOGRAMA',
+        label: 'EEG',
+        buttonText: 'TOME UN EEG',
       },
       navbar: {
-        '0-mainText': 'TOME UN ELECTROENCEFALOGRAMA',
+        '0-mainText': 'TOME UN EEG',
         '0-subText': 'TEl paciente está listo para su electroencefalograma.',
         '0-buttonText': 'Continuar',
         '1-mainText': 'COLOQUE LOS DISCOS ADHESIVOS',
@@ -561,7 +561,7 @@ const en: Translation = {
         '8-mainText': 'ALL DONE!',
         '8-subText':
           'La prueba de EEG ha terminado. Elija una recompensa para el paciente.',
-        '8-buttonText': 'FINISH',
+        '8-buttonText': 'finalizar',
         '9-mainText': '¡GRAN TRABAJO!',
         '9-subText':
           'La prueba de EEG ha terminado. Elija una recompensa para el paciente.',
@@ -610,7 +610,7 @@ const en: Translation = {
         '9-mainText': 'MANTÉNGASE ACTIVO',
         '9-subText':
           'You finished all the tests. Now pick an\nactivity to help the patient stay active and healthy.',
-        '9-buttonText': 'FINISH',
+        '9-buttonText': 'finalizar',
         '10-mainText': '¡LISTO!',
         '10-subText':
           'Completó todas las pruebas. Ahora elija una actividad para ayudar al paciente a mantenerse activo y saludable.',
@@ -623,32 +623,32 @@ const en: Translation = {
     },
     [Paths.Mri]: {
       header: {
-        title: 'MRI (RESONANCIA MAGNÉTICA NUCLEAR)',
+        title: 'MRI',
       },
       scene: {
         text: 'Una máquina IRM utiliza imanes superpotentes para tomar imágenes del cerebro, los músculos o los órganos.',
-        label: 'MRI (RESONANCIA MAGNÉTICA NUCLEAR)',
-        buttonText: 'Tome una IRM',
+        label: 'MRI',
+        buttonText: 'Tome una MRI',
       },
       navbar: {
-        nap: 'NAP',
-        vr: 'VR',
-        music: 'MUSIC',
+        nap: 'siesta',
+        vr: 'realidad virtual',
+        music: 'música',
         '0-mainText': 'AYUDE AL PACIENTE A RELAJARSE',
         '1-mainText': '¡LISTO!',
         '1-subText':
           'El paciente está cómodo y listo para la resonancia magnética.',
         '1-buttonText': 'Continuar',
-        '2-mainText': 'TOME UNA RESONANCIA MAGNÉTICA',
+        '2-mainText': 'Tome una MRI',
         '2-subText':
           'Encienda el equipo de resonancia magnética para tomar una imagen de la lesión del paciente.',
-        '2-buttonText': 'START',
+        '2-buttonText': 'iniciar',
         '3-mainText': ' ',
         '3-subText': ' ',
-        '4-mainText': 'RESULTADOS DE LA RESONANCIA MAGNÉTICA',
+        '4-mainText': 'RESULTADOS DE LA MRI',
         '4-subText':
           'Encontró una lesión en los músculos del hombro del paciente.',
-        '4-buttonText': 'FINISH',
+        '4-buttonText': 'finalizar',
         '5-mainText': '¡LISTO!',
         '5-subText':
           'Ahora que han encontrado la lesión, los médicos pueden ayudar a tratarla. Elija una recompensa para el paciente.',
@@ -668,9 +668,9 @@ const en: Translation = {
         buttonText: 'Inserte un IV',
       },
       navbar: {
-        tablet: 'TABLET',
-        bubbles: 'BUBBLES',
-        music: 'MUSIC',
+        tablet: 'tableta',
+        bubbles: 'burbujas',
+        music: 'música',
         '0-mainText': 'AYUDE AL PACIENTE A RELAJARSE',
         '1-mainText': '¡LISTO!',
         '1-subText': 'El paciente está cómodo y listo para la vía intravenosa.',
@@ -698,7 +698,7 @@ const en: Translation = {
         '9-mainText': '¡LISTO!',
         '9-subText':
           'La vía intravenosa está colocada. Elija una recompensa para el paciente.',
-        '9-buttonText': 'FINISH',
+        '9-buttonText': 'finalizar',
         '10-mainText': '¡LISTO!',
         '10-subText':
           'La vía intravenosa está colocada. Elija una recompensa para el paciente.',
