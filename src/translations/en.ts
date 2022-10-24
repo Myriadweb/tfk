@@ -50,26 +50,26 @@ const en: Translation = {
         badSmell: {
           title: "GROSS! HERE'S A TIP...",
           description:
-            'BLOCKING YOUR NOSE WHEN THERE’S A BAD\nSMELL AROUND CAN MAKE IT DISAPPEAR.',
+            'Plugging your nose can keep bad smells out.',
         },
         badSight: {
           title: 'OUCH! HERE’S A TIP…',
           description:
-            'WEARING SUNGLASSES OUTSIDE CAN HELP\nPROTECT YOUR EYES FROM BRIGHT LIGHT.',
+            'Wearing sunglasses outside protects your eyes from bright light.',
         },
         badSound: {
           title: 'OUCH! HERE’S A TIP…',
-          description: 'WEARING EAR PLUGS CAN HELP\nMAKE LOUD NOISES SOFTER.',
+          description: 'Wearing earplugs keeps loud noises from hurting your ears.',
         },
         badTouch: {
           title: 'OUCH! HERE’S A TIP…',
           description:
-            'WEARING AN OVER MITT CAN PROTECT\nYOUR HANDS FROM HOT OBJECTS',
+            'An oven mitt can protect your nerves when you need to touch something extra hot or cold.',
         },
         badVestibular: {
           title: 'WHOA! HERE’S A TIP…',
           description:
-            'SPINNING AROUND CAN MAKE YOU DIZZY, BUT WEARING\nA HELMET AND PADS CAN PROTECT YOU IF YOU FALL.',
+            'If you\'re playing games where you might get dizzy or lose your balance, protect your body with a helmet or pads.',
         },
       },
     },
@@ -111,12 +111,12 @@ const en: Translation = {
             'Twelve pairs of ribs form a cage that protects your heart, lungs, and other organs.',
         },
         vertebrae: {
-          title: 'VERTEBRAE',
+          title: 'Spine',
           description:
             'Your spine is a stack of bones called vertebrae, with flexible joints that move when you bend and twist.',
         },
         'carpals&metacarpals': {
-          title: 'CARPALS & METACARPALS',
+          title: 'Hands',
           description:
             'Your hand and wrist have 27 bones. You can find most of them – the phalanges – just looking at your fingers. Others – the carpals and metacarpals – you can only see in an x-ray.',
         },
@@ -126,7 +126,7 @@ const en: Translation = {
             'Your arm bones hang down from each scapula, or shoulder blade.',
         },
         clavicle: {
-          title: 'CLAVICLE',
+          title: 'Clavicles',
           description:
             'The clavicles are sometimes called "collar bones", because they sit right beneath the collar of your shirt.',
         },
@@ -141,7 +141,7 @@ const en: Translation = {
             "The femur, or thighbone, is the largest bone in the body. Pound for pound, it's even stronger than concrete!",
         },
         'fibule&tibia': {
-          title: 'FIBULE & TIBIA',
+          title: 'Tibia & Fibula',
           description:
             'Your shin is actually two bones – the large tibia on the inside, and the smaller fibula on the outside.',
         },
@@ -156,7 +156,7 @@ const en: Translation = {
             'The two bones in your forearm actually cross when you flip your palm upwards or downwards. Can you feel them move?',
         },
         'tarsals&metatarsals': {
-          title: 'TARSALS & METATARSALS',
+          title: 'Feet',
           description:
             'Your foot and ankle are made up of 26 different bones, called tarsals, metatarsals, and phalanges.',
         },
@@ -280,9 +280,9 @@ const en: Translation = {
         rightHemisphere: 'right hemisphere',
       },
       navbar: {
-        rightHemisphereSec: 'right hemisphere',
-        leftHemisphereSec: 'left hemisphere',
-        frontViewSec: 'front-facing',
+        rightHemisphereSec: '<strong>right hemisphere</strong> view',
+        leftHemisphereSec: '<strong>left hemisphere</strong> view',
+        frontViewSec: '<strong>front-facing</strong> view',
         rightHemisphere: {
           title: 'right hemisphere',
           text: "THE RIGHT HALF OF YOUR BRAIN PLAYS AN IMPORTANT\nROLE IN CREATIVITY, HELPING YOU OUT WHEN YOU'RE\nMAKING MUSIC OR ART .",
@@ -292,7 +292,7 @@ const en: Translation = {
           text: 'The left half of your brain is in charge of\nlogic. It helps you with tasks like\ncalculating, reasoning, and speech.',
         },
         frontView: {
-          title: 'hemispheres',
+          title: 'Left & Right Hemisphere',
           text: 'THE BRAIN IS DIVIDED INTO TWO CONNECTED\nSECTIONS, CALLED HEMISPHERES. THE LEFT AND\nRIGHT SIDES CONTROL DIFFERENT FUNCTIONS.',
         },
         frontalLobe: {
@@ -337,13 +337,13 @@ const en: Translation = {
         mouth: 'MOUTH',
         anus: 'ANUS',
         '7-blueBox':
-          "If your <strong>stomach</strong> doesn't\n agree with the food, vomiting\nis a stopgap that the body\nuses to keep you safe.",
+          "If food in your stomach isn't digesting properly, it can make you vomit. This patient is feeling good – keep digesting!",
         '8-blueBox':
-          "If your <strong>stomach</strong> doesn't\n agree with the food, vomiting\nis a stopgap that the body\nuses to keep you safe.",
+          "",
         '10-blueBox':
-          'IF THE <strong>SMALL INTESTINE</strong> FINDS THAT\nTHE FOOD DOES NOT AGREE WITH IT,\nIT WILL TRY TO PROTECT YOU BY\nEXPELLING IT AS DIARRHEA.',
+          'If you\'re feeling sick, your body may turn waste into diarrhea. When you\'re healthy, your waste will be normal. ',
         '11-blueBox':
-          'IF THE <strong>SMALL INTESTINE</strong> FINDS THAT\nTHE FOOD DOES NOT AGREE WITH IT,\nIT WILL TRY TO PROTECT YOU BY\nEXPELLING IT AS DIARRHEA.',
+          '',
       },
       navbar: {
         continue: 'CONTINUE',
@@ -353,23 +353,23 @@ const en: Translation = {
         '0-text':
           'Choose a piece of food to follow it\nthrough the digestive system.',
         '1-text':
-          'Digestion starts in the mouth.\nTap the button to <strong>chew</strong> your food.',
+          'Digestion starts in the mouth.\nTap the button to chew your food.',
         '2-text':
-          'Digestion starts in the mouth.\nTap the button to <strong>chew</strong> your food.',
+          'Digestion starts in the mouth.\nTap the button to chew your food.',
         '3-text':
-          'Digestion starts in the mouth.\nTap the button to <strong>chew</strong> your food.',
+          'Digestion starts in the mouth.\nTap the button to chew your food.',
         '4-text':
-          'Digestion starts in the mouth.\nTap the button to <strong>chew</strong> your food.',
+          'Digestion starts in the mouth.\nTap the button to chew your food.',
         '5-text':
-          'Food travels down the esophagus on the way to\nthe stomach. Tap the button to <strong>swallow</strong>.',
+          'Food travels down the esophagus on the way to\nthe stomach. Tap the button to swallow.',
         '8-text':
-          'Slide below to help <strong>stomach</strong> acid\ndissolve your food',
+          'The stomach breaks food down into small bits your body can absorb. Use the slider to dissolve the food.',
         '11-text':
-          'HELP GUIDE THE FOOD THROUGH THE\n<strong>SMALL INTESTINE</strong>',
+          'The small intestine absorbs nutrients from your food. Use the slider to guide the food through.',
         '13-text':
-          'HELP GUIDE THE FOOD THROUGH THE\n<strong>LARGE INTESTINE</strong>',
+          'The large intestine absorbs more nutrients and forms waste. Use the slider to guide the food through.',
         '15-text':
-          'TAP BELOW TO ALLOW THE FOOD TO LEAVE\nTHE BODY AS <strong>WASTE</strong>',
+          'Once your body takes nutrition from the food, the rest is waste. Tap below to send it out of the body.',
       },
     },
     [Paths.BodySystems]: {
@@ -472,14 +472,14 @@ const en: Translation = {
         '11-buttonText': 'CONTINUE',
         '13-mainText': 'GREAT JOB!',
         '13-subText': 'YOUR PATIENT IS OUT OF SURGERY',
-        '13-buttonText': 'FINISH',
+        '13-buttonText': 'ALL DONE!',
         '14-mainText': 'GREAT JOB!',
         '14-subText':
           'The surgical procedure was a success.\nChoose a reward for the patient!',
         '14-buttonText': 'CONTINUE',
         '15-subText':
-          'You finished the surgery\nTap below to learn more about\n<strong>the cardiovascular1 system</strong>',
-        '15-back': 'BACK TO\nPROCEDURES',
+          'You finished the surgery\nTap below to learn more about <br /><strong>the cardiovascular1 system.</strong>',
+        '15-back': 'Return to \nProcedures ',
       },
     },
     [Paths.XRay]: {
@@ -515,8 +515,8 @@ const en: Translation = {
           'Doctors treated the injury with a cast.\nChoose a reward for the patient!',
         '5-buttonText': 'CONTINUE',
         '6-subText':
-          'You finished the X-ray! Tap below\nto learn more about\n<strong>the skeletal system</strong>',
-        '6-back': 'BACK TO\nPROCEDURES',
+          'You finished the X-ray! Tap below\nto learn more about <br /><strong>the skeletal system</strong>',
+        '6-back': 'Return to \nProcedures',
       },
     },
     [Paths.Eeg]: {
@@ -563,8 +563,8 @@ const en: Translation = {
           'The EEG test is finished.\n Choose a reward for the patient!',
         '9-buttonText': 'Continue',
         '10-subText':
-          'You finished the EEG!\nTap below to learn more about\n<strong>the nervous system</strong>',
-        '10-back': 'BACK TO\nPROCEDURES',
+          'You finished the EEG!\nTap below to learn more about <br /><strong>the nervous system</strong>',
+        '10-back': 'Return to \nProcedures',
       },
     },
     [Paths.Wellness]: {
@@ -574,11 +574,13 @@ const en: Translation = {
       scene: {
         text: "Even when you're feeling\nwell, regular check-ups\nare an important part of\nmaking sure your body\nstays healthy.",
         label: 'WELLNESS',
-        buttonText: 'CHECK VITALS',
+        buttonText: 'Check vital signs',
       },
       navbar: {
         '0-mainText': 'MEASURE TEMPERATURE',
         '0-subText': "Tap the thermometer to take the patient's temperature.",
+        '1-mainText': " ",
+        '1-subText': " ",
         '2-mainText': 'GREAT JOB!',
         '2-subText':
           "The patient's temperature looks normal. Touch to continue.",
@@ -594,6 +596,8 @@ const en: Translation = {
         '5-buttonText': 'CONTINUE',
         '6-mainText': 'MEASURE PULSE AND BLOOD OXYGEN',
         '6-subText': "Put the clip on the patient's finger.",
+        '7-mainText': " ",
+        '7-subText': " ",
         '8-mainText': 'GREAT JOB!',
         '8-subText': "You tested the patient's pulse and blood oxygen.",
         '8-buttonText': 'CONTINUE',
@@ -605,9 +609,10 @@ const en: Translation = {
         '10-subText':
           'You finished all the tests. Now pick an activity\nto help the patient stay active and healthy.',
         '10-buttonText': 'CONTINUE',
+        '11-mainText': " ",
         '11-subText':
-          'You finished the wellness check!\nTap below to learn more about\n<strong>the cardiovascular system</strong>',
-        '11-back': 'BACK TO\nPROCEDURES',
+          'You finished the wellness check!\nTap below to learn more about <br /><strong>the cardiovascular system</strong>',
+        '11-back': 'Return to \nProcedures',
       },
     },
     [Paths.Mri]: {
@@ -641,8 +646,8 @@ const en: Translation = {
           'Now that they found the injury, doctors can help\nto treat it. Choose a reward for the patient.',
         '5-buttonText': 'CONTINUE',
         '6-subText':
-          'You finished the MRI!\nTap below to learn more about\n<strong>the muscular system</strong>',
-        '6-back': 'BACK TO\nPROCEDURES',
+          'You finished the MRI!\nTap below to learn more about <br /><strong>the muscular system</strong>',
+        '6-back': 'Return to \nProcedures',
       },
     },
     [Paths.Iv]: {
@@ -689,8 +694,8 @@ const en: Translation = {
         '10-subText': 'The IV is in place. Choose a reward for the patient.',
         '10-buttonText': 'CONTINUE',
         '11-subText':
-          'You inserted the IV!\nTap below to learn more about\n<strong>the cardiovascular system</strong>',
-        '11-back': 'BACK TO\nPROCEDURES',
+          'You inserted the IV!\nTap below to learn more about <br /><strong>the cardiovascular system</strong>',
+        '11-back': 'Return to \nProcedures',
       },
     },
     common: {

@@ -16,6 +16,7 @@ import AnusHighlight from './DigestiveAssets/anusHighlight.png';
 import EsophagusHighlight from './DigestiveAssets/esophagusHighlight.png';
 import MouthHighlight from './DigestiveAssets/mouthHighlight.png';
 import RectumHighlight from './DigestiveAssets/rectumHighlight.png';
+import AppendixHighlight from './DigestiveAssets/appendixHighlight.png';
 
 const bodyLeft = 540;
 
@@ -157,6 +158,16 @@ export default function Digestive() {
           position: 'absolute',
           transform: 'translate(-50%, 0)',
           opacity: ['rectum'].includes(highlighted) ? 1 : 0,
+        }}
+      />
+      <img
+        src={AppendixHighlight}
+        style={{
+          top: 877,
+          left: 488,
+          position: 'absolute',
+          transform: 'translate(-50%, 0)',
+          opacity: ['appendix'].includes(highlighted) ? 1 : 0,
         }}
       />
       <img

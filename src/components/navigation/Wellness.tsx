@@ -18,6 +18,7 @@ import { ReactComponent as Arrow } from '../scene/SceneAssets/Arrow.svg';
 import Cardiovascular from './BodySystemsAssets/Cardiovascular.svg';
 import { BlueBarContinue } from './BlueBarContinue';
 import { Trans } from 'react-i18next';
+import {animated} from "react-spring";
 
 const PUMPS_CONFIG = {
   1: BpPumpOneBar,
@@ -68,7 +69,12 @@ const Wellness = ({ prefix }: Props) => {
               if (pumps >= 3) return;
 
               const newPumpValue = pumps + 1;
-              playSound('wellnessBloodPressure');
+              if (pumps == 2) {
+                playSound('surgicalPrepBloodPressurePumpAndRelease');
+              }
+              else {
+                playSound('surgicalPrepBloodPressureSinglePump');
+              }
               addPump((pumps) => pumps + 1);
               if (newPumpValue < 3) return;
 
@@ -227,41 +233,17 @@ const Wellness = ({ prefix }: Props) => {
   };
 
   return (
-    <>
-      {step < 11 && (
-        <span
-          style={{
-            display: 'block',
-            fontSize: 40,
-            color: '#FFF',
-            fontFamily: 'LemonMilk',
-            marginTop: 30,
-            letterSpacing: 2,
-            fontWeight: 'bolder',
-            visibility: [1, 7].includes(step) ? 'hidden' : 'visible',
-            minHeight: 54,
-          }}
-        >
+    <animated.div>
+      <div className='nav-top'>
+        <div className='header-text'>
           {t(`${step}-mainText`)}
-        </span>
-      )}
-      <span
-        style={{
-          display: 'block',
-          fontSize: 20,
-          color: '#FFF',
-          fontFamily: 'LemonMilk',
-          marginTop: step === 11 ? 45 : 12,
-          whiteSpace: 'pre',
-          minHeight: 54,
-          visibility: [1, 7].includes(step) ? 'hidden' : 'visible',
-        }}
-      >
-        <Trans i18nKey={t(`${step}-subText`)} />
-      </span>
-
+        </div>
+        <div className='body-text'>
+          <Trans i18nKey={t(`${step}-subText`)} />
+        </div>
+      </div>
       {stepComponentConfig[step] ? stepComponentConfig[step]() : <BlueBar />}
-    </>
+    </animated.div>
   );
 };
 

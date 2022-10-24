@@ -81,11 +81,13 @@ const Muscular = ({ prefix }: Props) => {
       <span
         style={{
           display: 'block',
+          maxWidth: 470,
           marginTop: 12,
+          marginLeft: "auto",
+          marginRight: "auto",
           fontSize: 20,
           color: '#FFF',
           fontFamily: 'LemonMilk',
-          whiteSpace: 'pre',
         }}
       >
         {t(`${value || 'arm'}Description`)}

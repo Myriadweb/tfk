@@ -276,7 +276,7 @@ export default function IvGame() {
                     newY > -467 &&
                     newY < -256
                   ) {
-                    playSound('iVTourniquetNeedle');
+                    playSound('iVTourniquet');
                     trayApi.start({ transform: 'translateX(600px)' });
                     // A little hacky, but it helps to avoid errors in the console
                     setTimeout(() => setGameState({ step: 3 }), 1);
@@ -318,7 +318,7 @@ export default function IvGame() {
                 y={95}
                 onComplete={(newX, newY) => {
                   if (newX > -400 && newX < -150 && newY > -100 && newY < 280) {
-                    playSound('iVTourniquetNeedle');
+                    playSound('ivNeedle');
                     trayApi.start({ transform: 'translateX(600px)' });
                     // A little hacky, but it helps to avoid errors in the console
                     setTimeout(() => setGameState({ step: 7 }), 1);

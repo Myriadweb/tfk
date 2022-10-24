@@ -27,7 +27,7 @@ const MainMenu = ({ path }: Props) => {
       <div className='body-text'>{t('selectPath')}</div>
       <div
         className='nav-items-container'
-        style={{ width: 700, marginTop: 40 }}
+        style={{ width: 700, marginTop: 40, alignItems: 'baseline' }}
       >
         <Link
           style={{

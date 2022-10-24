@@ -80,13 +80,16 @@ const SurgicalPrep = ({ prefix }: Props) => {
             }}
             onClick={() => {
               if (pumps >= 3) return;
-              playSound('click');
               const newPumpValue = pumps + 1;
+              if (pumps == 2) {
+                playSound('surgicalPrepBloodPressurePumpAndRelease');
+              }
+              else {
+                playSound('surgicalPrepBloodPressureSinglePump');
+              }
               addPump((pumps) => pumps + 1);
               if (newPumpValue < 3) return;
-
               setTimeout(() => {
-                playSound('surgicalPrepAirRelease');
                 setStep({ step: 3 });
               }, 800);
             }}

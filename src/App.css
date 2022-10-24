@@ -15,6 +15,7 @@
   justify-content: center;
   border-bottom: white 2px solid;
   font-family: 'ChangaOne';
+  text-transform: uppercase;
 }
 
 .App-header-split {
@@ -25,6 +26,7 @@
   color: #fff;
   border-bottom: white 2px solid;
   font-family: 'ChangaOne';
+  text-transform: uppercase;
 }
 
 .App-header-split-left {
@@ -139,6 +141,11 @@
 .nav-middle-container {
   padding: 27px;
 }
+.nav-middle-container .description {
+  max-width: 470px;
+  margin: 0 auto;
+}
+
 .nav-item {
   position: relative;
   max-height: 191px;
@@ -163,9 +170,10 @@
 }
 .body-text {
   font-size: 20px;
-  margin-top: 12px;
-  white-space: pre;
+  margin: 12px auto 0 auto;
+  /* white-space: pre; */
   min-height: 53px;
+  max-width: 470px;
 }
 
 .bold-text {
@@ -270,9 +278,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 30px;
+  padding: 30px 20px 0 20px;
   font-size: 17px;
-  white-space: pre;
   margin: 0px;
   z-index: 1;
   text-align: center;
@@ -284,13 +291,13 @@
   background: #cd4845;
   border: 1px solid #000;
   border-radius: 15px;
-  padding: 15px 30px;
-  width: 241px;
+  padding: 15px;
+  max-width: 270px;
   font-family: 'LemonMilk', sans-serif;
   font-weight: bold;
   display: block;
   margin-bottom: 20px;
-  height: 65px;
+  min-height: 65px;
 }
 
 /* EEG game scene styling */

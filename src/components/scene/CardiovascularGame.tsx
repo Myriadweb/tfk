@@ -30,7 +30,7 @@ export default function CardiovascularGame() {
     if (step === 1) {
       setTimeout(() => setGameState({ step: 2 }), 1000);
     } else if (step === 7) {
-      playSound('cardiovascularNormalHeartbeat');
+      playSound('cardiovascularSlowHeartbeat');
     }
   }, [step]);
 

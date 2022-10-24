@@ -126,7 +126,7 @@ function Sensory({ path, prefix }: Props) {
               <button
                 className='continue-button'
                 onClick={() => {
-                  playSound('click');
+                  playSound('generalSuccess_2');
                   setGameState({ step: 0, value: value + '-final' });
                 }}
               >

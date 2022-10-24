@@ -3,6 +3,8 @@ import React from 'react';
 import { Language, useLanguageContext } from '../state/language';
 import { useSpring, animated } from 'react-spring';
 import { useAnimateContext } from '../state/animate';
+import playSound from '../sound';
+
 
 const langStyle = {
   fontSize: 20,
@@ -25,6 +27,7 @@ export const LanguageToggle = () => {
   }));
 
   const handleLanguageChange = () => {
+    playSound('click')
     toggleApi.start({
       to: [{ left: lang === Language.en ? 120 : 70 }],
       from: { left: lang === Language.en ? 70 : 120 },

@@ -6,6 +6,7 @@ import { ReactComponent as InfoButton } from './Nervous/infoButton.svg';
 import { ReactComponent as LeftButton } from './Nervous/leftButton.svg';
 import { ReactComponent as RightButton } from './Nervous/rightButton.svg';
 import playSound from '../../sound';
+import {Trans} from "react-i18next";
 
 type Props = {
   prefix: Paths;
@@ -55,7 +56,7 @@ const Nervous = ({ prefix }: Props) => {
         }}
       >
         <span>
-          <strong>{t(hemisphereConfig[step])}</strong> view
+          <Trans i18nKey={t(hemisphereConfig[step])} />
         </span>
         <div
           style={{
@@ -111,17 +112,11 @@ const Nervous = ({ prefix }: Props) => {
           >
             {t(highlight + '.title')}
           </span>
-          <span
-            style={{
-              marginTop: 12,
-              display: 'block',
-              fontSize: 20,
-              color: '#FFF',
-              whiteSpace: 'pre',
-            }}
+          <div
+            className='body-text'
           >
             {t(highlight + '.text')}
-          </span>
+          </div>
         </>
       )}
     </>
