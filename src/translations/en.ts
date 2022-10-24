@@ -49,8 +49,7 @@ const en: Translation = {
         vestibular: 'vestibular',
         badSmell: {
           title: "GROSS! HERE'S A TIP...",
-          description:
-            'Plugging your nose can keep bad smells out.',
+          description: 'Plugging your nose can keep bad smells out.',
         },
         badSight: {
           title: 'OUCH! HERE’S A TIP…',
@@ -59,7 +58,8 @@ const en: Translation = {
         },
         badSound: {
           title: 'OUCH! HERE’S A TIP…',
-          description: 'Wearing earplugs keeps loud noises from hurting your ears.',
+          description:
+            'Wearing earplugs keeps loud noises from hurting your ears.',
         },
         badTouch: {
           title: 'OUCH! HERE’S A TIP…',
@@ -69,7 +69,7 @@ const en: Translation = {
         badVestibular: {
           title: 'WHOA! HERE’S A TIP…',
           description:
-            'If you\'re playing games where you might get dizzy or lose your balance, protect your body with a helmet or pads.',
+            "If you're playing games where you might get dizzy or lose your balance, protect your body with a helmet or pads.",
         },
       },
     },
@@ -338,12 +338,10 @@ const en: Translation = {
         anus: 'ANUS',
         '7-blueBox':
           "If food in your stomach isn't digesting properly, it can make you vomit. This patient is feeling good – keep digesting!",
-        '8-blueBox':
-          "",
+        '8-blueBox': '',
         '10-blueBox':
-          'If you\'re feeling sick, your body may turn waste into diarrhea. When you\'re healthy, your waste will be normal. ',
-        '11-blueBox':
-          '',
+          "If you're feeling sick, your body may turn waste into diarrhea. When you're healthy, your waste will be normal. ",
+        '11-blueBox': '',
       },
       navbar: {
         continue: 'CONTINUE',
@@ -579,8 +577,8 @@ const en: Translation = {
       navbar: {
         '0-mainText': 'MEASURE TEMPERATURE',
         '0-subText': "Tap the thermometer to take the patient's temperature.",
-        '1-mainText': " ",
-        '1-subText': " ",
+        '1-mainText': ' ',
+        '1-subText': ' ',
         '2-mainText': 'GREAT JOB!',
         '2-subText':
           "The patient's temperature looks normal. Touch to continue.",
@@ -596,8 +594,8 @@ const en: Translation = {
         '5-buttonText': 'CONTINUE',
         '6-mainText': 'MEASURE PULSE AND BLOOD OXYGEN',
         '6-subText': "Put the clip on the patient's finger.",
-        '7-mainText': " ",
-        '7-subText': " ",
+        '7-mainText': ' ',
+        '7-subText': ' ',
         '8-mainText': 'GREAT JOB!',
         '8-subText': "You tested the patient's pulse and blood oxygen.",
         '8-buttonText': 'CONTINUE',
@@ -609,7 +607,7 @@ const en: Translation = {
         '10-subText':
           'You finished all the tests. Now pick an activity\nto help the patient stay active and healthy.',
         '10-buttonText': 'CONTINUE',
-        '11-mainText': " ",
+        '11-mainText': ' ',
         '11-subText':
           'You finished the wellness check!\nTap below to learn more about <br /><strong>the cardiovascular system</strong>',
         '11-back': 'Return to \nProcedures',

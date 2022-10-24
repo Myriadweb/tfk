@@ -18,7 +18,7 @@ import { ReactComponent as Arrow } from '../scene/SceneAssets/Arrow.svg';
 import Cardiovascular from './BodySystemsAssets/Cardiovascular.svg';
 import { BlueBarContinue } from './BlueBarContinue';
 import { Trans } from 'react-i18next';
-import {animated} from "react-spring";
+import { animated } from 'react-spring';
 
 const PUMPS_CONFIG = {
   1: BpPumpOneBar,
@@ -71,8 +71,7 @@ const Wellness = ({ prefix }: Props) => {
               const newPumpValue = pumps + 1;
               if (pumps == 2) {
                 playSound('surgicalPrepBloodPressurePumpAndRelease');
-              }
-              else {
+              } else {
                 playSound('surgicalPrepBloodPressureSinglePump');
               }
               addPump((pumps) => pumps + 1);
@@ -235,9 +234,7 @@ const Wellness = ({ prefix }: Props) => {
   return (
     <animated.div>
       <div className='nav-top'>
-        <div className='header-text'>
-          {t(`${step}-mainText`)}
-        </div>
+        <div className='header-text'>{t(`${step}-mainText`)}</div>
         <div className='body-text'>
           <Trans i18nKey={t(`${step}-subText`)} />
         </div>

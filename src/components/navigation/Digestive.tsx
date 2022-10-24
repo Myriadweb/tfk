@@ -191,8 +191,8 @@ const Digestive = ({ prefix }: Props) => {
           className='body-text body-text-digestive'
           style={{
             maxWidth: 470,
-            margin: "auto",
-            whiteSpace: "initial",
+            margin: 'auto',
+            whiteSpace: 'initial',
             fontSize: step !== 16 ? 20 : 40,
             visibility: [6, 7, 9, 10, 12, 14].includes(step)
               ? 'hidden'

@@ -59,8 +59,12 @@ const Sounds = {
   surgicalPrepBloodPressure: new Audio(
     'sounds/Surgical_Prep_Blood_Pressure.mp3'
   ),
-  surgicalPrepBloodPressurePumpAndRelease: new Audio('sounds/Surgical_Prep_Blood_Pressure_Pump_and_Release.mp3'),
-  surgicalPrepBloodPressureSinglePump: new Audio('sounds/Surgical_Prep_Blood_Pressure_Single_Pump.mp3'),
+  surgicalPrepBloodPressurePumpAndRelease: new Audio(
+    'sounds/Surgical_Prep_Blood_Pressure_Pump_and_Release.mp3'
+  ),
+  surgicalPrepBloodPressureSinglePump: new Audio(
+    'sounds/Surgical_Prep_Blood_Pressure_Single_Pump.mp3'
+  ),
   surgicalPrepBloodTourniquet: new Audio('sounds/Surgical_Prep_Tourniquet.mp3'),
   tasteGood: new Audio('sounds/Taste_Good.mp3'),
   tasteHot: new Audio('sounds/Taste_Hot.mp3'),

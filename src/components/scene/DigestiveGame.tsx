@@ -379,7 +379,7 @@ export default function DigestiveGame() {
                 fontSize: 20,
                 fontWeight: 400,
                 maxWidth: 470,
-                whiteSpace: "initial"
+                whiteSpace: 'initial',
               }}
             >
               <Trans i18nKey={`digestive.scene.${step}-blueBox`} />

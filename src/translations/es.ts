@@ -36,7 +36,8 @@ const en: Translation = {
         smell: 'SMELL',
       },
       navbar: {
-        selectPath: 'Elija un sentido, luego elija \nun objeto para ver su efecto',
+        selectPath:
+          'Elija un sentido, luego elija \nun objeto para ver su efecto',
         selectPathVestibular:
           'Elija un sentido, luego elija un objeto para ver su efecto',
         continueButton: 'Continuar',
@@ -48,9 +49,8 @@ const en: Translation = {
         touch: 'Tacto',
         vestibular: 'Vestibular',
         badSmell: {
-          title: "¡Qué asco! Un consejo...",
-          description:
-            'Taparse la nariz puede evitar los malos olores.',
+          title: '¡Qué asco! Un consejo...',
+          description: 'Taparse la nariz puede evitar los malos olores.',
         },
         badSight: {
           title: '¡Ay! Un consejo...',
@@ -59,7 +59,8 @@ const en: Translation = {
         },
         badSound: {
           title: '¡Ay! Un consejo...',
-          description: 'El uso de tapones evita que los ruidos fuertes dañen sus oídos.',
+          description:
+            'El uso de tapones evita que los ruidos fuertes dañen sus oídos.',
         },
         badTouch: {
           title: '¡Ay! Un consejo...',
@@ -99,11 +100,12 @@ const en: Translation = {
         fibula: 'Peroné',
       },
       navbar: {
-        selectPath: 'Arrastre los huesos al \ncuerpo para completar el esqueleto.',
+        selectPath:
+          'Arrastre los huesos al \ncuerpo para completar el esqueleto.',
         skull: {
           title: 'Cráneo',
           description:
-            "El cráneo es en realidad muchos huesos conectados por articulaciones que no se mueven. Tiene una función importante, ¡proteger nuestro cerebro!.",
+            'El cráneo es en realidad muchos huesos conectados por articulaciones que no se mueven. Tiene una función importante, ¡proteger nuestro cerebro!.',
         },
         ribs: {
           title: 'Costillas',
@@ -138,7 +140,7 @@ const en: Translation = {
         femur: {
           title: 'Fémur',
           description:
-            "El fémur, o hueso del muslo, es el hueso más grande del cuerpo. Libra por libra, es incluso más fuerte que el hormigón.",
+            'El fémur, o hueso del muslo, es el hueso más grande del cuerpo. Libra por libra, es incluso más fuerte que el hormigón.',
         },
         'fibule&tibia': {
           title: 'Tibia y peroné',
@@ -285,7 +287,7 @@ const en: Translation = {
         frontViewSec: '<strong>Vista frontal</strong> view',
         rightHemisphere: {
           title: 'Hemisferio derecho',
-          text: "La mitad derecha del cerebro desempeña un papel importante en la creatividad, ayudándole cuando hace música o arte.",
+          text: 'La mitad derecha del cerebro desempeña un papel importante en la creatividad, ayudándole cuando hace música o arte.',
         },
         leftHemisphere: {
           title: 'Hemisferio izquierdo',
@@ -301,7 +303,7 @@ const en: Translation = {
         },
         parietalLobe: {
           title: 'Lóbulo parietal',
-          text: "El lóbulo parietal da significado a la información que recibe a través de sus sentidos. Es especialmente importante para sentir el tacto, la temperatura y el dolor.",
+          text: 'El lóbulo parietal da significado a la información que recibe a través de sus sentidos. Es especialmente importante para sentir el tacto, la temperatura y el dolor.',
         },
         occipitalLobe: {
           title: 'Lóbulo occipital',
@@ -337,13 +339,11 @@ const en: Translation = {
         mouth: 'Boca',
         anus: 'Ano',
         '7-blueBox':
-          "Si la comida no se digiere bien, puede provocar el vómito. Este paciente se siente bien, ¡siga digiriendo!",
-        '8-blueBox':
-          "",
+          'Si la comida no se digiere bien, puede provocar el vómito. Este paciente se siente bien, ¡siga digiriendo!',
+        '8-blueBox': '',
         '10-blueBox':
           'Si está enfermo, el cuerpo puede convertir el excremento en diarrea. Cuando está sano, el excremento es normal. ',
-        '11-blueBox':
-          '',
+        '11-blueBox': '',
       },
       navbar: {
         continue: 'Continuar',
@@ -443,13 +443,14 @@ const en: Translation = {
         '0-subText': 'Ayude al paciente a prepararse para su cirugía.',
         '0-buttonText': 'Continuar',
         '1-mainText': 'CONTROLE LA PRESIÓN ARTERIAL',
-        '1-subText': "Arrastre el manguito del esfigmomanómetro al brazo del paciente.",
+        '1-subText':
+          'Arrastre el manguito del esfigmomanómetro al brazo del paciente.',
         '2-mainText': 'ÍNFLELO',
         '2-subText':
           'Sigue tocando el botón para inflar el manguito del esfigmomanómetro',
         '3-mainText': '¡GRAN TRABAJO!',
         '3-subText':
-          "Tomó la presión arterial del paciente. Toque para continuar.",
+          'Tomó la presión arterial del paciente. Toque para continuar.',
         '3-buttonText': 'Continuar',
         '4-mainText': 'INSERTE LA VÍA INTRAVENOSA',
         '4-subText':
@@ -461,17 +462,19 @@ const en: Translation = {
         '6-subText': 'Coloque el vendaje sobre la sonda flexible.',
         '7-mainText': '¡GRAN TRABAJO!',
         '7-subText':
-          "La vía intravenosa está colocada. A continuación, ayudaremos al paciente a conciliar el sueño para su cirugía.",
+          'La vía intravenosa está colocada. A continuación, ayudaremos al paciente a conciliar el sueño para su cirugía.',
         '7-buttonText': 'Continuar',
         '9-mainText': 'COLOQUE LA MÁSCARA',
-        '9-subText': "Toque el botón para colocar la máscara al paciente.",
+        '9-subText': 'Toque el botón para colocar la máscara al paciente.',
         '10-mainText': 'COMIENCE LA ANESTESIA',
-        '10-subText': 'Utilice el deslizador para que empiece a fluir aire a través de la máscara.',
+        '10-subText':
+          'Utilice el deslizador para que empiece a fluir aire a través de la máscara.',
         '11-mainText': '¡GRAN TRABAJO!',
         '11-subText': 'El paciente está listo para su cirugía.',
         '11-buttonText': 'Continuar',
         '13-mainText': '¡GRAN TRABAJO!',
-        '13-subText': 'El procedimiento quirúrgico fue un éxito. Elija una recompensa para el paciente.',
+        '13-subText':
+          'El procedimiento quirúrgico fue un éxito. Elija una recompensa para el paciente.',
         '13-buttonText': '¡LISTO!',
         '14-mainText': '¡GRAN TRABAJO!',
         '14-subText':
@@ -497,18 +500,18 @@ const en: Translation = {
       navbar: {
         '0-mainText': 'ENCUENTRE LA LESIÓN',
         '0-subText':
-          "Encuentre dónde le duele al paciente. Cuando lo haya encontrado, toque la zona para continuar.",
+          'Encuentre dónde le duele al paciente. Cuando lo haya encontrado, toque la zona para continuar.',
         '1-mainText': '¡GRAN TRABAJO!',
         '1-subText':
-          "Halló la lesión. Ahora, tomemos una radiografía del brazo del paciente.",
+          'Halló la lesión. Ahora, tomemos una radiografía del brazo del paciente.',
         '1-buttonText': 'CONTINUE',
         '2-mainText': 'TOME UNA RADIOGRAFÍA',
         '2-subText':
-          "Inicie el equipo de rayos X para tomar una imagen de la lesión del paciente.",
+          'Inicie el equipo de rayos X para tomar una imagen de la lesión del paciente.',
         '2-buttonText': 'START',
         '4-mainText': 'HUESO FRACTURADO',
         '4-subText':
-          "Los médicos pueden colocar una escayola en el brazo del paciente para mantener el hueso inmóvil mientras se cura.",
+          'Los médicos pueden colocar una escayola en el brazo del paciente para mantener el hueso inmóvil mientras se cura.',
         '4-buttonText': 'FINISH',
         '5-mainText': '¡LISTO!',
         '5-subText':
@@ -524,7 +527,7 @@ const en: Translation = {
         title: 'EEG (ELECTROENCEFALOGRAMA)',
       },
       scene: {
-        text: "Un EEG registra la actividad eléctrica, u ondas cerebrales, del cerebro mientras está en el hospital.",
+        text: 'Un EEG registra la actividad eléctrica, u ondas cerebrales, del cerebro mientras está en el hospital.',
         label: 'EEG (ELECTROENCEFALOGRAMA)',
         buttonText: 'TOME UN ELECTROENCEFALOGRAMA',
       },
@@ -533,10 +536,11 @@ const en: Translation = {
         '0-subText': 'TEl paciente está listo para su electroencefalograma.',
         '0-buttonText': 'Continuar',
         '1-mainText': 'COLOQUE LOS DISCOS ADHESIVOS',
-        '1-subText': "Toque el botón para colocar los discos adhesivos en el cabeza del paciente.",
+        '1-subText':
+          'Toque el botón para colocar los discos adhesivos en el cabeza del paciente.',
         '2-mainText': '¡GRAN TRABAJO!',
         '2-subText':
-          "Los discos adhesivos están colocados. A continuación, conectaremos los discos adhesivos al equipo.",
+          'Los discos adhesivos están colocados. A continuación, conectaremos los discos adhesivos al equipo.',
         '2-buttonText': 'Continuar',
         '3-mainText': 'CONECTE LAS DERIVACIONES',
         '3-subText':
@@ -572,34 +576,36 @@ const en: Translation = {
         title: 'Bienestar',
       },
       scene: {
-        text: "Aún cuando se siente bien, los chequeos de rutina son importantes para asegurar que su cuerpo está sano.",
+        text: 'Aún cuando se siente bien, los chequeos de rutina son importantes para asegurar que su cuerpo está sano.',
         label: 'Bienestar',
         buttonText: 'Revise las señales vitales',
       },
       navbar: {
         '0-mainText': 'MIDA LA TEMPERATURA',
-        '0-subText': "Toque el termómetro para tomar la temperatura del paciente.",
-        '1-mainText': " ",
-        '1-subText': " ",
+        '0-subText':
+          'Toque el termómetro para tomar la temperatura del paciente.',
+        '1-mainText': ' ',
+        '1-subText': ' ',
         '2-mainText': '¡GRAN TRABAJO!',
         '2-subText':
-          "La temperatura del paciente parece normal. Toque para continuar.",
+          'La temperatura del paciente parece normal. Toque para continuar.',
         '2-buttonText': 'Continuar',
         '3-mainText': 'CONTROLE LA PRESIÓN ARTERIAL',
-        '3-subText': "Arrastre el manguito del esfigmomanómetro al brazo del paciente.",
+        '3-subText':
+          'Arrastre el manguito del esfigmomanómetro al brazo del paciente.',
         '4-mainText': 'ÍNFLELO',
         '4-subText':
           'Sigue tocando el botón para inflar el manguito del esfigmomanómetro',
         '5-mainText': '¡GRAN TRABAJO!',
         '5-subText':
-          "Tomó la presión arterial del paciente. Toque para continuar.",
+          'Tomó la presión arterial del paciente. Toque para continuar.',
         '5-buttonText': 'Continuar',
         '6-mainText': 'MIDA EL PULSO Y EL OXÍGENO EN SANGRE',
-        '6-subText': "Coloque el clip en el dedo del paciente.",
-        '7-mainText': " ",
-        '7-subText': " ",
+        '6-subText': 'Coloque el clip en el dedo del paciente.',
+        '7-mainText': ' ',
+        '7-subText': ' ',
         '8-mainText': '¡GRAN TRABAJO!',
-        '8-subText': "Midió el pulso y el oxígeno en sangre del paciente.",
+        '8-subText': 'Midió el pulso y el oxígeno en sangre del paciente.',
         '8-buttonText': 'Continuar',
         '9-mainText': 'MANTÉNGASE ACTIVO',
         '9-subText':
@@ -609,7 +615,7 @@ const en: Translation = {
         '10-subText':
           'Completó todas las pruebas. Ahora elija una actividad para ayudar al paciente a mantenerse activo y saludable.',
         '10-buttonText': 'Continuar',
-        '11-mainText': " ",
+        '11-mainText': ' ',
         '11-subText':
           '¡Completó el control de bienestar! Pulse a continuación para obtener más información sobre <br /><strong>el aparato cardiovascular.</strong>',
         '11-back': 'Regresar a \nprocedimientos',
@@ -630,16 +636,18 @@ const en: Translation = {
         music: 'MUSIC',
         '0-mainText': 'AYUDE AL PACIENTE A RELAJARSE',
         '1-mainText': '¡LISTO!',
-        '1-subText': 'El paciente está cómodo y listo para la resonancia magnética.',
+        '1-subText':
+          'El paciente está cómodo y listo para la resonancia magnética.',
         '1-buttonText': 'Continuar',
         '2-mainText': 'TOME UNA RESONANCIA MAGNÉTICA',
         '2-subText':
-          "Encienda el equipo de resonancia magnética para tomar una imagen de la lesión del paciente.",
+          'Encienda el equipo de resonancia magnética para tomar una imagen de la lesión del paciente.',
         '2-buttonText': 'START',
         '3-mainText': ' ',
         '3-subText': ' ',
         '4-mainText': 'RESULTADOS DE LA RESONANCIA MAGNÉTICA',
-        '4-subText': "Encontró una lesión en los músculos del hombro del paciente.",
+        '4-subText':
+          'Encontró una lesión en los músculos del hombro del paciente.',
         '4-buttonText': 'FINISH',
         '5-mainText': '¡LISTO!',
         '5-subText':
@@ -669,15 +677,15 @@ const en: Translation = {
         '1-buttonText': 'Continuar',
         '2-mainText': 'COLOQUE UN TORNIQUETE',
         '2-subText':
-          "Una banda alrededor del brazo del paciente ayuda a encontrar sus venas.",
+          'Una banda alrededor del brazo del paciente ayuda a encontrar sus venas.',
         '3-mainText': '¡GRAN TRABAJO!',
         '3-subText': 'El paciente está listo para el próximo paso.',
         '3-buttonText': 'Continuar',
         '4-mainText': 'LIMPIE EL ÁREA.',
         '4-subText':
-          "Arrastre el hisopo al brazo del paciente para asegurarse de que está limpio.",
+          'Arrastre el hisopo al brazo del paciente para asegurarse de que está limpio.',
         '5-mainText': '¡GRAN TRABAJO!',
-        '5-subText': "El brazo del paciente está limpio y listo.",
+        '5-subText': 'El brazo del paciente está limpio y listo.',
         '5-buttonText': 'Continuar',
         '6-mainText': 'INSERTE LA VÍA INTRAVENOSA',
         '6-subText':
@@ -688,10 +696,12 @@ const en: Translation = {
         '8-mainText': 'AÑADA UN VENDAJE',
         '8-subText': 'Coloque el vendaje sobre la sonda flexible.',
         '9-mainText': '¡LISTO!',
-        '9-subText': 'La vía intravenosa está colocada. Elija una recompensa para el paciente.',
+        '9-subText':
+          'La vía intravenosa está colocada. Elija una recompensa para el paciente.',
         '9-buttonText': 'FINISH',
         '10-mainText': '¡LISTO!',
-        '10-subText': 'La vía intravenosa está colocada. Elija una recompensa para el paciente.',
+        '10-subText':
+          'La vía intravenosa está colocada. Elija una recompensa para el paciente.',
         '10-buttonText': 'CONTINUE',
         '11-subText':
           '¡Insertó la vía intravenosa! Pulse a continuación para obtener más información sobre <br /><strong>el aparato cardiovascular.</strong>',

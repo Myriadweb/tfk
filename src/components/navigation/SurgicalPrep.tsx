@@ -83,8 +83,7 @@ const SurgicalPrep = ({ prefix }: Props) => {
               const newPumpValue = pumps + 1;
               if (pumps == 2) {
                 playSound('surgicalPrepBloodPressurePumpAndRelease');
-              }
-              else {
+              } else {
                 playSound('surgicalPrepBloodPressureSinglePump');
               }
               addPump((pumps) => pumps + 1);

@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useSpring, animated, easings } from 'react-spring';
 import { useCharacterContext } from '../../state/character';
 import { Characters } from './ChildrenAssets/childrenAssets';
-import playSound from "../../sound";
+import playSound from '../../sound';
 
 type AnimatedArrowProps = {
   direction: 'left' | 'right';
@@ -122,7 +122,7 @@ export function MainMenu() {
   }, [disabled]);
 
   const handleArrowClick = async (direction: 'left' | 'right') => {
-    playSound('mainScreenSwoosh')
+    playSound('mainScreenSwoosh');
     api.start({
       to: [{ opacity: 0 }, { opacity: 1 }],
       from: { opacity: 1 },

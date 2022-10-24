@@ -6,7 +6,7 @@ import { ReactComponent as InfoButton } from './Nervous/infoButton.svg';
 import { ReactComponent as LeftButton } from './Nervous/leftButton.svg';
 import { ReactComponent as RightButton } from './Nervous/rightButton.svg';
 import playSound from '../../sound';
-import {Trans} from "react-i18next";
+import { Trans } from 'react-i18next';
 
 type Props = {
   prefix: Paths;
@@ -112,11 +112,7 @@ const Nervous = ({ prefix }: Props) => {
           >
             {t(highlight + '.title')}
           </span>
-          <div
-            className='body-text'
-          >
-            {t(highlight + '.text')}
-          </div>
+          <div className='body-text'>{t(highlight + '.text')}</div>
         </>
       )}
     </>
