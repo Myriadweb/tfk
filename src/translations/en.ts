@@ -36,9 +36,9 @@ const en: Translation = {
         smell: 'SMELL',
       },
       navbar: {
-        selectPath: 'CHOOSE A SENSE, THEN CHOOSE\nAN OBJECT TO SEE ITS EFFECT.',
+        selectPath: 'CHOOSE A SENSE, THEN CHOOSE <br />AN OBJECT TO SEE ITS EFFECT.',
         selectPathVestibular:
-          'CHOOSE A SENSE, THEN CHOOSE\nAN OPTION TO SEE ITS EFFECT.',
+          'CHOOSE A SENSE, THEN CHOOSE <br />AN OPTION TO SEE ITS EFFECT.',
         continueButton: 'CONTINUE',
         smell: 'smell',
         hearing: 'hearing',
@@ -103,7 +103,7 @@ const en: Translation = {
         skull: {
           title: 'SKULL',
           description:
-            "The skull is actually many bones connected\nby joints that don't move. It has an\nimportant job -- protecting your brain!.",
+            "The skull is actually many bones connected <br />by joints that don't move. It has an <br />important job -- protecting your brain!.",
         },
         ribs: {
           title: 'RIBS',
@@ -207,26 +207,26 @@ const en: Translation = {
       },
       navbar: {
         '0-text':
-          'YOUR BLOOD CARRIES FRESH OXYGEN (AND A WHOLE LOT MORE!) TO\nEVERY PART OF YOUR BODY, TAP THE BUTTON TO TAKE A DEEP BREATH',
+          'YOUR BLOOD CARRIES FRESH OXYGEN (AND A WHOLE LOT MORE!) TO <br />EVERY PART OF YOUR BODY, TAP THE BUTTON TO TAKE A DEEP BREATH',
         '2-text':
-          'THE RIGHT SIDE OF YOUR HEART SENDS BLOOD TO GET\nFRESH OXYGEN FROM THE AIR YOU BREATHE IN.',
+          'THE RIGHT SIDE OF YOUR HEART SENDS BLOOD TO GET <br />FRESH OXYGEN FROM THE AIR YOU BREATHE IN.',
         '3-text':
-          'THE RIGHT SIDE OF YOUR HEART SENDS BLOOD TO GET\nFRESH OXYGEN FROM THE AIR YOU BREATHE IN.',
+          'THE RIGHT SIDE OF YOUR HEART SENDS BLOOD TO GET <br />FRESH OXYGEN FROM THE AIR YOU BREATHE IN.',
         '4-text':
-          'THE LEFT SIDE OF THE HEART SENDS BLOOD OUT TO\nTHE REST OF THE BODY.',
+          'THE LEFT SIDE OF THE HEART SENDS BLOOD OUT TO <br />THE REST OF THE BODY.',
         '5-text':
-          'THE LEFT SIDE OF THE HEART SENDS BLOOD OUT TO\nTHE REST OF THE BODY.',
+          'THE LEFT SIDE OF THE HEART SENDS BLOOD OUT TO <br />THE REST OF THE BODY.',
         '5-buttonText': 'TRIGGER HEARTBEAT',
         '6-text':
-          'BLOOD TRAVELS THROUGH YOUR ARTERIES TO DELIVER OXYGEN, NUTRIENTS,\nAND EVEN MEDICINE AND MESSAGES TO EVERY PART OF YOUR BODY.',
+          'BLOOD TRAVELS THROUGH YOUR ARTERIES TO DELIVER OXYGEN, NUTRIENTS, <br />AND EVEN MEDICINE AND MESSAGES TO EVERY PART OF YOUR BODY.',
         '7-text':
-          'BLOOD TRAVELS THROUGH YOUR ARTERIES TO DELIVER OXYGEN, NUTRIENTS,\nAND EVEN MEDICINE AND MESSAGES TO EVERY PART OF YOUR BODY.',
+          'BLOOD TRAVELS THROUGH YOUR ARTERIES TO DELIVER OXYGEN, NUTRIENTS, <br />AND EVEN MEDICINE AND MESSAGES TO EVERY PART OF YOUR BODY.',
         '8-text':
-          'BLOOD TRAVELS THROUGH YOUR ARTERIES TO DELIVER OXYGEN, NUTRIENTS,\nAND EVEN MEDICINE AND MESSAGES TO EVERY PART OF YOUR BODY.',
+          'BLOOD TRAVELS THROUGH YOUR ARTERIES TO DELIVER OXYGEN, NUTRIENTS, <br />AND EVEN MEDICINE AND MESSAGES TO EVERY PART OF YOUR BODY.',
         '9-text':
-          'BLOOD MAKES ITS WAY BACK TO THE HEART THROUGH\nYOUR VEINS, WHERE THE CYCLE STARTS AGAIN.',
+          'BLOOD MAKES ITS WAY BACK TO THE HEART THROUGH <br />YOUR VEINS, WHERE THE CYCLE STARTS AGAIN.',
         '10-text':
-          'BLOOD MAKES ITS WAY BACK TO THE HEART THROUGH\nYOUR VEINS, WHERE THE CYCLE STARTS AGAIN.',
+          'BLOOD MAKES ITS WAY BACK TO THE HEART THROUGH <br />YOUR VEINS, WHERE THE CYCLE STARTS AGAIN.',
         '11-boldText': 'GOOD JOB!',
         continue: 'CONTINUE',
         finish: 'FINISH',
@@ -441,17 +441,17 @@ const en: Translation = {
         '0-subText': 'Help get the patient ready for their surgery.',
         '0-buttonText': 'CONTINUE',
         '1-mainText': 'CHECK BLOOD PRESSURE',
-        '1-subText': "Drag the blood pressure cuff\nto the patient's arm.",
+        '1-subText': "Drag the blood pressure cuff <br />to the patient's arm.",
         '2-mainText': 'PUMP IT UP',
         '2-subText':
-          'Keep tapping the button to pump up\nthe blood pressure cuff',
+          'Keep tapping the button to pump up <br />the blood pressure cuff',
         '3-mainText': 'GREAT JOB!',
         '3-subText':
-          "You took the patient's blood pressure.\nTouch to continue.",
+          "You took the patient's blood pressure. <br />Touch to continue.",
         '3-buttonText': 'CONTINUE',
         '4-mainText': 'INSERT THE IV',
         '4-subText':
-          'Drag the IV to the veins\nto attach a special bendy straw\nthat delivers fluids.',
+          'Drag the IV to the veins to attach a special <br />bendy straw that delivers fluids.',
         '5-mainText': 'GREAT JOB!',
         '5-subText': 'The bendy straw is in place.',
         '5-buttonText': 'CONTINUE',
@@ -459,7 +459,7 @@ const en: Translation = {
         '6-subText': 'Place the bandage over the bendy straw.',
         '7-mainText': 'GREAT JOB!',
         '7-subText':
-          "The IV is in place. Next, we'll help\nthe patient fall asleep for their surgery.",
+          "The IV is in place. Next, we'll help <br />the patient fall asleep for their surgery.",
         '7-buttonText': 'CONTINUE',
         '9-mainText': 'PUT ON THE MASK',
         '9-subText': "Tap the button to put on the patient's mask.",
@@ -473,10 +473,10 @@ const en: Translation = {
         '13-buttonText': 'ALL DONE!',
         '14-mainText': 'GREAT JOB!',
         '14-subText':
-          'The surgical procedure was a success.\nChoose a reward for the patient!',
+          'The surgical procedure was a success. <br />Choose a reward for the patient!',
         '14-buttonText': 'CONTINUE',
         '15-subText':
-          'You finished the surgery\nTap below to learn more about <br /><strong>the cardiovascular1 system.</strong>',
+          'You finished the surgery Tap below to learn more about <br /><strong>the cardiovascular1 system.</strong>',
         '15-back': 'Return to \nProcedures ',
       },
     },
@@ -495,25 +495,25 @@ const en: Translation = {
       navbar: {
         '0-mainText': 'FIND THE INJURY',
         '0-subText':
-          "Find where the patient is hurting. When you've\nfound it, touch the area to continue.",
+          "Find where the patient is hurting. When you've <br />found it, touch the area to continue.",
         '1-mainText': 'GREAT JOB!',
         '1-subText':
-          "You found the injury. Now, let's take an\nx-ray picture of the patient's arm.",
+          "You found the injury. Now, let's take an <br />x-ray picture of the patient's arm.",
         '1-buttonText': 'CONTINUE',
         '2-mainText': 'TAKE AN X-RAY',
         '2-subText':
-          "Start the x-ray machine to take\na picture of the patient's injury",
+          "Start the x-ray machine to take <br />a picture of the patient's injury",
         '2-buttonText': 'START',
         '4-mainText': 'BROKEN BONE',
         '4-subText':
-          "DOCTORS CAN PUT A CAST ON THE PATIENT'S ARM\nTO HOLD THE BONE STILL WHILE IT HEALS.",
+          "DOCTORS CAN PUT A CAST ON THE PATIENT'S ARM <br />TO HOLD THE BONE STILL WHILE IT HEALS.",
         '4-buttonText': 'FINISH',
         '5-mainText': 'ALL DONE!',
         '5-subText':
-          'Doctors treated the injury with a cast.\nChoose a reward for the patient!',
+          'Doctors treated the injury with a cast. <br />Choose a reward for the patient!',
         '5-buttonText': 'CONTINUE',
         '6-subText':
-          'You finished the X-ray! Tap below\nto learn more about <br /><strong>the skeletal system</strong>',
+          'You finished the X-ray! Tap below <br />to learn more about <br /><strong>the skeletal system</strong>',
         '6-back': 'Return to \nProcedures',
       },
     },
@@ -534,7 +534,7 @@ const en: Translation = {
         '1-subText': "Tap the button to add sticky dots to the patient's head.",
         '2-mainText': 'Great Job!',
         '2-subText':
-          "The sticky dots are in place.\nNext, we'll connect the sticky dots to the machine.",
+          "The sticky dots are in place. <br />Next, we'll connect the sticky dots to the machine.",
         '2-buttonText': 'CONTINUE',
         '3-mainText': 'CONNECT THE LEADS',
         '3-subText':
@@ -576,21 +576,21 @@ const en: Translation = {
       },
       navbar: {
         '0-mainText': 'MEASURE TEMPERATURE',
-        '0-subText': "Tap the thermometer to take the patient's temperature.",
+        '0-subText': "Tap the thermometer to <br />take the patient's temperature.",
         '1-mainText': ' ',
         '1-subText': ' ',
         '2-mainText': 'GREAT JOB!',
         '2-subText':
-          "The patient's temperature looks normal. Touch to continue.",
+          "The patient's temperature looks normal. <br />Touch to continue.",
         '2-buttonText': 'CONTINUE',
         '3-mainText': 'CHECK BLOOD PRESSURE',
-        '3-subText': "Drag the blood pressure cuff to the patient's arm.",
+        '3-subText': "Drag the blood pressure cuff <br />to the patient's arm.",
         '4-mainText': 'PUMP IT UP',
         '4-subText':
-          'Keep tapping the button to pump up\nthe blood pressure cuff',
+          'Keep tapping the button to pump up <br />the blood pressure cuff',
         '5-mainText': 'GREAT JOB!',
         '5-subText':
-          "You took the patient's blood pressure.\nTouch to continue.",
+          "You took the patient's blood pressure. <br />Touch to continue.",
         '5-buttonText': 'CONTINUE',
         '6-mainText': 'MEASURE PULSE AND BLOOD OXYGEN',
         '6-subText': "Put the clip on the patient's finger.",
@@ -601,15 +601,15 @@ const en: Translation = {
         '8-buttonText': 'CONTINUE',
         '9-mainText': 'STAY ACTIVE',
         '9-subText':
-          'You finished all the tests. Now pick an\nactivity to help the patient stay active and healthy.',
+          'You finished all the tests. Now pick an activity <br />to help the patient stay active and healthy.',
         '9-buttonText': 'FINISH',
         '10-mainText': 'ALL DONE!',
         '10-subText':
-          'You finished all the tests. Now pick an activity\nto help the patient stay active and healthy.',
+          'You finished all the tests. Now pick an activity <br />to help the patient stay active and healthy.',
         '10-buttonText': 'CONTINUE',
         '11-mainText': ' ',
         '11-subText':
-          'You finished the wellness check!\nTap below to learn more about <br /><strong>the cardiovascular system</strong>',
+          'You finished the wellness check! <br />Tap below to learn more about <br /><strong>the cardiovascular system</strong>',
         '11-back': 'Return to \nProcedures',
       },
     },
@@ -632,7 +632,7 @@ const en: Translation = {
         '1-buttonText': 'CONTINUE',
         '2-mainText': 'TAKE AN MRI',
         '2-subText':
-          "Start the MRI machine to take a\npicture of the patient's injury.",
+          "Start the MRI machine to take a <br />picture of the patient's injury.",
         '2-buttonText': 'START',
         '3-mainText': ' ',
         '3-subText': ' ',
@@ -641,10 +641,10 @@ const en: Translation = {
         '4-buttonText': 'FINISH',
         '5-mainText': 'ALL DONE!',
         '5-subText':
-          'Now that they found the injury, doctors can help\nto treat it. Choose a reward for the patient.',
+          'Now that they found the injury, doctors can help <br />to treat it. Choose a reward for the patient.',
         '5-buttonText': 'CONTINUE',
         '6-subText':
-          'You finished the MRI!\nTap below to learn more about <br /><strong>the muscular system</strong>',
+          'You finished the MRI! Tap below to learn more about <br /><strong>the muscular system</strong>',
         '6-back': 'Return to \nProcedures',
       },
     },
@@ -667,7 +667,7 @@ const en: Translation = {
         '1-buttonText': 'CONTINUE',
         '2-mainText': 'PLACE A TOURNIQUET',
         '2-subText':
-          "A band around the patient's arm helps to\nfind their veins.",
+          "A band around the patient's arm helps to <br />find their veins.",
         '3-mainText': 'GREAT JOB!',
         '3-subText': 'The patient is ready for the next step.',
         '3-buttonText': 'CONTINUE',
@@ -679,7 +679,7 @@ const en: Translation = {
         '5-buttonText': 'CONTINUE',
         '6-mainText': 'INSERT THE IV',
         '6-subText':
-          'Drag the IV to the veins to attach a special\nbendy straw that delivers fluids.',
+          'Drag the IV to the veins to attach a special <br />bendy straw that delivers fluids.',
         '7-mainText': 'GREAT JOB!',
         '7-subText': 'The bendy straw is in place.',
         '7-buttonText': 'CONTINUE',

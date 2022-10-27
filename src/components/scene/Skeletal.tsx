@@ -120,7 +120,7 @@ export default function Skeletal() {
         }}
       />
       <animated.img
-        src='images/Skeletal/skeletalLabels.png'
+        src='images/Skeletal/skeletalLabelsNew.png'
         style={{
           top: 263,
           position: 'absolute',

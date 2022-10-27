@@ -52,7 +52,7 @@ const frontImgs: Record<string, string> = reqSvgsFront
   }, {});
 
 import { useGameContext } from '../../state/game';
-import { useTranslation } from 'react-i18next';
+import {Trans, useTranslation} from 'react-i18next';
 import NervousBlueBox from './NervousBlueBox';
 
 export type Highlight =
@@ -657,14 +657,14 @@ export default function NervousGame() {
       <span
         style={{
           position: 'absolute',
-          top: 1218,
+          bottom: 20,
           transform: 'translateX(-50%)',
           left: 540,
           color: 'white',
           fontSize: 20,
         }}
       >
-        {t('nervous.scene.touchText')}
+        <Trans i18nKey={t(`nervous.scene.touchText`)} />
       </span>
       <NervousBlueBox
         highlight={highlight}

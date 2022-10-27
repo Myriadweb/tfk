@@ -86,7 +86,7 @@ export default function Digestive() {
         }}
       />
       <animated.img
-        src='images/Digestive/digestiveLabels.png'
+        src='images/Digestive/digestiveLabelsNew.png'
         style={{
           top: 518,
           position: 'absolute',

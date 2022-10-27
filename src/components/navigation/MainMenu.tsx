@@ -36,7 +36,7 @@ const MainMenu = ({ path }: Props) => {
             flexDirection: 'column',
             alignItems: 'center',
             textDecoration: 'none',
-            width: 213,
+            width: 250,
           }}
           to={`/${Paths.BodySystems}/${Paths.Sensory}`}
           onClick={() => playSound('generalSelect')}
@@ -67,7 +67,7 @@ const MainMenu = ({ path }: Props) => {
             textDecoration: 'none',
             letterSpacing: 1.24,
             alignItems: 'center',
-            width: 213,
+            width: 250,
           }}
           to={`/${Paths.Procedures}/${PROCEDURES_CONFIG[character]}`}
           onClick={() => playSound('generalSelect')}

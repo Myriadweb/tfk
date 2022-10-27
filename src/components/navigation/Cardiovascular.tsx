@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import ContinueButton from './UIComponents/ContinueButton';
 import { ReactComponent as HeartbeatButton } from './CardiovascularAssets/heartbeatButton.svg';
 import { animated } from 'react-spring';
+import {Trans} from "react-i18next";
 
 type Props = {
   path: Paths;
@@ -102,7 +103,7 @@ const Cardiovascular = ({ prefix }: Props) => {
             display: step === 11 ? 'none' : 'block',
           }}
         >
-          {t(`${step}-text`)}
+          <Trans i18nKey={t(`${step}-text`)} />
         </div>
         <div
           className='body-text bold-text'

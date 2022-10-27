@@ -194,6 +194,7 @@ const Digestive = ({ prefix }: Props) => {
             margin: 'auto',
             whiteSpace: 'initial',
             fontSize: step !== 16 ? 20 : 40,
+            fontWeight: step !== 16 ? 'normal' : 'bold',
             visibility: [6, 7, 9, 10, 12, 14].includes(step)
               ? 'hidden'
               : 'visible',

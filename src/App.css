@@ -173,7 +173,13 @@
   margin: 12px auto 0 auto;
   /* white-space: pre; */
   min-height: 53px;
-  max-width: 470px;
+  max-width: 700px;
+}
+.body-text.more-width {
+  max-width: 700px;
+}
+.body-text.full-width {
+  max-width: 100%;
 }
 
 .bold-text {
