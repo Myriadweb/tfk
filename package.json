@@ -1,7 +1,7 @@
 {
   "name": "teammates",
   "author": "Myriad",
-  "version": "0.1.0",
+  "version": "0.9.3",
   "private": true,
   "main": "main.js",
   "engines": {
@@ -54,6 +54,7 @@
     "typecheck": "tsc --noEmit",
     "precommit": "npm run lint:fix && npm run typecheck && npm run format",
     "electron:build": "npm run build-electron && electron-builder build --publish never -wm",
+    "electron:build:windows": "npm run build-electron && electron-builder build --publish never -w",
     "electron:build:no-scripts": "electron-builder build --publish never -wm"
   },
   "eslintConfig": {

@@ -2,7 +2,7 @@
 // Electron configuration file
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, Menu } = require('electron');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { dev } = require('electron-is');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -23,6 +23,7 @@ const createMainWindow = () => {
     show: false,
     center: true,
     fullscreenable: true,
+    autoHideMenu: true,
   });
 
   // and load the index.html of the app.
@@ -37,6 +38,11 @@ const createMainWindow = () => {
   if (isDev) {
     mainWindow.webContents.openDevTools({ mode: 'detach' });
   }
+
+  process.platform === "win32" && mainWindow.setMenuBarVisibility(false, { visibleOnFullScreen: false });
+
+  process.platform === "darwin" && Menu.setApplicationMenu(Menu.buildFromTemplate([]));
+
 
   mainWindow.once('ready-to-show', () => {
     mainWindow.webContents.setZoomFactor(isDev ? 0.5 : 1);
