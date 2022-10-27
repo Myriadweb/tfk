@@ -244,7 +244,8 @@ const en: Translation = {
         nerves: 'nervios',
         brainStem: 'tronco\nencefálico',
         spinalCord: 'médula espinal',
-        touchText: 'Toque una parte del cerebro <br />para obtener más información.',
+        touchText:
+          'Toque una parte del cerebro <br />para obtener más información.',
         art: 'Arte',
         balance: 'balance',
         breathing: 'Respiración',

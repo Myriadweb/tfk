@@ -52,7 +52,7 @@ const frontImgs: Record<string, string> = reqSvgsFront
   }, {});
 
 import { useGameContext } from '../../state/game';
-import {Trans, useTranslation} from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import NervousBlueBox from './NervousBlueBox';
 
 export type Highlight =

@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import ContinueButton from './UIComponents/ContinueButton';
 import { ReactComponent as HeartbeatButton } from './CardiovascularAssets/heartbeatButton.svg';
 import { animated } from 'react-spring';
-import {Trans} from "react-i18next";
+import { Trans } from 'react-i18next';
 
 type Props = {
   path: Paths;

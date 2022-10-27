@@ -36,7 +36,8 @@ const en: Translation = {
         smell: 'SMELL',
       },
       navbar: {
-        selectPath: 'CHOOSE A SENSE, THEN CHOOSE <br />AN OBJECT TO SEE ITS EFFECT.',
+        selectPath:
+          'CHOOSE A SENSE, THEN CHOOSE <br />AN OBJECT TO SEE ITS EFFECT.',
         selectPathVestibular:
           'CHOOSE A SENSE, THEN CHOOSE <br />AN OPTION TO SEE ITS EFFECT.',
         continueButton: 'CONTINUE',
@@ -576,7 +577,8 @@ const en: Translation = {
       },
       navbar: {
         '0-mainText': 'MEASURE TEMPERATURE',
-        '0-subText': "Tap the thermometer to <br />take the patient's temperature.",
+        '0-subText':
+          "Tap the thermometer to <br />take the patient's temperature.",
         '1-mainText': ' ',
         '1-subText': ' ',
         '2-mainText': 'GREAT JOB!',
