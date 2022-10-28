@@ -56,7 +56,11 @@ function Sensory({ path, prefix }: Props) {
       <animated.div>
         <div className='nav-top'>
           {hasValue && <div className='header-text'>{t(value + '.title')}</div>}
-          {!hasValue && <div className='body-text'><Trans i18nKey={t(selectPathText)} /></div>}
+          {!hasValue && (
+            <div className='body-text'>
+              <Trans i18nKey={t(selectPathText)} />
+            </div>
+          )}
         </div>
         <div className='nav-middle'>
           {!hasValue && (
