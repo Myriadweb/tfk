@@ -16,6 +16,7 @@ import playSound from '../../sound';
 import { ReactComponent as Arrow } from '../scene/SceneAssets/Arrow.svg';
 import { useState } from 'react';
 import { animated } from 'react-spring';
+import { Trans } from 'react-i18next';
 
 type Props = {
   path: Paths;
@@ -55,7 +56,7 @@ function Sensory({ path, prefix }: Props) {
       <animated.div>
         <div className='nav-top'>
           {hasValue && <div className='header-text'>{t(value + '.title')}</div>}
-          {!hasValue && <div className='body-text'>{t(selectPathText)}</div>}
+          {!hasValue && <div className='body-text'><Trans i18nKey={t(selectPathText)} /></div>}
         </div>
         <div className='nav-middle'>
           {!hasValue && (

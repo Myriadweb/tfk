@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useNavBarTranslation } from '../../hooks';
 import { Paths } from '../../types/Paths';
 import { useGameContext } from '../../state/game';
+import { Trans } from 'react-i18next';
 
 type Props = {
   path: Paths;
@@ -37,7 +38,7 @@ const Skeletal = ({ prefix }: Props) => {
           marginTop: 32,
         }}
       >
-        {t('greatjob')}
+        <Trans i18nKey={t('greatjob')} />
       </span>
       <div
         style={{
@@ -70,11 +71,11 @@ const Skeletal = ({ prefix }: Props) => {
                 fontSize: 20,
                 marginTop: isDone ? 27 : 'none',
                 visibility: isReset ? 'hidden' : 'visible',
-                width: 550,
+                width: 750,
                 whiteSpace: 'initial',
               }}
             >
-              {t(`${value}.description`)}
+              <Trans i18nKey={t(`${value}.description`)} />
             </span>
           </>
         )}

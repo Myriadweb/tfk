@@ -32,8 +32,9 @@
 .App-header-split-left {
   flex: 0 0 641px;
   height: 100%;
-  line-height: 64px;
   text-align: left;
+  display: flex;
+  align-items: center;
 }
 
 .App-header-split-right {

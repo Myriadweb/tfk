@@ -3,6 +3,7 @@ import { Paths } from '../types/Paths';
 import { useHeaderTranslation } from '../hooks';
 import { useLocation } from 'react-router-dom';
 import { useLanguageContext } from '../state/language';
+import { Trans } from 'react-i18next';
 
 type Props = {
   path: Paths;
@@ -27,7 +28,6 @@ export function Header(props: Props) {
           style={{
             marginRight: 28,
             display: 'inline-block',
-            marginTop: 49,
             marginLeft: 39,
           }}
         />
@@ -39,7 +39,7 @@ export function Header(props: Props) {
             fontSize: lang === 'en' ? 60 : 42,
           }}
         >
-          {section}
+          <Trans i18nKey={section} />
         </span>
       </div>
       <div className='App-header-split-right'>{t('title')}</div>

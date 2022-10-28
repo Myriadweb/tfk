@@ -163,7 +163,7 @@ const en: Translation = {
         },
         done: {
           description:
-            'You finished the skeleton! All your bones\nwork together to support your body,\nprotect your organs, and help you move.',
+            'You finished the skeleton! All your bones work together to support your body, protect your organs, and help you move.',
         },
         greatjob: 'GREAT JOB!',
       },

@@ -236,7 +236,7 @@ const en: Translation = {
     },
     [Paths.Nervous]: {
       header: {
-        title: 'NERVOUS',
+        title: 'Nervioso',
       },
       scene: {
         brain: 'cerebro',
@@ -285,7 +285,7 @@ const en: Translation = {
       navbar: {
         rightHemisphereSec: 'Vista del <strong>hemisferio derecho</strong>',
         leftHemisphereSec: 'Vista del <strong>hemisferio izquierdo</strong>',
-        frontViewSec: '<strong>Vista frontal</strong>',
+        frontViewSec: 'Vista <strong>frontal</strong>',
         rightHemisphere: {
           title: 'Hemisferio derecho',
           text: 'La mitad derecha del cerebro desempeña un papel importante en la creatividad, ayudándole cuando hace música o arte.',
@@ -378,8 +378,8 @@ const en: Translation = {
         selectPath: 'Elija un sistema/aparato del cuerpo humano para explorar',
         sensory: 'Sensorial',
         skeletal: 'SKELETAL',
-        digestive: 'DIGESTIVE',
-        nervous: 'NERVOUS',
+        digestive: 'Digestivo',
+        nervous: 'Nervioso',
         cardiovascular: 'CARDIOVASCULAR',
         muscular: 'MUSCULAR',
       },
@@ -610,7 +610,7 @@ const en: Translation = {
         '8-buttonText': 'Continuar',
         '9-mainText': 'MANTÉNGASE ACTIVO',
         '9-subText':
-          'You finished all the tests. Now pick an\nactivity to help the patient stay active and healthy.',
+          'Completó todas las pruebas. Ahora elija una actividad para <br />ayudar al paciente a mantenerse activo y saludable.',
         '9-buttonText': 'finalizar',
         '10-mainText': '¡LISTO!',
         '10-subText':
@@ -711,7 +711,7 @@ const en: Translation = {
     },
     common: {
       header: {
-        bodySystems: 'BODY SYSTEMS',
+        bodySystems: 'Sistemas del <br />cuerpo humano',
         procedures: 'Procedimientos',
       },
       scene: {
