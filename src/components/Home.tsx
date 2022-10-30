@@ -1,5 +1,12 @@
-import React from 'react';
-import { Navigate, useLocation, Routes, Route, Link } from 'react-router-dom';
+import React, { useEffect, useRef } from 'react';
+import {
+  Navigate,
+  useLocation,
+  Routes,
+  Route,
+  Link,
+  useNavigate,
+} from 'react-router-dom';
 import { Header } from './Header';
 import { NavBar } from './NavBar';
 import { Paths } from '../types/Paths';
@@ -42,6 +49,8 @@ import MuscularGame from './scene/MuscularGame';
 import DigestiveGame from './scene/DigestiveGame';
 import { useGameContext } from '../state/game';
 
+const TIME_TO_SPLASH = 120000;
+
 export function Home() {
   // This gets the current location from react router.
   const location = useLocation();
@@ -49,6 +58,25 @@ export function Home() {
   const [gameState, setGameState] = useGameContext();
   const [path, prefix] = usePathFromLocation(location.pathname);
   const { t } = useTranslation('translation');
+  const navigate = useNavigate();
+  const timeoutRef = useRef(null);
+
+  const handleResetTimeout = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    timeoutRef.current = setTimeout(
+      () => navigate(Paths.SplashScreen),
+      TIME_TO_SPLASH
+    );
+  };
+
+  useEffect(() => {
+    timeoutRef.current = setTimeout(
+      () => navigate(Paths.SplashScreen),
+      TIME_TO_SPLASH
+    );
+  }, []);
 
   // By default, the app will render the Home component.
   // If we're on '/' we redirect to main-menu
@@ -67,7 +95,7 @@ export function Home() {
   }
 
   return (
-    <div className='App'>
+    <div className='App' onClick={() => handleResetTimeout()}>
       <Header path={Paths[path === 'Game' ? prefix : path]} />
       <div
         className='App-stage'

@@ -7,6 +7,8 @@ import { CharacterContextProvider } from './state/character';
 import { AnimateContextProvider } from './state/animate';
 import './App.css';
 import { GameContextProvider } from './state/game';
+import SplashScreen from './components/SplashScreen';
+import { Paths } from './types/Paths';
 
 function App() {
   return (
@@ -14,11 +16,14 @@ function App() {
       <AnimateContextProvider>
         <GameContextProvider>
           <CharacterContextProvider>
-            <HashRouter>
-              <Routes>
-                <Route path='*' element={<Home />} />
-              </Routes>
-            </HashRouter>
+            <div>
+              <HashRouter>
+                <Routes>
+                  <Route path={Paths.SplashScreen} element={<SplashScreen />} />
+                  <Route path='*' element={<Home />} />
+                </Routes>
+              </HashRouter>
+            </div>
           </CharacterContextProvider>
         </GameContextProvider>
       </AnimateContextProvider>
