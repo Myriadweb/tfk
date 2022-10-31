@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Paths } from '../types/Paths';
 import { useNavigate } from 'react-router-dom';
 import ReactPlayer from 'react-player';
-import Animation from '../animations/splashVideo.mp4';
+import Animation from '../animations/splashVideo.webm';
 
 export default function SplashScreen() {
   const navigate = useNavigate();
