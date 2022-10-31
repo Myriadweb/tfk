@@ -49,7 +49,7 @@ import MuscularGame from './scene/MuscularGame';
 import DigestiveGame from './scene/DigestiveGame';
 import { useGameContext } from '../state/game';
 
-const TIME_TO_SPLASH = 3000;
+const TIME_TO_SPLASH = 120000;
 
 export function Home() {
   // This gets the current location from react router.
