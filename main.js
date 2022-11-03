@@ -23,6 +23,7 @@ const createMainWindow = () => {
     show: false,
     center: true,
     fullscreenable: true,
+    fullscreen: true,
     autoHideMenu: true,
   });
 
@@ -43,6 +44,7 @@ const createMainWindow = () => {
 
   process.platform === "darwin" && Menu.setApplicationMenu(Menu.buildFromTemplate([]));
 
+  mainWindow.maximize();
 
   mainWindow.once('ready-to-show', () => {
     mainWindow.webContents.setZoomFactor(isDev ? 0.5 : 1);
