@@ -42,8 +42,8 @@ const SlidingChild = ({ i }: { i: number }) => {
     left: 540,
   }));
 
-  const PreviousChild = Characters.default[previousChild];
-  const CurrentChild = Characters.default[i];
+  const PreviousChild = Characters.defaultRaster[previousChild];
+  const CurrentChild = Characters.defaultRaster[i];
 
   useEffect(() => {
     if (i === previousChild) return;

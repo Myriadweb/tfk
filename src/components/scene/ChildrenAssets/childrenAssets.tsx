@@ -2,6 +2,7 @@ import React, { CSSProperties } from 'react';
 import { Character } from '../../../state/character';
 
 import { ReactComponent as Child1 } from './Child1/default.svg';
+import Child1Raster from './Child1/default.svg';
 import { ReactComponent as Child1Worried } from './Child1/worried.svg';
 import Child1Scared from './Child1/scared.svg';
 import Child1Moon from './Child1/moon.svg';
@@ -21,6 +22,7 @@ import { ReactComponent as Child1DigestiveEyesOpen } from './Child1/digestiveEye
 import { ReactComponent as Child1DigestiveEyesClosed } from './Child1/digestiveEyesClosed.svg';
 
 import { ReactComponent as Child2 } from './Child2/default.svg';
+import Child2Raster from './Child2/default.svg';
 import { ReactComponent as Child2Worried } from './Child2/worried.svg';
 import Child2Scared from './Child2/scared.svg';
 import Child2Moon from './Child2/moon.svg';
@@ -60,6 +62,8 @@ import { ReactComponent as Child3SensoryDefault } from './Child3/sensoryDefault.
 import Child3happySensory from './Child3/happySensory.svg';
 
 import { ReactComponent as Child4 } from './Child4/default.svg';
+import Child4Raster from './Child4/default.svg';
+
 import { ReactComponent as Child4Worried } from './Child4/worried.svg';
 import Child4Scared from './Child4/scared.svg';
 import Child4Moon from './Child4/moon.svg';
@@ -79,6 +83,7 @@ import { ReactComponent as Child4SensoryDefault } from './Child4/sensoryDefault.
 import Child4happySensory from './Child4/happySensory.svg';
 
 import { ReactComponent as Child5 } from './Child5/default.svg';
+import Child5Raster from './Child5/default.svg';
 import { ReactComponent as Child5Worried } from './Child5/worried.svg';
 import Child5Scared from './Child5/happySensory.svg';
 import Child5Moon from './Child5/moon.svg';
@@ -98,6 +103,7 @@ import { ReactComponent as Child5SensoryDefault } from './Child5/sensoryDefault.
 import Child5happySensory from './Child5/scared.svg';
 
 import { ReactComponent as Child6 } from './Child6/default.svg';
+import Child6Raster from './Child6/default.svg';
 import { ReactComponent as Child6Worried } from './Child6/worried.svg';
 import Child6Scared from './Child6/scared.svg';
 import Child6Moon from './Child6/moon.svg';
@@ -147,6 +153,15 @@ const DefaultCharacters = {
   [Character.child4]: () => <Child4 height='984' width='392' />,
   [Character.child5]: () => <Child5 height='984' width='392' />,
   [Character.child6]: () => <Child6 height='984' width='392' />,
+};
+
+const DefaultCharactersRaster = {
+  [Character.child1]: () => <img height='984' width='392' src={Child1Raster} />,
+  [Character.child2]: () => <img height='984' width='392' src={Child2Raster} />,
+  [Character.child3]: () => <img src={Child3} />,
+  [Character.child4]: () => <img height='984' width='392' src={Child4Raster} />,
+  [Character.child5]: () => <img height='984' width='392' src={Child5Raster} />,
+  [Character.child6]: () => <img height='984' width='392' src={Child6Raster} />,
 };
 
 const WorriedCharacters = {
@@ -811,6 +826,7 @@ const ProtectionCharacters = {
 
 export const Characters: {
   default: { [key in Character]: React.FC };
+  defaultRaster: { [key in Character]: React.FC };
   worried: { [key in Character]: React.FC };
   smock: { [key in Character]: React.FC };
   sensory: { [key in Character]: React.FC };
@@ -831,6 +847,7 @@ export const Characters: {
   digestiveEyesClosed: { [key in Character]: React.FC };
 } = {
   default: DefaultCharacters,
+  defaultRaster: DefaultCharactersRaster,
   worried: WorriedCharacters,
   sensory: SensoryCharacters,
   smock: SmockCharacters,
