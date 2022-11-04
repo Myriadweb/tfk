@@ -95,17 +95,16 @@ export default function Touch() {
 
   return (
     <>
-      {sensoryState === 'bad' && (
-        <img
-          src={BgBad}
-          style={{
-            position: 'absolute',
-            left: 0,
-            top: 0,
-            zIndex: 0,
-          }}
-        />
-      )}
+      <img
+        src={BgBad}
+        style={{
+          position: 'absolute',
+          left: 0,
+          top: 0,
+          zIndex: 0,
+          opacity: sensoryState === 'bad' ? 1 : 0,
+        }}
+      />
       <div
         style={{
           position: 'absolute',

@@ -25,11 +25,6 @@ const valueType = 'badSound';
 const finalValueType = valueType + '-final';
 const activePosition = { left: 540, top: 950 };
 
-const childImages = {
-  good: 'happySensory',
-  bad: 'scaredSensory',
-};
-
 export default function Hearing() {
   const [sensoryState, setSensoryState] = React.useState<VariationsType | null>(
     null
@@ -79,35 +74,55 @@ export default function Hearing() {
     return <Navigate to={'/bodySystems/sensory'} />;
   }
 
-  const ChildReaction = sensoryState
-    ? Characters[childImages[sensoryState]][selectedCharacter]
-    : null;
-
-  const ChildComponent = ChildReaction || Characters.sensory[selectedCharacter];
+  const ChildComponent = Characters.sensory[selectedCharacter];
+  const ChildGood = Characters.happySensory[selectedCharacter];
+  const ChildBad = Characters.scaredSensory[selectedCharacter];
   const width = sensoryChildWidth;
 
   return (
     <>
-      {sensoryState === 'bad' && (
-        <img
-          src={BgBad}
-          style={{
-            position: 'absolute',
-            left: 0,
-            top: 0,
-            zIndex: 0,
-          }}
-        />
-      )}
+      <img
+        src={BgBad}
+        style={{
+          position: 'absolute',
+          left: 0,
+          top: 0,
+          zIndex: 0,
+          opacity: sensoryState === 'bad' ? 1 : 0,
+        }}
+      />
       <div
         style={{
           position: 'absolute',
           left: 540,
           top: 270,
           transform: `translate(-${width / 2}px, 0)`,
+          opacity: sensoryState ? 0 : 1,
         }}
       >
         <ChildComponent />
+      </div>
+      <div
+        style={{
+          position: 'absolute',
+          left: 540,
+          top: 270,
+          transform: `translate(-${width / 2}px, 0)`,
+          opacity: sensoryState === 'good' ? 1 : 0,
+        }}
+      >
+        <ChildGood />
+      </div>
+      <div
+        style={{
+          position: 'absolute',
+          left: 540,
+          top: 270,
+          transform: `translate(-${width / 2}px, 0)`,
+          opacity: sensoryState === 'bad' ? 1 : 0,
+        }}
+      >
+        <ChildBad />
       </div>
       <img
         src={BottomOverlay}

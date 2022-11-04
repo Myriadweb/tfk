@@ -26,11 +26,6 @@ const activeStyle = {
   transform: 'translate(-50%, -50%) rotate(0deg)',
 };
 
-const childImages = {
-  good: 'moon',
-  bad: 'sun',
-};
-
 export default function Sight() {
   const [sensoryState, setSensoryState] = React.useState<VariationsType | null>(
     null
@@ -77,11 +72,9 @@ export default function Sight() {
     return <Navigate to={'/bodySystems/sensory'} />;
   }
 
-  const ChildReaction = sensoryState
-    ? Characters[childImages[sensoryState]][selectedCharacter]
-    : null;
-
-  const ChildComponent = ChildReaction || Characters.sensory[selectedCharacter];
+  const ChildComponent = Characters.sensory[selectedCharacter];
+  const ChildGood = Characters.moon[selectedCharacter];
+  const ChildBad = Characters.sun[selectedCharacter];
   const width = sensoryChildWidth;
 
   return (
@@ -103,9 +96,32 @@ export default function Sight() {
           left: 540,
           top: 270,
           transform: `translate(-${width / 2}px, 0)`,
+          opacity: sensoryState ? 0 : 1,
         }}
       >
         <ChildComponent />
+      </div>
+      <div
+        style={{
+          position: 'absolute',
+          left: 540,
+          top: 270,
+          transform: `translate(-${width / 2}px, 0)`,
+          opacity: sensoryState === 'good' ? 1 : 0,
+        }}
+      >
+        <ChildGood />
+      </div>
+      <div
+        style={{
+          position: 'absolute',
+          left: 540,
+          top: 270,
+          transform: `translate(-${width / 2}px, 0)`,
+          opacity: sensoryState === 'bad' ? 1 : 0,
+        }}
+      >
+        <ChildBad />
       </div>
       <img
         src={BottomOverlay}

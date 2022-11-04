@@ -14,7 +14,6 @@ import { Paths } from '../../types/Paths';
 import { useGameContext } from '../../state/game';
 import { columnLabelStyleLeft } from './common';
 import { useTranslation } from 'react-i18next';
-import { Simulate } from 'react-dom/test-utils';
 
 const armLabel = {
   padding: '8px 54px 10px',
@@ -44,17 +43,17 @@ const contractingLabel = {
 export default function MuscularGame() {
   const [{ value }] = useGameContext();
   const { t } = useTranslation('translation');
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(null);
   const intervalRef = useRef(null);
 
   const location = useLocation();
 
   useEffect(() => {
     clearInterval(intervalRef.current);
-    setCount(0);
+    setCount(null);
     intervalRef.current = setInterval(() => {
-      setCount((c) => (c === 0 ? 1 : 0));
-    }, 5000);
+      setCount((c) => (!c ? 1 : 0));
+    }, 3000);
     return () => clearInterval(intervalRef.current);
   }, [value]);
 
@@ -81,7 +80,7 @@ export default function MuscularGame() {
               position: 'absolute',
               top: 452,
               left: 0,
-              visibility: count === 0 ? 'visible' : 'hidden',
+              visibility: !count ? 'visible' : 'hidden',
             }}
           />
           <ArmFlex
@@ -129,7 +128,7 @@ export default function MuscularGame() {
             }}
           >
             {t('muscular.scene.triceps')}
-            {count === 0 && (
+            {!count && (
               <span
                 style={{
                   ...columnLabelStyleLeft,
@@ -144,7 +143,7 @@ export default function MuscularGame() {
       )}
       {value === 'leg' && (
         <>
-          {count === 0 && (
+          {!count && (
             <LegRelaxed
               style={{
                 position: 'absolute',
@@ -179,7 +178,7 @@ export default function MuscularGame() {
             }}
           >
             {t('muscular.scene.hamstrings')}
-            {count === 0 && (
+            {!count && (
               <span
                 style={{
                   ...columnLabelStyleLeft,

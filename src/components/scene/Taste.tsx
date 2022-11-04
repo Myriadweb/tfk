@@ -80,12 +80,9 @@ export default function Taste() {
     return <Navigate to={'/bodySystems/sensory'} />;
   }
 
-  const ChildReaction = sensoryState
-    ? Characters[childImages[sensoryState]][selectedCharacter]
-    : null;
-
-  const ChildComponent =
-    ChildReaction || Characters.mouthOpen[selectedCharacter];
+  const ChildComponent = Characters.sensory[selectedCharacter];
+  const ChildGood = Characters.iceCream[selectedCharacter];
+  const ChildBad = Characters.hotSauce[selectedCharacter];
   const width = sensoryChildWidth;
 
   return (
@@ -107,9 +104,32 @@ export default function Taste() {
           left: 540,
           top: 270,
           transform: `translate(-${width / 2}px, 0)`,
+          opacity: sensoryState ? 0 : 1,
         }}
       >
         <ChildComponent />
+      </div>
+      <div
+        style={{
+          position: 'absolute',
+          left: 540,
+          top: 270,
+          transform: `translate(-${width / 2}px, 0)`,
+          opacity: sensoryState === 'good' ? 1 : 0,
+        }}
+      >
+        <ChildGood />
+      </div>
+      <div
+        style={{
+          position: 'absolute',
+          left: 540,
+          top: 270,
+          transform: `translate(-${width / 2}px, 0)`,
+          opacity: sensoryState === 'bad' ? 1 : 0,
+        }}
+      >
+        <ChildBad />
       </div>
       <img
         src={BottomOverlay}

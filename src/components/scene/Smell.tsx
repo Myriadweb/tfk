@@ -25,11 +25,6 @@ const valueType = 'badSmell';
 const finalValueType = valueType + '-final';
 const activePosition = { left: 540, top: 950 };
 
-const childImages = {
-  good: 'happySensory',
-  bad: 'scaredSensory',
-};
-
 export function Smell() {
   const [sensoryState, setSensoryState] = React.useState<VariationsType | null>(
     null
@@ -82,11 +77,9 @@ export function Smell() {
     return <Navigate to={'/bodySystems/sensory'} />;
   }
 
-  const ChildReaction = sensoryState
-    ? Characters[childImages[sensoryState]][selectedCharacter]
-    : null;
-
-  const ChildComponent = ChildReaction || Characters.sensory[selectedCharacter];
+  const ChildComponent = Characters.sensory[selectedCharacter];
+  const ChildGood = Characters.happySensory[selectedCharacter];
+  const ChildBad = Characters.scaredSensory[selectedCharacter];
   const width = sensoryChildWidth;
   return (
     <>
@@ -110,6 +103,28 @@ export function Smell() {
         }}
       >
         <ChildComponent />
+      </div>
+      <div
+        style={{
+          position: 'absolute',
+          left: 540,
+          top: 270,
+          transform: `translate(-${width / 2}px, 0)`,
+          opacity: sensoryState === 'good' ? 1 : 0,
+        }}
+      >
+        <ChildGood />
+      </div>
+      <div
+        style={{
+          position: 'absolute',
+          left: 540,
+          top: 270,
+          transform: `translate(-${width / 2}px, 0)`,
+          opacity: sensoryState === 'bad' ? 1 : 0,
+        }}
+      >
+        <ChildBad />
       </div>
       <img
         src={BottomOverlay}
