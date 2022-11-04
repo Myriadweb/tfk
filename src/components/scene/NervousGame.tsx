@@ -70,8 +70,8 @@ export type Highlight =
 
 const hemisphereConfig = {
   0: 'leftHemisphere',
-  1: 'rightHemisphere',
-  2: 'frontView',
+  1: 'frontView',
+  2: 'rightHemisphere',
 };
 
 export default function NervousGame() {

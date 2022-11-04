@@ -185,7 +185,6 @@ export default function Touch() {
           transform: `translate(-50%, -50%) rotate(0deg)`,
         }}
         sound={'touchGood'}
-        timeoutDuration={10000}
       />
       <ClickableImage
         Component={pan}

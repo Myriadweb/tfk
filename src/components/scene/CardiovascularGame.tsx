@@ -14,7 +14,7 @@ import { useTranslation } from 'react-i18next';
 import Animation1A from '../../animations/cardiovascular1a.webm';
 import Animation1B from '../../animations/cardiovascular1b.webm';
 import Animation1C from '../../animations/cardiovascular1c.webm';
-import Animation2A from '../../animations/cardiovascular2a.webm';
+import Animation2A from '../../animations/cardiovascular2aNew.webm';
 import Animation2B from '../../animations/cardiovascular2b.webm';
 
 import ReactPlayer from 'react-player';
