@@ -5,6 +5,9 @@ import { ReactComponent as BG } from './NervousAssets/bg.svg';
 import LeftHemisphere from './NervousAssets/LeftHemisphere/base';
 import RightHemisphere from './NervousAssets/RightHemisphere/base';
 import FrontView from './NervousAssets/FrontView/base';
+import { useGameContext } from '../../state/game';
+import { Trans, useTranslation } from 'react-i18next';
+import NervousBlueBox from './NervousBlueBox';
 
 // Importing all the SVGs in a folder
 const reqSvgsLeftHemi = require.context(
@@ -50,10 +53,6 @@ const frontImgs: Record<string, string> = reqSvgsFront
     images[pathToName] = reqSvgsFront(path);
     return images;
   }, {});
-
-import { useGameContext } from '../../state/game';
-import { Trans, useTranslation } from 'react-i18next';
-import NervousBlueBox from './NervousBlueBox';
 
 export type Highlight =
   | 'leftHemisphere'
