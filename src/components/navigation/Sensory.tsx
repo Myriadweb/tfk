@@ -127,7 +127,7 @@ function Sensory({ path, prefix }: Props) {
           )}
           {hasValue && (
             <div className='nav-middle-container'>
-              <div className='description'>{t(value + '.description')}</div>
+              <div className='description'><Trans i18nKey={t(value + '.description')} /></div>
               <button
                 className='continue-button'
                 onClick={() => {
