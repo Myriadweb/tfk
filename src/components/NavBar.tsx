@@ -97,6 +97,7 @@ export function NavBar({ path, prefix }: Props) {
               onClick={() => {
                 playSound('click');
                 setStep({ step: 0 });
+                setAnimatedPath('');
               }}
             >
               <img src={proceduresButton} />
@@ -110,6 +111,7 @@ export function NavBar({ path, prefix }: Props) {
               onClick={() => {
                 playSound('click');
                 setStep({ step: 0 });
+                setAnimatedPath('');
               }}
             >
               <img src={getNavigationIcon(prefix)} />

@@ -65,10 +65,11 @@ export function Home() {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
     }
-    timeoutRef.current = setTimeout(
-      () => navigate(Paths.SplashScreen),
-      TIME_TO_SPLASH
-    );
+    timeoutRef.current = setTimeout(() => {
+      navigate(Paths.SplashScreen);
+      setGameState({ step: 0 });
+      setAnimateState('');
+    }, TIME_TO_SPLASH);
   };
 
   useEffect(() => {
