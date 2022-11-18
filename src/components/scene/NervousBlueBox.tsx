@@ -126,7 +126,11 @@ export default function NervousBlueBox({
                   fontWeight: 'bold',
                 }}
               >
-                <img src={svgs[icon]} />
+                <div
+                  style={{ height: 90, display: 'flex', alignItems: 'center' }}
+                >
+                  <img src={svgs[icon]} />
+                </div>
                 <span style={{ marginTop: 14 }}>
                   {t(`nervous.scene.${icon}`)}
                 </span>
@@ -183,7 +187,11 @@ export default function NervousBlueBox({
                   fontWeight: 'bold',
                 }}
               >
-                <img src={svgs[icon]} />
+                <div
+                  style={{ height: 90, display: 'flex', alignItems: 'center' }}
+                >
+                  <img src={svgs[icon]} />
+                </div>
                 <span style={{ marginTop: 14 }}>
                   {t(`nervous.scene.${icon}`)}
                 </span>

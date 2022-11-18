@@ -14,8 +14,8 @@ type Props = {
 
 const hemisphereConfig = {
   0: 'leftHemisphereSec',
-  1: 'rightHemisphereSec',
-  2: 'frontViewSec',
+  1: 'frontViewSec',
+  2: 'rightHemisphereSec',
 };
 
 const Nervous = ({ prefix }: Props) => {
