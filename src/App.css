@@ -14,7 +14,7 @@
   align-items: center;
   justify-content: center;
   border-bottom: white 2px solid;
-  font-family: 'ChangaOne';
+  font-family: 'ChangaOne', sans-serif;
   text-transform: uppercase;
 }
 
@@ -25,7 +25,7 @@
   font-size: 60px;
   color: #fff;
   border-bottom: white 2px solid;
-  font-family: 'ChangaOne';
+  font-family: 'ChangaOne', sans-serif;
   text-transform: uppercase;
 }
 

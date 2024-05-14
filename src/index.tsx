@@ -5,7 +5,7 @@ import './index.css';
 import './i18n';
 
 async function loadFonts() {
-  const changaOne = new FontFace('ChangaOne', 'url("fonts/ChangaOne.ttf")');
+  const changaOne = new FontFace('ChangaOne', 'url("fonts/ChangaOne-Regular.ttf")');
   const lemonMilk = new FontFace('LemonMilk', 'url("fonts/LemonMilk.otf")');
   const lemonMilkBold = new FontFace(
     'LemonMilk',
@@ -26,14 +26,14 @@ async function loadFonts() {
     'LemonMilk',
     'url("fonts/LemonMilklight.otf")',
     {
-      weight: 'lighter',
+      weight: '400',
     }
   );
   const lemonMilkLightItalic = new FontFace(
     'LemonMilk',
     'url("fonts/LemonMilklightitalic.otf")',
     {
-      weight: 'lighter',
+      weight: '400',
       style: 'italic',
     }
   );

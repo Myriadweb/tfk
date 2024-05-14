@@ -18,7 +18,7 @@ import { useGameContext } from '../../state/game';
 import { CSSProperties, useEffect } from 'react';
 import { Characters } from './ChildrenAssets/childrenAssets';
 
-const sceneStyle = {
+const sceneStyle: CSSProperties = {
   position: 'absolute',
   transform: 'translateX(-50%)',
 };
