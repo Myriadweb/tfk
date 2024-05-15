@@ -8,7 +8,7 @@ import { ReactComponent as LegRelaxed } from './MuscularAssets/hamstringsContrac
 import { ReactComponent as LegFlex } from './MuscularAssets/quadricepsContracting.svg';
 import HamstringLeaderLine from './MuscularAssets/hamstringsLeaderLine.svg';
 import QuadricepsLeaderLine from './MuscularAssets/quadricepsLeaderLine.svg';
-import playSound, { Sounds } from '../../sound';
+import playSound from '../../sound';
 
 import { Paths } from '../../types/Paths';
 import { useGameContext } from '../../state/game';

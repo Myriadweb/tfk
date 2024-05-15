@@ -25,7 +25,7 @@ const Procedures = ({ path, prefix }: Props) => {
     if (buttonsDisabled) {
       setButtonsDisabled(false);
     }
-  }, [path]);
+  }, [buttonsDisabled, path]);
 
   const onClickHandler = (destination: Paths) => {
     if (path === destination || buttonsDisabled) return;

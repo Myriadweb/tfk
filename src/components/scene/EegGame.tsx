@@ -48,7 +48,7 @@ export default function EegGame() {
         onRest: () => setGameState({ step: 8 }),
       });
     }
-  }, [step]);
+  });
 
   if (value && value.length === 5) {
     //setStep( { step: 2 })

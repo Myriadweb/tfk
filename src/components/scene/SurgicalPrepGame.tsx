@@ -113,7 +113,7 @@ export default function SurgicalPrepGame() {
         },
       });
     }
-  }, [step]);
+  }, [childApi, darkLayerApi, setGameState, step, targetApi, trayApi]);
 
   const ChildComponent = step < 11 ? ChildBed : ChildBedSleeping;
 

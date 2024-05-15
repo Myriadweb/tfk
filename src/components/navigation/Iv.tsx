@@ -39,7 +39,7 @@ const Iv = ({ prefix }: Props) => {
   const navigate = useNavigate();
   const [{ step, value }, setStep] = useGameContext();
   const [shouldShowComponent, setShouldShowComponent] = React.useState(true);
-  const [delayStyle, delayApi] = useSpring(() => ({ opacity: 1 }));
+  const [, delayApi] = useSpring(() => ({ opacity: 1 }));
 
   useEffect(() => {
     if (step === 2) {
@@ -64,7 +64,7 @@ const Iv = ({ prefix }: Props) => {
         onRest: () => setShouldShowComponent(true),
       });
     }
-  }, [step]);
+  }, [delayApi, step]);
 
   const stepComponentConfig = {
     0: () => (

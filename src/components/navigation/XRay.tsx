@@ -25,7 +25,7 @@ const XRay = ({ prefix }: Props) => {
   const t = useNavBarTranslation(prefix);
   const navigate = useNavigate();
   const [{ step, value }, setStep] = useGameContext();
-  const [delayStyle, delayApi] = useSpring(() => ({ opacity: 1 }));
+  const [, delayApi] = useSpring(() => ({ opacity: 1 }));
 
   useEffect(() => {
     if (step === 2) {
@@ -38,7 +38,7 @@ const XRay = ({ prefix }: Props) => {
         },
       });
     }
-  }, [step]);
+  });
 
   const stepComponentConfig = {
     0: () => <BlueBar></BlueBar>,

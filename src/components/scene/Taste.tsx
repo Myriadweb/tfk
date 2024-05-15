@@ -18,11 +18,6 @@ import OverlayBad from './SensoryAssets/overlayBAD.png';
 import Brain from './SensoryAssets/brain.png';
 import BgBad from './SensoryAssets/BGBad.png';
 
-const childImages = {
-  good: 'iceCream',
-  bad: 'hotSauce',
-};
-
 export default function Taste() {
   const [sensoryState, setSensoryState] = React.useState<VariationsType | null>(
     null

@@ -74,7 +74,7 @@ export default function MriGame() {
         },
       });
     }
-  }, [step]);
+  });
 
   return (
     <>

@@ -25,7 +25,7 @@ const BodySystems = ({ path, prefix }: Props) => {
     if (buttonsDisabled) {
       setButtonsDisabled(false);
     }
-  }, [path]);
+  }, [buttonsDisabled, path]);
 
   const onClickHandler = (destination: Paths) => {
     if (destination === path || buttonsDisabled) return;

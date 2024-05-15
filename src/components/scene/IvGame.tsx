@@ -125,7 +125,7 @@ export default function IvGame() {
         }),
       });
     }
-  }, [step]);
+  });
 
   let ChildComponent = step === 0 ? ChildBed : ChildBedSmiling;
   if (step === 1 && value === 'bubbles') {

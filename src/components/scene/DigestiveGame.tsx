@@ -210,7 +210,7 @@ export default function DigestiveGame() {
         onRest: () => setGameState({ step: 15 }),
       });
     }
-  }, [step]);
+  });
 
   if (!location.search) {
     return <Navigate to={'/' + Paths.BodySystems + '/' + Paths.Digestive} />;

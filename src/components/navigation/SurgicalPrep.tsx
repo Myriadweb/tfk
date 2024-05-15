@@ -43,7 +43,7 @@ const SurgicalPrep = ({ prefix }: Props) => {
   const [{ step, value }, setStep] = useGameContext();
   const [shouldShowComponent, setShouldShowComponent] = React.useState(true);
   const [pumps, addPump] = React.useState(0);
-  const [delayStyle, delayApi] = useSpring(() => ({ opacity: 1 }));
+  const [, delayApi] = useSpring(() => ({ opacity: 1 }));
 
   useEffect(() => {
     if (step === 9) {
@@ -53,7 +53,7 @@ const SurgicalPrep = ({ prefix }: Props) => {
     } else if (step === 5 && !shouldShowComponent) {
       setTimeout(() => setShouldShowComponent(true), 2000);
     }
-  }, [step]);
+  }, [delayApi, shouldShowComponent, step]);
 
   const stepComponentConfig = {
     0: () => (

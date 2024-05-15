@@ -144,7 +144,12 @@ const Smock = () => (
   <SmockRaw style={{ position: 'absolute', top: 332, left: 66 }} />
 );
 
-const childStyle: CSSProperties = { height: 984, width: 392, position: 'absolute', top: 0 };
+const childStyle: CSSProperties = {
+  height: 984,
+  width: 392,
+  position: 'absolute',
+  top: 0,
+};
 
 const DefaultCharacters = {
   [Character.child1]: () => <Child1 height='984' width='392' />,
@@ -215,8 +220,17 @@ const WorriedCharacters = {
   ),
 };
 
-const SensoryStyle: CSSProperties = { width: 784, height: 1942, position: 'absolute', top: 0 };
-const SensoryHeadStyle: CSSProperties = { position: 'absolute', width: 784, height: 616 };
+const SensoryStyle: CSSProperties = {
+  width: 784,
+  height: 1942,
+  position: 'absolute',
+  top: 0,
+};
+const SensoryHeadStyle: CSSProperties = {
+  position: 'absolute',
+  width: 784,
+  height: 616,
+};
 
 const SensoryCharacters = {
   [Character.child1]: () => (
@@ -643,6 +657,7 @@ const IceCreamCharacters = {
   ),
 };
 
+/*
 const liftFeatherStyle = {
   width: 439,
   height: 687,
@@ -656,6 +671,7 @@ const vestibularHeadStyle = {
   height: 307,
   top: 0,
 };
+ */
 
 const LiftFeatherCharacters = {
   [Character.child1]: () => (

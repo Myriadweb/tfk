@@ -94,7 +94,7 @@ export default function NervousGame() {
         highlight,
       },
     }));
-  }, [highlight]);
+  }, [highlight, setGameState]);
 
   if (!location.search) {
     setGameState({ step: 0 });

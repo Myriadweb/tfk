@@ -5,7 +5,10 @@ import './index.css';
 import './i18n';
 
 async function loadFonts() {
-  const changaOne = new FontFace('ChangaOne', 'url("fonts/ChangaOne-Regular.ttf")');
+  const changaOne = new FontFace(
+    'ChangaOne',
+    'url("fonts/ChangaOne-Regular.ttf")'
+  );
   const lemonMilk = new FontFace('LemonMilk', 'url("fonts/LemonMilk.otf")');
   const lemonMilkBold = new FontFace(
     'LemonMilk',

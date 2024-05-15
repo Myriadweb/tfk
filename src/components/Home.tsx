@@ -77,7 +77,7 @@ export function Home() {
       () => navigate(Paths.SplashScreen),
       TIME_TO_SPLASH
     );
-  }, []);
+  }, [navigate]);
 
   // By default, the app will render the Home component.
   // If we're on '/' we redirect to main-menu

@@ -63,7 +63,7 @@ export default function Skeletal() {
 
     setGameState({ step: 0 });
     setUid(Date.now());
-  }, [value]);
+  }, [setGameState, value]);
 
   const isGame =
     location.pathname ===

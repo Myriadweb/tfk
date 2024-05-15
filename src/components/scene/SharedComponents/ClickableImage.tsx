@@ -2,7 +2,6 @@ import React, { CSSProperties, useEffect, useRef } from 'react';
 import { animated, useSpring } from 'react-spring';
 import { useGameContext } from '../../../state/game';
 import playSound, { Sounds } from '../../../sound';
-import { use } from 'i18next';
 
 export type VariationsType = 'good' | 'bad';
 
@@ -54,7 +53,7 @@ export const ClickableImage = ({
     if (reset) {
       handleAnimation();
     }
-  }, [reset]);
+  });
 
   const handleAnimation = (res?: boolean) => {
     if (style.transform.isAnimating) return;

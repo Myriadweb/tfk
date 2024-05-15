@@ -85,7 +85,7 @@ export default function WellnessGame() {
         transform: 'scale(0.5) translate(-4px, 742px)',
       });
     }
-  }, [step]);
+  }, [childApi, oximeterApi, setGameState, step, targetApi, thermometerResultApi, trayApi]);
 
   const handleThermometerClicked = () => {
     thermometerApi.start({

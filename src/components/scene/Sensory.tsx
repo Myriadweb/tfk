@@ -12,7 +12,6 @@ import SmellHighlight from './SensoryAssets/smellHighlight.png';
 import TasteHighlight from './SensoryAssets/tasteHighlight.png';
 import TouchHighlight from './SensoryAssets/touchHighlight.png';
 import AnimatedLabel from './AnimatedLabel';
-import Sight from './Sight';
 
 const labelStyle = {
   background: '#30619C',

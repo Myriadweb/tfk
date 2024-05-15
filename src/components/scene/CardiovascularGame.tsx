@@ -5,7 +5,6 @@ import { useCharacterContext } from '../../state/character';
 import { Characters, sensoryChildWidth } from './ChildrenAssets/childrenAssets';
 import { Paths } from '../../types/Paths';
 import { useGameContext } from '../../state/game';
-import { ReactComponent as Body3 } from './CardiovascularAssets/body3.svg';
 import { ReactComponent as ArteriesLine } from './CardiovascularAssets/arteriesLine.svg';
 import { ReactComponent as VeinsLine } from './CardiovascularAssets/veinsLines.svg';
 import { columnLabelStyleLeft, columnLabelStyleRight } from './common';
@@ -18,7 +17,6 @@ import Animation2A from '../../animations/cardiovascular2aNew.webm';
 import Animation2B from '../../animations/cardiovascular2b.webm';
 
 import ReactPlayer from 'react-player';
-import { Simulate } from 'react-dom/test-utils';
 
 export default function CardiovascularGame() {
   const [{ step }, setGameState] = useGameContext();
@@ -32,7 +30,7 @@ export default function CardiovascularGame() {
     } else if (step === 7) {
       playSound('cardiovascularSlowHeartbeat');
     }
-  }, [step]);
+  });
 
   if (!location.search) {
     return (

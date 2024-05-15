@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSpring, animated, easings } from 'react-spring';
 import { useCharacterContext } from '../../state/character';
 import { Characters } from './ChildrenAssets/childrenAssets';
@@ -82,7 +82,7 @@ const SlidingChild = ({ i }: { i: number }) => {
         prevApi.set({ left: 540 });
       },
     });
-  }, [i]);
+  });
 
   return (
     <>
