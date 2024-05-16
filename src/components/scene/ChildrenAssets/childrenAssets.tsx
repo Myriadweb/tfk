@@ -123,7 +123,7 @@ import { ReactComponent as Child6SensoryDefault } from './Child6/sensoryDefault.
 import Child6happySensory from './Child6/happySensory.svg';
 
 import { ReactComponent as SmockRaw } from '../XRayAssets/smock.svg';
-import {ReactComponent} from "*.svg";
+import { ReactComponent } from '*.svg';
 
 export const Child3Standing = () => (
   <Child3StandingDefault height='984' width='392' />
@@ -824,12 +824,14 @@ const HappyCharacters = {
 };
 
 const HitFloorCharacters = {
-    [Character.child1]: () => <Child1HitFloor height='648' width='724'/>,
-    [Character.child2]: () => <Child2HitFloor height='648' width='724'/>,
-    [Character.child3]: () => <Child3HitFloor height='648' width='724'/>,
-    [Character.child4]: () => <img src={Child4HitFloor} height='648' width='724' />,
-    [Character.child5]: () => <Child5HitFloor height='648' width='724'/>,
-    [Character.child6]: () => <Child6HitFloor height='648' width='724'/>,
+  [Character.child1]: () => <Child1HitFloor height='648' width='724' />,
+  [Character.child2]: () => <Child2HitFloor height='648' width='724' />,
+  [Character.child3]: () => <Child3HitFloor height='648' width='724' />,
+  [Character.child4]: () => (
+    <img src={Child4HitFloor} height='648' width='724' />
+  ),
+  [Character.child5]: () => <Child5HitFloor height='648' width='724' />,
+  [Character.child6]: () => <Child6HitFloor height='648' width='724' />,
 };
 
 const ProtectionCharacters = {

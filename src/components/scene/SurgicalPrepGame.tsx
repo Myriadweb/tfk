@@ -43,7 +43,6 @@ export default function SurgicalPrepGame() {
 
   React.useEffect(() => {
     if (step === 1) {
-      console.log('step 1');
       childApi.start({
         to: [
           { transform: 'scale(1) translate(210px, -145px)' },
@@ -129,10 +128,10 @@ export default function SurgicalPrepGame() {
               willChange: 'transform',
               ...childStyle,
               width: 1080,
-              height: 1739
+              height: 1739,
             }}
           >
-            <ChildComponent style={{ width: 1080, height: 1739 }}/>
+            <ChildComponent style={{ width: 1080, height: 1739 }} />
           </animated.div>
           {step === 4 && (
             <animated.img

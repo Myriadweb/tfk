@@ -64,7 +64,6 @@ export function Home() {
   const handleResetTimeout = () => {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
-      console.log('cleared timeout')
     }
     timeoutRef.current = setTimeout(() => {
       navigate(Paths.SplashScreen);
