@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ReactComponent as Child } from './EegAssets/child.svg';
+import { ReactComponent as Child } from './EegAssets/childAlt.svg';
 import { ReactComponent as BG } from './EegAssets/BG.svg';
 import { ReactComponent as EegMonitor } from './EegAssets/eegMonitor.svg';
 import { useGameContext } from '../../state/game';
@@ -25,7 +25,7 @@ import { ReactComponent as HeadCap } from '../scene/EegAssets/headCap.svg';
 import { ReactComponent as PrinterBottom } from '../scene/EegAssets/printerBottom.svg';
 import { ReactComponent as PrinterPrintoutMiddle } from '../scene/EegAssets/printerPrintoutMiddle.svg';
 import { ReactComponent as PrinterTop } from '../scene/EegAssets/printerTop.svg';
-import { ReactComponent as Child6FullBody } from '../scene/ChildrenAssets/Child6/fullBody.svg';
+import { ReactComponent as Child6FullBody } from '../scene/ChildrenAssets/Child6/default.svg';
 import Doll from './SharedAssets/doll.png';
 import Medal from './SharedAssets/medal.png';
 import Sticker from './SharedAssets/sticker.svg';

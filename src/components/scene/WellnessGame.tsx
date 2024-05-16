@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { animated, useSpring } from 'react-spring';
-import { ReactComponent as WellnessScene } from './WellnessAssets/wellnessScene.svg';
+import { ReactComponent as WellnessScene } from './WellnessAssets/wellnessSceneAlt.svg';
 import Tray from './SharedAssets/tray.png';
 import Thermometer from './WellnessAssets/thermometerNew.svg';
 import ThermometerActive from './WellnessAssets/thermometerActiveNew.svg';
@@ -13,7 +13,7 @@ import Oximeter from './WellnessAssets/oximeter.svg';
 import OximeterOnArm from './WellnessAssets/oximeterOnArm.svg';
 import OximeterOnArmActive from './WellnessAssets/oximeterOnArmActive.svg';
 import OximeterResults from './WellnessAssets/oximeterResults.svg';
-import StandingChild from './WellnessAssets/standingChild.png';
+import StandingChild from './WellnessAssets/standingChildAlt.png';
 import BaseballBat from './WellnessAssets/baseballBat.svg';
 import BaseballBall from './WellnessAssets/baseballBall.svg';
 import Basketball from './WellnessAssets/basketball.svg';
@@ -85,7 +85,15 @@ export default function WellnessGame() {
         transform: 'scale(0.5) translate(-4px, 742px)',
       });
     }
-  }, [childApi, oximeterApi, setGameState, step, targetApi, thermometerResultApi, trayApi]);
+  }, [
+    childApi,
+    oximeterApi,
+    setGameState,
+    step,
+    targetApi,
+    thermometerResultApi,
+    trayApi,
+  ]);
 
   const handleThermometerClicked = () => {
     thermometerApi.start({

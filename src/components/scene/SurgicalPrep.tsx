@@ -6,7 +6,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Paths } from '../../types/Paths';
 import ProceduresTextBox from './SharedComponents/ProceduresTextBox';
 import { CSSProperties } from 'react';
-import SurgicalPrepChild from './SurgicalPrepAssets/surgicalPrep.svg';
+import SurgicalPrepChild from './SurgicalPrepAssets/surgicalPrepAlt.svg';
 
 const bodyLeft = 540;
 
@@ -66,6 +66,8 @@ export default function SurgicalPrep() {
           position: 'absolute',
           transform: 'translate(-50%, 0)',
           ...bodyStyle,
+          width: 603,
+          height: 1026,
         }}
       />
       <ProceduresTextBox

@@ -6,7 +6,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Paths } from '../../types/Paths';
 import ProceduresTextBox from './SharedComponents/ProceduresTextBox';
 import { CSSProperties } from 'react';
-import { ReactComponent as MriScene } from './MriAssets/mriScene.svg';
+import { ReactComponent as MriScene } from './MriAssets/mriSceneAlt.svg';
 
 const bodyLeft = 540;
 

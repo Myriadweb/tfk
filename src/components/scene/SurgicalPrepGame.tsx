@@ -3,7 +3,7 @@ import { animated, useSpring } from 'react-spring';
 import { useGameContext } from '../../state/game';
 import { DraggableImage } from './SharedComponents/DraggableImage';
 import playSound from '../../sound';
-import { ReactComponent as ChildBed } from './SurgicalPrepAssets/child.svg';
+import { ReactComponent as ChildBed } from './SurgicalPrepAssets/childAlt.svg';
 import { ReactComponent as ChildBedSleeping } from './SurgicalPrepAssets/childSleeping.svg';
 import Tray from './SharedAssets/tray.png';
 import BPCuff from './SharedAssets/bpCuff.svg';
@@ -43,10 +43,11 @@ export default function SurgicalPrepGame() {
 
   React.useEffect(() => {
     if (step === 1) {
+      console.log('step 1');
       childApi.start({
         to: [
-          { transform: 'scale(1) translate(232px, -222px)' },
-          { transform: 'scale(2) translate(232px, -222px)' },
+          { transform: 'scale(1) translate(210px, -145px)' },
+          { transform: 'scale(2) translate(210px, -145px)' },
         ],
         onRest: () => {
           trayApi.start({ transform: 'translateX(0px)' });
@@ -90,7 +91,7 @@ export default function SurgicalPrepGame() {
       });
     } else if (step === 8) {
       childApi.start({
-        transform: 'scale(2) translate(0px, 400px)',
+        transform: 'scale(2) translate(0px, 450px)',
         onRest: () => {
           setGameState({ step: 9 });
         },
@@ -127,9 +128,11 @@ export default function SurgicalPrepGame() {
               top: 27,
               willChange: 'transform',
               ...childStyle,
+              width: 1080,
+              height: 1739
             }}
           >
-            <ChildComponent />
+            <ChildComponent style={{ width: 1080, height: 1739 }}/>
           </animated.div>
           {step === 4 && (
             <animated.img

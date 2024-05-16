@@ -64,6 +64,7 @@ export function Home() {
   const handleResetTimeout = () => {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
+      console.log('cleared timeout')
     }
     timeoutRef.current = setTimeout(() => {
       navigate(Paths.SplashScreen);
@@ -71,13 +72,14 @@ export function Home() {
       setAnimateState('');
     }, TIME_TO_SPLASH);
   };
-
+  /*
   useEffect(() => {
     timeoutRef.current = setTimeout(
       () => navigate(Paths.SplashScreen),
       TIME_TO_SPLASH
     );
-  }, [navigate]);
+  });
+   */
 
   // By default, the app will render the Home component.
   // If we're on '/' we redirect to main-menu

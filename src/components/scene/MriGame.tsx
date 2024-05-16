@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { animated, useSpring } from 'react-spring';
-import MriBed from './MriAssets/mriBed.svg';
-import { ReactComponent as MriBedSleeping } from './MriAssets/mriBedSleeping.svg';
+import MriBed from './MriAssets/mriBedAlt.svg';
+import { ReactComponent as MriBedSleeping } from './MriAssets/mriBedSleepingAlt2.svg';
 import { ReactComponent as Background } from './MriAssets/background.svg';
 import { ReactComponent as MachineBottom } from './MriAssets/machineBottom.svg';
 import { ReactComponent as MachineTop } from './MriAssets/machineTop.svg';
@@ -95,7 +95,9 @@ export default function MriGame() {
             <MriBedSleeping
               style={{
                 ...sceneStyle,
-                top: 688,
+                top: 622,
+                width: 791,
+                height: 1424,
               }}
             />
             {value === 'music' && (
@@ -141,8 +143,10 @@ export default function MriGame() {
           style={{
             ...(sceneStyle as CSSProperties),
             transform: 'translateX(-50%) scale(1.4)',
-            top: 267,
+            top: 175,
             left: 540,
+            width: 791,
+            height: 1424,
           }}
         />
       )}

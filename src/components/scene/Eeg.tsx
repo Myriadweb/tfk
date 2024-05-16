@@ -6,7 +6,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Paths } from '../../types/Paths';
 import ProceduresTextBox from './SharedComponents/ProceduresTextBox';
 import { CSSProperties } from 'react';
-import EegBody from './EegAssets/eegBody.svg';
+import EegBody from './EegAssets/eegBodyAlt.svg';
 
 const bodyLeft = 540;
 
@@ -66,6 +66,7 @@ export default function Eeg() {
           position: 'absolute',
           transform: 'translate(-50%, 0)',
           ...bodyStyle,
+          height: 980,
         }}
       />
       <ProceduresTextBox

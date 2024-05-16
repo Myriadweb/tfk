@@ -17,7 +17,7 @@ import { ReactComponent as Child1HitFloor } from './Child1/hitFloor.svg';
 import Child1Protection from './Child1/protection.svg';
 import { ReactComponent as Child1SensoryDefault } from './Child1/sensoryDefault.svg';
 import Child1happySensory from './Child1/happySensory.svg';
-import Child1HappyStanding from './Child1/happyStanding.svg';
+import { ReactComponent as Child1HappyStanding } from './Child1/happyStanding.svg';
 import { ReactComponent as Child1DigestiveEyesOpen } from './Child1/digestiveEyesOpen.svg';
 import { ReactComponent as Child1DigestiveEyesClosed } from './Child1/digestiveEyesClosed.svg';
 
@@ -35,7 +35,7 @@ import Child2LiftWeight from './Child2/proprioceptionBad.svg';
 import Child2Breathe from './Child2/breathe.svg';
 import { ReactComponent as Child2HitFloor } from './Child2/hitFloor.svg';
 import Child2Protection from './Child2/protection.svg';
-import Child2HappyStanding from './Child2/happyStanding.svg';
+import { ReactComponent as Child2HappyStanding } from './Child2/happyStanding.svg';
 import { ReactComponent as Child2DigestiveEyesOpen } from './Child2/digestiveEyesOpen.svg';
 import { ReactComponent as Child2DigestiveEyesClosed } from './Child2/digestiveEyesClosed.svg';
 import { ReactComponent as Child2SensoryDefault } from './Child2/sensoryDefault.svg';
@@ -43,7 +43,7 @@ import Child2happySensory from './Child2/happySensory.svg';
 
 import Child3 from './Child3/default.png';
 import { ReactComponent as Child3Worried } from './Child3/worried.svg';
-import { ReactComponent as Child3StandingDefault } from './Child3/standing.svg';
+import { ReactComponent as Child3StandingDefault } from './Child3/happyStanding.svg';
 import Child3Scared from './Child3/scared.svg';
 import Child3Moon from './Child3/moon.svg';
 import Child3Sun from './Child3/sun.svg';
@@ -55,7 +55,7 @@ import Child3LiftWeight from './Child3/proprioceptionBad.svg';
 import Child3Breathe from './Child3/breathe.svg';
 import { ReactComponent as Child3HitFloor } from './Child3/hitFloor.svg';
 import Child3Protection from './Child3/protection.svg';
-import Child3HappyStanding from './Child3/happyStanding.svg';
+import { ReactComponent as Child3HappyStanding } from './Child3/happyStanding.svg';
 import { ReactComponent as Child3DigestiveEyesOpen } from './Child3/digestiveEyesOpen.svg';
 import { ReactComponent as Child3DigestiveEyesClosed } from './Child3/digestiveEyesClosed.svg';
 import { ReactComponent as Child3SensoryDefault } from './Child3/sensoryDefault.svg';
@@ -74,9 +74,9 @@ import Child4MouthOpen from './Child4/mouthOpen.svg';
 import Child4LiftFeather from './Child4/proprioceptionGood.svg';
 import Child4LiftWeight from './Child4/proprioceptionBad.svg';
 import Child4Breathe from './Child4/breathe.svg';
-import { ReactComponent as Child4HitFloor } from './Child4/hitFloor.svg';
+import Child4HitFloor from './Child4/hitFloor.png';
 import Child4Protection from './Child4/protection.svg';
-import Child4HappyStanding from './Child4/happyStanding.svg';
+import { ReactComponent as Child4HappyStanding } from './Child4/happyStanding.svg';
 import { ReactComponent as Child4DigestiveEyesOpen } from './Child4/digestiveEyesOpen.svg';
 import { ReactComponent as Child4DigestiveEyesClosed } from './Child4/digestiveEyesClosed.svg';
 import { ReactComponent as Child4SensoryDefault } from './Child4/sensoryDefault.svg';
@@ -85,7 +85,7 @@ import Child4happySensory from './Child4/happySensory.svg';
 import { ReactComponent as Child5 } from './Child5/default.svg';
 import Child5Raster from './Child5/default.svg';
 import { ReactComponent as Child5Worried } from './Child5/worried.svg';
-import Child5Scared from './Child5/happySensory.svg';
+import Child5Scared from './Child5/scared.svg';
 import Child5Moon from './Child5/moon.svg';
 import Child5Sun from './Child5/sun.svg';
 import Child5HotSauce from './Child5/hotSauce.svg';
@@ -96,11 +96,11 @@ import Child5LiftWeight from './Child5/proprioceptionBad.svg';
 import Child5Breathe from './Child5/breathe.png';
 import { ReactComponent as Child5HitFloor } from './Child5/hitFloor.svg';
 import Child5Protection from './Child5/protection.svg';
-import Child5HappyStanding from './Child5/happyStanding.svg';
+import { ReactComponent as Child5HappyStanding } from './Child5/happyStanding.svg';
 import { ReactComponent as Child5DigestiveEyesOpen } from './Child5/digestiveEyesOpen.svg';
 import { ReactComponent as Child5DigestiveEyesClosed } from './Child5/digestiveEyesClosed.svg';
 import { ReactComponent as Child5SensoryDefault } from './Child5/sensoryDefault.svg';
-import Child5happySensory from './Child5/scared.svg';
+import Child5happySensory from './Child5/happySensory.svg';
 
 import { ReactComponent as Child6 } from './Child6/default.svg';
 import Child6Raster from './Child6/default.svg';
@@ -116,13 +116,14 @@ import Child6LiftWeight from './Child6/proprioceptionBad.svg';
 import Child6Breathe from './Child6/breathe.svg';
 import { ReactComponent as Child6HitFloor } from './Child6/hitFloor.svg';
 import Child6Protection from './Child6/protection.svg';
-import Child6HappyStanding from './Child6/happyStanding.svg';
+import { ReactComponent as Child6HappyStanding } from './Child6/happyStanding.svg';
 import { ReactComponent as Child6DigestiveEyesOpen } from './Child6/digestiveEyesOpen.svg';
 import { ReactComponent as Child6DigestiveEyesClosed } from './Child6/digestiveEyesClosed.svg';
 import { ReactComponent as Child6SensoryDefault } from './Child6/sensoryDefault.svg';
 import Child6happySensory from './Child6/happySensory.svg';
 
 import { ReactComponent as SmockRaw } from '../XRayAssets/smock.svg';
+import {ReactComponent} from "*.svg";
 
 export const Child3Standing = () => (
   <Child3StandingDefault height='984' width='392' />
@@ -823,12 +824,12 @@ const HappyCharacters = {
 };
 
 const HitFloorCharacters = {
-  [Character.child1]: () => <Child1HitFloor height='648' width='724' />,
-  [Character.child2]: () => <Child2HitFloor height='648' width='724' />,
-  [Character.child3]: () => <Child3HitFloor height='648' width='724' />,
-  [Character.child4]: () => <Child4HitFloor height='648' width='724' />,
-  [Character.child5]: () => <Child5HitFloor height='648' width='724' />,
-  [Character.child6]: () => <Child6HitFloor height='648' width='724' />,
+    [Character.child1]: () => <Child1HitFloor height='648' width='724'/>,
+    [Character.child2]: () => <Child2HitFloor height='648' width='724'/>,
+    [Character.child3]: () => <Child3HitFloor height='648' width='724'/>,
+    [Character.child4]: () => <img src={Child4HitFloor} height='648' width='724' />,
+    [Character.child5]: () => <Child5HitFloor height='648' width='724'/>,
+    [Character.child6]: () => <Child6HitFloor height='648' width='724'/>,
 };
 
 const ProtectionCharacters = {
@@ -879,6 +880,7 @@ export const Characters: {
   breathe: BreathingHead,
   hitFloor: HitFloorCharacters,
   protection: ProtectionCharacters,
+  // @ts-ignore
   happy: HappyCharacters,
   digestiveEyesOpen: DigestiveEyesOpen,
   digestiveEyesClosed: DigestiveEyesClosed,

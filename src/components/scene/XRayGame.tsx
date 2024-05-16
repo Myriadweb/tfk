@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { animated, useSpring } from 'react-spring';
 import Wound from './XRayAssets/wound.svg';
-import { ReactComponent as XRayScene } from './XRayAssets/xRayScene.svg';
+import { ReactComponent as XRayScene } from './XRayAssets/xRaySceneAlt.svg';
 import { ReactComponent as XRayScene2 } from './XRayAssets/xRayScene2.svg';
 import { ReactComponent as XRayMachineScene } from './XRayAssets/xRayMachineScene.svg';
 import { ReactComponent as PainLines } from './XRayAssets/painLines.svg';
 import { ReactComponent as XRayBody } from './XRayAssets/xRayBody.svg';
 import { ReactComponent as Cast } from './XRayAssets/cast.svg';
 import { ReactComponent as Signature } from './XRayAssets/signature.svg';
-import { ReactComponent as FinalCharacter } from './ChildrenAssets/Child5/defaultNoBracelet.svg';
+import { ReactComponent as FinalCharacter } from './ChildrenAssets/Child5/defaultNoBraceletAlt.svg';
 
 import { useGameContext } from '../../state/game';
 import playSound from '../../sound';
@@ -97,6 +97,8 @@ export default function XRayGame() {
             style={{
               position: 'absolute',
               left: -22,
+              width: 1123,
+              height: 1868,
             }}
           />
           {step === 0 && (
