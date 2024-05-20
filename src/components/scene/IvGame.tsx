@@ -3,7 +3,7 @@ import { animated, useSpring } from 'react-spring';
 import { useGameContext } from '../../state/game';
 import { DraggableImage } from './SharedComponents/DraggableImage';
 import playSound from '../../sound';
-import { ReactComponent as ChildBed } from './IvAssets/childBedAlt.svg';
+import { ReactComponent as ChildBed } from './IvAssets/childBed.svg';
 import { ReactComponent as ChildBedSmiling } from './IvAssets/childBedSmiling.svg';
 import { ReactComponent as ChildBedSmiling2 } from './IvAssets/childBedHappy.svg';
 import Tablet from './IvAssets/tablet.svg';

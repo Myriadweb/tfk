@@ -1,15 +1,15 @@
 import React, { CSSProperties } from 'react';
 import { Character } from '../../../state/character';
 
-import { ReactComponent as Child1 } from './Child1/default.svg';
-import Child1Raster from './Child1/default.svg';
+import { ReactComponent as Child1 } from './Child1/sensoryDefault.svg';
+import Child1Raster from './Child1/sensoryDefault.svg';
 import { ReactComponent as Child1Worried } from './Child1/worried.svg';
 import Child1Scared from './Child1/scared.svg';
 import Child1Moon from './Child1/moon.svg';
 import Child1Sun from './Child1/sun.svg';
 import Child1HotSauce from './Child1/hotSauce.svg';
 import Child1IceCream from './Child1/iceCream.svg';
-import Child1MouthOpen from './Child1/default.svg';
+import Child1MouthOpen from './Child1/sensoryDefault.svg';
 import Child1LiftFeather from './Child1/proprioceptionGood.svg';
 import Child1LiftWeight from './Child1/proprioceptionBad.svg';
 import Child1Breathe from './Child1/breathe.png';
@@ -63,7 +63,6 @@ import Child3happySensory from './Child3/happySensory.svg';
 
 import { ReactComponent as Child4 } from './Child4/default.svg';
 import Child4Raster from './Child4/default.svg';
-
 import { ReactComponent as Child4Worried } from './Child4/worried.svg';
 import Child4Scared from './Child4/scared.svg';
 import Child4Moon from './Child4/moon.svg';
