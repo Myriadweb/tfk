@@ -26,7 +26,7 @@ import { ReactComponent as PrinterBottom } from '../scene/EegAssets/printerBotto
 import { ReactComponent as PrinterPrintoutMiddle } from '../scene/EegAssets/printerPrintoutMiddle.svg';
 import { ReactComponent as PrinterTop } from '../scene/EegAssets/printerTop.svg';
 import { ReactComponent as Child6FullBody } from '../scene/ChildrenAssets/Child6/default.svg';
-import Doll from './SharedAssets/doll.png';
+import Bear from './SharedAssets/bear.png';
 import Medal from './SharedAssets/medal.png';
 import Sticker from './SharedAssets/sticker.svg';
 import playSound from '../../sound';
@@ -282,7 +282,7 @@ export default function EegGame() {
           )}
           {value === 'doll' && (
             <animated.img
-              src={Doll}
+              src={Bear}
               style={{
                 position: 'absolute',
                 left: 273,

@@ -3,7 +3,7 @@ import { animated, useSpring } from 'react-spring';
 import { useGameContext } from '../../state/game';
 import { DraggableImage } from './SharedComponents/DraggableImage';
 import playSound from '../../sound';
-import { ReactComponent as ChildBed } from './SurgicalPrepAssets/childAlt.svg';
+import { ReactComponent as ChildBed } from './SurgicalPrepAssets/child.svg';
 import { ReactComponent as ChildBedSleeping } from './SurgicalPrepAssets/childSleeping.svg';
 import Tray from './SharedAssets/tray.png';
 import BPCuff from './SharedAssets/bpCuff.svg';
