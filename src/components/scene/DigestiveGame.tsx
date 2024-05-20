@@ -219,7 +219,6 @@ export default function DigestiveGame() {
   const childAsset = STEP_TO_CHILD_CONFIG[step] || 'digestiveEyesClosed';
 
   const ChildComponent = Characters[childAsset][selectedCharacter];
-  console.log('ChildComponent', childAsset)
   const width = sensoryChildWidth;
 
   return (
