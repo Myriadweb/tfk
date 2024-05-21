@@ -23,7 +23,7 @@ import NeedlePlaced3 from './IvAssets/needlePlaced3.svg';
 import BandageSelection from './SharedAssets/bandageSelection.svg';
 import BandagePlaced from './SharedAssets/bandagePlaced.svg';
 import Sticker from './SharedAssets/sticker.svg';
-import Doll from './SharedAssets/doll.png';
+import Bear from './SharedAssets/bear.png';
 import Medal from './SharedAssets/medal.png';
 import { Characters } from './ChildrenAssets/childrenAssets';
 import InitialPromptIV from './IvAssets/initialPromptIV.svg';
@@ -390,7 +390,7 @@ export default function IvGame() {
           )}
           {value === 'doll' && (
             <animated.img
-              src={Doll}
+              src={Bear}
               style={{
                 position: 'absolute',
                 left: 395,

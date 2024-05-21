@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ReactComponent as Child } from './EegAssets/childAlt.svg';
+import { ReactComponent as Child } from './EegAssets/child.svg';
 import { ReactComponent as BG } from './EegAssets/BG.svg';
 import { ReactComponent as EegMonitor } from './EegAssets/eegMonitor.svg';
 import { useGameContext } from '../../state/game';

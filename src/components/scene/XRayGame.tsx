@@ -1,15 +1,15 @@
 import * as React from 'react';
 import { animated, useSpring } from 'react-spring';
 import Wound from './XRayAssets/wound.svg';
-import { ReactComponent as XRayScene } from './XRayAssets/xRaySceneAlt.svg';
+import { ReactComponent as XRayScene } from './XRayAssets/xRayScene.svg';
 import { ReactComponent as XRayScene2 } from './XRayAssets/xRayScene2.svg';
 import { ReactComponent as XRayMachineScene } from './XRayAssets/xRayMachineScene.svg';
 import { ReactComponent as PainLines } from './XRayAssets/painLines.svg';
 import { ReactComponent as XRayBody } from './XRayAssets/xRayBody.svg';
 import { ReactComponent as Cast } from './XRayAssets/cast.svg';
 import { ReactComponent as Signature } from './XRayAssets/signature.svg';
-import { ReactComponent as FinalCharacter } from './ChildrenAssets/Child5/defaultNoBraceletAlt.svg';
-
+import { ReactComponent as FinalCharacter } from './ChildrenAssets/Child5/defaultNoBracelet.svg';
+import Bear from './SharedAssets/bear.png';
 import { useGameContext } from '../../state/game';
 import playSound from '../../sound';
 import { useEffect } from 'react';
@@ -199,7 +199,7 @@ export default function XRayGame() {
           )}
           {value === 'doll' && (
             <animated.img
-              src={`images/XRay/doll.png`}
+              src={Bear}
               style={{
                 position: 'absolute',
                 left: 278,

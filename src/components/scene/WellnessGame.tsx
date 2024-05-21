@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { animated, useSpring } from 'react-spring';
-import { ReactComponent as WellnessScene } from './WellnessAssets/wellnessSceneAlt.svg';
+import { ReactComponent as WellnessScene } from './WellnessAssets/wellnessScene.svg';
 import Tray from './SharedAssets/tray.png';
 import Thermometer from './WellnessAssets/thermometerNew.svg';
 import ThermometerActive from './WellnessAssets/thermometerActiveNew.svg';
