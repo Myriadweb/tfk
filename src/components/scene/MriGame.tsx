@@ -10,7 +10,7 @@ import { ReactComponent as Music } from './SharedAssets/music.svg';
 import { ReactComponent as Nap } from './MriAssets/nap.svg';
 import { ReactComponent as VR } from './MriAssets/vr.svg';
 import MriBody from './MriAssets/mriBody.png';
-import Doll from './SharedAssets/doll.png';
+import Bear from './SharedAssets/bear.png';
 import Medal from './SharedAssets/medal.png';
 import { ReactComponent as Sticker } from './SharedAssets/sticker.svg';
 
@@ -198,7 +198,7 @@ export default function MriGame() {
           )}
           {value === 'doll' && (
             <animated.img
-              src={Doll}
+              src={Bear}
               style={{
                 position: 'absolute',
                 left: 278,

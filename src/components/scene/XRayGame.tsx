@@ -9,7 +9,7 @@ import { ReactComponent as XRayBody } from './XRayAssets/xRayBody.svg';
 import { ReactComponent as Cast } from './XRayAssets/cast.svg';
 import { ReactComponent as Signature } from './XRayAssets/signature.svg';
 import { ReactComponent as FinalCharacter } from './ChildrenAssets/Child5/defaultNoBraceletAlt.svg';
-
+import Bear from './SharedAssets/bear.png';
 import { useGameContext } from '../../state/game';
 import playSound from '../../sound';
 import { useEffect } from 'react';
@@ -199,7 +199,7 @@ export default function XRayGame() {
           )}
           {value === 'doll' && (
             <animated.img
-              src={`images/XRay/doll.png`}
+              src={Bear}
               style={{
                 position: 'absolute',
                 left: 278,
