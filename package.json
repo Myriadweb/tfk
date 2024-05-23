@@ -1,7 +1,7 @@
 {
   "name": "teammates",
   "author": "Myriad",
-  "version": "0.9.8",
+  "version": "1.0.2",
   "private": true,
   "main": "main.js",
   "engines": {
@@ -95,7 +95,7 @@
     "@typescript-eslint/eslint-plugin": "^5.29.0",
     "@typescript-eslint/parser": "^5.29.0",
     "electron": "^19.0.6",
-    "electron-builder": "^23.1.0",
+    "electron-builder": "^22.14.13",
     "eslint": "^8.18.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-jest": "^26.5.3",
