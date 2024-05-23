@@ -154,7 +154,7 @@ const childStyle: CSSProperties = {
 const DefaultCharacters = {
   [Character.child1]: () => <Child1 height='984' width='392' />,
   [Character.child2]: () => <Child2 height='984' width='392' />,
-  [Character.child3]: () => <img src={Child3} />,
+  [Character.child3]: () => <img src={Child3} height='984' />,
   [Character.child4]: () => <Child4 height='984' width='392' />,
   [Character.child5]: () => <Child5 height='984' width='392' />,
   [Character.child6]: () => <Child6 height='984' width='392' />,
@@ -163,7 +163,7 @@ const DefaultCharacters = {
 const DefaultCharactersRaster = {
   [Character.child1]: () => <img height='984' width='392' src={Child1Raster} />,
   [Character.child2]: () => <img height='984' width='392' src={Child2Raster} />,
-  [Character.child3]: () => <img src={Child3} />,
+  [Character.child3]: () => <img src={Child3} height='984' />,
   [Character.child4]: () => <img height='984' width='392' src={Child4Raster} />,
   [Character.child5]: () => <img height='984' width='392' src={Child5Raster} />,
   [Character.child6]: () => <img height='984' width='392' src={Child6Raster} />,

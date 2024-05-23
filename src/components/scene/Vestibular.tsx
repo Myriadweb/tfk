@@ -143,9 +143,9 @@ export default function Vestibular() {
       <animated.div
         style={{
           position: 'absolute',
-          width: 393,
-          height: 972,
-          left: 518,
+          width: 394,
+          height: 971,
+          left: 538,
           top: 275,
           opacity: sensoryState === 'good' ? 1 : 0,
           ...jumpStyle,
