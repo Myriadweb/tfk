@@ -2,7 +2,7 @@ import React, { CSSProperties } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 
 import { useCharacterContext } from '../../state/character';
-import { Characters, sensoryChildWidth } from './ChildrenAssets/childrenAssets';
+import { Characters, sensoryChildWidth } from './ChildrenAssets/childrenAssetsAlt';
 import { Paths } from '../../types/Paths';
 import { useGameContext } from '../../state/game';
 import Apple from './DigestiveAssets/apple.svg';
@@ -219,6 +219,7 @@ export default function DigestiveGame() {
   const childAsset = STEP_TO_CHILD_CONFIG[step] || 'digestiveEyesClosed';
 
   const ChildComponent = Characters[childAsset][selectedCharacter];
+  const DefaultChild = Characters.default[selectedCharacter];
   const width = sensoryChildWidth;
 
   return (

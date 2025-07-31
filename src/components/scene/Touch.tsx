@@ -23,7 +23,7 @@ import pan from './SensoryAssets/TouchAssets/pan.png';
 import { ReactComponent as PlushToy } from './SensoryAssets/TouchAssets/plushToy.svg';
 import Sparkles from './SensoryAssets/TouchAssets/sparkles.svg';
 import { useCharacterContext } from '../../state/character';
-import { Characters } from './ChildrenAssets/childrenAssets';
+import { Characters } from './ChildrenAssets/childrenAssetsAlt';
 import OverlayGood from './SensoryAssets/TouchAssets/overlayGood.png';
 import OverlayBad from './SensoryAssets/TouchAssets/overlayBad.png';
 import BottomOverlay from './SensoryAssets/bottomOverlay.png';

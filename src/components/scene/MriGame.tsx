@@ -16,7 +16,7 @@ import { ReactComponent as Sticker } from './SharedAssets/sticker.svg';
 
 import { useGameContext } from '../../state/game';
 import { CSSProperties, useEffect } from 'react';
-import { Characters } from './ChildrenAssets/childrenAssets';
+import { Characters } from './ChildrenAssets/childrenAssetsAlt';
 
 const sceneStyle: CSSProperties = {
   position: 'absolute',

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSpring, animated, easings } from 'react-spring';
 import { useCharacterContext } from '../../state/character';
-import { Characters } from './ChildrenAssets/childrenAssets';
+import { Characters } from './ChildrenAssets/childrenAssetsAlt';
 import playSound from '../../sound';
 
 type AnimatedArrowProps = {
