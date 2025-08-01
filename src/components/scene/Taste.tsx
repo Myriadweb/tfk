@@ -11,7 +11,7 @@ import Bottle from './SensoryAssets/TasteAssets/Bottle.png';
 import SenseHighlight from './SensoryAssets/TasteAssets/SenseHighlight.png';
 import Drop from './SensoryAssets/TasteAssets/Drop.png';
 import { useCharacterContext } from '../../state/character';
-import { Characters, sensoryChildWidth } from './ChildrenAssets/childrenAssetsAlt';
+import { Characters, sensoryChildWidth } from './ChildrenAssets/childrenAssets';
 import BottomOverlay from './SensoryAssets/bottomOverlay.png';
 import OverlayGood from './SensoryAssets/overlayGOOD.png';
 import OverlayBad from './SensoryAssets/overlayBAD.png';

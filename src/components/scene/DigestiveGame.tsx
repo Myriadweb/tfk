@@ -2,7 +2,7 @@ import React, { CSSProperties } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 
 import { useCharacterContext } from '../../state/character';
-import { Characters, sensoryChildWidth } from './ChildrenAssets/childrenAssetsAlt';
+import { Characters, sensoryChildWidth } from './ChildrenAssets/childrenAssets';
 import { Paths } from '../../types/Paths';
 import { useGameContext } from '../../state/game';
 import Apple from './DigestiveAssets/apple.svg';
