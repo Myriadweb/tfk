@@ -1,5 +1,5 @@
-import { ReactComponent as Child1 } from './Child1/default.svg';
-import Child1Raster from './Child1/default.svg';
+import { ReactComponent as Child1 } from './Child1/sensoryDefault.svg';
+import Child1Raster from './Child1/sensoryDefault.svg';
 import { ReactComponent as Child1Worried } from './Child1/worried.svg';
 import Child1Scared from './Child1/scared.svg';
 import Child1Moon from './Child1/moon.svg';
@@ -60,7 +60,6 @@ import Child3happySensory from './Child3/happySensory.svg';
 
 import { ReactComponent as Child4 } from './Child4/default.svg';
 import Child4Raster from './Child4/default.svg';
-
 import { ReactComponent as Child4Worried } from './Child4/worried.svg';
 import Child4Scared from './Child4/scared.svg';
 import Child4Moon from './Child4/moon.svg';
@@ -71,7 +70,7 @@ import Child4MouthOpen from './Child4/mouthOpen.svg';
 import Child4LiftFeather from './Child4/proprioceptionGood.svg';
 import Child4LiftWeight from './Child4/proprioceptionBad.svg';
 import Child4Breathe from './Child4/breathe.svg';
-import Child4HitFloor from './Child4/hitFloor.png';
+import Child4HitFloor from './Child4/hitFloor.svg';
 import Child4Protection from './Child4/protection.svg';
 import { ReactComponent as Child4HappyStanding } from './Child4/happyStanding.svg';
 import { ReactComponent as Child4DigestiveEyesOpen } from './Child4/digestiveEyesOpen.svg';
