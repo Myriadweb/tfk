@@ -83,6 +83,24 @@ const Smock = () => (
   <SmockRaw style={{ position: 'absolute', top: 332, left: 66 }} />
 );
 
+export const EegBody = locationAssets.eegBody;
+export const XRayScene = locationAssets.XRayScene;
+export const XRayScene2 = locationAssets.XRayScene2;
+export const SurgicalPrepChild = locationAssets.SurgicalPrepChild;
+export const SurgicalPrepChildBed = locationAssets.SurgicalPrepChildBed;
+export const SurgicalPrepChildBedSleeping = locationAssets.SurgicalPrepChildBedSleeping;
+export const SurgicalPrepFinalChild = locationAssets.SurgicalPrepFinalChild;
+export const EegChildBed = locationAssets.Child6Bed;
+export const EegChildDefault = locationAssets.Child6;
+export const WellnessScene = locationAssets.WellnessScene;
+export const WellnessStandingChild = locationAssets.WellnessStandingChild;
+export const IvChildBed = locationAssets.IvChildBed;
+export const IvChildBedSmiling = locationAssets.IvChildBedSmiling;
+export const IvChildBedHappy = locationAssets.IvChildBedHappy;
+export const MriBed = locationAssets.MriBed;
+export const MriBedSleeping = locationAssets.MriBedSleeping;
+export const MriScene = locationAssets.MriScene;
+
 const childStyle: CSSProperties = {
   height: 984,
   width: 392,

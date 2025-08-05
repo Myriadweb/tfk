@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { animated, useSpring } from 'react-spring';
-import { ReactComponent as WellnessScene } from './WellnessAssets/wellnessSceneAlt.svg';
+// import { ReactComponent as WellnessScene } from './WellnessAssets/wellnessSceneAlt.svg';
 import Tray from './SharedAssets/tray.png';
 import Thermometer from './WellnessAssets/thermometerNew.svg';
 import ThermometerActive from './WellnessAssets/thermometerActiveNew.svg';
@@ -18,6 +18,7 @@ import BaseballBat from './WellnessAssets/baseballBat.svg';
 import BaseballBall from './WellnessAssets/baseballBall.svg';
 import Basketball from './WellnessAssets/basketball.svg';
 import JumpRope from './WellnessAssets/jumpRope.svg';
+import {Characters, WellnessScene, WellnessStandingChild} from "./ChildrenAssets/childrenAssets";
 
 import { useGameContext } from '../../state/game';
 import playSound from '../../sound';
@@ -47,6 +48,8 @@ export default function WellnessGame() {
   const [oximeterStyle, oximeterApi] = useSpring(() => ({
     transform: 'scale(1) translate(0px, 0px)',
   }));
+
+  console.log(WellnessStandingChild);
 
   React.useEffect(() => {
     if (step === 1) {
@@ -232,7 +235,7 @@ export default function WellnessGame() {
       {step >= 10 && (
         <>
           <img
-            src={StandingChild}
+            src={WellnessStandingChild}
             style={{
               position: 'absolute',
               top: 274,

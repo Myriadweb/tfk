@@ -3,8 +3,7 @@ import { animated, useSpring } from 'react-spring';
 import { useGameContext } from '../../state/game';
 import { DraggableImage } from './SharedComponents/DraggableImage';
 import playSound from '../../sound';
-import { ReactComponent as ChildBed } from './SurgicalPrepAssets/child.svg';
-import { ReactComponent as ChildBedSleeping } from './SurgicalPrepAssets/childSleeping.svg';
+import { SurgicalPrepChildBed, SurgicalPrepChildBedSleeping, SurgicalPrepFinalChild } from './ChildrenAssets/childrenAssets';
 import Tray from './SharedAssets/tray.png';
 import BPCuff from './SharedAssets/bpCuff.svg';
 import Target from './SharedAssets/target.svg';
@@ -21,8 +20,6 @@ import AnesthesiaMask from './SurgicalPrepAssets/anesthesiaMask.svg';
 import Juicebox from './SurgicalPrepAssets/juicebox.svg';
 import Popsicle from './SurgicalPrepAssets/popsicle.svg';
 import IceCream from './SurgicalPrepAssets/iceCream.svg';
-
-import { ReactComponent as FinalChild } from './SurgicalPrepAssets/finalChild.svg';
 
 export default function SurgicalPrepGame() {
   const [{ step, value }, setGameState] = useGameContext();
@@ -115,7 +112,7 @@ export default function SurgicalPrepGame() {
     }
   }, [childApi, darkLayerApi, setGameState, step, targetApi, trayApi]);
 
-  const ChildComponent = step < 11 ? ChildBed : ChildBedSleeping;
+  const ChildComponent = step < 11 ? SurgicalPrepChildBed : SurgicalPrepChildBedSleeping;
 
   return (
     <>
@@ -297,7 +294,7 @@ export default function SurgicalPrepGame() {
       )}
       {step >= 13 && (
         <>
-          <FinalChild
+          <SurgicalPrepFinalChild
             style={{
               position: 'absolute',
               transform: 'translateX(-50%)',

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { animated, useSpring } from 'react-spring';
-import MriBed from './MriAssets/mriBedAlt.svg';
-import { ReactComponent as MriBedSleeping } from './MriAssets/mriBedSleepingAlt2.svg';
+// import MriBed from './MriAssets/mriBedAlt.svg';
+// import { ReactComponent as MriBedSleeping } from './MriAssets/mriBedSleepingAlt2.svg';
 import { ReactComponent as Background } from './MriAssets/background.svg';
 import { ReactComponent as MachineBottom } from './MriAssets/machineBottom.svg';
 import { ReactComponent as MachineTop } from './MriAssets/machineTop.svg';
@@ -13,10 +13,9 @@ import MriBody from './MriAssets/mriBody.png';
 import Bear from './SharedAssets/bear.png';
 import Medal from './SharedAssets/medal.png';
 import { ReactComponent as Sticker } from './SharedAssets/sticker.svg';
-
 import { useGameContext } from '../../state/game';
 import { CSSProperties, useEffect } from 'react';
-import { Characters } from './ChildrenAssets/childrenAssets';
+import { Characters, MriBed, MriBedSleeping } from './ChildrenAssets/childrenAssets';
 
 const sceneStyle: CSSProperties = {
   position: 'absolute',

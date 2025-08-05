@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { animated, useSpring } from 'react-spring';
 import Wound from './XRayAssets/wound.svg';
-import { ReactComponent as XRayScene } from './XRayAssets/xRaySceneAlt.svg';
-import { ReactComponent as XRayScene2 } from './XRayAssets/xRayScene2.svg';
+import {XRayScene, XRayScene2 } from './ChildrenAssets/childrenAssets';
 import { ReactComponent as XRayMachineScene } from './XRayAssets/xRayMachineScene.svg';
 import { ReactComponent as PainLines } from './XRayAssets/painLines.svg';
 import { ReactComponent as XRayBody } from './XRayAssets/xRayBody.svg';

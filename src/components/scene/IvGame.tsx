@@ -25,7 +25,7 @@ import BandagePlaced from './SharedAssets/bandagePlaced.svg';
 import Sticker from './SharedAssets/sticker.svg';
 import Bear from './SharedAssets/bear.png';
 import Medal from './SharedAssets/medal.png';
-import { Characters } from './ChildrenAssets/childrenAssets';
+import { Characters, IvChildBed, IvChildBedHappy, IvChildBedSmiling } from './ChildrenAssets/childrenAssets';
 import InitialPromptIV from './IvAssets/initialPromptIV.svg';
 
 const ChildFinalStep = Characters.default[0];
@@ -127,9 +127,9 @@ export default function IvGame() {
     }
   });
 
-  let ChildComponent = step === 0 ? ChildBed : ChildBedSmiling;
+  let ChildComponent = step === 0 ? IvChildBed : IvChildBedSmiling;
   if (step === 1 && value === 'bubbles') {
-    ChildComponent = ChildBedSmiling2;
+    ChildComponent = IvChildBedHappy;
   }
 
   return (

@@ -6,7 +6,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Paths } from '../../types/Paths';
 import ProceduresTextBox from './SharedComponents/ProceduresTextBox';
 import { CSSProperties } from 'react';
-import EegBody from './EegAssets/eegBody.svg';
+//import EegBody from './EegAssets/eegBody.svg';
+import { EegBody } from './ChildrenAssets/childrenAssets';
 
 const bodyLeft = 540;
 

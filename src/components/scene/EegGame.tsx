@@ -30,6 +30,8 @@ import Bear from './SharedAssets/bear.png';
 import Medal from './SharedAssets/medal.png';
 import Sticker from './SharedAssets/sticker.svg';
 import playSound from '../../sound';
+import {Characters, EegChildBed, EegChildDefault} from "./ChildrenAssets/childrenAssets";
+
 
 import { useSpring, animated } from 'react-spring';
 import { useEffect } from 'react';
@@ -90,7 +92,7 @@ export default function EegGame() {
               top: step === 0 ? -40 : 400,
             }}
           >
-            <Child
+            <EegChildBed
               style={{
                 width: '100%',
                 height: 'auto',
@@ -261,7 +263,7 @@ export default function EegGame() {
       )}
       {step >= 9 && (
         <>
-          <Child6FullBody
+          <EegChildDefault
             style={{
               position: 'absolute',
               left: '50%',

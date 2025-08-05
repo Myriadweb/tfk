@@ -6,7 +6,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Paths } from '../../types/Paths';
 import ProceduresTextBox from './SharedComponents/ProceduresTextBox';
 import { CSSProperties } from 'react';
-import SurgicalPrepChild from './SurgicalPrepAssets/surgicalPrep.svg';
+import { SurgicalPrepChild } from './ChildrenAssets/childrenAssets';
 
 const bodyLeft = 540;
 
