@@ -25,7 +25,6 @@ import { ReactComponent as HeadCap } from '../scene/EegAssets/headCap.svg';
 import { ReactComponent as PrinterBottom } from '../scene/EegAssets/printerBottom.svg';
 import { ReactComponent as PrinterPrintoutMiddle } from '../scene/EegAssets/printerPrintoutMiddle.svg';
 import { ReactComponent as PrinterTop } from '../scene/EegAssets/printerTop.svg';
-import { ReactComponent as Child6FullBody } from '../scene/ChildrenAssets/Child6/default.svg';
 import Bear from './SharedAssets/bear.png';
 import Medal from './SharedAssets/medal.png';
 import Sticker from './SharedAssets/sticker.svg';

@@ -133,6 +133,7 @@ import { ReactComponent as WellnessScene } from "./Child4/wellnessScene.svg";
 import WellnessStandingChild from './Child4/standingChild.png';
 import { ReactComponent as XRayScene } from './Child5/xRayScene.svg';
 import { ReactComponent as XRayScene2 } from './Child5/xRayScene2.svg';
+import { ReactComponent as XRayChildNoBracelet } from './Child5/defaultNoBracelet.svg';
 import { ReactComponent as Child6Bed } from "./Child6/child.svg";
 import eegBody from './Child6/eegBody.svg';
 
@@ -254,6 +255,7 @@ export {
     eegBody,
     XRayScene,
     XRayScene2,
+    XRayChildNoBracelet,
     SurgicalPrepChild,
     SurgicalPrepChildBed,
     SurgicalPrepChildBedSleeping,

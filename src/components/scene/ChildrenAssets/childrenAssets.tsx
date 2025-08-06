@@ -86,6 +86,7 @@ const Smock = () => (
 export const EegBody = locationAssets.eegBody;
 export const XRayScene = locationAssets.XRayScene;
 export const XRayScene2 = locationAssets.XRayScene2;
+export const XRayChildNoBracelet = locationAssets.XRayChildNoBracelet;
 export const SurgicalPrepChild = locationAssets.SurgicalPrepChild;
 export const SurgicalPrepChildBed = locationAssets.SurgicalPrepChildBed;
 export const SurgicalPrepChildBedSleeping = locationAssets.SurgicalPrepChildBedSleeping;

@@ -1,5 +1,5 @@
-import { ReactComponent as Child1 } from './Child1/default.svg';
-import Child1Raster from './Child1/default.svg';
+import { ReactComponent as Child1 } from './Child1/sensoryDefault.svg';
+import Child1Raster from './Child1/sensoryDefault.svg';
 import { ReactComponent as Child1Worried } from './Child1/worried.svg';
 import Child1Scared from './Child1/scared.svg';
 import Child1Moon from './Child1/moon.svg';
@@ -60,7 +60,6 @@ import Child3happySensory from './Child3/happySensory.svg';
 
 import { ReactComponent as Child4 } from './Child4/default.svg';
 import Child4Raster from './Child4/default.svg';
-
 import { ReactComponent as Child4Worried } from './Child4/worried.svg';
 import Child4Scared from './Child4/scared.svg';
 import Child4Moon from './Child4/moon.svg';
@@ -118,6 +117,25 @@ import { ReactComponent as Child6DigestiveEyesOpen } from './Child6/digestiveEye
 import { ReactComponent as Child6DigestiveEyesClosed } from './Child6/digestiveEyesClosed.svg';
 import { ReactComponent as Child6SensoryDefault } from './Child6/sensoryDefault.svg';
 import Child6happySensory from './Child6/happySensory.svg';
+
+// Import prodecure assets
+import { ReactComponent as IvChildBed } from './Child1/childBed.svg';
+import { ReactComponent as IvChildBedSmiling } from "./Child1/childBedSmiling.svg";
+import { ReactComponent as IvChildBedHappy } from "./Child1/childBedHappy.svg";
+import SurgicalPrepChild from './Child2/surgicalPrep.svg';
+import { ReactComponent as SurgicalPrepChildBed } from './Child2/child.svg';
+import { ReactComponent as SurgicalPrepChildBedSleeping } from './Child2/childSleeping.svg';
+import { ReactComponent as SurgicalPrepFinalChild} from "./Child2/finalChild.svg";
+import MriBed from './Child3/mriBed.svg';
+import { ReactComponent as MriBedSleeping } from "./Child3/mriBedSleeping.svg";
+import { ReactComponent as MriScene } from "./Child3/mriScene.svg";
+import { ReactComponent as WellnessScene } from "./Child4/wellnessScene.svg";
+import WellnessStandingChild from './Child4/standingChild.png';
+import { ReactComponent as XRayScene } from './Child5/xRayScene.svg';
+import { ReactComponent as XRayScene2 } from './Child5/xRayScene2.svg';
+import { ReactComponent as XRayChildNoBracelet } from './Child5/defaultNoBracelet.svg';
+import { ReactComponent as Child6Bed } from "./Child6/child.svg";
+import eegBody from './Child6/eegBody.svg';
 
 export {
     Child1,
@@ -233,5 +251,22 @@ export {
     Child6DigestiveEyesOpen,
     Child6DigestiveEyesClosed,
     Child6SensoryDefault,
-    Child6happySensory
+    Child6happySensory,
+    eegBody,
+    XRayScene,
+    XRayScene2,
+    XRayChildNoBracelet,
+    SurgicalPrepChild,
+    SurgicalPrepChildBed,
+    SurgicalPrepChildBedSleeping,
+    SurgicalPrepFinalChild,
+    Child6Bed,
+    WellnessScene,
+    WellnessStandingChild,
+    IvChildBed,
+    IvChildBedSmiling,
+    IvChildBedHappy,
+    MriBed,
+    MriBedSleeping,
+    MriScene
 }
