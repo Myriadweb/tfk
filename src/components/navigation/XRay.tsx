@@ -15,6 +15,7 @@ import { useEffect } from 'react';
 import { BlueBarContinue } from './BlueBarContinue';
 import BlueBar from './UIComponents/BlueBar';
 import { Trans } from 'react-i18next';
+import Tablet from "./IvAssets/iPad.svg";
 
 type Props = {
   path: Paths;
@@ -26,6 +27,11 @@ const XRay = ({ prefix }: Props) => {
   const navigate = useNavigate();
   const [{ step, value }, setStep] = useGameContext();
   const [, delayApi] = useSpring(() => ({ opacity: 1 }));
+
+    useEffect(() => {
+        (window as any).debugSetStep = setStep;
+        (window as any).debugGetState = () => ({ step, value });
+    }, [setStep, step, value]);
 
   useEffect(() => {
     if (step === 2) {
@@ -119,21 +125,30 @@ const XRay = ({ prefix }: Props) => {
     ),
     6: () => (
       <>
-        <BlueBar style={{ height: 192 }}>
-          <div className='nav-items-container'>
-            <NavigationButton
-              image={Skeletal}
-              size={'large'}
-              onClick={() => {
-                playSound('click');
-                setStep({ step: 0 });
-                navigate(Paths.BodySystems + '/' + Paths.Skeletal);
-              }}
-              text=''
-            />
-          </div>
-        </BlueBar>
-        <div
+          <BlueBar style={{ height: 192 }}>
+              <div className='two-columns'>
+                  <NavigationButton
+                      image={Skeletal}
+                      size={'large'}
+                      onClick={() => {
+                          playSound('generalSelect');
+                          setStep({ step: 0 });
+                          navigate(Paths.BodySystems + '/' + Paths.Skeletal);
+                      }}
+                      text=''
+                  />
+                  <NavigationButton
+                      image={Tablet}
+                      size={'large'}
+                      onClick={() => {
+                          playSound('generalSelect');
+                          setStep((oldStep) => ({ ...oldStep, step: 7 }));
+                      }}
+                      text=''
+                  />
+              </div>
+          </BlueBar>
+          <div
           style={{
             position: 'absolute',
             left: 44,
@@ -168,6 +183,33 @@ const XRay = ({ prefix }: Props) => {
         </div>
       </>
     ),
+    7: () => (
+          <>
+              <BlueBar style={{ height: 192 }}>
+
+              </BlueBar>
+              <div className='links-container'
+                  style={{
+                      position: 'absolute',
+                      left: 44,
+                      top: 383,
+                  }}
+              >
+                  <Link
+                      to={`${Paths.Procedures}/${prefix}`}
+                      onClick={() => {
+                          playSound('click');
+                          setStep({ step: 0 });
+                      }}
+                      className='link'
+                  >
+                      <img src='images/NavBar/proceduresButton.png' />
+                      <span>{t(`${step}-back`)}</span>
+                  </Link>
+              </div>
+          </>
+      ),
+
   };
 
   return (
@@ -182,9 +224,21 @@ const XRay = ({ prefix }: Props) => {
         >
           {t(`${step}-mainText`)}
         </div>
-        <div className='body-text'>
-          {step !== 3 && <Trans i18nKey={t(`${step}-subText`)} />}
-        </div>
+          {step === 6 && (
+              <div className='body-text two-columns'>
+                  <div>
+                      <Trans i18nKey={t(`${step}-subText`)} />
+                  </div>
+                  <div>
+                      <Trans i18nKey={t(`${step}-subText2`)} />
+                  </div>
+              </div>
+          )}
+          {step !== 6 && (
+              <div className='body-text'>
+                  {step !== 3 && <Trans i18nKey={t(`${step}-subText`)} />}
+              </div>
+          )}
       </div>
       {stepComponentConfig[step] && stepComponentConfig[step]()}
     </animated.div>

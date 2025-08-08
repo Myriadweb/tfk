@@ -23,6 +23,7 @@ import {Characters, WellnessScene, WellnessStandingChild} from "./ChildrenAssets
 import { useGameContext } from '../../state/game';
 import playSound from '../../sound';
 import { DraggableImage } from './SharedComponents/DraggableImage';
+import ProcedurePlaceholder from "./SharedAssets/procedurePlaceholder.png";
 
 export default function WellnessGame() {
   const [{ step, value }, setGameState] = useGameContext();
@@ -232,7 +233,7 @@ export default function WellnessGame() {
           handleThermometerClicked();
         }}
       />
-      {step >= 10 && (
+      {step >= 10 && step < 12 && (
         <>
           <img
             src={WellnessStandingChild}
@@ -280,6 +281,13 @@ export default function WellnessGame() {
           />
         </>
       )}
+        {step >= 12 && (
+            <>
+                <img
+                    src={ProcedurePlaceholder}
+                />
+            </>
+        )}
     </>
   );
 }

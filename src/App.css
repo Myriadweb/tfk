@@ -131,6 +131,12 @@
   left: 0;
 }
 
+.blue-bar .two-columns {
+    column-count: 2;
+    column-gap: 80px;
+    width: 100%;
+}
+
 .nav-items-container {
   margin: 0px auto;
   display: flex;
@@ -182,6 +188,12 @@
 }
 .body-text.full-width {
   max-width: 100%;
+}
+.body-text.two-columns {
+  column-count: 2;
+  column-gap: 80px;
+  max-width: 100%;
+  padding: 0 20px;
 }
 
 .bold-text {
@@ -252,6 +264,7 @@
   margin-right: 40px;
   white-space: pre;
   text-align: left;
+  font-size: 20px;
 }
 
 .links-container .link img {

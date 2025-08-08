@@ -20,6 +20,7 @@ import AnesthesiaMask from './SurgicalPrepAssets/anesthesiaMask.svg';
 import Juicebox from './SurgicalPrepAssets/juicebox.svg';
 import Popsicle from './SurgicalPrepAssets/popsicle.svg';
 import IceCream from './SurgicalPrepAssets/iceCream.svg';
+import ProcedurePlaceholder from "./SharedAssets/procedurePlaceholder.png";
 
 export default function SurgicalPrepGame() {
   const [{ step, value }, setGameState] = useGameContext();
@@ -292,7 +293,7 @@ export default function SurgicalPrepGame() {
           </animated.div>
         </>
       )}
-      {step >= 13 && (
+      {step >= 13 && step < 16 && (
         <>
           <SurgicalPrepFinalChild
             style={{
@@ -334,6 +335,13 @@ export default function SurgicalPrepGame() {
             />
           )}
         </>
+      )}
+      {step === 16 && (
+          <>
+            <img
+                src={ProcedurePlaceholder}
+            />
+          </>
       )}
       <animated.div
         style={{

@@ -478,7 +478,12 @@ const en: Translation = {
         '14-buttonText': 'CONTINUE',
         '15-subText':
           'You finished the surgery Tap below to learn more about <br /><strong>the cardiovascular1 system.</strong>',
-        '15-back': 'Return to \nProcedures ',
+        '15-subText2':
+            'Or see how other kids did with the procedure <br /><strong>in the patient scrapbook.</strong>',
+        '15-back': 'Return to \nProcedures',
+        '16-mainText': '',
+        '16-subText': 'See how other kids got ready for surgery <br /><strong>AND DID GREAT!</strong>',
+        '16-back': 'Return to \nProcedures',
       },
     },
     [Paths.XRay]: {
@@ -515,7 +520,13 @@ const en: Translation = {
         '5-buttonText': 'CONTINUE',
         '6-subText':
           'You finished the X-ray! Tap below <br />to learn more about <br /><strong>the skeletal system</strong>',
+        '6-subText2':
+            'Or see how other kids did with the procedure <br /><strong>in the patient scrapbook.</strong>',
         '6-back': 'Return to \nProcedures',
+        '7-mainText': '',
+        '7-subText': 'See how other kids got xrays <br /><strong>AND DID GREAT!</strong>',
+        '7-back': 'Return to \nProcedures',
+
       },
     },
     [Paths.Eeg]: {
@@ -562,8 +573,13 @@ const en: Translation = {
           'The EEG test is finished.\n Choose a reward for the patient!',
         '9-buttonText': 'Continue',
         '10-subText':
-          'You finished the EEG!\nTap below to learn more about <br /><strong>the nervous system</strong>',
+          'You finished the EEG!\nTap below to learn more about  <br /><strong>the nervous system</strong>',
+        '10-subText2':
+            'Or see how other kids did with the procedure <br /><strong>in the patient scrapbook.</strong>',
         '10-back': 'Return to \nProcedures',
+        '11-mainText': '',
+        '11-subText': 'See how other kids got xrays <br /><strong>AND DID GREAT!</strong>',
+        '11-back': 'Return to \nProcedures',
       },
     },
     [Paths.Wellness]: {
@@ -612,7 +628,12 @@ const en: Translation = {
         '11-mainText': ' ',
         '11-subText':
           'You finished the wellness check! <br />Tap below to learn more about <br /><strong>the cardiovascular system</strong>',
+        '11-subText2':
+            'Or see how other kids did with the procedure <br /><strong>in the patient scrapbook.</strong>',
         '11-back': 'Return to \nProcedures',
+        '12-mainText': '',
+        '12-subText': 'See how other kids got a wellness checkup <br /><strong>AND DID GREAT!</strong>',
+        '12-back': 'Return to \nProcedures',
       },
     },
     [Paths.Mri]: {
@@ -647,7 +668,12 @@ const en: Translation = {
         '5-buttonText': 'CONTINUE',
         '6-subText':
           'You finished the MRI! Tap below to learn more about <br /><strong>the muscular system</strong>',
+        '6-subText2':
+            'Or see how other kids did with the procedure <br /><strong>in the patient scrapbook.</strong>',
         '6-back': 'Return to \nProcedures',
+        '7-mainText': '',
+        '7-subText': 'See how other kids got an MRI <br /><strong>AND DID GREAT!</strong>',
+        '7-back': 'Return to \nProcedures',
       },
     },
     [Paths.Iv]: {
@@ -694,8 +720,14 @@ const en: Translation = {
         '10-subText': 'The IV is in place. Choose a reward for the patient.',
         '10-buttonText': 'CONTINUE',
         '11-subText':
-          'You inserted the IV!\nTap below to learn more about <br /><strong>the cardiovascular system</strong>',
+          'You inserted the IV!\nTap below to learn more about <br /><strong>the cardiovascular system</strong><br />',
+        '11-subText2':
+            'Or see how other kids did with the procedure <br /><strong>in the patient scrapbook.</strong>',
         '11-back': 'Return to \nProcedures',
+        '12-mainText': '',
+        '12-subText': 'See how other kids got ready for their IVs <br /><strong>AND DID GREAT!</strong>',
+        '12-back': 'Return to \nProcedures',
+
       },
     },
     common: {

@@ -24,6 +24,7 @@ import Bear from './SharedAssets/bear.png';
 import Medal from './SharedAssets/medal.png';
 import { Characters, IvChildBed, IvChildBedHappy, IvChildBedSmiling } from './ChildrenAssets/childrenAssets';
 import InitialPromptIV from './IvAssets/initialPromptIV.svg';
+import ProcedurePlaceholder from './SharedAssets/procedurePlaceholder.png';
 
 const ChildFinalStep = Characters.default[0];
 
@@ -356,7 +357,7 @@ export default function IvGame() {
           </animated.div>
         </>
       )}
-      {step >= 10 && (
+      {step >= 10 && step < 12 && (
         <>
           <div
             style={{
@@ -406,6 +407,13 @@ export default function IvGame() {
               }}
             />
           )}
+        </>
+      )}
+      {step === 12 && (
+        <>
+          <img
+            src={ProcedurePlaceholder}
+          />
         </>
       )}
     </>

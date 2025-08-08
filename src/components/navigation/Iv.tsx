@@ -229,19 +229,30 @@ const Iv = ({ prefix }: Props) => {
     11: () => (
       <>
         <BlueBar style={{ height: 192 }}>
-          <NavigationButton
-            image={Cardiovascular}
-            size={'large'}
-            onClick={() => {
-              playSound('generalSelect');
-              setStep({ step: 0 });
-              navigate(Paths.BodySystems + '/' + Paths.Cardiovascular);
-            }}
-            text=''
-          />
+            <div className='two-columns'>
+              <NavigationButton
+                image={Cardiovascular}
+                size={'large'}
+                onClick={() => {
+                  playSound('generalSelect');
+                  setStep({ step: 0 });
+                  navigate(Paths.BodySystems + '/' + Paths.Cardiovascular);
+                }}
+                text=''
+              />
+              <NavigationButton
+                image={Tablet}
+                size={'large'}
+                onClick={() => {
+                    playSound('generalSelect');
+                    setStep((oldStep) => ({ ...oldStep, step: 12 }));
+                }}
+                text=''
+              />
+            </div>
         </BlueBar>
 
-        <div
+        <div className="links-container"
           style={{
             position: 'absolute',
             left: 44,
@@ -254,27 +265,39 @@ const Iv = ({ prefix }: Props) => {
               playSound('click');
               setStep({ step: 0 });
             }}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-            }}
+            className='link'
           >
             <img src='images/NavBar/proceduresButton.png' />
-            <span
-              style={{
-                fontSize: 20,
-                color: '#FFF',
-                fontFamily: 'LemonMilk',
-                marginLeft: 15,
-                whiteSpace: 'pre',
-                textAlign: 'left',
-              }}
-            >
-              {t(`${step}-back`)}
-            </span>
+            <span>{t(`${step}-back`)}</span>
           </Link>
         </div>
       </>
+    ),
+    12: () => (
+        <>
+            <BlueBar style={{ height: 192 }}>
+
+            </BlueBar>
+            <div className='links-container'
+                style={{
+                    position: 'absolute',
+                    left: 44,
+                    top: 383,
+                }}
+            >
+                <Link
+                    to={`${Paths.Procedures}/${prefix}`}
+                    onClick={() => {
+                        playSound('click');
+                        setStep({ step: 0 });
+                    }}
+                    className='link'
+                >
+                    <img src='images/NavBar/proceduresButton.png' />
+                </Link>
+                <span>{t(`${step}-back`)}</span>
+            </div>
+        </>
     ),
   };
 
@@ -287,12 +310,21 @@ const Iv = ({ prefix }: Props) => {
         >
           {t(`${step}-mainText`)}
         </div>
-        <div
-          className='body-text'
-          style={{ display: step != 0 ? 'block' : 'none' }}
-        >
-          <Trans i18nKey={t(`${step}-subText`)} />
-        </div>
+          {step === 11 && (
+              <div className='body-text two-columns'>
+                  <div>
+                      <Trans i18nKey={t(`${step}-subText`)} />
+                  </div>
+                  <div>
+                      <Trans i18nKey={t(`${step}-subText2`)} />
+                  </div>
+              </div>
+          )}
+          {step !== 11 && (
+              <div className='body-text'>
+                  <Trans i18nKey={t(`${step}-subText`)} />
+              </div>
+          )}
       </div>
       {shouldShowComponent && stepComponentConfig[step] ? (
         stepComponentConfig[step]()

@@ -34,6 +34,7 @@ import {Characters, EegChildBed, EegChildDefault} from "./ChildrenAssets/childre
 
 import { useSpring, animated } from 'react-spring';
 import { useEffect } from 'react';
+import ProcedurePlaceholder from "./SharedAssets/procedurePlaceholder.png";
 
 export default function EegGame() {
   const [{ step, value }, setGameState] = useGameContext();
@@ -260,7 +261,7 @@ export default function EegGame() {
           <PrinterTop style={{ position: 'absolute', top: 267, left: 171 }} />
         </>
       )}
-      {step >= 9 && (
+      {step >= 9 && step < 11 && (
         <>
           <EegChildDefault
             style={{
@@ -303,6 +304,13 @@ export default function EegGame() {
             />
           )}
         </>
+      )}
+      {step === 11 && (
+          <>
+            <img
+                src={ProcedurePlaceholder}
+            />
+          </>
       )}
     </div>
   );

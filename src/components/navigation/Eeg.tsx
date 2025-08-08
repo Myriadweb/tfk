@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useNavBarTranslation } from '../../hooks';
-import { useNavigate } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import { useGameContext } from '../../state/game';
 import { animated } from 'react-spring';
 import playSound from '../../sound';
@@ -17,6 +17,8 @@ import Nervous from './BodySystemsAssets/Nervous.svg';
 import { BlueBarContinue } from './BlueBarContinue';
 import BlueBar from './UIComponents/BlueBar';
 import { Trans } from 'react-i18next';
+import Cardiovascular from "./BodySystemsAssets/Cardiovascular.svg";
+import Tablet from "./IvAssets/iPad.svg";
 
 type Props = {
   path: Paths;
@@ -234,28 +236,58 @@ export default function Eeg({ prefix }: Props) {
       </>
     ),
     10: () => (
-      <BlueBar style={{ height: 192 }}>
-        <NavigationButton
-          image={Nervous}
-          size={'large'}
-          onClick={() => {
-            playSound('generalSelect');
-            setStep({ step: 0 });
-            navigate(Paths.BodySystems + '/' + Paths.Nervous);
-          }}
-          text=''
-        />
-      </BlueBar>
+        <BlueBar style={{ height: 192 }}>
+            <div className='two-columns'>
+                <NavigationButton
+                    image={Nervous}
+                    size={'large'}
+                    onClick={() => {
+                        playSound('generalSelect');
+                        setStep({ step: 0 });
+                        navigate(Paths.BodySystems + '/' + Paths.Nervous);
+                    }}
+                    text=''
+                />
+                <NavigationButton
+                    image={Tablet}
+                    size={'large'}
+                    onClick={() => {
+                        playSound('generalSelect');
+                        setStep((oldStep) => ({ ...oldStep, step: 11 }));
+                    }}
+                    text=''
+                />
+            </div>
+        </BlueBar>
     ),
+      11: () => (
+          <>
+              <BlueBar style={{ height: 192 }}>
+
+              </BlueBar>
+          </>
+      ),
   };
 
   return (
     <animated.div>
       <div className='nav-top'>
         <div className='header-text'>{step != 10 && t(`${step}-mainText`)}</div>
-        <div className='body-text'>
-          <Trans i18nKey={t(`${step}-subText`)} />
-        </div>
+          {step === 10 && (
+              <div className='body-text two-columns'>
+                  <div>
+                      <Trans i18nKey={t(`${step}-subText`)} />
+                  </div>
+                  <div>
+                      <Trans i18nKey={t(`${step}-subText2`)} />
+                  </div>
+              </div>
+          )}
+          {step !== 10 && (
+              <div className='body-text'>
+                  <Trans i18nKey={t(`${step}-subText`)} />
+              </div>
+          )}
       </div>
       {stepComponentConfig[step] && stepComponentConfig[step]()}
     </animated.div>

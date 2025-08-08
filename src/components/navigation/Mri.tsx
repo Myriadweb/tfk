@@ -18,6 +18,8 @@ import Medal from './SharedAssets/medal.svg';
 import BlueBar from './UIComponents/BlueBar';
 import { BlueBarContinue } from './BlueBarContinue';
 import { Trans } from 'react-i18next';
+import Cardiovascular from "./BodySystemsAssets/Cardiovascular.svg";
+import Tablet from "./IvAssets/iPad.svg";
 
 type Props = {
   path: Paths;
@@ -178,20 +180,30 @@ const Mri = ({ prefix }: Props) => {
     ),
     6: () => (
       <>
-        <BlueBar style={{ height: 192 }}>
-          <NavigationButton
-            image={Muscular}
-            size={'large'}
-            onClick={() => {
-              playSound('click');
-              setStep({ step: 0 });
-              navigate(Paths.BodySystems + '/' + Paths.Muscular);
-            }}
-            text=''
-          />
-        </BlueBar>
-
-        <div
+          <BlueBar style={{ height: 192 }}>
+              <div className='two-columns'>
+                  <NavigationButton
+                      image={Muscular}
+                      size={'large'}
+                      onClick={() => {
+                          playSound('generalSelect');
+                          setStep({ step: 0 });
+                          navigate(Paths.BodySystems + '/' + Paths.Muscular);
+                      }}
+                      text=''
+                  />
+                  <NavigationButton
+                      image={Tablet}
+                      size={'large'}
+                      onClick={() => {
+                          playSound('generalSelect');
+                          setStep((oldStep) => ({ ...oldStep, step: 7 }));
+                      }}
+                      text=''
+                  />
+              </div>
+          </BlueBar>
+        <div className='links-container'
           style={{
             position: 'absolute',
             left: 44,
@@ -204,28 +216,40 @@ const Mri = ({ prefix }: Props) => {
               playSound('generalSelect');
               setStep({ step: 0 });
             }}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-            }}
+            className='link'
           >
             <img src='images/NavBar/proceduresButton.png' />
-            <span
-              style={{
-                fontSize: 20,
-                color: '#FFF',
-                fontFamily: 'LemonMilk',
-                marginLeft: 15,
-                whiteSpace: 'pre',
-                textAlign: 'left',
-              }}
-            >
-              {t(`${step}-back`)}
-            </span>
+            <span>{t(`${step}-back`)}</span>
           </Link>
         </div>
       </>
     ),
+      7: () => (
+          <>
+              <BlueBar style={{ height: 192 }}>
+
+              </BlueBar>
+              <div className='links-container'
+                   style={{
+                       position: 'absolute',
+                       left: 44,
+                       top: 383,
+                   }}
+              >
+                  <Link
+                      to={`${Paths.Procedures}/${prefix}`}
+                      onClick={() => {
+                          playSound('click');
+                          setStep({ step: 0 });
+                      }}
+                      className='link'
+                  >
+                      <img src='images/NavBar/proceduresButton.png' />
+                      <span>{t(`${step}-back`)}</span>
+                  </Link>
+              </div>
+          </>
+      ),
   };
 
   return (
@@ -237,12 +261,23 @@ const Mri = ({ prefix }: Props) => {
         >
           {t(`${step}-mainText`)}
         </div>
-        <div
-          className='body-text'
-          style={{ display: step != 0 ? 'block' : 'none' }}
-        >
-          <Trans i18nKey={t(`${step}-subText`)} />
-        </div>
+          {step === 6 && (
+              <div className='body-text two-columns'>
+                  <div>
+                      <Trans i18nKey={t(`${step}-subText`)} />
+                  </div>
+                  <div>
+                      <Trans i18nKey={t(`${step}-subText2`)} />
+                  </div>
+              </div>
+          )}
+          {step !== 6 && (
+              <div className='body-text'
+                   style={{ display: step != 0 ? 'block' : 'none' }}
+              >
+                  <Trans i18nKey={t(`${step}-subText`)} />
+              </div>
+          )}
       </div>
       {stepComponentConfig[step] && stepComponentConfig[step]()}
     </>

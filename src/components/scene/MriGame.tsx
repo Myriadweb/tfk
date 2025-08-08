@@ -16,6 +16,7 @@ import { ReactComponent as Sticker } from './SharedAssets/sticker.svg';
 import { useGameContext } from '../../state/game';
 import { CSSProperties, useEffect } from 'react';
 import { Characters, MriBed, MriBedSleeping } from './ChildrenAssets/childrenAssets';
+import ProcedurePlaceholder from "./SharedAssets/procedurePlaceholder.png";
 
 const sceneStyle: CSSProperties = {
   position: 'absolute',
@@ -172,7 +173,7 @@ export default function MriGame() {
           />
         </>
       )}
-      {step >= 5 && (
+      {step >= 5 && step < 7 && (
         <>
           <div
             style={{
@@ -217,6 +218,13 @@ export default function MriGame() {
             />
           )}
         </>
+      )}
+      {step >= 7 && (
+          <>
+            <img
+                src={ProcedurePlaceholder}
+            />
+          </>
       )}
     </>
   );

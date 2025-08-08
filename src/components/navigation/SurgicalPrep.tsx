@@ -25,6 +25,8 @@ import { ReactComponent as AsleepFace } from './SurgicalPrepAssets/sliderAsleep.
 
 import { CustomSlider } from './CustomSlider';
 import { Trans } from 'react-i18next';
+import Skeletal from "./BodySystemsAssets/Skeletal.svg";
+import Tablet from "./IvAssets/iPad.svg";
 
 const PUMPS_CONFIG = {
   1: BpPumpOneBar,
@@ -231,20 +233,30 @@ const SurgicalPrep = ({ prefix }: Props) => {
     ),
     15: () => (
       <>
-        <BlueBar style={{ height: 192 }}>
-          <NavigationButton
-            image={Cardiovascular}
-            size={'large'}
-            onClick={() => {
-              playSound('generalSelect');
-              setStep({ step: 0 });
-              navigate(Paths.BodySystems + '/' + Paths.Cardiovascular);
-            }}
-            text=''
-          />
-        </BlueBar>
-
-        <div
+          <BlueBar style={{ height: 192 }}>
+              <div className='two-columns'>
+                  <NavigationButton
+                      image={Cardiovascular}
+                      size={'large'}
+                      onClick={() => {
+                          playSound('generalSelect');
+                          setStep({ step: 0 });
+                          navigate(Paths.BodySystems + '/' + Paths.Cardiovascular);
+                      }}
+                      text=''
+                  />
+                  <NavigationButton
+                      image={Tablet}
+                      size={'large'}
+                      onClick={() => {
+                          playSound('generalSelect');
+                          setStep((oldStep) => ({ ...oldStep, step: 16 }));
+                      }}
+                      text=''
+                  />
+              </div>
+          </BlueBar>
+        <div className='links-container'
           style={{
             position: 'absolute',
             left: 44,
@@ -257,28 +269,40 @@ const SurgicalPrep = ({ prefix }: Props) => {
               playSound('click');
               setStep({ step: 0 });
             }}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-            }}
+            className='link'
           >
             <img src='images/NavBar/proceduresButton.png' />
-            <span
-              style={{
-                fontSize: 20,
-                color: '#FFF',
-                fontFamily: 'LemonMilk',
-                marginLeft: 15,
-                whiteSpace: 'pre',
-                textAlign: 'left',
-              }}
-            >
-              {t(`${step}-back`)}
-            </span>
+            <span>{t(`${step}-back`)}</span>
           </Link>
         </div>
       </>
     ),
+      16: () => (
+          <>
+              <BlueBar style={{ height: 192 }}>
+
+              </BlueBar>
+              <div className='links-container'
+                   style={{
+                       position: 'absolute',
+                       left: 44,
+                       top: 383,
+                   }}
+              >
+                  <Link
+                      to={`${Paths.Procedures}/${prefix}`}
+                      onClick={() => {
+                          playSound('click');
+                          setStep({ step: 0 });
+                      }}
+                      className='link'
+                  >
+                      <img src='images/NavBar/proceduresButton.png' />
+                      <span>{t(`${step}-back`)}</span>
+                  </Link>
+              </div>
+          </>
+      ),
   };
 
   return (
@@ -292,12 +316,21 @@ const SurgicalPrep = ({ prefix }: Props) => {
         >
           {t(`${step}-mainText`)}
         </div>
-        <div
-          className='body-text'
-          style={{ display: step != 12 && step != 8 ? 'block' : 'none' }}
-        >
-          <Trans i18nKey={t(`${step}-subText`)} />
-        </div>
+          {step === 15 && (
+              <div className='body-text two-columns'>
+                  <div>
+                      <Trans i18nKey={t(`${step}-subText`)} />
+                  </div>
+                  <div>
+                      <Trans i18nKey={t(`${step}-subText2`)} />
+                  </div>
+              </div>
+          )}
+          {step !== 15 && (
+              <div className='body-text'>
+                  {step !== 3 && <Trans i18nKey={t(`${step}-subText`)} />}
+              </div>
+          )}
       </div>
       {stepComponentConfig[step] && stepComponentConfig[step]()}
     </animated.div>
