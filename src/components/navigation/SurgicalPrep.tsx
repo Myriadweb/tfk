@@ -25,7 +25,6 @@ import { ReactComponent as AsleepFace } from './SurgicalPrepAssets/sliderAsleep.
 
 import { CustomSlider } from './CustomSlider';
 import { Trans } from 'react-i18next';
-import Skeletal from "./BodySystemsAssets/Skeletal.svg";
 import Tablet from "./IvAssets/iPad.svg";
 
 const PUMPS_CONFIG = {

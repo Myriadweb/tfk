@@ -18,7 +18,6 @@ import Medal from './SharedAssets/medal.svg';
 import BlueBar from './UIComponents/BlueBar';
 import { BlueBarContinue } from './BlueBarContinue';
 import { Trans } from 'react-i18next';
-import Cardiovascular from "./BodySystemsAssets/Cardiovascular.svg";
 import Tablet from "./IvAssets/iPad.svg";
 
 type Props = {

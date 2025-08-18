@@ -3,10 +3,10 @@ import { useSpring, animated, easings } from 'react-spring';
 import { useCharacterContext } from '../../state/character';
 import { Characters } from './ChildrenAssets/childrenAssets';
 import playSound from '../../sound';
+import { screenScale } from "../../utils/scaling";
 
 type AnimatedArrowProps = {
   direction: 'left' | 'right';
-
   onClick: (direction: 'left' | 'right') => void;
   disabled: 'left' | 'right' | null;
   style?: any;
@@ -24,8 +24,8 @@ const AnimatedArrow = ({
     }.png`}
     style={{
       position: 'absolute',
-      left: direction === 'left' ? 70 : 1010,
-      top: 732,
+      left: direction === 'left' ? screenScale.x(70): screenScale.x(1010),
+      top: screenScale.y(732),
       transform: 'translate(-50%, 0)',
       ...style,
     }}
@@ -36,10 +36,10 @@ const AnimatedArrow = ({
 const SlidingChild = ({ i }: { i: number }) => {
   const [previousChild, setPreviousChild] = useState(i);
   const [prevStyle, prevApi] = useSpring(() => ({
-    left: 540,
+    left: screenScale.x(540),
   }));
   const [currentStyle, currentApi] = useSpring(() => ({
-    left: 540,
+    left: screenScale.x(540),
   }));
 
   const PreviousChild = Characters.defaultRaster[previousChild];
@@ -59,7 +59,7 @@ const SlidingChild = ({ i }: { i: number }) => {
     }
 
     prevApi.start({
-      left: -sign * 1080 + 540,
+      left: -sign * screenScale.x(1080) + screenScale.x(540),
       config: {
         duration: 600,
         easing: easings.linear,
@@ -68,10 +68,10 @@ const SlidingChild = ({ i }: { i: number }) => {
 
     currentApi.start({
       from: {
-        left: sign * 1080 + 540,
+        left: sign * screenScale.x(1080) + screenScale.x(540),
       },
       to: {
-        left: 540,
+        left: screenScale.x(540),
       },
       config: {
         duration: 600,
@@ -79,7 +79,7 @@ const SlidingChild = ({ i }: { i: number }) => {
       },
       onRest: () => {
         setPreviousChild(i);
-        prevApi.set({ left: 540 });
+        prevApi.set({ left: screenScale.x(540) });
       },
     });
   });
@@ -89,7 +89,7 @@ const SlidingChild = ({ i }: { i: number }) => {
       <animated.div
         style={{
           position: 'absolute',
-          top: 274,
+          top: screenScale.y(274),
           transform: 'translate(-50%, 0)',
           ...prevStyle,
         }}
@@ -99,7 +99,7 @@ const SlidingChild = ({ i }: { i: number }) => {
       <animated.div
         style={{
           position: 'absolute',
-          top: 274,
+          top: screenScale.y(274),
           transform: 'translate(-50%, 0)',
           ...currentStyle,
         }}

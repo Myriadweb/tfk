@@ -1,13 +1,20 @@
+:root {
+    /* Base dimensions: 1920w x 1080h -> Target: 2160w x 1620h */
+    --scale-y: 0.614; /* 1180/1920 = 1.125 */
+    --scale-x: 0.759;   /* 820/1080 = 1.5 */
+    --scale-avg: 0.686; /* Average for fonts/general scaling */
+}
+
 .App {
-  height: 1920px;
-  width: 1080px;
+    height: calc(1920px * var(--scale-y));
+    width: calc(1080px * var(--scale-x));
   margin: 0 auto;
   overflow: hidden;
 }
 
 .App-header {
   display: flex;
-  height: 152px;
+  height: calc(152px * var(--scale-y));
   background: #103159;
   font-size: 60px;
   color: #fff;
@@ -20,7 +27,7 @@
 
 .App-header-split {
   display: flex;
-  height: 152px;
+  height: calc(152px * var(--scale-y));
   background: #103159;
   font-size: 60px;
   color: #fff;
@@ -49,7 +56,7 @@
 
 .App-stage {
   background-repeat: no-repeat;
-  height: 1270px;
+  height: calc(1270px * var(--scale-y));
   position: relative;
   overflow: hidden;
   font-family: 'LemonMilk', sans-serif;
@@ -132,9 +139,9 @@
 }
 
 .blue-bar .two-columns {
-    column-count: 2;
-    column-gap: 80px;
-    width: 100%;
+  column-count: 2;
+  column-gap: 80px;
+  width: 100%;
 }
 
 .nav-items-container {

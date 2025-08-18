@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useNavBarTranslation } from '../../hooks';
-import {Link, useNavigate} from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import { useGameContext } from '../../state/game';
 import { animated } from 'react-spring';
 import playSound from '../../sound';
@@ -17,7 +17,6 @@ import Nervous from './BodySystemsAssets/Nervous.svg';
 import { BlueBarContinue } from './BlueBarContinue';
 import BlueBar from './UIComponents/BlueBar';
 import { Trans } from 'react-i18next';
-import Cardiovascular from "./BodySystemsAssets/Cardiovascular.svg";
 import Tablet from "./IvAssets/iPad.svg";
 
 type Props = {

@@ -1,5 +1,6 @@
 import React, {Component, CSSProperties} from 'react';
 import { Character } from '../../../state/character';
+import { screenScale } from '../../../utils/scaling';
 
 // import default child assets first
 import Child1Breathe from './Default/Child1/breathe.png';
@@ -110,21 +111,21 @@ const childStyle: CSSProperties = {
 };
 
 const DefaultCharacters = {
-  [Character.child1]: () => <locationAssets.Child1 height='984' width='392' />,
-  [Character.child2]: () => <locationAssets.Child2 height='984' width='392' />,
-  [Character.child3]: () => <img src={locationAssets.Child3} height="984" />,
-  [Character.child4]: () => <locationAssets.Child4 height='984' width='392' />,
-  [Character.child5]: () => <locationAssets.Child5 height='984' width='392' />,
-  [Character.child6]: () => <locationAssets.Child6 height='984' width='392' />,
+  [Character.child1]: () => <locationAssets.Child1 height={screenScale.y(984)} width={screenScale.x(392)} />,
+  [Character.child2]: () => <locationAssets.Child2 height={screenScale.y(984)} width={screenScale.x(392)} />,
+  [Character.child3]: () => <img src={locationAssets.Child3} height={screenScale.y(984)} />,
+  [Character.child4]: () => <locationAssets.Child4 height={screenScale.y(984)} width={screenScale.x(392)} />,
+  [Character.child5]: () => <locationAssets.Child5 height={screenScale.y(984)} width={screenScale.x(392)} />,
+  [Character.child6]: () => <locationAssets.Child6 height={screenScale.y(984)} width={screenScale.x(392)} />,
 };
 
 const DefaultCharactersRaster = {
-  [Character.child1]: () => <img height='984' width='392' src={locationAssets.Child1Raster} />,
-  [Character.child2]: () => <img height='984' width='392' src={locationAssets.Child2Raster} />,
-  [Character.child3]: () => <img src={locationAssets.Child3} height='984' width='633' />,
-  [Character.child4]: () => <img height='984' width='392' src={locationAssets.Child4Raster} />,
-  [Character.child5]: () => <img height='984' width='392' src={locationAssets.Child5Raster} />,
-  [Character.child6]: () => <img height='984' width='392' src={locationAssets.Child6Raster} />,
+  [Character.child1]: () => <img height={screenScale.y(984)} width={screenScale.x(392)} src={locationAssets.Child1Raster} />,
+  [Character.child2]: () => <img height={screenScale.y(984)} width={screenScale.x(392)} src={locationAssets.Child2Raster} />,
+  [Character.child3]: () => <img src={locationAssets.Child3} height={screenScale.y(984)} width={screenScale.x(633)} />,
+  [Character.child4]: () => <img height={screenScale.y(984)} width={screenScale.x(392)} src={locationAssets.Child4Raster} />,
+  [Character.child5]: () => <img height={screenScale.y(984)} width={screenScale.x(392)} src={locationAssets.Child5Raster} />,
+  [Character.child6]: () => <img height={screenScale.y(984)} width={screenScale.x(392)} src={locationAssets.Child6Raster} />,
 };
 
 const WorriedCharacters = {
