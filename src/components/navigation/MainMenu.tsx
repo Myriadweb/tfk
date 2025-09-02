@@ -4,6 +4,7 @@ import { useNavBarTranslation } from '../../hooks';
 import { Paths } from '../../types/Paths';
 import playSound from '../../sound';
 import { useCharacterContext } from '../../state/character';
+import {screenScale} from "../../utils/scaling";
 
 type Props = {
   path: Paths;
@@ -27,16 +28,15 @@ const MainMenu = ({ path }: Props) => {
       <div className='body-text'>{t('selectPath')}</div>
       <div
         className='nav-items-container'
-        style={{ width: 700, marginTop: 40, alignItems: 'baseline' }}
       >
         <Link
           style={{
-            marginRight: 82,
+            marginRight: screenScale.x(82),
             display: 'inline-flex',
             flexDirection: 'column',
             alignItems: 'center',
             textDecoration: 'none',
-            width: 250,
+            width: screenScale.x(250),
           }}
           to={`/${Paths.BodySystems}/${Paths.Sensory}`}
           onClick={() => playSound('generalSelect')}
@@ -44,13 +44,13 @@ const MainMenu = ({ path }: Props) => {
           <img
             src='images/MainMenu/bodySystemButton.png'
             style={{
-              width: 192,
-              height: 192,
+              width: screenScale.y(192),
+              height: screenScale.y(192),
             }}
           />
           <span
             style={{
-              marginTop: 23,
+              marginTop: screenScale.y(23),
               fontSize: 25,
               color: '#FFF',
               letterSpacing: 1.24,
@@ -67,7 +67,7 @@ const MainMenu = ({ path }: Props) => {
             textDecoration: 'none',
             letterSpacing: 1.24,
             alignItems: 'center',
-            width: 250,
+            width: screenScale.x(250),
           }}
           to={`/${Paths.Procedures}/${PROCEDURES_CONFIG[character]}`}
           onClick={() => playSound('generalSelect')}
@@ -75,13 +75,13 @@ const MainMenu = ({ path }: Props) => {
           <img
             src='images/MainMenu/proceduresButton.png'
             style={{
-              width: 192,
-              height: 192,
+              width: screenScale.y(192),
+              height: screenScale.y(192),
             }}
           />
           <span
             style={{
-              marginTop: 23,
+              marginTop: screenScale.y(23),
               fontSize: 25,
               color: '#FFF',
             }}

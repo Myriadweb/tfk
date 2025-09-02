@@ -473,6 +473,7 @@ const en: Translation = {
         '11-mainText': '¡GRAN TRABAJO!',
         '11-subText': 'El paciente está listo para su cirugía.',
         '11-buttonText': 'Continuar',
+        '12-subText': '',
         '13-mainText': '¡GRAN TRABAJO!',
         '13-subText':
           'El procedimiento quirúrgico fue un éxito. Elija una recompensa para el paciente.',

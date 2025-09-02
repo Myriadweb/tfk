@@ -46,6 +46,11 @@ const SurgicalPrep = ({ prefix }: Props) => {
   const [pumps, addPump] = React.useState(0);
   const [, delayApi] = useSpring(() => ({ opacity: 1 }));
 
+    React.useEffect(() => {
+        (window as any).debugSetStep = setStep;
+        (window as any).debugGetState = () => ({ step, value });
+    }, [setStep, step, value]);
+
   useEffect(() => {
     if (step === 9) {
       delayApi.set({ opacity: 1 });

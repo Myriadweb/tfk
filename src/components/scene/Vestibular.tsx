@@ -151,7 +151,7 @@ export default function Vestibular() {
           ...jumpStyle,
         }}
       >
-        <CharacterGood />
+        <CharacterGood width={439} height={971} />
       </animated.div>
       {sensoryState === 'good' && (
         <>

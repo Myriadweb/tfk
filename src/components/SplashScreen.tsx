@@ -13,6 +13,8 @@ if (Location === 'Atlanta') {
   Animation = require('../animations/Phoenix/splashVideo.webm');
 } else if (Location === 'Richmond') {
   Animation = require('../animations/Richmond/splashVideo.webm');
+} else if (Location === 'ChildLifeZone') {
+  Animation = require('../animations/ChildLifeZone/splashVideo.webm');
 }
 
 export default function SplashScreen() {

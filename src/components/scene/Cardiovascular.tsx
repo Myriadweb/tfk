@@ -11,8 +11,9 @@ import LungsHighlight from './CardiovascularAssets/lungsHighlight.png';
 import VeinsHighlight from './CardiovascularAssets/veinsHighlight.png';
 import { useState } from 'react';
 import AnimatedLabel from './AnimatedLabel';
+import {screenScale} from "../../utils/scaling";
 
-const bodyLeft = 540;
+const bodyLeft = screenScale.x(540);
 
 export default function Cardiovascular() {
   const [animatedPath, setAnimatedPath] = useAnimateContext();
@@ -29,7 +30,7 @@ export default function Cardiovascular() {
     },
   }));
   const [bodyStyle, bodyApi] = useSpring(() => ({
-    from: { left: shouldShowIntroAnimation ? -300 : bodyLeft },
+    from: { left: shouldShowIntroAnimation ? screenScale.x(-300) : bodyLeft },
     to: { left: bodyLeft },
     config: {
       duration: 500,
@@ -56,7 +57,7 @@ export default function Cardiovascular() {
     bodyApi.start({
       // @ts-ignore
       from: { left: bodyLeft },
-      to: { left: -300 },
+      to: { left: screenScale.x(-300) },
       delay: 300,
       onRest: () => navigate('/' + animatedPath),
     });
@@ -67,7 +68,7 @@ export default function Cardiovascular() {
       <animated.img
         src='images/Cardiovascular/cardiovascularBody.png'
         style={{
-          top: 343,
+          top: screenScale.y(343),
           position: 'absolute',
           transform: 'translate(-50%, 0)',
           ...bodyStyle,
@@ -76,9 +77,9 @@ export default function Cardiovascular() {
       <animated.img
         src='images/Cardiovascular/cardiovascularLabels.png'
         style={{
-          top: 589,
+          top: screenScale.y(589),
           position: 'absolute',
-          left: 540,
+          left: screenScale.x(540),
           transform: 'translate(-50%, 0)',
           ...overlayStyle,
         }}
@@ -86,7 +87,7 @@ export default function Cardiovascular() {
       <img
         src={LungsHighlight}
         style={{
-          top: 635,
+          top: screenScale.y(635),
           position: 'absolute',
           transform: 'translate(-50%, 0)',
           opacity: ['lungs'].includes(highlighted) ? 1 : 0,
@@ -95,7 +96,7 @@ export default function Cardiovascular() {
       <img
         src={ArteriesHighlight}
         style={{
-          top: 380,
+          top: screenScale.y(380),
           position: 'absolute',
           transform: 'translate(-50%, 0)',
           opacity: ['arteries'].includes(highlighted) ? 1 : 0,
@@ -104,7 +105,7 @@ export default function Cardiovascular() {
       <img
         src={HeartHighlight}
         style={{
-          top: 647,
+          top: screenScale.y(647),
           position: 'absolute',
           transform: 'translate(-30%, 0)',
           opacity: ['heart'].includes(highlighted) ? 1 : 0,
@@ -113,7 +114,7 @@ export default function Cardiovascular() {
       <img
         src={VeinsHighlight}
         style={{
-          top: 570,
+          top: screenScale.y(570),
           position: 'absolute',
           transform: 'translate(-50%, 0)',
           opacity: ['veins'].includes(highlighted) ? 1 : 0,
@@ -123,7 +124,7 @@ export default function Cardiovascular() {
         style={{
           ...columnLabelStyleLeft,
           ...overlayStyle,
-          top: 594,
+          top: screenScale.y(594),
         }}
         value='lungs'
         setterFn={setHighlighted}
@@ -134,7 +135,7 @@ export default function Cardiovascular() {
         style={{
           ...columnLabelStyleLeft,
           ...overlayStyle,
-          top: 710,
+          top: screenScale.y(710),
         }}
         value='arteries'
         setterFn={setHighlighted}
@@ -145,7 +146,7 @@ export default function Cardiovascular() {
         style={{
           ...columnLabelStyleRight,
           ...overlayStyle,
-          top: 589,
+          top: screenScale.y(589),
         }}
         value='heart'
         setterFn={setHighlighted}
@@ -156,7 +157,7 @@ export default function Cardiovascular() {
         style={{
           ...columnLabelStyleRight,
           ...overlayStyle,
-          top: 690,
+          top: screenScale.y(690),
         }}
         value='veins'
         setterFn={setHighlighted}

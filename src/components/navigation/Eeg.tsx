@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useNavBarTranslation } from '../../hooks';
-import { useNavigate} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import { useGameContext } from '../../state/game';
 import { animated } from 'react-spring';
 import playSound from '../../sound';
@@ -226,7 +226,6 @@ export default function Eeg({ prefix }: Props) {
             setStep((oldStep) => ({
               ...oldStep,
               step: 10,
-              hideButtons: false,
             }));
           }}
         >
@@ -235,35 +234,76 @@ export default function Eeg({ prefix }: Props) {
       </>
     ),
     10: () => (
-        <BlueBar style={{ height: 192 }}>
-            <div className='two-columns'>
-                <NavigationButton
-                    image={Nervous}
-                    size={'large'}
+        <>
+            <BlueBar style={{ height: 192 }}>
+                <div className='two-columns'>
+                    <NavigationButton
+                        image={Nervous}
+                        size={'large'}
+                        onClick={() => {
+                            playSound('generalSelect');
+                            setStep({ step: 0 });
+                            navigate(Paths.BodySystems + '/' + Paths.Nervous);
+                        }}
+                        text=''
+                    />
+                    <NavigationButton
+                        image={Tablet}
+                        size={'large'}
+                        onClick={() => {
+                            playSound('generalSelect');
+                            setStep((oldStep) => ({ ...oldStep, step: 11 }));
+                        }}
+                        text=''
+                    />
+                </div>
+            </BlueBar>
+            <div className='links-container'
+                 style={{
+                     position: 'absolute',
+                     left: 44,
+                     top: 383,
+                 }}
+            >
+                <Link
+                    to={`${Paths.Procedures}/${prefix}`}
                     onClick={() => {
-                        playSound('generalSelect');
+                        playSound('click');
                         setStep({ step: 0 });
-                        navigate(Paths.BodySystems + '/' + Paths.Nervous);
                     }}
-                    text=''
-                />
-                <NavigationButton
-                    image={Tablet}
-                    size={'large'}
-                    onClick={() => {
-                        playSound('generalSelect');
-                        setStep((oldStep) => ({ ...oldStep, step: 11 }));
-                    }}
-                    text=''
-                />
+                    className='link'
+                >
+                    <img src='images/NavBar/proceduresButton.png' />
+                    <span>{t(`${step}-back`)}</span>
+                </Link>
             </div>
-        </BlueBar>
+        </>
+
     ),
       11: () => (
           <>
               <BlueBar style={{ height: 192 }}>
 
               </BlueBar>
+              <div className='links-container'
+                   style={{
+                       position: 'absolute',
+                       left: 44,
+                       top: 383,
+                   }}
+              >
+                  <Link
+                      to={`${Paths.Procedures}/${prefix}`}
+                      onClick={() => {
+                          playSound('click');
+                          setStep({ step: 0 });
+                      }}
+                      className='link'
+                  >
+                      <img src='images/NavBar/proceduresButton.png' />
+                      <span>{t(`${step}-back`)}</span>
+                  </Link>
+              </div>
           </>
       ),
   };

@@ -469,6 +469,7 @@ const en: Translation = {
         '11-mainText': 'GREAT JOB!',
         '11-subText': 'The patient is now ready for their surgery.',
         '11-buttonText': 'CONTINUE',
+        '12-subText': '',
         '13-mainText': 'GREAT JOB!',
         '13-subText': 'YOUR PATIENT IS OUT OF SURGERY',
         '13-buttonText': 'ALL DONE!',

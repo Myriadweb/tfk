@@ -40,7 +40,7 @@ const Iv = ({ prefix }: Props) => {
   const [{ step, value }, setStep] = useGameContext();
   const [shouldShowComponent, setShouldShowComponent] = React.useState(true);
   const [, delayApi] = useSpring(() => ({ opacity: 1 }));
-
+  
   useEffect(() => {
     if (step === 2) {
       delayApi.start({
@@ -294,8 +294,8 @@ const Iv = ({ prefix }: Props) => {
                     className='link'
                 >
                     <img src='images/NavBar/proceduresButton.png' />
+                    <span>{t(`${step}-back`)}</span>
                 </Link>
-                <span>{t(`${step}-back`)}</span>
             </div>
         </>
     ),

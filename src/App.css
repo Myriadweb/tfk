@@ -1,13 +1,13 @@
 :root {
-    /* Base dimensions: 1920w x 1080h -> Target: 2160w x 1620h */
-    --scale-y: 0.614; /* 1180/1920 = 1.125 */
-    --scale-x: 0.759;   /* 820/1080 = 1.5 */
-    --scale-avg: 0.686; /* Average for fonts/general scaling */
+  /* Base dimensions: 1920w x 1080h -> Target: 2160w x 1620h */
+  --scale-y: 1; /* 1180/1920  */
+  --scale-x: 1; /* 820/1080  */
+  --scale-avg: 1; /* Average for fonts/general scaling */
 }
 
 .App {
-    height: calc(1920px * var(--scale-y));
-    width: calc(1080px * var(--scale-x));
+  height: calc(1920px * var(--scale-y));
+  width: calc(1080px * var(--scale-x));
   margin: 0 auto;
   overflow: hidden;
 }
@@ -72,7 +72,7 @@
 }
 
 .App-navigation {
-  height: 498px;
+  height: calc(490px * var(--scale-y));
   background: #103159;
   position: relative;
   border-top: white 2px solid;
@@ -88,9 +88,9 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  top: 951px;
-  left: 950px;
-  width: 100px;
+  top: calc(951px * var(--scale-y));
+  left: calc(950px * var(--scale-x));
+  width: calc(100px * var(--scale-y));
   font-family: LemonMilk, serif;
   font-size: 20px;
   z-index: 20;
@@ -124,7 +124,7 @@
 }
 
 .blue-bar {
-  height: 130px;
+  height: calc(130px * var(--scale-y));
   background: #0e1f33;
   display: flex;
   align-items: center;
@@ -134,7 +134,7 @@
 .blue-bar.procedures {
   position: absolute;
   width: 100%;
-  top: 180px;
+  top: calc(180px * var(--scale-y));
   left: 0;
 }
 
@@ -152,18 +152,19 @@
   height: 100%;
   width: 100%;
   box-sizing: border-box;
+    align-items: baseline;
 }
 .nav-middle-container {
   padding: 27px;
 }
 .nav-middle-container .description {
-  max-width: 470px;
+  max-width: calc(470px * var(--scale-x));
   margin: 0 auto;
 }
 
 .nav-item {
   position: relative;
-  max-height: 191px;
+  max-height: calc(191px * var(--scale-y));
 }
 .nav-item .nav-text {
   font-family: LemonMilk;
@@ -187,11 +188,11 @@
   font-size: 20px;
   margin: 12px auto 0 auto;
   /* white-space: pre; */
-  min-height: 53px;
-  max-width: 700px;
+  min-height: calc(53px * var(--scale-y));
+  max-width: calc(700px * var(--scale-x));
 }
 .body-text.more-width {
-  max-width: 700px;
+  max-width: calc(700px * var(--scale-x));
 }
 .body-text.full-width {
   max-width: 100%;
