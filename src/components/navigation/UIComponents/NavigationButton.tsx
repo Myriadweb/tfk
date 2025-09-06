@@ -1,5 +1,6 @@
 import * as React from 'react';
 import playSound, { Sounds } from '../../../sound';
+import {screenScale} from "../../../utils/scaling";
 
 type NavigationButtonProps = {
   image: string;
@@ -30,8 +31,8 @@ const NavigationButton = ({
         className='nav-button-image'
         src={image}
         style={{
-          width: size === 'small' ? 111 : 191,
-          height: size === 'small' ? 111 : 191,
+          width: size === 'small' ? screenScale.y(111) : screenScale.y(191),
+          height: size === 'small' ? screenScale.y(111) : screenScale.y(191),
           opacity: disabled ? 0.5 : 1,
         }}
       />

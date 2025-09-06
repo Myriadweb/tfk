@@ -28,8 +28,9 @@ import TibiaHighlight from './SkeletalAssets/tibiaHighlight.png';
 import UlnaHighlight from './SkeletalAssets/ulnaHighlight.png';
 import VertebraeHighlight from './SkeletalAssets/vertebraeHighlight.png';
 import { useGameContext } from '../../state/game';
+import {screenScale} from "../../utils/scaling";
 
-const bodyLeft = 540;
+const bodyLeft = screenScale.x(540);
 
 export default function Skeletal() {
   const [animatedPath, setAnimatedPath] = useAnimateContext();
@@ -109,7 +110,7 @@ export default function Skeletal() {
   }
 
   return (
-    <>
+    <div className='skeletal-scene-container'>
       <animated.img
         src='images/Skeletal/skeletalBody.png'
         style={{
@@ -509,6 +510,6 @@ export default function Skeletal() {
       >
         {t('skeletal.scene.fibula')}
       </AnimatedLabel>
-    </>
+    </div>
   );
 }
