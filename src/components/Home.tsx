@@ -48,7 +48,7 @@ import CardiovascularGame from './scene/CardiovascularGame';
 import MuscularGame from './scene/MuscularGame';
 import DigestiveGame from './scene/DigestiveGame';
 import { useGameContext } from '../state/game';
-import {screenScale} from "../utils/scaling";
+import { screenScale } from '../utils/scaling';
 
 const TIME_TO_SPLASH = 1200000;
 
@@ -202,9 +202,21 @@ export function Home() {
             >
               {(!location.search ||
                 (prefix === 'Skeletal' && gameState.value === 'done')) && (
-                <OptionOverlaySVG style={{ position: 'absolute', top: 0, width: screenScale.y(100), height: screenScale.y(100) }} />
+                <OptionOverlaySVG
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    width: screenScale.y(100),
+                    height: screenScale.y(100),
+                  }}
+                />
               )}
-              <ExploreSVG style={{ width: screenScale.y(100), height: screenScale.y(100) }} />
+              <ExploreSVG
+                style={{
+                  width: screenScale.y(100),
+                  height: screenScale.y(100),
+                }}
+              />
               <span style={{ color: 'white' }}>
                 {t('common.scene.explore')}
               </span>
@@ -222,10 +234,20 @@ export function Home() {
               {location.search === '?play=true' &&
                 !(prefix === 'Skeletal' && gameState.value === 'done') && (
                   <OptionOverlaySVG
-                    style={{ position: 'absolute', top: screenScale.y(160), width: screenScale.y(100), height: screenScale.y(100) }}
+                    style={{
+                      position: 'absolute',
+                      top: screenScale.y(160),
+                      width: screenScale.y(100),
+                      height: screenScale.y(100),
+                    }}
                   />
                 )}
-              <PlaySVG style={{ width: screenScale.y(100), height: screenScale.y(100)}} />
+              <PlaySVG
+                style={{
+                  width: screenScale.y(100),
+                  height: screenScale.y(100),
+                }}
+              />
               <span style={{ color: 'white' }}>{t('common.scene.play')}</span>
             </Link>
           </div>

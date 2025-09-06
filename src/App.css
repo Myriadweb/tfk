@@ -418,6 +418,6 @@
 }
 
 .skeletal-scene-container {
-    position: relative;
-    transform: scale(calc(100% * var(--scale-y)));
+  position: relative;
+  transform: scale(calc(100% * var(--scale-y)));
 }
