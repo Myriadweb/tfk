@@ -28,7 +28,8 @@ const DEVICE_CONFIGS = {
 } as const;
 
 // Get current device from environment
-const device = (process.env.REACT_APP_DEVICE as keyof typeof DEVICE_CONFIGS) || 'desktop';
+const device =
+  (process.env.REACT_APP_DEVICE as keyof typeof DEVICE_CONFIGS) || 'desktop';
 const config = DEVICE_CONFIGS[device];
 
 // Calculate scale factors dynamically

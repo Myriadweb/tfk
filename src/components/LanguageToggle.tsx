@@ -38,9 +38,7 @@ export const LanguageToggle = () => {
   };
 
   return (
-    <div className='language-toggle-container'
-      onClick={handleLanguageChange}
-    >
+    <div className='language-toggle-container' onClick={handleLanguageChange}>
       <span
         style={{
           ...langStyle,
