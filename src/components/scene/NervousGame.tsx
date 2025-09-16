@@ -8,6 +8,7 @@ import FrontView from './NervousAssets/FrontView/base';
 import { useGameContext } from '../../state/game';
 import { Trans, useTranslation } from 'react-i18next';
 import NervousBlueBox from './NervousBlueBox';
+import {screenScale} from "../../utils/scaling";
 
 // Importing all the SVGs in a folder
 const reqSvgsLeftHemi = require.context(
@@ -105,7 +106,7 @@ export default function NervousGame() {
     <>
       <BG style={{ position: 'absolute', left: 0, top: 0 }} />
       {hemisphere === 'leftHemisphere' && (
-        <>
+        <div className='element-container' style={{ transformOrigin: 'top'}}>
           <img
             src={leftHemisphereImgs.backing}
             style={{
@@ -153,7 +154,7 @@ export default function NervousGame() {
                 style={{
                   position: 'absolute',
                   transform: 'translateX(-50%)',
-                  right: 353,
+                  left: 406,
                   top: 654,
                 }}
               />
@@ -277,10 +278,10 @@ export default function NervousGame() {
               />
             </>
           )}
-        </>
+        </div>
       )}
       {hemisphere === 'rightHemisphere' && (
-        <>
+        <div className='element-container' style={{ transformOrigin: 'top'}}>
           <img
             src={rightHemisphereImgs.backing}
             style={{
@@ -452,10 +453,10 @@ export default function NervousGame() {
               />
             </>
           )}
-        </>
+        </div>
       )}
       {hemisphere === 'frontView' && (
-        <>
+        <div className='element-container' style={{ transformOrigin: 'top'}}>
           <img
             src={frontImgs.backing}
             style={{
@@ -636,7 +637,7 @@ export default function NervousGame() {
               />
             </>
           )}
-        </>
+        </div>
       )}
       {highlight && (
         <div
@@ -669,9 +670,10 @@ export default function NervousGame() {
         highlight={highlight}
         style={{
           position: 'absolute',
-          top: 359,
-          transform: 'translateX(-50%)',
-          left: 540,
+          top: screenScale.y(359),
+          transform: 'scale(71%) translateX(-50%)',
+          transformOrigin: 'top',
+          left: screenScale.x(540),
         }}
       />
     </>

@@ -21,6 +21,11 @@ const Cardiovascular = ({ prefix }: Props) => {
   const navigate = useNavigate();
   const [{ step }, setStep] = useGameContext();
 
+  React.useEffect(() => {
+    (window as any).debugSetStep = setStep;
+    (window as any).debugGetState = () => ({ step });
+  }, [setStep, step]);
+
   const stepComponentConfig = {
     0: () => (
       <NavigationButton

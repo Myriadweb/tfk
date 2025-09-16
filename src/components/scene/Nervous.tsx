@@ -14,8 +14,9 @@ import BrainStemHighlight from './NervousAssets/brainStemHighlight.png';
 import CerebellumHighlight from './NervousAssets/cerebellumHighlight.png';
 import NervesHighlight from './NervousAssets/nervesHighlight.png';
 import SpinalChordHighlight from './NervousAssets/spinalChordHighlight.png';
+import {screenScale} from "../../utils/scaling";
 
-const bodyLeft = 540;
+const bodyLeft = screenScale.x(540);
 
 export default function Nervous() {
   const [animatedPath, setAnimatedPath] = useAnimateContext();
@@ -68,7 +69,7 @@ export default function Nervous() {
   }
 
   return (
-    <>
+    <div className='scene-container'>
       <animated.img
         src={NervousGame}
         style={{
@@ -84,7 +85,7 @@ export default function Nervous() {
         style={{
           top: 375,
           position: 'absolute',
-          left: 540,
+          left: screenScale.x(540),
           transform: 'translate(-50%, 0)',
           ...overlayStyle,
         }}
@@ -111,7 +112,7 @@ export default function Nervous() {
         src={CerebellumHighlight}
         style={{
           top: 461,
-          left: 540,
+          left: screenScale.x(540),
           position: 'absolute',
           transform: 'translate(-50%, 0)',
           opacity: ['cerebellum'].includes(highlighted) ? 1 : 0,
@@ -190,6 +191,6 @@ export default function Nervous() {
       >
         {t('nervous.scene.spinalCord')}
       </AnimatedLabel>
-    </>
+    </div>
   );
 }

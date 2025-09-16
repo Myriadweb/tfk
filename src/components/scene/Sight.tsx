@@ -17,6 +17,7 @@ import Cone from './SensoryAssets/SightAssets/cone.png';
 import Moon from './SensoryAssets/SightAssets/moon.png';
 import Sun from './SensoryAssets/SightAssets/sun.png';
 import Sunglasses from './SensoryAssets/SightAssets/sunglasses.png';
+import {screenScale} from "../../utils/scaling";
 
 const valueType = 'badSight';
 const finalValueType = valueType + '-final';
@@ -76,9 +77,18 @@ export default function Sight() {
   const ChildGood = Characters.moon[selectedCharacter];
   const ChildBad = Characters.sun[selectedCharacter];
   const width = sensoryChildWidth;
+  const bodyLeft = screenScale.x(540);
 
   return (
     <>
+      <img
+        src={BottomOverlay}
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+        }}
+      />
       {sensoryState === 'bad' && (
         <img
           src={BgBad}
@@ -90,134 +100,128 @@ export default function Sight() {
           }}
         />
       )}
-      <div
-        style={{
-          position: 'absolute',
-          left: 540,
-          top: 270,
-          transform: `translate(-${width / 2}px, 0)`,
-          opacity: sensoryState ? 0 : 1,
-        }}
-      >
-        <ChildComponent />
-      </div>
-      <div
-        style={{
-          position: 'absolute',
-          left: 540,
-          top: 270,
-          transform: `translate(-${width / 2}px, 0)`,
-          opacity: sensoryState === 'good' ? 1 : 0,
-        }}
-      >
-        <ChildGood />
-      </div>
-      <div
-        style={{
-          position: 'absolute',
-          left: 540,
-          top: 270,
-          transform: `translate(-${width / 2}px, 0)`,
-          opacity: sensoryState === 'bad' ? 1 : 0,
-        }}
-      >
-        <ChildBad />
-      </div>
-      <img
-        src={BottomOverlay}
-        style={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-        }}
-      />
-      {sensoryState === 'good' && (
-        <>
-          <animated.img
-            src={OverlayGood}
-            style={{
-              position: 'absolute',
-              left: 543,
-              top: 630,
-              transform: 'translate(-50%, -50%)',
-              zIndex: 1,
-              ...overlay,
-            }}
-          />
-        </>
-      )}
-      {sensoryState && (
-        <animated.img
-          src={Brain}
+      <div className='element-container'>
+        <div
           style={{
-            transform: 'translate(-50%, -50%)',
             position: 'absolute',
-            top: 507,
-            left: 536,
-            ...brain,
+            left: bodyLeft,
+            top: 270,
+            transform: `translate(-${width / 2}px, 0)`,
+            opacity: sensoryState ? 0 : 1,
           }}
-        />
-      )}
-      {sensoryState === 'bad' && (
-        <>
+        >
+          <ChildComponent />
+        </div>
+        <div
+          style={{
+            position: 'absolute',
+            left: bodyLeft,
+            top: 270,
+            transform: `translate(-${width / 2}px, 0)`,
+            opacity: sensoryState === 'good' ? 1 : 0,
+          }}
+        >
+          <ChildGood />
+        </div>
+        <div
+          style={{
+            position: 'absolute',
+            left: bodyLeft,
+            top: 270,
+            transform: `translate(-${width / 2}px, 0)`,
+            opacity: sensoryState === 'bad' ? 1 : 0,
+          }}
+        >
+          <ChildBad />
+        </div>
+        {sensoryState === 'good' && (
+          <>
+            <animated.img
+              src={OverlayGood}
+              style={{
+                position: 'absolute',
+                left: 543,
+                top: 630,
+                transform: 'translate(-50%, -50%)',
+                zIndex: 1,
+                ...overlay,
+              }}
+            />
+          </>
+        )}
+        {sensoryState && (
           <animated.img
-            src={Cone}
+            src={Brain}
             style={{
+              transform: 'translate(-50%, -50%)',
               position: 'absolute',
-              left: 517,
-              top: 241,
-              transform: 'translate(-50%, 0)',
-              ...effectStyle,
+              top: 507,
+              left: 536,
+              ...brain,
             }}
           />
+        )}
+        {sensoryState === 'bad' && (
+          <>
+            <animated.img
+              src={Cone}
+              style={{
+                position: 'absolute',
+                left: 517,
+                top: 241,
+                transform: 'translate(-50%, 0)',
+                ...effectStyle,
+              }}
+            />
 
-          <animated.img
-            src={OverlayBad}
+            <animated.img
+              src={OverlayBad}
+              style={{
+                position: 'absolute',
+                left: 539,
+                top: 630,
+                transform: 'translate(-50%, -50%)',
+                zIndex: 1,
+                ...overlay,
+              }}
+            />
+          </>
+        )}
+        {value === finalValueType && (
+          <img
+            src={Sunglasses}
             style={{
               position: 'absolute',
-              left: 539,
-              top: 630,
+              left: 544,
+              top: 693,
               transform: 'translate(-50%, -50%)',
-              zIndex: 1,
-              ...overlay,
             }}
           />
-        </>
-      )}
-      {value === finalValueType && (
-        <img
-          src={Sunglasses}
-          style={{
-            position: 'absolute',
-            left: 544,
-            top: 693,
-            transform: 'translate(-50%, -50%)',
-          }}
+        )}
+        <ClickableImage
+          Component={Moon}
+          x={645}
+          y={991}
+          type='good'
+          onChange={setSensoryState}
+          onTop={sensoryState === 'good'}
+          activeStyle={activeStyle}
+          sound={'sightMoon'}
         />
-      )}
-      <ClickableImage
-        Component={Moon}
-        x={645}
-        y={991}
-        type='good'
-        onChange={setSensoryState}
-        onTop={sensoryState === 'good'}
-        activeStyle={activeStyle}
-        sound={'sightMoon'}
-      />
-      <ClickableImage
-        Component={Sun}
-        x={185}
-        y={943}
-        type='bad'
-        onChange={setSensoryState}
-        onTop={sensoryState === 'bad'}
-        reset={sensoryState === 'bad' && value === finalValueType}
-        valueType={valueType}
-        activeStyle={activeStyle}
-        sound={'sightHot'}
-        timeoutDuration={7000}
-      />
+        <ClickableImage
+          Component={Sun}
+          x={185}
+          y={943}
+          type='bad'
+          onChange={setSensoryState}
+          onTop={sensoryState === 'bad'}
+          reset={sensoryState === 'bad' && value === finalValueType}
+          valueType={valueType}
+          activeStyle={activeStyle}
+          sound={'sightHot'}
+          timeoutDuration={7000}
+        />
+      </div>
     </>
   );
 }

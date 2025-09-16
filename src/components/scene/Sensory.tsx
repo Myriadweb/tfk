@@ -17,7 +17,7 @@ import {screenScale} from "../../utils/scaling";
 const labelStyle = {
   background: '#30619C',
   border: '#FFF 3px solid',
-  fontSize: screenScale.y(30),
+  fontSize: screenScale.x(30),
   letterSpacing: 1.49,
   padding: '10px 15px',
   color: '#FFF',
@@ -85,14 +85,14 @@ export default function Sensory() {
   }
 
   return (
-    <>
+    <div className='scene-container'>
       <animated.img
         src='images/Sensory/sensoryBody.png'
         style={{
-          top: screenScale.y(343),
+          top: 343,
           position: 'absolute',
           transform: 'translate(-50%, 0)',
-          height: screenScale.y(903),
+          height: 903,
           ...bodyStyle,
         }}
       />
@@ -100,7 +100,7 @@ export default function Sensory() {
       <img
         src={HearingHighlight}
         style={{
-          top: screenScale.y(453),
+          top: 453,
           position: 'absolute',
           transform: 'translate(-50%, 0)',
           opacity: ['hearing', 'vestibular'].includes(highlighted) ? 1 : 0,
@@ -109,7 +109,7 @@ export default function Sensory() {
       <img
         src={ProprioceptionHighlight}
         style={{
-          top: screenScale.y(348),
+          top: 348,
           position: 'absolute',
           transform: 'translate(-50%, 0)',
           opacity: ['proprioception'].includes(highlighted) ? 1 : 0,
@@ -118,7 +118,7 @@ export default function Sensory() {
       <img
         src={SightHighlight}
         style={{
-          top: screenScale.y(460),
+          top: 460,
           position: 'absolute',
           transform: 'translate(-50%, 0)',
           opacity: ['sight'].includes(highlighted) ? 1 : 0,
@@ -127,7 +127,7 @@ export default function Sensory() {
       <img
         src={SmellHighlight}
         style={{
-          top: screenScale.y(470),
+          top: 470,
           position: 'absolute',
           transform: 'translate(-50%, 0)',
           opacity: ['smell'].includes(highlighted) ? 1 : 0,
@@ -136,7 +136,7 @@ export default function Sensory() {
       <img
         src={TasteHighlight}
         style={{
-          top: screenScale.y(525),
+          top: 525,
           position: 'absolute',
           transform: 'translate(-50%, 0)',
           opacity: ['taste'].includes(highlighted) ? 1 : 0,
@@ -145,108 +145,111 @@ export default function Sensory() {
       <img
         src={TouchHighlight}
         style={{
-          top: screenScale.y(800),
+          top: 800,
           position: 'absolute',
           transform: 'translate(-50%, 0)',
           opacity: ['touch'].includes(highlighted) ? 1 : 0,
         }}
       />
-      <animated.img
-        src='images/Sensory/sensoryLabels.png'
-        style={{
-          top: screenScale.y(224),
-          position: 'absolute',
-          left: bodyLeft,
-          transform: 'translate(-50%, 0)',
-          height: screenScale.y(911),
-          ...overlayStyle,
-        }}
-      />
-      {/* This needs to be done for all spans */}
-      <AnimatedLabel
-        style={{
-          ...labelStyle,
-          ...overlayStyle,
-          top: screenScale.y(388),
-          left: screenScale.x(901),
-        }}
-        value='hearing'
-        setterFn={setHighlighted}
-      >
-        {t('sensory.scene.hearing')}
-      </AnimatedLabel>
-      <AnimatedLabel
-        style={{
-          ...labelStyle,
-          ...overlayStyle,
-          top: screenScale.y(493),
-          left: screenScale.x(212),
-        }}
-        value='proprioception'
-        setterFn={setHighlighted}
-      >
-        {t('sensory.scene.proprioception')}
-      </AnimatedLabel>
-      <AnimatedLabel
-        style={{
-          ...labelStyle,
-          ...overlayStyle,
-          top: screenScale.y(744),
-          left: screenScale.x(172),
-        }}
-        value='sight'
-        setterFn={setHighlighted}
-      >
-        {t('sensory.scene.sight')}
-      </AnimatedLabel>
-      <AnimatedLabel
-        style={{
-          ...labelStyle,
-          ...overlayStyle,
-          top: screenScale.y(620),
-          left: screenScale.x(922),
-        }}
-        value='vestibular'
-        setterFn={setHighlighted}
-      >
-        {t('sensory.scene.vestibular')}
-      </AnimatedLabel>
-      <AnimatedLabel
-        style={{
-          ...labelStyle,
-          ...overlayStyle,
-          top: screenScale.y(983),
-          left: screenScale.x(171),
-        }}
-        value='taste'
-        setterFn={setHighlighted}
-      >
-        {t('sensory.scene.taste')}
-      </AnimatedLabel>
-      <AnimatedLabel
-        style={{
-          ...labelStyle,
-          ...overlayStyle,
-          top: screenScale.y(860),
-          left: screenScale.x(901),
-        }}
-        value='smell'
-        setterFn={setHighlighted}
-      >
-        {t('sensory.scene.smell')}
-      </AnimatedLabel>
-      <AnimatedLabel
-        style={{
-          ...labelStyle,
-          ...overlayStyle,
-          top: screenScale.y(1105),
-          left: screenScale.x(782),
-        }}
-        value='touch'
-        setterFn={setHighlighted}
-      >
-        {t('sensory.scene.touch')}
-      </AnimatedLabel>
-    </>
+      <div className='labels-container'>
+        <animated.img
+          src='images/Sensory/sensoryLabels.png'
+          style={{
+            top: 224,
+            position: 'absolute',
+            left: bodyLeft,
+            transform: 'translate(-50%, 0)',
+            height: 911,
+            ...overlayStyle,
+          }}
+        />
+        {/* This needs to be done for all spans */}
+        <AnimatedLabel
+          style={{
+            ...labelStyle,
+            ...overlayStyle,
+            top: 388,
+            left: screenScale.x(901),
+          }}
+          value='hearing'
+          setterFn={setHighlighted}
+        >
+          {t('sensory.scene.hearing')}
+        </AnimatedLabel>
+        <AnimatedLabel
+          style={{
+            ...labelStyle,
+            ...overlayStyle,
+            top: 493,
+            left: screenScale.x(212),
+          }}
+          value='proprioception'
+          setterFn={setHighlighted}
+        >
+          {t('sensory.scene.proprioception')}
+        </AnimatedLabel>
+        <AnimatedLabel
+          style={{
+            ...labelStyle,
+            ...overlayStyle,
+            top: 744,
+            left: screenScale.x(172),
+          }}
+          value='sight'
+          setterFn={setHighlighted}
+        >
+          {t('sensory.scene.sight')}
+        </AnimatedLabel>
+        <AnimatedLabel
+          style={{
+            ...labelStyle,
+            ...overlayStyle,
+            top: 620,
+            left: screenScale.x(922),
+          }}
+          value='vestibular'
+          setterFn={setHighlighted}
+        >
+          {t('sensory.scene.vestibular')}
+        </AnimatedLabel>
+        <AnimatedLabel
+          style={{
+            ...labelStyle,
+            ...overlayStyle,
+            top: 983,
+            left: screenScale.x(171),
+          }}
+          value='taste'
+          setterFn={setHighlighted}
+        >
+          {t('sensory.scene.taste')}
+        </AnimatedLabel>
+        <AnimatedLabel
+          style={{
+            ...labelStyle,
+            ...overlayStyle,
+            top: 860,
+            left: screenScale.x(901),
+          }}
+          value='smell'
+          setterFn={setHighlighted}
+        >
+          {t('sensory.scene.smell')}
+        </AnimatedLabel>
+        <AnimatedLabel
+          style={{
+            ...labelStyle,
+            ...overlayStyle,
+            top: 1105,
+            left: screenScale.x(782),
+          }}
+          value='touch'
+          setterFn={setHighlighted}
+        >
+          {t('sensory.scene.touch')}
+        </AnimatedLabel>
+      </div>
+
+    </div>
   );
 }

@@ -72,7 +72,7 @@ export default function MuscularGame() {
   }
 
   return (
-    <>
+    <div className='element-container'>
       {(!value || value === 'arm') && (
         <>
           <ArmRelaxed
@@ -211,6 +211,6 @@ export default function MuscularGame() {
           </span>
         </>
       )}
-    </>
+    </div>
   );
 }

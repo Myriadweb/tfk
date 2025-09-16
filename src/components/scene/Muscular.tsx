@@ -19,8 +19,9 @@ import PectoralsHighlight from './MuscularAssets/pectoralsHighlight.png';
 import QuadricepsHighlight from './MuscularAssets/quadricepsHighlight.png';
 import TricepsHighlight from './MuscularAssets/tricepsHighlight.png';
 import AnimatedLabel from './AnimatedLabel';
+import {screenScale} from "../../utils/scaling";
 
-const bodyLeft = 540;
+const bodyLeft = screenScale.x(540);
 
 const muscularLabelStyle = {
   padding: '5px 15px 7px',
@@ -85,7 +86,7 @@ export default function Muscular() {
   }
 
   return (
-    <>
+    <div className='scene-container'>
       <animated.img
         src='images/Muscular/muscularBody.png'
         style={{
@@ -100,7 +101,7 @@ export default function Muscular() {
         style={{
           top: 202,
           position: 'absolute',
-          left: 543,
+          left: screenScale.x(543),
           transform: 'translate(-50%, 0)',
           ...overlayStyle,
         }}
@@ -145,7 +146,7 @@ export default function Muscular() {
         src={GlueteusMaximusHighlight}
         style={{
           top: 625,
-          right: 85,
+          right: screenScale.y(85),
           position: 'absolute',
           opacity: ['gluteus'].includes(highlighted) ? 1 : 0,
         }}
@@ -154,7 +155,7 @@ export default function Muscular() {
         src={HamstringsHighlight}
         style={{
           top: 1095,
-          left: 117,
+          left: screenScale.avg(117),
           position: 'absolute',
           opacity: ['hamstrings'].includes(highlighted) ? 1 : 0,
         }}
@@ -163,7 +164,7 @@ export default function Muscular() {
         src={LattisimusDosiHighlight}
         style={{
           top: 310,
-          left: 155,
+          left: screenScale.avg(155),
           position: 'absolute',
           opacity: ['latissimus'].includes(highlighted) ? 1 : 0,
         }}
@@ -314,6 +315,6 @@ export default function Muscular() {
       >
         {t('muscular.scene.calves')}
       </AnimatedLabel>
-    </>
+    </div>
   );
 }

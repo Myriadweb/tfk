@@ -41,8 +41,8 @@ export default function IvGame() {
   }));
   const [targetStyle, targetApi] = useSpring(() => ({
     opacity: 0,
-    top: 533,
-    left: 360,
+    top: 470,
+    left: 380,
     scale: 0.75,
   }));
   const [needleComponentPhase, setNeedleComponentPhase] = React.useState(1);
@@ -77,15 +77,15 @@ export default function IvGame() {
     } else if (step === 3) {
       targetApi.set({
         opacity: 0,
-        top: 834,
-        left: 237,
+        top: 800,
+        left: 250,
       });
     } else if (step === 4) {
       trayApi.start({ transform: 'translateX(0px)' });
       targetApi.start({ opacity: 1 });
       targetApi.start({
-        from: { scale: 0.75, top: 834, left: 237 },
-        to: { scale: 1, top: 834, left: 237 },
+        from: { scale: 0.75, top: 800, left: 250 },
+        to: { scale: 1, top: 800, left: 250 },
         loop: () => ({
           reverse: true,
         }),
@@ -93,15 +93,15 @@ export default function IvGame() {
     } else if (step === 5) {
       targetApi.set({
         opacity: 0,
-        top: 822,
-        left: 268,
+        top: 780,
+        left: 285,
       });
     } else if (step === 6) {
       trayApi.start({ transform: 'translateX(0px)' });
       targetApi.start({ opacity: 1 });
       targetApi.start({
-        from: { scale: 0.75, top: 822, left: 268 },
-        to: { scale: 1, top: 822, left: 268 },
+        from: { scale: 0.75, top: 780, left: 285 },
+        to: { scale: 1, top: 780, left: 285 },
         loop: () => ({
           reverse: true,
         }),
@@ -110,14 +110,14 @@ export default function IvGame() {
       targetApi.set({
         opacity: 0,
         top: 822,
-        left: 239,
+        left: 250,
       });
     } else if (step === 8) {
       trayApi.start({ transform: 'translateX(0px)' });
       targetApi.start({ opacity: 1 });
       targetApi.start({
-        from: { scale: 0.75 },
-        to: { scale: 1 },
+        from: { scale: 0.75, top: 822, left: 250 },
+        to: { scale: 1, top: 822, left: 250 },
         loop: () => ({
           reverse: true,
         }),
@@ -184,8 +184,8 @@ export default function IvGame() {
             <animated.img
               style={{
                 position: 'absolute',
-                left: 165,
-                top: 726,
+                left: 185,
+                top: 680,
               }}
               src={XRayView}
             />
@@ -196,8 +196,8 @@ export default function IvGame() {
               src={TourniquetApplied}
               style={{
                 position: 'absolute',
-                top: 505,
-                left: 377,
+                top: 450,
+                left: 402,
               }}
             />
           )}
@@ -206,8 +206,8 @@ export default function IvGame() {
               src={DisinfectantApplied}
               style={{
                 position: 'absolute',
-                top: 792,
-                left: 228,
+                top: 750,
+                left: 250,
               }}
             />
           )}

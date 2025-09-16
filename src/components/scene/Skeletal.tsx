@@ -125,7 +125,7 @@ export default function Skeletal() {
         style={{
           top: 263,
           position: 'absolute',
-          left: 540,
+          left: screenScale.x(540),
           transform: 'translate(-50%, 0)',
           ...overlayStyle,
         }}

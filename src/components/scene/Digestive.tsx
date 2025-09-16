@@ -17,8 +17,9 @@ import EsophagusHighlight from './DigestiveAssets/esophagusHighlight.png';
 import MouthHighlight from './DigestiveAssets/mouthHighlight.png';
 import RectumHighlight from './DigestiveAssets/rectumHighlight.png';
 import AppendixHighlight from './DigestiveAssets/appendixHighlight.png';
+import {screenScale} from "../../utils/scaling";
 
-const bodyLeft = 540;
+const bodyLeft = screenScale.x(540);
 
 const digestiveLabelStyle = {
   padding: '8px 17px 10px',
@@ -75,7 +76,7 @@ export default function Digestive() {
   }
 
   return (
-    <>
+    <div className='scene-container'>
       <animated.img
         src='images/Digestive/digestiveBody.png'
         style={{
@@ -90,7 +91,7 @@ export default function Digestive() {
         style={{
           top: 518,
           position: 'absolute',
-          left: 540,
+          left: screenScale.x(540),
           transform: 'translate(-50%, 0)',
           ...overlayStyle,
         }}
@@ -99,7 +100,7 @@ export default function Digestive() {
         src={GallbladderHighlight}
         style={{
           top: 743,
-          left: 470,
+          left: screenScale.x(470),
           position: 'absolute',
           opacity: ['gallbladder'].includes(highlighted) ? 1 : 0,
         }}
@@ -144,7 +145,7 @@ export default function Digestive() {
         src={AnusHighlight}
         style={{
           top: 898,
-          left: 538,
+          left: screenScale.x(538),
           position: 'absolute',
           transform: 'translate(-50%, 0)',
           opacity: ['anus'].includes(highlighted) ? 1 : 0,
@@ -154,7 +155,7 @@ export default function Digestive() {
         src={RectumHighlight}
         style={{
           top: 872,
-          left: 538,
+          left: screenScale.x(538),
           position: 'absolute',
           transform: 'translate(-50%, 0)',
           opacity: ['rectum'].includes(highlighted) ? 1 : 0,
@@ -164,7 +165,7 @@ export default function Digestive() {
         src={AppendixHighlight}
         style={{
           top: 877,
-          left: 488,
+          left: screenScale.x(488),
           position: 'absolute',
           transform: 'translate(-50%, 0)',
           opacity: ['appendix'].includes(highlighted) ? 1 : 0,
@@ -174,7 +175,7 @@ export default function Digestive() {
         src={EsophagusHighlight}
         style={{
           top: 578,
-          left: 542,
+          left: screenScale.x(542),
           position: 'absolute',
           transform: 'translate(-50%, 0)',
           opacity: ['esophagus'].includes(highlighted) ? 1 : 0,
@@ -184,7 +185,7 @@ export default function Digestive() {
         src={MouthHighlight}
         style={{
           top: 536,
-          left: 543,
+          left: screenScale.x(543),
           position: 'absolute',
           transform: 'translate(-50%, 0)',
           opacity: ['mouth'].includes(highlighted) ? 1 : 0,
@@ -307,6 +308,6 @@ export default function Digestive() {
       >
         {t('digestive.scene.anus')}
       </AnimatedLabel>
-    </>
+    </div>
   );
 }

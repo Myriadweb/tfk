@@ -30,7 +30,7 @@ export default function Cardiovascular() {
     },
   }));
   const [bodyStyle, bodyApi] = useSpring(() => ({
-    from: { left: shouldShowIntroAnimation ? screenScale.x(-300) : bodyLeft },
+    from: { left: shouldShowIntroAnimation ? -300 : bodyLeft },
     to: { left: bodyLeft },
     config: {
       duration: 500,
@@ -57,18 +57,18 @@ export default function Cardiovascular() {
     bodyApi.start({
       // @ts-ignore
       from: { left: bodyLeft },
-      to: { left: screenScale.x(-300) },
+      to: { left: -300 },
       delay: 300,
       onRest: () => navigate('/' + animatedPath),
     });
   }
 
   return (
-    <>
+    <div className='scene-container' style={{ transformOrigin: 'top'}}>
       <animated.img
         src='images/Cardiovascular/cardiovascularBody.png'
         style={{
-          top: screenScale.y(343),
+          top: 343,
           position: 'absolute',
           transform: 'translate(-50%, 0)',
           ...bodyStyle,
@@ -77,7 +77,7 @@ export default function Cardiovascular() {
       <animated.img
         src='images/Cardiovascular/cardiovascularLabels.png'
         style={{
-          top: screenScale.y(589),
+          top: 589,
           position: 'absolute',
           left: screenScale.x(540),
           transform: 'translate(-50%, 0)',
@@ -87,7 +87,7 @@ export default function Cardiovascular() {
       <img
         src={LungsHighlight}
         style={{
-          top: screenScale.y(635),
+          top: 635,
           position: 'absolute',
           transform: 'translate(-50%, 0)',
           opacity: ['lungs'].includes(highlighted) ? 1 : 0,
@@ -96,7 +96,7 @@ export default function Cardiovascular() {
       <img
         src={ArteriesHighlight}
         style={{
-          top: screenScale.y(380),
+          top: 380,
           position: 'absolute',
           transform: 'translate(-50%, 0)',
           opacity: ['arteries'].includes(highlighted) ? 1 : 0,
@@ -105,7 +105,7 @@ export default function Cardiovascular() {
       <img
         src={HeartHighlight}
         style={{
-          top: screenScale.y(647),
+          top: 647,
           position: 'absolute',
           transform: 'translate(-30%, 0)',
           opacity: ['heart'].includes(highlighted) ? 1 : 0,
@@ -114,7 +114,7 @@ export default function Cardiovascular() {
       <img
         src={VeinsHighlight}
         style={{
-          top: screenScale.y(570),
+          top: 570,
           position: 'absolute',
           transform: 'translate(-50%, 0)',
           opacity: ['veins'].includes(highlighted) ? 1 : 0,
@@ -124,7 +124,7 @@ export default function Cardiovascular() {
         style={{
           ...columnLabelStyleLeft,
           ...overlayStyle,
-          top: screenScale.y(594),
+          top: 594,
         }}
         value='lungs'
         setterFn={setHighlighted}
@@ -135,7 +135,7 @@ export default function Cardiovascular() {
         style={{
           ...columnLabelStyleLeft,
           ...overlayStyle,
-          top: screenScale.y(710),
+          top: 710,
         }}
         value='arteries'
         setterFn={setHighlighted}
@@ -146,7 +146,7 @@ export default function Cardiovascular() {
         style={{
           ...columnLabelStyleRight,
           ...overlayStyle,
-          top: screenScale.y(589),
+          top: 589,
         }}
         value='heart'
         setterFn={setHighlighted}
@@ -157,13 +157,13 @@ export default function Cardiovascular() {
         style={{
           ...columnLabelStyleRight,
           ...overlayStyle,
-          top: screenScale.y(690),
+          top: 690,
         }}
         value='veins'
         setterFn={setHighlighted}
       >
         {t('cardiovascular.scene.veins')}
       </AnimatedLabel>
-    </>
+    </div>
   );
 }

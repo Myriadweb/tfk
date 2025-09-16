@@ -38,14 +38,7 @@ export const LanguageToggle = () => {
   };
 
   return (
-    <div
-      style={{
-        position: 'absolute',
-        right: 44,
-        top: 383,
-        display: 'flex',
-        alignItems: 'center',
-      }}
+    <div className='language-toggle-container'
       onClick={handleLanguageChange}
     >
       <span

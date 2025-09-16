@@ -40,7 +40,12 @@ const Iv = ({ prefix }: Props) => {
   const [{ step, value }, setStep] = useGameContext();
   const [shouldShowComponent, setShouldShowComponent] = React.useState(true);
   const [, delayApi] = useSpring(() => ({ opacity: 1 }));
-  
+
+  React.useEffect(() => {
+    (window as any).debugSetStep = setStep;
+    (window as any).debugGetState = () => ({ step, value });
+  }, [setStep, step, value]);
+
   useEffect(() => {
     if (step === 2) {
       delayApi.start({
@@ -252,13 +257,7 @@ const Iv = ({ prefix }: Props) => {
             </div>
         </BlueBar>
 
-        <div className="links-container"
-          style={{
-            position: 'absolute',
-            left: 44,
-            top: 383,
-          }}
-        >
+        <div className="links-container">
           <Link
             to={`${Paths.Procedures}/${prefix}`}
             onClick={() => {
@@ -278,13 +277,7 @@ const Iv = ({ prefix }: Props) => {
             <BlueBar style={{ height: 192 }}>
 
             </BlueBar>
-            <div className='links-container'
-                style={{
-                    position: 'absolute',
-                    left: 44,
-                    top: 383,
-                }}
-            >
+            <div className='links-container'>
                 <Link
                     to={`${Paths.Procedures}/${prefix}`}
                     onClick={() => {

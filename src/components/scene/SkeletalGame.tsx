@@ -20,6 +20,7 @@ import Draggable from 'react-draggable';
 import playSound from '../../sound';
 import { Dispatch, SetStateAction } from 'react';
 import { useGameContext } from '../../state/game';
+import {screenScale} from "../../utils/scaling";
 
 type Props = {
   ImageComponent: React.FC<React.SVGProps<SVGSVGElement>> | string;
@@ -169,7 +170,7 @@ export default function SkeletalGame() {
   }
 
   return (
-    <>
+    <div className="scene-container" style={{height: 1270, transformOrigin: 'top'}}>
       <EmptyBody
         style={{
           top: 343,
@@ -181,7 +182,7 @@ export default function SkeletalGame() {
         setPlacedNumber={setPlacedNumber}
         isLast={isLast}
         ImageComponent={Vertebrae}
-        x={525}
+        x={screenScale.x(525)}
         y={572}
         leaving={leaving}
         value={'vertebrae'}
@@ -191,7 +192,7 @@ export default function SkeletalGame() {
         setPlacedNumber={setPlacedNumber}
         isLast={isLast}
         ImageComponent={SkullIMG}
-        x={439}
+        x={screenScale.x(439)}
         y={346}
         leaving={leaving}
         value={'skull'}
@@ -201,7 +202,7 @@ export default function SkeletalGame() {
         setPlacedNumber={setPlacedNumber}
         isLast={isLast}
         ImageComponent={CarpalsMetacarpals}
-        x={674}
+        x={screenScale.x(674)}
         y={825}
         leaving={leaving}
         value={'carpals&metacarpals'}
@@ -211,7 +212,7 @@ export default function SkeletalGame() {
         setPlacedNumber={setPlacedNumber}
         isLast={isLast}
         ImageComponent={CarpalsMetacarpals}
-        x={348}
+        x={screenScale.x(348)}
         y={825}
         specular
         leaving={leaving}
@@ -222,7 +223,7 @@ export default function SkeletalGame() {
         setPlacedNumber={setPlacedNumber}
         isLast={isLast}
         ImageComponent={Scapula}
-        x={590}
+        x={screenScale.x(590)}
         y={626}
         leaving={leaving}
         value={'scapula'}
@@ -232,7 +233,7 @@ export default function SkeletalGame() {
         setPlacedNumber={setPlacedNumber}
         isLast={isLast}
         ImageComponent={Scapula}
-        x={418}
+        x={screenScale.x(418)}
         y={626}
         specular
         leaving={leaving}
@@ -243,7 +244,7 @@ export default function SkeletalGame() {
         setPlacedNumber={setPlacedNumber}
         isLast={isLast}
         ImageComponent={Ribs}
-        x={456}
+        x={screenScale.x(456)}
         y={612}
         leaving={leaving}
         value={'ribs'}
@@ -253,7 +254,7 @@ export default function SkeletalGame() {
         setPlacedNumber={setPlacedNumber}
         isLast={isLast}
         ImageComponent={Clavicle}
-        x={420}
+        x={screenScale.x(420)}
         y={624}
         leaving={leaving}
         value={'clavicle'}
@@ -263,7 +264,7 @@ export default function SkeletalGame() {
         setPlacedNumber={setPlacedNumber}
         isLast={isLast}
         ImageComponent={Pelvis}
-        x={457}
+        x={screenScale.x(457)}
         y={820}
         leaving={leaving}
         value={'pelvis'}
@@ -274,7 +275,7 @@ export default function SkeletalGame() {
         setPlacedNumber={setPlacedNumber}
         isLast={isLast}
         ImageComponent={Femur}
-        x={585}
+        x={screenScale.x(585)}
         y={869}
         leaving={leaving}
         value={'femur'}
@@ -284,7 +285,7 @@ export default function SkeletalGame() {
         setPlacedNumber={setPlacedNumber}
         isLast={isLast}
         ImageComponent={Femur}
-        x={446}
+        x={screenScale.x(446)}
         y={869}
         specular
         leaving={leaving}
@@ -296,7 +297,7 @@ export default function SkeletalGame() {
         setPlacedNumber={setPlacedNumber}
         isLast={isLast}
         ImageComponent={FibuleTibia}
-        x={597}
+        x={screenScale.x(597)}
         y={1019}
         leaving={leaving}
         value={'fibule&tibia'}
@@ -306,7 +307,7 @@ export default function SkeletalGame() {
         setPlacedNumber={setPlacedNumber}
         isLast={isLast}
         ImageComponent={FibuleTibia}
-        x={446}
+        x={screenScale.x(446)}
         y={1019}
         specular
         leaving={leaving}
@@ -317,7 +318,7 @@ export default function SkeletalGame() {
         setPlacedNumber={setPlacedNumber}
         isLast={isLast}
         ImageComponent={Humerus}
-        x={633}
+        x={screenScale.x(633)}
         y={635}
         leaving={leaving}
         value={'humerus'}
@@ -327,7 +328,7 @@ export default function SkeletalGame() {
         setPlacedNumber={setPlacedNumber}
         isLast={isLast}
         ImageComponent={Humerus}
-        x={381}
+        x={screenScale.x(381)}
         y={635}
         specular
         leaving={leaving}
@@ -338,7 +339,7 @@ export default function SkeletalGame() {
         setPlacedNumber={setPlacedNumber}
         isLast={isLast}
         ImageComponent={RadiusUlna}
-        x={678}
+        x={screenScale.x(678)}
         y={747}
         leaving={leaving}
         value={'radius&ulna'}
@@ -348,7 +349,7 @@ export default function SkeletalGame() {
         setPlacedNumber={setPlacedNumber}
         isLast={isLast}
         ImageComponent={RadiusUlna}
-        x={369}
+        x={screenScale.x(369)}
         y={747}
         specular
         leaving={leaving}
@@ -359,7 +360,7 @@ export default function SkeletalGame() {
         setPlacedNumber={setPlacedNumber}
         isLast={isLast}
         ImageComponent={TarsalsMetatarsals}
-        x={600}
+        x={screenScale.x(600)}
         y={1167}
         leaving={leaving}
         value={'tarsals&metatarsals'}
@@ -369,13 +370,13 @@ export default function SkeletalGame() {
         setPlacedNumber={setPlacedNumber}
         isLast={isLast}
         ImageComponent={TarsalsMetatarsals}
-        x={400}
+        x={screenScale.x(400)}
         y={1167}
         specular
         leaving={leaving}
         value={'tarsals&metatarsals'}
         width={81}
       />
-    </>
+    </div>
   );
 }

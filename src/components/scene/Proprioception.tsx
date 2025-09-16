@@ -13,6 +13,7 @@ import { Characters, Child3Standing } from './ChildrenAssets/childrenAssets';
 import { useCharacterContext } from '../../state/character';
 import BottomOverlay from './SensoryAssets/bottomOverlay.png';
 import BgBad from './SensoryAssets/BGBad.png';
+import {screenScale} from "../../utils/scaling";
 
 export default function Proprioception() {
   const [sensoryState, setSensoryState] = React.useState<VariationsType | null>(
@@ -46,9 +47,18 @@ export default function Proprioception() {
       : Child3Standing;
   const CharacterGood = Characters['liftFeather'][selectedCharacter];
   const CharacterBad = Characters['liftWeight'][selectedCharacter];
+  const bodyLeft = screenScale.x(540);
 
   return (
     <>
+      <img
+        src={BottomOverlay}
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+        }}
+      />
       {sensoryState === 'bad' && (
         <img
           src={BgBad}
@@ -60,99 +70,93 @@ export default function Proprioception() {
           }}
         />
       )}
-      <div
-        style={{
-          position: 'absolute',
-          left: 540,
-          top: 270,
-          transform: 'translate(-50%, 0px)',
-          opacity: sensoryState ? 0 : 1,
-        }}
-      >
-        <Character />
+      <div className='element-container'>
+        <div
+          style={{
+            position: 'absolute',
+            left: bodyLeft,
+            top: 270,
+            transform: 'translate(-50%, 0px)',
+            opacity: sensoryState ? 0 : 1,
+          }}
+        >
+          <Character />
+        </div>
+        <div
+          style={{
+            position: 'absolute',
+            left: bodyLeft,
+            top: 270,
+            transform: 'translate(-50%, 0px)',
+            opacity: sensoryState === 'good' ? 1 : 0,
+          }}
+        >
+          <CharacterGood />
+        </div>
+        <div
+          style={{
+            position: 'absolute',
+            left: bodyLeft,
+            top: 270,
+            transform: 'translate(-50%, 0px)',
+            opacity: sensoryState === 'bad' ? 1 : 0,
+          }}
+        >
+          <CharacterBad />
+        </div>
+        {sensoryState === 'good' && (
+          <>
+            <animated.img
+              src={OverlayGood}
+              style={{
+                position: 'absolute',
+                left: 539,
+                top: 630,
+                transform: 'translate(-50%, -50%)',
+                zIndex: 1,
+                ...overlay,
+              }}
+            />
+          </>
+        )}
+        {sensoryState === 'bad' && (
+          <>
+            <animated.img
+              src={OverlayBad}
+              style={{
+                position: 'absolute',
+                left: 539,
+                top: 630,
+                transform: 'translate(-50%, -50%)',
+                zIndex: 1,
+                ...overlay,
+              }}
+            />
+          </>
+        )}
+        <ClickableImage
+          Component={Feather}
+          x={187}
+          y={1058}
+          type='good'
+          onChange={setSensoryState}
+          onTop={sensoryState === 'good'}
+          activeStyle={{
+            opacity: 0,
+          }}
+          sound={'proprioceptionFeather'}
+        />
+        <ClickableImage
+          Component={Dumbell}
+          x={563}
+          y={1085}
+          type='bad'
+          onChange={setSensoryState}
+          onTop={sensoryState === 'bad'}
+          activeStyle={{ opacity: 0 }}
+          sound={'proprioceptionHeavy'}
+        />
       </div>
-      <div
-        style={{
-          position: 'absolute',
-          left: 540,
-          top: 270,
-          transform: 'translate(-50%, 0px)',
-          opacity: sensoryState === 'good' ? 1 : 0,
-        }}
-      >
-        <CharacterGood />
-      </div>
-      <div
-        style={{
-          position: 'absolute',
-          left: 540,
-          top: 270,
-          transform: 'translate(-50%, 0px)',
-          opacity: sensoryState === 'bad' ? 1 : 0,
-        }}
-      >
-        <CharacterBad />
-      </div>
-      <img
-        src={BottomOverlay}
-        style={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-        }}
-      />
-      {sensoryState === 'good' && (
-        <>
-          <animated.img
-            src={OverlayGood}
-            style={{
-              position: 'absolute',
-              left: 539,
-              top: 630,
-              transform: 'translate(-50%, -50%)',
-              zIndex: 1,
-              ...overlay,
-            }}
-          />
-        </>
-      )}
-      {sensoryState === 'bad' && (
-        <>
-          <animated.img
-            src={OverlayBad}
-            style={{
-              position: 'absolute',
-              left: 539,
-              top: 630,
-              transform: 'translate(-50%, -50%)',
-              zIndex: 1,
-              ...overlay,
-            }}
-          />
-        </>
-      )}
-      <ClickableImage
-        Component={Feather}
-        x={187}
-        y={1058}
-        type='good'
-        onChange={setSensoryState}
-        onTop={sensoryState === 'good'}
-        activeStyle={{
-          opacity: 0,
-        }}
-        sound={'proprioceptionFeather'}
-      />
-      <ClickableImage
-        Component={Dumbell}
-        x={563}
-        y={1085}
-        type='bad'
-        onChange={setSensoryState}
-        onTop={sensoryState === 'bad'}
-        activeStyle={{ opacity: 0 }}
-        sound={'proprioceptionHeavy'}
-      />
     </>
   );
 }

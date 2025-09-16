@@ -17,6 +17,7 @@ import Animation2A from '../../animations/cardiovascular2aNew.webm';
 import Animation2B from '../../animations/cardiovascular2b.webm';
 
 import ReactPlayer from 'react-player';
+import {SCALE_FACTORS, screenScale} from "../../utils/scaling";
 
 export default function CardiovascularGame() {
   const [{ step }, setGameState] = useGameContext();
@@ -40,17 +41,18 @@ export default function CardiovascularGame() {
 
   const ChildComponent = Characters.sensory[selectedCharacter];
   const width = sensoryChildWidth;
+  console.log('scale', screenScale.y(100));
 
   const BreatheHead = Characters.breathe[selectedCharacter];
 
   return (
     <>
       {step < 2 && (
-        <>
+        <div className="scene-container">
           <div
             style={{
               position: 'absolute',
-              left: 540,
+              left: screenScale.x(540),
               top: 271,
               transform: `translate(-${width / 2}px, 0)`,
             }}
@@ -61,7 +63,7 @@ export default function CardiovascularGame() {
             <div
               style={{
                 position: 'absolute',
-                left: 540,
+                left: screenScale.x(540),
                 top: 271,
                 transform: `translate(-${width / 2}px, 0)`,
               }}
@@ -69,7 +71,7 @@ export default function CardiovascularGame() {
               <BreatheHead />
             </div>
           )}
-        </>
+        </div>
       )}
       {[4, 5, 6].includes(step) && (
         <ReactPlayer
@@ -118,73 +120,77 @@ export default function CardiovascularGame() {
         />
       )}
       {[8, 9, 10, 11].includes(step) && (
-        <ReactPlayer
-          className='react-player'
-          playing={[9, 10, 11].includes(step)}
-          url={Animation2B}
-          width='100%'
-          height='100%'
-          onEnded={() => setGameState({ step: 10 })}
-          style={{
-            opacity: step === 8 ? 0 : 1,
-            position: 'absolute',
-            top: 170,
-            left: 0,
-          }}
-        />
+        <div className="element-container">
+          <ReactPlayer
+            className='react-player'
+            playing={[9, 10, 11].includes(step)}
+            url={Animation2B}
+            width='100%'
+            height='100%'
+            onEnded={() => setGameState({ step: 10 })}
+            style={{
+              opacity: step === 8 ? 0 : 1,
+              position: 'absolute',
+              top: 170,
+              left: 0,
+            }}
+          />
+        </div>
       )}
       {[7, 8].includes(step) && (
-        <ReactPlayer
-          className='react-player'
-          playing
-          url={Animation2A}
-          width='100%'
-          height='100%'
-          onEnded={() => setGameState({ step: 8 })}
-          style={{
-            position: 'absolute',
-            top: 170,
-            left: 0,
-          }}
-        />
+        <div className="element-container">
+          <ReactPlayer
+            className='react-player'
+            playing
+            url={Animation2A}
+            width='100%'
+            height='100%'
+            onEnded={() => setGameState({ step: 8 })}
+            style={{
+              position: 'absolute',
+              top: 170,
+              left: 0,
+            }}
+          />
+        </div>
       )}
       {[7, 8, 9].includes(step) && (
-        <>
+        <div className="element-container">
           <ArteriesLine
             style={{
               position: 'absolute',
-              top: 743,
-              left: 217,
+              top: screenScale.y(743),
+              left: screenScale.x(217),
             }}
           />
           <span
             style={{
               ...columnLabelStyleLeft,
-              top: 710,
+              top: screenScale.y(710),
             }}
           >
             {t('cardiovascular.scene.arteries')}
           </span>
-        </>
+        </div>
       )}
       {step === 9 && (
-        <>
+        <div className="element-container">
           <VeinsLine
             style={{
               position: 'absolute',
-              top: 721,
-              left: 690,
+              top: screenScale.y(721),
+              left: screenScale.x(690),
             }}
           />
           <span
             style={{
               ...columnLabelStyleRight,
-              top: 690,
+              top: screenScale.y(690),
             }}
           >
             {t('cardiovascular.scene.veins')}
           </span>
-        </>
+        </div>
       )}
     </>
   );

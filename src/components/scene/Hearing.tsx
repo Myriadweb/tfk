@@ -20,6 +20,7 @@ import MusicSparkles from './SensoryAssets/HearingAssets/musicSparkles.png';
 import Siren from './SensoryAssets/HearingAssets/siren.png';
 import SirenAirplugsReaction from './SensoryAssets/HearingAssets/sirenAirplugsReaction.png';
 import SoundLines from './SensoryAssets/HearingAssets/soundLines.png';
+import {screenScale} from "../../utils/scaling";
 
 const valueType = 'badSound';
 const finalValueType = valueType + '-final';
@@ -78,9 +79,18 @@ export default function Hearing() {
   const ChildGood = Characters.happySensory[selectedCharacter];
   const ChildBad = Characters.scaredSensory[selectedCharacter];
   const width = sensoryChildWidth;
+  const bodyLeft = screenScale.x(540);
 
   return (
     <>
+      <img
+        src={BottomOverlay}
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+        }}
+      />
       <img
         src={BgBad}
         style={{
@@ -91,167 +101,161 @@ export default function Hearing() {
           opacity: sensoryState === 'bad' ? 1 : 0,
         }}
       />
-      <div
-        style={{
-          position: 'absolute',
-          left: 540,
-          top: 270,
-          transform: `translate(-${width / 2}px, 0)`,
-          opacity: sensoryState ? 0 : 1,
-        }}
-      >
-        <ChildComponent />
-      </div>
-      <div
-        style={{
-          position: 'absolute',
-          left: 540,
-          top: 270,
-          transform: `translate(-${width / 2}px, 0)`,
-          opacity: sensoryState === 'good' ? 1 : 0,
-        }}
-      >
-        <ChildGood />
-      </div>
-      <div
-        style={{
-          position: 'absolute',
-          left: 540,
-          top: 270,
-          transform: `translate(-${width / 2}px, 0)`,
-          opacity: sensoryState === 'bad' ? 1 : 0,
-        }}
-      >
-        <ChildBad />
-      </div>
-      <img
-        src={BottomOverlay}
-        style={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-        }}
-      />
-      {sensoryState && (
-        <>
+      <div className='element-container'>
+        <div
+          style={{
+            position: 'absolute',
+            left: bodyLeft,
+            top: 270,
+            transform: `translate(-${width / 2}px, 0)`,
+            opacity: sensoryState ? 0 : 1,
+          }}
+        >
+          <ChildComponent />
+        </div>
+        <div
+          style={{
+            position: 'absolute',
+            left: bodyLeft,
+            top: 270,
+            transform: `translate(-${width / 2}px, 0)`,
+            opacity: sensoryState === 'good' ? 1 : 0,
+          }}
+        >
+          <ChildGood />
+        </div>
+        <div
+          style={{
+            position: 'absolute',
+            left: bodyLeft,
+            top: 270,
+            transform: `translate(-${width / 2}px, 0)`,
+            opacity: sensoryState === 'bad' ? 1 : 0,
+          }}
+        >
+          <ChildBad />
+        </div>
+        {sensoryState && (
+          <>
+            <animated.img
+              src={Brain}
+              style={{
+                transform: 'translate(-50%, -50%)',
+                position: 'absolute',
+                top: 507,
+                left: 536,
+                ...overlay,
+              }}
+            />
+            <animated.img
+              src={SensoryHighlight}
+              style={{
+                transform: 'translate(-50%, -50%)',
+                position: 'absolute',
+                top: 704,
+                left: 541,
+                ...overlay,
+              }}
+            />
+          </>
+        )}
+        {sensoryState === 'good' && (
+          <>
+            <animated.img
+              src={OverlayGood}
+              style={{
+                position: 'absolute',
+                left: 539,
+                top: 630,
+                transform: 'translate(-50%, -50%)',
+                zIndex: 1,
+                ...overlay,
+              }}
+            />
+            <animated.img
+              src={MusicSparkles}
+              style={{
+                position: 'absolute',
+                top: 664,
+                left: 274,
+                zIndex: 2,
+                ...sparklesStyle,
+              }}
+            />
+            <animated.img
+              src={MusicLines}
+              style={{
+                position: 'absolute',
+                top: 669,
+                left: 195,
+                zIndex: 2,
+                ...effectStyle,
+              }}
+            />
+          </>
+        )}
+        {sensoryState === 'bad' && (
+          <>
+            <animated.img
+              src={OverlayBad}
+              style={{
+                position: 'absolute',
+                left: 539,
+                top: 630,
+                transform: 'translate(-50%, -50%)',
+                zIndex: 1,
+                ...overlay,
+              }}
+            />
+            <animated.img
+              src={SoundLines}
+              style={{
+                transform: 'translate(-50%, -50%)',
+                position: 'absolute',
+                top: 630,
+                left: 538,
+                zIndex: 1,
+                ...effectStyle,
+              }}
+            />
+          </>
+        )}
+        {value === finalValueType && (
           <animated.img
-            src={Brain}
-            style={{
-              transform: 'translate(-50%, -50%)',
-              position: 'absolute',
-              top: 507,
-              left: 536,
-              ...overlay,
-            }}
+            src={SirenAirplugsReaction}
+            style={{ position: 'absolute', left: 246, top: 681 }}
           />
-          <animated.img
-            src={SensoryHighlight}
-            style={{
-              transform: 'translate(-50%, -50%)',
-              position: 'absolute',
-              top: 704,
-              left: 541,
-              ...overlay,
-            }}
-          />
-        </>
-      )}
-      {sensoryState === 'good' && (
-        <>
-          <animated.img
-            src={OverlayGood}
-            style={{
-              position: 'absolute',
-              left: 539,
-              top: 630,
-              transform: 'translate(-50%, -50%)',
-              zIndex: 1,
-              ...overlay,
-            }}
-          />
-          <animated.img
-            src={MusicSparkles}
-            style={{
-              position: 'absolute',
-              top: 664,
-              left: 274,
-              zIndex: 2,
-              ...sparklesStyle,
-            }}
-          />
-          <animated.img
-            src={MusicLines}
-            style={{
-              position: 'absolute',
-              top: 669,
-              left: 195,
-              zIndex: 2,
-              ...effectStyle,
-            }}
-          />
-        </>
-      )}
-      {sensoryState === 'bad' && (
-        <>
-          <animated.img
-            src={OverlayBad}
-            style={{
-              position: 'absolute',
-              left: 539,
-              top: 630,
-              transform: 'translate(-50%, -50%)',
-              zIndex: 1,
-              ...overlay,
-            }}
-          />
-          <animated.img
-            src={SoundLines}
-            style={{
-              transform: 'translate(-50%, -50%)',
-              position: 'absolute',
-              top: 630,
-              left: 538,
-              zIndex: 1,
-              ...effectStyle,
-            }}
-          />
-        </>
-      )}
-      {value === finalValueType && (
-        <animated.img
-          src={SirenAirplugsReaction}
-          style={{ position: 'absolute', left: 246, top: 681 }}
+        )}
+        <ClickableImage
+          Component={Music}
+          x={618}
+          y={945}
+          type='good'
+          onChange={setSensoryState}
+          onTop={sensoryState === 'good'}
+          activeStyle={{
+            ...activePosition,
+            transform: `translate(-50%, -50%) rotate(0deg)`,
+          }}
+          sound={'hearingMusic'}
         />
-      )}
-      <ClickableImage
-        Component={Music}
-        x={618}
-        y={945}
-        type='good'
-        onChange={setSensoryState}
-        onTop={sensoryState === 'good'}
-        activeStyle={{
-          ...activePosition,
-          transform: `translate(-50%, -50%) rotate(0deg)`,
-        }}
-        sound={'hearingMusic'}
-      />
-      <ClickableImage
-        Component={Siren}
-        x={200}
-        y={910}
-        type='bad'
-        onChange={setSensoryState}
-        onTop={sensoryState === 'bad'}
-        reset={sensoryState === 'bad' && value === finalValueType}
-        valueType={valueType}
-        activeStyle={{
-          ...activePosition,
-          transform: `translate(-50%, -50%) rotate(0deg)`,
-        }}
-        sound={'hearingSiren'}
-        timeoutDuration={7000}
-      />
+        <ClickableImage
+          Component={Siren}
+          x={200}
+          y={910}
+          type='bad'
+          onChange={setSensoryState}
+          onTop={sensoryState === 'bad'}
+          reset={sensoryState === 'bad' && value === finalValueType}
+          valueType={valueType}
+          activeStyle={{
+            ...activePosition,
+            transform: `translate(-50%, -50%) rotate(0deg)`,
+          }}
+          sound={'hearingSiren'}
+          timeoutDuration={7000}
+        />
+      </div>
     </>
   );
 }

@@ -1,8 +1,45 @@
-// Current dimensions: 1080h x 820w -> Target: 1180h x 820w
+// Device configuration object
+const DEVICE_CONFIGS = {
+  desktop: {
+    baseWidth: 1080,
+    baseHeight: 1920,
+    targetWidth: 1080,
+    targetHeight: 1920,
+  },
+  'ipad-pro-13': {
+    baseWidth: 1080,
+    baseHeight: 1920,
+    targetWidth: 1032, // 2064 / 2
+    targetHeight: 1376, // 2752 / 2
+  },
+  'ipad-pro-11': {
+    baseWidth: 1080,
+    baseHeight: 1920,
+    targetWidth: 950, // Example values
+    targetHeight: 1300,
+  },
+  // Easy to add more devices
+  'android-tablet': {
+    baseWidth: 1080,
+    baseHeight: 1920,
+    targetWidth: 1000,
+    targetHeight: 1400,
+  },
+} as const;
+
+// Get current device from environment
+const device = (process.env.REACT_APP_DEVICE as keyof typeof DEVICE_CONFIGS) || 'desktop';
+const config = DEVICE_CONFIGS[device];
+
+// Calculate scale factors dynamically
+const scaleX = config.targetWidth / config.baseWidth;
+const scaleY = config.targetHeight / config.baseHeight;
+const scaleAvg = (scaleX + scaleY) / 2;
+
 export const SCALE_FACTORS = {
-  x: 0.955, // 1032/1080 (2064 / 2 = 1032)
-  y: 0.717, // 1376/1920 (2752 / 2 = 1376)
-  avg: 0.835, // Average for fonts/general scaling
+  x: scaleX,
+  y: scaleY,
+  avg: scaleAvg,
 };
 
 export const screenScale = {
@@ -14,3 +51,18 @@ export const screenScale = {
     y: Math.round(y * SCALE_FACTORS.y),
   }),
 };
+
+// Function to set CSS custom properties
+export const setCSSScaleVariables = () => {
+  const root = document.documentElement;
+  root.style.setProperty('--scale-x', SCALE_FACTORS.x.toString());
+  root.style.setProperty('--scale-y', SCALE_FACTORS.y.toString());
+  root.style.setProperty('--scale-avg', SCALE_FACTORS.avg.toString());
+};
+
+// Export current device info for debugging
+export const getCurrentDevice = () => ({
+  device,
+  config,
+  scaleFactors: SCALE_FACTORS,
+});

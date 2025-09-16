@@ -17,6 +17,7 @@ import OverlayGood from './SensoryAssets/overlayGOOD.png';
 import OverlayBad from './SensoryAssets/overlayBAD.png';
 import Brain from './SensoryAssets/brain.png';
 import BgBad from './SensoryAssets/BGBad.png';
+import {screenScale} from "../../utils/scaling";
 
 export default function Taste() {
   const [sensoryState, setSensoryState] = React.useState<VariationsType | null>(
@@ -79,9 +80,18 @@ export default function Taste() {
   const ChildGood = Characters.iceCream[selectedCharacter];
   const ChildBad = Characters.hotSauce[selectedCharacter];
   const width = sensoryChildWidth;
+  const bodyLeft = screenScale.x(540);
 
   return (
     <>
+      <img
+        src={BottomOverlay}
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+        }}
+      />
       {sensoryState === 'bad' && (
         <img
           src={BgBad}
@@ -93,148 +103,142 @@ export default function Taste() {
           }}
         />
       )}
-      <div
-        style={{
-          position: 'absolute',
-          left: 540,
-          top: 270,
-          transform: `translate(-${width / 2}px, 0)`,
-          opacity: sensoryState ? 0 : 1,
-        }}
-      >
-        <ChildComponent />
-      </div>
-      <div
-        style={{
-          position: 'absolute',
-          left: 540,
-          top: 270,
-          transform: `translate(-${width / 2}px, 0)`,
-          opacity: sensoryState === 'good' ? 1 : 0,
-        }}
-      >
-        <ChildGood />
-      </div>
-      <div
-        style={{
-          position: 'absolute',
-          left: 540,
-          top: 270,
-          transform: `translate(-${width / 2}px, 0)`,
-          opacity: sensoryState === 'bad' ? 1 : 0,
-        }}
-      >
-        <ChildBad />
-      </div>
-      <img
-        src={BottomOverlay}
-        style={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-        }}
-      />
-      {sensoryState && (
-        <animated.img
-          src={Brain}
+      <div className='element-container'>
+        <div
           style={{
-            transform: 'translate(-50%, -50%)',
             position: 'absolute',
-            top: 507,
-            left: 536,
-            ...overlay,
+            left: bodyLeft,
+            top: 270,
+            transform: `translate(-${width / 2}px, 0)`,
+            opacity: sensoryState ? 0 : 1,
           }}
+        >
+          <ChildComponent />
+        </div>
+        <div
+          style={{
+            position: 'absolute',
+            left: bodyLeft,
+            top: 270,
+            transform: `translate(-${width / 2}px, 0)`,
+            opacity: sensoryState === 'good' ? 1 : 0,
+          }}
+        >
+          <ChildGood />
+        </div>
+        <div
+          style={{
+            position: 'absolute',
+            left: bodyLeft,
+            top: 270,
+            transform: `translate(-${width / 2}px, 0)`,
+            opacity: sensoryState === 'bad' ? 1 : 0,
+          }}
+        >
+          <ChildBad />
+        </div>
+        {sensoryState && (
+          <animated.img
+            src={Brain}
+            style={{
+              transform: 'translate(-50%, -50%)',
+              position: 'absolute',
+              top: 507,
+              left: 536,
+              ...overlay,
+            }}
+          />
+        )}
+        {sensoryState === 'good' && (
+          <>
+            <animated.img
+              src={OverlayGood}
+              style={{
+                position: 'absolute',
+                left: 539,
+                top: 630,
+                transform: 'translate(-50%, -50%)',
+                zIndex: 1,
+                ...overlay,
+              }}
+            />
+            <animated.img
+              src={Sparkles}
+              style={{
+                position: 'absolute',
+                top: 642,
+                left: 274,
+                zIndex: 3,
+                ...sparklesStyle,
+              }}
+            />
+          </>
+        )}
+        {sensoryState === 'bad' && (
+          <>
+            <animated.img
+              src={Drop}
+              style={{
+                position: 'absolute',
+                left: 529,
+                top: 811,
+                zIndex: 1,
+                ...dropStyle,
+              }}
+            />
+            <animated.img
+              src={SenseHighlight}
+              style={{
+                position: 'absolute',
+                left: 539,
+                top: 758,
+                transform: 'translate(-50%, -50%)',
+                zIndex: 1,
+                ...overlay,
+              }}
+            />
+            <animated.img
+              src={OverlayBad}
+              style={{
+                position: 'absolute',
+                left: 539,
+                top: 630,
+                transform: 'translate(-50%, -50%)',
+                zIndex: 1,
+                ...overlay,
+              }}
+            />
+          </>
+        )}
+        <ClickableImage
+          Component={IceCream}
+          x={638}
+          y={871}
+          type='good'
+          onChange={setSensoryState}
+          onTop={sensoryState === 'good'}
+          activeStyle={{
+            top: 955,
+            left: 547,
+            transform: `translate(-50%, -50%) rotate(0deg)`,
+          }}
+          sound={'tasteGood'}
         />
-      )}
-      {sensoryState === 'good' && (
-        <>
-          <animated.img
-            src={OverlayGood}
-            style={{
-              position: 'absolute',
-              left: 539,
-              top: 630,
-              transform: 'translate(-50%, -50%)',
-              zIndex: 1,
-              ...overlay,
-            }}
-          />
-          <animated.img
-            src={Sparkles}
-            style={{
-              position: 'absolute',
-              top: 642,
-              left: 274,
-              zIndex: 3,
-              ...sparklesStyle,
-            }}
-          />
-        </>
-      )}
-      {sensoryState === 'bad' && (
-        <>
-          <animated.img
-            src={Drop}
-            style={{
-              position: 'absolute',
-              left: 529,
-              top: 811,
-              zIndex: 1,
-              ...dropStyle,
-            }}
-          />
-          <animated.img
-            src={SenseHighlight}
-            style={{
-              position: 'absolute',
-              left: 539,
-              top: 758,
-              transform: 'translate(-50%, -50%)',
-              zIndex: 1,
-              ...overlay,
-            }}
-          />
-          <animated.img
-            src={OverlayBad}
-            style={{
-              position: 'absolute',
-              left: 539,
-              top: 630,
-              transform: 'translate(-50%, -50%)',
-              zIndex: 1,
-              ...overlay,
-            }}
-          />
-        </>
-      )}
-      <ClickableImage
-        Component={IceCream}
-        x={638}
-        y={871}
-        type='good'
-        onChange={setSensoryState}
-        onTop={sensoryState === 'good'}
-        activeStyle={{
-          top: 955,
-          left: 547,
-          transform: `translate(-50%, -50%) rotate(0deg)`,
-        }}
-        sound={'tasteGood'}
-      />
-      <ClickableImage
-        Component={Bottle}
-        x={215}
-        y={865}
-        type='bad'
-        onChange={setSensoryState}
-        onTop={sensoryState === 'bad'}
-        activeStyle={{
-          transform: 'translate(0%, 0%) rotate(108deg)',
-          left: 317,
-          top: 340,
-        }}
-        sound={'tasteHot'}
-      />
+        <ClickableImage
+          Component={Bottle}
+          x={215}
+          y={865}
+          type='bad'
+          onChange={setSensoryState}
+          onTop={sensoryState === 'bad'}
+          activeStyle={{
+            transform: 'translate(0%, 0%) rotate(108deg)',
+            left: 317,
+            top: 340,
+          }}
+          sound={'tasteHot'}
+        />
+      </div>
     </>
   );
 }

@@ -224,259 +224,263 @@ export default function DigestiveGame() {
 
   return (
     <>
-      {step < 5 && (
-        <div
-          style={{
-            position: 'absolute',
-            left: 540,
-            top: 271,
-            transform: `translate(-${width / 2}px, 0)`,
-          }}
-        >
-          <ChildComponent />
-        </div>
-      )}
-      {step >= 5 && <img src={BG} />}
-      {step >= 5 && step < 16 && (
-        <>
-          <animated.img src={DigestiveSystem} style={bodySystemStyle} />
-          <animated.img
-            src={StomachOverlay}
-            style={{
-              position: 'absolute',
-              top: -200,
-              left: 0,
-              ...stomachOverlaysStyle,
-            }}
-          />
-          <animated.img
-            src={SmallIntestineOverlay}
-            style={{
-              position: 'absolute',
-              top: -164,
-              left: 0,
-              ...smallIntestineOverlaysStyle,
-            }}
-          />
-          <animated.div
-            style={{
-              position: 'absolute',
-              top: -427,
-              left: -17,
-              ...stomachStyle,
-            }}
-          >
-            <ReactPlayer
-              playing
-              loop
-              url={Animation}
-              width='100%'
-              height='100%'
-            />
-          </animated.div>
-          <animated.img
-            src={StomachLines}
-            style={{
-              position: 'absolute',
-              top: 447,
-              left: 343,
-              ...stomachStyle,
-            }}
-          />
-          <animated.img
-            src={SmallIntestineLine}
-            style={{
-              position: 'absolute',
-              top: 660,
-              left: 562,
-              ...smallIntestineStyle,
-            }}
-          />
-          <animated.img
-            src={LargeIntestineLine}
-            style={{
-              position: 'absolute',
-              top: 765,
-              left: 210,
-              ...largeIntestineStyle,
-            }}
-          />
-          <animated.span
-            style={{
-              ...columnLabelStyle,
-              ...stomachStyle,
-              top: 385,
-              left: 245,
-            }}
-          >
-            {t('digestive.scene.stomach')}
-          </animated.span>
-          <animated.span
-            style={{
-              ...columnLabelStyle,
-              ...smallIntestineStyle,
-              padding: '8px 0 10px',
-              top: 616,
-              right: 37,
-              width: 208,
-            }}
-          >
-            {t('digestive.scene.smallIntestine')}
-          </animated.span>
-          <animated.span
-            style={{
-              ...columnLabelStyle,
-              ...largeIntestineStyle,
-              padding: '8px 0 10px',
-              top: 803,
-              left: 30,
-              width: 203,
-            }}
-          >
-            {t('digestive.scene.largeIntestine')}
-          </animated.span>
-          <animated.img
-            src={Oval}
-            style={{
-              position: 'absolute',
-              left: 540,
-              top: 655,
-              ...ovalStyle,
-            }}
-          />
-          <animated.div
-            style={{
-              ...columnLabelStyle,
-              ...blueBoxOverlaysStyle,
-              background: '#103159',
-              borderRadius: 18.5,
-              height: 315,
-              top: 900,
-              left: 540,
-              width: 448,
-              transform: 'translateX(-50%)',
-              display: 'flex',
-              alignItems: 'center',
-              flexDirection: 'column',
-            }}
-          >
-            <img
-              src={[7, 8].includes(step) ? Vomit : WasteBlueBox}
-              style={{
-                marginTop: 37,
-              }}
-            />
-            <div
-              style={{
-                border: '1px white solid',
-                marginTop: 18.5,
-                width: 45,
-              }}
-            />
-            <span
-              style={{
-                marginTop: 27,
-                fontFamily: 'LemonMilk',
-                fontSize: 20,
-                fontWeight: 400,
-                maxWidth: 470,
-                whiteSpace: 'initial',
-              }}
-            >
-              <Trans i18nKey={`digestive.scene.${step}-blueBox`} />
-            </span>
-          </animated.div>
-        </>
-      )}
-      {step === 16 && (
-        <img
-          src={Waste}
-          style={{
-            position: 'absolute',
-            transform: 'translateX(-50%)',
-            left: 540,
-            top: 940,
-          }}
-        />
-      )}
-      {step === 0 && (
-        <>
-          <animated.img
-            src={Apple}
-            style={{
-              position: 'absolute',
-              top: 1003,
-              left: 283,
-              ...appleStyle,
-            }}
-            onClick={() => onAppleClick()}
-          />
-          <animated.img
-            src={IceCream}
-            style={{
-              position: 'absolute',
-              top: 945,
-              left: 560,
-              ...iceCreamStyle,
-            }}
-            onClick={() => onIceCreamClick()}
-          />
-        </>
-      )}
       {step >= 1 && step <= 4 && (
-        <>
-          <img
+        <img
             src='images/Sensory/bottomOverlay.png'
             style={{
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+          }}
+        />
+      )}
+      {step >= 5 && <img src={BG} style={{ position: "absolute", left: 0 }} />}
+      <div className='element-container' style={{ transformOrigin: 'top' }}>
+        {step < 5 && (
+          <div
+            style={{
               position: 'absolute',
-              bottom: 0,
-              left: 0,
+              left: 540,
+              top: 271,
+              transform: `translate(-${width / 2}px, 0)`,
             }}
-          />
+          >
+            <ChildComponent />
+          </div>
+        )}
+        {step >= 5 && step < 16 && (
+          <>
+            <animated.img src={DigestiveSystem} style={bodySystemStyle} />
+            <animated.img
+              src={StomachOverlay}
+              style={{
+                position: 'absolute',
+                top: -200,
+                left: 0,
+                ...stomachOverlaysStyle,
+              }}
+            />
+            <animated.img
+              src={SmallIntestineOverlay}
+              style={{
+                position: 'absolute',
+                top: -164,
+                left: 0,
+                ...smallIntestineOverlaysStyle,
+              }}
+            />
+            <animated.div
+              style={{
+                position: 'absolute',
+                top: -427,
+                left: -17,
+                ...stomachStyle,
+              }}
+            >
+              <ReactPlayer
+                playing
+                loop
+                url={Animation}
+                width='100%'
+                height='100%'
+              />
+            </animated.div>
+            <animated.img
+              src={StomachLines}
+              style={{
+                position: 'absolute',
+                top: 447,
+                left: 343,
+                ...stomachStyle,
+              }}
+            />
+            <animated.img
+              src={SmallIntestineLine}
+              style={{
+                position: 'absolute',
+                top: 660,
+                left: 562,
+                ...smallIntestineStyle,
+              }}
+            />
+            <animated.img
+              src={LargeIntestineLine}
+              style={{
+                position: 'absolute',
+                top: 765,
+                left: 210,
+                ...largeIntestineStyle,
+              }}
+            />
+            <animated.span
+              style={{
+                ...columnLabelStyle,
+                ...stomachStyle,
+                top: 385,
+                left: 245,
+              }}
+            >
+              {t('digestive.scene.stomach')}
+            </animated.span>
+            <animated.span
+              style={{
+                ...columnLabelStyle,
+                ...smallIntestineStyle,
+                padding: '8px 0 10px',
+                top: 616,
+                right: 37,
+                width: 208,
+              }}
+            >
+              {t('digestive.scene.smallIntestine')}
+            </animated.span>
+            <animated.span
+              style={{
+                ...columnLabelStyle,
+                ...largeIntestineStyle,
+                padding: '8px 0 10px',
+                top: 803,
+                left: 30,
+                width: 203,
+              }}
+            >
+              {t('digestive.scene.largeIntestine')}
+            </animated.span>
+            <animated.img
+              src={Oval}
+              style={{
+                position: 'absolute',
+                left: 540,
+                top: 655,
+                ...ovalStyle,
+              }}
+            />
+            <animated.div
+              style={{
+                ...columnLabelStyle,
+                ...blueBoxOverlaysStyle,
+                background: '#103159',
+                borderRadius: 18.5,
+                height: 315,
+                top: 900,
+                left: 540,
+                width: 448,
+                transform: 'translateX(-50%)',
+                display: 'flex',
+                alignItems: 'center',
+                flexDirection: 'column',
+              }}
+            >
+              <img
+                src={[7, 8].includes(step) ? Vomit : WasteBlueBox}
+                style={{
+                  marginTop: 37,
+                }}
+              />
+              <div
+                style={{
+                  border: '1px white solid',
+                  marginTop: 18.5,
+                  width: 45,
+                }}
+              />
+              <span
+                style={{
+                  marginTop: 27,
+                  fontFamily: 'LemonMilk',
+                  fontSize: 20,
+                  fontWeight: 400,
+                  maxWidth: 470,
+                  whiteSpace: 'initial',
+                }}
+              >
+                <Trans i18nKey={`digestive.scene.${step}-blueBox`} />
+              </span>
+            </animated.div>
+          </>
+        )}
+        {step === 16 && (
           <img
-            src={ChewMeterBlank}
+            src={Waste}
             style={{
               position: 'absolute',
               transform: 'translateX(-50%)',
               left: 540,
-              top: 1100,
+              top: 940,
             }}
           />
-        </>
-      )}
-      {[2, 3, 4].includes(step) && (
-        <img
-          src={ChewMeter1}
-          style={{
-            position: 'absolute',
-            transform: 'translateX(-50%)',
-            left: 593,
-            top: 1107,
-          }}
-        />
-      )}
-      {[3, 4].includes(step) && (
-        <img
-          src={ChewMeter2}
-          style={{
-            position: 'absolute',
-            transform: 'translateX(-50%)',
-            left: 593,
-            top: 1107,
-          }}
-        />
-      )}
-      {step === 4 && (
-        <img
-          src={ChewMeter3}
-          style={{
-            position: 'absolute',
-            transform: 'translateX(-50%)',
-            left: 593,
-            top: 1107,
-          }}
-        />
-      )}
+        )}
+        {step === 0 && (
+          <>
+            <animated.img
+              src={Apple}
+              style={{
+                position: 'absolute',
+                top: 1003,
+                left: 283,
+                ...appleStyle,
+              }}
+              onClick={() => onAppleClick()}
+            />
+            <animated.img
+              src={IceCream}
+              style={{
+                position: 'absolute',
+                top: 945,
+                left: 560,
+                ...iceCreamStyle,
+              }}
+              onClick={() => onIceCreamClick()}
+            />
+          </>
+        )}
+        {step >= 1 && step <= 4 && (
+          <>
+            <img
+              src={ChewMeterBlank}
+              style={{
+                position: 'absolute',
+                transform: 'translateX(-50%)',
+                left: 540,
+                top: 1100,
+              }}
+            />
+          </>
+        )}
+        {[2, 3, 4].includes(step) && (
+          <img
+            src={ChewMeter1}
+            style={{
+              position: 'absolute',
+              transform: 'translateX(-50%)',
+              left: 593,
+              top: 1107,
+            }}
+          />
+        )}
+        {[3, 4].includes(step) && (
+          <img
+            src={ChewMeter2}
+            style={{
+              position: 'absolute',
+              transform: 'translateX(-50%)',
+              left: 593,
+              top: 1107,
+            }}
+          />
+        )}
+        {step === 4 && (
+          <img
+            src={ChewMeter3}
+            style={{
+              position: 'absolute',
+              transform: 'translateX(-50%)',
+              left: 593,
+              top: 1107,
+            }}
+          />
+        )}
+      </div>
     </>
   );
 }

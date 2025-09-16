@@ -24,6 +24,11 @@ const Digestive = ({ prefix }: Props) => {
   const [{ step }, setGameState] = useGameContext();
   const navigate = useNavigate();
 
+  React.useEffect(() => {
+    (window as any).debugSetStep = setGameState;
+    (window as any).debugGetState = () => ({ step });
+  }, [setGameState, step]);
+
   const stepComponentConfig = {
     1: () => (
       <NavigationButton

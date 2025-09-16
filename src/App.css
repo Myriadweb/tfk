@@ -1,8 +1,8 @@
 :root {
-  /* Base dimensions: 1920w x 1080h -> Target: 2160w x 1620h */
-  --scale-y: 0.717; /* 1376/1920 (2752 / 2 = 1376) */
-  --scale-x: 0.955; /* 1032/1080 (2064 / 2 = 1032) */
-  --scale-avg: 0.835; /* Average for fonts/general scaling */
+    /* These will be set dynamically by JavaScript */
+    --scale-x: 1;
+    --scale-y: 1;
+    --scale-avg: 1;
 }
 
 .App {
@@ -152,7 +152,6 @@
   height: 100%;
   width: 100%;
   box-sizing: border-box;
-  align-items: baseline;
 }
 .nav-middle-container {
   padding: 27px;
@@ -260,7 +259,7 @@
   font-size: 20px;
   color: white;
 }
-.nav-bottom .links-container {
+.links-container {
   position: absolute;
   left: calc(44px * var(--scale-x));
   bottom: calc(20px * var(--scale-y));
@@ -277,6 +276,13 @@
 
 .links-container .link img {
   margin-right: 15px;
+}
+.language-toggle-container {
+  position: absolute;
+  right: calc(44px * var(--scale-x));
+  bottom: calc(20px * var(--scale-y));
+  display: flex;
+  align-items: center;
 }
 
 .procedures-box {
@@ -417,7 +423,14 @@
   object-fit: cover;
 }
 
-.skeletal-scene-container {
+.scene-container, .skeletal-scene-container {
   position: relative;
   transform: scale(calc(100% * var(--scale-y)));
+}
+.element-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: scale(calc(100% * var(--scale-y)));
+    transform-origin: top;
 }

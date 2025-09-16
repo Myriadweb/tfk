@@ -114,7 +114,7 @@ const childStyle: CSSProperties = {
 };
 
 const DefaultCharacters = {
-  [Character.child1]: () => <locationAssets.Child1 height={screenScale.y(984)} width={screenScale.x(392)} />,
+  [Character.child1]: () => <locationAssets.Child1 height={984} width={392} />,
   [Character.child2]: () => <locationAssets.Child2 height={screenScale.y(984)} width={screenScale.x(392)} />,
   [Character.child3]: () => <img src={locationAssets.Child3} height={screenScale.y(984)} width={screenScale.x(633)} />,
   [Character.child4]: () => <locationAssets.Child4 height={screenScale.y(984)} width={screenScale.x(392)} />,
@@ -123,7 +123,7 @@ const DefaultCharacters = {
 };
 
 const DefaultCharactersRaster = {
-  [Character.child1]: () => <img height={screenScale.y(984)} width={screenScale.x(392)} src={locationAssets.Child1Raster} />,
+  [Character.child1]: () => <img height={984} width={392} src={locationAssets.Child1Raster} />,
   [Character.child2]: () => <img height={screenScale.y(984)} width={screenScale.x(392)} src={locationAssets.Child2Raster} />,
   [Character.child3]: () => <img height={screenScale.y(984)} width={screenScale.x(633)} src={locationAssets.Child3} />,
   [Character.child4]: () => <img height={screenScale.y(984)} width={screenScale.x(392)} src={locationAssets.Child4Raster} />,
@@ -731,8 +731,8 @@ const BreathingHead = {
       src={Child1Breathe}
       style={{
         position: 'relative',
-        width: screenScale.x(784),
-        height: screenScale.y(616),
+        width: 784,
+        height: 616,
         top: 8,
       }}
     />
@@ -742,10 +742,10 @@ const BreathingHead = {
       src={Child2Breathe}
       style={{
         position: 'relative',
-        width: screenScale.x(667),
-        height: screenScale.y(586),
-        top: screenScale.y(30),
-        left: screenScale.x(65),
+        width: 667,
+        height: 586,
+        top: 30,
+        left: 65,
       }}
     />
   ),
