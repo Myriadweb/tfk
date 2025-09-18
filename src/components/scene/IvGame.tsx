@@ -25,6 +25,7 @@ import Medal from './SharedAssets/medal.png';
 import { Characters, IvChildBed, IvChildBedHappy, IvChildBedSmiling } from './ChildrenAssets/childrenAssets';
 import InitialPromptIV from './IvAssets/initialPromptIV.svg';
 import ProcedurePlaceholder from './SharedAssets/procedurePlaceholder.png';
+import {screenScale} from "../../utils/scaling";
 
 const ChildFinalStep = Characters.default[0];
 
@@ -61,7 +62,7 @@ export default function IvGame() {
       });
     } else if (step === 2) {
       childApi.start({
-        transform: 'scale(2) translate(232px, -222px)',
+        transform: `scale(2) translate(${screenScale.x(232)}px, -222px)`,
         onRest: () => {
           trayApi.start({ transform: 'translateX(0px)' });
           targetApi.start({ opacity: 1 });
@@ -131,7 +132,7 @@ export default function IvGame() {
   }
 
   return (
-    <>
+    <div className='element-container'>
       {step < 10 && (
         <>
           <animated.div
@@ -416,6 +417,6 @@ export default function IvGame() {
           />
         </>
       )}
-    </>
+    </div>
   );
 }

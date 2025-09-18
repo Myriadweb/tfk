@@ -62,7 +62,7 @@ export default function XRay() {
   const width = childWidth[4];
 
   return (
-    <>
+    <div className='element-container'>
       <animated.div
         style={{
           top: 275,
@@ -92,6 +92,6 @@ export default function XRay() {
           navigate(`/${Paths.Procedures}/${Paths.XRay}/${Paths.Game}`)
         }
       />
-    </>
+    </div>
   );
 }

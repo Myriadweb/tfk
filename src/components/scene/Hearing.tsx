@@ -24,7 +24,7 @@ import {screenScale} from "../../utils/scaling";
 
 const valueType = 'badSound';
 const finalValueType = valueType + '-final';
-const activePosition = { left: 540, top: 950 };
+const activePosition = { left: screenScale.x(540), top: 950 };
 
 export default function Hearing() {
   const [sensoryState, setSensoryState] = React.useState<VariationsType | null>(
@@ -79,7 +79,7 @@ export default function Hearing() {
   const ChildGood = Characters.happySensory[selectedCharacter];
   const ChildBad = Characters.scaredSensory[selectedCharacter];
   const width = sensoryChildWidth;
-  const bodyLeft = screenScale.x(540);
+  const bodyLeft = '50%';
 
   return (
     <>
@@ -107,7 +107,7 @@ export default function Hearing() {
             position: 'absolute',
             left: bodyLeft,
             top: 270,
-            transform: `translate(-${width / 2}px, 0)`,
+            transform: `translate(-50%, 0)`,
             opacity: sensoryState ? 0 : 1,
           }}
         >
@@ -118,7 +118,7 @@ export default function Hearing() {
             position: 'absolute',
             left: bodyLeft,
             top: 270,
-            transform: `translate(-${width / 2}px, 0)`,
+            transform: `translate(-50%, 0)`,
             opacity: sensoryState === 'good' ? 1 : 0,
           }}
         >
@@ -129,7 +129,7 @@ export default function Hearing() {
             position: 'absolute',
             left: bodyLeft,
             top: 270,
-            transform: `translate(-${width / 2}px, 0)`,
+            transform: `translate(-50%, 0)`,
             opacity: sensoryState === 'bad' ? 1 : 0,
           }}
         >
@@ -143,7 +143,7 @@ export default function Hearing() {
                 transform: 'translate(-50%, -50%)',
                 position: 'absolute',
                 top: 507,
-                left: 536,
+                left: '50%',
                 ...overlay,
               }}
             />
@@ -153,7 +153,7 @@ export default function Hearing() {
                 transform: 'translate(-50%, -50%)',
                 position: 'absolute',
                 top: 704,
-                left: 541,
+                left: '50%',
                 ...overlay,
               }}
             />
@@ -165,7 +165,7 @@ export default function Hearing() {
               src={OverlayGood}
               style={{
                 position: 'absolute',
-                left: 539,
+                left: '50%',
                 top: 630,
                 transform: 'translate(-50%, -50%)',
                 zIndex: 1,
@@ -200,7 +200,7 @@ export default function Hearing() {
               src={OverlayBad}
               style={{
                 position: 'absolute',
-                left: 539,
+                left: '50%',
                 top: 630,
                 transform: 'translate(-50%, -50%)',
                 zIndex: 1,
@@ -213,7 +213,7 @@ export default function Hearing() {
                 transform: 'translate(-50%, -50%)',
                 position: 'absolute',
                 top: 630,
-                left: 538,
+                left: '50%',
                 zIndex: 1,
                 ...effectStyle,
               }}
@@ -223,7 +223,7 @@ export default function Hearing() {
         {value === finalValueType && (
           <animated.img
             src={SirenAirplugsReaction}
-            style={{ position: 'absolute', left: 246, top: 681 }}
+            style={{ position: 'absolute', left: '50%', top: 681, transform: 'translate(-50%)' }}
           />
         )}
         <ClickableImage

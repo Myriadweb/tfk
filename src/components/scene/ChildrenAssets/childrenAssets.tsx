@@ -68,7 +68,7 @@ const convertToComponent = (asset: any): typeof ReactComponent => {
 }
 
 export const Child3Standing = () => (
-  <locationAssets.Child3StandingDefault height={screenScale.y(984)} width={screenScale.x(392)} />
+  <locationAssets.Child3StandingDefault height={984} width={392} />
 );
 
 const childWidthInternal = {
@@ -77,14 +77,14 @@ const childWidthInternal = {
 
 export const childWidth = new Proxy(childWidthInternal, {
   get(object, prop) {
-    return object[prop] || screenScale.x(392);
+    return object[prop] || 392;
   },
 });
 
-export const sensoryChildWidth = screenScale.x(784);
+export const sensoryChildWidth = 784;
 
 const Smock = () => (
-  <SmockRaw style={{ position: 'absolute', top: screenScale.y(332), left: screenScale.x(66) }} />
+  <SmockRaw style={{ position: 'absolute', top: 332, left: 66 }} />
 );
 
 export const EegBody = locationAssets.eegBody;
@@ -107,28 +107,28 @@ export const MriBedSleeping = locationAssets.MriBedSleeping;
 export const MriScene = locationAssets.MriScene;
 
 const childStyle: CSSProperties = {
-  height: screenScale.y(984),
-  width: screenScale.x(392),
+  height: 984,
+  width: 392,
   position: 'absolute',
   top: 0,
 };
 
 const DefaultCharacters = {
   [Character.child1]: () => <locationAssets.Child1 height={984} width={392} />,
-  [Character.child2]: () => <locationAssets.Child2 height={screenScale.y(984)} width={screenScale.x(392)} />,
-  [Character.child3]: () => <img src={locationAssets.Child3} height={screenScale.y(984)} width={screenScale.x(633)} />,
-  [Character.child4]: () => <locationAssets.Child4 height={screenScale.y(984)} width={screenScale.x(392)} />,
-  [Character.child5]: () => <locationAssets.Child5 height={screenScale.y(984)} width={screenScale.x(392)} />,
-  [Character.child6]: () => <locationAssets.Child6 height={screenScale.y(984)} width={screenScale.x(392)} />,
+  [Character.child2]: () => <locationAssets.Child2 height={984} width={392} />,
+  [Character.child3]: () => <img src={locationAssets.Child3} height={984} width={633} />,
+  [Character.child4]: () => <locationAssets.Child4 height={984} width={392} />,
+  [Character.child5]: () => <locationAssets.Child5 height={984} width={392} />,
+  [Character.child6]: () => <locationAssets.Child6 height={984} width={392} />,
 };
 
 const DefaultCharactersRaster = {
   [Character.child1]: () => <img height={984} width={392} src={locationAssets.Child1Raster} />,
-  [Character.child2]: () => <img height={screenScale.y(984)} width={screenScale.x(392)} src={locationAssets.Child2Raster} />,
-  [Character.child3]: () => <img height={screenScale.y(984)} width={screenScale.x(633)} src={locationAssets.Child3} />,
-  [Character.child4]: () => <img height={screenScale.y(984)} width={screenScale.x(392)} src={locationAssets.Child4Raster} />,
-  [Character.child5]: () => <img height={screenScale.y(984)} width={screenScale.x(392)} src={locationAssets.Child5Raster} />,
-  [Character.child6]: () => <img height={screenScale.y(984)} width={screenScale.x(392)} src={locationAssets.Child6Raster} />,
+  [Character.child2]: () => <img height={984} width={392} src={locationAssets.Child2Raster} />,
+  [Character.child3]: () => <img height={984} width={633} src={locationAssets.Child3} />,
+  [Character.child4]: () => <img height={984} width={392} src={locationAssets.Child4Raster} />,
+  [Character.child5]: () => <img height={984} width={392} src={locationAssets.Child5Raster} />,
+  [Character.child6]: () => <img height={984} width={392} src={locationAssets.Child6Raster} />,
 };
 
 const WorriedCharacters = {
@@ -136,7 +136,7 @@ const WorriedCharacters = {
     <span style={{ position: 'relative' }}>
       <locationAssets.Child1 style={childStyle} />
       <Child1Worried
-        style={{ position: 'absolute', width: screenScale.x(392), height: screenScale.y(327) }}
+        style={{ position: 'absolute', width: 392, height: 327 }}
       />
     </span>
   ),
@@ -144,7 +144,7 @@ const WorriedCharacters = {
     <span style={{ position: 'relative' }}>
       <locationAssets.Child2 style={childStyle} />
       <Child2Worried
-        style={{ position: 'absolute', width: screenScale.x(392), height: screenScale.y(327) }}
+        style={{ position: 'absolute', width: 392, height: 327 }}
       />
     </span>
   ),
@@ -176,22 +176,22 @@ const WorriedCharacters = {
     <span style={{ position: 'relative' }}>
       <locationAssets.Child6 style={childStyle} />
       <Child6Worried
-        style={{ position: 'absolute', width: screenScale.x(392), height: screenScale.y(327) }}
+        style={{ position: 'absolute', width: 392, height: 327 }}
       />
     </span>
   ),
 };
 
 const SensoryStyle: CSSProperties = {
-  width: screenScale.x(784),
-  height: screenScale.y(1942),
+  width: 784,
+  height: 1942,
   position: 'absolute',
   top: 0,
 };
 const SensoryHeadStyle: CSSProperties = {
   position: 'absolute',
-  width: screenScale.x(784),
-  height: screenScale.y(616),
+  width: 784,
+  height: 616,
 };
 
 const SensoryCharacters = {
@@ -344,7 +344,7 @@ const SmockCharacters = {
     return (
       <span style={{ position: 'relative' }}>
         <Child3 />
-        <SmockRaw style={{ position: 'absolute', top: screenScale.y(328), left: screenScale.x(188) }} />
+        <SmockRaw style={{ position: 'absolute', top: 328, left: 188 }} />
       </span>
     );
   },
@@ -662,32 +662,32 @@ const vestibularHeadStyle = {
 const LiftFeatherCharacters = {
   [Character.child1]: () => (
     <span style={{ position: 'relative' }}>
-      <img src={locationAssets.Child1LiftFeather} height={screenScale.y(984)} width={screenScale.x(392)} />
+      <img src={locationAssets.Child1LiftFeather} height={984} width={392} />
     </span>
   ),
   [Character.child2]: () => (
     <span style={{ position: 'relative' }}>
-      <img src={locationAssets.Child2LiftFeather} height={screenScale.y(984)} width={screenScale.x(392)} />
+      <img src={locationAssets.Child2LiftFeather} height={984} width={392} />
     </span>
   ),
   [Character.child3]: () => (
     <span style={{ position: 'relative' }}>
-      <img src={locationAssets.Child3LiftFeather} height={screenScale.y(984)} width={screenScale.x(392)} />
+      <img src={locationAssets.Child3LiftFeather} height={984} width={392} />
     </span>
   ),
   [Character.child4]: () => (
     <span style={{ position: 'relative' }}>
-      <img src={locationAssets.Child4LiftFeather} height={screenScale.y(984)} width={screenScale.x(392)} />
+      <img src={locationAssets.Child4LiftFeather} height={984} width={392} />
     </span>
   ),
   [Character.child5]: () => (
     <span style={{ position: 'relative' }}>
-      <img src={locationAssets.Child5LiftFeather} height={screenScale.y(984)} width={screenScale.x(392)} />
+      <img src={locationAssets.Child5LiftFeather} height={984} width={392} />
     </span>
   ),
   [Character.child6]: () => (
     <span style={{ position: 'relative' }}>
-      <img src={locationAssets.Child6LiftFeather} height={screenScale.y(984)} width={screenScale.x(392)} />
+      <img src={locationAssets.Child6LiftFeather} height={984} width={392} />
     </span>
   ),
 };
@@ -695,32 +695,32 @@ const LiftFeatherCharacters = {
 const LiftWeightCharacters = {
   [Character.child1]: () => (
     <span style={{ position: 'relative' }}>
-      <img src={locationAssets.Child1LiftWeight} height={screenScale.y(984)} width={screenScale.x(392)} />
+      <img src={locationAssets.Child1LiftWeight} height={984} width={392} />
     </span>
   ),
   [Character.child2]: () => (
     <span style={{ position: 'relative' }}>
-      <img src={locationAssets.Child2LiftWeight} height={screenScale.y(984)} width={screenScale.x(392)} />
+      <img src={locationAssets.Child2LiftWeight} height={984} width={392} />
     </span>
   ),
   [Character.child3]: () => (
     <span style={{ position: 'relative' }}>
-      <img src={locationAssets.Child3LiftWeight} height={screenScale.y(984)} width={screenScale.x(392)} />
+      <img src={locationAssets.Child3LiftWeight} height={984} width={392} />
     </span>
   ),
   [Character.child4]: () => (
     <span style={{ position: 'relative' }}>
-      <img src={locationAssets.Child4LiftWeight} height={screenScale.y(984)} width={screenScale.x(392)} />
+      <img src={locationAssets.Child4LiftWeight} height={984} width={392} />
     </span>
   ),
   [Character.child5]: () => (
     <span style={{ position: 'relative' }}>
-      <img src={locationAssets.Child5LiftWeight} height={screenScale.y(984)} width={screenScale.x(392)} />
+      <img src={locationAssets.Child5LiftWeight} height={984} width={392} />
     </span>
   ),
   [Character.child6]: () => (
     <span style={{ position: 'relative' }}>
-      <img src={locationAssets.Child6LiftWeight} height={screenScale.y(984)} width={screenScale.x(392)} />
+      <img src={locationAssets.Child6LiftWeight} height={984} width={392} />
     </span>
   ),
 };
@@ -754,8 +754,8 @@ const BreathingHead = {
       src={Child3Breathe}
       style={{
         position: 'relative',
-        width: screenScale.x(611),
-        height: screenScale.y(614),
+        width: 611,
+        height: 614,
         top: 0,
         left: 92,
       }}
@@ -766,10 +766,10 @@ const BreathingHead = {
       src={Child4Breathe}
       style={{
         position: 'relative',
-        width: screenScale.x(695),
-        height: screenScale.y(614),
-        top: screenScale.y(6),
-        left: screenScale.y(52),
+        width: 695,
+        height: 614,
+        top: 6,
+        left: 52,
       }}
     />
   ),
@@ -778,10 +778,10 @@ const BreathingHead = {
       src={Child5Breathe}
       style={{
         position: 'relative',
-        width: screenScale.x(744),
-        height: screenScale.y(614),
+        width: 744,
+        height: 614,
         top: 0,
-        left: screenScale.x(19),
+        left: 19,
       }}
     />
   ),
@@ -790,10 +790,10 @@ const BreathingHead = {
       src={Child6Breathe}
       style={{
         position: 'relative',
-        width: screenScale.x(617),
-        height: screenScale.y(614),
+        width: 617,
+        height: 614,
         top: 0,
-        left: screenScale.x(92),
+        left: 92,
       }}
     />
   ),
@@ -809,14 +809,14 @@ const HappyCharacters = {
 };
 
 const HitFloorCharacters = {
-  [Character.child1]: () => <locationAssets.Child1HitFloor height={screenScale.y(648)} width={screenScale.x(724)} />,
-  [Character.child2]: () => <locationAssets.Child2HitFloor height={screenScale.y(648)} width={screenScale.x(724)} />,
-  [Character.child3]: () => <locationAssets.Child3HitFloor height={screenScale.y(648)} width={screenScale.x(724)} />,
+  [Character.child1]: () => <locationAssets.Child1HitFloor height={648} width={724} />,
+  [Character.child2]: () => <locationAssets.Child2HitFloor height={648} width={724} />,
+  [Character.child3]: () => <locationAssets.Child3HitFloor height={648} width={724} />,
   [Character.child4]: () => (
     <img src={locationAssets.Child4HitFloor} height='648' width='724' />
   ),
-  [Character.child5]: () => <locationAssets.Child5HitFloor height={screenScale.y(648)} width={screenScale.x(724)} />,
-  [Character.child6]: () => <locationAssets.Child6HitFloor height={screenScale.y(648)} width={screenScale.x(724)} />,
+  [Character.child5]: () => <locationAssets.Child5HitFloor height={648} width={724} />,
+  [Character.child6]: () => <locationAssets.Child6HitFloor height={648} width={724} />,
 };
 
 const ProtectionCharacters = {

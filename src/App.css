@@ -124,7 +124,7 @@
 }
 
 .blue-bar {
-  height: calc(130px * var(--scale-y));
+  height: calc(130px * var(--scale-avg));
   background: #0e1f33;
   display: flex;
   align-items: center;
@@ -154,7 +154,7 @@
   box-sizing: border-box;
 }
 .nav-middle-container {
-  padding: 27px;
+  padding: calc(27px * var(--scale-y));
 }
 .nav-middle-container .description {
   max-width: calc(470px * var(--scale-x));
@@ -178,14 +178,14 @@
   width: 200%;
 }
 .header-text {
-  font-size: 40px;
+  font-size: calc(40px * var(--scale-y));
   letter-spacing: 2px;
   font-family: 'LemonMilk', sans-serif;
   font-weight: bold;
 }
 .body-text {
-  font-size: 20px;
-  margin: 12px auto 0 auto;
+  font-size: calc(20px * var(--scale-x));
+  margin: 0 auto 0 auto;
   /* white-space: pre; */
   min-height: calc(53px * var(--scale-y));
   max-width: calc(700px * var(--scale-x));
@@ -237,7 +237,7 @@
 
 .continue-button.reward {
   position: absolute;
-  top: 386px;
+  bottom: 20px;
   transform: translateX(-50%);
 }
 
@@ -290,7 +290,7 @@
   right: 28px;
   bottom: 32px;
   color: white;
-  width: 343px;
+  width: calc(343px * var(--scale-x));
 }
 .procedures-box .label {
   font-family: LemonMilk;
@@ -299,7 +299,7 @@
   background: #30619c;
   border: #fff 3px solid;
   border-bottom: none;
-  font-size: 30px;
+  font-size: calc(30px * var(--scale-avg));
   letter-spacing: 1.49px;
   padding: 8px 15px 6px;
   z-index: -1;
@@ -314,14 +314,14 @@
   justify-content: center;
   align-items: center;
   padding: 30px 20px 0 20px;
-  font-size: 17px;
+  font-size: calc(17px * var(--scale-avg));
   margin: 0px;
   z-index: 1;
   text-align: center;
 }
 
 .procedures-box .button {
-  font-size: 20px;
+  font-size: calc(20px * var(--scale-avg));
   color: #fff;
   background: #cd4845;
   border: 1px solid #000;
@@ -332,7 +332,7 @@
   font-weight: bold;
   display: block;
   margin-bottom: 20px;
-  min-height: 65px;
+  min-height: calc(65px * var(--scale-y));
 }
 
 /* EEG game scene styling */

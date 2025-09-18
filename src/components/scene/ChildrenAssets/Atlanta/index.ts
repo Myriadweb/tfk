@@ -12,7 +12,7 @@ import { ReactComponent as Child1HitFloor } from './Child1/hitFloor.svg';
 import Child1Protection from './Child1/protection.svg';
 import { ReactComponent as Child1SensoryDefault } from './Child1/sensoryDefault.svg';
 import Child1happySensory from './Child1/happySensory.svg';
-import { ReactComponent as Child1HappyStanding } from './Child1/happyStanding.svg';
+import { ReactComponent as Child1HappyStanding } from './Child1/happySensory.svg';
 
 import { ReactComponent as Child2 } from './Child2/default.svg';
 import Child2Raster from './Child2/default.svg';

@@ -45,16 +45,7 @@ const Nervous = ({ prefix }: Props) => {
 
   return (
     <>
-      <div
-        style={{
-          height: 145,
-          background: '#0E1F33',
-          boxSizing: 'border-box',
-          fontSize: 17,
-          color: '#FFF',
-          paddingTop: 21,
-        }}
-      >
+      <div className='nav-middle' style={{ padding: 10 }}>
         <span>
           <Trans i18nKey={t(hemisphereConfig[step])} />
         </span>
@@ -100,18 +91,9 @@ const Nervous = ({ prefix }: Props) => {
       </div>
       {highlight && (
         <>
-          <span
-            style={{
-              fontSize: 40,
-              color: '#FFF',
-              letterSpacing: 2,
-              display: 'block',
-              marginTop: 14,
-              fontWeight: 'bold',
-            }}
-          >
+          <div className='header-text' style={{ paddingTop: 10 }}>
             {t(highlight + '.title')}
-          </span>
+          </div>
           <div className='body-text'>{t(highlight + '.text')}</div>
         </>
       )}

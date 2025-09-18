@@ -28,6 +28,7 @@ import OverlayGood from './SensoryAssets/TouchAssets/overlayGood.png';
 import OverlayBad from './SensoryAssets/TouchAssets/overlayBad.png';
 import BottomOverlay from './SensoryAssets/bottomOverlay.png';
 import BgBad from './SensoryAssets/BGBad.png';
+import {getCurrentDevice, screenScale} from "../../utils/scaling";
 const valueType = 'badTouch';
 const finalValueType = valueType + '-final';
 const activePosition = { left: 530, top: 690 };
@@ -93,6 +94,13 @@ export default function Touch() {
 
   const ChildComponent = Characters.default[selectedCharacter];
 
+  const leftPostion = (originalPosition: number) => {
+    return originalPosition - ((getCurrentDevice().config.targetWidth - screenScale.y(getCurrentDevice().config.targetWidth)) / 2);
+  }
+  const bottomPosition = (originalPosition: number) => {
+    return originalPosition - ((getCurrentDevice().config.targetHeight - screenScale.y(getCurrentDevice().config.targetHeight)) / 2);
+  }
+
   return (
     <>
       <img
@@ -105,16 +113,6 @@ export default function Touch() {
           opacity: sensoryState === 'bad' ? 1 : 0,
         }}
       />
-      <div
-        style={{
-          position: 'absolute',
-          left: 960,
-          top: -83,
-          transform: 'translate(-50%, 0px) scale(2.7)',
-        }}
-      >
-        <ChildComponent />
-      </div>
       <img
         src={BottomOverlay}
         style={{
@@ -123,97 +121,110 @@ export default function Touch() {
           left: 0,
         }}
       />
-      {sensoryState === 'good' && (
-        <>
-          <animated.img
-            src={OverlayGood}
-            style={{
-              position: 'absolute',
-              left: 539,
-              top: 630,
-              transform: 'translate(-50%, -50%)',
-              zIndex: 1,
-              ...overlay,
-            }}
-          />
-          <animated.img
-            src={Sparkles}
-            style={{
-              position: 'absolute',
-              top: 642,
-              left: 274,
-              zIndex: 2,
-              ...sparklesStyle,
-            }}
-          />
-        </>
-      )}
-      {sensoryState === 'bad' && (
-        <>
-          <animated.img
-            src={OverlayBad}
-            style={{
-              position: 'absolute',
-              left: 539,
-              top: 630,
-              transform: 'translate(-50%, -50%)',
-              zIndex: 1,
-              ...overlay,
-            }}
-          />
-        </>
-      )}
-      {value === finalValueType && (
-        <OvenMitt
+      <div className='element-container'>
+        <div
           style={{
             position: 'absolute',
-            top: 424,
-            left: 416,
+            left: 960,
+            top: -83,
+            transform: 'translate(-50%, 0px) scale(2.7)',
           }}
-        />
-      )}
-      <ClickableImage
-        Component={PlushToy}
-        x={618}
-        y={900}
-        type='good'
-        onChange={setSensoryState}
-        onTop={sensoryState === 'good'}
-        activeStyle={{
-          ...activePosition,
-          transform: `translate(-50%, -50%) rotate(0deg)`,
-        }}
-        sound={'touchGood'}
-      />
-      <ClickableImage
-        Component={pan}
-        x={0}
-        y={688}
-        type='bad'
-        onChange={setSensoryState}
-        onTop={sensoryState === 'bad'}
-        reset={sensoryState === 'bad' && value === finalValueType}
-        valueType={valueType}
-        activeStyle={{
-          top: 290,
-        }}
-        sound={'touchOuch'}
-        timeoutDuration={7000}
-      />
-      {sensoryState && (
-        <>
-          <animated.img
-            src={ResultChildImage}
+        >
+          <ChildComponent />
+        </div>
+        {sensoryState === 'good' && (
+          <>
+            <animated.img
+              src={OverlayGood}
+              style={{
+                position: 'absolute',
+                left: 539,
+                top: 630,
+                transform: 'translate(-50%, -50%)',
+                zIndex: 1,
+                ...overlay,
+              }}
+            />
+            <animated.img
+              src={Sparkles}
+              style={{
+                position: 'absolute',
+                top: 642,
+                left: 274,
+                zIndex: 2,
+                ...sparklesStyle,
+              }}
+            />
+          </>
+        )}
+        {sensoryState === 'bad' && (
+          <>
+            <animated.img
+              src={OverlayBad}
+              style={{
+                position: 'absolute',
+                left: 539,
+                top: 630,
+                transform: 'translate(-50%, -50%)',
+                zIndex: 1,
+                ...overlay,
+              }}
+            />
+          </>
+        )}
+        {value === finalValueType && (
+          <OvenMitt
             style={{
               position: 'absolute',
-              left: 91,
-              bottom: 37,
-              zIndex: 2,
-              ...overlay,
+              top: 424,
+              left: 416,
             }}
           />
-        </>
-      )}
+        )}
+        <ClickableImage
+          Component={PlushToy}
+          x={618}
+          y={900}
+          type='good'
+          onChange={setSensoryState}
+          onTop={sensoryState === 'good'}
+          activeStyle={{
+            ...activePosition,
+            transform: `translate(-50%, -50%) rotate(0deg)`,
+          }}
+          sound={'touchGood'}
+        />
+        <ClickableImage
+          Component={pan}
+          x={leftPostion(0)}
+          y={688}
+          type='bad'
+          onChange={setSensoryState}
+          onTop={sensoryState === 'bad'}
+          reset={sensoryState === 'bad' && value === finalValueType}
+          valueType={valueType}
+          activeStyle={{
+            top: 290,
+            left: 0
+          }}
+          sound={'touchOuch'}
+          timeoutDuration={7000}
+        />
+        {sensoryState && (
+          <>
+            <animated.img
+              src={ResultChildImage}
+              style={{
+                position: 'absolute',
+                left: 91,
+                bottom: bottomPosition(37),
+                zIndex: 2,
+                ...overlay,
+              }}
+            />
+          </>
+        )}
+      </div>
     </>
   );
 }

@@ -22,7 +22,7 @@ import {screenScale} from "../../utils/scaling";
 const valueType = 'badSight';
 const finalValueType = valueType + '-final';
 const activeStyle = {
-  left: 540,
+  left: screenScale.x(540),
   top: 180,
   transform: 'translate(-50%, -50%) rotate(0deg)',
 };
@@ -104,9 +104,9 @@ export default function Sight() {
         <div
           style={{
             position: 'absolute',
-            left: bodyLeft,
+            left: '50%',
             top: 270,
-            transform: `translate(-${width / 2}px, 0)`,
+            transform: `translate(-50%, 0)`,
             opacity: sensoryState ? 0 : 1,
           }}
         >
@@ -115,9 +115,9 @@ export default function Sight() {
         <div
           style={{
             position: 'absolute',
-            left: bodyLeft,
+            left: '50%',
             top: 270,
-            transform: `translate(-${width / 2}px, 0)`,
+            transform: `translate(-50%, 0)`,
             opacity: sensoryState === 'good' ? 1 : 0,
           }}
         >
@@ -126,9 +126,9 @@ export default function Sight() {
         <div
           style={{
             position: 'absolute',
-            left: bodyLeft,
+            left: '50%',
             top: 270,
-            transform: `translate(-${width / 2}px, 0)`,
+            transform: `translate(-50%, 0)`,
             opacity: sensoryState === 'bad' ? 1 : 0,
           }}
         >
@@ -140,7 +140,7 @@ export default function Sight() {
               src={OverlayGood}
               style={{
                 position: 'absolute',
-                left: 543,
+                left: '50%',
                 top: 630,
                 transform: 'translate(-50%, -50%)',
                 zIndex: 1,
@@ -156,7 +156,7 @@ export default function Sight() {
               transform: 'translate(-50%, -50%)',
               position: 'absolute',
               top: 507,
-              left: 536,
+              left: '50%',
               ...brain,
             }}
           />
@@ -178,7 +178,7 @@ export default function Sight() {
               src={OverlayBad}
               style={{
                 position: 'absolute',
-                left: 539,
+                left: '50%',
                 top: 630,
                 transform: 'translate(-50%, -50%)',
                 zIndex: 1,
@@ -192,7 +192,7 @@ export default function Sight() {
             src={Sunglasses}
             style={{
               position: 'absolute',
-              left: 544,
+              left: '50%',
               top: 693,
               transform: 'translate(-50%, -50%)',
             }}

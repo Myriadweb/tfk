@@ -14,6 +14,7 @@ import { ReactComponent as Dissolve } from './DigestiveAssets/stomachSliderDisso
 import WasteButton from './DigestiveAssets/wasteButton.svg';
 import { useNavigate } from 'react-router-dom';
 import { animated } from 'react-spring';
+import {screenScale} from "../../utils/scaling";
 
 type Props = {
   prefix: Paths;
@@ -209,7 +210,7 @@ const Digestive = ({ prefix }: Props) => {
         </div>
       </div>
       <div className='nav-middle'>
-        <div className='nav-items-container' style={{ height: 191 }}>
+        <div className='nav-items-container' style={{ height: screenScale.y(191) }}>
           {stepComponentConfig[step] && stepComponentConfig[step]()}
         </div>
       </div>

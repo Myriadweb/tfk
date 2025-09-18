@@ -5,6 +5,7 @@ import playSound from '../../sound';
 import { ReactComponent as ArmButton } from './MuscularAssets/armButton.svg';
 import { ReactComponent as LegButton } from './MuscularAssets/legButton.svg';
 import { useGameContext } from '../../state/game';
+import {screenScale} from "../../utils/scaling";
 
 type Props = {
   prefix: Paths;
@@ -16,35 +17,16 @@ const Muscular = ({ prefix }: Props) => {
 
   return (
     <>
-      <div
-        style={{
-          height: 169,
-          background: '#0E1F33',
-          paddingTop: 20,
-          boxSizing: 'border-box',
-        }}
-      >
-        <span
-          style={{
-            display: 'block',
-            fontSize: 20,
-            color: '#FFF',
-            fontFamily: 'LemonMilk',
-          }}
-        >
+      <div className='nav-middle' style={{ paddingTop: 10 }}>
+        <div className='body-text'>
           {t('chooseMuscle')}
-        </span>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            marginTop: 12,
-          }}
-        >
+        </div>
+        <div className='nav-middle-container' style={{ paddingBottom: 0 }}>
           <LegButton
             style={{
               opacity: value === 'leg' ? 0.3 : 1,
               marginRight: 22,
+              height: screenScale.avg(100),
             }}
             onClick={() => {
               if (value !== 'leg') {
@@ -56,6 +38,7 @@ const Muscular = ({ prefix }: Props) => {
           <ArmButton
             style={{
               opacity: value === 'arm' || !value ? 0.3 : 1,
+              height: screenScale.avg(100),
             }}
             onClick={() => {
               if (value !== 'arm') {
@@ -66,32 +49,14 @@ const Muscular = ({ prefix }: Props) => {
           />
         </div>
       </div>
-      <span
-        style={{
-          display: 'block',
-          marginTop: 13,
-          fontSize: 40,
-          color: '#FFF',
-          fontFamily: 'LemonMilk',
-          fontWeight: 'bolder',
-        }}
-      >
-        {t(value || 'arm')}
-      </span>
-      <span
-        style={{
-          display: 'block',
-          maxWidth: 470,
-          marginTop: 12,
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          fontSize: 20,
-          color: '#FFF',
-          fontFamily: 'LemonMilk',
-        }}
-      >
-        {t(`${value || 'arm'}Description`)}
-      </span>
+      <div>
+        <div className='header-text'>
+          {t(value || 'arm')}
+        </div>
+        <div className='body-text'>
+          {t(`${value || 'arm'}Description`)}
+        </div>
+      </div>
     </>
   );
 };

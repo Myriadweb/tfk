@@ -24,7 +24,7 @@ import {screenScale} from "../../utils/scaling";
 
 const valueType = 'badSmell';
 const finalValueType = valueType + '-final';
-const activePosition = { left: 540, top: 950 };
+const activePosition = { left: screenScale.x(540), top: 950 };
 
 export function Smell() {
   const [sensoryState, setSensoryState] = React.useState<VariationsType | null>(
@@ -108,7 +108,7 @@ export function Smell() {
         <div
           style={{
             position: 'absolute',
-            left: bodyLeft,
+            left: '50%',
             top: 270,
             transform: `translate(-${width / 2}px, 0)`,
           }}
@@ -118,7 +118,7 @@ export function Smell() {
         <div
           style={{
             position: 'absolute',
-            left: bodyLeft,
+            left: '50%',
             top: 270,
             transform: `translate(-${width / 2}px, 0)`,
             opacity: sensoryState === 'good' ? 1 : 0,
@@ -129,7 +129,7 @@ export function Smell() {
         <div
           style={{
             position: 'absolute',
-            left: bodyLeft,
+            left: '50%',
             top: 270,
             transform: `translate(-${width / 2}px, 0)`,
             opacity: sensoryState === 'bad' ? 1 : 0,
@@ -143,7 +143,7 @@ export function Smell() {
               src={OverlayGood}
               style={{
                 position: 'absolute',
-                left: 539,
+                left: '50%',
                 top: 630,
                 transform: 'translate(-50%, -50%)',
                 zIndex: 1,
@@ -168,7 +168,7 @@ export function Smell() {
               src={OverlayBad}
               style={{
                 position: 'absolute',
-                left: 539,
+                left: '50%',
                 top: 630,
                 transform: 'translate(-50%, -50%)',
                 zIndex: 1,
@@ -181,7 +181,7 @@ export function Smell() {
                 transform: 'translate(-50%, -50%)',
                 position: 'absolute',
                 top: 867,
-                left: 517,
+                left: '50%',
                 zIndex: 1,
                 ...effectStyle,
               }}
@@ -196,7 +196,7 @@ export function Smell() {
                 transform: 'translate(-50%, -50%)',
                 position: 'absolute',
                 top: 507,
-                left: 536,
+                left: '50%',
                 ...overlay,
               }}
             />
@@ -206,14 +206,14 @@ export function Smell() {
                 transform: 'translate(-50%, -50%)',
                 position: 'absolute',
                 top: 758,
-                left: 536,
+                left: '50%',
                 ...overlay,
               }}
             />
           </>
         )}
         {value === finalValueType && (
-          <Closepin style={{ position: 'absolute', left: 499, top: 739 }} />
+          <Closepin style={{ position: 'absolute', left: '50%', top: 739, transform: 'translate(-50%)' }} />
         )}
         <ClickableImage
           Component={Flower}

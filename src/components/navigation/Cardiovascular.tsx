@@ -10,6 +10,7 @@ import ContinueButton from './UIComponents/ContinueButton';
 import { ReactComponent as HeartbeatButton } from './CardiovascularAssets/heartbeatButton.svg';
 import { animated } from 'react-spring';
 import { Trans } from 'react-i18next';
+import {screenScale} from "../../utils/scaling";
 
 type Props = {
   path: Paths;
@@ -121,7 +122,7 @@ const Cardiovascular = ({ prefix }: Props) => {
         </div>
       </div>
       <div className='nav-middle'>
-        <div className='nav-items-container' style={{ height: 191 }}>
+        <div className='nav-items-container' style={{ height: screenScale.y(191) }}>
           {stepComponentConfig[step] && stepComponentConfig[step]()}
         </div>
       </div>

@@ -170,7 +170,7 @@ export default function SkeletalGame() {
   }
 
   return (
-    <div className="scene-container" style={{height: 1270, transformOrigin: 'top'}}>
+    <div className="element-container" style={{ height: 1270 }}>
       <EmptyBody
         style={{
           top: 343,

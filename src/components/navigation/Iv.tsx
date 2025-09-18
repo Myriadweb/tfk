@@ -19,6 +19,7 @@ import BlueBar from './UIComponents/BlueBar';
 import { ReactComponent as Arrow } from '../scene/SceneAssets/Arrow.svg';
 import Cardiovascular from './BodySystemsAssets/Cardiovascular.svg';
 import { Trans } from 'react-i18next';
+import {screenScale} from "../../utils/scaling";
 
 type Props = {
   path: Paths;
@@ -74,7 +75,7 @@ const Iv = ({ prefix }: Props) => {
   const stepComponentConfig = {
     0: () => (
       <>
-        <div className='nav-middle' style={{ height: 192 }}>
+        <div className='nav-middle' style={{ height: screenScale.y(192) }}>
           <div className='nav-items-container' style={{ width: 592 }}>
             <div>
               <NavigationButton
@@ -179,7 +180,7 @@ const Iv = ({ prefix }: Props) => {
       <>
         <BlueBar
           style={{
-            height: 192,
+            height: screenScale.y(192),
           }}
         >
           <div
@@ -233,7 +234,7 @@ const Iv = ({ prefix }: Props) => {
     ),
     11: () => (
       <>
-        <BlueBar style={{ height: 192 }}>
+        <BlueBar style={{ height: screenScale.y(192) }}>
             <div className='two-columns'>
               <NavigationButton
                 image={Cardiovascular}
@@ -274,7 +275,7 @@ const Iv = ({ prefix }: Props) => {
     ),
     12: () => (
         <>
-            <BlueBar style={{ height: 192 }}>
+            <BlueBar style={{ height: screenScale.y(192) }}>
 
             </BlueBar>
             <div className='links-container'>

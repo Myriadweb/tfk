@@ -63,25 +63,27 @@ export default function Iv() {
 
   return (
     <>
-      <animated.div
-        style={{
-          top: 275,
-          left: 461,
-          position: 'absolute',
-          ...bodyStyle,
-        }}
-      >
-        <Child />
-      </animated.div>
-      <animated.img
-        src={InitialPromptIV}
-        style={{
-          top: 288,
-          position: 'absolute',
-          left: 225,
-          ...overlayStyle,
-        }}
-      />
+      <div className='element-container'>
+        <animated.div
+          style={{
+            top: 275,
+            left: 461,
+            position: 'absolute',
+            ...bodyStyle,
+          }}
+        >
+          <Child />
+        </animated.div>
+        <animated.img
+          src={InitialPromptIV}
+          style={{
+            top: 288,
+            position: 'absolute',
+            left: 225,
+            ...overlayStyle,
+          }}
+        />
+      </div>
       <ProceduresTextBox
         text={t('iv.scene.text')}
         animatedStyle={overlayStyle as unknown as CSSProperties}

@@ -74,7 +74,7 @@ export default function Proprioception() {
         <div
           style={{
             position: 'absolute',
-            left: bodyLeft,
+            left: '50%',
             top: 270,
             transform: 'translate(-50%, 0px)',
             opacity: sensoryState ? 0 : 1,
@@ -85,7 +85,7 @@ export default function Proprioception() {
         <div
           style={{
             position: 'absolute',
-            left: bodyLeft,
+            left: '50%',
             top: 270,
             transform: 'translate(-50%, 0px)',
             opacity: sensoryState === 'good' ? 1 : 0,
@@ -96,7 +96,7 @@ export default function Proprioception() {
         <div
           style={{
             position: 'absolute',
-            left: bodyLeft,
+            left: '50%',
             top: 270,
             transform: 'translate(-50%, 0px)',
             opacity: sensoryState === 'bad' ? 1 : 0,
@@ -110,7 +110,7 @@ export default function Proprioception() {
               src={OverlayGood}
               style={{
                 position: 'absolute',
-                left: 539,
+                left: '50%',
                 top: 630,
                 transform: 'translate(-50%, -50%)',
                 zIndex: 1,
@@ -125,7 +125,7 @@ export default function Proprioception() {
               src={OverlayBad}
               style={{
                 position: 'absolute',
-                left: 539,
+                left: '50%',
                 top: 630,
                 transform: 'translate(-50%, -50%)',
                 zIndex: 1,

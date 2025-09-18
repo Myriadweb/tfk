@@ -20,6 +20,7 @@ import { useCharacterContext } from '../../state/character';
 import { Characters } from './ChildrenAssets/childrenAssets';
 import { useGameContext } from '../../state/game';
 import ReactPlayer from 'react-player';
+import {screenScale} from "../../utils/scaling";
 
 const valueType = 'badVestibular';
 const finalValueType = valueType + '-final';
@@ -121,62 +122,6 @@ export default function Vestibular() {
           }}
         />
       )}
-      <div
-        style={{
-          position: 'absolute',
-          left: 540,
-          top: 270,
-          transform: 'translateX(-50%)',
-          opacity: sensoryState || value === finalValueType ? 0 : 1,
-        }}
-      >
-        <Character />
-      </div>
-      <img
-        src={BottomOverlay}
-        style={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-        }}
-      />
-      <animated.div
-        style={{
-          position: 'absolute',
-          width: 393,
-          height: 972,
-          left: 518,
-          top: 275,
-          opacity: sensoryState === 'good' ? 1 : 0,
-          ...jumpStyle,
-        }}
-      >
-        <CharacterGood width={439} height={971} />
-      </animated.div>
-      {sensoryState === 'good' && (
-        <>
-          <animated.img
-            src={OverlayGood}
-            style={{
-              position: 'absolute',
-              left: 540,
-              top: 630,
-              transform: 'translate(-50%, -50%) scale(1.03)',
-              ...overlayStyle,
-            }}
-          />
-          <animated.img
-            src={JumpLines}
-            style={{
-              position: 'absolute',
-              top: 886,
-              transform: 'translateX(-50%)',
-              left: 540,
-              ...jumpLinesStyle,
-            }}
-          />
-        </>
-      )}
       {(sensoryState === 'bad' || tornadoAnimation) && (
         <>
           <animated.img
@@ -191,28 +136,14 @@ export default function Vestibular() {
           />
         </>
       )}
-      <div
+      <img
+        src={BottomOverlay}
         style={{
           position: 'absolute',
-          left: 540,
-          top: 598,
-          transform: 'translateX(-50%)',
-          opacity: sensoryState === 'bad' ? 1 : 0,
+          bottom: 0,
+          left: 0,
         }}
-      >
-        <CharacterBad />
-      </div>
-      {sensoryState === 'bad' && (
-        <animated.img
-          src={Stars}
-          style={{
-            position: 'absolute',
-            top: 630,
-            left: 550,
-            ...starsStyle,
-          }}
-        />
-      )}
+      />
       {tornadoAnimation && (
         <animated.div
           style={{
@@ -232,48 +163,121 @@ export default function Vestibular() {
           />
         </animated.div>
       )}
-      {value === finalValueType && (
-        <animated.img
-          src={CharacterProtected}
+      <div className="element-container">
+        <div
+          style={{
+            position: 'absolute',
+            left: '50%',
+            top: 270,
+            transform: 'translateX(-50%)',
+            opacity: sensoryState || value === finalValueType ? 0 : 1,
+          }}
+        >
+          <Character />
+        </div>
+        <animated.div
+          style={{
+            position: 'absolute',
+            width: 393,
+            height: 972,
+            left: screenScale.x(518),
+            top: 275,
+            opacity: sensoryState === 'good' ? 1 : 0,
+            ...jumpStyle,
+          }}
+        >
+          <CharacterGood width={439} height={971} />
+        </animated.div>
+        {sensoryState === 'good' && (
+          <>
+            <animated.img
+              src={OverlayGood}
+              style={{
+                position: 'absolute',
+                left: '50%',
+                top: 630,
+                transform: 'translate(-50%, -50%) scale(1.03)',
+                ...overlayStyle,
+              }}
+            />
+            <animated.img
+              src={JumpLines}
+              style={{
+                position: 'absolute',
+                top: 886,
+                transform: 'translateX(-50%)',
+                left: '50%',
+                ...jumpLinesStyle,
+              }}
+            />
+          </>
+        )}
+        <div
           style={{
             position: 'absolute',
             left: 540,
-            top: 270,
-            transform: 'translate(-50%, 0px)',
-            opacity: sensoryState ? 0 : 1,
-            width: 393,
-            height: 972,
-            ...jumpStyle,
+            top: 598,
+            transform: 'translateX(-50%)',
+            opacity: sensoryState === 'bad' ? 1 : 0,
           }}
+        >
+          <CharacterBad />
+        </div>
+        {sensoryState === 'bad' && (
+          <animated.img
+            src={Stars}
+            style={{
+              position: 'absolute',
+              top: 630,
+              left: '50%',
+              ...starsStyle,
+            }}
+          />
+        )}
+
+        {value === finalValueType && (
+          <animated.img
+            src={CharacterProtected}
+            style={{
+              position: 'absolute',
+              left: '50%',
+              top: 270,
+              transform: 'translate(-50%, 0px)',
+              opacity: sensoryState ? 0 : 1,
+              width: 393,
+              height: 972,
+              ...jumpStyle,
+            }}
+          />
+        )}
+        <ClickableImage
+          Component={SpinIcon}
+          x={screenScale.x(336)}
+          y={1046}
+          type='bad'
+          onChange={handleTornadoAnimation}
+          onTop={sensoryState === 'bad'}
+          style={{
+            opacity: sensoryState || tornadoAnimation ? 0 : 1,
+          }}
+          reset={sensoryState === 'bad' && value === finalValueType}
+          sound={'vestibularSpin'}
+          valueType={valueType}
+          disableTimeout
         />
-      )}
-      <ClickableImage
-        Component={SpinIcon}
-        x={336}
-        y={1046}
-        type='bad'
-        onChange={handleTornadoAnimation}
-        onTop={sensoryState === 'bad'}
-        style={{
-          opacity: sensoryState || tornadoAnimation ? 0 : 1,
-        }}
-        reset={sensoryState === 'bad' && value === finalValueType}
-        sound={'vestibularSpin'}
-        valueType={valueType}
-        disableTimeout
-      />
-      <ClickableImage
-        Component={JumpIcon}
-        x={546}
-        y={1046}
-        type='good'
-        onChange={setSensoryState}
-        onTop={sensoryState === 'good'}
-        style={{
-          opacity: sensoryState || tornadoAnimation ? 0 : 1,
-        }}
-        sound={'vestibularJump'}
-      />
+        <ClickableImage
+          Component={JumpIcon}
+          x={screenScale.x(546)}
+          y={1046}
+          type='good'
+          onChange={setSensoryState}
+          onTop={sensoryState === 'good'}
+          style={{
+            opacity: sensoryState || tornadoAnimation ? 0 : 1,
+          }}
+          sound={'vestibularJump'}
+        />
+      </div>
     </>
   );
 }

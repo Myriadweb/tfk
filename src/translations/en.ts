@@ -695,6 +695,7 @@ const en: Translation = {
         bubbles: 'BUBBLES',
         music: 'MUSIC',
         '0-mainText': 'HELP THE PATIENT RELAX',
+        '0-subText': '',
         '1-mainText': 'ALL READY!',
         '1-subText': 'The patient is comfortable and ready for their IV.',
         '1-buttonText': 'CONTINUE',

@@ -28,7 +28,7 @@ export default function Taste() {
   const [overlay, overlayAPI] = useSpring(() => ({ opacity: 0 }));
   const [dropStyle, dropAPI] = useSpring(() => ({
     opacity: 0,
-    transform: 'translateY(-200px)',
+    transform: 'translateX(-50%) translateY(-200px)',
   }));
   const [sparklesStyle, sparklesApi] = useSpring(() => ({
     transform: 'scale(0)',
@@ -37,7 +37,7 @@ export default function Taste() {
 
   if (sensoryState) {
     overlayAPI.set({ opacity: 0 });
-    dropAPI.set({ opacity: 0, transform: 'translateY(-200px)' });
+    dropAPI.set({ opacity: 0, transform: 'translateX(-50%) translateY(-200px)' });
     sparklesApi.set({
       transform: 'scale(0)',
       opacity: 1,
@@ -51,7 +51,7 @@ export default function Taste() {
       delay: 500,
     });
     dropAPI.start({
-      to: [{ opacity: 1, transform: 'translateY(-0px)' }],
+      to: [{ opacity: 1, transform: 'translateX(-50%) translateY(-0px)' }],
       delay: 500,
     });
     sparklesApi.start({
@@ -65,7 +65,7 @@ export default function Taste() {
     });
   } else {
     overlayAPI.set({ opacity: 0 });
-    dropAPI.set({ opacity: 0, transform: 'translateY(-200px)' });
+    dropAPI.set({ opacity: 0, transform: 'translateX(-50%) translateY(-200px)' });
     sparklesApi.set({
       transform: 'scale(0)',
       opacity: 1,
@@ -109,7 +109,7 @@ export default function Taste() {
             position: 'absolute',
             left: bodyLeft,
             top: 270,
-            transform: `translate(-${width / 2}px, 0)`,
+            transform: `translate(-50%, 0)`,
             opacity: sensoryState ? 0 : 1,
           }}
         >
@@ -120,7 +120,7 @@ export default function Taste() {
             position: 'absolute',
             left: bodyLeft,
             top: 270,
-            transform: `translate(-${width / 2}px, 0)`,
+            transform: `translate(-50%, 0)`,
             opacity: sensoryState === 'good' ? 1 : 0,
           }}
         >
@@ -131,7 +131,7 @@ export default function Taste() {
             position: 'absolute',
             left: bodyLeft,
             top: 270,
-            transform: `translate(-${width / 2}px, 0)`,
+            transform: `translate(-50%, 0)`,
             opacity: sensoryState === 'bad' ? 1 : 0,
           }}
         >
@@ -144,7 +144,7 @@ export default function Taste() {
               transform: 'translate(-50%, -50%)',
               position: 'absolute',
               top: 507,
-              left: 536,
+              left: '50%',
               ...overlay,
             }}
           />
@@ -155,7 +155,7 @@ export default function Taste() {
               src={OverlayGood}
               style={{
                 position: 'absolute',
-                left: 539,
+                left: '50%',
                 top: 630,
                 transform: 'translate(-50%, -50%)',
                 zIndex: 1,
@@ -180,7 +180,7 @@ export default function Taste() {
               src={Drop}
               style={{
                 position: 'absolute',
-                left: 529,
+                left: '50%',
                 top: 811,
                 zIndex: 1,
                 ...dropStyle,
@@ -190,7 +190,7 @@ export default function Taste() {
               src={SenseHighlight}
               style={{
                 position: 'absolute',
-                left: 539,
+                left: '50%',
                 top: 758,
                 transform: 'translate(-50%, -50%)',
                 zIndex: 1,
@@ -201,7 +201,7 @@ export default function Taste() {
               src={OverlayBad}
               style={{
                 position: 'absolute',
-                left: 539,
+                left: '50%',
                 top: 630,
                 transform: 'translate(-50%, -50%)',
                 zIndex: 1,

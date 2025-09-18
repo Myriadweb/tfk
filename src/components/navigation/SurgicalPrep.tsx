@@ -26,6 +26,7 @@ import { ReactComponent as AsleepFace } from './SurgicalPrepAssets/sliderAsleep.
 import { CustomSlider } from './CustomSlider';
 import { Trans } from 'react-i18next';
 import Tablet from "./IvAssets/iPad.svg";
+import {SCALE_FACTORS, screenScale} from "../../utils/scaling";
 
 const PUMPS_CONFIG = {
   1: BpPumpOneBar,
@@ -74,7 +75,7 @@ const SurgicalPrep = ({ prefix }: Props) => {
     1: () => <BlueBar></BlueBar>,
     2: () => (
       <BlueBar>
-        <div style={{ position: 'relative' }}>
+        <div style={{ position: 'relative', transform: `scale(${SCALE_FACTORS.avg})` }}>
           <img src={BpPumpBase} />
           <button
             style={{
@@ -191,7 +192,7 @@ const SurgicalPrep = ({ prefix }: Props) => {
     ),
     14: () => (
       <>
-        <BlueBar style={{ height: 192 }}>
+        <BlueBar style={{ height: screenScale.y(192) }}>
           <div className='nav-items-container' style={{ width: 592 }}>
             <NavigationButton
               image={JuiceBox}
@@ -237,7 +238,7 @@ const SurgicalPrep = ({ prefix }: Props) => {
     ),
     15: () => (
       <>
-          <BlueBar style={{ height: 192 }}>
+          <BlueBar style={{ height: screenScale.y(192) }}>
               <div className='two-columns'>
                   <NavigationButton
                       image={Cardiovascular}
@@ -283,14 +284,14 @@ const SurgicalPrep = ({ prefix }: Props) => {
     ),
       16: () => (
           <>
-              <BlueBar style={{ height: 192 }}>
+              <BlueBar style={{ height: screenScale.y(192) }}>
 
               </BlueBar>
               <div className='links-container'
                    style={{
                        position: 'absolute',
                        left: 44,
-                       top: 383,
+                       top: screenScale.y(383),
                    }}
               >
                   <Link

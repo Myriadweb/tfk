@@ -85,7 +85,7 @@ const SlidingChild = ({ i }: { i: number }) => {
   });
 
   return (
-    <>
+    <div className='element-container'>
       <animated.div
         style={{
           position: 'absolute',
@@ -106,7 +106,7 @@ const SlidingChild = ({ i }: { i: number }) => {
       >
         <CurrentChild />
       </animated.div>
-    </>
+    </div>
   );
 };
 

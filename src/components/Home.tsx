@@ -208,6 +208,7 @@ export function Home() {
                     top: 0,
                     width: screenScale.y(100),
                     height: screenScale.y(100),
+                    display: 'none',
                   }}
                 />
               )}
@@ -215,6 +216,7 @@ export function Home() {
                 style={{
                   width: screenScale.y(100),
                   height: screenScale.y(100),
+                  filter: !location.search || (prefix === 'Skeletal' && gameState.value === 'done') ? 'brightness(50%)' : 'brightness(1)',
                 }}
               />
               <span style={{ color: 'white' }}>
@@ -239,6 +241,7 @@ export function Home() {
                       top: screenScale.y(160),
                       width: screenScale.y(100),
                       height: screenScale.y(100),
+                      display: 'none',
                     }}
                   />
                 )}
@@ -246,6 +249,7 @@ export function Home() {
                 style={{
                   width: screenScale.y(100),
                   height: screenScale.y(100),
+                  filter: location.search === '?play=true' && !(prefix === 'Skeletal' && gameState.value === 'done') ? 'brightness(50%)' : 'brightness(1)',
                 }}
               />
               <span style={{ color: 'white' }}>{t('common.scene.play')}</span>

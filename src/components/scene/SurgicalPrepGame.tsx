@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { animated, useSpring } from 'react-spring';
+import {animated, config, useSpring} from 'react-spring';
 import { useGameContext } from '../../state/game';
 import { DraggableImage } from './SharedComponents/DraggableImage';
 import playSound from '../../sound';
@@ -21,6 +21,7 @@ import Juicebox from './SurgicalPrepAssets/juicebox.svg';
 import Popsicle from './SurgicalPrepAssets/popsicle.svg';
 import IceCream from './SurgicalPrepAssets/iceCream.svg';
 import ProcedurePlaceholder from "./SharedAssets/procedurePlaceholder.png";
+import {getCurrentDevice, screenScale} from "../../utils/scaling";
 
 export default function SurgicalPrepGame() {
   const [{ step, value }, setGameState] = useGameContext();
@@ -38,6 +39,7 @@ export default function SurgicalPrepGame() {
   }));
   const [needleComponentPhase, setNeedleComponentPhase] = React.useState(1);
   const [darkLayerStyle, darkLayerApi] = useSpring(() => ({ opacity: 0 }));
+  const trayPosition = 614 + ((getCurrentDevice().config.targetWidth - screenScale.y(getCurrentDevice().config.targetWidth)) / 2);
 
   React.useEffect(() => {
     if (step === 1) {
@@ -117,232 +119,234 @@ export default function SurgicalPrepGame() {
 
   return (
     <>
-      {step < 13 && (
-        <>
-          <animated.div
-            style={{
-              position: 'relative',
-              top: 27,
-              willChange: 'transform',
-              ...childStyle,
-              width: 1080,
-              height: 1739,
-            }}
-          >
-            <ChildComponent style={{ width: 1080, height: 1739 }} />
-          </animated.div>
-          {step === 4 && (
-            <animated.img
+      <div className='element-container'>
+        {step < 13 && (
+          <>
+            <animated.div
               style={{
-                position: 'absolute',
-                left: 165,
-                top: 726,
+                position: 'relative',
+                top: 27,
+                willChange: 'transform',
+                ...childStyle,
+                width: 1080,
+                height: 1739,
               }}
-              src={XRayView}
-            />
-          )}
+            >
+              <ChildComponent style={{ width: 1080, height: 1739 }} />
+            </animated.div>
+            {step === 4 && (
+              <animated.img
+                style={{
+                  position: 'absolute',
+                  left: 165,
+                  top: 726,
+                }}
+                src={XRayView}
+              />
+            )}
 
-          {step >= 5 && step < 7 && (
-            <>
-              <animated.img
-                src={NeedlePlaced1}
+            {step >= 5 && step < 7 && (
+              <>
+                <animated.img
+                  src={NeedlePlaced1}
+                  style={{
+                    position: 'absolute',
+                    top: 838,
+                    left: 296,
+                    display: needleComponentPhase === 1 ? 'block' : 'none',
+                  }}
+                />
+                <animated.img
+                  src={NeedlePlaced2}
+                  style={{
+                    position: 'absolute',
+                    top: 839,
+                    left: 323,
+                    display: needleComponentPhase === 2 ? 'block' : 'none',
+                  }}
+                />
+                <animated.img
+                  src={NeedlePlaced3}
+                  style={{
+                    position: 'absolute',
+                    top: 748,
+                    left: 302,
+                    display: needleComponentPhase === 3 ? 'block' : 'none',
+                  }}
+                />
+              </>
+            )}
+            {step > 6 && step < 8 && (
+              <img
+                src={BandagePlaced}
                 style={{
                   position: 'absolute',
-                  top: 838,
-                  left: 296,
-                  display: needleComponentPhase === 1 ? 'block' : 'none',
-                }}
-              />
-              <animated.img
-                src={NeedlePlaced2}
-                style={{
-                  position: 'absolute',
-                  top: 839,
-                  left: 323,
-                  display: needleComponentPhase === 2 ? 'block' : 'none',
-                }}
-              />
-              <animated.img
-                src={NeedlePlaced3}
-                style={{
-                  position: 'absolute',
-                  top: 748,
-                  left: 302,
-                  display: needleComponentPhase === 3 ? 'block' : 'none',
-                }}
-              />
-            </>
-          )}
-          {step > 6 && step < 8 && (
-            <img
-              src={BandagePlaced}
-              style={{
-                position: 'absolute',
-                top: 408,
-                left: 0,
-              }}
-            />
-          )}
-          {[1, 4, 6].includes(step) && (
-            <animated.img
-              style={{ position: 'absolute', ...targetStyle }}
-              src={Target}
-            />
-          )}
-          {[2, 3].includes(step) && (
-            <animated.img
-              src={BPCuffOnArm}
-              style={{ position: 'absolute', top: 449, left: 338 }}
-            />
-          )}
-          <animated.img
-            src={BPCuffResults}
-            style={{
-              position: 'absolute',
-              top: 1063,
-              left: 688,
-              display: step === 3 ? 'block' : 'none',
-            }}
-          />
-          {step >= 10 && (
-            <animated.img
-              src={AnesthesiaMask}
-              style={{
-                position: 'absolute',
-                top: 759,
-                left: 316,
-              }}
-            />
-          )}
-          <animated.div
-            style={{ position: 'absolute', top: 806, left: 614, ...trayStyle }}
-          >
-            <animated.img src={Tray} />
-            {[1].includes(step) && (
-              <DraggableImage
-                ImageComponent={BPCuff}
-                x={64}
-                y={23}
-                onComplete={(newX, newY) => {
-                  if (
-                    newX > -415 &&
-                    newX < -195 &&
-                    newY > -446 &&
-                    newY < -266
-                  ) {
-                    playSound('completeStep');
-                    trayApi.start({ transform: 'translateX(600px)' });
-
-                    // A little hacky, but it helps to avoid errors in the console
-                    setTimeout(() => setGameState({ step: 2 }), 1);
-                  }
-                }}
-                bounds={{
-                  left: -677,
-                  top: -832,
-                  right: 48,
-                  bottom: 85,
+                  top: 408,
+                  left: 0,
                 }}
               />
             )}
-            {[4].includes(step) && (
-              <DraggableImage
-                ImageComponent={NeedleChoice}
-                x={230}
-                y={95}
-                onComplete={(newX, newY) => {
-                  if (newX > -351 && newX < -194 && newY > -222 && newY < 180) {
-                    playSound('completeStep');
-                    trayApi.start({ transform: 'translateX(600px)' });
-                    // A little hacky, but it helps to avoid errors in the console
-                    setTimeout(() => setGameState({ step: 5 }), 1);
+            {[1, 4, 6].includes(step) && (
+              <animated.img
+                style={{ position: 'absolute', ...targetStyle }}
+                src={Target}
+              />
+            )}
+            {[2, 3].includes(step) && (
+              <animated.img
+                src={BPCuffOnArm}
+                style={{ position: 'absolute', top: 449, left: 338 }}
+              />
+            )}
+            <animated.img
+              src={BPCuffResults}
+              style={{
+                position: 'absolute',
+                top: 1063,
+                left: 688,
+                display: step === 3 ? 'block' : 'none',
+              }}
+            />
+            {step >= 10 && (
+              <animated.img
+                src={AnesthesiaMask}
+                style={{
+                  position: 'absolute',
+                  top: 759,
+                  left: 316,
+                }}
+              />
+            )}
+            <animated.div
+              style={{ position: 'absolute', top: 806, left: trayPosition, ...trayStyle }}
+            >
+              <animated.img src={Tray} />
+              {[1].includes(step) && (
+                <DraggableImage
+                  ImageComponent={BPCuff}
+                  x={64}
+                  y={23}
+                  onComplete={(newX, newY) => {
+                    if (
+                      newX > -415 &&
+                      newX < -195 &&
+                      newY > -446 &&
+                      newY < -266
+                    ) {
+                      playSound('completeStep');
+                      trayApi.start({ transform: 'translateX(600px)' });
 
-                    setTimeout(() => setNeedleComponentPhase(2), 1000);
-                    setTimeout(() => setNeedleComponentPhase(3), 2000);
-                  }
-                }}
-                bounds={{
-                  left: -849,
-                  top: -895,
-                  right: 190,
-                  bottom: 85,
+                      // A little hacky, but it helps to avoid errors in the console
+                      setTimeout(() => setGameState({ step: 2 }), 1);
+                    }
+                  }}
+                  bounds={{
+                    left: -677,
+                    top: -832,
+                    right: 48,
+                    bottom: 85,
+                  }}
+                />
+              )}
+              {[4].includes(step) && (
+                <DraggableImage
+                  ImageComponent={NeedleChoice}
+                  x={230}
+                  y={95}
+                  onComplete={(newX, newY) => {
+                    if (newX > -351 && newX < -194 && newY > -222 && newY < 180) {
+                      playSound('completeStep');
+                      trayApi.start({ transform: 'translateX(600px)' });
+                      // A little hacky, but it helps to avoid errors in the console
+                      setTimeout(() => setGameState({ step: 5 }), 1);
+
+                      setTimeout(() => setNeedleComponentPhase(2), 1000);
+                      setTimeout(() => setNeedleComponentPhase(3), 2000);
+                    }
+                  }}
+                  bounds={{
+                    left: -849,
+                    top: -895,
+                    right: 190,
+                    bottom: 85,
+                  }}
+                />
+              )}
+              {[6].includes(step) && (
+                <DraggableImage
+                  ImageComponent={BandageSelection}
+                  x={151}
+                  y={138}
+                  onComplete={(newX, newY) => {
+                    if (newX > -452 && newX < -247 && newY > -120 && newY < 120) {
+                      playSound('surgicalPrepBloodTourniquet');
+                      trayApi.start({ transform: 'translateX(600px)' });
+                      // A little hacky, but it helps to avoid errors in the console
+                      setTimeout(() => setGameState({ step: 7 }), 1);
+                    }
+                  }}
+                  bounds={{
+                    left: -769,
+                    top: -943,
+                    right: 105,
+                    bottom: 115,
+                  }}
+                />
+              )}
+            </animated.div>
+          </>
+        )}
+        {step >= 13 && step < 16 && (
+          <>
+            <SurgicalPrepFinalChild
+              style={{
+                position: 'absolute',
+                transform: 'translateX(-50%)',
+                left: 540,
+                top: 220,
+              }}
+            />
+            {value === 'juicebox' && (
+              <animated.img
+                src={Juicebox}
+                style={{
+                  position: 'absolute',
+                  left: 754,
+                  top: 786,
                 }}
               />
             )}
-            {[6].includes(step) && (
-              <DraggableImage
-                ImageComponent={BandageSelection}
-                x={151}
-                y={138}
-                onComplete={(newX, newY) => {
-                  if (newX > -452 && newX < -247 && newY > -120 && newY < 120) {
-                    playSound('surgicalPrepBloodTourniquet');
-                    trayApi.start({ transform: 'translateX(600px)' });
-                    // A little hacky, but it helps to avoid errors in the console
-                    setTimeout(() => setGameState({ step: 7 }), 1);
-                  }
-                }}
-                bounds={{
-                  left: -769,
-                  top: -943,
-                  right: 105,
-                  bottom: 115,
+            {value === 'popsicle' && (
+              <animated.img
+                src={Popsicle}
+                style={{
+                  position: 'absolute',
+                  left: 734,
+                  top: 740,
                 }}
               />
             )}
-          </animated.div>
-        </>
-      )}
-      {step >= 13 && step < 16 && (
-        <>
-          <SurgicalPrepFinalChild
-            style={{
-              position: 'absolute',
-              transform: 'translateX(-50%)',
-              left: 540,
-              top: 220,
-            }}
-          />
-          {value === 'juicebox' && (
-            <animated.img
-              src={Juicebox}
-              style={{
-                position: 'absolute',
-                left: 754,
-                top: 786,
-              }}
-            />
-          )}
-          {value === 'popsicle' && (
-            <animated.img
-              src={Popsicle}
-              style={{
-                position: 'absolute',
-                left: 734,
-                top: 740,
-              }}
-            />
-          )}
-          {value === 'icecream' && (
-            <animated.img
-              src={IceCream}
-              style={{
-                position: 'absolute',
-                left: 803,
-                top: 778,
-                transform: 'translate(-50%, 0)',
-              }}
-            />
-          )}
-        </>
-      )}
-      {step === 16 && (
+            {value === 'icecream' && (
+              <animated.img
+                src={IceCream}
+                style={{
+                  position: 'absolute',
+                  left: 803,
+                  top: 778,
+                  transform: 'translate(-50%, 0)',
+                }}
+              />
+            )}
+          </>
+        )}
+        {step === 16 && (
           <>
             <img
-                src={ProcedurePlaceholder}
+              src={ProcedurePlaceholder}
             />
           </>
-      )}
+        )}
+      </div>
       <animated.div
         style={{
           display: step >= 12 ? 'block' : 'none',

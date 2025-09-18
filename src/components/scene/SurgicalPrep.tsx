@@ -59,17 +59,19 @@ export default function SurgicalPrep() {
 
   return (
     <>
-      <animated.img
-        src={SurgicalPrepChild}
-        style={{
-          top: 220,
-          position: 'absolute',
-          transform: 'translate(-50%, 0)',
-          ...bodyStyle,
-          width: 603,
-          height: 1026,
-        }}
-      />
+      <div className='element-container'>
+        <animated.img
+          src={SurgicalPrepChild}
+          style={{
+            top: 220,
+            position: 'absolute',
+            transform: 'translate(-50%, 0)',
+            ...bodyStyle,
+            width: 603,
+            height: 1026,
+          }}
+        />
+      </div>
       <ProceduresTextBox
         text={t('surgicalPrep.scene.text')}
         animatedStyle={overlayStyle as unknown as CSSProperties}
