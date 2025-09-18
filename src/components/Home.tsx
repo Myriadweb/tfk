@@ -200,23 +200,15 @@ export function Home() {
                 location.search && setGameState({ step: 0 });
               }}
             >
-              {(!location.search ||
-                (prefix === 'Skeletal' && gameState.value === 'done')) && (
-                <OptionOverlaySVG
-                  style={{
-                    position: 'absolute',
-                    top: 0,
-                    width: screenScale.y(100),
-                    height: screenScale.y(100),
-                    display: 'none',
-                  }}
-                />
-              )}
               <ExploreSVG
                 style={{
                   width: screenScale.y(100),
                   height: screenScale.y(100),
-                  filter: !location.search || (prefix === 'Skeletal' && gameState.value === 'done') ? 'brightness(50%)' : 'brightness(1)',
+                  filter:
+                    !location.search ||
+                    (prefix === 'Skeletal' && gameState.value === 'done')
+                      ? 'brightness(50%)'
+                      : 'brightness(1)',
                 }}
               />
               <span style={{ color: 'white' }}>
@@ -233,23 +225,15 @@ export function Home() {
                 location.search !== '?play=true' && playSound('generalSelect');
               }}
             >
-              {location.search === '?play=true' &&
-                !(prefix === 'Skeletal' && gameState.value === 'done') && (
-                  <OptionOverlaySVG
-                    style={{
-                      position: 'absolute',
-                      top: screenScale.y(160),
-                      width: screenScale.y(100),
-                      height: screenScale.y(100),
-                      display: 'none',
-                    }}
-                  />
-                )}
               <PlaySVG
                 style={{
                   width: screenScale.y(100),
                   height: screenScale.y(100),
-                  filter: location.search === '?play=true' && !(prefix === 'Skeletal' && gameState.value === 'done') ? 'brightness(50%)' : 'brightness(1)',
+                  filter:
+                    location.search === '?play=true' &&
+                    !(prefix === 'Skeletal' && gameState.value === 'done')
+                      ? 'brightness(50%)'
+                      : 'brightness(1)',
                 }}
               />
               <span style={{ color: 'white' }}>{t('common.scene.play')}</span>
