@@ -20,6 +20,7 @@ import { BlueBarContinue } from './BlueBarContinue';
 import { Trans } from 'react-i18next';
 import { animated } from 'react-spring';
 import Tablet from "./IvAssets/iPad.svg";
+import {screenScale} from "../../utils/scaling";
 
 const PUMPS_CONFIG = {
   1: BpPumpOneBar,
@@ -127,7 +128,7 @@ const Wellness = ({ prefix }: Props) => {
     ),
     10: () => (
       <>
-        <BlueBar style={{ height: 192 }}>
+        <BlueBar style={{ height: screenScale.y(192) }}>
           <div
             style={{
               margin: '0 auto',
@@ -182,7 +183,7 @@ const Wellness = ({ prefix }: Props) => {
     ),
     11: () => (
       <>
-          <BlueBar style={{ height: 192 }}>
+          <BlueBar style={{ height: screenScale.y(192) }}>
               <div className='two-columns'>
                   <NavigationButton
                       image={Cardiovascular}
@@ -228,14 +229,14 @@ const Wellness = ({ prefix }: Props) => {
     ),
       12: () => (
           <>
-              <BlueBar style={{ height: 192 }}>
+              <BlueBar style={{ height: screenScale.y(192) }}>
 
               </BlueBar>
               <div className='links-container'
                    style={{
                        position: 'absolute',
                        left: 44,
-                       top: 383,
+                       top: screenScale.y(383),
                    }}
               >
                   <Link

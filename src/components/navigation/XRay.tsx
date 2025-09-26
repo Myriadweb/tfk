@@ -16,6 +16,7 @@ import { BlueBarContinue } from './BlueBarContinue';
 import BlueBar from './UIComponents/BlueBar';
 import { Trans } from 'react-i18next';
 import Tablet from "./IvAssets/iPad.svg";
+import {screenScale} from "../../utils/scaling";
 
 type Props = {
   path: Paths;
@@ -82,7 +83,7 @@ const XRay = ({ prefix }: Props) => {
     ),
     5: () => (
       <>
-        <BlueBar style={{ height: 192 }}>
+        <BlueBar style={{ height: screenScale.y(192) }}>
           <div className='nav-items-container' style={{ width: 592 }}>
             <NavigationButton
               image={SignCast}
@@ -125,7 +126,7 @@ const XRay = ({ prefix }: Props) => {
     ),
     6: () => (
       <>
-          <BlueBar style={{ height: 192 }}>
+          <BlueBar style={{ height: screenScale.y(192) }}>
               <div className='two-columns'>
                   <NavigationButton
                       image={Skeletal}
@@ -185,14 +186,14 @@ const XRay = ({ prefix }: Props) => {
     ),
     7: () => (
           <>
-              <BlueBar style={{ height: 192 }}>
+              <BlueBar style={{ height: screenScale.y(192) }}>
 
               </BlueBar>
               <div className='links-container'
                   style={{
                       position: 'absolute',
                       left: 44,
-                      top: 383,
+                      top: screenScale.y(383),
                   }}
               >
                   <Link

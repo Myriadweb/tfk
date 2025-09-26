@@ -276,6 +276,7 @@
 
 .links-container .link img {
   margin-right: 15px;
+  height: calc(68px * var(--scale-y));
 }
 .language-toggle-container {
   position: absolute;
@@ -283,6 +284,14 @@
   bottom: calc(20px * var(--scale-y));
   display: flex;
   align-items: center;
+}
+
+.language-toggle-container .language-toggle-base{
+  height: calc(66px * var(--scale-y));
+}
+
+.language-toggle-container .language-toggle-button{
+  height: calc(44px * var(--scale-y));
 }
 
 .procedures-box {
@@ -339,7 +348,7 @@
 .sticky-dots-container {
   position: absolute;
   top: 50px;
-  left: 540px;
+  left: calc(540px * var(--scale-x));
   transform: translateX(-50%);
   width: 570px;
 }
@@ -349,14 +358,14 @@
 .leads-head-container {
   position: absolute;
   top: -10px;
-  left: 540px;
+  left: calc(540px * var(--scale-x));
   transform: translateX(-50%);
   width: 682px;
 }
 .leads-machine-container {
   position: absolute;
   top: -212px;
-  left: 530px;
+  left: calc(530px * var(--scale-x));
   transform: translateX(-50%);
   width: 197px;
 }
@@ -369,7 +378,7 @@
   position: absolute;
   width: 590px;
   top: 30px;
-  left: 555px;
+  left: calc(555px * var(--scale-x));
   transform: translateX(-50%);
 }
 .cap-container svg {

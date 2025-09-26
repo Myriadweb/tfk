@@ -60,16 +60,18 @@ export default function Eeg() {
 
   return (
     <>
-      <animated.img
-        src={EegBody}
-        style={{
-          top: 250,
-          position: 'absolute',
-          transform: 'translate(-50%, 0)',
-          ...bodyStyle,
-          height: 980,
-        }}
-      />
+      <div className='element-container'>
+        <animated.img
+          src={EegBody}
+          style={{
+            top: 250,
+            position: 'absolute',
+            transform: 'translate(-50%, 0)',
+            ...bodyStyle,
+            height: 980,
+          }}
+        />
+      </div>
       <ProceduresTextBox
         text={t('eeg.scene.text')}
         animatedStyle={overlayStyle as unknown as CSSProperties}

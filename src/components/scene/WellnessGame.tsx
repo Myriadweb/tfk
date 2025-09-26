@@ -24,6 +24,7 @@ import { useGameContext } from '../../state/game';
 import playSound from '../../sound';
 import { DraggableImage } from './SharedComponents/DraggableImage';
 import ProcedurePlaceholder from "./SharedAssets/procedurePlaceholder.png";
+import {elementPosition, screenScale} from "../../utils/scaling";
 
 export default function WellnessGame() {
   const [{ step, value }, setGameState] = useGameContext();
@@ -36,7 +37,9 @@ export default function WellnessGame() {
     transform: 'translateX(0px)',
   }));
   const [thermometerStyle, thermometerApi] = useSpring(() => ({
-    transform: 'translate(0px, 0px)',
+    left: elementPosition.left(800),
+    top: 850,
+    transform: 'translate(0%, 0%)',
   }));
   const [thermometerResultStyle, thermometerResultApi] = useSpring(() => ({
     opacity: 0,
@@ -65,7 +68,7 @@ export default function WellnessGame() {
       thermometerResultApi.set({ opacity: 0 });
 
       childApi.start({
-        transform: 'scale(2) translate(200px, -222px)',
+        transform: `scale(2) translate(200px, ${screenScale.avg(-222)}px)`,
         onRest: () => {
           trayApi.start({ transform: 'translateX(0px)' });
           thermometerResultApi.start({ opacity: 1 });
@@ -86,7 +89,7 @@ export default function WellnessGame() {
         transform: 'scale(1) translate(0px, 0px)',
       });
       oximeterApi.start({
-        transform: 'scale(0.5) translate(-4px, 742px)',
+        transform: `scale(0.5) translate(-4px, ${screenScale.avg(742)}px)`,
       });
     }
   }, [
@@ -101,7 +104,9 @@ export default function WellnessGame() {
 
   const handleThermometerClicked = () => {
     thermometerApi.start({
-      transform: 'translate(-304px, -788px)',
+      left: getCurrentDevice().config.targetWidth / 2,
+      top: 50,
+      transform: 'translate(-50% , 0%)',
       onRest: () => {
         setGameState({ step: 1 });
         trayApi.start({ transform: 'translateX(600px)' });
@@ -111,7 +116,7 @@ export default function WellnessGame() {
   };
 
   return (
-    <>
+    <div className='element-container'>
       {step < 10 && (
         <animated.div style={childStyle}>
           <WellnessScene />
@@ -124,7 +129,7 @@ export default function WellnessGame() {
         />
       )}
       <animated.div
-        style={{ position: 'absolute', top: 806, left: 614, ...trayStyle }}
+        style={{ position: 'absolute', top: 806, left: elementPosition.left(614), ...trayStyle }}
       >
         <animated.img src={Tray} />
         {[3].includes(step) && (
@@ -221,8 +226,6 @@ export default function WellnessGame() {
       <animated.img
         src={ThermometerComponent}
         style={{
-          left: 800,
-          top: 850,
           position: 'absolute',
           display: step < 3 ? 'block' : 'none',
           ...thermometerStyle,
@@ -248,7 +251,7 @@ export default function WellnessGame() {
             style={{
               position: 'absolute',
               top: 755,
-              left: 747,
+              left: screenScale.x(747),
               display: value === 'basketball' ? 'block' : 'none',
             }}
           />
@@ -257,7 +260,7 @@ export default function WellnessGame() {
             style={{
               position: 'absolute',
               top: 777,
-              left: 478,
+              left: screenScale.x(478),
               display: value === 'baseball' ? 'block' : 'none',
             }}
           />
@@ -266,7 +269,7 @@ export default function WellnessGame() {
             style={{
               position: 'absolute',
               top: 832,
-              left: 624,
+              left: screenScale.x(624),
               display: value === 'baseball' ? 'block' : 'none',
             }}
           />
@@ -275,7 +278,7 @@ export default function WellnessGame() {
             style={{
               position: 'absolute',
               top: 832,
-              left: 426,
+              left: screenScale.x(426),
               display: value === 'jumpRope' ? 'block' : 'none',
             }}
           />
@@ -288,6 +291,6 @@ export default function WellnessGame() {
                 />
             </>
         )}
-    </>
+    </div>
   );
 }

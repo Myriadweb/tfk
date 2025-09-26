@@ -60,16 +60,18 @@ export default function Mri() {
 
   return (
     <>
-      <animated.div
-        style={{
-          top: -150,
-          position: 'absolute',
-          transform: 'translate(-50%, 0)',
-          ...bodyStyle,
-        }}
-      >
-        <MriScene />
-      </animated.div>
+      <div className='element-container'>
+        <animated.div
+          style={{
+            top: -150,
+            position: 'absolute',
+            transform: 'translate(-50%, 0)',
+            ...bodyStyle,
+          }}
+        >
+          <MriScene />
+        </animated.div>
+      </div>
       <ProceduresTextBox
         text={t('mri.scene.text')}
         animatedStyle={overlayStyle as unknown as CSSProperties}

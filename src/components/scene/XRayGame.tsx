@@ -13,6 +13,7 @@ import { useGameContext } from '../../state/game';
 import playSound from '../../sound';
 import { useEffect } from 'react';
 import ProcedurePlaceholder from "./SharedAssets/procedurePlaceholder.png";
+import {screenScale} from "../../utils/scaling";
 
 const ChildFinalStep = XRayChildNoBracelet;
 
@@ -37,6 +38,7 @@ export default function XRayGame() {
   });
   const [xRayFlash, xRayFlashApi] = useSpring(() => ({
     opacity: 0,
+    display: 'none'
   }));
   const [xRayMachineStyle, xRayMachineApi] = useSpring(() => ({
     transform: 'translateX(-1080px)',
@@ -51,13 +53,13 @@ export default function XRayGame() {
         },
       });
     } else if (step === 3) {
-      xRayFlashApi.start({ opacity: 0.8 });
+      xRayFlashApi.start({ opacity: 0.8, display: 'block' });
       setTimeout(() => {
         setStep((oldState) => ({ ...oldState, step: 4 }));
       }, 3000);
     } else if (step === 4) {
       xRayFlashApi.start({
-        opacity: 0,
+        opacity: 0, display: 'none'
       });
     }
   }, [step, setStep, xRayFlashApi, xRayMachineApi]);
@@ -86,64 +88,139 @@ export default function XRayGame() {
 
   return (
     <>
-      {step < 2 && (
-        <animated.div
-          style={{
-            ...animatedDiv,
-            position: 'absolute',
-          }}
-        >
-          <XRayScene
+      <div className='element-container'>
+        {step < 2 && (
+          <animated.div
             style={{
+              ...animatedDiv,
               position: 'absolute',
-              left: -22,
-              width: 1123,
-              height: 1868,
             }}
-          />
-          {step === 0 && (
-            <animated.img
-              src={Wound}
+          >
+            <XRayScene
               style={{
                 position: 'absolute',
-                left: 771,
-                top: 882,
-                ...woundStyle,
+                left: -22,
+                width: 1123,
+                height: 1868,
               }}
             />
-          )}
-          <animated.div
-            style={{
-              ...painLines,
-              position: 'absolute',
-            }}
-          >
-            <PainLines />
+            {step === 0 && (
+              <animated.img
+                src={Wound}
+                style={{
+                  position: 'absolute',
+                  left: 771,
+                  top: 882,
+                  ...woundStyle,
+                }}
+              />
+            )}
+            <animated.div
+              style={{
+                ...painLines,
+                position: 'absolute',
+              }}
+            >
+              <PainLines />
+            </animated.div>
           </animated.div>
-        </animated.div>
-      )}
-      {step > 1 && step < 4 && (
-        <>
-          <XRayScene2 />
-          <animated.div
-            style={{ position: 'absolute', top: -5, ...xRayMachineStyle }}
-          >
-            <XRayMachineScene />
-          </animated.div>
-        </>
-      )}
-      {step === 4 && (
-        <>
-          <XRayBody
+        )}
+        {step > 1 && step < 4 && (
+          <>
+            <XRayScene2 />
+            <animated.div
+              style={{ position: 'absolute', top: -5, ...xRayMachineStyle }}
+            >
+              <XRayMachineScene />
+            </animated.div>
+          </>
+        )}
+        {step === 4 && (
+          <>
+            <XRayBody
+              style={{
+                position: 'absolute',
+                left: 540,
+                top: 630,
+                transform: 'translate(-50%, -50%)',
+              }}
+            />
+          </>
+        )}
+        {step === 0 && (
+          <div
             style={{
               position: 'absolute',
-              left: 540,
-              top: 630,
-              transform: 'translate(-50%, -50%)',
+              width: 66,
+              height: 100,
+              left: 806,
+              opacity: 0.3,
+              top: 931,
             }}
+            onClick={() => scaleIt()}
           />
-        </>
-      )}
+        )}
+        {step >= 5 && step < 7 && (
+          <>
+            <div
+              style={{
+                position: 'absolute',
+                left: '50%',
+                top: 274,
+                transform: 'translate(-50%, 0)',
+              }}
+            >
+              <ChildFinalStep height='984' width='392' />
+            </div>
+            <Cast
+              style={{
+                position: 'absolute',
+                left: screenScale.x(658),
+                top: 750,
+              }}
+            />
+            {value === 'signature' && (
+              <animated.div
+                style={{
+                  position: 'absolute',
+                  left: screenScale.x(689),
+                  top: 774,
+                }}
+              >
+                <Signature />
+              </animated.div>
+            )}
+            {value === 'doll' && (
+              <animated.img
+                src={Bear}
+                style={{
+                  position: 'absolute',
+                  left: screenScale.x(278),
+                  top: 656,
+                }}
+              />
+            )}
+            {value === 'medal' && (
+              <animated.img
+                src={`images/XRay/medal.png`}
+                style={{
+                  position: 'absolute',
+                  left: '50%',
+                  top: 597,
+                  transform: 'translate(-50%, 0)',
+                }}
+              />
+            )}
+          </>
+        )}
+        {step === 7 && (
+          <>
+            <img
+              src={ProcedurePlaceholder}
+            />
+          </>
+        )}
+      </div>
       <animated.div
         style={{
           position: 'absolute',
@@ -154,79 +231,6 @@ export default function XRayGame() {
           ...xRayFlash,
         }}
       />
-      {step === 0 && (
-        <div
-          style={{
-            position: 'absolute',
-            width: 66,
-            height: 100,
-            left: 806,
-            opacity: 0.3,
-            top: 931,
-          }}
-          onClick={() => scaleIt()}
-        />
-      )}
-      {step >= 5 && step < 7 && (
-        <>
-          <div
-            style={{
-              position: 'absolute',
-              left: '50%',
-              top: 274,
-              transform: 'translate(-50%, 0)',
-            }}
-          >
-            <ChildFinalStep height='984' width='392' />
-          </div>
-          <Cast
-            style={{
-              position: 'absolute',
-              left: 658,
-              top: 750,
-            }}
-          />
-          {value === 'signature' && (
-            <animated.div
-              style={{
-                position: 'absolute',
-                left: 689,
-                top: 774,
-              }}
-            >
-              <Signature />
-            </animated.div>
-          )}
-          {value === 'doll' && (
-            <animated.img
-              src={Bear}
-              style={{
-                position: 'absolute',
-                left: 278,
-                top: 656,
-              }}
-            />
-          )}
-          {value === 'medal' && (
-            <animated.img
-              src={`images/XRay/medal.png`}
-              style={{
-                position: 'absolute',
-                left: '50%',
-                top: 597,
-                transform: 'translate(-50%, 0)',
-              }}
-            />
-          )}
-        </>
-      )}
-      {step === 7 && (
-          <>
-            <img
-                src={ProcedurePlaceholder}
-            />
-          </>
-      )}
     </>
   );
 }

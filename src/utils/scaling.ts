@@ -53,6 +53,11 @@ export const screenScale = {
   }),
 };
 
+export const elementPosition = {
+  left: (value: number) => value + ((config.targetWidth - screenScale.y(config.targetWidth)) / 2),
+  top: (value: number) => value + ((config.targetHeight - screenScale.y(config.targetHeight)) / 2),
+};
+
 // Function to set CSS custom properties
 export const setCSSScaleVariables = () => {
   const root = document.documentElement;

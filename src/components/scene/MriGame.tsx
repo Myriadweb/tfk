@@ -78,78 +78,150 @@ export default function MriGame() {
 
   return (
     <>
-      {step < 4 && (
-        <animated.div
-          style={{
-            position: 'absolute',
-            left: 540,
-            ...animatedScene,
-          }}
-        >
-          <Background style={{ ...sceneStyle }} />
-          <MachineBottom style={{ ...sceneStyle, top: 516, left: 2 }} />
-          <animated.div style={mriBedStyle}>
-            <MachineBed style={{ ...sceneStyle, top: 687, left: 2 }} />
-          </animated.div>
-          <animated.div style={mriChildStyle}>
-            <MriBedSleeping
-              style={{
-                ...sceneStyle,
-                top: 622,
-                width: 791,
-                height: 1424,
+      <div className='element-container'>
+        {step < 4 && (
+          <animated.div
+            style={{
+              position: 'absolute',
+              left: 540,
+              ...animatedScene,
+            }}
+          >
+            <Background style={{
+              ...sceneStyle,
+              display: step > 1 ? 'block' : 'none',
               }}
             />
-            {value === 'music' && (
-              <Music
+            <MachineBottom style={{ ...sceneStyle, top: 516, left: 2, display: step > 1 ? 'block' : 'none', }} />
+            <animated.div style={mriBedStyle}>
+              <MachineBed style={{ ...sceneStyle, top: 687, left: 2 }} />
+            </animated.div>
+            <animated.div style={mriChildStyle}>
+              <MriBedSleeping
                 style={{
                   ...sceneStyle,
-                  top: 714,
-                  zIndex: 10,
-                  width: 380,
-                  left: 8,
+                  top: 622,
+                  width: 791,
+                  height: 1424,
                 }}
               />
-            )}
-            {value === 'vr' && (
-              <VR
-                style={{
-                  ...sceneStyle,
-                  top: 842,
-                  zIndex: 10,
-                  width: 380,
-                  left: 9,
-                }}
-              />
-            )}
-            {value === 'nap' && (
-              <Nap
-                style={{
-                  ...sceneStyle,
-                  top: 751,
-                  zIndex: 10,
-                  width: 250,
-                  left: 182,
-                }}
-              />
-            )}
+              {value === 'music' && (
+                <Music
+                  style={{
+                    ...sceneStyle,
+                    top: 714,
+                    zIndex: 10,
+                    width: 380,
+                    left: 8,
+                  }}
+                />
+              )}
+              {value === 'vr' && (
+                <VR
+                  style={{
+                    ...sceneStyle,
+                    top: 842,
+                    zIndex: 10,
+                    width: 380,
+                    left: 9,
+                  }}
+                />
+              )}
+              {value === 'nap' && (
+                <Nap
+                  style={{
+                    ...sceneStyle,
+                    top: 751,
+                    zIndex: 10,
+                    width: 250,
+                    left: 182,
+                  }}
+                />
+              )}
+            </animated.div>
+            <MachineTop style={{ ...sceneStyle }} />
           </animated.div>
-          <MachineTop style={{ ...sceneStyle }} />
-        </animated.div>
-      )}
-      {step === 0 && (
-        <img
-          src={MriBed}
-          style={{
-            ...(sceneStyle as CSSProperties),
-            transform: 'translateX(-50%) scale(1.4)',
-            top: 175,
-            left: 540,
-            width: 791,
-            height: 1424,
-          }}
-        />
-      )}
+        )}
+        {step === 0 && (
+          <img
+            src={MriBed}
+            style={{
+              ...(sceneStyle as CSSProperties),
+              transform: 'translateX(-50%) scale(1.4)',
+              top: 175,
+              left: 540,
+              width: 791,
+              height: 1424,
+            }}
+          />
+        )}
+        {step === 4 && (
+          <>
+            <img
+              src={MriBody}
+              style={{
+                position: 'absolute',
+                left: 540,
+                top: 630,
+                transform: 'translate(-50%, -50%)',
+              }}
+            />
+          </>
+        )}
+        {step >= 5 && step < 7 && (
+          <>
+            <div
+              style={{
+                position: 'absolute',
+                left: '50%',
+                top: 274,
+                transform: 'translate(-50%, 0)',
+              }}
+            >
+              <ChildFinalStep />
+            </div>
+            {value === 'sticker' && (
+              <animated.div
+                style={{
+                  position: 'absolute',
+                  left: 405,
+                  top: 627,
+                }}
+              >
+                <Sticker />
+              </animated.div>
+            )}
+            {value === 'doll' && (
+              <animated.img
+                src={Bear}
+                style={{
+                  position: 'absolute',
+                  left: 278,
+                  top: 630,
+                }}
+              />
+            )}
+            {value === 'medal' && (
+              <animated.img
+                src={Medal}
+                style={{
+                  position: 'absolute',
+                  left: '50%',
+                  top: 597,
+                  transform: 'translate(-50%, 0)',
+                }}
+              />
+            )}
+          </>
+        )}
+        {step >= 7 && (
+          <>
+            <img
+              src={ProcedurePlaceholder}
+            />
+          </>
+        )}
+      </div>
       {step === 3 && (
         <animated.div
           style={{
@@ -159,72 +231,6 @@ export default function MriGame() {
             height: '100%',
           }}
         />
-      )}
-      {step === 4 && (
-        <>
-          <img
-            src={MriBody}
-            style={{
-              position: 'absolute',
-              left: 540,
-              top: 630,
-              transform: 'translate(-50%, -50%)',
-            }}
-          />
-        </>
-      )}
-      {step >= 5 && step < 7 && (
-        <>
-          <div
-            style={{
-              position: 'absolute',
-              left: '50%',
-              top: 274,
-              transform: 'translate(-50%, 0)',
-            }}
-          >
-            <ChildFinalStep />
-          </div>
-          {value === 'sticker' && (
-            <animated.div
-              style={{
-                position: 'absolute',
-                left: 405,
-                top: 627,
-              }}
-            >
-              <Sticker />
-            </animated.div>
-          )}
-          {value === 'doll' && (
-            <animated.img
-              src={Bear}
-              style={{
-                position: 'absolute',
-                left: 278,
-                top: 630,
-              }}
-            />
-          )}
-          {value === 'medal' && (
-            <animated.img
-              src={Medal}
-              style={{
-                position: 'absolute',
-                left: '50%',
-                top: 597,
-                transform: 'translate(-50%, 0)',
-              }}
-            />
-          )}
-        </>
-      )}
-      {step >= 7 && (
-          <>
-            <img
-                src={ProcedurePlaceholder}
-            />
-          </>
       )}
     </>
   );

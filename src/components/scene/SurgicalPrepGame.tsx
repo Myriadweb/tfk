@@ -21,7 +21,7 @@ import Juicebox from './SurgicalPrepAssets/juicebox.svg';
 import Popsicle from './SurgicalPrepAssets/popsicle.svg';
 import IceCream from './SurgicalPrepAssets/iceCream.svg';
 import ProcedurePlaceholder from "./SharedAssets/procedurePlaceholder.png";
-import {getCurrentDevice, screenScale} from "../../utils/scaling";
+import {screenScale, elementPosition} from "../../utils/scaling";
 
 export default function SurgicalPrepGame() {
   const [{ step, value }, setGameState] = useGameContext();
@@ -39,7 +39,6 @@ export default function SurgicalPrepGame() {
   }));
   const [needleComponentPhase, setNeedleComponentPhase] = React.useState(1);
   const [darkLayerStyle, darkLayerApi] = useSpring(() => ({ opacity: 0 }));
-  const trayPosition = 614 + ((getCurrentDevice().config.targetWidth - screenScale.y(getCurrentDevice().config.targetWidth)) / 2);
 
   React.useEffect(() => {
     if (step === 1) {
@@ -218,7 +217,7 @@ export default function SurgicalPrepGame() {
               />
             )}
             <animated.div
-              style={{ position: 'absolute', top: 806, left: trayPosition, ...trayStyle }}
+              style={{ position: 'absolute', top: 806, left: elementPosition.left(614), ...trayStyle }}
             >
               <animated.img src={Tray} />
               {[1].includes(step) && (

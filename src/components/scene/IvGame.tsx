@@ -25,7 +25,7 @@ import Medal from './SharedAssets/medal.png';
 import { Characters, IvChildBed, IvChildBedHappy, IvChildBedSmiling } from './ChildrenAssets/childrenAssets';
 import InitialPromptIV from './IvAssets/initialPromptIV.svg';
 import ProcedurePlaceholder from './SharedAssets/procedurePlaceholder.png';
-import {screenScale} from "../../utils/scaling";
+import {screenScale, elementPosition} from "../../utils/scaling";
 
 const ChildFinalStep = Characters.default[0];
 
@@ -260,7 +260,7 @@ export default function IvGame() {
             />
           )}
           <animated.div
-            style={{ position: 'absolute', top: 806, left: 614, ...trayStyle }}
+            style={{ position: 'absolute', top: 806, left: elementPosition.left(614), ...trayStyle }}
           >
             <animated.img src={Tray} />
             {[2].includes(step) && (

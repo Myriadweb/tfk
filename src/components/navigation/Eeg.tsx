@@ -18,6 +18,7 @@ import { BlueBarContinue } from './BlueBarContinue';
 import BlueBar from './UIComponents/BlueBar';
 import { Trans } from 'react-i18next';
 import Tablet from "./IvAssets/iPad.svg";
+import {screenScale} from "../../utils/scaling";
 
 type Props = {
   path: Paths;
@@ -187,7 +188,7 @@ export default function Eeg({ prefix }: Props) {
     ),
     9: () => (
       <>
-        <BlueBar style={{ height: 192 }}>
+        <BlueBar style={{ height: screenScale.y(192) }}>
           <div className='nav-items-container' style={{ width: 592 }}>
             <NavigationButton
               image={Sticker}
@@ -235,7 +236,7 @@ export default function Eeg({ prefix }: Props) {
     ),
     10: () => (
         <>
-            <BlueBar style={{ height: 192 }}>
+            <BlueBar style={{ height: screenScale.y(192) }}>
                 <div className='two-columns'>
                     <NavigationButton
                         image={Nervous}
@@ -262,7 +263,7 @@ export default function Eeg({ prefix }: Props) {
                  style={{
                      position: 'absolute',
                      left: 44,
-                     top: 383,
+                     top: screenScale.y(383),
                  }}
             >
                 <Link
@@ -282,14 +283,14 @@ export default function Eeg({ prefix }: Props) {
     ),
       11: () => (
           <>
-              <BlueBar style={{ height: 192 }}>
+              <BlueBar style={{ height: screenScale.y(192) }}>
 
               </BlueBar>
               <div className='links-container'
                    style={{
                        position: 'absolute',
                        left: 44,
-                       top: 383,
+                       top: screenScale.y(383),
                    }}
               >
                   <Link

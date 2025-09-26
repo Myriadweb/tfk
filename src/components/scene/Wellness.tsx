@@ -62,25 +62,27 @@ export default function Wellness() {
 
   return (
     <>
-      <animated.div
-        style={{
-          top: 275,
-          left: 458,
-          position: 'absolute',
-          ...bodyStyle,
-        }}
-      >
-        <Child />
-      </animated.div>
-      <animated.img
-        src={WellnessMachine}
-        style={{
-          top: 470,
-          left: 243,
-          position: 'absolute',
-          ...overlayStyle,
-        }}
-      />
+      <div className='element-container'>
+        <animated.div
+          style={{
+            top: 275,
+            left: 458,
+            position: 'absolute',
+            ...bodyStyle,
+          }}
+        >
+          <Child />
+        </animated.div>
+        <animated.img
+          src={WellnessMachine}
+          style={{
+            top: 470,
+            left: 243,
+            position: 'absolute',
+            ...overlayStyle,
+          }}
+        />
+      </div>
       <ProceduresTextBox
         text={t('wellness.scene.text')}
         animatedStyle={overlayStyle as unknown as CSSProperties}

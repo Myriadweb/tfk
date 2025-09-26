@@ -62,27 +62,29 @@ export default function XRay() {
   const width = childWidth[4];
 
   return (
-    <div className='element-container'>
-      <animated.div
-        style={{
-          top: 275,
-          position: 'absolute',
-          transform: `translate(-${width / 2}px, 0)`,
-          ...bodyStyle,
-        }}
-      >
-        <Child />
-      </animated.div>
-      <animated.div
-        style={{
-          top: 0,
-          position: 'absolute',
-          left: 95,
-          ...overlayStyle,
-        }}
-      >
-        <XrayMachine />
-      </animated.div>
+    <>
+      <div className='element-container'>
+        <animated.div
+          style={{
+            top: 275,
+            position: 'absolute',
+            transform: `translate(-${width / 2}px, 0)`,
+            ...bodyStyle,
+          }}
+        >
+          <Child />
+        </animated.div>
+        <animated.div
+          style={{
+            top: 0,
+            position: 'absolute',
+            left: 95,
+            ...overlayStyle,
+          }}
+        >
+          <XrayMachine />
+        </animated.div>
+      </div>
       <ProceduresTextBox
         text={t('xRay.scene.text')}
         animatedStyle={overlayStyle as unknown as CSSProperties}
@@ -92,6 +94,6 @@ export default function XRay() {
           navigate(`/${Paths.Procedures}/${Paths.XRay}/${Paths.Game}`)
         }
       />
-    </div>
+    </>
   );
 }
