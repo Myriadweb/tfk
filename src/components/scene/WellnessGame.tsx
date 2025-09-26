@@ -24,7 +24,7 @@ import { useGameContext } from '../../state/game';
 import playSound from '../../sound';
 import { DraggableImage } from './SharedComponents/DraggableImage';
 import ProcedurePlaceholder from "./SharedAssets/procedurePlaceholder.png";
-import {elementPosition, screenScale} from "../../utils/scaling";
+import {elementPosition, screenScale, getCurrentDevice} from "../../utils/scaling";
 
 export default function WellnessGame() {
   const [{ step, value }, setGameState] = useGameContext();

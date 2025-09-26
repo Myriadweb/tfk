@@ -286,11 +286,11 @@
   align-items: center;
 }
 
-.language-toggle-container .language-toggle-base{
+.language-toggle-container .language-toggle-base {
   height: calc(66px * var(--scale-y));
 }
 
-.language-toggle-container .language-toggle-button{
+.language-toggle-container .language-toggle-button {
   height: calc(44px * var(--scale-y));
 }
 
