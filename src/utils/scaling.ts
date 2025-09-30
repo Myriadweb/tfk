@@ -62,7 +62,6 @@ export const elementPosition = {
     direction === '+'
       ? value + (config.targetHeight - screenScale.y(config.targetHeight)) / 2
       : value - (config.targetHeight - screenScale.y(config.targetHeight)) / 2,
-
 };
 
 // Function to set CSS custom properties
