@@ -16,7 +16,7 @@ import { ReactComponent as Sticker } from './SharedAssets/sticker.svg';
 import { useGameContext } from '../../state/game';
 import { CSSProperties, useEffect } from 'react';
 import { Characters, MriBed, MriBedSleeping } from './ChildrenAssets/childrenAssets';
-import ProcedurePlaceholder from "./SharedAssets/procedurePlaceholder.png";
+import Scrapbook from "./MriAssets/scrapbook.jpg";
 
 const sceneStyle: CSSProperties = {
   position: 'absolute',
@@ -214,13 +214,6 @@ export default function MriGame() {
             )}
           </>
         )}
-        {step >= 7 && (
-          <>
-            <img
-              src={ProcedurePlaceholder}
-            />
-          </>
-        )}
       </div>
       {step === 3 && (
         <animated.div
@@ -231,6 +224,14 @@ export default function MriGame() {
             height: '100%',
           }}
         />
+      )}
+      {step >= 7 && (
+        <>
+          <img
+            src={Scrapbook}
+            className="scrapbook"
+          />
+        </>
       )}
     </>
   );

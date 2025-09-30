@@ -12,7 +12,7 @@ import Bear from './SharedAssets/bear.png';
 import { useGameContext } from '../../state/game';
 import playSound from '../../sound';
 import { useEffect } from 'react';
-import ProcedurePlaceholder from "./SharedAssets/procedurePlaceholder.png";
+import Scrapbook from "./XRayAssets/scrapbook.jpg";
 import {screenScale} from "../../utils/scaling";
 
 const ChildFinalStep = XRayChildNoBracelet;
@@ -213,13 +213,6 @@ export default function XRayGame() {
             )}
           </>
         )}
-        {step === 7 && (
-          <>
-            <img
-              src={ProcedurePlaceholder}
-            />
-          </>
-        )}
       </div>
       <animated.div
         style={{
@@ -231,6 +224,14 @@ export default function XRayGame() {
           ...xRayFlash,
         }}
       />
+      {step === 7 && (
+        <>
+          <img
+            src={Scrapbook}
+            className='scrapbook'
+          />
+        </>
+      )}
     </>
   );
 }

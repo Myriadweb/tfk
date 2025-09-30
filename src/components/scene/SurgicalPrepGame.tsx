@@ -15,12 +15,12 @@ import NeedlePlaced1 from './IvAssets/needlePlaced1.svg';
 import NeedlePlaced2 from './IvAssets/needlePlaced2.svg';
 import NeedlePlaced3 from './IvAssets/needlePlaced3.svg';
 import BandageSelection from './SharedAssets/bandageSelection.svg';
-import BandagePlaced from './SharedAssets/bandagePlaced.svg';
+import BandagePlaced from './SharedAssets/bandagePlacedLong.svg';
 import AnesthesiaMask from './SurgicalPrepAssets/anesthesiaMask.svg';
 import Juicebox from './SurgicalPrepAssets/juicebox.svg';
 import Popsicle from './SurgicalPrepAssets/popsicle.svg';
 import IceCream from './SurgicalPrepAssets/iceCream.svg';
-import ProcedurePlaceholder from "./SharedAssets/procedurePlaceholder.png";
+import Scrapbook from "./SurgicalPrepAssets/scrapbook.jpg";
 import {screenScale, elementPosition} from "../../utils/scaling";
 
 export default function SurgicalPrepGame() {
@@ -181,7 +181,7 @@ export default function SurgicalPrepGame() {
                 style={{
                   position: 'absolute',
                   top: 408,
-                  left: 0,
+                  right: screenScale.x(618)
                 }}
               />
             )}
@@ -338,13 +338,6 @@ export default function SurgicalPrepGame() {
             )}
           </>
         )}
-        {step === 16 && (
-          <>
-            <img
-              src={ProcedurePlaceholder}
-            />
-          </>
-        )}
       </div>
       <animated.div
         style={{
@@ -358,6 +351,14 @@ export default function SurgicalPrepGame() {
           ...darkLayerStyle,
         }}
       />
+      {step === 16 && (
+        <>
+          <img
+            src={Scrapbook}
+            className='scrapbook'
+          />
+        </>
+      )}
     </>
   );
 }

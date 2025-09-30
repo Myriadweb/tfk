@@ -20,7 +20,9 @@ import MusicSparkles from './SensoryAssets/HearingAssets/musicSparkles.png';
 import Siren from './SensoryAssets/HearingAssets/siren.png';
 import SirenAirplugsReaction from './SensoryAssets/HearingAssets/sirenAirplugsReaction.png';
 import SoundLines from './SensoryAssets/HearingAssets/soundLines.png';
-import {screenScale} from "../../utils/scaling";
+import {screenScale, getCurrentDevice} from "../../utils/scaling";
+import OverlayBadIpad from "./SensoryAssets/overlayBADIPad.png";
+import OverlayGoodIpad from "./SensoryAssets/overlayGOODIPad.png";
 
 const valueType = 'badSound';
 const finalValueType = valueType + '-final';
@@ -101,6 +103,34 @@ export default function Hearing() {
           opacity: sensoryState === 'bad' ? 1 : 0,
         }}
       />
+      {sensoryState === 'bad' && (
+        <animated.img
+          src={getCurrentDevice().device === 'ipad-pro-13' ? OverlayBadIpad : OverlayBad}
+          style={{
+            position: 'absolute',
+            left: '50%',
+            top: '50%',
+            transform: 'translate(-50%, -50%)',
+            zIndex: 1,
+            height: screenScale.y(1920),
+            ...overlay,
+          }}
+        />
+      )}
+      {sensoryState === 'good' && (
+        <animated.img
+          src={getCurrentDevice().device === 'ipad-pro-13' ? OverlayGoodIpad : OverlayGood}
+          style={{
+            position: 'absolute',
+            left: '50%',
+            top: '50%',
+            transform: 'translate(-50%, -50%)',
+            zIndex: 1,
+            height: screenScale.y(1920),
+            ...overlay,
+          }}
+        />
+      )}
       <div className='element-container'>
         <div
           style={{
@@ -162,17 +192,6 @@ export default function Hearing() {
         {sensoryState === 'good' && (
           <>
             <animated.img
-              src={OverlayGood}
-              style={{
-                position: 'absolute',
-                left: '50%',
-                top: 630,
-                transform: 'translate(-50%, -50%)',
-                zIndex: 1,
-                ...overlay,
-              }}
-            />
-            <animated.img
               src={MusicSparkles}
               style={{
                 position: 'absolute',
@@ -196,17 +215,6 @@ export default function Hearing() {
         )}
         {sensoryState === 'bad' && (
           <>
-            <animated.img
-              src={OverlayBad}
-              style={{
-                position: 'absolute',
-                left: '50%',
-                top: 630,
-                transform: 'translate(-50%, -50%)',
-                zIndex: 1,
-                ...overlay,
-              }}
-            />
             <animated.img
               src={SoundLines}
               style={{

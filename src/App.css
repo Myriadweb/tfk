@@ -191,7 +191,7 @@
   max-width: calc(700px * var(--scale-x));
 }
 .body-text.more-width {
-  max-width: calc(700px * var(--scale-x));
+  max-width: calc(750px * var(--scale-x));
 }
 .body-text.full-width {
   max-width: 100%;
@@ -443,4 +443,10 @@
   height: 100%;
   transform: scale(calc(100% * var(--scale-y)));
   transform-origin: top;
+}
+
+.scrapbook {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

@@ -53,7 +53,7 @@ const Muscular = ({ prefix }: Props) => {
         <div className='header-text'>
           {t(value || 'arm')}
         </div>
-        <div className='body-text'>
+        <div className='body-text more-width'>
           {t(`${value || 'arm'}Description`)}
         </div>
       </div>

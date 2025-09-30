@@ -485,11 +485,11 @@ const en: Translation = {
         '15-subText':
           '¡Completó la cirugía! Pulse a continuación para obtener más información sobre <br /><strong>el aparato cardiovascular.</strong>',
         '15-subText2':
-          'Or see how other kids did with the procedure <br /><strong>in the patient scrapbook.</strong>',
+          'O vea cómo les fue a otros niños <br /><strong>en el álbum de pacientes.</strong>',
         '15-back': 'Regresar a \nprocedimientos',
         '16-mainText': '',
         '16-subText':
-          'See how other kids got ready for surgery <br /><strong>AND DID GREAT!</strong>',
+          '¡Vea cómo otros niños se prepararon para cirugía <br /><strong>y les fue genial!</strong>',
         '16-back': 'Regresar a \nprocedimientos',
       },
     },
@@ -528,11 +528,11 @@ const en: Translation = {
         '6-subText':
           '¡Completó la radiografía! <br />Pulse a continuación para obtener más información sobre <br /><strong>el sistema óseo</strong>',
         '6-subText2':
-          'Or see how other kids did with the procedure <br /><strong>in the patient scrapbook.</strong>',
+          'O vea cómo les fue a otros niños <br /><strong>en el álbum de pacientes.</strong>',
         '6-back': 'Regresar a \nprocedimientos',
         '7-mainText': '',
         '7-subText':
-          'See how other kids got xrays <br /><strong>AND DID GREAT!</strong>',
+          '¡Vea cómo les sacaron radiografías a otros niños <br /><strong>y les fue genial!</strong>',
         '7-back': 'Regresar a \nprocedimientos',
       },
     },
@@ -583,11 +583,11 @@ const en: Translation = {
         '10-subText':
           '¡Completó el electroencefalograma! <br />Pulse a continuación para obtener más información sobre <br /><strong>el sistema nervioso.</strong>',
         '10-subText2':
-          'Or see how other kids did with the procedure <br /><strong>in the patient scrapbook.</strong>',
+          'O vea cómo les fue a otros niños <br /><strong>en el álbum de pacientes.</strong>',
         '10-back': 'Regresar a \nprocedimientos',
         '11-mainText': '',
         '11-subText':
-          'See how other kids got xrays <br /><strong>AND DID GREAT!</strong>',
+          '¡Vea cómo les hicieron un EEG a otros niños <br /><strong>y les fue genial!</strong>',
         '11-back': 'Regresar a \nprocedimientos',
       },
     },
@@ -639,11 +639,11 @@ const en: Translation = {
         '11-subText':
           '¡Completó el control de bienestar! Pulse a <br />continuación para obtener más información sobre <br /><strong>el aparato cardiovascular.</strong>',
         '11-subText2':
-          'Or see how other kids did with the procedure <br /><strong>in the patient scrapbook.</strong>',
+          'O vea cómo les fue a otros niños <br /><strong>en el álbum de pacientes.</strong>',
         '11-back': 'Regresar a \nprocedimientos',
         '12-mainText': '',
         '12-subText':
-          'See how other kids got a wellness checkup <br /><strong>AND DID GREAT!</strong>',
+          '¡Vea cómo otros niños tuvieron un cheque de bienestar <br /><strong>y les fue genial!</strong>',
         '12-back': 'Regresar a \nprocedimientos',
       },
     },
@@ -682,11 +682,11 @@ const en: Translation = {
         '6-subText':
           '¡Completó la resonancia magnética! <br />Pulse a continuación para obtener más información sobre <br /><strong>el aparato muscular.</strong>',
         '6-subText2':
-          'Or see how other kids did with the procedure <br /><strong>in the patient scrapbook.</strong>',
+          'O vea cómo les fue a otros niños <br /><strong>en el álbum de pacientes.</strong>',
         '6-back': 'Regresar a \nprocedimientos',
         '7-mainText': '',
         '7-subText':
-          'See how other kids got an MRI <br /><strong>AND DID GREAT!</strong>',
+          '¡Vea cómo les hicieron un MRI a otros niños <br /><strong>y les fue genial!</strong>',
         '7-back': 'Regresar a \nprocedimientos',
       },
     },
@@ -738,11 +738,11 @@ const en: Translation = {
         '11-subText':
           '¡Insertó la vía intravenosa! <br />Pulse a continuación para obtener más información sobre <br /><strong>el aparato cardiovascular.</strong>',
         '11-subText2':
-          'Or see how other kids did with the procedure <br /><strong>in the patient scrapbook.</strong>',
+          'O vea cómo les fue a otros niños <br /><strong>en el álbum de pacientes.</strong>',
         '11-back': 'Regresar a \nprocedimientos',
         '12-mainText': '',
         '12-subText':
-          'See how other kids got ready for their IVs <br /><strong>AND DID GREAT!</strong>',
+          '¡Vea cómo otros niños se prepararon para un IV <br /><strong>y les fue genial!</strong>',
         '12-back': 'Regresar a \nprocedimientos',
       },
     },

@@ -20,7 +20,9 @@ import NoseHighlight from './SensoryAssets/SmellAssets/noseHighlight.png';
 import Shoe from './SensoryAssets/SmellAssets/Shoe.svg';
 import Sparkles from './SensoryAssets/SmellAssets/sparkles.png';
 import { ReactComponent as Closepin } from './SensoryAssets/SmellAssets/Closepin.svg';
-import {screenScale} from "../../utils/scaling";
+import {screenScale, getCurrentDevice} from "../../utils/scaling";
+import OverlayBadIpad from "./SensoryAssets/overlayBADIPad.png";
+import OverlayGoodIpad from "./SensoryAssets/overlayGOODIPad.png";
 
 const valueType = 'badSmell';
 const finalValueType = valueType + '-final';
@@ -104,6 +106,34 @@ export function Smell() {
           }}
         />
       )}
+      {sensoryState === 'bad' && (
+        <animated.img
+          src={getCurrentDevice().device === 'ipad-pro-13' ? OverlayBadIpad : OverlayBad}
+          style={{
+            position: 'absolute',
+            left: '50%',
+            top: '50%',
+            transform: 'translate(-50%, -50%)',
+            zIndex: 1,
+            height: screenScale.y(1920),
+            ...overlay,
+          }}
+        />
+      )}
+      {sensoryState === 'good' && (
+        <animated.img
+          src={getCurrentDevice().device === 'ipad-pro-13' ? OverlayGoodIpad : OverlayGood}
+          style={{
+            position: 'absolute',
+            left: '50%',
+            top: '50%',
+            transform: 'translate(-50%, -50%)',
+            zIndex: 1,
+            height: screenScale.y(1920),
+            ...overlay,
+          }}
+        />
+      )}
       <div className='element-container'>
         <div
           style={{
@@ -140,17 +170,6 @@ export function Smell() {
         {sensoryState === 'good' && (
           <>
             <animated.img
-              src={OverlayGood}
-              style={{
-                position: 'absolute',
-                left: '50%',
-                top: 630,
-                transform: 'translate(-50%, -50%)',
-                zIndex: 1,
-                ...overlay,
-              }}
-            />
-            <animated.img
               src={Sparkles}
               style={{
                 position: 'absolute',
@@ -164,17 +183,6 @@ export function Smell() {
         )}
         {sensoryState === 'bad' && (
           <>
-            <animated.img
-              src={OverlayBad}
-              style={{
-                position: 'absolute',
-                left: '50%',
-                top: 630,
-                transform: 'translate(-50%, -50%)',
-                zIndex: 1,
-                ...overlay,
-              }}
-            />
             <animated.img
               src={Flies}
               style={{

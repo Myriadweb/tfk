@@ -581,7 +581,7 @@ const en: Translation = {
         '10-back': 'Return to \nProcedures',
         '11-mainText': '',
         '11-subText':
-          'See how other kids got xrays <br /><strong>AND DID GREAT!</strong>',
+          'See how other kids got EEGs <br /><strong>AND DID GREAT!</strong>',
         '11-back': 'Return to \nProcedures',
       },
     },

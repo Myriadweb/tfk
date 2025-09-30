@@ -1,11 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-import { ReactComponent as ArmRelaxed } from './MuscularAssets/tricepsContracting.svg';
-import { ReactComponent as ArmFlex } from './MuscularAssets/bicepsContracting.svg';
+import { ReactComponent as ArmRelaxed } from './MuscularAssets/tricepsContractingIpad.svg';
+import { ReactComponent as ArmRelaxedIpad } from './MuscularAssets/tricepsContractingIpad.svg';
+import { ReactComponent as ArmFlex } from './MuscularAssets/bicepsContractingIpad.svg';
+import { ReactComponent as ArmFlexIpad } from './MuscularAssets/bicepsContractingIpad.svg';
 import BicepsLeaderLine from './MuscularAssets/bicepsLeaderLine.svg';
 import TricepsLeaderLine from './MuscularAssets/triceptsLeaderLine.svg';
 import { ReactComponent as LegRelaxed } from './MuscularAssets/hamstringsContracting.svg';
 import { ReactComponent as LegFlex } from './MuscularAssets/quadricepsContracting.svg';
+import { ReactComponent as LegRelaxedIpad } from "./MuscularAssets/hamstringsContractingIpad.svg";
+import { ReactComponent as LegFlexIpad } from "./MuscularAssets/quadricepsContractingIpad.svg";
 import HamstringLeaderLine from './MuscularAssets/hamstringsLeaderLine.svg';
 import QuadricepsLeaderLine from './MuscularAssets/quadricepsLeaderLine.svg';
 import playSound from '../../sound';
@@ -14,6 +18,7 @@ import { Paths } from '../../types/Paths';
 import { useGameContext } from '../../state/game';
 import { columnLabelStyleLeft } from './common';
 import { useTranslation } from 'react-i18next';
+import {elementPosition, getCurrentDevice, SCALE_FACTORS, screenScale} from "../../utils/scaling";
 
 const armLabel = {
   padding: '8px 54px 10px',
@@ -72,145 +77,191 @@ export default function MuscularGame() {
   }
 
   return (
-    <div className='element-container'>
-      {(!value || value === 'arm') && (
-        <>
-          <ArmRelaxed
-            style={{
-              position: 'absolute',
-              top: 452,
-              left: 0,
-              visibility: !count ? 'visible' : 'hidden',
-            }}
-          />
-          <ArmFlex
-            style={{
-              position: 'absolute',
-              top: -154,
-              left: 0,
-              visibility: count === 1 ? 'visible' : 'hidden',
-            }}
-          />
-          <img
-            src={BicepsLeaderLine}
-            style={{ position: 'absolute', top: 612, left: 329 }}
-          />
-          <img
-            src={TricepsLeaderLine}
-            style={{ position: 'absolute', top: 800, left: 186 }}
-          />
-          <span
-            style={{
-              ...columnLabelStyleLeft,
-              ...armLabel,
-              top: 1090,
-              left: 561,
-            }}
-          >
+    <>
+      <div className='element-container'>
+        {(!value || value === 'arm') && (
+          <>
+            {getCurrentDevice().device === 'desktop' ? (
+              <>
+                <ArmRelaxed
+                  style={{
+                    position: 'absolute',
+                    top: 452,
+                    left: 0,
+                    visibility: !count ? 'visible' : 'hidden',
+                  }}
+                />
+                <ArmFlex
+                  style={{
+                    position: 'absolute',
+                    top: -154,
+                    left: elementPosition.left(0, '-') / SCALE_FACTORS.y,
+                    visibility: count === 1 ? 'visible' : 'hidden',
+                  }}
+                />
+              </>
+            ) : (
+              <>
+                <ArmRelaxedIpad
+                  style={{
+                    position: 'absolute',
+                    top: 355,
+                    left: elementPosition.left(0, '-') / SCALE_FACTORS.y,
+                    visibility: !count ? 'visible' : 'hidden',
+                  }}
+                />
+                <ArmFlexIpad
+                  style={{
+                    position: 'absolute',
+                    top: -25,
+                    left: elementPosition.left(0, '-') / SCALE_FACTORS.y,
+                    visibility: count === 1 ? 'visible' : 'hidden',
+                  }}
+                />
+              </>
+            )}
+            <img
+              src={BicepsLeaderLine}
+              style={{ position: 'absolute', top: 612, left: 329 }}
+            />
+            <img
+              src={TricepsLeaderLine}
+              style={{ position: 'absolute', top: 800, left: 186 }}
+            />
+            <span
+              style={{
+                ...columnLabelStyleLeft,
+                ...armLabel,
+                top: 1090,
+                left: 561,
+              }}
+            >
             {t('muscular.scene.biceps')}
-            {count === 1 && (
-              <span
-                style={{
-                  ...columnLabelStyleLeft,
-                  ...contractingLabel,
-                }}
-              >
+              {count === 1 && (
+                <span
+                  style={{
+                    ...columnLabelStyleLeft,
+                    ...contractingLabel,
+                  }}
+                >
                 {t('muscular.scene.contracting')}
               </span>
-            )}
+              )}
           </span>
-          <span
-            style={{
-              ...columnLabelStyleLeft,
-              ...armLabel,
-              top: 1090,
-              left: 197,
-            }}
-          >
+            <span
+              style={{
+                ...columnLabelStyleLeft,
+                ...armLabel,
+                top: 1090,
+                left: 197,
+              }}
+            >
             {t('muscular.scene.triceps')}
-            {!count && (
-              <span
-                style={{
-                  ...columnLabelStyleLeft,
-                  ...contractingLabel,
-                }}
-              >
+              {!count && (
+                <span
+                  style={{
+                    ...columnLabelStyleLeft,
+                    ...contractingLabel,
+                  }}
+                >
                 {t('muscular.scene.contracting')}
               </span>
-            )}
+              )}
           </span>
-        </>
-      )}
-      {value === 'leg' && (
-        <>
-          {!count && (
-            <LegRelaxed
-              style={{
-                position: 'absolute',
-                top: 404,
-                left: 0,
-              }}
+          </>
+        )}
+        {value === 'leg' && (
+          <>
+            {getCurrentDevice().device === 'desktop' ? (
+              <>
+                <LegRelaxed
+                  style={{
+                    position: 'absolute',
+                    top: 404,
+                    left: 0,
+                    visibility: !count ? 'visible' : 'hidden',
+                  }}
+                />
+                <LegFlex
+                  style={{
+                    position: 'absolute',
+                    top: 404,
+                    left: 0,
+                    visibility: count === 1 ? 'visible' : 'hidden',
+                  }}
+                />
+              </>
+            ) : (
+              <>
+                <LegRelaxedIpad
+                  style={{
+                    position: 'absolute',
+                    top: 310,
+                    left: elementPosition.left(0, '-') / SCALE_FACTORS.y,
+                    visibility: !count ? 'visible' : 'hidden',
+                  }}
+                />
+                <LegFlexIpad
+                  style={{
+                    position: 'absolute',
+                    top: 275,
+                    left: elementPosition.left(0, '-') / SCALE_FACTORS.y,
+                    visibility: count === 1 ? 'visible' : 'hidden',
+                  }}
+                />
+              </>
+            )}
+            <img
+              src={QuadricepsLeaderLine}
+              style={{ position: 'absolute', top: 513, left: 177 }}
             />
-          )}
-          {count === 1 && (
-            <LegFlex
-              style={{
-                position: 'absolute',
-                top: 404,
-                left: 0,
-              }}
+            <img
+              src={HamstringLeaderLine}
+              style={{ position: 'absolute', top: 678, left: 351 }}
             />
-          )}
-          <img
-            src={QuadricepsLeaderLine}
-            style={{ position: 'absolute', top: 513, left: 177 }}
-          />
-          <img
-            src={HamstringLeaderLine}
-            style={{ position: 'absolute', top: 678, left: 351 }}
-          />
-          <span
-            style={{
-              ...columnLabelStyleLeft,
-              ...legLabel,
-              top: 1103,
-              left: 487,
-            }}
-          >
+            <span
+              style={{
+                ...columnLabelStyleLeft,
+                ...legLabel,
+                top: 1103,
+                left: 487,
+              }}
+            >
             {t('muscular.scene.hamstrings')}
-            {!count && (
-              <span
-                style={{
-                  ...columnLabelStyleLeft,
-                  ...contractingLabel,
-                }}
-              >
+              {!count && (
+                <span
+                  style={{
+                    ...columnLabelStyleLeft,
+                    ...contractingLabel,
+                  }}
+                >
                 {t('muscular.scene.contracting')}
               </span>
-            )}
+              )}
           </span>
-          <span
-            style={{
-              ...columnLabelStyleLeft,
-              ...legLabel,
-              top: 1103,
-              left: 187,
-            }}
-          >
+            <span
+              style={{
+                ...columnLabelStyleLeft,
+                ...legLabel,
+                top: 1103,
+                left: 187,
+              }}
+            >
             {t('muscular.scene.quadriceps')}
-            {count === 1 && (
-              <span
-                style={{
-                  ...columnLabelStyleLeft,
-                  ...contractingLabel,
-                }}
-              >
+              {count === 1 && (
+                <span
+                  style={{
+                    ...columnLabelStyleLeft,
+                    ...contractingLabel,
+                  }}
+                >
                 {t('muscular.scene.contracting')}
               </span>
-            )}
+              )}
           </span>
-        </>
-      )}
-    </div>
+          </>
+        )}
+      </div>
+    </>
   );
 }

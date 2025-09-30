@@ -17,7 +17,9 @@ import Cone from './SensoryAssets/SightAssets/cone.png';
 import Moon from './SensoryAssets/SightAssets/moon.png';
 import Sun from './SensoryAssets/SightAssets/sun.png';
 import Sunglasses from './SensoryAssets/SightAssets/sunglasses.png';
-import {screenScale} from "../../utils/scaling";
+import {screenScale, getCurrentDevice} from "../../utils/scaling";
+import OverlayBadIpad from "./SensoryAssets/overlayBADIPad.png";
+import OverlayGoodIpad from "./SensoryAssets/overlayGOODIPad.png";
 
 const valueType = 'badSight';
 const finalValueType = valueType + '-final';
@@ -100,6 +102,34 @@ export default function Sight() {
           }}
         />
       )}
+      {sensoryState === 'bad' && (
+        <animated.img
+          src={getCurrentDevice().device === 'ipad-pro-13' ? OverlayBadIpad : OverlayBad}
+          style={{
+            position: 'absolute',
+            left: '50%',
+            top: '50%',
+            transform: 'translate(-50%, -50%)',
+            zIndex: 1,
+            height: screenScale.y(1920),
+            ...overlay,
+          }}
+        />
+      )}
+      {sensoryState === 'good' && (
+        <animated.img
+          src={getCurrentDevice().device === 'ipad-pro-13' ? OverlayGoodIpad : OverlayGood}
+          style={{
+            position: 'absolute',
+            left: '50%',
+            top: '50%',
+            transform: 'translate(-50%, -50%)',
+            zIndex: 1,
+            height: screenScale.y(1920),
+            ...overlay,
+          }}
+        />
+      )}
       <div className='element-container'>
         <div
           style={{
@@ -134,21 +164,6 @@ export default function Sight() {
         >
           <ChildBad />
         </div>
-        {sensoryState === 'good' && (
-          <>
-            <animated.img
-              src={OverlayGood}
-              style={{
-                position: 'absolute',
-                left: '50%',
-                top: 630,
-                transform: 'translate(-50%, -50%)',
-                zIndex: 1,
-                ...overlay,
-              }}
-            />
-          </>
-        )}
         {sensoryState && (
           <animated.img
             src={Brain}
@@ -171,18 +186,6 @@ export default function Sight() {
                 top: 241,
                 transform: 'translate(-50%, 0)',
                 ...effectStyle,
-              }}
-            />
-
-            <animated.img
-              src={OverlayBad}
-              style={{
-                position: 'absolute',
-                left: '50%',
-                top: 630,
-                transform: 'translate(-50%, -50%)',
-                zIndex: 1,
-                ...overlay,
               }}
             />
           </>

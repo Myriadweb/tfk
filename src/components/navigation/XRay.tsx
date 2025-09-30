@@ -15,7 +15,7 @@ import { useEffect } from 'react';
 import { BlueBarContinue } from './BlueBarContinue';
 import BlueBar from './UIComponents/BlueBar';
 import { Trans } from 'react-i18next';
-import Tablet from "./IvAssets/iPad.svg";
+import Scrapbook from "./SharedAssets/scrapbook.svg";
 import {screenScale} from "../../utils/scaling";
 
 type Props = {
@@ -139,7 +139,7 @@ const XRay = ({ prefix }: Props) => {
                       text=''
                   />
                   <NavigationButton
-                      image={Tablet}
+                      image={Scrapbook}
                       size={'large'}
                       onClick={() => {
                           playSound('generalSelect');

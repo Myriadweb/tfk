@@ -34,7 +34,7 @@ import {Characters, EegChildBed, EegChildDefault} from "./ChildrenAssets/childre
 
 import { useSpring, animated } from 'react-spring';
 import { useEffect } from 'react';
-import ProcedurePlaceholder from "./SharedAssets/procedurePlaceholder.png";
+import Scrapbook from "./EegAssets/scrapbook.jpg";
 import {screenScale} from "../../utils/scaling";
 
 export default function EegGame() {
@@ -312,14 +312,15 @@ export default function EegGame() {
             )}
           </>
         )}
-        {step === 11 && (
-          <>
-            <img
-              src={ProcedurePlaceholder}
-            />
-          </>
-        )}
       </div>
+      {step === 11 && (
+        <>
+          <img
+            src={Scrapbook}
+            className='scrapbook'
+          />
+        </>
+      )}
     </>
   );
 }

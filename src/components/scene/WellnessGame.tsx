@@ -23,7 +23,7 @@ import {Characters, WellnessScene, WellnessStandingChild} from "./ChildrenAssets
 import { useGameContext } from '../../state/game';
 import playSound from '../../sound';
 import { DraggableImage } from './SharedComponents/DraggableImage';
-import ProcedurePlaceholder from "./SharedAssets/procedurePlaceholder.png";
+import Scrapbook from "./WellnessAssets/scrapbook.jpg";
 import {elementPosition, screenScale, getCurrentDevice} from "../../utils/scaling";
 
 export default function WellnessGame() {
@@ -116,181 +116,184 @@ export default function WellnessGame() {
   };
 
   return (
-    <div className='element-container'>
-      {step < 10 && (
-        <animated.div style={childStyle}>
-          <WellnessScene />
+    <>
+      <div className='element-container'>
+        {step < 10 && (
+          <animated.div style={childStyle}>
+            <WellnessScene />
+          </animated.div>
+        )}
+        {[3, 6].includes(step) && (
+          <animated.img
+            style={{ position: 'absolute', ...targetStyle }}
+            src={BPTarget}
+          />
+        )}
+        <animated.div
+          style={{ position: 'absolute', top: 806, left: elementPosition.left(614), ...trayStyle }}
+        >
+          <animated.img src={Tray} />
+          {[3].includes(step) && (
+            <DraggableImage
+              ImageComponent={BPCuff}
+              x={64}
+              y={23}
+              onComplete={(newX, newY) => {
+                if (newX > -515 && newX < -295 && newY > -235 && newY < -55) {
+                  playSound('completeStep');
+                  trayApi.start({ transform: 'translateX(600px)' });
+
+                  // A little hacky, but it helps to avoid errors in the console
+                  setTimeout(() => setGameState({ step: 4 }), 1);
+                }
+              }}
+              bounds={{
+                left: -677,
+                top: -832,
+                right: 48,
+                bottom: 85,
+              }}
+            />
+          )}
+          {[6].includes(step) && (
+            <DraggableImage
+              ImageComponent={Oximeter}
+              x={64}
+              y={23}
+              onComplete={(newX, newY) => {
+                if (newX > -564 && newX < -370 && newY > -173 && newY < 5) {
+                  playSound('wellnessHeartMonitor');
+                  trayApi.start({ transform: 'translateX(600px)' });
+
+                  // A little hacky, but it helps to avoid errors in the console
+                  setTimeout(() => setGameState({ step: 7 }), 1);
+                }
+              }}
+              bounds={{
+                left: -677,
+                top: -832,
+                right: 48,
+                bottom: 85,
+              }}
+            />
+          )}
         </animated.div>
-      )}
-      {[3, 6].includes(step) && (
-        <animated.img
-          style={{ position: 'absolute', ...targetStyle }}
-          src={BPTarget}
-        />
-      )}
-      <animated.div
-        style={{ position: 'absolute', top: 806, left: elementPosition.left(614), ...trayStyle }}
-      >
-        <animated.img src={Tray} />
-        {[3].includes(step) && (
-          <DraggableImage
-            ImageComponent={BPCuff}
-            x={64}
-            y={23}
-            onComplete={(newX, newY) => {
-              if (newX > -515 && newX < -295 && newY > -235 && newY < -55) {
-                playSound('completeStep');
-                trayApi.start({ transform: 'translateX(600px)' });
-
-                // A little hacky, but it helps to avoid errors in the console
-                setTimeout(() => setGameState({ step: 4 }), 1);
-              }
-            }}
-            bounds={{
-              left: -677,
-              top: -832,
-              right: 48,
-              bottom: 85,
+        {[4, 5].includes(step) && (
+          <animated.img
+            src={BPCuffOnArm}
+            style={{ position: 'absolute', top: 459, left: 313 }}
+          />
+        )}
+        {[7, 8, 9].includes(step) && (
+          <animated.img
+            src={step === 7 ? OximeterOnArm : OximeterOnArmActive}
+            style={{
+              position: 'absolute',
+              top: 53,
+              left: -172,
+              ...oximeterStyle,
             }}
           />
         )}
-        {[6].includes(step) && (
-          <DraggableImage
-            ImageComponent={Oximeter}
-            x={64}
-            y={23}
-            onComplete={(newX, newY) => {
-              if (newX > -564 && newX < -370 && newY > -173 && newY < 5) {
-                playSound('wellnessHeartMonitor');
-                trayApi.start({ transform: 'translateX(600px)' });
 
-                // A little hacky, but it helps to avoid errors in the console
-                setTimeout(() => setGameState({ step: 7 }), 1);
-              }
-            }}
-            bounds={{
-              left: -677,
-              top: -832,
-              right: 48,
-              bottom: 85,
-            }}
-          />
-        )}
-      </animated.div>
-      {[4, 5].includes(step) && (
         <animated.img
-          src={BPCuffOnArm}
-          style={{ position: 'absolute', top: 459, left: 313 }}
-        />
-      )}
-      {[7, 8, 9].includes(step) && (
-        <animated.img
-          src={step === 7 ? OximeterOnArm : OximeterOnArmActive}
+          src={ThermometerResults}
           style={{
             position: 'absolute',
-            top: 53,
-            left: -172,
-            ...oximeterStyle,
+            top: 1063,
+            left: 688,
+            display: step < 3 ? 'block' : 'none',
+            ...thermometerResultStyle,
           }}
         />
-      )}
+        <animated.img
+          src={BPCuffResults}
+          style={{
+            position: 'absolute',
+            top: 1063,
+            left: 688,
+            display: step === 5 ? 'block' : 'none',
+          }}
+        />
+        <animated.img
+          src={OximeterResults}
+          style={{
+            position: 'absolute',
+            top: 1063,
+            left: 688,
+            display: step === 8 ? 'block' : 'none',
+          }}
+        />
+        <animated.img
+          src={ThermometerComponent}
+          style={{
+            position: 'absolute',
+            display: step < 3 ? 'block' : 'none',
+            ...thermometerStyle,
+          }}
+          onClick={() => {
+            if (step !== 0) return;
 
-      <animated.img
-        src={ThermometerResults}
-        style={{
-          position: 'absolute',
-          top: 1063,
-          left: 688,
-          display: step < 3 ? 'block' : 'none',
-          ...thermometerResultStyle,
-        }}
-      />
-      <animated.img
-        src={BPCuffResults}
-        style={{
-          position: 'absolute',
-          top: 1063,
-          left: 688,
-          display: step === 5 ? 'block' : 'none',
-        }}
-      />
-      <animated.img
-        src={OximeterResults}
-        style={{
-          position: 'absolute',
-          top: 1063,
-          left: 688,
-          display: step === 8 ? 'block' : 'none',
-        }}
-      />
-      <animated.img
-        src={ThermometerComponent}
-        style={{
-          position: 'absolute',
-          display: step < 3 ? 'block' : 'none',
-          ...thermometerStyle,
-        }}
-        onClick={() => {
-          if (step !== 0) return;
-
-          handleThermometerClicked();
-        }}
-      />
-      {step >= 10 && step < 12 && (
+            handleThermometerClicked();
+          }}
+        />
+        {step >= 10 && step < 12 && (
+          <>
+            <img
+              src={WellnessStandingChild}
+              style={{
+                position: 'absolute',
+                top: 274,
+                transform: 'translateX(-50%)',
+              }}
+            />
+            <img
+              src={Basketball}
+              style={{
+                position: 'absolute',
+                top: 755,
+                left: screenScale.x(747),
+                display: value === 'basketball' ? 'block' : 'none',
+              }}
+            />
+            <img
+              src={BaseballBall}
+              style={{
+                position: 'absolute',
+                top: 777,
+                left: screenScale.x(478),
+                display: value === 'baseball' ? 'block' : 'none',
+              }}
+            />
+            <img
+              src={BaseballBat}
+              style={{
+                position: 'absolute',
+                top: 832,
+                left: screenScale.x(624),
+                display: value === 'baseball' ? 'block' : 'none',
+              }}
+            />
+            <img
+              src={JumpRope}
+              style={{
+                position: 'absolute',
+                top: 832,
+                left: screenScale.x(426),
+                display: value === 'jumpRope' ? 'block' : 'none',
+              }}
+            />
+          </>
+        )}
+      </div>
+      {step >= 12 && (
         <>
           <img
-            src={WellnessStandingChild}
-            style={{
-              position: 'absolute',
-              top: 274,
-              transform: 'translateX(-50%)',
-            }}
-          />
-          <img
-            src={Basketball}
-            style={{
-              position: 'absolute',
-              top: 755,
-              left: screenScale.x(747),
-              display: value === 'basketball' ? 'block' : 'none',
-            }}
-          />
-          <img
-            src={BaseballBall}
-            style={{
-              position: 'absolute',
-              top: 777,
-              left: screenScale.x(478),
-              display: value === 'baseball' ? 'block' : 'none',
-            }}
-          />
-          <img
-            src={BaseballBat}
-            style={{
-              position: 'absolute',
-              top: 832,
-              left: screenScale.x(624),
-              display: value === 'baseball' ? 'block' : 'none',
-            }}
-          />
-          <img
-            src={JumpRope}
-            style={{
-              position: 'absolute',
-              top: 832,
-              left: screenScale.x(426),
-              display: value === 'jumpRope' ? 'block' : 'none',
-            }}
+            src={Scrapbook}
+            className="scrapbook"
           />
         </>
       )}
-        {step >= 12 && (
-            <>
-                <img
-                    src={ProcedurePlaceholder}
-                />
-            </>
-        )}
-    </div>
+    </>
   );
 }
