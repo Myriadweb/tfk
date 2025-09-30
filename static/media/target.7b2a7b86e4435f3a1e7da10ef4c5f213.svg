@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="199px" height="200px" viewBox="0 0 199 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Target</title>
+    <defs>
+        <filter color-interpolation-filters="auto" id="filter-1">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.929412 0 0 0 0 0.372549 0 0 0 0 0.360784 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+        <filter x="-10.5%" y="-10.5%" width="121.1%" height="121.1%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="5" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.378614306 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <circle id="path-3" cx="95" cy="95" r="95"></circle>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="190" height="190" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+        <circle id="path-5" cx="95" cy="95" r="95"></circle>
+        <mask id="mask-6" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="190" height="190" fill="white">
+            <use xlink:href="#path-5"></use>
+        </mask>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Target" transform="translate(-270.000000, -865.000000)" filter="url(#filter-1)">
+            <g filter="url(#filter-2)" transform="translate(275.000000, 865.000000)">
+                <use id="Oval" stroke="#E3605D" mask="url(#mask-4)" stroke-width="52" stroke-dasharray="27" xlink:href="#path-3"></use>
+                <use id="Oval" stroke="#E3605D" mask="url(#mask-6)" stroke-width="52" stroke-dasharray="27" xlink:href="#path-5"></use>
+                <polygon id="+" fill="#E3605D" fill-rule="nonzero" points="100.333211 123.24 100.333211 100.256 121.549211 100.256 121.549211 89.92 100.333211 89.92 100.333211 67.48 89.1812115 67.48 89.1812115 89.92 67.8292115 89.92 67.8292115 100.256 89.1812115 100.256 89.1812115 123.24"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

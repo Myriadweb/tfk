@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="102px" height="168px" viewBox="0 0 102 168" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Pain Lines</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="02A_Teammates_Procedures_Skeletal" transform="translate(-876.000000, -1005.000000)" fill="#CD4845" stroke="#000000">
+            <g id="Bruise" transform="translate(812.177270, 1006.661787)">
+                <g id="Pain-Lines" transform="translate(67.139151, 0.000000)">
+                    <polygon id="Path-68" transform="translate(48.581617, 45.640008) rotate(-11.000000) translate(-48.581617, -45.640008) " points="6.53978078 83.9621414 79.1684106 7.31787505 90.6234536 41.0817795"></polygon>
+                    <polygon id="Path-68-Copy" transform="translate(49.808872, 99.523638) rotate(25.000000) translate(-49.808872, -99.523638) " points="14.8674227 129.867528 75.2299054 69.1797471 84.7503223 95.9143815"></polygon>
+                    <polygon id="Path-68-Copy-2" transform="translate(49.844939, 132.221216) rotate(60.000000) translate(-49.844939, -132.221216) " points="27.3168986 156.58828 66.2348151 107.854152 72.3729786 129.322874"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

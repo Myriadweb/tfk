@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="136px" height="136px" viewBox="0 0 136 136" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Bandage</title>
+    <defs>
+        <filter x="-10.2%" y="-10.2%" width="120.3%" height="120.3%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="03F_Teammates_Procedures_IV" transform="translate(-797.000000, -1096.000000)" fill="#ECECEC" stroke="#000000">
+            <g id="Bandage" filter="url(#filter-1)" transform="translate(806.000000, 1105.000000)">
+                <path d="M100.613928,1.19743837 C102.676502,1.0143991 104.61727,1.68550923 106.087743,2.91803221 C107.558627,4.15089921 108.558955,5.94547203 108.740008,8.00849839 L108.740008,8.00849839 L116.806746,100.54777 C116.984633,102.610603 116.310728,104.551117 115.076777,106.021684 C113.842826,107.492251 112.048816,108.492885 109.986919,108.675867 L109.986919,108.675867 L17.3860717,116.802562 C15.3234982,116.985601 13.3827295,116.314491 11.9122567,115.081968 C10.4413735,113.849101 9.44104471,112.054528 9.25999244,109.991502 L9.25999244,109.991502 L1.19325395,17.4522303 C1.0153668,15.389397 1.68927153,13.4488829 2.92322253,11.9783161 C4.15717352,10.5077494 5.95118369,9.50711456 8.01308145,9.32413316 L8.01308145,9.32413316 Z" id="Rectangle"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="570px" height="327px" viewBox="0 0 570 327" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>StickyDots</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="06D_Teammates_Procedures_EEG" transform="translate(-262.000000, -600.000000)" fill="#D8D8D8" stroke="#000000" stroke-width="1.62">
+            <g id="Headgear" transform="translate(207.000000, 533.000000)">
+                <g id="StickyDots" transform="translate(47.342788, 67.684202)">
+                    <g id="L1" transform="translate(0.000000, 151.750120)">
+                        <ellipse id="Oval" transform="translate(29.553172, 39.577362) rotate(-61.000000) translate(-29.553172, -39.577362) " cx="29.5531722" cy="39.5773615" rx="37.4473867" ry="11.7874388"></ellipse>
+                        <ellipse id="Oval-Copy-29" transform="translate(43.138726, 88.686331) rotate(-56.000000) translate(-43.138726, -88.686331) " cx="43.1387255" cy="88.6863314" rx="37.4451855" ry="11.7882174"></ellipse>
+                        <ellipse id="Oval-Copy-30" transform="translate(59.001287, 142.200598) rotate(-54.000000) translate(-59.001287, -142.200598) " cx="59.001287" cy="142.200598" rx="37.4442559" ry="11.7885239"></ellipse>
+                    </g>
+                    <g id="R1" transform="translate(538.848399, 233.029653) scale(-1, 1) translate(-538.848399, -233.029653) translate(493.015662, 142.746814)">
+                        <ellipse id="Oval" transform="translate(29.553172, 39.577362) rotate(-61.000000) translate(-29.553172, -39.577362) " cx="29.5531722" cy="39.5773615" rx="37.4473867" ry="11.7874388"></ellipse>
+                        <ellipse id="Oval-Copy-29" transform="translate(43.138726, 88.686331) rotate(-56.000000) translate(-43.138726, -88.686331) " cx="43.1387255" cy="88.6863314" rx="37.4451855" ry="11.7882174"></ellipse>
+                        <ellipse id="Oval-Copy-30" transform="translate(59.001287, 142.200598) rotate(-54.000000) translate(-59.001287, -142.200598) " cx="59.001287" cy="142.200598" rx="37.4442559" ry="11.7885239"></ellipse>
+                    </g>
+                    <g id="R2" transform="translate(442.378357, 100.386858) scale(-1, 1) translate(-442.378357, -100.386858) translate(390.856020, 17.206625)">
+                        <ellipse id="Oval-Copy-34" transform="translate(38.927077, 31.411272) rotate(-33.000000) translate(-38.927077, -31.411272) " cx="38.927077" cy="31.4112724" rx="37.4341118" ry="11.7918086"></ellipse>
+                        <ellipse id="Oval-Copy-35" transform="translate(51.522337, 78.228414) rotate(-33.000000) translate(-51.522337, -78.228414) " cx="51.5223369" cy="78.2284144" rx="37.4341118" ry="11.791865"></ellipse>
+                        <ellipse id="Oval-Copy-36" transform="translate(64.117628, 134.949240) rotate(-33.000000) translate(-64.117628, -134.949240) " cx="64.1176275" cy="134.94924" rx="37.4341118" ry="11.791865"></ellipse>
+                    </g>
+                    <g id="L2" transform="translate(93.967027, 17.206625)">
+                        <ellipse id="Oval-Copy-34" transform="translate(38.927077, 31.411272) rotate(-33.000000) translate(-38.927077, -31.411272) " cx="38.927077" cy="31.4112724" rx="37.4341118" ry="11.7918086"></ellipse>
+                        <ellipse id="Oval-Copy-35" transform="translate(51.522337, 78.228414) rotate(-33.000000) translate(-51.522337, -78.228414) " cx="51.5223369" cy="78.2284144" rx="37.4341118" ry="11.791865"></ellipse>
+                        <ellipse id="Oval-Copy-36" transform="translate(64.117628, 134.949240) rotate(-33.000000) translate(-64.117628, -134.949240) " cx="64.1176275" cy="134.94924" rx="37.4341118" ry="11.791865"></ellipse>
+                    </g>
+                    <g id="Mid" transform="translate(255.698156, 0.000000)">
+                        <ellipse id="Oval-Copy-31" cx="38.2357037" cy="12.6046279" rx="37.4257037" ry="11.7946279"></ellipse>
+                        <ellipse id="Oval-Copy-32" cx="38.2357037" cy="62.1228089" rx="37.4257037" ry="11.7946279"></ellipse>
+                        <ellipse id="Oval-Copy-33" cx="38.2357037" cy="120.644296" rx="37.4257037" ry="11.7946279"></ellipse>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

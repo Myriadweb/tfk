@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="319px" height="601px" viewBox="0 0 319 601" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Cuff</title>
+    <defs>
+        <polygon id="path-1" points="68.7263233 100.567053 30.4363073 74.3904487 45.0444858 56.5670534 80.9898759 83.8793419"></polygon>
+        <filter x="-16.5%" y="-14.2%" width="132.8%" height="137.4%" filterUnits="objectBoundingBox" id="filter-2">
+            <feMorphology radius="0.9" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <filter x="-16.7%" y="-16.7%" width="133.3%" height="133.3%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <circle id="path-4" cx="36" cy="36" r="30.6"></circle>
+        <mask id="mask-5" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="61.2" height="61.2" fill="white">
+            <use xlink:href="#path-4"></use>
+        </mask>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="05E_Teammates_Procedures_Vitals" transform="translate(-344.000000, -629.000000)">
+            <g id="Cuff" transform="translate(345.208617, 641.550286)">
+                <path d="M0,156.043295 C39.816525,171.62051 69.8245102,182.009116 90.0239555,187.209113 C110.223401,192.40911 143.115069,199.211184 188.698961,207.615335 L232.556943,45.5216413 L218.646747,45.5216413 L30.2002676,12.3781195 L0,156.043295 Z" id="Path-566" stroke="#000000" stroke-width="2" fill="#6EA1DE"></path>
+                <g id="Pressure" transform="translate(15.490589, 0.000000)">
+                    <g id="Path-564" transform="translate(55.713092, 78.567053) rotate(-202.000000) translate(-55.713092, -78.567053) ">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                        <use stroke="#000000" stroke-width="1.8" fill="#0E1F33" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    </g>
+                    <g filter="url(#filter-3)" transform="translate(64.773627, 46.864456) rotate(-202.000000) translate(-64.773627, -46.864456) translate(28.773627, 10.864456)">
+                        <circle id="Oval" stroke="#000000" stroke-width="1.8" fill="#FFFFFF" cx="36" cy="36" r="35.1"></circle>
+                        <use id="Oval-Copy-4" stroke="#6EA1DE" mask="url(#mask-5)" stroke-width="7.6" fill="#FFFFFF" stroke-dasharray="3" xlink:href="#path-4"></use>
+                        <g id="Group-9" transform="translate(27.174815, 4.425819)" stroke="#DE6E6E" stroke-width="1.8">
+                            <circle id="Oval-Copy-5" fill="#FFFFFF" cx="8.8251847" cy="31.5741811" r="1"></circle>
+                            <polygon id="Path-565" fill="#DE6E6E" stroke-linecap="round" stroke-linejoin="round" transform="translate(6.131941, 15.518730) rotate(5.000000) translate(-6.131941, -15.518730) " points="8.82518469 30.6741811 1.30162533 0.363278744 10.9622569 30.0776937"></polygon>
+                        </g>
+                    </g>
+                    <path d="M60.9110229,91.5401205 C35.0686155,197.401884 21.1624934,254.782369 19.1926566,263.681573 C16.2379013,277.03038 30.2210987,290.416178 41.4041061,278.251885 C48.8594444,270.142356 57.8176184,239.415622 68.2786281,186.071682 L87.3906629,191.280489 C77.3047407,236.594832 69.7657288,265.17813 64.7736272,277.03038 C57.2854747,294.808756 36.4221838,309.492573 17.909171,300.558221 C-0.603841736,291.623869 -5.28543184,275.257953 6.31186959,235.129439 C14.0434039,208.377097 26.0866798,158.900365 42.4416973,86.6992438 L60.9110229,91.5401205 Z" id="Path-567" stroke="#000000" stroke-width="2" fill="#0E1F33"></path>
+                </g>
+                <g id="Pump" transform="translate(102.881252, 193.355986)" fill="#0E1F33" stroke="#000000">
+                    <path d="M11.625622,0 L32.3112562,4.23306098 C22.6660114,29.1212446 18.2797729,51.4638981 19.1525408,71.2610213 C20.4616927,100.956706 42.6528721,142.565913 99.1793705,162.593728 C136.863703,175.945604 153.877227,207.385058 150.219942,256.91209 L127.910132,267.196712 C129.087171,221.730238 118.437163,193.690428 95.9601062,183.077281 C62.2445217,167.157561 50.0061539,165.386658 29.7027693,144.935622 C9.39938478,124.484585 0,100.748589 0,71.2610213 C0,51.6026426 3.87520734,27.8489688 11.625622,0 Z" id="Path-568"></path>
+                    <g transform="translate(99.179371, 242.116448)" id="Oval" stroke-width="1.5">
+                        <ellipse transform="translate(57.861455, 76.274722) rotate(-12.000000) translate(-57.861455, -76.274722) " cx="57.8614549" cy="76.2747225" rx="43.8439897" ry="67.75"></ellipse>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

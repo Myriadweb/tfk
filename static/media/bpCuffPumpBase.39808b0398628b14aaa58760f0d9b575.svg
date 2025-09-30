@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="384px" height="123px" viewBox="0 0 384 123" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 6</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="07C_Teammates_Procedures_SurgicalPrep" transform="translate(-348.000000, -1624.000000)">
+            <g id="BottomMenu" transform="translate(-8.000000, 1435.000000)">
+                <g id="Group-6" transform="translate(356.000000, 189.000000)">
+                    <path d="M61.5,1 C76.7749753,1 90.7278609,6.66074537 101.375025,15.9991056 L101.375025,15.9991056 L376,16 C377.932997,16 379.682997,16.7835017 380.949747,18.0502525 C382.216498,19.3170034 383,21.0670034 383,23 L383,23 L383,98 C383,99.9329966 382.216498,101.682997 380.949747,102.949747 C379.682997,104.216498 377.932997,105 375.999994,105 L375.999994,105 L103.546099,105.00152 C92.6606142,115.525096 77.8364453,122 61.5,122 C44.7933863,122 29.6683863,115.228307 18.7200397,104.27996 C7.77169316,93.3316137 1,78.2066137 1,61.5 C1,44.7933863 7.77169316,29.6683863 18.7200397,18.7200397 C29.6683863,7.77169316 44.7933863,1 61.5,1 Z" id="Combined-Shape" stroke="#FFFFFF" stroke-width="2" fill="#103159"></path>
+                    <g id="Inside" transform="translate(123.000000, 23.000000)">
+                        <g id="Progress" fill="#EDEDED">
+                            <rect id="Rectangle" x="0" y="0" width="81.4419753" height="76"></rect>
+                            <rect id="Rectangle-Copy-5" x="86.2819753" y="0" width="81.4419753" height="76"></rect>
+                            <rect id="Rectangle-Copy-6" x="172.563951" y="0" width="81.4419753" height="76"></rect>
+                        </g>
+                        <g id="Progress"></g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

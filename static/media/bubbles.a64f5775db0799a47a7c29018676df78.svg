@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="985px" height="578px" viewBox="0 0 985 578" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Bubbles</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="03B_Teammates_Procedures_IV-" transform="translate(-38.000000, -276.000000)">
+            <g id="Bubbles" transform="translate(38.000000, 276.000000)">
+                <g id="Bubble5" transform="translate(72.000000, 263.000000)">
+                    <circle id="Oval" fill="#A5BCD7" opacity="0.76" cx="78.5" cy="78.5" r="78.5"></circle>
+                    <path d="M21.2995719,62.1350432 C23.4254228,54.1266555 25.9460887,48.2998298 28.8615695,44.6545662 C32.3122986,40.3400747 35.0967259,36.3362006 40.0992463,33" id="Path-454" stroke="#FFFFFF" stroke-width="7" opacity="0.730612619" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <circle id="Oval" stroke="#000000" stroke-width="4" opacity="0.522305443" cx="78.5" cy="78.5" r="76.5"></circle>
+                </g>
+                <g id="Bubble4">
+                    <circle id="Oval" fill="#A5BCD7" opacity="0.76" cx="83.5" cy="83.5" r="83.5"></circle>
+                    <path d="M23,66 C25.2615827,57.4789892 27.9431886,51.2791838 31.0448177,47.400584 C34.7158696,42.8099186 37.6780776,38.5497533 43,35" id="Path-454" stroke="#FFFFFF" stroke-width="7" opacity="0.730612619" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <circle id="Oval" stroke="#000000" stroke-width="4" opacity="0.522305443" cx="83.5" cy="83.5" r="81.5"></circle>
+                </g>
+                <g id="Bubble4" transform="translate(150.000000, 480.000000)">
+                    <circle id="Oval" fill="#A5BCD7" opacity="0.76" cx="39.5" cy="39.5" r="39.5"></circle>
+                    <path d="M11,31 C12.0177122,26.8769302 13.2244349,23.8770244 14.6201679,22.0002826 C16.2721413,19.7789929 17.6051349,17.7176226 20,16" id="Path-454" stroke="#FFFFFF" stroke-width="7" opacity="0.730612619" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <circle id="Oval" stroke="#000000" stroke-width="4" opacity="0.522305443" cx="39.5" cy="39.5" r="37.5"></circle>
+                </g>
+                <g id="Bubble3" transform="translate(723.000000, 411.000000)">
+                    <circle id="Oval" fill="#A5BCD7" opacity="0.76" cx="45" cy="45" r="45"></circle>
+                    <path d="M13,35 C14.1307914,30.3271876 15.4715943,26.9272944 17.0224088,24.8003203 C18.8579348,22.2828586 20.3390388,19.9466389 23,18" id="Path-454" stroke="#FFFFFF" stroke-width="7" opacity="0.730612619" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <circle id="Oval" stroke="#000000" stroke-width="4" opacity="0.522305443" cx="45" cy="45" r="43"></circle>
+                </g>
+                <g id="Bubble2" transform="translate(828.000000, 510.000000)">
+                    <circle id="Oval" fill="#A5BCD7" opacity="0.76" cx="34" cy="34" r="34"></circle>
+                    <path d="M10,27 C10.9046331,23.4266729 11.9772754,20.8267545 13.2179271,19.2002449 C14.6863478,17.2751271 15.871231,15.4886062 18,14" id="Path-454" stroke="#FFFFFF" stroke-width="7" opacity="0.730612619" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <circle id="Oval" stroke="#000000" stroke-width="4" opacity="0.522305443" cx="34" cy="34" r="32"></circle>
+                </g>
+                <g id="Bubble1" transform="translate(828.000000, 263.000000)">
+                    <circle id="Oval" fill="#A5BCD7" opacity="0.761319115" cx="78.5" cy="78.5" r="78.5"></circle>
+                    <path d="M22,62 C24.0354244,53.7538605 26.4488697,47.7540489 29.2403359,44.0005652 C32.5442827,39.5579857 35.2102698,35.4352452 40,32" id="Path-454" stroke="#FFFFFF" stroke-width="7" opacity="0.730612619" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <circle id="Oval" stroke="#000000" stroke-width="4" opacity="0.522305443" cx="78.5" cy="78.5" r="76.5"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="192px" height="192px" viewBox="0 0 192 192" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Sensory</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="03D_Teammates_Systems_Sensory_Hearing_1" transform="translate(-43.000000, -1555.000000)">
+            <g id="BottomMenu" transform="translate(-8.000000, 1435.000000)">
+                <g id="Selection" transform="translate(8.000000, 120.000000)">
+                    <g id="Sensory" transform="translate(43.000000, 0.000000)">
+                        <circle id="Oval" stroke="#000000" stroke-width="1.344" fill="#CD4845" cx="96" cy="96" r="95.328"></circle>
+                        <path d="M57.6,81.4532991 C58.14795,50.1910997 73.3309008,34.56 103.148853,34.56 C147.87578,34.56 144.723227,79.1165597 138.538271,88.9031588 C134.652236,95.052121 126.751367,100.702118 122.25387,110.135013 C119.593216,115.715376 119.83435,122.869674 118.159919,131.555887 C113.655075,154.925037 102.838186,163.2 90.6204552,163.2 C78.402724,163.2 70.4086708,159.881391 67.5288138,136.163105" id="Path-11" stroke="#FFFFFF" stroke-width="5.76" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M83.7749949,88.587898 C91.8108495,72.7901515 99.7245939,68.4055697 107.516228,75.4341524 C115.307862,82.4627352 120.429119,82.4627352 122.88,75.4341524 C122.236694,62.2647175 115.89326,55.68 103.849698,55.68 C85.7843542,55.68 75.4660654,69.1330012 79.6446078,83.0907139 C83.8231501,97.0484267 99.1552976,110.26248 93.7707533,120.153643 C90.1810571,126.747753 88.1217572,130.216538 87.5928536,130.56" id="Path-12" stroke="#FFFFFF" stroke-width="5.76" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

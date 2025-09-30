@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="105px" height="484px" viewBox="0 0 105 484" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Knee Copy</title>
+    <defs>
+        <path d="M12.3034247,12 L86.3034247,465" id="path-1"></path>
+        <filter x="-25.1%" y="-3.2%" width="150.3%" height="108.2%" filterUnits="objectBoundingBox" id="filter-2">
+            <feMorphology radius="4" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="4" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feMorphology radius="4" operator="erode" in="SourceAlpha" result="shadowInner"></feMorphology>
+            <feOffset dx="0" dy="4" in="shadowInner" result="shadowInner"></feOffset>
+            <feComposite in="shadowOffsetOuter1" in2="shadowInner" operator="out" result="shadowOffsetOuter1"></feComposite>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <circle id="path-3" cx="12" cy="12" r="12"></circle>
+        <filter x="-52.1%" y="-47.9%" width="204.2%" height="204.2%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feMorphology radius="12" operator="erode" in="SourceAlpha" result="shadowInner"></feMorphology>
+            <feOffset dx="0" dy="1" in="shadowInner" result="shadowInner"></feOffset>
+            <feComposite in="shadowOffsetOuter1" in2="shadowInner" operator="out" result="shadowOffsetOuter1"></feComposite>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="06G_Teammates_Systems_Nervous" transform="translate(-529.000000, -731.000000)">
+            <g id="Group-6" transform="translate(152.000000, 511.000000)">
+                <g id="Line" transform="translate(431.151712, 464.500000) rotate(-180.000000) translate(-431.151712, -464.500000) translate(388.000000, 232.000000)">
+                    <g id="Path-440">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                        <use stroke="#FFFFFF" stroke-width="8" xlink:href="#path-1"></use>
+                    </g>
+                    <g id="Oval-Copy-11">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+                        <circle stroke="#30619C" stroke-width="12" stroke-linejoin="square" cx="12" cy="12" r="6"></circle>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

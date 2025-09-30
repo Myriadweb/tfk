@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1294px" height="417px" viewBox="0 0 1294 417" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Finger Copy 3</title>
+    <defs>
+        <linearGradient x1="90.2658312%" y1="41.3473336%" x2="65.2914245%" y2="73.6664657%" id="linearGradient-1">
+            <stop stop-color="#78A4B7" offset="0%"></stop>
+            <stop stop-color="#436A80" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Finger-Copy-3" transform="translate(4.000000, 4.000000)">
+            <g id="Group-11" transform="translate(13.436046, 110.849992)">
+                <circle id="Oval" stroke="#000000" stroke-width="2" fill="#6D6D6D" cx="200.314483" cy="199.754776" r="21"></circle>
+                <g id="Group-10">
+                    <polygon id="Path-422" stroke="#000000" stroke-width="3.29351852" fill="#264556" points="116.416024 161.097818 176.909684 219.916387 208.022356 209.747465 225.359111 181.604575 141.982928 44.8929111 107.028658 73.7011897 63.1675911 108.135285"></polygon>
+                    <g id="Group-9" transform="translate(181.314483, 183.754776)"></g>
+                    <g id="Group-6" stroke="#000000" stroke-width="3.29351852">
+                        <polygon id="Path-424" fill="url(#linearGradient-1)" points="63.1675911 108.135285 0 17.1846222 21.3411798 0 97.0399943 82.4769483"></polygon>
+                        <polygon id="Path-425" fill="#8DBBD5" points="8.21831843 28.9855496 32.0952715 11.7153542 21.3411798 1.5214025e-15 0 17.1846222"></polygon>
+                    </g>
+                    <line x1="208.022356" y1="209.747465" x2="97.0399943" y2="83.9887488" id="Path-423" stroke="#000000" stroke-width="3.29351852"></line>
+                </g>
+            </g>
+            <path d="M13.4360457,125.342767 C-8.14388001,78.3365086 -3.72881409,41.5905089 26.6812434,15.1047677 C53.1501955,-7.94845464 133.253869,-1.89523233 193.912436,15.1047677 C220.225935,22.4793153 285.276204,44.7123739 389.063241,81.8039435 C392.192334,82.9222236 690.834281,185.72423 1284.98908,390.209963 L1286.45357,409.019217 C691.833072,207.38837 392.743608,105.963676 389.185179,104.745136 C231.644876,50.7973665 158.679607,20.0337431 94.9800752,20.0337431 C29.0251682,20.0337431 8.41852227,50.305826 33.1601374,110.849992 L13.4360457,125.342767 Z" id="Path-426" stroke="#000000" stroke-width="6.58703704" fill="#264556" stroke-linejoin="round"></path>
+        </g>
+    </g>
+</svg>

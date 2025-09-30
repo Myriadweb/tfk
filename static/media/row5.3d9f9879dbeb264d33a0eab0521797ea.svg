@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="77px" height="169px" viewBox="0 0 77 169" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>R1</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="06D_Teammates_Procedures_EEG" transform="translate(-755.000000, -749.000000)" fill="#D8D8D8" stroke="#000000" stroke-width="1.62">
+            <g id="Headgear" transform="translate(207.000000, 533.000000)">
+                <g id="StickyDots" transform="translate(47.342788, 67.684202)">
+                    <g id="R1" transform="translate(538.848399, 233.029653) scale(-1, 1) translate(-538.848399, -233.029653) translate(493.015662, 142.746814)">
+                        <ellipse id="Oval" transform="translate(29.553172, 39.577362) rotate(-61.000000) translate(-29.553172, -39.577362) " cx="29.5531722" cy="39.5773615" rx="37.4473867" ry="11.7874388"></ellipse>
+                        <ellipse id="Oval-Copy-29" transform="translate(43.138726, 88.686331) rotate(-56.000000) translate(-43.138726, -88.686331) " cx="43.1387255" cy="88.6863314" rx="37.4451855" ry="11.7882174"></ellipse>
+                        <ellipse id="Oval-Copy-30" transform="translate(59.001287, 142.200598) rotate(-54.000000) translate(-59.001287, -142.200598) " cx="59.001287" cy="142.200598" rx="37.4442559" ry="11.7885239"></ellipse>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
