@@ -65,3 +65,31 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
+
+// Register service worker
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
+
+    navigator.serviceWorker
+      .register(swUrl)
+      .then((registration: ServiceWorkerRegistration) => {
+        console.log('ServiceWorker registered: ', registration);
+      })
+      .catch((error: Error) => {
+        console.error('ServiceWorker registration failed: ', error);
+      });
+  });
+}
+
+// Request persistent storage
+if ('storage' in navigator && 'persist' in navigator.storage) {
+  navigator.storage
+    .persist()
+    .then((persistent: boolean) => {
+      console.log('Storage persisted:', persistent);
+    })
+    .catch((error: Error) => {
+      console.error('Storage persist failed:', error);
+    });
+}

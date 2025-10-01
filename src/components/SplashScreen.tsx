@@ -28,7 +28,7 @@ export default function SplashScreen() {
       }}
       onClick={() => navigate(Paths.Home)}
     >
-      <ReactPlayer playing loop url={Animation} width='100%' height='100%' />
+      <ReactPlayer playing loop url={Animation} width='100vw' height='auto' />
     </div>
   );
 }
