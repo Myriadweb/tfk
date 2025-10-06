@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/tfk/static/css/main.7a166e9b.css",
-    "main.js": "/tfk/static/js/main.9c60b5f3.js",
+    "main.js": "/tfk/static/js/main.e42c20f9.js",
     "reactPlayerYouTube.js": "/tfk/static/js/reactPlayerYouTube.e75b1665.chunk.js",
     "reactPlayerSoundCloud.js": "/tfk/static/js/reactPlayerSoundCloud.01799e80.chunk.js",
     "reactPlayerVimeo.js": "/tfk/static/js/reactPlayerVimeo.b3ac696c.chunk.js",
@@ -74,6 +74,7 @@
     "static/media/cardiovascular2b.mp4": "/tfk/static/media/cardiovascular2b.6fb7f89a3b8105bc5d99.mp4",
     "static/media/mriBody.png": "/tfk/static/media/mriBody.456ba150f1b4058d9c4f.png",
     "static/media/frontalLobeHighlight.png": "/tfk/static/media/frontalLobeHighlight.5dfaa3db88be102f52f9.png",
+    "static/media/digestive1.webm": "/tfk/static/media/digestive1.cbe33e08ca07871a2fb4.webm",
     "static/media/SenseHighlight.png": "/tfk/static/media/SenseHighlight.f62df4d455b24a1ecc60.png",
     "static/media/cone.png": "/tfk/static/media/cone.64597906e9c6f30d1852.png",
     "static/media/temporalLobeHighlight.png": "/tfk/static/media/temporalLobeHighlight.57ab6e7152e9b5708165.png",
@@ -87,7 +88,6 @@
     "static/media/5TouchBad.png": "/tfk/static/media/5TouchBad.74079a0eb359ad9786b3.png",
     "static/media/6TouchBad.png": "/tfk/static/media/6TouchBad.5e5cdba2e205d200703e.png",
     "static/media/4TouchBad.png": "/tfk/static/media/4TouchBad.a7134b752d557897a04b.png",
-    "static/media/digestive1.mp4": "/tfk/static/media/digestive1.2f2b61d45e36c572130f.mp4",
     "static/media/2TouchGood.png": "/tfk/static/media/2TouchGood.6bbf0f42e6e8a0b80b27.png",
     "static/media/6TouchGood.png": "/tfk/static/media/6TouchGood.1947c81dd5b0d147d089.png",
     "static/media/5TouchGood.png": "/tfk/static/media/5TouchGood.ab10e70fd8a0a7c1f548.png",
@@ -366,7 +366,7 @@
     "index.html": "/tfk/index.html",
     "static/media/background.svg": "/tfk/static/media/background.ced4125d640bf03f1896495829a9e09b.svg",
     "main.7a166e9b.css.map": "/tfk/static/css/main.7a166e9b.css.map",
-    "main.9c60b5f3.js.map": "/tfk/static/js/main.9c60b5f3.js.map",
+    "main.e42c20f9.js.map": "/tfk/static/js/main.e42c20f9.js.map",
     "reactPlayerYouTube.e75b1665.chunk.js.map": "/tfk/static/js/reactPlayerYouTube.e75b1665.chunk.js.map",
     "reactPlayerSoundCloud.01799e80.chunk.js.map": "/tfk/static/js/reactPlayerSoundCloud.01799e80.chunk.js.map",
     "reactPlayerVimeo.b3ac696c.chunk.js.map": "/tfk/static/js/reactPlayerVimeo.b3ac696c.chunk.js.map",
@@ -384,6 +384,6 @@
   },
   "entrypoints": [
     "static/css/main.7a166e9b.css",
-    "static/js/main.9c60b5f3.js"
+    "static/js/main.e42c20f9.js"
   ]
 }
