@@ -6,15 +6,15 @@ import ReactPlayer from 'react-player';
 const Location = process.env.REACT_APP_LOCATION;
 let Animation: any;
 if (Location === 'Atlanta') {
-  Animation = require('../animations/Atlanta/splashVideo.webm');
+  Animation = require('../animations/Atlanta/splashVideo.mp4');
 } else if (Location === 'Dimaggio') {
-  Animation = require('../animations/Dimaggio/splashVideo.webm');
+  Animation = require('../animations/Dimaggio/splashVideo.mp4');
 } else if (Location === 'Phoenix') {
-  Animation = require('../animations/Phoenix/splashVideo.webm');
+  Animation = require('../animations/Phoenix/splashVideo.mp4');
 } else if (Location === 'Richmond') {
-  Animation = require('../animations/Richmond/splashVideo.webm');
+  Animation = require('../animations/Richmond/splashVideo.mp4');
 } else if (Location === 'ChildLifeZone') {
-  Animation = require('../animations/ChildLifeZone/splashVideo.webm');
+  Animation = require('../animations/ChildLifeZone/splashVideo.mp4');
 }
 
 export default function SplashScreen() {

@@ -10,11 +10,11 @@ import { ReactComponent as VeinsLine } from './CardiovascularAssets/veinsLines.s
 import { columnLabelStyleLeft, columnLabelStyleRight } from './common';
 import { useTranslation } from 'react-i18next';
 
-import Animation1A from '../../animations/cardiovascular1a.webm';
-import Animation1B from '../../animations/cardiovascular1b.webm';
-import Animation1C from '../../animations/cardiovascular1c.webm';
-import Animation2A from '../../animations/cardiovascular2aNew.webm';
-import Animation2B from '../../animations/cardiovascular2b.webm';
+import Animation1A from '../../animations/cardiovascular1a.mp4';
+import Animation1B from '../../animations/cardiovascular1b.mp4';
+import Animation1C from '../../animations/cardiovascular1c.mp4';
+import Animation2A from '../../animations/cardiovascular2aNew.mp4';
+import Animation2B from '../../animations/cardiovascular2b.mp4';
 
 import ReactPlayer from 'react-player';
 import {SCALE_FACTORS, screenScale} from "../../utils/scaling";

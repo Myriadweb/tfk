@@ -123,6 +123,7 @@ export function MainMenu() {
 
   const handleArrowClick = async (direction: 'left' | 'right') => {
     playSound('mainScreenSwoosh');
+    console.log('play sound');
     api.start({
       to: [{ opacity: 0 }, { opacity: 1 }],
       from: { opacity: 1 },

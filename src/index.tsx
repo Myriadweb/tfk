@@ -66,7 +66,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-// Register service worker
+// Register service worker with update detection
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
@@ -75,21 +75,29 @@ if ('serviceWorker' in navigator) {
       .register(swUrl)
       .then((registration: ServiceWorkerRegistration) => {
         console.log('ServiceWorker registered: ', registration);
+
+        // Check for updates every hour
+        setInterval(() => {
+          registration.update();
+        }, 60 * 60 * 1000);
+
+        // Listen for updates
+        registration.addEventListener('updatefound', () => {
+          const newWorker = registration.installing;
+          if (newWorker) {
+            newWorker.addEventListener('statechange', () => {
+              if (newWorker.state === 'activated') {
+                // New service worker activated, reload page
+                if (confirm('A new version is available! Reload to update?')) {
+                  window.location.reload();
+                }
+              }
+            });
+          }
+        });
       })
       .catch((error: Error) => {
         console.error('ServiceWorker registration failed: ', error);
       });
   });
-}
-
-// Request persistent storage
-if ('storage' in navigator && 'persist' in navigator.storage) {
-  navigator.storage
-    .persist()
-    .then((persistent: boolean) => {
-      console.log('Storage persisted:', persistent);
-    })
-    .catch((error: Error) => {
-      console.error('Storage persist failed:', error);
-    });
 }

@@ -103,6 +103,10 @@ export default function Vestibular() {
     setTimeout(() => {
       setSensoryState('bad');
     }, 2000);
+
+    setTimeout(() => {
+      setTornadoAnimation(false);
+    }, 3000);
   };
 
   if (!location.search) {
@@ -163,6 +167,18 @@ export default function Vestibular() {
           />
         </animated.div>
       )}
+      {sensoryState === 'good' && (
+        <animated.img
+          src={OverlayGood}
+          style={{
+            position: 'absolute',
+            left: '50%',
+            top: 630,
+            transform: 'translate(-50%, -50%) scale(1.03)',
+            ...overlayStyle,
+          }}
+        />
+      )}
       <div className="element-container">
         <div
           style={{
@@ -190,16 +206,6 @@ export default function Vestibular() {
         </animated.div>
         {sensoryState === 'good' && (
           <>
-            <animated.img
-              src={OverlayGood}
-              style={{
-                position: 'absolute',
-                left: '50%',
-                top: 630,
-                transform: 'translate(-50%, -50%) scale(1.03)',
-                ...overlayStyle,
-              }}
-            />
             <animated.img
               src={JumpLines}
               style={{

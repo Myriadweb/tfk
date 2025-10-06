@@ -12,13 +12,13 @@ import { ReactComponent as LegRelaxedIpad } from "./MuscularAssets/hamstringsCon
 import { ReactComponent as LegFlexIpad } from "./MuscularAssets/quadricepsContractingIpad.svg";
 import HamstringLeaderLine from './MuscularAssets/hamstringsLeaderLine.svg';
 import QuadricepsLeaderLine from './MuscularAssets/quadricepsLeaderLine.svg';
-import playSound from '../../sound';
+import playSound, { preloadSounds } from '../../sound';
 
 import { Paths } from '../../types/Paths';
 import { useGameContext } from '../../state/game';
 import { columnLabelStyleLeft } from './common';
 import { useTranslation } from 'react-i18next';
-import {elementPosition, getCurrentDevice, SCALE_FACTORS, screenScale} from "../../utils/scaling";
+import {elementPosition, getCurrentDevice, SCALE_FACTORS} from "../../utils/scaling";
 
 const armLabel = {
   padding: '8px 54px 10px',
@@ -48,32 +48,55 @@ const contractingLabel = {
 export default function MuscularGame() {
   const [{ value }] = useGameContext();
   const { t } = useTranslation('translation');
-  const [count, setCount] = useState(null);
+  const [count, setCount] = useState(1);
+  const [soundsReady, setSoundsReady] = useState(false);
   const intervalRef = useRef(null);
+  const hasStarted = useRef(false);
 
   const location = useLocation();
 
+  // Preload sounds when component mounts
   useEffect(() => {
-    clearInterval(intervalRef.current);
-    setCount(null);
-    intervalRef.current = setInterval(() => {
-      setCount((c) => (!c ? 1 : 0));
-    }, 3000);
-    return () => clearInterval(intervalRef.current);
-  }, [value]);
+    preloadSounds(['muscularAscending', 'muscularDescending'])
+      .then(() => {
+        setSoundsReady(true);
+      })
+      .catch((error) => {
+        setSoundsReady(true); // Continue anyway
+      });
+  }, []);
 
   useEffect(() => {
+    if (!soundsReady) return;
+
+    clearInterval(intervalRef.current);
+    setCount(1);
+    hasStarted.current = false;
+
+    intervalRef.current = setInterval(() => {
+      hasStarted.current = true;
+      setCount((c) => (c === 1 ? 0 : 1));
+    }, 3000);
+
+    return () => clearInterval(intervalRef.current);
+  }, [value, soundsReady]);
+
+  useEffect(() => {
+    if (!hasStarted.current || !soundsReady) {
+      console.log('⏭️ Skipping');
+      return;
+    }
+
+    console.log('🔊 Count:', count);
     if (count === 1) {
       playSound('muscularAscending');
     } else if (count === 0) {
       playSound('muscularDescending');
     }
-  }, [count]);
+  }, [count, soundsReady]);
 
   if (!location.search) {
-    if (!location.search) {
-      return <Navigate to={'/' + Paths.BodySystems + '/' + Paths.Muscular} />;
-    }
+    return <Navigate to={'/' + Paths.BodySystems + '/' + Paths.Muscular} />;
   }
 
   return (
@@ -88,7 +111,7 @@ export default function MuscularGame() {
                     position: 'absolute',
                     top: 452,
                     left: 0,
-                    visibility: !count ? 'visible' : 'hidden',
+                    visibility: count !== 1 ? 'visible' : 'hidden',
                   }}
                 />
                 <ArmFlex
@@ -107,7 +130,7 @@ export default function MuscularGame() {
                     position: 'absolute',
                     top: 355,
                     left: elementPosition.left(0, '-') / SCALE_FACTORS.y,
-                    visibility: !count ? 'visible' : 'hidden',
+                    visibility: count !== 1 ? 'visible' : 'hidden',
                   }}
                 />
                 <ArmFlexIpad
@@ -157,7 +180,7 @@ export default function MuscularGame() {
               }}
             >
             {t('muscular.scene.triceps')}
-              {!count && (
+              {count !== 1 && (
                 <span
                   style={{
                     ...columnLabelStyleLeft,
@@ -179,7 +202,7 @@ export default function MuscularGame() {
                     position: 'absolute',
                     top: 404,
                     left: 0,
-                    visibility: !count ? 'visible' : 'hidden',
+                    visibility: count !== 1 ? 'visible' : 'hidden',
                   }}
                 />
                 <LegFlex
@@ -198,7 +221,7 @@ export default function MuscularGame() {
                     position: 'absolute',
                     top: 310,
                     left: elementPosition.left(0, '-') / SCALE_FACTORS.y,
-                    visibility: !count ? 'visible' : 'hidden',
+                    visibility: count !== 1 ? 'visible' : 'hidden',
                   }}
                 />
                 <LegFlexIpad
@@ -228,7 +251,7 @@ export default function MuscularGame() {
               }}
             >
             {t('muscular.scene.hamstrings')}
-              {!count && (
+              {count !== 1 && (
                 <span
                   style={{
                     ...columnLabelStyleLeft,

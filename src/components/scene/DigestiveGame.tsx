@@ -22,7 +22,7 @@ import Vomit from './DigestiveAssets/vomit.svg';
 import WasteBlueBox from './DigestiveAssets/wasteBlueBox.svg';
 import LargeIntestineLine from './DigestiveAssets/largelIntestineLeaderLine.svg';
 import Waste from './DigestiveAssets/waste.svg';
-import Animation from '../../animations/digestive1.webm';
+import Animation from '../../animations/digestive1.mp4';
 
 import { useSpring, animated } from 'react-spring';
 import { columnLabelStyle } from './common';
