@@ -1,4 +1,4 @@
-const CACHE_NAME = 'tfk-app-v2.1'; // Update the version to invalidate old caches
+const CACHE_NAME = 'tfk-app-v2.11'; // Update the version to invalidate old caches
 const urlsToCache = [
     './',
     './index.html',
