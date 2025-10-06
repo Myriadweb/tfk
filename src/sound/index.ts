@@ -1,4 +1,5 @@
-const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
+const audioContext = new (window.AudioContext ||
+  (window as any).webkitAudioContext)();
 const audioBuffers: { [key: string]: AudioBuffer } = {};
 const loadingPromises: { [key: string]: Promise<AudioBuffer> } = {};
 
@@ -51,8 +52,10 @@ const soundPaths = {
   smellsGood: 'sounds/Smells_Good.mp3',
   surgicalPrepAirRelease: 'sounds/Surgical_Prep_Air_Release.mp3',
   surgicalPrepBloodPressure: 'sounds/Surgical_Prep_Blood_Pressure.mp3',
-  surgicalPrepBloodPressurePumpAndRelease: 'sounds/Surgical_Prep_Blood_Pressure_Pump_and_Release.mp3',
-  surgicalPrepBloodPressureSinglePump: 'sounds/Surgical_Prep_Blood_Pressure_Single_Pump.mp3',
+  surgicalPrepBloodPressurePumpAndRelease:
+    'sounds/Surgical_Prep_Blood_Pressure_Pump_and_Release.mp3',
+  surgicalPrepBloodPressureSinglePump:
+    'sounds/Surgical_Prep_Blood_Pressure_Single_Pump.mp3',
   surgicalPrepBloodTourniquet: 'sounds/Surgical_Prep_Tourniquet.mp3',
   tasteGood: 'sounds/Taste_Good.mp3',
   tasteHot: 'sounds/Taste_Hot.mp3',
@@ -116,7 +119,7 @@ export function unlockAudio(): void {
 export async function preloadSounds(sounds: Sounds[]): Promise<void> {
   console.log(`📦 Preloading ${sounds.length} sounds...`);
   try {
-    await Promise.all(sounds.map(sound => loadSound(sound)));
+    await Promise.all(sounds.map((sound) => loadSound(sound)));
     console.log('✅ All sounds preloaded');
   } catch (error) {
     console.error('❌ Error preloading sounds:', error);
@@ -151,7 +154,6 @@ export default async function playSound(sound: Sounds): Promise<void> {
     // Play
     source.start(0);
     console.log(`✅ Playing ${sound}`);
-
   } catch (error) {
     console.error(`❌ Error playing ${sound}:`, error);
   }
