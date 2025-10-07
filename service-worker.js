@@ -1,4 +1,8 @@
-const CACHE_NAME = 'tfk-app-v2.11'; // Update the version to invalidate old caches
+const CACHE_VERSION = 5; // Increment this every deployment
+const CACHE_NAME = `tfk-app-v${CACHE_VERSION}`;
+
+console.log('Service Worker version:', CACHE_VERSION);
+
 const urlsToCache = [
     './',
     './index.html',
@@ -79,33 +83,46 @@ const urlsToCache = [
 
 // Install event - cache assets
 self.addEventListener('install', (event) => {
+    console.log('Installing service worker version:', CACHE_VERSION);
+
+    // Force new service worker to activate immediately
+    self.skipWaiting();
+
     event.waitUntil(
         caches.open(CACHE_NAME)
             .then((cache) => {
-                console.log('Opened cache');
+                console.log('Opened cache:', CACHE_NAME);
                 return cache.addAll(urlsToCache);
             })
+            .then(() => {
+                console.log('All files cached successfully');
+            })
+            .catch((error) => {
+                console.error('Cache installation failed:', error);
+            })
     );
-    // Force the waiting service worker to become the active service worker
-    self.skipWaiting();
 });
 
 // Activate event - clean up old caches
 self.addEventListener('activate', (event) => {
+    console.log('Activating service worker version:', CACHE_VERSION);
+
     event.waitUntil(
-        caches.keys().then((cacheNames) => {
-            return Promise.all(
-                cacheNames.map((cacheName) => {
-                    if (cacheName !== CACHE_NAME) {
-                        console.log('Deleting old cache:', cacheName);
-                        return caches.delete(cacheName);
-                    }
-                })
-            );
+        // Take control of all pages immediately
+        self.clients.claim().then(() => {
+            // Then clean up old caches
+            return caches.keys().then((cacheNames) => {
+                return Promise.all(
+                    cacheNames.map((cacheName) => {
+                        if (cacheName !== CACHE_NAME) {
+                            console.log('Deleting old cache:', cacheName);
+                            return caches.delete(cacheName);
+                        }
+                    })
+                );
+            });
         })
     );
-    // Take control of all pages immediately
-    return self.clients.claim();
 });
 
 // Fetch event - network first, then cache
