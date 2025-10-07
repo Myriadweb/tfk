@@ -58,6 +58,12 @@ else if (Location === 'Richmond') {
 else if (Location === 'ChildLifeZone') {
     locationAssets = require('./ChildLifeZone');
 }
+else if (Location === 'Riley') {
+  locationAssets = require('./Riley');
+}
+else if (Location === 'StLouis') {
+  locationAssets = require('./StLouis');
+}
 else {
     locationAssets = require('./Dimaggio');
 }

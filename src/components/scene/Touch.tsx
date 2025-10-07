@@ -29,6 +29,8 @@ import OverlayBad from './SensoryAssets/TouchAssets/overlayBad.png';
 import BottomOverlay from './SensoryAssets/bottomOverlay.png';
 import BgBad from './SensoryAssets/BGBad.png';
 import {getCurrentDevice, screenScale} from "../../utils/scaling";
+import OverlayBadIpad from "./SensoryAssets/overlayBADIPad.png";
+import OverlayGoodIpad from "./SensoryAssets/overlayGOODIPad.png";
 const valueType = 'badTouch';
 const finalValueType = valueType + '-final';
 const activePosition = { left: 530, top: 690 };
@@ -121,6 +123,34 @@ export default function Touch() {
           left: 0,
         }}
       />
+      {sensoryState === 'bad' && (
+        <animated.img
+          src={getCurrentDevice().device === 'ipad-pro-13' ? OverlayBadIpad : OverlayBad}
+          style={{
+            position: 'absolute',
+            left: '50%',
+            top: '50%',
+            transform: 'translate(-50%, -50%)',
+            zIndex: 1,
+            height: screenScale.y(1920),
+            ...overlay,
+          }}
+        />
+      )}
+      {sensoryState === 'good' && (
+        <animated.img
+          src={getCurrentDevice().device === 'ipad-pro-13' ? OverlayGoodIpad : OverlayGood}
+          style={{
+            position: 'absolute',
+            left: '50%',
+            top: '50%',
+            transform: 'translate(-50%, -50%)',
+            zIndex: 1,
+            height: screenScale.y(1920),
+            ...overlay,
+          }}
+        />
+      )}
       <div className='element-container'>
         <div
           style={{
@@ -135,17 +165,6 @@ export default function Touch() {
         {sensoryState === 'good' && (
           <>
             <animated.img
-              src={OverlayGood}
-              style={{
-                position: 'absolute',
-                left: 539,
-                top: 630,
-                transform: 'translate(-50%, -50%)',
-                zIndex: 1,
-                ...overlay,
-              }}
-            />
-            <animated.img
               src={Sparkles}
               style={{
                 position: 'absolute',
@@ -153,21 +172,6 @@ export default function Touch() {
                 left: 274,
                 zIndex: 2,
                 ...sparklesStyle,
-              }}
-            />
-          </>
-        )}
-        {sensoryState === 'bad' && (
-          <>
-            <animated.img
-              src={OverlayBad}
-              style={{
-                position: 'absolute',
-                left: 539,
-                top: 630,
-                transform: 'translate(-50%, -50%)',
-                zIndex: 1,
-                ...overlay,
               }}
             />
           </>
