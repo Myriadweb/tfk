@@ -1,4 +1,4 @@
-const CACHE_VERSION = 7; // Increment this every deployment
+const CACHE_VERSION = 8; // Increment this every deployment
 const CACHE_NAME = `tfk-app-v${CACHE_VERSION}`;
 
 console.log('Service Worker version:', CACHE_VERSION);
