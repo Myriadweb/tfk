@@ -10,7 +10,7 @@ const DEVICE_CONFIGS = {
     baseWidth: 1080,
     baseHeight: 1920,
     targetWidth: 1032, // 2064 / 2
-    targetHeight: 1376, // 2752 / 2
+    targetHeight: 1360, // 2752 / 2
   },
   'ipad-pro-11': {
     baseWidth: 1080,

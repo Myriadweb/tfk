@@ -76,9 +76,13 @@ if ('serviceWorker' in navigator) {
       .then((registration: ServiceWorkerRegistration) => {
         console.log('ServiceWorker registered: ', registration);
 
-        // Check for updates every hour
+        // Check for updates on registration
+        registration.update();
+
+        // Check for updates every 60 minutes
         setInterval(() => {
           registration.update();
+          console.log('Service worker checking for updates.');
         }, 60 * 60 * 1000);
 
         // Listen for updates
@@ -87,8 +91,8 @@ if ('serviceWorker' in navigator) {
           if (newWorker) {
             newWorker.addEventListener('statechange', () => {
               if (newWorker.state === 'activated') {
-                // New service worker activated, reload page
-                if (confirm('A new version is available! Reload to update?')) {
+                // New service worker activated
+                if (confirm('New version available! Reload to update?')) {
                   window.location.reload();
                 }
               }
