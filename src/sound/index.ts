@@ -13,7 +13,9 @@ const isElectron = (() => {
 })();
 
 // Store both Web Audio buffers and HTML Audio instances
-const audioContext = isElectron ? null : new (window.AudioContext || (window as any).webkitAudioContext)();
+const audioContext = isElectron
+  ? null
+  : new (window.AudioContext || (window as any).webkitAudioContext)();
 const audioBuffers: { [key: string]: AudioBuffer } = {};
 const loadingPromises: { [key: string]: Promise<AudioBuffer> } = {};
 
@@ -151,14 +153,14 @@ export function unlockAudio(): void {
 export async function preloadSounds(sounds: Sounds[]): Promise<void> {
   if (isElectron) {
     // For Electron, just create the Audio instances
-    sounds.forEach(sound => getAudioInstance(sound));
+    sounds.forEach((sound) => getAudioInstance(sound));
     console.log(`📦 Preloaded ${sounds.length} sounds (Electron)`);
     return;
   }
 
   console.log(`📦 Preloading ${sounds.length} sounds...`);
   try {
-    await Promise.all(sounds.map(sound => loadSound(sound)));
+    await Promise.all(sounds.map((sound) => loadSound(sound)));
     console.log('✅ All sounds preloaded');
   } catch (error) {
     console.error('❌ Error preloading sounds:', error);

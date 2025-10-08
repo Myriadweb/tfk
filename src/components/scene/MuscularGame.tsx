@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-import { ReactComponent as ArmRelaxed } from './MuscularAssets/tricepsContractingIpad.svg';
+import { ReactComponent as ArmRelaxed } from './MuscularAssets/tricepsContracting.svg';
 import { ReactComponent as ArmRelaxedIpad } from './MuscularAssets/tricepsContractingIpad.svg';
-import { ReactComponent as ArmFlex } from './MuscularAssets/bicepsContractingIpad.svg';
+import { ReactComponent as ArmFlex } from './MuscularAssets/bicepsContracting.svg';
 import { ReactComponent as ArmFlexIpad } from './MuscularAssets/bicepsContractingIpad.svg';
 import BicepsLeaderLine from './MuscularAssets/bicepsLeaderLine.svg';
 import TricepsLeaderLine from './MuscularAssets/triceptsLeaderLine.svg';
