@@ -1,6 +1,5 @@
 import React, {Component, CSSProperties} from 'react';
 import { Character } from '../../../state/character';
-import { screenScale } from '../../../utils/scaling';
 
 // import default child assets first
 import Child1Breathe from './Default/Child1/breathe.png';
@@ -46,26 +45,33 @@ import Child3 from "./Child3/default.png";
 
 const Location = process.env.REACT_APP_LOCATION;
 let locationAssets: any;
-if (Location === 'Atlanta') {
-    locationAssets = require('./Atlanta');
-}
-else if (Location === 'Phoenix') {
-    locationAssets = require('./Phoenix');
-}
-else if (Location === 'Richmond') {
-    locationAssets = require('./Richmond');
-}
-else if (Location === 'ChildLifeZone') {
-    locationAssets = require('./ChildLifeZone');
-}
-else if (Location === 'Riley') {
-  locationAssets = require('./Riley');
-}
-else if (Location === 'StLouis') {
-  locationAssets = require('./StLouis');
-}
-else {
-    locationAssets = require('./Dimaggio');
+
+try {
+  switch (Location) {
+    case 'Atlanta':
+      locationAssets = require('./Atlanta');
+      break;
+    case 'Phoenix':
+      locationAssets = require('./Phoenix');
+      break;
+    case 'Richmond':
+      locationAssets = require('./Richmond');
+      break;
+    case 'ChildLifeZone':
+      locationAssets = require('./ChildLifeZone');
+      break;
+    case 'Riley':
+      locationAssets = require('./Riley');
+      break;
+    case 'StLouis':
+      locationAssets = require('./StLouis');
+      break;
+    default:
+      locationAssets = require('./Dimaggio');
+  }
+} catch (error) {
+  console.error(`Failed to load assets for location: ${Location}`, error);
+  locationAssets = require('./Dimaggio'); // fallback
 }
 
 const convertToComponent = (asset: any): typeof ReactComponent => {

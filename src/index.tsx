@@ -66,10 +66,10 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-// Register service worker with update detection
-if ('serviceWorker' in navigator) {
+// Register service worker with update detection (web only)
+if ('serviceWorker' in navigator && !window.require) {
   window.addEventListener('load', () => {
-    const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
+    const swUrl = `${process.env.PUBLIC_URL || ''}/service-worker.js`;
 
     navigator.serviceWorker
       .register(swUrl)
@@ -105,3 +105,4 @@ if ('serviceWorker' in navigator) {
       });
   });
 }
+
