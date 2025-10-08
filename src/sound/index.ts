@@ -1,16 +1,4 @@
-// At the top of your file, add this check
-const isElectron = (() => {
-  try {
-    // Check if we're in Electron using multiple methods
-    return !!(
-      window.process?.versions?.electron ||
-      window.navigator.userAgent.includes('Electron') ||
-      window.location.protocol === 'file:'
-    );
-  } catch {
-    return false;
-  }
-})();
+import { isElectron } from '../utils/platform';
 
 // Store both Web Audio buffers and HTML Audio instances
 const audioContext = isElectron
