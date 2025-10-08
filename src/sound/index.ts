@@ -1,7 +1,24 @@
-const audioContext = new (window.AudioContext ||
-  (window as any).webkitAudioContext)();
+// At the top of your file, add this check
+const isElectron = (() => {
+  try {
+    // Check if we're in Electron using multiple methods
+    return !!(
+      window.process?.versions?.electron ||
+      window.navigator.userAgent.includes('Electron') ||
+      window.location.protocol === 'file:'
+    );
+  } catch {
+    return false;
+  }
+})();
+
+// Store both Web Audio buffers and HTML Audio instances
+const audioContext = isElectron ? null : new (window.AudioContext || (window as any).webkitAudioContext)();
 const audioBuffers: { [key: string]: AudioBuffer } = {};
 const loadingPromises: { [key: string]: Promise<AudioBuffer> } = {};
+
+// HTML Audio instances for Electron
+const audioInstances: { [key: string]: HTMLAudioElement } = {};
 
 const soundPaths = {
   click: 'sounds/General_Click.mp3',
@@ -72,31 +89,26 @@ const soundPaths = {
 
 export type Sounds = keyof typeof soundPaths;
 
-// Load audio file and decode it
-async function loadSound(sound: Sounds): Promise<AudioBuffer> {
-  // Return cached buffer if already loaded
+// Load sound using Web Audio API (for web/PWA)
+async function loadSound(sound: Sounds): Promise<AudioBuffer | null> {
+  if (isElectron) return null; // Skip for Electron
+
   if (audioBuffers[sound]) {
     return audioBuffers[sound];
   }
 
-  // Return existing loading promise if already loading
   if (loadingPromises[sound]) {
     return loadingPromises[sound];
   }
 
-  // Start loading
   const loadPromise = (async () => {
     try {
-      // Handle different environments
-      const isElectron = window.require && window.require('electron');
-      const baseUrl = isElectron ? '.' : process.env.PUBLIC_URL || '';
-      const url = `${baseUrl}/${soundPaths[sound]}`;
-
+      const url = `${process.env.PUBLIC_URL}/${soundPaths[sound]}`;
       console.log(`📥 Loading ${sound} from ${url}`);
 
       const response = await fetch(url);
       const arrayBuffer = await response.arrayBuffer();
-      const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
+      const audioBuffer = await audioContext!.decodeAudioData(arrayBuffer);
 
       audioBuffers[sound] = audioBuffer;
       console.log(`✅ Loaded ${sound}`);
@@ -112,18 +124,41 @@ async function loadSound(sound: Sounds): Promise<AudioBuffer> {
   return loadPromise;
 }
 
+// Get HTML Audio instance (for Electron)
+function getAudioInstance(sound: Sounds): HTMLAudioElement {
+  if (!audioInstances[sound]) {
+    const audio = new Audio();
+    audio.src = `${process.env.PUBLIC_URL}/${soundPaths[sound]}`;
+    audio.preload = 'auto';
+    audioInstances[sound] = audio;
+  }
+  return audioInstances[sound];
+}
+
+// Unlock audio
 export function unlockAudio(): void {
-  // Just resume the audio context
-  if (audioContext.state === 'suspended') {
+  if (isElectron) {
+    console.log('🔊 Electron - audio ready');
+    return;
+  }
+
+  if (audioContext && audioContext.state === 'suspended') {
     audioContext.resume();
   }
 }
 
-// Preload specific sounds
+// Preload sounds
 export async function preloadSounds(sounds: Sounds[]): Promise<void> {
+  if (isElectron) {
+    // For Electron, just create the Audio instances
+    sounds.forEach(sound => getAudioInstance(sound));
+    console.log(`📦 Preloaded ${sounds.length} sounds (Electron)`);
+    return;
+  }
+
   console.log(`📦 Preloading ${sounds.length} sounds...`);
   try {
-    await Promise.all(sounds.map((sound) => loadSound(sound)));
+    await Promise.all(sounds.map(sound => loadSound(sound)));
     console.log('✅ All sounds preloaded');
   } catch (error) {
     console.error('❌ Error preloading sounds:', error);
@@ -136,28 +171,32 @@ export async function preloadAllSounds(): Promise<void> {
   await preloadSounds(allSounds);
 }
 
-// Play sound using Web Audio API
+// Play sound - handles both Electron and Web
 export default async function playSound(sound: Sounds): Promise<void> {
-  console.log(`🔊 [${new Date().toLocaleTimeString()}] Playing: ${sound}`);
+  console.log(`🔊 Playing: ${sound}`);
 
   try {
-    // Resume audio context if suspended
-    if (audioContext.state === 'suspended') {
-      console.log('⏸️ Resuming audio context...');
-      await audioContext.resume();
+    if (isElectron) {
+      // Use HTML Audio for Electron
+      const audio = getAudioInstance(sound);
+      audio.currentTime = 0;
+      await audio.play();
+      console.log(`✅ Played ${sound} (Electron)`);
+    } else {
+      // Use Web Audio API for web/PWA
+      if (audioContext!.state === 'suspended') {
+        await audioContext!.resume();
+      }
+
+      const buffer = await loadSound(sound);
+      if (!buffer) return;
+
+      const source = audioContext!.createBufferSource();
+      source.buffer = buffer;
+      source.connect(audioContext!.destination);
+      source.start(0);
+      console.log(`✅ Played ${sound} (Web Audio)`);
     }
-
-    // Load sound if not already loaded
-    const buffer = await loadSound(sound);
-
-    // Create source node
-    const source = audioContext.createBufferSource();
-    source.buffer = buffer;
-    source.connect(audioContext.destination);
-
-    // Play
-    source.start(0);
-    console.log(`✅ Playing ${sound}`);
   } catch (error) {
     console.error(`❌ Error playing ${sound}:`, error);
   }
