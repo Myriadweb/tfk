@@ -89,7 +89,7 @@ async function loadSound(sound: Sounds): Promise<AudioBuffer> {
     try {
       // Handle different environments
       const isElectron = window.require && window.require('electron');
-      const baseUrl = isElectron ? '.' : (process.env.PUBLIC_URL || '');
+      const baseUrl = isElectron ? '.' : process.env.PUBLIC_URL || '';
       const url = `${baseUrl}/${soundPaths[sound]}`;
 
       console.log(`📥 Loading ${sound} from ${url}`);
