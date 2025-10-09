@@ -8,6 +8,7 @@ import ProceduresTextBox from './SharedComponents/ProceduresTextBox';
 import { CSSProperties } from 'react';
 //import EegBody from './EegAssets/eegBody.svg';
 import { EegBody } from './ChildrenAssets/childrenAssets';
+import { useLocationPath } from '../../hooks';
 
 const bodyLeft = 540;
 
@@ -33,6 +34,7 @@ export default function Eeg() {
     },
   }));
   const location = useLocation();
+  const buildPath = useLocationPath();
 
   if (location.search === '?play=true') {
     navigate(`/${Paths.Procedures}/${Paths.Eeg}?play=true`);
@@ -78,7 +80,7 @@ export default function Eeg() {
         label={t('eeg.scene.label')}
         buttonText={t('eeg.scene.buttonText')}
         onClick={() =>
-          navigate(`/${Paths.Procedures}/${Paths.Eeg}/${Paths.Game}`)
+          navigate(buildPath(`${Paths.Procedures}/${Paths.Eeg}/${Paths.Game}`))
         }
       />
     </>

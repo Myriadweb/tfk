@@ -23,6 +23,7 @@ import SoundLines from './SensoryAssets/HearingAssets/soundLines.png';
 import {screenScale, getCurrentDevice} from "../../utils/scaling";
 import OverlayBadIpad from "./SensoryAssets/overlayBADIPad.png";
 import OverlayGoodIpad from "./SensoryAssets/overlayGOODIPad.png";
+import { useLocationPath } from "../../hooks";
 
 const valueType = 'badSound';
 const finalValueType = valueType + '-final';
@@ -41,6 +42,7 @@ export default function Hearing() {
     opacity: 1,
   }));
   const [{ value }] = useGameContext();
+  const buildPath = useLocationPath();
 
   if (sensoryState && value !== finalValueType) {
     effectAPI.set({ opacity: 0 });
@@ -74,7 +76,7 @@ export default function Hearing() {
   }
 
   if (!location.search) {
-    return <Navigate to={'/bodySystems/sensory'} />;
+    return <Navigate to={buildPath('/bodySystems/sensory', true)} />;
   }
 
   const ChildComponent = Characters.sensory[selectedCharacter];

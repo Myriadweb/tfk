@@ -1,4 +1,4 @@
-// utils/locationLoader.ts
+// src/utils/locationLoader.ts
 export type LocationName =
   | 'atlanta'
   | 'phoenix'
@@ -20,7 +20,7 @@ export const VALID_LOCATIONS: LocationName[] = [
 
 export const DEFAULT_LOCATION: LocationName = 'dimaggio';
 
-// Map URL-friendly names to actual folder names
+// Map URL-friendly names to actual folder names (matching your structure)
 const LOCATION_FOLDER_MAP: Record<LocationName, string> = {
   atlanta: 'Atlanta',
   phoenix: 'Phoenix',
@@ -48,10 +48,7 @@ export function getLocationFromURL(): LocationName {
   const locationParam = parts[0]?.toLowerCase();
 
   // Validate location
-  if (
-    locationParam &&
-    VALID_LOCATIONS.includes(locationParam as LocationName)
-  ) {
+  if (locationParam && VALID_LOCATIONS.includes(locationParam as LocationName)) {
     return locationParam as LocationName;
   }
 
@@ -67,20 +64,20 @@ export function getLocationFolder(location: LocationName): string {
 
 /**
  * Dynamically import location assets
+ * This matches your actual folder structure: src/components/scene/ChildrenAssets/{Location}/index.ts
  */
 export async function loadLocationAssets(location: LocationName) {
   const folderName = getLocationFolder(location);
 
   try {
-    // Dynamic import of the location's index file
-    const assets = await import(`../assets/ChildrenAssets/${folderName}`);
+    // Dynamic import - Webpack will code-split this automatically
+    const assets = await import(`../components/scene/ChildrenAssets/${folderName}/index.ts`);
     return assets;
   } catch (error) {
     console.error(`Failed to load assets for location: ${location}`, error);
     // Fallback to default location
-    const defaultAssets = await import(
-      `../assets/ChildrenAssets/${getLocationFolder(DEFAULT_LOCATION)}`
-    );
+    const defaultFolder = getLocationFolder(DEFAULT_LOCATION);
+    const defaultAssets = await import(`../components/scene/ChildrenAssets/${defaultFolder}/index.ts`);
     return defaultAssets;
   }
 }

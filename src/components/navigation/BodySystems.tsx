@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useNavBarTranslation } from '../../hooks';
+import { useNavBarTranslation, useLocationPath } from '../../hooks';
 import { Paths } from '../../types/Paths';
 import Cardiovascular from './BodySystemsAssets/Cardiovascular.svg';
 import Digestive from './BodySystemsAssets/Digestive.svg';
@@ -21,6 +21,7 @@ const BodySystems = ({ path, prefix }: Props) => {
   const t = useNavBarTranslation(prefix);
   const [, setAnimatedPath] = useAnimateContext();
   const [buttonsDisabled, setButtonsDisabled] = useState(false);
+  const buildPath = useLocationPath();
 
   useEffect(() => {
     if (buttonsDisabled) {
@@ -33,7 +34,7 @@ const BodySystems = ({ path, prefix }: Props) => {
 
     setButtonsDisabled(true);
 
-    setAnimatedPath(Paths.BodySystems + '/' + destination);
+    setAnimatedPath(buildPath(Paths.BodySystems + '/' + destination, false));
   };
 
   return (

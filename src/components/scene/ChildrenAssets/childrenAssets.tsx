@@ -1,5 +1,7 @@
-import React, {Component, CSSProperties} from 'react';
+import React, { Component, CSSProperties } from 'react';
 import { Character } from '../../../state/character';
+import { useParams } from 'react-router-dom';
+import { getLocationFolder, DEFAULT_LOCATION } from '../../../utils/locationLoader';
 
 // import default child assets first
 import Child1Breathe from './Default/Child1/breathe.png';
@@ -43,36 +45,50 @@ import { ReactComponent as SmockRaw } from '../XRayAssets/smock.svg';
 import { ReactComponent } from '*.svg';
 import Child3 from "./Child3/default.png";
 
-const Location = process.env.REACT_APP_LOCATION;
-let locationAssets: any;
+// CHANGED: Get location from URL instead of process.env
+function getLocationAssets() {
+  // This will be called at module load time, so we need to read from window.location
+  const hash = window.location.hash;
+  const parts = hash.replace(/^#\/?/, '').split('/');
+  const locationParam = parts[0]?.toLowerCase();
 
-try {
-  switch (Location) {
-    case 'Atlanta':
-      locationAssets = require('./Atlanta');
-      break;
-    case 'Phoenix':
-      locationAssets = require('./Phoenix');
-      break;
-    case 'Richmond':
-      locationAssets = require('./Richmond');
-      break;
-    case 'ChildLifeZone':
-      locationAssets = require('./ChildLifeZone');
-      break;
-    case 'Riley':
-      locationAssets = require('./Riley');
-      break;
-    case 'StLouis':
-      locationAssets = require('./StLouis');
-      break;
-    default:
-      locationAssets = require('./Dimaggio');
+  // Map URL location to folder name
+  const Location = getLocationFolder(locationParam as any);
+
+  let locationAssets: any;
+
+  try {
+    switch (Location) {
+      case 'Atlanta':
+        locationAssets = require('./Atlanta');
+        break;
+      case 'Phoenix':
+        locationAssets = require('./Phoenix');
+        break;
+      case 'Richmond':
+        locationAssets = require('./Richmond');
+        break;
+      case 'ChildLifeZone':
+        locationAssets = require('./ChildLifeZone');
+        break;
+      case 'Riley':
+        locationAssets = require('./Riley');
+        break;
+      case 'StLouis':
+        locationAssets = require('./StLouis');
+        break;
+      default:
+        locationAssets = require('./Dimaggio');
+    }
+  } catch (error) {
+    console.error(`Failed to load assets for location: ${Location}`, error);
+    locationAssets = require('./Dimaggio'); // fallback
   }
-} catch (error) {
-  console.error(`Failed to load assets for location: ${Location}`, error);
-  locationAssets = require('./Dimaggio'); // fallback
+
+  return locationAssets;
 }
+
+const locationAssets = getLocationAssets();
 
 const convertToComponent = (asset: any): typeof ReactComponent => {
   const { component } = asset;
@@ -654,22 +670,6 @@ const IceCreamCharacters = {
     </span>
   ),
 };
-
-/*
-const liftFeatherStyle = {
-  width: 439,
-  height: 687,
-  position: 'absolute',
-  top: 289,
-  left: -10,
-} as CSSProperties;
-const vestibularHeadStyle = {
-  position: 'absolute',
-  width: 439,
-  height: 307,
-  top: 0,
-};
- */
 
 const LiftFeatherCharacters = {
   [Character.child1]: () => (

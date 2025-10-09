@@ -18,12 +18,14 @@ import Animation2B from '../../animations/cardiovascular2b.mp4';
 
 import ReactPlayer from 'react-player';
 import {SCALE_FACTORS, screenScale} from "../../utils/scaling";
+import { useLocationPath } from "../../hooks";
 
 export default function CardiovascularGame() {
   const [{ step }, setGameState] = useGameContext();
   const [selectedCharacter] = useCharacterContext();
   const location = useLocation();
   const { t } = useTranslation('translation');
+  const buildPath = useLocationPath();
 
   useEffect(() => {
     if (step === 1) {
@@ -35,7 +37,7 @@ export default function CardiovascularGame() {
 
   if (!location.search) {
     return (
-      <Navigate to={'/' + Paths.BodySystems + '/' + Paths.Cardiovascular} />
+      <Navigate to={'/' + buildPath(Paths.BodySystems + '/' + Paths.Cardiovascular, false)} />
     );
   }
 

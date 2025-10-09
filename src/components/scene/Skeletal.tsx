@@ -29,6 +29,7 @@ import UlnaHighlight from './SkeletalAssets/ulnaHighlight.png';
 import VertebraeHighlight from './SkeletalAssets/vertebraeHighlight.png';
 import { useGameContext } from '../../state/game';
 import {screenScale} from "../../utils/scaling";
+import { useLocationPath } from '../../hooks';
 
 const bodyLeft = screenScale.x(540);
 
@@ -58,6 +59,11 @@ export default function Skeletal() {
 
   const navigate = useNavigate();
   const location = useLocation();
+  const buildPath = useLocationPath();
+  const isGamePath = buildPath(
+    `${Paths.BodySystems}/${Paths.Skeletal}/${Paths.Game}`,
+    true
+  );
 
   React.useEffect(() => {
     if (value !== 'reset') return;
@@ -67,8 +73,7 @@ export default function Skeletal() {
   }, [setGameState, value]);
 
   const isGame =
-    location.pathname ===
-    `/${Paths.BodySystems}/${Paths.Skeletal}/${Paths.Game}`;
+    location.pathname === isGamePath;
 
   const [highlighted, setHighlighted] = useState('');
 
@@ -95,6 +100,7 @@ export default function Skeletal() {
   }
 
   if (!isGame && location.search === '?play=true') {
+    console.log('navigating to game');
     overlayApi.start({
       to: [{ opacity: 0 }],
       from: { opacity: 1 },

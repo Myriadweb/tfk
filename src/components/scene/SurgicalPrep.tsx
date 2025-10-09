@@ -7,6 +7,7 @@ import { Paths } from '../../types/Paths';
 import ProceduresTextBox from './SharedComponents/ProceduresTextBox';
 import { CSSProperties } from 'react';
 import { SurgicalPrepChild } from './ChildrenAssets/childrenAssets';
+import { useLocationPath } from '../../hooks';
 
 const bodyLeft = 540;
 
@@ -32,6 +33,7 @@ export default function SurgicalPrep() {
     },
   }));
   const location = useLocation();
+  const buildPath = useLocationPath();
 
   if (location.search === '?play=true') {
     navigate(`/${Paths.Procedures}/${Paths.SurgicalPrep}?play=true`);
@@ -78,7 +80,7 @@ export default function SurgicalPrep() {
         label={t('surgicalPrep.scene.label')}
         buttonText={t('surgicalPrep.scene.buttonText')}
         onClick={() =>
-          navigate(`/${Paths.Procedures}/${Paths.SurgicalPrep}/${Paths.Game}`)
+          navigate(buildPath(`/${Paths.Procedures}/${Paths.SurgicalPrep}/${Paths.Game}`))
         }
       />
     </>

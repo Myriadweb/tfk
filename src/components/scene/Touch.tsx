@@ -31,6 +31,8 @@ import BgBad from './SensoryAssets/BGBad.png';
 import {getCurrentDevice, screenScale} from "../../utils/scaling";
 import OverlayBadIpad from "./SensoryAssets/overlayBADIPad.png";
 import OverlayGoodIpad from "./SensoryAssets/overlayGOODIPad.png";
+import { useLocationPath } from "../../hooks";
+
 const valueType = 'badTouch';
 const finalValueType = valueType + '-final';
 const activePosition = { left: 530, top: 690 };
@@ -62,6 +64,7 @@ export default function Touch() {
     opacity: 1,
   }));
   const [{ value }] = useGameContext();
+  const buildPath = useLocationPath();
 
   if (sensoryState && value !== finalValueType) {
     overlayAPI.set({ opacity: 0 });
@@ -89,7 +92,7 @@ export default function Touch() {
   }
 
   if (!location.search) {
-    return <Navigate to={'/bodySystems/sensory'} />;
+    return <Navigate to={buildPath('/bodySystems/sensory', true)} />;
   }
 
   const ResultChildImage = childImages[sensoryState + (selectedCharacter + 1)];

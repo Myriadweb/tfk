@@ -20,6 +20,7 @@ import Sunglasses from './SensoryAssets/SightAssets/sunglasses.png';
 import {screenScale, getCurrentDevice} from "../../utils/scaling";
 import OverlayBadIpad from "./SensoryAssets/overlayBADIPad.png";
 import OverlayGoodIpad from "./SensoryAssets/overlayGOODIPad.png";
+import { useLocationPath } from "../../hooks";
 
 const valueType = 'badSight';
 const finalValueType = valueType + '-final';
@@ -39,6 +40,7 @@ export default function Sight() {
   const [brain, brainAPI] = useSpring(() => ({ opacity: 0 }));
   const [effectStyle, effectAPI] = useSpring(() => ({ opacity: 0 }));
   const [{ value }] = useGameContext();
+  const buildPath = useLocationPath();
 
   if (sensoryState && value !== finalValueType) {
     effectAPI.set({ opacity: 0 });
@@ -72,7 +74,7 @@ export default function Sight() {
   }
 
   if (!location.search) {
-    return <Navigate to={'/bodySystems/sensory'} />;
+    return <Navigate to={buildPath('/bodySystems/sensory', true)} />;
   }
 
   const ChildComponent = Characters.sensory[selectedCharacter];

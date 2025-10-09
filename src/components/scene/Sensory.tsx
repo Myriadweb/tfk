@@ -13,6 +13,7 @@ import TasteHighlight from './SensoryAssets/tasteHighlight.png';
 import TouchHighlight from './SensoryAssets/touchHighlight.png';
 import AnimatedLabel from './AnimatedLabel';
 import {screenScale} from "../../utils/scaling";
+import { useLocationPath } from '../../hooks';
 
 const labelStyle = {
   background: '#30619C',
@@ -55,11 +56,13 @@ export default function Sensory() {
     onRest: () => setTimeout(() => setAnimatedPath(''), 0),
   }));
   const location = useLocation();
+  const buildPath = useLocationPath();
+  const redirectPath = buildPath(`${Paths.BodySystems}/${Paths.Sensory}/${Paths.Hearing}?play=true`, true);
 
   if (location.search === '?play=true') {
     return (
       <Navigate
-        to={`/${Paths.BodySystems}/${Paths.Sensory}/${Paths.Hearing}?play=true`}
+        to={redirectPath}
       />
     );
   }

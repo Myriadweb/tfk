@@ -20,6 +20,7 @@ import BgBad from './SensoryAssets/BGBad.png';
 import {screenScale, getCurrentDevice} from "../../utils/scaling";
 import OverlayBadIpad from "./SensoryAssets/overlayBADIPad.png";
 import OverlayGoodIpad from "./SensoryAssets/overlayGOODIPad.png";
+import { useLocationPath } from "../../hooks";
 
 export default function Taste() {
   const [sensoryState, setSensoryState] = React.useState<VariationsType | null>(
@@ -36,6 +37,7 @@ export default function Taste() {
     transform: 'scale(0)',
     opacity: 1,
   }));
+  const buildPath = useLocationPath();
 
   if (sensoryState) {
     overlayAPI.set({ opacity: 0 });
@@ -75,7 +77,7 @@ export default function Taste() {
   }
 
   if (!location.search) {
-    return <Navigate to={'/bodySystems/sensory'} />;
+    return <Navigate to={buildPath('/bodySystems/sensory', true)} />;
   }
 
   const ChildComponent = Characters.sensory[selectedCharacter];

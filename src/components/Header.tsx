@@ -18,7 +18,7 @@ export function Header(props: Props) {
     return <div className='App-header'>{t('title')}</div>;
   }
 
-  const locationPath = location.pathname.split('/')[1];
+  const locationPath = location.pathname.split('/')[2];
 
   return (
     <div className='App-header-split'>

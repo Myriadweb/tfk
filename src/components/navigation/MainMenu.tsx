@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { useNavBarTranslation } from '../../hooks';
+import { useNavBarTranslation, useLocationPath } from '../../hooks';
 import { Paths } from '../../types/Paths';
 import playSound from '../../sound';
 import { useCharacterContext } from '../../state/character';
@@ -21,6 +21,7 @@ const PROCEDURES_CONFIG = {
 
 const MainMenu = ({ path }: Props) => {
   const [character] = useCharacterContext();
+  const buildPath = useLocationPath();
 
   const t = useNavBarTranslation(path);
   return (
@@ -38,7 +39,7 @@ const MainMenu = ({ path }: Props) => {
             textDecoration: 'none',
             width: screenScale.x(250),
           }}
-          to={`/${Paths.BodySystems}/${Paths.Sensory}`}
+          to={buildPath(`/${Paths.BodySystems}/${Paths.Sensory}`)}
           onClick={() => playSound('generalSelect')}
         >
           <img
@@ -69,7 +70,7 @@ const MainMenu = ({ path }: Props) => {
             alignItems: 'center',
             width: screenScale.x(250),
           }}
-          to={`/${Paths.Procedures}/${PROCEDURES_CONFIG[character]}`}
+          to={buildPath(`/${Paths.Procedures}/${PROCEDURES_CONFIG[character]}`)}
           onClick={() => playSound('generalSelect')}
         >
           <img

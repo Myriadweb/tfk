@@ -16,6 +16,7 @@ import BgBad from './SensoryAssets/BGBad.png';
 import {screenScale, getCurrentDevice} from "../../utils/scaling";
 import OverlayBadIpad from "./ProprioceptionAssets/overlayBadIpad.png";
 import OverlayGoodIpad from "./ProprioceptionAssets/overlayGoodIpad.png";
+import { useLocationPath } from "../../hooks";
 
 export default function Proprioception() {
   const [sensoryState, setSensoryState] = React.useState<VariationsType | null>(
@@ -24,6 +25,7 @@ export default function Proprioception() {
   const [selectedCharacter] = useCharacterContext();
   const location = useLocation();
   const [overlay, overlayAPI] = useSpring(() => ({ opacity: 0 }));
+  const buildPath = useLocationPath();
 
   if (sensoryState) {
     overlayAPI.set({ opacity: 0 });
@@ -40,7 +42,7 @@ export default function Proprioception() {
   }
 
   if (!location.search) {
-    return <Navigate to={'/bodySystems/sensory'} />;
+    return <Navigate to={buildPath('/bodySystems/sensory', true)} />;
   }
 
   const Character =

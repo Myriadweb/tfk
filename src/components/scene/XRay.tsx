@@ -9,6 +9,7 @@ import { CSSProperties } from 'react';
 
 import { ReactComponent as XrayMachine } from './XRayAssets/xRayMachine.svg';
 import { Characters, childWidth } from './ChildrenAssets/childrenAssets';
+import { useLocationPath} from "../../hooks";
 
 const bodyLeft = 540;
 
@@ -34,6 +35,7 @@ export default function XRay() {
     },
   }));
   const location = useLocation();
+  const buildPath = useLocationPath();
 
   if (location.search === '?play=true') {
     navigate(`/${Paths.Procedures}/${Paths.XRay}?play=true`);
@@ -91,7 +93,7 @@ export default function XRay() {
         label={t('xRay.scene.label')}
         buttonText={t('xRay.scene.buttonText')}
         onClick={() =>
-          navigate(`/${Paths.Procedures}/${Paths.XRay}/${Paths.Game}`)
+          navigate(buildPath(`${Paths.Procedures}/${Paths.XRay}/${Paths.Game}`, true))
         }
       />
     </>

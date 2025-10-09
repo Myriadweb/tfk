@@ -21,6 +21,7 @@ import playSound from '../../sound';
 import { Dispatch, SetStateAction } from 'react';
 import { useGameContext } from '../../state/game';
 import {screenScale} from "../../utils/scaling";
+import { useLocationPath } from '../../hooks';
 
 type Props = {
   ImageComponent: React.FC<React.SVGProps<SVGSVGElement>> | string;
@@ -161,10 +162,11 @@ export default function SkeletalGame() {
   const location = useLocation();
   const leaving = !location.search;
   const isLast = placedNumber === 0;
+  const buildPath = useLocationPath();
 
   if (!location.search) {
     setTimeout(() => {
-      navigate(`/${Paths.BodySystems}/${Paths.Skeletal}`);
+      navigate(buildPath(`${Paths.BodySystems}/${Paths.Skeletal}`, true));
       setGameState({ step: 0, value: '' });
     }, 1000);
   }

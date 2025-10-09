@@ -23,6 +23,7 @@ import { ReactComponent as Closepin } from './SensoryAssets/SmellAssets/Closepin
 import {screenScale, getCurrentDevice} from "../../utils/scaling";
 import OverlayBadIpad from "./SensoryAssets/overlayBADIPad.png";
 import OverlayGoodIpad from "./SensoryAssets/overlayGOODIPad.png";
+import { useLocationPath } from "../../hooks";
 
 const valueType = 'badSmell';
 const finalValueType = valueType + '-final';
@@ -41,6 +42,7 @@ export function Smell() {
     transform: 'scale(0)',
     opacity: 1,
   }));
+  const buildPath = useLocationPath();
 
   if (sensoryState && value !== 'badSmell-final') {
     effectAPI.set({ opacity: 0 });
@@ -77,7 +79,7 @@ export function Smell() {
   }
 
   if (!location.search) {
-    return <Navigate to={'/bodySystems/sensory'} />;
+    return <Navigate to={buildPath('/bodySystems/sensory', true)} />;
   }
 
   const ChildComponent = Characters.sensory[selectedCharacter];

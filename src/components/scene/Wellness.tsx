@@ -8,6 +8,7 @@ import ProceduresTextBox from './SharedComponents/ProceduresTextBox';
 import { CSSProperties } from 'react';
 import { Characters } from './ChildrenAssets/childrenAssets';
 import WellnessMachine from './WellnessAssets/vitalsMachine.png';
+import { useLocationPath } from '../../hooks';
 
 const bodyLeft = 458;
 
@@ -33,6 +34,7 @@ export default function Wellness() {
     },
   }));
   const location = useLocation();
+  const buildPath = useLocationPath();
 
   if (location.search === '?play=true') {
     navigate(`/${Paths.Procedures}/${Paths.Wellness}?play=true`);
@@ -89,7 +91,7 @@ export default function Wellness() {
         label={t('wellness.scene.label')}
         buttonText={t('wellness.scene.buttonText')}
         onClick={() =>
-          navigate(`/${Paths.Procedures}/${Paths.Wellness}/${Paths.Game}`)
+          navigate(buildPath(`${Paths.Procedures}/${Paths.Wellness}/${Paths.Game}`))
         }
       />
     </>

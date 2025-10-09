@@ -21,6 +21,7 @@ import { Characters } from './ChildrenAssets/childrenAssets';
 import { useGameContext } from '../../state/game';
 import ReactPlayer from 'react-player';
 import {screenScale} from "../../utils/scaling";
+import { useLocationPath } from "../../hooks";
 
 const valueType = 'badVestibular';
 const finalValueType = valueType + '-final';
@@ -47,6 +48,7 @@ export default function Vestibular() {
   const CharacterGood = Characters.happy[selectedCharacter];
   const CharacterBad = Characters.hitFloor[selectedCharacter];
   const CharacterProtected = Characters.protection[selectedCharacter];
+  const buildPath = useLocationPath();
 
   if ((sensoryState || tornadoAnimation) && value !== finalValueType) {
     if (value === 'good') overlayAPI.set({ opacity: 0 });
@@ -110,7 +112,7 @@ export default function Vestibular() {
   };
 
   if (!location.search) {
-    return <Navigate to={'/bodySystems/sensory'} />;
+    return <Navigate to={buildPath('/bodySystems/sensory', true)} />;
   }
 
   return (

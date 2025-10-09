@@ -8,6 +8,7 @@ import ProceduresTextBox from './SharedComponents/ProceduresTextBox';
 import { CSSProperties } from 'react';
 import { Characters } from './ChildrenAssets/childrenAssets';
 import InitialPromptIV from './IvAssets/initialPromptIV.svg';
+import { useLocationPath } from '../../hooks';
 
 const bodyLeft = 461;
 
@@ -34,6 +35,7 @@ export default function Iv() {
     },
   }));
   const location = useLocation();
+  const buildPath = useLocationPath();
 
   if (location.search === '?play=true') {
     navigate(`/${Paths.Procedures}/${Paths.Iv}?play=true`);
@@ -90,7 +92,7 @@ export default function Iv() {
         label={t('iv.scene.label')}
         buttonText={t('iv.scene.buttonText')}
         onClick={() =>
-          navigate(`/${Paths.Procedures}/${Paths.Iv}/${Paths.Game}`)
+          navigate(buildPath(`${Paths.Procedures}/${Paths.Iv}/${Paths.Game}`))
         }
       />
     </>

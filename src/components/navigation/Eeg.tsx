@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useNavBarTranslation } from '../../hooks';
+import { useNavBarTranslation, useLocationNavigate, useLocationPath } from '../../hooks';
 import {Link, useNavigate} from 'react-router-dom';
 import { useGameContext } from '../../state/game';
 import { animated } from 'react-spring';
@@ -27,7 +27,8 @@ type Props = {
 
 export default function Eeg({ prefix }: Props) {
   const t = useNavBarTranslation(prefix);
-  const navigate = useNavigate();
+  const navigate = useLocationNavigate()
+  const buildPath = useLocationPath(); // ADD THIS for Link components
   const [{ step, value }, setStep] = useGameContext();
 
   const handleNavigationButtonClick = (index: number) => {
@@ -267,7 +268,7 @@ export default function Eeg({ prefix }: Props) {
                  }}
             >
                 <Link
-                    to={`${Paths.Procedures}/${prefix}`}
+                    to={buildPath(`${Paths.Procedures}/${prefix}`)}
                     onClick={() => {
                         playSound('click');
                         setStep({ step: 0 });

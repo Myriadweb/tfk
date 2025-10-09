@@ -29,6 +29,7 @@ import { columnLabelStyle } from './common';
 import { Trans, useTranslation } from 'react-i18next';
 import ReactPlayer from 'react-player';
 import playSound from '../../sound';
+import { useLocationPath} from "../../hooks";
 
 const STEP_TO_CHILD_CONFIG = {
   0: 'mouthOpen',
@@ -211,9 +212,10 @@ export default function DigestiveGame() {
       });
     }
   });
+  const buildPath = useLocationPath();
 
   if (!location.search) {
-    return <Navigate to={'/' + Paths.BodySystems + '/' + Paths.Digestive} />;
+    return <Navigate to={buildPath(Paths.BodySystems + '/' + Paths.Digestive, true)} />;
   }
 
   const childAsset = STEP_TO_CHILD_CONFIG[step] || 'digestiveEyesClosed';

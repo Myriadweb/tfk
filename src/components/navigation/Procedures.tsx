@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useNavBarTranslation } from '../../hooks';
+import { useNavBarTranslation, useLocationPath } from '../../hooks';
 import { Paths } from '../../types/Paths';
 import EEG from './Procedures/EEG.svg';
 import IV from './Procedures/IV.svg';
@@ -20,6 +20,7 @@ type Props = {
 const Procedures = ({ path, prefix }: Props) => {
   const t = useNavBarTranslation(prefix);
   const [, setAnimatedPath] = useAnimateContext();
+  const buildPath = useLocationPath();
   const [buttonsDisabled, setButtonsDisabled] = useState(false);
 
   useEffect(() => {
@@ -32,8 +33,9 @@ const Procedures = ({ path, prefix }: Props) => {
     if (path === destination || buttonsDisabled) return;
 
     setButtonsDisabled(true);
+    console.log('Navigating to:', buildPath(Paths.Procedures + '/' + destination));
 
-    setAnimatedPath(Paths.Procedures + '/' + destination);
+    setAnimatedPath(buildPath(Paths.Procedures + '/' + destination, false));
   };
 
   return (

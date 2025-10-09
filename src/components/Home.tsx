@@ -6,11 +6,12 @@ import {
   Route,
   Link,
   useNavigate,
+  useParams,
 } from 'react-router-dom';
 import { Header } from './Header';
 import { NavBar } from './NavBar';
 import { Paths } from '../types/Paths';
-import { usePathFromLocation } from '../hooks';
+import { usePathFromLocation, useLocationPath } from '../hooks';
 import { MainMenu } from './scene/MainMenu';
 import Sensory from './scene/Sensory';
 import { useTranslation } from 'react-i18next';
@@ -55,6 +56,7 @@ const TIME_TO_SPLASH = 1200000;
 export function Home() {
   // This gets the current location from react router.
   const location = useLocation();
+  const params = useParams(); // Get route params (including :location)
   const [, setAnimateState] = useAnimateContext();
   const [gameState, setGameState] = useGameContext();
   const [path, prefix] = usePathFromLocation(location.pathname);
@@ -62,12 +64,15 @@ export function Home() {
   const navigate = useNavigate();
   const timeoutRef = useRef(null);
 
+  // Build the base path including location if it exists
+  const locationPrefix = params.location ? `/${params.location}` : '';
+
   const handleResetTimeout = () => {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
     }
     timeoutRef.current = setTimeout(() => {
-      navigate(Paths.SplashScreen);
+      navigate(`${locationPrefix}/${Paths.SplashScreen}`);
       setGameState({ step: 0 });
       setAnimateState('');
     }, TIME_TO_SPLASH);
@@ -75,26 +80,30 @@ export function Home() {
   /*
   useEffect(() => {
     timeoutRef.current = setTimeout(
-      () => navigate(Paths.SplashScreen),
+      () => navigate(`${locationPrefix}/${Paths.SplashScreen}`),
       TIME_TO_SPLASH
     );
   });
    */
 
   // By default, the app will render the Home component.
-  // If we're on '/' we redirect to main-menu
-  if (location.pathname === '/') {
-    return <Navigate to={Paths.MainMenu} />;
+  // If we're at the location root (e.g., /#/childlifezone or /#/childlifezone/), redirect to main-menu
+  const pathWithoutLocation = params.location
+    ? location.pathname.replace(`/${params.location}`, '')
+    : location.pathname;
+
+  if (pathWithoutLocation === '/' || pathWithoutLocation === '') {
+    return <Navigate to={`${locationPrefix}/${Paths.MainMenu}`} replace />;
   }
 
   // TEMPORARY
-  if (location.pathname === '/bodySystems') {
-    return <Navigate to={Paths.BodySystems + '/' + Paths.Sensory} />;
+  if (pathWithoutLocation === '/bodySystems') {
+    return <Navigate to={`${locationPrefix}/${Paths.BodySystems}/${Paths.Sensory}`} replace />;
   }
 
   // TEMPORARY
-  if (location.pathname === '/procedures') {
-    return <Navigate to={Paths.Procedures + '/' + Paths.SurgicalPrep} />;
+  if (pathWithoutLocation === '/procedures') {
+    return <Navigate to={`${locationPrefix}/${Paths.Procedures}/${Paths.SurgicalPrep}`} replace />;
   }
 
   return (

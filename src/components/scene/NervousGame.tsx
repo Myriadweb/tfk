@@ -9,6 +9,7 @@ import { useGameContext } from '../../state/game';
 import { Trans, useTranslation } from 'react-i18next';
 import NervousBlueBox from './NervousBlueBox';
 import {screenScale} from "../../utils/scaling";
+import { useLocationPath } from "../../hooks";
 
 // Importing all the SVGs in a folder
 const reqSvgsLeftHemi = require.context(
@@ -86,6 +87,7 @@ export default function NervousGame() {
   const hemisphere = hemisphereConfig[step];
 
   const highlight = isInfoPressed ? hemisphere : baseHighlight;
+  const buildPath = useLocationPath();
 
   useEffect(() => {
     setGameState((old) => ({
@@ -99,7 +101,7 @@ export default function NervousGame() {
 
   if (!location.search) {
     setGameState({ step: 0 });
-    return <Navigate to={'/' + Paths.BodySystems + '/' + Paths.Nervous} />;
+    return <Navigate to={buildPath(Paths.BodySystems + '/' + Paths.Nervous, true)} />;
   }
 
   return (

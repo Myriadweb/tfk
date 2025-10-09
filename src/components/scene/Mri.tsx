@@ -6,8 +6,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Paths } from '../../types/Paths';
 import ProceduresTextBox from './SharedComponents/ProceduresTextBox';
 import { CSSProperties } from 'react';
-// import { ReactComponent as MriScene } from './MriAssets/mriScene.svg';
 import { MriScene } from './ChildrenAssets/childrenAssets';
+import { useLocationPath } from '../../hooks';
 
 const bodyLeft = 540;
 
@@ -33,6 +33,7 @@ export default function Mri() {
     },
   }));
   const location = useLocation();
+  const buildPath = useLocationPath();
 
   if (location.search === '?play=true') {
     navigate(`/${Paths.Procedures}/${Paths.Mri}?play=true`);
@@ -78,7 +79,7 @@ export default function Mri() {
         label={t('mri.scene.label')}
         buttonText={t('mri.scene.buttonText')}
         onClick={() =>
-          navigate(`/${Paths.Procedures}/${Paths.Mri}/${Paths.Game}`)
+          navigate(buildPath(`${Paths.Procedures}/${Paths.Mri}/${Paths.Game}`))
         }
       />
     </>

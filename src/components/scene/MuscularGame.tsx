@@ -19,6 +19,7 @@ import { useGameContext } from '../../state/game';
 import { columnLabelStyleLeft } from './common';
 import { useTranslation } from 'react-i18next';
 import {elementPosition, getCurrentDevice, SCALE_FACTORS} from "../../utils/scaling";
+import { useLocationPath } from "../../hooks";
 
 const armLabel = {
   padding: '8px 54px 10px',
@@ -54,6 +55,7 @@ export default function MuscularGame() {
   const hasStarted = useRef(false);
 
   const location = useLocation();
+  const buildPath = useLocationPath();
 
   // Preload sounds when component mounts
   useEffect(() => {
@@ -96,7 +98,7 @@ export default function MuscularGame() {
   }, [count, soundsReady]);
 
   if (!location.search) {
-    return <Navigate to={'/' + Paths.BodySystems + '/' + Paths.Muscular} />;
+    return <Navigate to={buildPath(Paths.BodySystems + '/' + Paths.Muscular, true)} />;
   }
 
   return (
