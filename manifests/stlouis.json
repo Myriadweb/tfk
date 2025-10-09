@@ -18,7 +18,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "/#/stlouis",
+  "start_url": "/tfk/#/stlouis",
   "scope": "/",
   "display": "standalone",
   "theme_color": "#000000",
