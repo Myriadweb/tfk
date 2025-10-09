@@ -8,10 +8,10 @@ import { setCSSScaleVariables } from "./utils/scaling";
 import './App.css';
 import { GameContextProvider } from './state/game';
 import SplashScreen from './components/SplashScreen';
-import { Paths } from './types/Paths';
 import { unlockAudio, preloadSounds } from './sound';
 import { LocationContextProvider } from "./state/location";
 import { DEFAULT_LOCATION } from './utils/locationLoader';
+import { updateManifestStartUrl } from './utils/updateManifest'; // NEW
 
 // Component to redirect to default location if none specified
 function LocationRedirect() {
@@ -28,6 +28,9 @@ function LocationRedirect() {
 function App() {
   useEffect(() => {
     setCSSScaleVariables();
+
+    // Update manifest with current location for PWA
+    updateManifestStartUrl();
 
     // Simple unlock on first interaction
     const handleInteraction = () => {

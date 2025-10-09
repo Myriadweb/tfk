@@ -1,10 +1,16 @@
 // src/state/location.tsx
-import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react';
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  ReactNode,
+} from 'react';
 import {
   LocationName,
   getLocationFromURL,
   loadLocationAssets,
-  DEFAULT_LOCATION
+  DEFAULT_LOCATION,
 } from '../utils/locationLoader';
 
 interface LocationContextType {
@@ -14,7 +20,9 @@ interface LocationContextType {
   error: Error | null;
 }
 
-const LocationContext = createContext<LocationContextType | undefined>(undefined);
+const LocationContext = createContext<LocationContextType | undefined>(
+  undefined
+);
 
 export function LocationContextProvider({ children }: { children: ReactNode }) {
   const [location, setLocation] = useState<LocationName>(DEFAULT_LOCATION);
@@ -80,7 +88,9 @@ export function LocationContextProvider({ children }: { children: ReactNode }) {
 export function useLocation() {
   const context = useContext(LocationContext);
   if (context === undefined) {
-    throw new Error('useLocation must be used within a LocationContextProvider');
+    throw new Error(
+      'useLocation must be used within a LocationContextProvider'
+    );
   }
   return context;
 }

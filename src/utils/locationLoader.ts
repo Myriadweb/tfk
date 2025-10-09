@@ -48,7 +48,10 @@ export function getLocationFromURL(): LocationName {
   const locationParam = parts[0]?.toLowerCase();
 
   // Validate location
-  if (locationParam && VALID_LOCATIONS.includes(locationParam as LocationName)) {
+  if (
+    locationParam &&
+    VALID_LOCATIONS.includes(locationParam as LocationName)
+  ) {
     return locationParam as LocationName;
   }
 
@@ -71,13 +74,17 @@ export async function loadLocationAssets(location: LocationName) {
 
   try {
     // Dynamic import - Webpack will code-split this automatically
-    const assets = await import(`../components/scene/ChildrenAssets/${folderName}/index.ts`);
+    const assets = await import(
+      `../components/scene/ChildrenAssets/${folderName}/index.ts`
+    );
     return assets;
   } catch (error) {
     console.error(`Failed to load assets for location: ${location}`, error);
     // Fallback to default location
     const defaultFolder = getLocationFolder(DEFAULT_LOCATION);
-    const defaultAssets = await import(`../components/scene/ChildrenAssets/${defaultFolder}/index.ts`);
+    const defaultAssets = await import(
+      `../components/scene/ChildrenAssets/${defaultFolder}/index.ts`
+    );
     return defaultAssets;
   }
 }

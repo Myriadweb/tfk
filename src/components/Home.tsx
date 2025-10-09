@@ -98,12 +98,22 @@ export function Home() {
 
   // TEMPORARY
   if (pathWithoutLocation === '/bodySystems') {
-    return <Navigate to={`${locationPrefix}/${Paths.BodySystems}/${Paths.Sensory}`} replace />;
+    return (
+      <Navigate
+        to={`${locationPrefix}/${Paths.BodySystems}/${Paths.Sensory}`}
+        replace
+      />
+    );
   }
 
   // TEMPORARY
   if (pathWithoutLocation === '/procedures') {
-    return <Navigate to={`${locationPrefix}/${Paths.Procedures}/${Paths.SurgicalPrep}`} replace />;
+    return (
+      <Navigate
+        to={`${locationPrefix}/${Paths.Procedures}/${Paths.SurgicalPrep}`}
+        replace
+      />
+    );
   }
 
   return (
