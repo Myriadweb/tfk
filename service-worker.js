@@ -130,12 +130,14 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(
         fetch(event.request)
             .then((response) => {
-                // Clone the response before caching
-                const responseToCache = response.clone();
+                // Only cache successful full responses (not partial 206 responses)
+                if (response.status === 200) {
+                    const responseToCache = response.clone();
 
-                caches.open(CACHE_NAME).then((cache) => {
-                    cache.put(event.request, responseToCache);
-                });
+                    caches.open(CACHE_NAME).then((cache) => {
+                        cache.put(event.request, responseToCache);
+                    });
+                }
 
                 return response;
             })
@@ -145,3 +147,4 @@ self.addEventListener('fetch', (event) => {
             })
     );
 });
+

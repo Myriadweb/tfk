@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.7a166e9b.css",
-    "main.js": "./static/js/main.fd184a9f.js",
+    "main.js": "./static/js/main.ce1be437.js",
     "reactPlayerYouTube.js": "./static/js/reactPlayerYouTube.e75b1665.chunk.js",
     "reactPlayerSoundCloud.js": "./static/js/reactPlayerSoundCloud.01799e80.chunk.js",
     "reactPlayerVimeo.js": "./static/js/reactPlayerVimeo.b3ac696c.chunk.js",
@@ -16,7 +16,7 @@
     "reactPlayerKaltura.js": "./static/js/reactPlayerKaltura.b73acb35.chunk.js",
     "reactPlayerFilePlayer.js": "./static/js/reactPlayerFilePlayer.3230bce5.chunk.js",
     "reactPlayerPreview.js": "./static/js/reactPlayerPreview.77277490.chunk.js",
-    "static/media/splashVideo.mp4": "./static/media/splashVideo.2ca25607339ff79ddadb.mp4",
+    "static/media/splashVideo.mp4": "./static/media/splashVideo.3ba06c3b1a995be98dfa.mp4",
     "static/media/vestibular.webm": "./static/media/vestibular.fa40bb1b488a4851ba32.webm",
     "static/media/default.png": "./static/media/default.ed2c731e925466a6ef9d.png",
     "static/media/cardiovascular1a.mp4": "./static/media/cardiovascular1a.5e40c93e581101079ccf.mp4",
@@ -168,6 +168,7 @@
     "static/media/Sparkles.svg": "./static/media/Sparkles.c74d2d5ee560e340d2d99fc6b83644bb.svg",
     "static/media/tricepsContractingIpad.svg": "./static/media/tricepsContractingIpad.3288d8231060b4a7029bb303c4a6a4c6.svg",
     "static/media/eegMonitor.svg": "./static/media/eegMonitor.e79ba5a83199d985de9ca7f6e1f80a7d.svg",
+    "static/media/tricepsContracting.svg": "./static/media/tricepsContracting.5e3117734c8b60453ae13b678463e157.svg",
     "static/media/heartHighlight.png": "./static/media/heartHighlight.f5630c33728b0167920d.png",
     "static/media/tarsalsHighlight.png": "./static/media/tarsalsHighlight.aa2651221ca199a3d0ce.png",
     "static/media/coordination.svg": "./static/media/coordination.20a1c5dbf0d9af4657ee.svg",
@@ -181,6 +182,7 @@
     "static/media/breathe.svg": "./static/media/breathe.7ddc3014fabf13d141aa79ea4ae11367.svg",
     "static/media/sternumHighlight.png": "./static/media/sternumHighlight.1cfb86b2ac46e59ad4d5.png",
     "static/media/liverHighlight.png": "./static/media/liverHighlight.66140a0eb42c3157766a.png",
+    "static/media/bicepsContracting.svg": "./static/media/bicepsContracting.a1d34dfc53bc0449665d407d3503c3ab.svg",
     "static/media/brainHighlight.png": "./static/media/brainHighlight.4e18a1bee750606d2b83.png",
     "static/media/machineTop.svg": "./static/media/machineTop.e022b4dcc05afaaec854fe865a11106f.svg",
     "static/media/medal.png": "./static/media/medal.2cc105a4450a78e728b9.png",
@@ -366,7 +368,7 @@
     "index.html": "./index.html",
     "static/media/background.svg": "./static/media/background.ced4125d640bf03f1896495829a9e09b.svg",
     "main.7a166e9b.css.map": "./static/css/main.7a166e9b.css.map",
-    "main.fd184a9f.js.map": "./static/js/main.fd184a9f.js.map",
+    "main.ce1be437.js.map": "./static/js/main.ce1be437.js.map",
     "reactPlayerYouTube.e75b1665.chunk.js.map": "./static/js/reactPlayerYouTube.e75b1665.chunk.js.map",
     "reactPlayerSoundCloud.01799e80.chunk.js.map": "./static/js/reactPlayerSoundCloud.01799e80.chunk.js.map",
     "reactPlayerVimeo.b3ac696c.chunk.js.map": "./static/js/reactPlayerVimeo.b3ac696c.chunk.js.map",
@@ -384,6 +386,6 @@
   },
   "entrypoints": [
     "static/css/main.7a166e9b.css",
-    "static/js/main.fd184a9f.js"
+    "static/js/main.ce1be437.js"
   ]
 }
