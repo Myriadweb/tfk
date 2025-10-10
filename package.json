@@ -57,7 +57,9 @@
     "precommit": "npm run lint:fix && npm run typecheck && npm run format",
     "electron:build": "npm run build-electron && electron-builder build --publish never -wm",
     "electron:build:windows": "npm run build-electron && electron-builder build --publish never -w",
-    "electron:build:no-scripts": "electron-builder build --publish never -wm"
+    "electron:build:no-scripts": "electron-builder build --publish never -wm",
+    "tauri:dev": "tauri dev",
+    "tauri:build": "tauri build"
   },
   "eslintConfig": {
     "plugins": [
@@ -86,6 +88,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.0.2",
     "@commitlint/config-conventional": "^17.0.2",
+    "@tauri-apps/cli": "^2.8.4",
     "@testing-library/react": "^12.0.0",
     "@testing-library/user-event": "^12.0.0",
     "@types/jest": "^27.5.2",
