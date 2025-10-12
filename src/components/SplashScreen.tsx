@@ -2,39 +2,40 @@ import * as React from 'react';
 import { Paths } from '../types/Paths';
 import { useNavigate } from 'react-router-dom';
 import ReactPlayer from 'react-player';
+import { LOCATION } from "../config";
 
-const Location = process.env.REACT_APP_LOCATION;
-let Animation: any;
+const Location = LOCATION;
+let Animation: string;
 
 try {
   switch (Location) {
     case 'Atlanta':
-      require('../animations/Atlanta/splashVideo.mp4');
+      Animation = require('../animations/Atlanta/splashVideo.mp4');
       break;
     case 'Phoenix':
-      require('../animations/Phoenix/splashVideo.mp4');
+      Animation = require('../animations/Phoenix/splashVideo.mp4');
       break;
     case 'Richmond':
-      require('../animations/Richmond/splashVideo.mp4');
+      Animation =  require('../animations/Richmond/splashVideo.mp4');
       break;
     case 'ChildLifeZone':
-      require('../animations/ChildLifeZone/splashVideo.mp4');
+      Animation = require('../animations/ChildLifeZone/splashVideo.mp4');
       break;
     case 'Riley':
-      require('../animations/Riley/splashVideo.mp4');
+      Animation = require('../animations/Riley/splashVideo.mp4');
       break;
     case 'StLouis':
-      require('../animations/StLouis/splashVideo.mp4');
+      Animation = require('../animations/StLouis/splashVideo.mp4');
       break;
     case 'Dimaggio':
-      require('../animations/Dimaggio/splashVideo.mp4');
+      Animation = require('../animations/Dimaggio/splashVideo.mp4');
       break;
     default:
-      require('../animations/Dimaggio/splashVideo.mp4');
+      Animation = require('../animations/Dimaggio/splashVideo.mp4');
   }
 } catch (e) {
   console.error('Error loading animation:', e);
-  require('../animations/Dimaggio/splashVideo.mp4');
+  Animation = require('../animations/Dimaggio/splashVideo.mp4');
 }
 
 export default function SplashScreen() {

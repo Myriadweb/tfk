@@ -34,20 +34,29 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Set location environment variable
+      - name: Set location environment variable and update config
         run: |
           if ("${{ github.event.inputs.location }}" -ne "") {
             echo "LOCATION=${{ github.event.inputs.location }}" >> $env:GITHUB_ENV
+            $location = "${{ github.event.inputs.location }}"
           } else {
             echo "LOCATION=dimaggio" >> $env:GITHUB_ENV
+            $location = "dimaggio"
           }
+
+          # Update the config.ts file with the selected location
+          (Get-Content "src/config.ts") -replace "export const LOCATION: LocationType = '.*';", "export const LOCATION: LocationType = '$location';" | Set-Content "src/config.ts"
+
+          # Update Tauri config identifier (optional)
+          $config = Get-Content "src-tauri/tauri.conf.json" | ConvertFrom-Json
+          $config.identifier = "com.teammates-for-kids-$location"
+          $config | ConvertTo-Json -Depth 10 | Set-Content "src-tauri/tauri.conf.json"
         shell: powershell
 
       - name: Build and release Tauri app
         uses: tauri-apps/tauri-action@v0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          LOCATION: ${{ env.LOCATION }}
         with:
           tagName: ${{ github.ref_name || format('v0.1.0-{0}', env.LOCATION) }}
           releaseName: ${{ github.event.inputs.release_name || format('Teammates for Kids - {0} {1}', env.LOCATION, github.ref_name || 'v0.1.0') }}

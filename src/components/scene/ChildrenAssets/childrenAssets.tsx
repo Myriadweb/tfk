@@ -1,5 +1,6 @@
 import React, {Component, CSSProperties} from 'react';
 import { Character } from '../../../state/character';
+import { LOCATION } from "../../../config";
 
 // import default child assets first
 import Child1Breathe from './Default/Child1/breathe.png';
@@ -43,7 +44,8 @@ import { ReactComponent as SmockRaw } from '../XRayAssets/smock.svg';
 import { ReactComponent } from '*.svg';
 import Child3 from "./Child3/default.png";
 
-const Location = process.env.REACT_APP_LOCATION;
+
+const Location = LOCATION;
 let locationAssets: any;
 
 try {
