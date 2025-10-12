@@ -1,4 +1,4 @@
-import { DEVICE } from "../config";
+import { DEVICE } from '../config';
 
 // Device configuration object
 const DEVICE_CONFIGS = {
@@ -30,8 +30,7 @@ const DEVICE_CONFIGS = {
 } as const;
 
 // Get current device from environment
-const device =
-  (DEVICE as keyof typeof DEVICE_CONFIGS) || 'desktop';
+const device = (DEVICE as keyof typeof DEVICE_CONFIGS) || 'desktop';
 const config = DEVICE_CONFIGS[device];
 
 // Calculate scale factors dynamically

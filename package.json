@@ -58,6 +58,7 @@
     "electron:build": "npm run build-electron && electron-builder build --publish never -wm",
     "electron:build:windows": "npm run build-electron && electron-builder build --publish never -w",
     "electron:build:no-scripts": "electron-builder build --publish never -wm",
+    "tauri": "tauri",
     "tauri:dev": "tauri dev",
     "tauri:build": "tauri build"
   },

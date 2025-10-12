@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Paths } from '../types/Paths';
 import { useNavigate } from 'react-router-dom';
 import ReactPlayer from 'react-player';
-import { LOCATION } from "../config";
+import { LOCATION } from '../config';
 
 const Location = LOCATION;
 let Animation: string;
@@ -16,7 +16,7 @@ try {
       Animation = require('../animations/Phoenix/splashVideo.mp4');
       break;
     case 'Richmond':
-      Animation =  require('../animations/Richmond/splashVideo.mp4');
+      Animation = require('../animations/Richmond/splashVideo.mp4');
       break;
     case 'ChildLifeZone':
       Animation = require('../animations/ChildLifeZone/splashVideo.mp4');
