@@ -174,9 +174,9 @@ export default async function playSound(sound: Sounds): Promise<void> {
       const buffer = await loadSound(sound);
       if (!buffer) return;
 
-      const source = audioContext!.createBufferSource();
+      const source = audioContext.createBufferSource();
       source.buffer = buffer;
-      source.connect(audioContext!.destination);
+      source.connect(audioContext.destination);
       source.start(0);
       console.log(`✅ Played ${sound} (Web Audio)`);
     }

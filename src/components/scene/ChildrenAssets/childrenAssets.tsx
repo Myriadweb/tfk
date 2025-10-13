@@ -29,7 +29,6 @@ import { ReactComponent as Child6DigestiveEyesClosed } from './Default/Child6/di
 import { ReactComponent as Child6Worried } from './Default/Child6/worried.svg';
 
 import { ReactComponent as SmockRaw } from '../XRayAssets/smock.svg';
-import { ReactComponent } from '*.svg';
 
 const Location = LOCATION;
 let locationAssets: any;

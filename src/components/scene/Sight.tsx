@@ -7,7 +7,7 @@ import {
   VariationsType,
 } from './SharedComponents/ClickableImage';
 import { useCharacterContext } from '../../state/character';
-import { Characters, sensoryChildWidth } from './ChildrenAssets/childrenAssets';
+import { Characters } from './ChildrenAssets/childrenAssets';
 import BottomOverlay from './SensoryAssets/bottomOverlay.png';
 import OverlayGood from './SensoryAssets/overlayGOOD.png';
 import OverlayBad from './SensoryAssets/overlayBAD.png';
