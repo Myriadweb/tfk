@@ -78,8 +78,6 @@ export default function Sight() {
   const ChildComponent = Characters.sensory[selectedCharacter];
   const ChildGood = Characters.moon[selectedCharacter];
   const ChildBad = Characters.sun[selectedCharacter];
-  const width = sensoryChildWidth;
-  const bodyLeft = screenScale.x(540);
 
   return (
     <>

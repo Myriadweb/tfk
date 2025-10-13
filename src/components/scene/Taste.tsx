@@ -81,7 +81,6 @@ export default function Taste() {
   const ChildComponent = Characters.sensory[selectedCharacter];
   const ChildGood = Characters.iceCream[selectedCharacter];
   const ChildBad = Characters.hotSauce[selectedCharacter];
-  const width = sensoryChildWidth;
   const bodyLeft = screenScale.x(540);
 
   return (

@@ -1,7 +1,7 @@
-import { isElectron } from '../utils/platform';
+import { isDesktopApp } from '../utils/platform';
 
 // Store both Web Audio buffers and HTML Audio instances
-const audioContext = isElectron
+const audioContext = isDesktopApp
   ? null
   : new (window.AudioContext || (window as any).webkitAudioContext)();
 const audioBuffers: { [key: string]: AudioBuffer } = {};
@@ -81,7 +81,7 @@ export type Sounds = keyof typeof soundPaths;
 
 // Load sound using Web Audio API (for web/PWA)
 async function loadSound(sound: Sounds): Promise<AudioBuffer | null> {
-  if (isElectron) return null; // Skip for Electron
+  if (isDesktopApp || !audioContext) return null; // Skip for Electron
 
   if (audioBuffers[sound]) {
     return audioBuffers[sound];
@@ -98,7 +98,7 @@ async function loadSound(sound: Sounds): Promise<AudioBuffer | null> {
 
       const response = await fetch(url);
       const arrayBuffer = await response.arrayBuffer();
-      const audioBuffer = await audioContext!.decodeAudioData(arrayBuffer);
+      const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
 
       audioBuffers[sound] = audioBuffer;
       console.log(`✅ Loaded ${sound}`);
@@ -127,7 +127,7 @@ function getAudioInstance(sound: Sounds): HTMLAudioElement {
 
 // Unlock audio
 export function unlockAudio(): void {
-  if (isElectron) {
+  if (isDesktopApp) {
     console.log('🔊 Electron - audio ready');
     return;
   }
@@ -139,7 +139,7 @@ export function unlockAudio(): void {
 
 // Preload sounds
 export async function preloadSounds(sounds: Sounds[]): Promise<void> {
-  if (isElectron) {
+  if (isDesktopApp) {
     // For Electron, just create the Audio instances
     sounds.forEach((sound) => getAudioInstance(sound));
     console.log(`📦 Preloaded ${sounds.length} sounds (Electron)`);
@@ -155,27 +155,20 @@ export async function preloadSounds(sounds: Sounds[]): Promise<void> {
   }
 }
 
-// Preload all sounds
-export async function preloadAllSounds(): Promise<void> {
-  const allSounds = Object.keys(soundPaths) as Sounds[];
-  await preloadSounds(allSounds);
-}
-
 // Play sound - handles both Electron and Web
 export default async function playSound(sound: Sounds): Promise<void> {
   console.log(`🔊 Playing: ${sound}`);
 
   try {
-    if (isElectron) {
+    if (isDesktopApp) {
       // Use HTML Audio for Electron
       const audio = getAudioInstance(sound);
       audio.currentTime = 0;
       await audio.play();
-      console.log(`✅ Played ${sound} (Electron)`);
     } else {
       // Use Web Audio API for web/PWA
-      if (audioContext!.state === 'suspended') {
-        await audioContext!.resume();
+      if (audioContext.state === 'suspended') {
+        await audioContext.resume();
       }
 
       const buffer = await loadSound(sound);

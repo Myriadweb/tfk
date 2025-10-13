@@ -1,49 +1,35 @@
-import React, {Component, CSSProperties} from 'react';
+import React, {CSSProperties} from 'react';
 import { Character } from '../../../state/character';
 import { LOCATION } from "../../../config";
 
 // import default child assets first
 import Child1Breathe from './Default/Child1/breathe.png';
-import Child1DefaultFace from './Default/Child1/defaultFace.svg';
 import { ReactComponent as Child1DigestiveEyesOpen } from './Default/Child1/digestiveEyesOpen.svg';
 import { ReactComponent as Child1DigestiveEyesClosed } from './Default/Child1/digestiveEyesClosed.svg';
-import Child1Happy from './Default/Child1/happy.svg';
 import { ReactComponent as Child1Worried } from './Default/Child1/worried.svg';
 import Child2Breathe from './Default/Child2/breathe.svg';
-import Child2DefaultFace from './Default/Child2/defaultFace.svg';
 import { ReactComponent as Child2DigestiveEyesOpen } from './Default/Child2/digestiveEyesOpen.svg';
 import { ReactComponent as Child2DigestiveEyesClosed } from './Default/Child2/digestiveEyesClosed.svg';
-import Child2Happy from './Default/Child2/happy.svg';
 import { ReactComponent as Child2Worried } from './Default/Child2/worried.svg';
 import Child3Breathe from './Default/Child3/breathe.svg';
-import Child3DefaultFace from './Default/Child3/defaultFace.svg';
 import { ReactComponent as Child3DigestiveEyesOpen } from './Default/Child3/digestiveEyesOpen.svg';
 import { ReactComponent as Child3DigestiveEyesClosed } from './Default/Child3/digestiveEyesClosed.svg';
-import Child3Happy from './Default/Child3/happy.svg';
 import { ReactComponent as Child3Worried } from './Default/Child3/worried.svg';
 import Child4Breathe from './Default/Child4/breathe.svg';
-import Child4DefaultFace from './Default/Child4/defaultFace.svg';
 import { ReactComponent as Child4DigestiveEyesOpen } from './Default/Child4/digestiveEyesOpen.svg';
 import { ReactComponent as Child4DigestiveEyesClosed } from './Default/Child4/digestiveEyesClosed.svg';
-import Child4Happy from './Default/Child4/happy.svg';
 import { ReactComponent as Child4Worried } from './Default/Child4/worried.svg';
 import Child5Breathe from './Default/Child5/breathe.png';
-import Child5DefaultFace from './Default/Child5/defaultFace.svg';
 import { ReactComponent as Child5DigestiveEyesOpen } from './Default/Child5/digestiveEyesOpen.svg';
 import { ReactComponent as Child5DigestiveEyesClosed } from './Default/Child5/digestiveEyesClosed.svg';
-import Child5Happy from './Default/Child5/happy.svg';
 import { ReactComponent as Child5Worried } from './Default/Child5/worried.svg';
 import Child6Breathe from './Default/Child6/breathe.svg';
-import Child6DefaultFace from './Default/Child6/defaultFace.svg';
 import { ReactComponent as Child6DigestiveEyesOpen } from './Default/Child6/digestiveEyesOpen.svg';
 import { ReactComponent as Child6DigestiveEyesClosed } from './Default/Child6/digestiveEyesClosed.svg';
-import Child6Happy from './Default/Child6/happy.svg';
 import { ReactComponent as Child6Worried } from './Default/Child6/worried.svg';
 
 import { ReactComponent as SmockRaw } from '../XRayAssets/smock.svg';
 import { ReactComponent } from '*.svg';
-import Child3 from "./Child3/default.png";
-
 
 const Location = LOCATION;
 let locationAssets: any;
@@ -74,11 +60,6 @@ try {
 } catch (error) {
   console.error(`Failed to load assets for location: ${Location}`, error);
   locationAssets = require('./Dimaggio'); // fallback
-}
-
-const convertToComponent = (asset: any): typeof ReactComponent => {
-  const { component } = asset;
-  return component as typeof ReactComponent;
 }
 
 export const Child3Standing = () => (

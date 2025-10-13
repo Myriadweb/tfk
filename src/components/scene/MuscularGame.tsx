@@ -61,7 +61,7 @@ export default function MuscularGame() {
       .then(() => {
         setSoundsReady(true);
       })
-      .catch((error) => {
+      .catch(() => {
         setSoundsReady(true); // Continue anyway
       });
   }, []);

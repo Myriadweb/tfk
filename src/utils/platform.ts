@@ -13,3 +13,21 @@ export const isIOS = (): boolean => {
 export const isSafari = (): boolean => {
   return /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 };
+
+export const isDesktopApp = (): boolean => {
+  // Check for Electron
+  if (window && window.process && (window.process as any).type) {
+    return true;
+  }
+
+  // Check for Tauri
+  if (window && (window as any).__TAURI__) {
+    return true;
+  }
+
+  return false;
+};
+
+export const isTauri = (): boolean => {
+  return !!(window && (window as any).__TAURI__);
+};

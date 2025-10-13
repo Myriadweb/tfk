@@ -50,6 +50,7 @@ jobs:
           # Update Tauri config identifier (optional)
           $config = Get-Content "src-tauri/tauri.conf.json" | ConvertFrom-Json
           $config.identifier = "com.teammates-for-kids-$location"
+          $config.app.windows[0].title = "Teammates For Kids - $location"
           $config | ConvertTo-Json -Depth 10 | Set-Content "src-tauri/tauri.conf.json"
         shell: powershell
 

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
 import './i18n';
-import { isElectron } from "./utils/platform";
+import { isDesktopApp } from "./utils/platform";
 
 async function loadFonts() {
   const changaOne = new FontFace(
@@ -68,7 +68,7 @@ ReactDOM.render(
 );
 
 // Register service worker with update detection (web only)
-if ('serviceWorker' in navigator && !isElectron) {
+if ('serviceWorker' in navigator && !isDesktopApp()) {
   window.addEventListener('load', () => {
     const swUrl = `${process.env.PUBLIC_URL || ''}/service-worker.js`;
 
