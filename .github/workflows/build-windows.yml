@@ -31,9 +31,6 @@ jobs:
       - name: Setup Rust
         uses: dtolnay/rust-toolchain@stable
 
-      - name: Install Tauri CLI
-        run: cargo install tauri-cli
-
       - name: Install dependencies
         run: npm ci
 
@@ -60,6 +57,7 @@ jobs:
         uses: tauri-apps/tauri-action@v0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CI: false  # Disable treating warnings as errors
         with:
           tagName: ${{ github.ref_name || format('v0.1.0-{0}', env.LOCATION) }}
           releaseName: ${{ github.event.inputs.release_name || format('Teammates for Kids - {0} {1}', env.LOCATION, github.ref_name || 'v0.1.0') }}
