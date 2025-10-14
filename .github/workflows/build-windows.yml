@@ -65,8 +65,23 @@ jobs:
 
           # Update Cargo.toml version
           $cargoContent = Get-Content "src-tauri/Cargo.toml"
-          $cargoContent = $cargoContent -replace 'version = "0.1.0"', 'version = "${{ env.APP_VERSION }}"'
+          $cargoContent = $cargoContent -replace '(?m)^version = ".*?"', 'version = "${{ env.APP_VERSION }}"'
           $cargoContent | Set-Content "src-tauri/Cargo.toml"
+        shell: powershell
+
+      - name: Debug updated configuration files
+        run: |
+          echo "=== Cargo.toml after update ==="
+          Get-Content "src-tauri/Cargo.toml"
+          echo ""
+          echo "=== package.json version ==="
+          (Get-Content "package.json" | ConvertFrom-Json).version
+          echo ""
+          echo "=== tauri.conf.json version and productName ==="
+          $config = Get-Content "src-tauri/tauri.conf.json" | ConvertFrom-Json
+          echo "Version: $($config.version)"
+          echo "ProductName: $($config.productName)"
+          echo "Identifier: $($config.identifier)"
         shell: powershell
 
       - name: Build and release Tauri app
