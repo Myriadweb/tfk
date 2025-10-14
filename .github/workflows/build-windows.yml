@@ -1,3 +1,6 @@
+env:
+  APP_VERSION: '2.1.0'
+
 name: Build Tauri App
 
 on:
@@ -47,11 +50,23 @@ jobs:
           # Update the config.ts file with the selected location
           (Get-Content "src/config.ts") -replace "export const LOCATION: LocationType = '.*';", "export const LOCATION: LocationType = '$location';" | Set-Content "src/config.ts"
 
-          # Update Tauri config identifier (optional)
+          # Update Tauri config
           $config = Get-Content "src-tauri/tauri.conf.json" | ConvertFrom-Json
           $config.identifier = "com.teammates-for-kids-$location"
+          $config.productName = "Teammates For Kids - $location"
+          $config.version = "${{ env.APP_VERSION }}"
           $config.app.windows[0].title = "Teammates For Kids - $location"
           $config | ConvertTo-Json -Depth 10 | Set-Content "src-tauri/tauri.conf.json"
+
+          # Update package.json version
+          $package = Get-Content "package.json" | ConvertFrom-Json
+          $package.version = "${{ env.APP_VERSION }}"
+          $package | ConvertTo-Json -Depth 10 | Set-Content "package.json"
+
+          # Update Cargo.toml version
+          $cargoContent = Get-Content "src-tauri/Cargo.toml"
+          $cargoContent = $cargoContent -replace 'version = ".*"', 'version = "${{ env.APP_VERSION }}"'
+          $cargoContent | Set-Content "src-tauri/Cargo.toml"
         shell: powershell
 
       - name: Build and release Tauri app
@@ -60,8 +75,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CI: false  # Disable treating warnings as errors
         with:
-          tagName: ${{ github.ref_name || format('v0.1.0-{0}', env.LOCATION) }}
-          releaseName: ${{ github.event.inputs.release_name || format('Teammates for Kids - {0} {1}', env.LOCATION, github.ref_name || 'v0.1.0') }}
+          tagName: ${{ env.APP_VERSION }}-${{ env.LOCATION }}
+          releaseName: ${{ github.event.inputs.release_name || format('Teammates for Kids - {0} v{1}', env.LOCATION, env.APP_VERSION) }}
           releaseBody: 'Teammates for Kids application for ${{ env.LOCATION }} location'
           releaseDraft: false
           prerelease: false

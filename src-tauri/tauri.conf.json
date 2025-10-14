@@ -1,7 +1,7 @@
 {
   "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
   "productName": "Teammates For Kids",
-  "version": "0.2.0",
+  "version": "2.1.0",
   "identifier": "com.teammates-for-kids",
   "build": {
     "frontendDist": "../build",
