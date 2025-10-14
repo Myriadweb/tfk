@@ -10,6 +10,8 @@
   width: calc(1080px * var(--scale-x));
   margin: 0 auto;
   overflow: hidden;
+  transform: scale(0.5);
+  transform-origin: top left;
 }
 
 .App-header {
