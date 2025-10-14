@@ -13,13 +13,10 @@
     "windows": [
       {
         "title": "Teammates For Kids",
-        "width": 1080,
-        "height": 1920,
-        "resizable": true,
-        "fullscreen": false,
-        "alwaysOnTop": false,
-        "decorations": true,
-        "skipTaskbar": true,
+        "resizable": false,
+        "fullscreen": true,
+        "decorations": false,
+        "skipTaskbar": false,
         "focus": true
       }
     ],
