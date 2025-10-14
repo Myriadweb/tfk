@@ -65,7 +65,7 @@ jobs:
 
           # Update Cargo.toml version
           $cargoContent = Get-Content "src-tauri/Cargo.toml"
-          $cargoContent = $cargoContent -replace 'version = ".*"', 'version = "${{ env.APP_VERSION }}"'
+          $cargoContent = $cargoContent -replace 'version = "0.1.0"', 'version = "${{ env.APP_VERSION }}"'
           $cargoContent | Set-Content "src-tauri/Cargo.toml"
         shell: powershell
 
