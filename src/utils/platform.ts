@@ -21,10 +21,11 @@ export const isDesktopApp = (): boolean => {
   }
 
   // Check for Tauri (newer versions use __TAURI_INTERNALS__)
-  if (window && (
-    (window as any).__TAURI_INTERNALS__ ||
-    (window as any).__TAURI_EVENT_PLUGIN_INTERNALS__
-  )) {
+  if (
+    window &&
+    ((window as any).__TAURI_INTERNALS__ ||
+      (window as any).__TAURI_EVENT_PLUGIN_INTERNALS__)
+  ) {
     return true;
   }
 
