@@ -2,7 +2,8 @@ import React, { Component, CSSProperties } from 'react';
 import { Character } from '../../../state/character';
 import { useParams } from 'react-router-dom';
 import { getLocationFolder, DEFAULT_LOCATION } from '../../../utils/locationLoader';
-
+import { isDesktopApp } from "../../../utils/platform";
+import { LOCATION } from "../../../config";
 // import default child assets first
 import Child1Breathe from './Default/Child1/breathe.png';
 import Child1DefaultFace from './Default/Child1/defaultFace.svg';
@@ -53,7 +54,7 @@ function getLocationAssets() {
   const locationParam = parts[0]?.toLowerCase();
 
   // Map URL location to folder name
-  const Location = getLocationFolder(locationParam as any);
+  const Location = isDesktopApp() ? LOCATION : getLocationFolder(locationParam as any);
 
   let locationAssets: any;
 

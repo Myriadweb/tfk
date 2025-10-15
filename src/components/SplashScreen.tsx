@@ -4,12 +4,14 @@ import { useNavigate } from 'react-router-dom';
 import ReactPlayer from 'react-player';
 import { getLocationFolder, DEFAULT_LOCATION } from '../utils/locationLoader';
 import { useLocationPath } from '../hooks';
+import { isDesktopApp } from "../utils/platform";
+import { LOCATION } from '../config';
 
 function getLocationAnimation() {
   const hash = window.location.hash;
   const parts = hash.replace(/^#\/?/, '').split('/');
   const locationParam = parts[0]?.toLowerCase();
-  const Location = getLocationFolder(locationParam as any);
+  const Location = isDesktopApp() ? LOCATION : getLocationFolder(locationParam as any);
 
   let locationAnimation: any;
 
