@@ -31,6 +31,7 @@ const MainMenu = ({ path }: Props) => {
         className='nav-items-container'
       >
         <Link
+          className='no-touch-menu'
           style={{
             marginRight: screenScale.x(82),
             display: 'inline-flex',
@@ -62,6 +63,7 @@ const MainMenu = ({ path }: Props) => {
           </span>
         </Link>
         <Link
+          className='no-touch-menu'
           style={{
             display: 'inline-flex',
             flexDirection: 'column',

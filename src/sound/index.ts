@@ -1,7 +1,7 @@
 import { isElectron } from '../utils/platform';
 
 // Store both Web Audio buffers and HTML Audio instances
-const audioContext = isElectron
+const audioContext = isElectron()
   ? null
   : new (window.AudioContext || (window as any).webkitAudioContext)();
 const audioBuffers: { [key: string]: AudioBuffer } = {};
@@ -81,7 +81,7 @@ export type Sounds = keyof typeof soundPaths;
 
 // Load sound using Web Audio API (for web/PWA)
 async function loadSound(sound: Sounds): Promise<AudioBuffer | null> {
-  if (isElectron) return null; // Skip for Electron
+  if (isElectron() || !audioContext) return null; // Skip for Electron
 
   if (audioBuffers[sound]) {
     return audioBuffers[sound];
@@ -98,7 +98,7 @@ async function loadSound(sound: Sounds): Promise<AudioBuffer | null> {
 
       const response = await fetch(url);
       const arrayBuffer = await response.arrayBuffer();
-      const audioBuffer = await audioContext!.decodeAudioData(arrayBuffer);
+      const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
 
       audioBuffers[sound] = audioBuffer;
       console.log(`✅ Loaded ${sound}`);
@@ -114,12 +114,22 @@ async function loadSound(sound: Sounds): Promise<AudioBuffer | null> {
   return loadPromise;
 }
 
-// Get HTML Audio instance (for Electron)
+// Get HTML Audio instance (for Tauri) - improved version
 function getAudioInstance(sound: Sounds): HTMLAudioElement {
   if (!audioInstances[sound]) {
     const audio = new Audio();
-    audio.src = `${process.env.PUBLIC_URL}/${soundPaths[sound]}`;
+    // Use file:// protocol for Tauri to access local assets
+    audio.src = soundPaths[sound].startsWith('http')
+      ? soundPaths[sound]
+      : `/${soundPaths[sound]}`;
     audio.preload = 'auto';
+    audio.volume = 1.0;
+
+    // Add error handling
+    audio.addEventListener('error', (e) => {
+      console.error(`❌ Audio error for ${sound}:`, e);
+    });
+
     audioInstances[sound] = audio;
   }
   return audioInstances[sound];
@@ -127,7 +137,7 @@ function getAudioInstance(sound: Sounds): HTMLAudioElement {
 
 // Unlock audio
 export function unlockAudio(): void {
-  if (isElectron) {
+  if (isElectron()) {
     console.log('🔊 Electron - audio ready');
     return;
   }
@@ -139,7 +149,7 @@ export function unlockAudio(): void {
 
 // Preload sounds
 export async function preloadSounds(sounds: Sounds[]): Promise<void> {
-  if (isElectron) {
+  if (isElectron()) {
     // For Electron, just create the Audio instances
     sounds.forEach((sound) => getAudioInstance(sound));
     console.log(`📦 Preloaded ${sounds.length} sounds (Electron)`);
@@ -155,35 +165,51 @@ export async function preloadSounds(sounds: Sounds[]): Promise<void> {
   }
 }
 
-// Preload all sounds
-export async function preloadAllSounds(): Promise<void> {
-  const allSounds = Object.keys(soundPaths) as Sounds[];
-  await preloadSounds(allSounds);
-}
-
-// Play sound - handles both Electron and Web
+// Play sound - improved for Tauri reliability
 export default async function playSound(sound: Sounds): Promise<void> {
   console.log(`🔊 Playing: ${sound}`);
 
   try {
-    if (isElectron) {
-      // Use HTML Audio for Electron
+    if (isElectron()) {
+      // Use HTML Audio for Tauri/Electron with better error handling
       const audio = getAudioInstance(sound);
+
+      // Reset to beginning and ensure it's ready
       audio.currentTime = 0;
+
+      // Wait for the audio to be ready if needed
+      if (audio.readyState < 2) {
+        await new Promise((resolve, reject) => {
+          const onCanPlay = () => {
+            audio.removeEventListener('canplay', onCanPlay);
+            audio.removeEventListener('error', onError);
+            resolve(void 0);
+          };
+          const onError = (e: Event) => {
+            audio.removeEventListener('canplay', onCanPlay);
+            audio.removeEventListener('error', onError);
+            reject(e);
+          };
+
+          audio.addEventListener('canplay', onCanPlay);
+          audio.addEventListener('error', onError);
+        });
+      }
+
       await audio.play();
-      console.log(`✅ Played ${sound} (Electron)`);
+      console.log(`✅ Played ${sound} (Tauri)`);
     } else {
-      // Use Web Audio API for web/PWA
-      if (audioContext!.state === 'suspended') {
-        await audioContext!.resume();
+      // Web Audio API code remains the same...
+      if (audioContext.state === 'suspended') {
+        await audioContext.resume();
       }
 
       const buffer = await loadSound(sound);
       if (!buffer) return;
 
-      const source = audioContext!.createBufferSource();
+      const source = audioContext.createBufferSource();
       source.buffer = buffer;
-      source.connect(audioContext!.destination);
+      source.connect(audioContext.destination);
       source.start(0);
       console.log(`✅ Played ${sound} (Web Audio)`);
     }
