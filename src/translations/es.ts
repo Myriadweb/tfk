@@ -163,6 +163,7 @@ const en: Translation = {
             'El pie y el tobillo están formados por 26 huesos diferentes, llamados tarsos, metatarsos y falanges.',
         },
         done: {
+          title: '',
           description:
             '¡Completó el esqueleto! Todos los huesos trabajan juntos para sostener su cuerpo, proteger sus órganos y ayudarle a moverse.',
         },
@@ -465,6 +466,7 @@ const en: Translation = {
         '7-subText':
           'La vía intravenosa está colocada. A continuación, ayudaremos <br />al paciente a conciliar el sueño para su cirugía.',
         '7-buttonText': 'Continuar',
+        '8-subText': '',
         '9-mainText': 'COLOQUE LA MÁSCARA',
         '9-subText': 'Toque el botón para colocar la máscara al paciente.',
         '10-mainText': 'COMIENCE LA ANESTESIA',

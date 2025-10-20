@@ -30,7 +30,7 @@ import { ReactComponent as Child2HappyStanding } from './Child2/happyStanding.sv
 import { ReactComponent as Child2SensoryDefault } from './Child2/sensoryDefault.svg';
 import Child2happySensory from './Child2/happySensory.svg';
 
-import Child3 from './Child3/default.png';
+import Child3 from './Child3/default.svg';
 import { ReactComponent as Child3StandingDefault } from './Child3/happyStanding.svg';
 import Child3Scared from './Child3/scared.svg';
 import Child3Moon from './Child3/moon.svg';
@@ -99,7 +99,7 @@ import { ReactComponent as IvChildBed } from './Child1/childBed.svg';
 import { ReactComponent as IvChildBedSmiling } from "./Child1/childBedSmiling.svg";
 import { ReactComponent as IvChildBedHappy } from "./Child1/childBedHappy.svg";
 import SurgicalPrepChild from './Child2/surgicalPrep.svg';
-import { ReactComponent as SurgicalPrepChildBed } from './Child2/child.svg';
+import { ReactComponent as SurgicalPrepChildBed } from './Child2/childBed.svg';
 import { ReactComponent as SurgicalPrepChildBedSleeping } from './Child2/childSleeping.svg';
 import { ReactComponent as SurgicalPrepFinalChild} from "./Child2/finalChild.svg";
 import MriBed from './Child3/mriBed.svg';

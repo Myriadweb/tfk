@@ -162,6 +162,7 @@ const en: Translation = {
             'Your foot and ankle are made up of 26 different bones, called tarsals, metatarsals, and phalanges.',
         },
         done: {
+          title: '',
           description:
             'You finished the skeleton! All your bones work together to support your body, protect your organs, and help you move.',
         },
@@ -462,6 +463,7 @@ const en: Translation = {
         '7-subText':
           "The IV is in place. Next, we'll help <br />the patient fall asleep for their surgery.",
         '7-buttonText': 'CONTINUE',
+        '8-subText': '',
         '9-mainText': 'PUT ON THE MASK',
         '9-subText': "Tap the button to put on the patient's mask.",
         '10-mainText': 'TURN ON ANESTHESIA',

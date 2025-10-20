@@ -5,6 +5,14 @@
   --scale-avg: 1;
 }
 
+img, .no-touch-menu {
+  -webkit-touch-callout: none; /* Safari/iOS */
+  -webkit-user-select: none;   /* Safari/iOS */
+  user-select: none;           /* Standard */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-drag: none;
+}
+
 .App {
   height: calc(1920px * var(--scale-y));
   width: calc(1080px * var(--scale-x));
@@ -37,7 +45,7 @@
 }
 
 .App-header-split-left {
-  flex: 0 0 641px;
+  flex: 0 0 calc(641px * var(--scale-x));
   height: 100%;
   text-align: left;
   display: flex;
@@ -45,7 +53,7 @@
 }
 
 .App-header-split-right {
-  flex: 0 0 439px;
+  flex: 0 0 calc(439px * var(--scale-x));
   font-size: 40px;
   background: #30619c;
   display: flex;
@@ -87,8 +95,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: relative;
-  top: calc(951px * var(--scale-y));
+  position: absolute;
+  bottom: 30px;
   left: calc(950px * var(--scale-x));
   width: calc(100px * var(--scale-y));
   font-family: LemonMilk, serif;

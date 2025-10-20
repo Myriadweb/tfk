@@ -227,10 +227,10 @@ export default function SurgicalPrepGame() {
                   y={23}
                   onComplete={(newX, newY) => {
                     if (
-                      newX > -415 &&
+                      newX > -600 &&
                       newX < -195 &&
-                      newY > -446 &&
-                      newY < -266
+                      newY > -475 &&
+                      newY < -250
                     ) {
                       playSound('completeStep');
                       trayApi.start({ transform: 'translateX(600px)' });

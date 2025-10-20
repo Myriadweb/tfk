@@ -1,6 +1,6 @@
 import React, { CSSProperties } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-
+import { elementPosition, getCurrentDevice } from "../../utils/scaling";
 import { useCharacterContext } from '../../state/character';
 import { Characters, sensoryChildWidth } from './ChildrenAssets/childrenAssets';
 import { Paths } from '../../types/Paths';
@@ -16,8 +16,10 @@ import DigestiveSystem from './DigestiveAssets/digestiveSystem.svg';
 import Oval from './DigestiveAssets/oval.png';
 import StomachLines from './DigestiveAssets/stomachLeaderLine.svg';
 import StomachOverlay from './DigestiveAssets/stomachOverlay.png';
+import StomachOverlayIpad from './DigestiveAssets/stomachOverlayIpad.png';
 import SmallIntestineLine from './DigestiveAssets/smallIntestineLeaderLine.svg';
 import SmallIntestineOverlay from './DigestiveAssets/smallIntestineOverlay.png';
+import SmallIntestineOverlayIpad from './DigestiveAssets/smallIntestineOverlayIpad.png';
 import Vomit from './DigestiveAssets/vomit.svg';
 import WasteBlueBox from './DigestiveAssets/wasteBlueBox.svg';
 import LargeIntestineLine from './DigestiveAssets/largelIntestineLeaderLine.svg';
@@ -70,6 +72,10 @@ export default function DigestiveGame() {
   const [stomachOverlaysStyle, stomachOverlaysApi] = useSpring(() => ({
     opacity: 0,
   }));
+  const overlayStyle: React.CSSProperties = getCurrentDevice().device === 'desktop'
+    ? { top: -200, left: 0, transform: 'none' }
+    : { top: '60%', left: '50%', transform: 'translate(-50%, -50%)' };
+
   const [blueBoxOverlaysStyle, blueBoxOverlaysApi] = useSpring(() => ({
     opacity: 0,
   }));
@@ -253,24 +259,50 @@ export default function DigestiveGame() {
         {step >= 5 && step < 16 && (
           <>
             <animated.img src={DigestiveSystem} style={bodySystemStyle} />
-            <animated.img
-              src={StomachOverlay}
-              style={{
-                position: 'absolute',
-                top: -200,
-                left: 0,
-                ...stomachOverlaysStyle,
-              }}
-            />
-            <animated.img
-              src={SmallIntestineOverlay}
-              style={{
-                position: 'absolute',
-                top: -164,
-                left: 0,
-                ...smallIntestineOverlaysStyle,
-              }}
-            />
+            {getCurrentDevice().device === 'desktop' && (
+              <>
+                <animated.img
+                  src={StomachOverlay}
+                  style={{
+                    position: 'absolute',
+                    top: -200,
+                    left: 0,
+                    ...stomachOverlaysStyle,
+                  }}
+                />
+                <animated.img
+                  src={SmallIntestineOverlay}
+                  style={{
+                    position: 'absolute',
+                    top: -164,
+                    left: 0,
+                    ...smallIntestineOverlaysStyle,
+                  }}
+                />
+              </>
+            )} : (
+              <animated.img
+                src={StomachOverlayIpad}
+                style={{
+                  position: 'absolute',
+                  top: '60%',
+                  left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  ...stomachOverlaysStyle,
+                }}
+              />
+              <animated.img
+                src={SmallIntestineOverlayIpad}
+                style={{
+                  position: 'absolute',
+                  top: '75%',
+                  left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  ...smallIntestineOverlaysStyle,
+                }}
+              />
+            )
+
             <animated.div
               style={{
                 position: 'absolute',

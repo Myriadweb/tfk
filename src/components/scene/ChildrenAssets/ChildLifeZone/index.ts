@@ -30,7 +30,7 @@ import { ReactComponent as Child2HappyStanding } from './Child2/happyStanding.sv
 import { ReactComponent as Child2SensoryDefault } from './Child2/sensoryDefault.svg';
 import Child2happySensory from './Child2/happySensory.svg';
 
-import Child3 from './Child3/default.png';
+import Child3 from './Child3/default.svg';
 import { ReactComponent as Child3StandingDefault } from './Child3/happyStanding.svg';
 import Child3Scared from './Child3/scared.svg';
 import Child3Moon from './Child3/moon.svg';

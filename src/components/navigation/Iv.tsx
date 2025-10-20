@@ -20,6 +20,7 @@ import { ReactComponent as Arrow } from '../scene/SceneAssets/Arrow.svg';
 import Cardiovascular from './BodySystemsAssets/Cardiovascular.svg';
 import { Trans } from 'react-i18next';
 import {screenScale} from "../../utils/scaling";
+import Scrapbook from "./SharedAssets/scrapbook.svg";
 
 type Props = {
   path: Paths;
@@ -247,7 +248,7 @@ const Iv = ({ prefix }: Props) => {
                 text=''
               />
               <NavigationButton
-                image={Tablet}
+                image={Scrapbook}
                 size={'large'}
                 onClick={() => {
                     playSound('generalSelect');

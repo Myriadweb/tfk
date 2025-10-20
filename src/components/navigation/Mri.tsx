@@ -42,7 +42,9 @@ const Mri = ({ prefix }: Props) => {
 
   const stepComponentConfig = {
     0: () => (
-      <BlueBar style={{ top: 120, height: 191 }}>
+      <BlueBar style={{
+        height: screenScale.y(192),
+      }}>
         <div className='nav-items-container' style={{ width: 592 }}>
           <div>
             <NavigationButton

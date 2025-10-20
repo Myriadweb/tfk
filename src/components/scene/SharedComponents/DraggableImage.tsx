@@ -27,7 +27,7 @@ export const DraggableImage = ({
   const track = (_e: MouseEvent, data: any) => {
     const newX = Math.floor(x + data.x);
     const newY = Math.floor(y + data.y);
-
+    // console.log(newX, newY);
     onComplete(newX, newY);
   };
 

@@ -184,7 +184,7 @@ const Digestive = ({ prefix }: Props) => {
         onClick={() => {
           playSound('completeProcedure');
           setGameState({ step: 0 });
-          navigate('/' + Paths.BodySystems + '/' + Paths.Digestive);
+          navigate(Paths.BodySystems + '/' + Paths.Digestive);
         }}
       />
     ),

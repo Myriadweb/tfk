@@ -25,7 +25,7 @@ import { ReactComponent as AsleepFace } from './SurgicalPrepAssets/sliderAsleep.
 
 import { CustomSlider } from './CustomSlider';
 import { Trans } from 'react-i18next';
-import Tablet from "./IvAssets/iPad.svg";
+import Scrapbook from "./SharedAssets/scrapbook.svg";
 import {SCALE_FACTORS, screenScale} from "../../utils/scaling";
 
 const PUMPS_CONFIG = {
@@ -84,6 +84,7 @@ const SurgicalPrep = ({ prefix }: Props) => {
               top: 6,
               background: 'transparent',
               border: 'none',
+              padding: 0
             }}
             onClick={() => {
               if (pumps >= 3) return;
@@ -100,8 +101,8 @@ const SurgicalPrep = ({ prefix }: Props) => {
               }, 800);
             }}
           >
-            <img src={BpPumpButton} />
-            {pumps && (
+            <img src={BpPumpButton} style={{ paddingLeft: 6 }} />
+            {pumps > 0 && (
               <img
                 src={PUMPS_CONFIG[pumps]}
                 style={{
@@ -251,7 +252,7 @@ const SurgicalPrep = ({ prefix }: Props) => {
                       text=''
                   />
                   <NavigationButton
-                      image={Tablet}
+                      image={Scrapbook}
                       size={'large'}
                       onClick={() => {
                           playSound('generalSelect');

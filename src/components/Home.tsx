@@ -50,6 +50,7 @@ import MuscularGame from './scene/MuscularGame';
 import DigestiveGame from './scene/DigestiveGame';
 import { useGameContext } from '../state/game';
 import { screenScale } from '../utils/scaling';
+import { isDesktopApp } from "../utils/platform";
 
 const TIME_TO_SPLASH = 1200000;
 
@@ -68,6 +69,7 @@ export function Home() {
   const locationPrefix = params.location ? `/${params.location}` : '';
 
   const handleResetTimeout = () => {
+    console.log('handle ResetTimeout called');
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
     }
@@ -117,7 +119,7 @@ export function Home() {
   }
 
   return (
-    <div className='App' onClick={() => handleResetTimeout()}>
+    <div className='App' onClick={() => isDesktopApp() ? handleResetTimeout() : null}>
       <Header path={Paths[path === 'Game' ? prefix : path]} />
       <div
         className='App-stage'
@@ -208,6 +210,7 @@ export function Home() {
         {location.pathname.includes(Paths.BodySystems) && (
           <div className='Options-buttons-box'>
             <Link
+              className='no-touch-menu'
               to={
                 prefix === 'Skeletal' && gameState.value === 'done'
                   ? location.pathname + location.search
@@ -235,6 +238,7 @@ export function Home() {
               </span>
             </Link>
             <Link
+              className='no-touch-menu'
               to={'?play=true'}
               onClick={() => {
                 if (prefix === 'Skeletal' && gameState.value === 'done') {

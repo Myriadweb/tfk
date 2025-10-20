@@ -21,7 +21,7 @@ const DEVICE_CONFIGS = {
     targetHeight: 1300,
   },
   // Easy to add more devices
-  'android-tablet': {
+  'surfacd-pro': {
     baseWidth: 1080,
     baseHeight: 1920,
     targetWidth: 1000,

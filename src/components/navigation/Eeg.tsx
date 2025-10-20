@@ -17,7 +17,7 @@ import Nervous from './BodySystemsAssets/Nervous.svg';
 import { BlueBarContinue } from './BlueBarContinue';
 import BlueBar from './UIComponents/BlueBar';
 import { Trans } from 'react-i18next';
-import Tablet from "./IvAssets/iPad.svg";
+import Scrapbook from "./SharedAssets/scrapbook.svg";
 import {screenScale} from "../../utils/scaling";
 
 type Props = {
@@ -250,7 +250,7 @@ export default function Eeg({ prefix }: Props) {
                         text=''
                     />
                     <NavigationButton
-                        image={Tablet}
+                        image={Scrapbook}
                         size={'large'}
                         onClick={() => {
                             playSound('generalSelect');

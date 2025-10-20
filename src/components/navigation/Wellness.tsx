@@ -19,7 +19,7 @@ import Cardiovascular from './BodySystemsAssets/Cardiovascular.svg';
 import { BlueBarContinue } from './BlueBarContinue';
 import { Trans } from 'react-i18next';
 import { animated } from 'react-spring';
-import Tablet from "./IvAssets/iPad.svg";
+import Scrapbook from "./SharedAssets/scrapbook.svg";
 import {screenScale} from "../../utils/scaling";
 
 const PUMPS_CONFIG = {
@@ -196,7 +196,7 @@ const Wellness = ({ prefix }: Props) => {
                       text=''
                   />
                   <NavigationButton
-                      image={Tablet}
+                      image={Scrapbook}
                       size={'large'}
                       onClick={() => {
                           playSound('generalSelect');
