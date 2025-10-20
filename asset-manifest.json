@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.7a166e9b.css",
-    "main.js": "./static/js/main.7891a777.js",
+    "main.css": "./static/css/main.5ec5fa25.css",
+    "main.js": "./static/js/main.c16cfa7b.js",
     "reactPlayerYouTube.js": "./static/js/reactPlayerYouTube.e75b1665.chunk.js",
     "reactPlayerSoundCloud.js": "./static/js/reactPlayerSoundCloud.01799e80.chunk.js",
     "reactPlayerVimeo.js": "./static/js/reactPlayerVimeo.b3ac696c.chunk.js",
@@ -18,7 +18,6 @@
     "reactPlayerPreview.js": "./static/js/reactPlayerPreview.77277490.chunk.js",
     "static/media/splashVideo.mp4": "./static/media/splashVideo.3ba06c3b1a995be98dfa.mp4",
     "static/media/vestibular.webm": "./static/media/vestibular.fa40bb1b488a4851ba32.webm",
-    "static/media/default.png": "./static/media/default.ed2c731e925466a6ef9d.png",
     "static/media/cardiovascular1a.mp4": "./static/media/cardiovascular1a.5e40c93e581101079ccf.mp4",
     "static/media/overlayBADIPad.png": "./static/media/overlayBADIPad.0bc70960ce0d32da5bee.png",
     "static/media/overlayGOODIPad.png": "./static/media/overlayGOODIPad.a6a4a395501c10c2d057.png",
@@ -26,9 +25,11 @@
     "static/media/scrapbook.jpg": "./static/media/scrapbook.f2be7628816fdccce7ea.jpg",
     "static/media/overlayBAD.png": "./static/media/overlayBAD.68502d1e318fcbc6c1f6.png",
     "static/media/overlayGOOD.png": "./static/media/overlayGOOD.4f2e0638f7442adc6715.png",
+    "static/media/stomachOverlayIpad.png": "./static/media/stomachOverlayIpad.fd6e04e9015b8dbb34ca.png",
     "static/media/overlayBadIpad.png": "./static/media/overlayBadIpad.fe606b3a1137b0ae57fb.png",
     "static/media/flies.png": "./static/media/flies.0cd1890965fbcf3f4205.png",
     "static/media/overlayGoodIpad.png": "./static/media/overlayGoodIpad.5a189c7b7405d07559d2.png",
+    "static/media/smallIntestineOverlayIpad.png": "./static/media/smallIntestineOverlayIpad.bf1f0b95d833c4565f13.png",
     "static/media/labels.svg": "./static/media/labels.b06ca9092ec7f17f6761a9a20eb1af33.svg",
     "static/media/overlayBad.png": "./static/media/overlayBad.fd66066431182787acb3.png",
     "static/media/overlayGood.png": "./static/media/overlayGood.82976e0e225e7fb2da95.png",
@@ -39,7 +40,7 @@
     "static/media/cardiovascular1c.mp4": "./static/media/cardiovascular1c.5bb6c36a8eb297134182.mp4",
     "static/media/finalChild.svg": "./static/media/finalChild.b1f75e7387ceecd377771d95928f05fe.svg",
     "static/media/childBedHappy.svg": "./static/media/childBedHappy.d301604101903e3f3c2c957b1536475c.svg",
-    "static/media/childBed.svg": "./static/media/childBed.0b21ba64d7b6a1570ba3f5a1f4b08ecf.svg",
+    "static/media/childBed.svg": "./static/media/childBed.7a9801a082ba05bd2b0c70b866ed347b.svg",
     "static/media/hotSauce.svg": "./static/media/hotSauce.df8ef8e9e45faeb922721983bd1cda8a.svg",
     "static/media/childBedSmiling.svg": "./static/media/childBedSmiling.2df34695f33cd54e706d9241c1b7adfd.svg",
     "static/media/moon.svg": "./static/media/moon.1dbeabd01ddeb4d5a741e2d11b4be0b4.svg",
@@ -50,10 +51,11 @@
     "static/media/scared.svg": "./static/media/scared.06e73fe99160570647eee8710fb381e6.svg",
     "static/media/iceCream.svg": "./static/media/iceCream.893b4b76a8c3832a65b8b3f1b85f9793.svg",
     "static/media/protection.svg": "./static/media/protection.0476362b40291f333bb4a607d1ee494d.svg",
-    "static/media/happySensory.svg": "./static/media/happySensory.588394c70234a588618bfc7c76ff720f.svg",
+    "static/media/happySensory.svg": "./static/media/happySensory.fc34c3574b239aca62adb2d3b59842e7.svg",
     "static/media/hemisphereHighlight.png": "./static/media/hemisphereHighlight.68a72c60b8a1d0183f71.png",
     "static/media/frontViewHighlight.png": "./static/media/frontViewHighlight.21f8282276b2862ebe3c.png",
     "static/media/quadricepsContractingIpad.svg": "./static/media/quadricepsContractingIpad.5736055a2996e771e2c6bd0435695186.svg",
+    "static/media/default.svg": "./static/media/default.f1965358bf42bc54d387d2d10036b8ea.svg",
     "static/media/proprioceptionGood.svg": "./static/media/proprioceptionGood.34e1fa4f2b9bf7f55e14d1ea1064b0df.svg",
     "static/media/standingChild.png": "./static/media/standingChild.e06602f1f83f5b8e4fd8.png",
     "static/media/mriScene.svg": "./static/media/mriScene.ce25260ccda92783b40ee2efd81a948b.svg",
@@ -68,7 +70,6 @@
     "static/media/mriBedSleeping.svg": "./static/media/mriBedSleeping.7a88c1a68d66876e37adb8d012f35410.svg",
     "static/media/wellnessScene.svg": "./static/media/wellnessScene.4b7bb6781964186d1b712c5fa3bd6013.svg",
     "static/media/childSleeping.svg": "./static/media/childSleeping.05a46afe7a97adffa64fd758d0ec55b4.svg",
-    "static/media/default.svg": "./static/media/default.f1965358bf42bc54d387d2d10036b8ea.svg",
     "static/media/cardiovascular2aNew.mp4": "./static/media/cardiovascular2aNew.799638ddc6964fccfb54.mp4",
     "static/media/pan.png": "./static/media/pan.b59356698b16b49d60bb.png",
     "static/media/cardiovascular2b.mp4": "./static/media/cardiovascular2b.6fb7f89a3b8105bc5d99.mp4",
@@ -367,8 +368,8 @@
     "static/media/chewMeter1.svg": "./static/media/chewMeter1.c69f93bf6f151d20e79d025d0c73693a.svg",
     "index.html": "./index.html",
     "static/media/background.svg": "./static/media/background.ced4125d640bf03f1896495829a9e09b.svg",
-    "main.7a166e9b.css.map": "./static/css/main.7a166e9b.css.map",
-    "main.7891a777.js.map": "./static/js/main.7891a777.js.map",
+    "main.5ec5fa25.css.map": "./static/css/main.5ec5fa25.css.map",
+    "main.c16cfa7b.js.map": "./static/js/main.c16cfa7b.js.map",
     "reactPlayerYouTube.e75b1665.chunk.js.map": "./static/js/reactPlayerYouTube.e75b1665.chunk.js.map",
     "reactPlayerSoundCloud.01799e80.chunk.js.map": "./static/js/reactPlayerSoundCloud.01799e80.chunk.js.map",
     "reactPlayerVimeo.b3ac696c.chunk.js.map": "./static/js/reactPlayerVimeo.b3ac696c.chunk.js.map",
@@ -385,7 +386,7 @@
     "reactPlayerPreview.77277490.chunk.js.map": "./static/js/reactPlayerPreview.77277490.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7a166e9b.css",
-    "static/js/main.7891a777.js"
+    "static/css/main.5ec5fa25.css",
+    "static/js/main.c16cfa7b.js"
   ]
 }
