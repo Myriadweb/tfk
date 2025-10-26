@@ -20,7 +20,7 @@ import { BlueBarContinue } from './BlueBarContinue';
 import { Trans } from 'react-i18next';
 import { animated } from 'react-spring';
 import Scrapbook from "./SharedAssets/scrapbook.svg";
-import {screenScale} from "../../utils/scaling";
+import { screenScale, SCALE_FACTORS } from "../../utils/scaling";
 
 const PUMPS_CONFIG = {
   1: BpPumpOneBar,
@@ -57,7 +57,7 @@ const Wellness = ({ prefix }: Props) => {
           justifyContent: 'center',
         }}
       >
-        <div style={{ position: 'relative' }}>
+        <div style={{ position: 'relative', transform: `scale(${SCALE_FACTORS.avg})` }}>
           <img src={BpPumpBase} />
           <button
             style={{
@@ -66,6 +66,7 @@ const Wellness = ({ prefix }: Props) => {
               top: 6,
               background: 'transparent',
               border: 'none',
+              padding: 0
             }}
             onClick={() => {
               if (pumps >= 3) return;
@@ -84,8 +85,8 @@ const Wellness = ({ prefix }: Props) => {
               }, 800);
             }}
           >
-            <img src={BpPumpButton} />
-            {pumps && (
+            <img src={BpPumpButton} style={{ paddingLeft: 6 }} />
+            {pumps > 0 && (
               <img
                 src={PUMPS_CONFIG[pumps]}
                 style={{

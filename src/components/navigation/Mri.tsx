@@ -18,7 +18,7 @@ import Medal from './SharedAssets/medal.svg';
 import BlueBar from './UIComponents/BlueBar';
 import { BlueBarContinue } from './BlueBarContinue';
 import { Trans } from 'react-i18next';
-import Tablet from "./IvAssets/iPad.svg";
+import Scrapbook from "./SharedAssets/scrapbook.svg";
 import {screenScale} from "../../utils/scaling";
 
 type Props = {
@@ -195,7 +195,7 @@ const Mri = ({ prefix }: Props) => {
                       text=''
                   />
                   <NavigationButton
-                      image={Tablet}
+                      image={Scrapbook}
                       size={'large'}
                       onClick={() => {
                           playSound('generalSelect');
