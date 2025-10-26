@@ -50,7 +50,7 @@ import MuscularGame from './scene/MuscularGame';
 import DigestiveGame from './scene/DigestiveGame';
 import { useGameContext } from '../state/game';
 import { screenScale } from '../utils/scaling';
-import { isDesktopApp } from "../utils/platform";
+import { isDesktopApp } from '../utils/platform';
 
 const TIME_TO_SPLASH = 1200000;
 
@@ -119,7 +119,10 @@ export function Home() {
   }
 
   return (
-    <div className='App' onClick={() => isDesktopApp() ? handleResetTimeout() : null}>
+    <div
+      className='App'
+      onClick={() => (isDesktopApp() ? handleResetTimeout() : null)}
+    >
       <Header path={Paths[path === 'Game' ? prefix : path]} />
       <div
         className='App-stage'

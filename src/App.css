@@ -5,10 +5,11 @@
   --scale-avg: 1;
 }
 
-img, .no-touch-menu {
+img,
+.no-touch-menu {
   -webkit-touch-callout: none; /* Safari/iOS */
-  -webkit-user-select: none;   /* Safari/iOS */
-  user-select: none;           /* Standard */
+  -webkit-user-select: none; /* Safari/iOS */
+  user-select: none; /* Standard */
   -webkit-tap-highlight-color: transparent;
   -webkit-user-drag: none;
 }
