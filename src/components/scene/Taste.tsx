@@ -11,7 +11,7 @@ import Bottle from './SensoryAssets/TasteAssets/Bottle.png';
 import SenseHighlight from './SensoryAssets/TasteAssets/SenseHighlight.png';
 import Drop from './SensoryAssets/TasteAssets/Drop.png';
 import { useCharacterContext } from '../../state/character';
-import { Characters, sensoryChildWidth } from './ChildrenAssets/childrenAssets';
+import { Characters } from './ChildrenAssets/childrenAssets';
 import BottomOverlay from './SensoryAssets/bottomOverlay.png';
 import OverlayGood from './SensoryAssets/overlayGOOD.png';
 import OverlayBad from './SensoryAssets/overlayBAD.png';
@@ -83,7 +83,6 @@ export default function Taste() {
   const ChildComponent = Characters.sensory[selectedCharacter];
   const ChildGood = Characters.iceCream[selectedCharacter];
   const ChildBad = Characters.hotSauce[selectedCharacter];
-  const width = sensoryChildWidth;
   const bodyLeft = screenScale.x(540);
 
   return (
