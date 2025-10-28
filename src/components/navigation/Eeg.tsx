@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useNavBarTranslation, useLocationNavigate, useLocationPath } from '../../hooks';
-import {Link, useNavigate} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import { useGameContext } from '../../state/game';
 import { animated } from 'react-spring';
 import playSound from '../../sound';

@@ -17,7 +17,7 @@ import Animation2A from '../../animations/cardiovascular2aNew.mp4';
 import Animation2B from '../../animations/cardiovascular2b.mp4';
 
 import ReactPlayer from 'react-player';
-import {SCALE_FACTORS, screenScale} from "../../utils/scaling";
+import {screenScale} from "../../utils/scaling";
 import { useLocationPath } from "../../hooks";
 
 export default function CardiovascularGame() {

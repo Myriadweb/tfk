@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Paths } from '../types/Paths';
 import { useNavigate } from 'react-router-dom';
 import ReactPlayer from 'react-player';
-import { getLocationFolder, DEFAULT_LOCATION } from '../utils/locationLoader';
+import { getLocationFolder } from '../utils/locationLoader';
 import { useLocationPath } from '../hooks';
 import { isDesktopApp } from '../utils/platform';
 import { LOCATION } from '../config';

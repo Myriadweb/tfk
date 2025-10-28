@@ -18,7 +18,6 @@ import MouthHighlight from './DigestiveAssets/mouthHighlight.png';
 import RectumHighlight from './DigestiveAssets/rectumHighlight.png';
 import AppendixHighlight from './DigestiveAssets/appendixHighlight.png';
 import {screenScale} from "../../utils/scaling";
-import { useLocationPath } from '../../hooks';
 
 const bodyLeft = screenScale.x(540);
 
@@ -51,7 +50,6 @@ export default function Digestive() {
   }));
   const location = useLocation();
   const [highlighted, setHighlighted] = useState('');
-  const buildPath = useLocationPath();
 
   if (location.search === '?play=true') {
     return <Navigate to={Paths.Game + '?play=true'} />;

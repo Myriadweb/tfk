@@ -86,7 +86,6 @@ export function Smell() {
   const ChildGood = Characters.happySensory[selectedCharacter];
   const ChildBad = Characters.scaredSensory[selectedCharacter];
   const width = sensoryChildWidth;
-  const bodyLeft = screenScale.x(540);
   return (
     <>
       <img

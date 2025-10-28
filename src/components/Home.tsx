@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import {
   Navigate,
   useLocation,
@@ -11,13 +11,12 @@ import {
 import { Header } from './Header';
 import { NavBar } from './NavBar';
 import { Paths } from '../types/Paths';
-import { usePathFromLocation, useLocationPath } from '../hooks';
+import { usePathFromLocation } from '../hooks';
 import { MainMenu } from './scene/MainMenu';
 import Sensory from './scene/Sensory';
 import { useTranslation } from 'react-i18next';
 import { ReactComponent as PlaySVG } from './HomeAssets/Play.svg';
 import { ReactComponent as ExploreSVG } from './HomeAssets/Explore.svg';
-import { ReactComponent as OptionOverlaySVG } from './HomeAssets/IconOverlay.svg';
 import { Smell } from './scene/Smell';
 import Skeletal from './scene/Skeletal';
 import Cardiovascular from './scene/Cardiovascular';

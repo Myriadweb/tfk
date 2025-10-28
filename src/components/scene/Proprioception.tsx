@@ -51,7 +51,6 @@ export default function Proprioception() {
       : Child3Standing;
   const CharacterGood = Characters['liftFeather'][selectedCharacter];
   const CharacterBad = Characters['liftWeight'][selectedCharacter];
-  const bodyLeft = screenScale.x(540);
 
   return (
     <>

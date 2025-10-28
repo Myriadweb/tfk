@@ -1,6 +1,6 @@
 import React, { CSSProperties } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-import { elementPosition, getCurrentDevice } from "../../utils/scaling";
+import { getCurrentDevice } from "../../utils/scaling";
 import { useCharacterContext } from '../../state/character';
 import { Characters, sensoryChildWidth } from './ChildrenAssets/childrenAssets';
 import { Paths } from '../../types/Paths';
@@ -72,9 +72,6 @@ export default function DigestiveGame() {
   const [stomachOverlaysStyle, stomachOverlaysApi] = useSpring(() => ({
     opacity: 0,
   }));
-  const overlayStyle: React.CSSProperties = getCurrentDevice().device === 'desktop'
-    ? { top: -200, left: 0, transform: 'none' }
-    : { top: '60%', left: '50%', transform: 'translate(-50%, -50%)' };
 
   const [blueBoxOverlaysStyle, blueBoxOverlaysApi] = useSpring(() => ({
     opacity: 0,
@@ -227,7 +224,6 @@ export default function DigestiveGame() {
   const childAsset = STEP_TO_CHILD_CONFIG[step] || 'digestiveEyesClosed';
 
   const ChildComponent = Characters[childAsset][selectedCharacter];
-  const DefaultChild = Characters.default[selectedCharacter];
   const width = sensoryChildWidth;
 
   return (

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {animated, config, useSpring} from 'react-spring';
+import {animated, useSpring} from 'react-spring';
 import { useGameContext } from '../../state/game';
 import { DraggableImage } from './SharedComponents/DraggableImage';
 import playSound from '../../sound';
