@@ -107,11 +107,13 @@ const DraggableImage = ({
   }, [placed, setPlacedNumber]);
 
   const track = (_e: MouseEvent, data: any) => {
+    if (placed) return; // Prevent multiple triggers
     const newX = Math.floor(randomX.current + data.x);
     const newY = Math.floor(randomY.current + data.y);
 
     setPosition({ x: data.x, y: data.y });
     if (newX < x + 70 && newX > x - 70 && newY > y - 70 && newY < y + 70) {
+      console.log('Placed', value);
       playSound(isLast ? 'completeProcedure' : 'skeletalBoneRightPosition');
       setPlaced(true);
       setGameState({ step: 0, value: isLast ? 'done' : value });

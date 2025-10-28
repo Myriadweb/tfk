@@ -6,7 +6,7 @@
   "build": {
     "frontendDist": "../build",
     "devUrl": "http://localhost:3000",
-    "beforeDevCommand": "npm run dev",
+    "beforeDevCommand": "npm run start",
     "beforeBuildCommand": "npm run build"
   },
   "app": {
@@ -15,7 +15,7 @@
         "title": "Teammates For Kids",
         "width": 1080,
         "height": 1920,
-        "resizable": false,
+        "resizable": true,
         "fullscreen": true,
         "alwaysOnTop": true,
         "decorations": false,
