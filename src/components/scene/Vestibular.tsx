@@ -12,16 +12,15 @@ import OverlayBad from './SensoryAssets/VestibularAssets/overlayBad.png';
 import OverlayGood from './SensoryAssets/VestibularAssets/overlayGood.png';
 import Stars from './SensoryAssets/VestibularAssets/stars.svg';
 import JumpLines from './SensoryAssets/VestibularAssets/jumpLines.svg';
-import Animation from '../../animations/vestibular.webm';
 import BottomOverlay from './SensoryAssets/bottomOverlay.png';
 import BgBad from './SensoryAssets/BGBad.png';
 
 import { useCharacterContext } from '../../state/character';
 import { Characters } from './ChildrenAssets/childrenAssets';
 import { useGameContext } from '../../state/game';
-import ReactPlayer from 'react-player';
 import {screenScale} from "../../utils/scaling";
 import { useLocationPath } from "../../hooks";
+import tornadoFrames from './VestibularAssets/vestibularSequences/vestibularSequences';
 
 const valueType = 'badVestibular';
 const finalValueType = valueType + '-final';
@@ -30,6 +29,7 @@ export default function Vestibular() {
   const [sensoryState, setSensoryState] = React.useState<VariationsType | null>(
     null
   );
+  const [tornadoFrame, setTornadoFrame] = React.useState(0);
   const [tornadoAnimation, setTornadoAnimation] = React.useState(false);
   const [selectedCharacter] = useCharacterContext();
   const location = useLocation();
@@ -49,6 +49,25 @@ export default function Vestibular() {
   const CharacterBad = Characters.hitFloor[selectedCharacter];
   const CharacterProtected = Characters.protection[selectedCharacter];
   const buildPath = useLocationPath();
+
+  React.useEffect(() => {
+    if (!tornadoAnimation) {
+      setTornadoFrame(0);
+      return;
+    }
+    let frame = 0;
+    const totalFrames = tornadoFrames.length;
+    const interval = setInterval(() => {
+      frame++;
+      if (frame >= totalFrames) {
+        setTornadoAnimation(false);
+        clearInterval(interval);
+      } else {
+        setTornadoFrame(frame);
+      }
+    }, 1000 / 24); // 24 FPS
+    return () => clearInterval(interval);
+  }, [tornadoAnimation]);
 
   if ((sensoryState || tornadoAnimation) && value !== finalValueType) {
     if (value === 'good') overlayAPI.set({ opacity: 0 });
@@ -151,23 +170,19 @@ export default function Vestibular() {
         }}
       />
       {tornadoAnimation && (
-        <animated.div
+        <img
+          src={tornadoFrames[tornadoFrame]}
           style={{
             position: 'absolute',
             top: 0,
             left: 0,
+            width: '100%',
+            height: '100%',
+            zIndex: 10,
+            pointerEvents: 'none',
           }}
-        >
-          <ReactPlayer
-            playing
-            url={Animation}
-            width='100%'
-            height='100%'
-            onEnded={() => {
-              setTornadoAnimation(false);
-            }}
-          />
-        </animated.div>
+          alt="Tornado Animation"
+        />
       )}
       {sensoryState === 'good' && (
         <animated.img

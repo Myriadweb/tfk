@@ -13,7 +13,7 @@ import { useTranslation } from 'react-i18next';
 import Animation1A from '../../animations/cardiovascular1a.mp4';
 import Animation1B from '../../animations/cardiovascular1b.mp4';
 import Animation1C from '../../animations/cardiovascular1c.mp4';
-import Animation2A from '../../animations/cardiovascular2aNew.mp4';
+import Animation2A from '../../animations/cardiovascular2a.mp4';
 import Animation2B from '../../animations/cardiovascular2b.mp4';
 
 import ReactPlayer from 'react-player';
@@ -111,6 +111,8 @@ export default function CardiovascularGame() {
           className='react-player'
           playing
           url={Animation1A}
+          muted={true}
+          playsinline={true}
           width='100%'
           height='100%'
           onEnded={() => setGameState({ step: 3 })}

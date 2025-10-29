@@ -25,6 +25,7 @@ import WasteBlueBox from './DigestiveAssets/wasteBlueBox.svg';
 import LargeIntestineLine from './DigestiveAssets/largelIntestineLeaderLine.svg';
 import Waste from './DigestiveAssets/waste.svg';
 import Animation from '../../animations/digestive1.webm';
+import digestiveFrames from "./DigestiveAssets/digestiveSequences/digestiveSequences";
 
 import { useSpring, animated } from 'react-spring';
 import { columnLabelStyle } from './common';
@@ -42,6 +43,8 @@ export default function DigestiveGame() {
   const [selectedCharacter] = useCharacterContext();
   const [{ step }, setGameState] = useGameContext();
   const location = useLocation();
+  const [digestiveFrame, setDigestiveFrame] = React.useState(0);
+  const [digestiveAnimating, setDigestiveAnimating] = React.useState(true); // or control with step
   const { t } = useTranslation('translation');
   const [appleStyle, appleApi] = useSpring(() => ({
     transform: 'translate(0px, 0px)',
@@ -101,6 +104,20 @@ export default function DigestiveGame() {
       onRest: () => setGameState({ step: 1 }),
     });
   };
+
+  React.useEffect(() => {
+    if (step >= 7 && step <= 8) {
+      if (!digestiveAnimating) return;
+      let frame = 0;
+      const totalFrames = digestiveFrames.length;
+      const interval = setInterval(() => {
+        frame = (frame + 1) % totalFrames;
+        setDigestiveFrame(frame);
+      }, 1000 / 24); // 24 FPS
+      return () => clearInterval(interval);
+    }
+  }, [step, digestiveAnimating]);
+
 
   React.useEffect(() => {
     if (step === 6) {
@@ -215,6 +232,7 @@ export default function DigestiveGame() {
       });
     }
   });
+
   const buildPath = useLocationPath();
 
   if (!location.search) {
@@ -302,17 +320,18 @@ export default function DigestiveGame() {
             <animated.div
               style={{
                 position: 'absolute',
-                top: -427,
-                left: -17,
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
                 ...stomachStyle,
               }}
             >
-              <ReactPlayer
-                playing
-                loop
-                url={Animation}
-                width='100%'
-                height='100%'
+              <img
+                src={digestiveFrames[digestiveFrame]}
+                style={{position: 'absolute', left: -20, top: -120 }}
+                alt="Digestive Animation"
+                draggable={false}
               />
             </animated.div>
             <animated.img
