@@ -1,7 +1,7 @@
 {
   "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
   "productName": "Teammates For Kids",
-  "version": "0.1.0",
+  "version": "2.1.0",
   "identifier": "com.teammates-for-kids",
   "build": {
     "frontendDist": "../build",
@@ -13,13 +13,10 @@
     "windows": [
       {
         "title": "Teammates For Kids",
-        "width": 1080,
-        "height": 1920,
-        "resizable": true,
+        "resizable": false,
         "fullscreen": true,
-        "alwaysOnTop": true,
         "decorations": false,
-        "skipTaskbar": true,
+        "skipTaskbar": false,
         "focus": true
       }
     ],

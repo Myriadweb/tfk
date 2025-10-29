@@ -51,7 +51,7 @@ import { useGameContext } from '../state/game';
 import { screenScale } from '../utils/scaling';
 import { isDesktopApp } from '../utils/platform';
 
-const TIME_TO_SPLASH = 1200000;
+const TIME_TO_SPLASH = 120000;
 
 export function Home() {
   // This gets the current location from react router.
