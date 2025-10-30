@@ -18,8 +18,8 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "/#/dimaggio",
-  "scope": "/",
+  "start_url": "/tfk/#/dimaggio",
+  "scope": "/tfk",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"

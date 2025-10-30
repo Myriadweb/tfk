@@ -18,8 +18,8 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "/#/phoenix",
-  "scope": "/",
+  "start_url": "/tfk/#/phoenix",
+  "scope": "/tfk",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
