@@ -18,7 +18,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "/tfk/#/riley",
+  "start_url": "/#/riley",
   "scope": "/",
   "display": "standalone",
   "theme_color": "#000000",

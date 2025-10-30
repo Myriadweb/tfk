@@ -18,7 +18,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "/tfk/#/phoenix",
+  "start_url": "/#/phoenix",
   "scope": "/",
   "display": "standalone",
   "theme_color": "#000000",
