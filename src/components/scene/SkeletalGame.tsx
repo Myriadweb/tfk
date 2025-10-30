@@ -163,7 +163,7 @@ export default function SkeletalGame() {
   const navigate = useNavigate();
   const location = useLocation();
   const leaving = !location.search;
-  const isLast = placedNumber === 0;
+  const isLast = placedNumber === -1;
   const buildPath = useLocationPath();
 
   if (!location.search) {

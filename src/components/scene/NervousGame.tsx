@@ -8,7 +8,7 @@ import FrontView from './NervousAssets/FrontView/base';
 import { useGameContext } from '../../state/game';
 import { Trans, useTranslation } from 'react-i18next';
 import NervousBlueBox from './NervousBlueBox';
-import {screenScale} from "../../utils/scaling";
+import {screenScale, SCALE_FACTORS} from "../../utils/scaling";
 import { useLocationPath } from "../../hooks";
 
 // Importing all the SVGs in a folder
@@ -673,9 +673,9 @@ export default function NervousGame() {
         style={{
           position: 'absolute',
           top: screenScale.y(359),
-          transform: 'scale(71%) translateX(-50%)',
+          transform: `scale(${SCALE_FACTORS.y}) translateX(-50%)`,
           transformOrigin: 'top',
-          left: screenScale.x(540),
+          left: screenScale.y(540),
         }}
       />
     </>
