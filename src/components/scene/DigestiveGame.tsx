@@ -24,13 +24,11 @@ import Vomit from './DigestiveAssets/vomit.svg';
 import WasteBlueBox from './DigestiveAssets/wasteBlueBox.svg';
 import LargeIntestineLine from './DigestiveAssets/largelIntestineLeaderLine.svg';
 import Waste from './DigestiveAssets/waste.svg';
-import Animation from '../../animations/digestive1.webm';
 import digestiveFrames from "./DigestiveAssets/digestiveSequences/digestiveSequences";
 
 import { useSpring, animated } from 'react-spring';
 import { columnLabelStyle } from './common';
 import { Trans, useTranslation } from 'react-i18next';
-import ReactPlayer from 'react-player';
 import playSound from '../../sound';
 import { useLocationPath} from "../../hooks";
 
@@ -44,7 +42,6 @@ export default function DigestiveGame() {
   const [{ step }, setGameState] = useGameContext();
   const location = useLocation();
   const [digestiveFrame, setDigestiveFrame] = React.useState(0);
-  const [digestiveAnimating, setDigestiveAnimating] = React.useState(true); // or control with step
   const { t } = useTranslation('translation');
   const [appleStyle, appleApi] = useSpring(() => ({
     transform: 'translate(0px, 0px)',
@@ -107,7 +104,6 @@ export default function DigestiveGame() {
 
   React.useEffect(() => {
     if (step >= 7 && step <= 8) {
-      if (!digestiveAnimating) return;
       let frame = 0;
       const totalFrames = digestiveFrames.length;
       const interval = setInterval(() => {
@@ -116,7 +112,7 @@ export default function DigestiveGame() {
       }, 1000 / 24); // 24 FPS
       return () => clearInterval(interval);
     }
-  }, [step, digestiveAnimating]);
+  }, [step]);
 
 
   React.useEffect(() => {
