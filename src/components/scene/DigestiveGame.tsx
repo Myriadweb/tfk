@@ -102,6 +102,15 @@ export default function DigestiveGame() {
     });
   };
 
+  // Preload digestiveFrames images
+  React.useEffect(() => {
+    digestiveFrames.forEach(src => {
+      const img = new window.Image();
+      img.src = src;
+    });
+  }, []);
+
+
   React.useEffect(() => {
     if (step >= 7 && step <= 8) {
       let frame = 0;

@@ -50,6 +50,14 @@ export default function Vestibular() {
   const CharacterProtected = Characters.protection[selectedCharacter];
   const buildPath = useLocationPath();
 
+  // Preload tornadoFrames images
+  React.useEffect(() => {
+    tornadoFrames.forEach(src => {
+      const img = new window.Image();
+      img.src = src;
+    });
+  }, []);
+
   React.useEffect(() => {
     if (!tornadoAnimation) {
       setTornadoFrame(0);
