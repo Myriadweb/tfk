@@ -18,7 +18,7 @@ const packageJsonPath = path.join(__dirname, '../package.json');
 const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
 
 // Extract the path from homepage
-let basePath = '';
+let basePath = '/tfk';
 if (packageJson.homepage) {
     try {
         // If it's a full URL, parse it

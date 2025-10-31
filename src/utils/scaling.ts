@@ -1,6 +1,9 @@
 import { DEVICE } from '../config';
 
 // Device configuration object
+const BASE_WIDTH = 1080;
+const BASE_HEIGHT = 1920;
+
 const DEVICE_CONFIGS = {
   desktop: {
     baseWidth: 1080,
@@ -27,20 +30,22 @@ const DEVICE_CONFIGS = {
     targetWidth: 960,
     targetHeight: 1440,
   },
-} as const;
+} as const
 
 // Get current device from environment
 const device = (DEVICE as keyof typeof DEVICE_CONFIGS) || 'desktop';
 const config = DEVICE_CONFIGS[device];
 
-// Calculate scale factors dynamically
-const scaleX = config.targetWidth / config.baseWidth;
-const scaleY = config.targetHeight / config.baseHeight;
-const scaleAvg = (scaleX + scaleY) / 2;
-
 // calculate viewport dimensions
-const viewportWidth = window.innerWidth;
-const viewportHeight = window.innerHeight;
+const viewportWidth = DEVICE !== 'desktop' ? window.innerWidth : BASE_WIDTH;
+const viewportHeight = DEVICE !== 'desktop' ? window.innerHeight : BASE_HEIGHT;
+console.log('viewportWidth', viewportWidth);
+console.log('viewportHeight', viewportHeight);
+
+// Calculate scale factors dynamically
+const scaleX = viewportWidth / BASE_WIDTH;
+const scaleY = viewportHeight / BASE_HEIGHT;
+const scaleAvg = (scaleX + scaleY) / 2;
 
 export const SCALE_FACTORS = {
   x: scaleX,
@@ -61,12 +66,12 @@ export const screenScale = {
 export const elementPosition = {
   left: (value: number, direction: '+' | '-' = '+') =>
     direction === '+'
-      ? value + (config.targetWidth - screenScale.y(config.targetWidth)) / 2
-      : value - (config.targetWidth - screenScale.y(config.targetWidth)) / 2,
+      ? value + (viewportWidth - screenScale.y(viewportWidth)) / 2
+      : value - (viewportWidth - screenScale.y(viewportWidth)) / 2,
   top: (value: number, direction: '+' | '-' = '+') =>
     direction === '+'
-      ? value + (config.targetHeight - screenScale.y(config.targetHeight)) / 2
-      : value - (config.targetHeight - screenScale.y(config.targetHeight)) / 2,
+      ? value + (viewportHeight - screenScale.y(viewportHeight)) / 2
+      : value - (viewportHeight - screenScale.y(viewportHeight)) / 2,
 };
 
 // Function to set CSS custom properties
