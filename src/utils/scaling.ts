@@ -21,11 +21,11 @@ const DEVICE_CONFIGS = {
     targetHeight: 1300,
   },
   // Easy to add more devices
-  'surfacd-pro': {
+  'surface-pro': {
     baseWidth: 1080,
     baseHeight: 1920,
-    targetWidth: 1000,
-    targetHeight: 1400,
+    targetWidth: 960,
+    targetHeight: 1440,
   },
 } as const;
 
@@ -37,6 +37,10 @@ const config = DEVICE_CONFIGS[device];
 const scaleX = config.targetWidth / config.baseWidth;
 const scaleY = config.targetHeight / config.baseHeight;
 const scaleAvg = (scaleX + scaleY) / 2;
+
+// calculate viewport dimensions
+const viewportWidth = window.innerWidth;
+const viewportHeight = window.innerHeight;
 
 export const SCALE_FACTORS = {
   x: scaleX,
