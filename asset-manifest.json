@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.06c706d4.css",
-    "main.js": "./static/js/main.cdca82e2.js",
+    "main.css": "./static/css/main.3fd5cfd9.css",
+    "main.js": "./static/js/main.670be998.js",
     "reactPlayerYouTube.js": "./static/js/reactPlayerYouTube.73e18834.chunk.js",
     "reactPlayerSoundCloud.js": "./static/js/reactPlayerSoundCloud.0a647d03.chunk.js",
     "reactPlayerVimeo.js": "./static/js/reactPlayerVimeo.f7c36295.chunk.js",
@@ -17,6 +17,7 @@
     "reactPlayerFilePlayer.js": "./static/js/reactPlayerFilePlayer.b3df540a.chunk.js",
     "reactPlayerPreview.js": "./static/js/reactPlayerPreview.70ceded6.chunk.js",
     "static/media/splashVideo.mp4": "./static/media/splashVideo.3ba06c3b1a995be98dfa.mp4",
+    "static/media/vestibular.webm": "./static/media/vestibular.fa40bb1b488a4851ba32.webm",
     "static/media/vestibular1_00050.png": "./static/media/vestibular1_00050.5313b2acc567597aac96.png",
     "static/media/vestibular1_00051.png": "./static/media/vestibular1_00051.763164dc55c7ff1b3085.png",
     "static/media/vestibular1_00052.png": "./static/media/vestibular1_00052.adf67e1cde857c9d08f0.png",
@@ -731,8 +732,8 @@
     "static/media/chewMeter1.svg": "./static/media/chewMeter1.c69f93bf6f151d20e79d025d0c73693a.svg",
     "index.html": "./index.html",
     "static/media/background.svg": "./static/media/background.ced4125d640bf03f1896495829a9e09b.svg",
-    "main.06c706d4.css.map": "./static/css/main.06c706d4.css.map",
-    "main.cdca82e2.js.map": "./static/js/main.cdca82e2.js.map",
+    "main.3fd5cfd9.css.map": "./static/css/main.3fd5cfd9.css.map",
+    "main.670be998.js.map": "./static/js/main.670be998.js.map",
     "reactPlayerYouTube.73e18834.chunk.js.map": "./static/js/reactPlayerYouTube.73e18834.chunk.js.map",
     "reactPlayerSoundCloud.0a647d03.chunk.js.map": "./static/js/reactPlayerSoundCloud.0a647d03.chunk.js.map",
     "reactPlayerVimeo.f7c36295.chunk.js.map": "./static/js/reactPlayerVimeo.f7c36295.chunk.js.map",
@@ -749,7 +750,7 @@
     "reactPlayerPreview.70ceded6.chunk.js.map": "./static/js/reactPlayerPreview.70ceded6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.06c706d4.css",
-    "static/js/main.cdca82e2.js"
+    "static/css/main.3fd5cfd9.css",
+    "static/js/main.670be998.js"
   ]
 }
