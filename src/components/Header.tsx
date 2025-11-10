@@ -4,6 +4,7 @@ import { useHeaderTranslation } from '../hooks';
 import { useLocation } from 'react-router-dom';
 import { useLanguageContext } from '../state/language';
 import { Trans } from 'react-i18next';
+import { screenScale } from "../utils/scaling";
 
 type Props = {
   path: Paths;
@@ -36,7 +37,7 @@ export function Header(props: Props) {
             position: 'relative',
             top: -8,
             letterSpacing: 2.98,
-            fontSize: lang === 'en' ? 60 : 42,
+            fontSize: lang === 'en' ? screenScale.x(60) : screenScale.x(42),
           }}
         >
           <Trans i18nKey={section} />

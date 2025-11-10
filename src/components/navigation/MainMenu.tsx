@@ -53,7 +53,7 @@ const MainMenu = ({ path }: Props) => {
           <span
             style={{
               marginTop: screenScale.y(23),
-              fontSize: 25,
+              fontSize: screenScale.x(25),
               color: '#FFF',
               letterSpacing: 1.24,
               whiteSpace: 'pre-wrap',
@@ -85,7 +85,7 @@ const MainMenu = ({ path }: Props) => {
           <span
             style={{
               marginTop: screenScale.y(23),
-              fontSize: 25,
+              fontSize: screenScale.x(25),
               color: '#FFF',
             }}
           >

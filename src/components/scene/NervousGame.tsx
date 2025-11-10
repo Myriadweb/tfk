@@ -330,8 +330,7 @@ export default function NervousGame() {
                 src={rightHemisphereImgs.frontalLobeHighlight}
                 style={{
                   position: 'absolute',
-                  transform: 'translateX(-50%)',
-                  right: 87,
+                  left: 512,
                   top: 654,
                 }}
               />

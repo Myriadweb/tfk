@@ -30,17 +30,20 @@ const DEVICE_CONFIGS = {
     targetWidth: 960,
     targetHeight: 1440,
   },
-} as const
+} as const;
 
 // Get current device from environment
 const device = (DEVICE as keyof typeof DEVICE_CONFIGS) || 'desktop';
 const config = DEVICE_CONFIGS[device];
 
+// window dimensions
+const windowHeight = window.innerHeight;
+const windowWidth = window.innerWidth < windowHeight ? window.innerWidth : window.innerHeight * .76;
+
 // calculate viewport dimensions
-const viewportWidth = DEVICE !== 'desktop' ? window.innerWidth : BASE_WIDTH;
-const viewportHeight = DEVICE !== 'desktop' ? window.innerHeight : BASE_HEIGHT;
-console.log('viewportWidth', viewportWidth);
-console.log('viewportHeight', viewportHeight);
+const viewportWidth = device !== 'desktop' ? windowWidth : BASE_WIDTH;
+const viewportHeight = device !== 'desktop' ? windowHeight : BASE_HEIGHT;
+
 
 // Calculate scale factors dynamically
 const scaleX = viewportWidth / BASE_WIDTH;

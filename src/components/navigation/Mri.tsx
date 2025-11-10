@@ -28,7 +28,7 @@ type Props = {
 
 const distractionTextStyle = {
   fontFamily: 'LemonMilk',
-  fontSize: 25,
+  fontSize: screenScale.x(25),
   fontWeight: 'bold',
   letterSpacing: 1.24,
   marginTop: 12,

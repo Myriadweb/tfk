@@ -28,11 +28,13 @@ function LocationRedirect() {
 function App() {
   useEffect(() => {
     setCSSScaleVariables();
-
-    // Update manifest with current location for PWA
     updateManifestStartUrl();
 
-    // Simple unlock on first interaction
+    // Prevent context menu (right-click/long-press)
+    const contextMenuHandler = (e: Event) => e.preventDefault();
+    document.addEventListener('contextmenu', contextMenuHandler);
+
+    // Unlock audio and preload sounds
     const handleInteraction = () => {
       unlockAudio();
       preloadSounds([
@@ -43,15 +45,16 @@ function App() {
         'completeProcedure'
       ]).catch(error => console.log('Preload error:', error));
     };
-
     document.addEventListener('touchstart', handleInteraction, { once: true });
     document.addEventListener('click', handleInteraction, { once: true });
 
     return () => {
+      document.removeEventListener('contextmenu', contextMenuHandler);
       document.removeEventListener('touchstart', handleInteraction);
       document.removeEventListener('click', handleInteraction);
     };
   }, []);
+
 
   return (
     <LocationContextProvider>

@@ -19,7 +19,7 @@ import PectoralsHighlight from './MuscularAssets/pectoralsHighlight.png';
 import QuadricepsHighlight from './MuscularAssets/quadricepsHighlight.png';
 import TricepsHighlight from './MuscularAssets/tricepsHighlight.png';
 import AnimatedLabel from './AnimatedLabel';
-import {screenScale} from "../../utils/scaling";
+import {screenScale, getCurrentDevice} from "../../utils/scaling";
 
 const bodyLeft = screenScale.x(540);
 
@@ -58,6 +58,8 @@ export default function Muscular() {
 
   const location = useLocation();
   const [highlighted, setHighlighted] = useState('');
+  const isSurfacePro = window.innerWidth === 960;
+
 
   if (location.search === '?play=true') {
     return <Navigate to={Paths.Game + '?play=true'} />;
@@ -86,7 +88,7 @@ export default function Muscular() {
   }
 
   return (
-    <div className='scene-container'>
+    <div className='element-container'>
       <animated.img
         src='images/Muscular/muscularBody.png'
         style={{
@@ -96,16 +98,44 @@ export default function Muscular() {
           ...bodyStyle,
         }}
       />
-      <animated.img
-        src={Labels}
-        style={{
-          top: 202,
-          position: 'absolute',
-          left: screenScale.x(543),
-          transform: 'translate(-50%, 0)',
-          ...overlayStyle,
-        }}
-      />
+      <div className='labels-container'>
+        <animated.img
+          src={Labels}
+          style={{
+            top: 202,
+            position: 'absolute',
+            transform: 'translate(-50%, 0)',
+            ...overlayStyle,
+          }}
+        />
+        <img
+          src={LattisimusDosiHighlight}
+          style={{
+            top: 310,
+            left: 125,
+            position: 'absolute',
+            opacity: ['latissimus'].includes(highlighted) ? 1 : 0,
+          }}
+        />
+        <img
+          src={GlueteusMaximusHighlight}
+          style={{
+            top: 625,
+            right: 62,
+            position: 'absolute',
+            opacity: ['gluteus'].includes(highlighted) ? 1 : 0,
+          }}
+        />
+        <img
+          src={HamstringsHighlight}
+          style={{
+            top: 1095,
+            left: 95,
+            position: 'absolute',
+            opacity: ['hamstrings'].includes(highlighted) ? 1 : 0,
+          }}
+        />
+      </div>
       <img
         src={AbdominalMusclesHighlight}
         style={{
@@ -140,33 +170,6 @@ export default function Muscular() {
           position: 'absolute',
           transform: 'translate(-50%, 0)',
           opacity: ['deltoids'].includes(highlighted) ? 1 : 0,
-        }}
-      />
-      <img
-        src={GlueteusMaximusHighlight}
-        style={{
-          top: 625,
-          right: screenScale.y(85),
-          position: 'absolute',
-          opacity: ['gluteus'].includes(highlighted) ? 1 : 0,
-        }}
-      />
-      <img
-        src={HamstringsHighlight}
-        style={{
-          top: 1095,
-          left: screenScale.avg(117),
-          position: 'absolute',
-          opacity: ['hamstrings'].includes(highlighted) ? 1 : 0,
-        }}
-      />
-      <img
-        src={LattisimusDosiHighlight}
-        style={{
-          top: 310,
-          left: screenScale.avg(155),
-          position: 'absolute',
-          opacity: ['latissimus'].includes(highlighted) ? 1 : 0,
         }}
       />
       <img

@@ -7,7 +7,7 @@ import playSound from '../sound';
 import { screenScale } from '../utils/scaling';
 
 const langStyle = {
-  fontSize: 20,
+  fontSize: screenScale.x(20),
   color: '#FFF',
   fontFamily: 'LemonMilk',
   textUnderlineOffset: 5,

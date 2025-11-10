@@ -480,7 +480,7 @@ const en: Translation = {
           'The surgical procedure was a success. <br />Choose a reward for the patient!',
         '14-buttonText': 'CONTINUE',
         '15-subText':
-          'You finished the surgery Tap below to learn more about <br /><strong>the cardiovascular1 system.</strong>',
+          'You finished the surgery Tap below to learn more about <br /><strong>the cardiovascular system.</strong>',
         '15-subText2':
           'Or see how other kids did with the procedure <br /><strong>in the patient scrapbook.</strong>',
         '15-back': 'Return to \nProcedures',

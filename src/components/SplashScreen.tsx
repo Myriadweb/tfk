@@ -57,9 +57,8 @@ export default function SplashScreen() {
   console.log('Location Animation:', locationAnimation);
   return (
     <div
+      className='App'
       style={{
-        height: '100vh',
-        width: '100vw',
         zIndex: 100,
       }}
       onClick={() => navigate(buildPath(Paths.Home))}
@@ -68,7 +67,7 @@ export default function SplashScreen() {
         playing
         loop
         url={locationAnimation}
-        width='100vw'
+        width='100%'
         height='auto'
       />
     </div>

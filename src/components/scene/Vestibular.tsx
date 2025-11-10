@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactPlayer from 'react-player';
 import { Navigate, useLocation } from 'react-router-dom';
 import { useSpring, animated } from 'react-spring';
 import {
@@ -14,14 +15,14 @@ import Stars from './SensoryAssets/VestibularAssets/stars.svg';
 import JumpLines from './SensoryAssets/VestibularAssets/jumpLines.svg';
 import BottomOverlay from './SensoryAssets/bottomOverlay.png';
 import BgBad from './SensoryAssets/BGBad.png';
-
+import { isDesktopApp } from "../../utils/platform";
 import { useCharacterContext } from '../../state/character';
 import { Characters } from './ChildrenAssets/childrenAssets';
 import { useGameContext } from '../../state/game';
 import {screenScale} from "../../utils/scaling";
 import { useLocationPath } from "../../hooks";
 import tornadoFrames from './VestibularAssets/vestibularSequences/vestibularSequences';
-
+import TornadoAnimationFile from '../../animations/vestibular.webm';
 const valueType = 'badVestibular';
 const finalValueType = valueType + '-final';
 
@@ -178,20 +179,41 @@ export default function Vestibular() {
         }}
       />
       {tornadoAnimation && (
-        <img
-          src={tornadoFrames[tornadoFrame]}
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            zIndex: 10,
-            pointerEvents: 'none',
-          }}
-          alt="Tornado Animation"
-        />
+        isDesktopApp ? (
+          <animated.div
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+            }}
+          >
+            <ReactPlayer
+              playing
+              url={TornadoAnimationFile}
+              width='100%'
+              height='100%'
+              onEnded={() => {
+                setTornadoAnimation(false);
+              }}
+            />
+          </animated.div>
+        ) : (
+          <img
+            src={tornadoFrames[tornadoFrame]}
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              zIndex: 10,
+              pointerEvents: 'none',
+            }}
+            alt="Tornado Animation"
+          />
+        )
       )}
+
       {sensoryState === 'good' && (
         <animated.img
           src={OverlayGood}

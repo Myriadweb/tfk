@@ -68,8 +68,9 @@ ReactDOM.render(
 );
 
 // Register service worker with update detection (web only)
-if ('serviceWorker' in navigator && !isElectron) {
+if ('serviceWorker' in navigator && !isElectron()) {
   window.addEventListener('load', () => {
+    // Explicitly set the base path for GitHub Pages
     const swUrl = `${process.env.PUBLIC_URL || ''}/service-worker.js`;
 
     navigator.serviceWorker
@@ -106,4 +107,3 @@ if ('serviceWorker' in navigator && !isElectron) {
       });
   });
 }
-

@@ -27,6 +27,8 @@ const AnimatedArrow = ({
       left: direction === 'left' ? screenScale.x(70): screenScale.x(1010),
       top: screenScale.y(732),
       transform: 'translate(-50%, 0)',
+      width: screenScale.x(94),
+      height: screenScale.x(137),
       ...style,
     }}
     onPointerDown={() => !disabled && onClick(direction)}

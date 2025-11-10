@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import {
   Navigate,
   useLocation,
@@ -78,14 +78,14 @@ export function Home() {
       setAnimateState('');
     }, TIME_TO_SPLASH);
   };
-  /*
+
+  // call handleResetTimeout on mount if desktop app
   useEffect(() => {
-    timeoutRef.current = setTimeout(
-      () => navigate(`${locationPrefix}/${Paths.SplashScreen}`),
-      TIME_TO_SPLASH
-    );
-  });
-   */
+    if (isDesktopApp()) {
+      handleResetTimeout();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // By default, the app will render the Home component.
   // If we're at the location root (e.g., /#/childlifezone or /#/childlifezone/), redirect to main-menu
@@ -121,6 +121,8 @@ export function Home() {
     <div
       className='App'
       onClick={() => (isDesktopApp() ? handleResetTimeout() : null)}
+      onMouseDown={() => (isDesktopApp() ? handleResetTimeout() : null)}
+      onTouchStart={() => (isDesktopApp() ? handleResetTimeout() : null)}
     >
       <Header path={Paths[path === 'Game' ? prefix : path]} />
       <div
