@@ -4,7 +4,7 @@ import { useHeaderTranslation } from '../hooks';
 import { useLocation } from 'react-router-dom';
 import { useLanguageContext } from '../state/language';
 import { Trans } from 'react-i18next';
-import { screenScale } from "../utils/scaling";
+import { screenScale } from '../utils/scaling';
 
 type Props = {
   path: Paths;

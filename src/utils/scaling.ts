@@ -38,12 +38,14 @@ const config = DEVICE_CONFIGS[device];
 
 // window dimensions
 const windowHeight = window.innerHeight;
-const windowWidth = window.innerWidth < windowHeight ? window.innerWidth : window.innerHeight * .76;
+const windowWidth =
+  window.innerWidth < windowHeight
+    ? window.innerWidth
+    : window.innerHeight * 0.76;
 
 // calculate viewport dimensions
 const viewportWidth = device !== 'desktop' ? windowWidth : BASE_WIDTH;
 const viewportHeight = device !== 'desktop' ? windowHeight : BASE_HEIGHT;
-
 
 // Calculate scale factors dynamically
 const scaleX = viewportWidth / BASE_WIDTH;
