@@ -19,7 +19,7 @@ import PectoralsHighlight from './MuscularAssets/pectoralsHighlight.png';
 import QuadricepsHighlight from './MuscularAssets/quadricepsHighlight.png';
 import TricepsHighlight from './MuscularAssets/tricepsHighlight.png';
 import AnimatedLabel from './AnimatedLabel';
-import {screenScale, getCurrentDevice} from "../../utils/scaling";
+import {screenScale} from "../../utils/scaling";
 
 const bodyLeft = screenScale.x(540);
 
@@ -58,8 +58,6 @@ export default function Muscular() {
 
   const location = useLocation();
   const [highlighted, setHighlighted] = useState('');
-  const isSurfacePro = window.innerWidth === 960;
-
 
   if (location.search === '?play=true') {
     return <Navigate to={Paths.Game + '?play=true'} />;
@@ -135,6 +133,123 @@ export default function Muscular() {
             opacity: ['hamstrings'].includes(highlighted) ? 1 : 0,
           }}
         />
+        <AnimatedLabel
+          style={{
+            ...columnLabelStyleLeft,
+            ...overlayStyle,
+            ...muscularLabelStyle,
+            top: 440,
+            padding: '5px 12px 7px',
+            left: 10,
+          }}
+          value='latissimus'
+          setterFn={setHighlighted}
+        >
+          {t('muscular.scene.latissimus')}
+        </AnimatedLabel>
+        <AnimatedLabel
+          style={{
+            ...columnLabelStyleLeft,
+            ...overlayStyle,
+            top: 615,
+          }}
+          value='pectorals'
+          setterFn={setHighlighted}
+        >
+          {t('muscular.scene.pectorals')}
+        </AnimatedLabel>
+        <AnimatedLabel
+          style={{
+            ...columnLabelStyleLeft,
+            ...overlayStyle,
+            ...muscularLabelStyle,
+            top: 730,
+            whiteSpace: 'pre-wrap',
+            padding: '5px 12px 7px',
+          }}
+          value='abs'
+          setterFn={setHighlighted}
+        >
+          {t('muscular.scene.abs')}
+        </AnimatedLabel>
+        <AnimatedLabel
+          style={{
+            ...columnLabelStyleLeft,
+            ...overlayStyle,
+            top: 886,
+          }}
+          value='quadriceps'
+          setterFn={setHighlighted}
+        >
+          {t('muscular.scene.quadriceps')}
+        </AnimatedLabel>
+        <AnimatedLabel
+          style={{
+            ...columnLabelStyleLeft,
+            ...overlayStyle,
+            top: 1176,
+          }}
+          value='hamstrings'
+          setterFn={setHighlighted}
+        >
+          {t('muscular.scene.hamstrings')}
+        </AnimatedLabel>
+        <AnimatedLabel
+          style={{
+            ...columnLabelStyleRight,
+            ...overlayStyle,
+            top: 271,
+          }}
+          value='deltoids'
+          setterFn={setHighlighted}
+        >
+          {t('muscular.scene.deltoids')}
+        </AnimatedLabel>
+        <AnimatedLabel
+          style={{
+            ...columnLabelStyleRight,
+            ...overlayStyle,
+            top: 355,
+          }}
+          value='biceps'
+          setterFn={setHighlighted}
+        >
+          {t('muscular.scene.biceps')}
+        </AnimatedLabel>
+        <AnimatedLabel
+          style={{
+            ...columnLabelStyleRight,
+            ...overlayStyle,
+            top: 456,
+          }}
+          value='triceps'
+          setterFn={setHighlighted}
+        >
+          {t('muscular.scene.triceps')}
+        </AnimatedLabel>
+        <AnimatedLabel
+          style={{
+            ...columnLabelStyleRight,
+            ...overlayStyle,
+            ...muscularLabelStyle,
+            top: 737,
+          }}
+          value='gluteus'
+          setterFn={setHighlighted}
+        >
+          {t('muscular.scene.gluteus')}
+        </AnimatedLabel>
+        <AnimatedLabel
+          style={{
+            ...columnLabelStyleRight,
+            ...overlayStyle,
+            top: 850,
+          }}
+          value='calves'
+          setterFn={setHighlighted}
+        >
+          {t('muscular.scene.calves')}
+        </AnimatedLabel>
       </div>
       <img
         src={AbdominalMusclesHighlight}
@@ -199,125 +314,6 @@ export default function Muscular() {
           opacity: ['triceps'].includes(highlighted) ? 1 : 0,
         }}
       />
-      <AnimatedLabel
-        style={{
-          ...columnLabelStyleLeft,
-          ...overlayStyle,
-          ...muscularLabelStyle,
-          top: 440,
-          padding: '5px 12px 7px',
-          left: 33,
-        }}
-        value='latissimus'
-        setterFn={setHighlighted}
-      >
-        {t('muscular.scene.latissimus')}
-      </AnimatedLabel>
-      <AnimatedLabel
-        style={{
-          ...columnLabelStyleLeft,
-          ...overlayStyle,
-          top: 615,
-        }}
-        value='pectorals'
-        setterFn={setHighlighted}
-      >
-        {t('muscular.scene.pectorals')}
-      </AnimatedLabel>
-      <AnimatedLabel
-        style={{
-          ...columnLabelStyleLeft,
-          ...overlayStyle,
-          ...muscularLabelStyle,
-          top: 730,
-          whiteSpace: 'pre-wrap',
-          padding: '5px 12px 7px',
-        }}
-        value='abs'
-        setterFn={setHighlighted}
-      >
-        {t('muscular.scene.abs')}
-      </AnimatedLabel>
-      <AnimatedLabel
-        style={{
-          ...columnLabelStyleLeft,
-          ...overlayStyle,
-          top: 886,
-        }}
-        value='quadriceps'
-        setterFn={setHighlighted}
-      >
-        {t('muscular.scene.quadriceps')}
-      </AnimatedLabel>
-      <AnimatedLabel
-        style={{
-          ...columnLabelStyleLeft,
-          ...overlayStyle,
-          top: 1176,
-          left: language === 'es' ? 16 : columnLabelStyleLeft.left,
-        }}
-        value='hamstrings'
-        setterFn={setHighlighted}
-      >
-        {t('muscular.scene.hamstrings')}
-      </AnimatedLabel>
-      <AnimatedLabel
-        style={{
-          ...columnLabelStyleRight,
-          ...overlayStyle,
-          top: 271,
-        }}
-        value='deltoids'
-        setterFn={setHighlighted}
-      >
-        {t('muscular.scene.deltoids')}
-      </AnimatedLabel>
-      <AnimatedLabel
-        style={{
-          ...columnLabelStyleRight,
-          ...overlayStyle,
-          top: 355,
-        }}
-        value='biceps'
-        setterFn={setHighlighted}
-      >
-        {t('muscular.scene.biceps')}
-      </AnimatedLabel>
-      <AnimatedLabel
-        style={{
-          ...columnLabelStyleRight,
-          ...overlayStyle,
-          top: 456,
-        }}
-        value='triceps'
-        setterFn={setHighlighted}
-      >
-        {t('muscular.scene.triceps')}
-      </AnimatedLabel>
-      <AnimatedLabel
-        style={{
-          ...columnLabelStyleRight,
-          ...overlayStyle,
-          ...muscularLabelStyle,
-          top: 737,
-          right: language === 'es' ? 50 : columnLabelStyleRight.right,
-        }}
-        value='gluteus'
-        setterFn={setHighlighted}
-      >
-        {t('muscular.scene.gluteus')}
-      </AnimatedLabel>
-      <AnimatedLabel
-        style={{
-          ...columnLabelStyleRight,
-          ...overlayStyle,
-          top: 850,
-        }}
-        value='calves'
-        setterFn={setHighlighted}
-      >
-        {t('muscular.scene.calves')}
-      </AnimatedLabel>
     </div>
   );
 }

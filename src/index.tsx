@@ -4,6 +4,7 @@ import App from './App';
 import './index.css';
 import './i18n';
 import { isElectron } from "./utils/platform";
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
 async function loadFonts() {
   const changaOne = new FontFace(
@@ -67,43 +68,16 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-// Register service worker with update detection (web only)
-if ('serviceWorker' in navigator && !isElectron()) {
-  window.addEventListener('load', () => {
-    // Explicitly set the base path for GitHub Pages
-    const swUrl = `${process.env.PUBLIC_URL || ''}/service-worker.js`;
-
-    navigator.serviceWorker
-      .register(swUrl)
-      .then((registration: ServiceWorkerRegistration) => {
-        console.log('ServiceWorker registered: ', registration);
-
-        // Check for updates on registration
-        registration.update();
-
-        // Check for updates every 60 minutes
-        setInterval(() => {
-          registration.update();
-          console.log('Service worker checking for updates.');
-        }, 60 * 60 * 1000);
-
-        // Listen for updates
-        registration.addEventListener('updatefound', () => {
-          const newWorker = registration.installing;
-          if (newWorker) {
-            newWorker.addEventListener('statechange', () => {
-              if (newWorker.state === 'activated') {
-                // New service worker activated
-                if (confirm('New version available! Reload to update?')) {
-                  window.location.reload();
-                }
-              }
-            });
-          }
-        });
-      })
-      .catch((error: Error) => {
-        console.error('ServiceWorker registration failed: ', error);
-      });
+// Register service worker (web only)
+if (!isElectron()) {
+  serviceWorkerRegistration.register({
+    onUpdate: (registration) => {
+      if (confirm('New version available! Reload to update?')) {
+        if (registration.waiting) {
+          registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+        }
+        window.location.reload();
+      }
+    }
   });
 }

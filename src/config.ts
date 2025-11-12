@@ -3,4 +3,4 @@ export type LocationType = 'Riley' | 'Atlanta' | 'Phoenix' | 'Richmond' | 'Child
 
 // Default location with proper typing
 export const LOCATION: LocationType = 'Riley';
-export const DEVICE = 'ipad-pro-13';
+export const DEVICE = 'desktop';

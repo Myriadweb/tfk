@@ -24,9 +24,9 @@ export const columnLabelStyle = {
 
 export const columnLabelStyleLeft = {
   ...columnLabelStyle,
-  left: 38,
+  left: 10,
 };
 export const columnLabelStyleRight = {
   ...columnLabelStyle,
-  right: 38,
+  right: 10,
 };

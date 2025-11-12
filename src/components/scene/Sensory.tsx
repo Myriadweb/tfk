@@ -88,7 +88,7 @@ export default function Sensory() {
   }
 
   return (
-    <div className='scene-container'>
+    <div className='element-container'>
       <animated.img
         src='images/Sensory/sensoryBody.png'
         style={{
@@ -160,7 +160,6 @@ export default function Sensory() {
           style={{
             top: 224,
             position: 'absolute',
-            left: bodyLeft,
             transform: 'translate(-50%, 0)',
             height: 911,
             ...overlayStyle,
@@ -172,7 +171,7 @@ export default function Sensory() {
             ...labelStyle,
             ...overlayStyle,
             top: 388,
-            left: screenScale.x(901),
+            left: 870,
           }}
           value='hearing'
           setterFn={setHighlighted}
@@ -184,7 +183,7 @@ export default function Sensory() {
             ...labelStyle,
             ...overlayStyle,
             top: 493,
-            left: screenScale.x(212),
+            left: 190,
           }}
           value='proprioception'
           setterFn={setHighlighted}
@@ -196,7 +195,7 @@ export default function Sensory() {
             ...labelStyle,
             ...overlayStyle,
             top: 744,
-            left: screenScale.x(172),
+            left: 150,
           }}
           value='sight'
           setterFn={setHighlighted}
@@ -208,7 +207,7 @@ export default function Sensory() {
             ...labelStyle,
             ...overlayStyle,
             top: 620,
-            left: screenScale.x(922),
+            left: 900,
           }}
           value='vestibular'
           setterFn={setHighlighted}
@@ -220,7 +219,7 @@ export default function Sensory() {
             ...labelStyle,
             ...overlayStyle,
             top: 983,
-            left: screenScale.x(171),
+            left: 150,
           }}
           value='taste'
           setterFn={setHighlighted}
@@ -232,7 +231,7 @@ export default function Sensory() {
             ...labelStyle,
             ...overlayStyle,
             top: 860,
-            left: screenScale.x(901),
+            left: 880,
           }}
           value='smell'
           setterFn={setHighlighted}
@@ -244,7 +243,7 @@ export default function Sensory() {
             ...labelStyle,
             ...overlayStyle,
             top: 1105,
-            left: screenScale.x(782),
+            left: 760,
           }}
           value='touch'
           setterFn={setHighlighted}
