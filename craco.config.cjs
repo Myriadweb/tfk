@@ -1,8 +1,8 @@
-import path from 'path';
-import glob from 'glob';
-import { GenerateSW } from 'workbox-webpack-plugin';
+const path = require('path');
+const glob = require('glob');
+const { GenerateSW } = require('workbox-webpack-plugin');
 
-export default {
+module.exports = {
     webpack: {
         configure: (webpackConfig) => {
             webpackConfig.plugins = webpackConfig.plugins.filter(
