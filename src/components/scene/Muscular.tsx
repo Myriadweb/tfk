@@ -7,7 +7,6 @@ import { Paths } from '../../types/Paths';
 import { columnLabelStyleLeft, columnLabelStyleRight } from './common';
 import { CSSProperties, useState } from 'react';
 import Labels from './MuscularAssets/labels.svg';
-import { useLanguageContext } from '../../state/language';
 import AbdominalMusclesHighlight from './MuscularAssets/abdominalMusclesHighlight.png';
 import BicepsHighlight from './MuscularAssets/bicepsHighlight.png';
 import CalvesHighlight from './MuscularAssets/calvesHighlight.png';

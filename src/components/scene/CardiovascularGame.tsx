@@ -76,7 +76,7 @@ export default function CardiovascularGame() {
       }, 1000 / 24); // 24 FPS
       return () => clearInterval(interval);
     }
-  }, [step]);
+  }, [step, setGameState]);
 
   useEffect(() => {
     if (step === 1) {
@@ -84,7 +84,7 @@ export default function CardiovascularGame() {
     } else if (step === 7) {
       playSound('cardiovascularSlowHeartbeat');
     }
-  }, [step]);
+  }, [step, setGameState]);
 
   if (!location.search) {
     return (
