@@ -21,6 +21,7 @@ import { Trans } from 'react-i18next';
 import { animated } from 'react-spring';
 import Scrapbook from "./SharedAssets/scrapbook.svg";
 import { screenScale, SCALE_FACTORS } from "../../utils/scaling";
+import { useDebugStep } from "../../hooks/useDebugStep";
 
 const PUMPS_CONFIG = {
   1: BpPumpOneBar,
@@ -38,6 +39,7 @@ const Wellness = ({ prefix }: Props) => {
   const navigate = useNavigate();
   const [{ step, value }, setStep] = useGameContext();
   const [pumps, addPump] = React.useState(0);
+  useDebugStep(setStep, step, value);
 
   const stepComponentConfig = {
     2: () => (

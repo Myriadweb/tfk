@@ -33,18 +33,18 @@ import {EegChildBed, EegChildDefault} from "./ChildrenAssets/childrenAssets";
 import { useSpring, animated } from 'react-spring';
 import { useEffect } from 'react';
 import Scrapbook from "./EegAssets/scrapbook.jpg";
-import {screenScale} from "../../utils/scaling";
+import {screenScale, getDeviceName, SCALE_FACTORS} from "../../utils/scaling";
 
 export default function EegGame() {
   const [{ step, value }, setGameState] = useGameContext();
   const [printoutStyle, printoutApi] = useSpring(() => ({
-    transform: 'translateY(0px)',
+    transform: 'translate(-50%, 0px)',
   }));
   useEffect(() => {
     if (step === 7) {
       playSound('eEGMachine');
       printoutApi.start({
-        transform: 'translateY(457px)',
+        transform: 'translate(-50%, 457px)',
         config: { duration: 3000 },
         onRest: () => setGameState({ step: 8 }),
       });
@@ -64,6 +64,8 @@ export default function EegGame() {
   const shouldShowComponent = (index: number, stepValue: number) => {
     return (value && value.includes(index)) || step > stepValue;
   };
+  const childBedStyle = getDeviceName() === 'surface-pro' ? { width: 1032, left: -(1080 * SCALE_FACTORS.y / 2) } : { width: '100%' };
+
 
   return (
     <>
@@ -98,8 +100,10 @@ export default function EegGame() {
             >
               <EegChildBed
                 style={{
-                  width: '100%',
+                  width: 1080,
                   height: 'auto',
+                  position: 'absolute',
+                  left: ((window.innerWidth - 1080) / 2)
                 }}
               />
               {step > 0 && step < 6 && (
@@ -250,19 +254,20 @@ export default function EegGame() {
         {[7, 8].includes(step) && (
           <>
             <PrinterBottom
-              style={{ position: 'absolute', top: 757, left: 171 }}
+              style={{ position: 'absolute', top: 757, left: '50%', transform: 'translateX(-50%)' }}
             />
             <animated.div
               style={{
                 position: 'absolute',
                 top: 300,
-                left: 275,
+                left: '50%',
+                transform: 'translateX(-50%)',
                 ...printoutStyle,
               }}
             >
               <PrinterPrintoutMiddle />
             </animated.div>
-            <PrinterTop style={{ position: 'absolute', top: 267, left: 171 }} />
+            <PrinterTop style={{ position: 'absolute', top: 267, left: '50%', transform: 'translateX(-50%)' }} />
           </>
         )}
         {step >= 9 && step < 11 && (

@@ -21,6 +21,7 @@ import Cardiovascular from './BodySystemsAssets/Cardiovascular.svg';
 import { Trans } from 'react-i18next';
 import {screenScale} from "../../utils/scaling";
 import Scrapbook from "./SharedAssets/scrapbook.svg";
+import {useDebugStep} from "../../hooks/useDebugStep";
 
 type Props = {
   path: Paths;
@@ -42,11 +43,7 @@ const Iv = ({ prefix }: Props) => {
   const [{ step, value }, setStep] = useGameContext();
   const [shouldShowComponent, setShouldShowComponent] = React.useState(true);
   const [, delayApi] = useSpring(() => ({ opacity: 1 }));
-
-  React.useEffect(() => {
-    (window as any).debugSetStep = setStep;
-    (window as any).debugGetState = () => ({ step, value });
-  }, [setStep, step, value]);
+  useDebugStep(setStep, step, value);
 
   useEffect(() => {
     if (step === 2) {

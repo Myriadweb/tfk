@@ -27,6 +27,7 @@ import { CustomSlider } from './CustomSlider';
 import { Trans } from 'react-i18next';
 import Scrapbook from "./SharedAssets/scrapbook.svg";
 import {SCALE_FACTORS, screenScale} from "../../utils/scaling";
+import {useDebugStep} from "../../hooks/useDebugStep";
 
 const PUMPS_CONFIG = {
   1: BpPumpOneBar,
@@ -46,11 +47,7 @@ const SurgicalPrep = ({ prefix }: Props) => {
   const [shouldShowComponent, setShouldShowComponent] = React.useState(true);
   const [pumps, addPump] = React.useState(0);
   const [, delayApi] = useSpring(() => ({ opacity: 1 }));
-
-    React.useEffect(() => {
-        (window as any).debugSetStep = setStep;
-        (window as any).debugGetState = () => ({ step, value });
-    }, [setStep, step, value]);
+  useDebugStep(setStep, step, value);
 
   useEffect(() => {
     if (step === 9) {

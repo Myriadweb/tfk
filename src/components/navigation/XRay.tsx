@@ -17,6 +17,7 @@ import BlueBar from './UIComponents/BlueBar';
 import { Trans } from 'react-i18next';
 import Scrapbook from "./SharedAssets/scrapbook.svg";
 import {screenScale} from "../../utils/scaling";
+import {useDebugStep} from "../../hooks/useDebugStep";
 
 type Props = {
   path: Paths;
@@ -28,11 +29,7 @@ const XRay = ({ prefix }: Props) => {
   const navigate = useNavigate();
   const [{ step, value }, setStep] = useGameContext();
   const [, delayApi] = useSpring(() => ({ opacity: 1 }));
-
-    useEffect(() => {
-        (window as any).debugSetStep = setStep;
-        (window as any).debugGetState = () => ({ step, value });
-    }, [setStep, step, value]);
+  useDebugStep(setStep, step, value);
 
   useEffect(() => {
     if (step === 2) {

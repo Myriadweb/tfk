@@ -15,6 +15,7 @@ import WasteButton from './DigestiveAssets/wasteButton.svg';
 import { useNavigate } from 'react-router-dom';
 import { animated } from 'react-spring';
 import {screenScale} from "../../utils/scaling";
+import {useDebugStep} from "../../hooks/useDebugStep";
 
 type Props = {
   prefix: Paths;
@@ -22,13 +23,9 @@ type Props = {
 
 const Digestive = ({ prefix }: Props) => {
   const t = useNavBarTranslation(prefix);
-  const [{ step }, setGameState] = useGameContext();
+  const [{ step, value }, setGameState] = useGameContext();
   const navigate = useNavigate();
-
-  React.useEffect(() => {
-    (window as any).debugSetStep = setGameState;
-    (window as any).debugGetState = () => ({ step });
-  }, [setGameState, step]);
+  useDebugStep(setGameState, step, value);
 
   const stepComponentConfig = {
     1: () => (

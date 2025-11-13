@@ -23,7 +23,7 @@ import { useGameContext } from '../../state/game';
 import playSound from '../../sound';
 import { DraggableImage } from './SharedComponents/DraggableImage';
 import Scrapbook from "./WellnessAssets/scrapbook.jpg";
-import {elementPosition, screenScale, getCurrentDevice} from "../../utils/scaling";
+import {elementPosition, screenScale, getCurrentDevice, getDeviceName} from "../../utils/scaling";
 
 export default function WellnessGame() {
   const [{ step, value }, setGameState] = useGameContext();
@@ -31,12 +31,14 @@ export default function WellnessGame() {
     React.useState(Thermometer);
   const [childStyle, childApi] = useSpring(() => ({
     transform: 'scale(1) translate(0px, 0px)',
+    width: getDeviceName() === 'surface-pro' ? 1032 : '100%',
+    marginLeft: getDeviceName() === 'surface-pro' ? -34 : 0,
   }));
   const [trayStyle, trayApi] = useSpring(() => ({
     transform: 'translateX(0px)',
   }));
   const [thermometerStyle, thermometerApi] = useSpring(() => ({
-    left: elementPosition.left(800),
+    left: getDeviceName() === 'surface-pro' ? 830 : elementPosition.left(800),
     top: 850,
     transform: 'translate(0%, 0%)',
   }));
@@ -68,6 +70,7 @@ export default function WellnessGame() {
 
       childApi.start({
         transform: `scale(2) translate(200px, ${screenScale.avg(-222)}px)`,
+        marginLeft: 0,
         onRest: () => {
           trayApi.start({ transform: 'translateX(0px)' });
           thermometerResultApi.start({ opacity: 1 });
@@ -76,7 +79,7 @@ export default function WellnessGame() {
       });
     } else if (step === 6) {
       trayApi.start({ transform: 'translateX(0px)' });
-      targetApi.set({ top: 936 });
+      targetApi.set({ top: getDeviceName() === 'surface-pro' ? 850 : 936 });
       targetApi.start({ opacity: 1 });
     } else if (step === 7) {
       thermometerResultApi.set({ opacity: 0 });
@@ -103,7 +106,7 @@ export default function WellnessGame() {
 
   const handleThermometerClicked = () => {
     thermometerApi.start({
-      left: getCurrentDevice().config.targetWidth / 2,
+      left: getCurrentDevice().viewportWidth / 2,
       top: 50,
       transform: 'translate(-50% , 0%)',
       onRest: () => {
@@ -129,7 +132,12 @@ export default function WellnessGame() {
           />
         )}
         <animated.div
-          style={{ position: 'absolute', top: 806, left: elementPosition.left(614), ...trayStyle }}
+          style={{
+            position: 'absolute',
+            top: 806,
+            left:  getDeviceName() === 'surface-pro' ? 630 : elementPosition.left(614),
+            ...trayStyle
+        }}
         >
           <animated.img src={Tray} />
           {[3].includes(step) && (
@@ -188,7 +196,7 @@ export default function WellnessGame() {
             src={step === 7 ? OximeterOnArm : OximeterOnArmActive}
             style={{
               position: 'absolute',
-              top: 53,
+              top: getDeviceName() === 'surface-pro' ? 53 : 53,
               left: -172,
               ...oximeterStyle,
             }}

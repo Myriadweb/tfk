@@ -11,6 +11,7 @@ import { ReactComponent as HeartbeatButton } from './CardiovascularAssets/heartb
 import { animated } from 'react-spring';
 import { Trans } from 'react-i18next';
 import {screenScale} from "../../utils/scaling";
+import {useDebugStep} from "../../hooks/useDebugStep";
 
 type Props = {
   path: Paths;
@@ -20,12 +21,8 @@ type Props = {
 const Cardiovascular = ({ prefix }: Props) => {
   const t = useNavBarTranslation(prefix);
   const navigate = useNavigate();
-  const [{ step }, setStep] = useGameContext();
-
-  React.useEffect(() => {
-    (window as any).debugSetStep = setStep;
-    (window as any).debugGetState = () => ({ step });
-  }, [setStep, step]);
+  const [{ step, value }, setStep] = useGameContext();
+  useDebugStep(setStep, step, value);
 
   const stepComponentConfig = {
     0: () => (

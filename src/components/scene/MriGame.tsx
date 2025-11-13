@@ -17,6 +17,7 @@ import { useGameContext } from '../../state/game';
 import { CSSProperties, useEffect } from 'react';
 import { Characters, MriBed, MriBedSleeping } from './ChildrenAssets/childrenAssets';
 import Scrapbook from "./MriAssets/scrapbook.jpg";
+import {screenScale} from "../../utils/scaling";
 
 const sceneStyle: CSSProperties = {
   position: 'absolute',
@@ -179,39 +180,40 @@ export default function MriGame() {
               }}
             >
               <ChildFinalStep />
+              {value === 'sticker' && (
+                <animated.div
+                  style={{
+                    position: 'absolute',
+                    left: 200,
+                    top: 360,
+                  }}
+                >
+                  <Sticker />
+                </animated.div>
+              )}
+              {value === 'doll' && (
+                <animated.img
+                  src={Bear}
+                  style={{
+                    position: 'absolute',
+                    left: 50,
+                    top: 400,
+                  }}
+                />
+              )}
+              {value === 'medal' && (
+                <animated.img
+                  src={Medal}
+                  style={{
+                    position: 'absolute',
+                    left: '50%',
+                    top: 325,
+                    transform: 'translate(-50%, 0)',
+                  }}
+                />
+              )}
             </div>
-            {value === 'sticker' && (
-              <animated.div
-                style={{
-                  position: 'absolute',
-                  left: 405,
-                  top: 627,
-                }}
-              >
-                <Sticker />
-              </animated.div>
-            )}
-            {value === 'doll' && (
-              <animated.img
-                src={Bear}
-                style={{
-                  position: 'absolute',
-                  left: 278,
-                  top: 630,
-                }}
-              />
-            )}
-            {value === 'medal' && (
-              <animated.img
-                src={Medal}
-                style={{
-                  position: 'absolute',
-                  left: '50%',
-                  top: 597,
-                  transform: 'translate(-50%, 0)',
-                }}
-              />
-            )}
+
           </>
         )}
       </div>

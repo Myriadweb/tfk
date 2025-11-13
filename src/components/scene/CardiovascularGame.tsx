@@ -13,19 +13,70 @@ import { useTranslation } from 'react-i18next';
 import Animation1A from '../../animations/cardiovascular1a.mp4';
 import Animation1B from '../../animations/cardiovascular1b.mp4';
 import Animation1C from '../../animations/cardiovascular1c.mp4';
-import Animation2A from '../../animations/cardiovascular2a.mp4';
-import Animation2B from '../../animations/cardiovascular2b.mp4';
+import Animation2A from '../../animations/cardiovascular2a.webm';
+import Animation2B from '../../animations/cardiovascular2b.webm';
+import cardioVascular2Phase1Frames from './CardiovascularAssets/cardiovascular2_phase1/cardiovascular2Phase1Sequences';
+import cardioVascular2Phase2Frames from "./CardiovascularAssets/cardiovascular2_phase2/cardiovascular2Phase2Sequences";
 
 import ReactPlayer from 'react-player';
-import {screenScale} from "../../utils/scaling";
+import {screenScale, getDeviceName } from "../../utils/scaling";
 import { useLocationPath } from "../../hooks";
+import { isSafari } from "../../utils/platform";
 
 export default function CardiovascularGame() {
   const [{ step }, setGameState] = useGameContext();
   const [selectedCharacter] = useCharacterContext();
   const location = useLocation();
+  const [cardiovascular2Phase1, setCardiovascular2Phase1] = React.useState(0);
+  const [cardiovascular2Phase2, setCardiovascular2Phase2] = React.useState(0);
   const { t } = useTranslation('translation');
   const buildPath = useLocationPath();
+
+  // Preload cardioVascular2Phase1Frames images
+  React.useEffect(() => {
+    cardioVascular2Phase1Frames.forEach(src => {
+      const img = new window.Image();
+      img.src = src;
+    });
+    cardioVascular2Phase2Frames.forEach(src => {
+      const img = new window.Image();
+      img.src = src;
+    });
+  }, []);
+
+  React.useEffect(() => {
+    if (step === 7) {
+      let frame = 0;
+      const totalFrames = cardioVascular2Phase1Frames.length;
+      const interval = setInterval(() => {
+        frame = (frame + 1) % totalFrames;
+        setCardiovascular2Phase1(frame);
+        if (frame === totalFrames - 1) {
+          setCardiovascular2Phase1(totalFrames - 1);
+          setGameState({ step: 8 });
+          clearInterval(interval);
+        }
+      }, 1000 / 24); // 24 FPS
+      return () => clearInterval(interval);
+    }
+  }, [step, setGameState]);
+
+  React.useEffect(() => {
+    if (step === 9) {
+      let frame = 0;
+      const totalFrames = cardioVascular2Phase2Frames.length;
+      const interval = setInterval(() => {
+        frame = (frame + 1) % totalFrames;
+        setCardiovascular2Phase2(frame);
+        if (frame === totalFrames - 1) {
+          setCardiovascular2Phase2(totalFrames - 1);
+          setGameState({ step: 10 });
+          clearInterval(interval);
+        }
+      }, 1000 / 24); // 24 FPS
+      return () => clearInterval(interval);
+    }
+  }, [step, setGameState]);
 
   useEffect(() => {
     if (step === 1) {
@@ -33,7 +84,7 @@ export default function CardiovascularGame() {
     } else if (step === 7) {
       playSound('cardiovascularSlowHeartbeat');
     }
-  });
+  }, [step]);
 
   if (!location.search) {
     return (
@@ -43,7 +94,6 @@ export default function CardiovascularGame() {
 
   const ChildComponent = Characters.sensory[selectedCharacter];
   const width = sensoryChildWidth;
-  console.log('scale', screenScale.y(100));
 
   const BreatheHead = Characters.breathe[selectedCharacter];
 
@@ -125,37 +175,65 @@ export default function CardiovascularGame() {
       )}
       {[8, 9, 10, 11].includes(step) && (
         <div className="element-container">
-          <ReactPlayer
-            className='react-player'
-            playing={[9, 10, 11].includes(step)}
-            url={Animation2B}
-            width='100%'
-            height='100%'
-            onEnded={() => setGameState({ step: 10 })}
-            style={{
-              opacity: step === 8 ? 0 : 1,
-              position: 'absolute',
-              top: 170,
-              left: 0,
-            }}
-          />
+          {!isSafari() ? (
+            <ReactPlayer
+              className='react-player'
+              playing={[9, 10, 11].includes(step)}
+              url={Animation2B}
+              width='100%'
+              height='100%'
+              onEnded={() => setGameState({ step: 10 })}
+              style={{
+                opacity: step === 8 ? 0 : 1,
+                position: 'absolute',
+                top: 170,
+                left: 0,
+              }}
+            />
+          ) : (
+            <img src={cardioVascular2Phase2Frames[cardiovascular2Phase2]}
+                 style={{
+                   opacity: step === 8 ? 0 : 1,
+                   position: 'absolute',
+                   left: 0,
+                   top: window.innerWidth === 1080 ? 'inherit' : 200,
+                   bottom: window.innerWidth === 1080 ? 0 : 'inherit',
+                   width: '100%' }}
+                 alt="Digestive Animation"
+                 draggable={false}
+            />
+          )}
         </div>
       )}
       {[7, 8].includes(step) && (
         <div className="element-container">
-          <ReactPlayer
-            className='react-player'
-            playing
-            url={Animation2A}
-            width='100%'
-            height='100%'
-            onEnded={() => setGameState({ step: 8 })}
-            style={{
-              position: 'absolute',
-              top: 170,
-              left: 0,
-            }}
+          {!isSafari() ? (
+            <ReactPlayer
+              className='react-player'
+              playing
+              url={Animation2A}
+              width='100%'
+              height='100%'
+              onEnded={() => setGameState({ step: 8 })}
+              style={{
+                position: 'absolute',
+                top: 170,
+                left: 0,
+              }}
+            />
+        ) : (
+          <img src={cardioVascular2Phase1Frames[cardiovascular2Phase1]}
+               style={{
+                 position: 'absolute',
+                 left: 0,
+                 top: window.innerWidth === 1080 ? 'inherit' : 200,
+                 bottom: window.innerWidth === 1080 ? 0 : 'inherit',
+                 width: '100%'
+              }}
+               alt="Digestive Animation"
+               draggable={false}
           />
+        )}
         </div>
       )}
       {[7, 8, 9].includes(step) && (

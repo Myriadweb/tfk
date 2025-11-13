@@ -92,4 +92,20 @@ export const getCurrentDevice = () => ({
   device,
   config,
   scaleFactors: SCALE_FACTORS,
+  viewportWidth,
+  viewportHeight,
 });
+
+// get device name by comparing viewport dimensions
+export const getDeviceName = () => {
+  for (const [name, cfg] of Object.entries(DEVICE_CONFIGS)) {
+    if (
+      cfg.targetWidth === viewportWidth &&
+      cfg.targetHeight === viewportHeight
+    ) {
+      return name;
+    }
+  }
+  return 'desktop';
+}
+
