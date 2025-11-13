@@ -19,7 +19,7 @@ import cardioVascular2Phase1Frames from './CardiovascularAssets/cardiovascular2_
 import cardioVascular2Phase2Frames from "./CardiovascularAssets/cardiovascular2_phase2/cardiovascular2Phase2Sequences";
 
 import ReactPlayer from 'react-player';
-import {screenScale, getDeviceName } from "../../utils/scaling";
+import {screenScale } from "../../utils/scaling";
 import { useLocationPath } from "../../hooks";
 import { isSafari } from "../../utils/platform";
 
@@ -76,7 +76,7 @@ export default function CardiovascularGame() {
       }, 1000 / 24); // 24 FPS
       return () => clearInterval(interval);
     }
-  }, [step, setGameState]);
+  }, [step]);
 
   useEffect(() => {
     if (step === 1) {

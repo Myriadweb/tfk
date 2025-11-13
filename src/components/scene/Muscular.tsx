@@ -31,7 +31,6 @@ const muscularLabelStyle = {
 
 export default function Muscular() {
   const [animatedPath, setAnimatedPath] = useAnimateContext();
-  const [language] = useLanguageContext();
 
   const { t } = useTranslation('translation');
   const navigate = useNavigate();

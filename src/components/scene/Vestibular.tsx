@@ -15,7 +15,7 @@ import Stars from './SensoryAssets/VestibularAssets/stars.svg';
 import JumpLines from './SensoryAssets/VestibularAssets/jumpLines.svg';
 import BottomOverlay from './SensoryAssets/bottomOverlay.png';
 import BgBad from './SensoryAssets/BGBad.png';
-import { isDesktopApp, isSafari } from "../../utils/platform";
+import { isSafari } from "../../utils/platform";
 import { useCharacterContext } from '../../state/character';
 import { Characters } from './ChildrenAssets/childrenAssets';
 import { useGameContext } from '../../state/game';

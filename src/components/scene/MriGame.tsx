@@ -17,7 +17,6 @@ import { useGameContext } from '../../state/game';
 import { CSSProperties, useEffect } from 'react';
 import { Characters, MriBed, MriBedSleeping } from './ChildrenAssets/childrenAssets';
 import Scrapbook from "./MriAssets/scrapbook.jpg";
-import {screenScale} from "../../utils/scaling";
 
 const sceneStyle: CSSProperties = {
   position: 'absolute',

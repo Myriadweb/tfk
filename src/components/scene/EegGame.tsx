@@ -64,7 +64,6 @@ export default function EegGame() {
   const shouldShowComponent = (index: number, stepValue: number) => {
     return (value && value.includes(index)) || step > stepValue;
   };
-  const childBedStyle = getDeviceName() === 'surface-pro' ? { width: 1032, left: -(1080 * SCALE_FACTORS.y / 2) } : { width: '100%' };
 
 
   return (
