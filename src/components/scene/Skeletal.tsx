@@ -65,17 +65,31 @@ export default function Skeletal() {
     true
   );
 
-  React.useEffect(() => {
-    if (value !== 'reset') return;
-
-    setGameState({ step: 0 });
-    setUid(Date.now());
-  }, [setGameState, value]);
 
   const isGame =
     location.pathname === isGamePath;
 
   const [highlighted, setHighlighted] = useState('');
+
+  React.useEffect(() => {
+    // Handle game reset
+    if (value === 'reset') {
+      setGameState({ step: 0 });
+      setUid(Date.now());
+    }
+
+    // Reset overlay when coming back from game
+    if (!isGame && !animatedPath) {
+      overlayApi.start({
+        to: { opacity: 1 },
+        config: {
+          duration: 500,
+        },
+      });
+    }
+  }, [value, isGame, animatedPath, overlayApi, setGameState]);
+
+
 
   // if we have an animated path, we need to show the slide in animation
   if (

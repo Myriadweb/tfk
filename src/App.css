@@ -166,7 +166,7 @@ img,
   padding: calc(27px * var(--scale-y));
 }
 .nav-middle-container .description {
-  max-width: calc(470px * var(--scale-x));
+  max-width: calc(500px * var(--scale-x));
   margin: 0 auto;
 }
 

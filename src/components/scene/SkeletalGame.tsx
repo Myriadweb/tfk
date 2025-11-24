@@ -20,7 +20,7 @@ import Draggable from 'react-draggable';
 import playSound from '../../sound';
 import { Dispatch, SetStateAction } from 'react';
 import { useGameContext } from '../../state/game';
-import {screenScale} from "../../utils/scaling";
+import {screenScale, getDeviceName} from "../../utils/scaling";
 import { useLocationPath } from '../../hooks';
 
 type Props = {
@@ -180,6 +180,7 @@ export default function SkeletalGame() {
           top: 343,
           position: 'absolute',
           transform: 'translate(-50%, 0)',
+          left: getDeviceName() === 'surface-pro' ? screenScale.x(540) : 'auto',
         }}
       />
       <DraggableImage
@@ -196,7 +197,7 @@ export default function SkeletalGame() {
         setPlacedNumber={setPlacedNumber}
         isLast={isLast}
         ImageComponent={SkullIMG}
-        x={screenScale.x(439)}
+        x={getDeviceName() === 'surface-pro' ? 380 : screenScale.x(439)}
         y={346}
         leaving={leaving}
         value={'skull'}
@@ -206,7 +207,7 @@ export default function SkeletalGame() {
         setPlacedNumber={setPlacedNumber}
         isLast={isLast}
         ImageComponent={CarpalsMetacarpals}
-        x={screenScale.x(674)}
+        x={getDeviceName() === 'surface-pro' ? 611 : screenScale.x(674)}
         y={825}
         leaving={leaving}
         value={'carpals&metacarpals'}
@@ -216,7 +217,7 @@ export default function SkeletalGame() {
         setPlacedNumber={setPlacedNumber}
         isLast={isLast}
         ImageComponent={CarpalsMetacarpals}
-        x={screenScale.x(348)}
+        x={getDeviceName() === 'surface-pro' ? 290 : screenScale.x(348)}
         y={825}
         specular
         leaving={leaving}
@@ -248,7 +249,7 @@ export default function SkeletalGame() {
         setPlacedNumber={setPlacedNumber}
         isLast={isLast}
         ImageComponent={Ribs}
-        x={screenScale.x(456)}
+        x={getDeviceName() === 'surface-pro' ? 397: screenScale.x(456)}
         y={612}
         leaving={leaving}
         value={'ribs'}
@@ -258,7 +259,7 @@ export default function SkeletalGame() {
         setPlacedNumber={setPlacedNumber}
         isLast={isLast}
         ImageComponent={Clavicle}
-        x={screenScale.x(420)}
+        x={getDeviceName() === 'surface-pro' ? 364 : screenScale.x(420)}
         y={624}
         leaving={leaving}
         value={'clavicle'}
@@ -268,7 +269,7 @@ export default function SkeletalGame() {
         setPlacedNumber={setPlacedNumber}
         isLast={isLast}
         ImageComponent={Pelvis}
-        x={screenScale.x(457)}
+        x={getDeviceName() === 'surface-pro' ? 397 : screenScale.x(457)}
         y={820}
         leaving={leaving}
         value={'pelvis'}
@@ -279,7 +280,7 @@ export default function SkeletalGame() {
         setPlacedNumber={setPlacedNumber}
         isLast={isLast}
         ImageComponent={Femur}
-        x={screenScale.x(585)}
+        x={getDeviceName() === 'surface-pro' ? 520 : screenScale.x(585)}
         y={869}
         leaving={leaving}
         value={'femur'}
@@ -289,7 +290,7 @@ export default function SkeletalGame() {
         setPlacedNumber={setPlacedNumber}
         isLast={isLast}
         ImageComponent={Femur}
-        x={screenScale.x(446)}
+        x={getDeviceName() === 'surface-pro' ? 396 : screenScale.x(446)}
         y={869}
         specular
         leaving={leaving}
@@ -332,7 +333,7 @@ export default function SkeletalGame() {
         setPlacedNumber={setPlacedNumber}
         isLast={isLast}
         ImageComponent={Humerus}
-        x={screenScale.x(381)}
+        x={getDeviceName() === 'surface-pro' ? 325 : screenScale.x(381)}
         y={635}
         specular
         leaving={leaving}
@@ -343,7 +344,7 @@ export default function SkeletalGame() {
         setPlacedNumber={setPlacedNumber}
         isLast={isLast}
         ImageComponent={RadiusUlna}
-        x={screenScale.x(678)}
+        x={getDeviceName() === 'surface-pro' ? 611 : screenScale.x(678)}
         y={747}
         leaving={leaving}
         value={'radius&ulna'}
@@ -353,7 +354,7 @@ export default function SkeletalGame() {
         setPlacedNumber={setPlacedNumber}
         isLast={isLast}
         ImageComponent={RadiusUlna}
-        x={screenScale.x(369)}
+        x={getDeviceName() === 'surface-pro' ? 311 : screenScale.x(369)}
         y={747}
         specular
         leaving={leaving}
@@ -364,7 +365,7 @@ export default function SkeletalGame() {
         setPlacedNumber={setPlacedNumber}
         isLast={isLast}
         ImageComponent={TarsalsMetatarsals}
-        x={screenScale.x(600)}
+        x={getDeviceName() === 'surface-pro' ? 537 : screenScale.x(600)}
         y={1167}
         leaving={leaving}
         value={'tarsals&metatarsals'}
@@ -374,7 +375,7 @@ export default function SkeletalGame() {
         setPlacedNumber={setPlacedNumber}
         isLast={isLast}
         ImageComponent={TarsalsMetatarsals}
-        x={screenScale.x(400)}
+        x={getDeviceName() === 'surface-pro' ? 346 : screenScale.x(400)}
         y={1167}
         specular
         leaving={leaving}

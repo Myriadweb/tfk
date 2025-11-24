@@ -205,7 +205,6 @@ const Wellness = ({ prefix }: Props) => {
                           playSound('generalSelect');
                           setStep((oldStep) => ({ ...oldStep, step: 12 }));
                       }}
-                      text=''
                   />
               </div>
           </BlueBar>
@@ -213,7 +212,7 @@ const Wellness = ({ prefix }: Props) => {
           style={{
             position: 'absolute',
             left: 44,
-            top: 383,
+            top: screenScale.y(383),
           }}
         >
           <Link

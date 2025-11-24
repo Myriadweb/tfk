@@ -209,7 +209,7 @@ const Mri = ({ prefix }: Props) => {
           style={{
             position: 'absolute',
             left: 44,
-            top: 383,
+            top: screenScale.y(383),
           }}
         >
           <Link
