@@ -20,7 +20,7 @@ import AnesthesiaMask from './SurgicalPrepAssets/anesthesiaMask.svg';
 import Juicebox from './SurgicalPrepAssets/juicebox.svg';
 import Popsicle from './SurgicalPrepAssets/popsicle.svg';
 import IceCream from './SurgicalPrepAssets/iceCream.svg';
-import Scrapbook from "./SurgicalPrepAssets/scrapbook.jpg";
+import Scrapbook from "./SurgicalPrepAssets/surgicalPrepScrapbook.jpg";
 import {screenScale, elementPosition} from "../../utils/scaling";
 
 export default function SurgicalPrepGame() {

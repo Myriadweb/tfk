@@ -16,7 +16,7 @@ import { ReactComponent as Sticker } from './SharedAssets/sticker.svg';
 import { useGameContext } from '../../state/game';
 import { CSSProperties, useEffect } from 'react';
 import { Characters, MriBed, MriBedSleeping } from './ChildrenAssets/childrenAssets';
-import Scrapbook from "./MriAssets/scrapbook.jpg";
+import Scrapbook from "./MriAssets/mriScrapbook.jpg";
 
 const sceneStyle: CSSProperties = {
   position: 'absolute',

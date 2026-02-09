@@ -32,7 +32,7 @@ import {EegChildBed, EegChildDefault} from "./ChildrenAssets/childrenAssets";
 
 import { useSpring, animated } from 'react-spring';
 import { useEffect } from 'react';
-import Scrapbook from "./EegAssets/scrapbook.jpg";
+import Scrapbook from "./EegAssets/eegScrapbook.jpg";
 import {screenScale} from "../../utils/scaling";
 
 export default function EegGame() {

@@ -24,7 +24,7 @@ import Bear from './SharedAssets/bear.png';
 import Medal from './SharedAssets/medal.png';
 import { Characters, IvChildBed, IvChildBedHappy, IvChildBedSmiling } from './ChildrenAssets/childrenAssets';
 import InitialPromptIV from './IvAssets/initialPromptIV.svg';
-import Scrapbook from './IvAssets/scrapbook.jpg';
+import Scrapbook from './IvAssets/ivScrapbook.jpg';
 import {screenScale, elementPosition} from "../../utils/scaling";
 
 const ChildFinalStep = Characters.default[0];

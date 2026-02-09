@@ -22,7 +22,7 @@ import {WellnessScene, WellnessStandingChild} from "./ChildrenAssets/childrenAss
 import { useGameContext } from '../../state/game';
 import playSound from '../../sound';
 import { DraggableImage } from './SharedComponents/DraggableImage';
-import Scrapbook from "./WellnessAssets/scrapbook.jpg";
+import Scrapbook from "./WellnessAssets/wellnessScrapbook.jpg";
 import {elementPosition, screenScale, getCurrentDevice, getDeviceName} from "../../utils/scaling";
 
 export default function WellnessGame() {

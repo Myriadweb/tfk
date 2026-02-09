@@ -12,7 +12,7 @@ import Bear from './SharedAssets/bear.png';
 import { useGameContext } from '../../state/game';
 import playSound from '../../sound';
 import { useEffect } from 'react';
-import Scrapbook from "./XRayAssets/scrapbook.jpg";
+import Scrapbook from "./XRayAssets/xRayScrapbook.jpg";
 import {screenScale, getCurrentDevice} from "../../utils/scaling";
 
 const ChildFinalStep = XRayChildNoBracelet;
