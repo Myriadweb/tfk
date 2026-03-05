@@ -28,6 +28,7 @@ import Medal from './SharedAssets/medal.png';
 import Sticker from './SharedAssets/sticker.svg';
 import playSound from '../../sound';
 import {EegChildBed, EegChildDefault} from "./ChildrenAssets/childrenAssets";
+import { getDeviceName } from "../../utils/scaling";
 
 
 import { useSpring, animated } from 'react-spring';
@@ -296,7 +297,7 @@ export default function EegGame() {
                 src={Bear}
                 style={{
                   position: 'absolute',
-                  left: screenScale.x(273),
+                  left: getDeviceName() === 'surface-pro' ? 212 : (getDeviceName() === 'ipad-pro-13' ? 249 : screenScale.x(278)),
                   top: 645,
                 }}
               />

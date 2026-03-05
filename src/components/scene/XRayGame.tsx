@@ -13,7 +13,7 @@ import { useGameContext } from '../../state/game';
 import playSound from '../../sound';
 import { useEffect } from 'react';
 import Scrapbook from "./XRayAssets/xRayScrapbook.jpg";
-import {screenScale, getCurrentDevice} from "../../utils/scaling";
+import {screenScale, getDeviceName} from "../../utils/scaling";
 
 const ChildFinalStep = XRayChildNoBracelet;
 
@@ -175,7 +175,7 @@ export default function XRayGame() {
             <Cast
               style={{
                 position: 'absolute',
-                left: getCurrentDevice().viewportWidth === 960 ? 598 : screenScale.x(658),
+                left: getDeviceName() === 'surface-pro' ? 598 : screenScale.x(658),
                 top: 750,
               }}
             />
@@ -195,7 +195,7 @@ export default function XRayGame() {
                 src={Bear}
                 style={{
                   position: 'absolute',
-                  left: getCurrentDevice().viewportWidth === 960 ? 212 : screenScale.x(278),
+                  left: getDeviceName() === 'surface-pro' ? 212 : (getDeviceName() === 'ipad-pro-13' ? 249 : screenScale.x(278)),
                   top: 656,
                 }}
               />
