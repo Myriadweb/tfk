@@ -268,7 +268,7 @@ export default function WellnessGame() {
               style={{
                 position: 'absolute',
                 top: 777,
-                left: getDeviceName() === 'surface-pro' ? 420 : (getDeviceName() === 'ipad-pro-13' ? 455 : screenScale.x(478)),
+                left: getDeviceName() === 'surface-pro' ? 420 : (getCurrentDevice().viewportWidth < 1080 ? 455 : screenScale.x(478)),
                 display: value === 'baseball' ? 'block' : 'none',
               }}
             />
@@ -277,7 +277,7 @@ export default function WellnessGame() {
               style={{
                 position: 'absolute',
                 top: 832,
-                left: getDeviceName() === 'surface-pro' ? 563 : (getDeviceName() === 'ipad-pro-13' ? 600 : screenScale.x(624)),
+                left: getDeviceName() === 'surface-pro' ? 563 : (getCurrentDevice().viewportWidth < 1080 ? 600 : screenScale.x(624)),
                 display: value === 'baseball' ? 'block' : 'none',
               }}
             />
@@ -286,7 +286,7 @@ export default function WellnessGame() {
               style={{
                 position: 'absolute',
                 top: 832,
-                left: getDeviceName() === 'surface-pro' ? 367 : (getDeviceName() === 'ipad-pro-13' ? 403 : screenScale.x(426)),
+                left: getDeviceName() === 'surface-pro' ? 367 : (getCurrentDevice().viewportWidth < 1080 ? 403 : screenScale.x(426)),
                 display: value === 'jumpRope' ? 'block' : 'none',
               }}
             />
