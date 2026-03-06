@@ -175,7 +175,7 @@ export default function XRayGame() {
             <Cast
               style={{
                 position: 'absolute',
-                left: getDeviceName() === 'surface-pro' ? 598 : screenScale.x(658),
+                left: getDeviceName() === 'surface-pro' ? 598 : (getCurrentDevice().viewportWidth < 1080 ? 629 : screenScale.x(658)),
                 top: 750,
               }}
             />
