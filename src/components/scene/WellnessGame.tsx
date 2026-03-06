@@ -259,7 +259,7 @@ export default function WellnessGame() {
               style={{
                 position: 'absolute',
                 top: 755,
-                left: getDeviceName() === 'surface-pro' ? 685 : (getDeviceName() === 'ipad-pro-13' ? 722 : screenScale.x(747)),
+                left: getDeviceName() === 'surface-pro' ? 685 : (getCurrentDevice().viewportWidth < 1080 ? 722 : screenScale.x(747)),
                 display: value === 'basketball' ? 'block' : 'none',
               }}
             />
