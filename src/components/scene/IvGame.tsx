@@ -25,7 +25,7 @@ import Medal from './SharedAssets/medal.png';
 import { Characters, IvChildBed, IvChildBedHappy, IvChildBedSmiling } from './ChildrenAssets/childrenAssets';
 import InitialPromptIV from './IvAssets/initialPromptIV.svg';
 import Scrapbook from './IvAssets/ivScrapbook.jpg';
-import {screenScale, elementPosition} from "../../utils/scaling";
+import {screenScale, elementPosition, getDeviceName} from "../../utils/scaling";
 
 const ChildFinalStep = Characters.default[0];
 
@@ -250,7 +250,7 @@ export default function IvGame() {
                 style={{
                   position: 'absolute',
                   top: 408,
-                  right: screenScale.x(590),
+                  right: getDeviceName() === 'surface-pro' ? 480 : screenScale.x(590),
                 }}
               />
             )}

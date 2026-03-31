@@ -21,7 +21,7 @@ import Juicebox from './SurgicalPrepAssets/juicebox.svg';
 import Popsicle from './SurgicalPrepAssets/popsicle.svg';
 import IceCream from './SurgicalPrepAssets/iceCream.svg';
 import Scrapbook from "./SurgicalPrepAssets/surgicalPrepScrapbook.jpg";
-import {screenScale, elementPosition} from "../../utils/scaling";
+import {screenScale, elementPosition, getDeviceName} from "../../utils/scaling";
 
 export default function SurgicalPrepGame() {
   const [{ step, value }, setGameState] = useGameContext();
@@ -181,7 +181,7 @@ export default function SurgicalPrepGame() {
                 style={{
                   position: 'absolute',
                   top: 408,
-                  right: screenScale.x(618)
+                  right: getDeviceName() === 'surface-pro' ? 515 : screenScale.x(618)
                 }}
               />
             )}
